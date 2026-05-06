@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.33c69992.js" defer=""></script>
-		<script src="/registry.38c6fac5.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e9701278.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -2351,18 +2351,18 @@ result is undefined.</p>
 <h4>NAME {#name}</h4>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneLinearBounds </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the linear bounds of the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">struct RTCORE_ALIGN(</span><span style="color:#005CC5">16</span><span style="color:#24292E">) RTCLinearBounds</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  RTCBounds bounds0;</span></span>
-<span class="line"><span style="color:#24292E">  RTCBounds bounds1;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcGetSceneLinearBounds(</span></span>
-<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
-<span class="line"><span style="color:#24292E">  struct RTCLinearBounds</span><span style="color:#D73A49">*</span><span style="color:#24292E"> bounds_o</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+
+struct RTCORE_ALIGN(16) RTCLinearBounds
+{
+  RTCBounds bounds0;
+  RTCBounds bounds1;
+};
+
+void rtcGetSceneLinearBounds(
+  RTCScene scene,
+  struct RTCLinearBounds* bounds_o
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetSceneLinearBounds</code> function queries the linear bounds of the
 specified scene (<code>scene</code> argument) and stores them to the provided
@@ -2379,15 +2379,15 @@ result is undefined.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetSceneBounds], [rtcCommitScene], [rtcJoinCommitScene]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetSceneTraversable</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneTraversable </span><span style="color:#D73A49">-</span><span style="color:#24292E"> gets a read</span><span style="color:#D73A49">-</span><span style="color:#24292E">only hand to a RTCScene </span><span style="color:#005CC5">object</span></span>
-<span class="line"><span style="color:#24292E">  that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> also valid on a </span><span style="color:#005CC5">SYCL</span><span style="color:#24292E"> device </span><span style="color:#D73A49">and</span><span style="color:#24292E"> can be used </span><span style="color:#D73A49">for</span><span style="color:#24292E"> ray queries.</span></span></code></pre>
+<pre><code>rtcGetSceneTraversable - gets a read-only hand to a RTCScene object
+  that is also valid on a SYCL device and can be used for ray queries.</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCTraversable rtcGetSceneTraversable(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCTraversable rtcGetSceneTraversable(RTCScene scene);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetSceneTraversable</code> function returns a read-only handle to a
 RTCScene object (<code>scene</code> argument). Traversable objects are used for
@@ -2400,46 +2400,46 @@ write portable code compatible with CPU and SYCL device execution.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcTraversableIntersect1]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcNewGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new geometry </span><span style="color:#005CC5">object</span></span></code></pre>
+<pre><code>rtcNewGeometry - creates a new geometry object</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">enum RTCGeometryType</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_TRIANGLE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_QUAD</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_GRID</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_SPHERE_POINT</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_DISC_POINT</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_USER</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_INSTANCE</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_INSTANCE_ARRAY</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCGeometry rtcNewGeometry(</span></span>
-<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
-<span class="line"><span style="color:#24292E">  enum RTCGeometryType </span><span style="color:#005CC5">type</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+enum RTCGeometryType
+{
+ RTC_GEOMETRY_TYPE_TRIANGLE,
+ RTC_GEOMETRY_TYPE_QUAD,
+ RTC_GEOMETRY_TYPE_SUBDIVISION,
+ RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE,
+ RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE,
+ RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE,
+ RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE,
+ RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE,
+ RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE,
+ RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE,
+ RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE,
+ RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE,
+ RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE,
+ RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE,
+ RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE,
+ RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE,
+ RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE,
+ RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE,
+ RTC_GEOMETRY_TYPE_GRID,
+ RTC_GEOMETRY_TYPE_SPHERE_POINT,
+ RTC_GEOMETRY_TYPE_DISC_POINT,
+ RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT,
+ RTC_GEOMETRY_TYPE_USER,
+ RTC_GEOMETRY_TYPE_INSTANCE,
+ RTC_GEOMETRY_TYPE_INSTANCE_ARRAY,
+};
+
+RTCGeometry rtcNewGeometry(
+  RTCDevice device,
+  enum RTCGeometryType type
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Geometries are objects that represent an array of primitives of the
 same type. The <code>rtcNewGeometry</code> function creates a new geometry of
@@ -2519,12 +2519,12 @@ queried using <code>rtcGetDeviceError</code>.</p>
 [RTC_GEOMETRY_TYPE_GRID], [RTC_GEOMETRY_TYPE_POINT],
 [RTC_GEOMETRY_TYPE_USER], [RTC_GEOMETRY_TYPE_INSTANCE],
 [RTC_GEOMETRY_TYPE_INSTANCE_ARRAY]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>RTC_GEOMETRY_TYPE_TRIANGLE</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_TRIANGLE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> triangle geometry </span><span style="color:#005CC5">type</span></span></code></pre>
+<pre><code>RTC_GEOMETRY_TYPE_TRIANGLE - triangle geometry type</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+<pre><code>#include &lt;embree4/rtcore.h&gt;
 
 RTCGeometry geometry =
   rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);</code></pre>

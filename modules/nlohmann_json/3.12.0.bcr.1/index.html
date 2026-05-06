@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.33c69992.js" defer=""></script>
-		<script src="/registry.38c6fac5.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e9701278.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1021,51 +1021,51 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 <p>The package configuration file, <code>nlohmann_jsonConfig.cmake</code>, can be used either from an install tree or directly out of the build tree.</p>
 <h4>Embedded</h4>
 <p>To embed the library directly into an existing CMake project, place the entire source tree in a subdirectory and call <code>add_subdirectory()</code> in your <code>CMakeLists.txt</code> file:</p>
-<pre><code lang="py"># Typically you don't care so much for a third party library's tests to be
-# run from your own project's code.
-set(JSON_BuildTests OFF CACHE INTERNAL "")
-
-# If you only include this third party in PRIVATE source files, you do not
-# need to install it when your main project gets installed.
-# set(JSON_Install OFF CACHE INTERNAL "")
-
-# Don't use include(nlohmann_json/CMakeLists.txt) since that carries with it
-# unintended consequences that will break the build.  It's generally
-# discouraged (although not necessarily well documented as such) to use
-# include(...) for pulling in other CMake projects anyways.
-add_subdirectory(nlohmann_json)
-...
-add_library(foo ...)
-...
-target_link_libraries(foo PRIVATE nlohmann_json::nlohmann_json)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Typically you don't care so much for a third party library's tests to be</span></span>
+<span class="line"><span style="color:#6A737D"># run from your own project's code.</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">JSON_BuildTests</span><span style="color:#005CC5"> OFF</span><span style="color:#005CC5"> CACHE</span><span style="color:#005CC5"> INTERNAL</span><span style="color:#032F62"> ""</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># If you only include this third party in PRIVATE source files, you do not</span></span>
+<span class="line"><span style="color:#6A737D"># need to install it when your main project gets installed.</span></span>
+<span class="line"><span style="color:#6A737D"># set(JSON_Install OFF CACHE INTERNAL "")</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Don't use include(nlohmann_json/CMakeLists.txt) since that carries with it</span></span>
+<span class="line"><span style="color:#6A737D"># unintended consequences that will break the build.  It's generally</span></span>
+<span class="line"><span style="color:#6A737D"># discouraged (although not necessarily well documented as such) to use</span></span>
+<span class="line"><span style="color:#6A737D"># include(...) for pulling in other CMake projects anyways.</span></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(nlohmann_json)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">add_library(foo </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(foo </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> nlohmann_json::nlohmann_json)</span></span></code></pre>
 <h5>Embedded (FetchContent)</h5>
 <p>Since CMake v3.11,
 <a href="https://cmake.org/cmake/help/v3.11/module/FetchContent.html">FetchContent</a> can
 be used to automatically download a release as a dependency at configure time.</p>
 <p>Example:</p>
-<pre><code>include(FetchContent)
-
-FetchContent_Declare(json URL https://github.com/nlohmann/json/releases/download/v3.12.0/json.tar.xz)
-FetchContent_MakeAvailable(json)
-
-target_link_libraries(foo PRIVATE nlohmann_json::nlohmann_json)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">include(FetchContent)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">FetchContent_Declare(json </span><span style="color:#005CC5">URL</span><span style="color:#24292E"> https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">nlohmann</span><span style="color:#D73A49">/</span><span style="color:#24292E">json</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.12.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">json.tar.xz)</span></span>
+<span class="line"><span style="color:#24292E">FetchContent_MakeAvailable(json)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(foo </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> nlohmann_json::nlohmann_json)</span></span></code></pre>
 <p><strong>Note</strong>: It is recommended to use the URL approach described above, which is supported as of version 3.10.0. See
 <a href="https://json.nlohmann.me/integration/cmake/#fetchcontent">https://json.nlohmann.me/integration/cmake/#fetchcontent</a> for more information.</p>
 <h4>Supporting Both</h4>
 <p>To allow your project to support either an externally supplied or an embedded JSON library, you can use a pattern akin to the following:</p>
-<pre><code># Top level CMakeLists.txt
-project(FOO)
-...
-option(FOO_USE_EXTERNAL_JSON "Use an external JSON library" OFF)
-...
-add_subdirectory(thirdparty)
-...
-add_library(foo ...)
-...
-# Note that the namespaced target will always be available regardless of the
-# import method
-target_link_libraries(foo PRIVATE nlohmann_json::nlohmann_json)</code></pre>
-<pre><code># thirdparty/CMakeLists.txt
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Top level CMakeLists.txt</span></span>
+<span class="line"><span style="color:#24292E">project(</span><span style="color:#005CC5">FOO</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">option(</span><span style="color:#005CC5">FOO_USE_EXTERNAL_JSON</span><span style="color:#032F62"> "Use an external JSON library"</span><span style="color:#005CC5"> OFF</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(thirdparty)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">add_library(foo </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#6A737D"># Note that the namespaced target will always be available regardless of the</span></span>
+<span class="line"><span style="color:#6A737D"># import method</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(foo </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> nlohmann_json::nlohmann_json)</span></span></code></pre>
+<pre><code lang="py"># thirdparty/CMakeLists.txt
 ...
 if(FOO_USE_EXTERNAL_JSON)
   find_package(nlohmann_json 3.12.0 REQUIRED)

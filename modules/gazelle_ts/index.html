@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -61,8 +61,8 @@ examples/                     # self-contained Bazel workspaces:
 <h2>What this repo gives you</h2>
 <ul>
 <li><strong><code>ts</code></strong>: a Gazelle TypeScript language extension. It generates and maintains <code>BUILD.bazel</code> files for TypeScript packages, emits abstract <code>ts_library</code>, <code>ts_test</code>, <code>ts_binary</code>, and <code>ts_bundler_config</code> kinds, and lets consumers map those kinds to project-specific macros with <code># gazelle:map_kind</code>. It reads <code>package.json</code> <code>imports</code> for subpath resolution. Consume it by composing your own <code>gazelle_binary(languages = ["@gazelle_ts//ts"])</code>.</li>
-<li><strong><code>crates/import_extractor</code></strong>: a Rust staticlib that parses TypeScript imports via <code>oxc</code>. It exposes a plugin-namespaced C ABI (<code>gazelle_ts_ie_dispatch</code> / <code>gazelle_ts_ie_free</code>); the gazelle plugin links it through cgo and dispatches in-process. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/crates/import_extractor/README.md" target="_blank" rel="noopener noreferrer">crates/import_extractor/README.md</a>.</li>
-<li><strong><code>examples/</code></strong>: escalating example workspaces, each with its own <code>MODULE.bazel</code>, <code>pnpm-lock.yaml</code>, and <code>tsconfig.json</code>. They <code>local_path_override</code> the parent module so plugin changes apply on the next <code>bazel run //:gazelle</code>. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/examples/README.md" target="_blank" rel="noopener noreferrer">examples/README.md</a>.</li>
+<li><strong><code>crates/import_extractor</code></strong>: a Rust staticlib that parses TypeScript imports via <code>oxc</code>. It exposes a plugin-namespaced C ABI (<code>gazelle_ts_ie_dispatch</code> / <code>gazelle_ts_ie_free</code>); the gazelle plugin links it through cgo and dispatches in-process. See <a href="crates/import_extractor/README.md">crates/import_extractor/README.md</a>.</li>
+<li><strong><code>examples/</code></strong>: escalating example workspaces, each with its own <code>MODULE.bazel</code>, <code>pnpm-lock.yaml</code>, and <code>tsconfig.json</code>. They <code>local_path_override</code> the parent module so plugin changes apply on the next <code>bazel run //:gazelle</code>. See <a href="examples/README.md">examples/README.md</a>.</li>
 </ul>
 <h2>Consumer Setup</h2>
 <p>Add the module and compose your own <code>gazelle_binary</code>:</p>
@@ -121,7 +121,7 @@ build:linux --linkopt=-no-pie" style="position: absolute; right: 4px; top: 4px;"
 <span class="line"><span style="color:#6A737D"># rules_go cgo external link via clang+lld cannot produce PIE. Drop</span></span>
 <span class="line"><span style="color:#6A737D"># when Go 1.27 (Aug 2026) lands PIE-compatible objects.</span></span>
 <span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">linkopt</span><span style="color:#D73A49">=-</span><span style="color:#24292E">no</span><span style="color:#D73A49">-</span><span style="color:#24292E">pie</span></span></code></pre>
-<p>See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/examples/basic/.bazelrc" target="_blank" rel="noopener noreferrer">examples/basic/.bazelrc</a> for a working setup.</p>
+<p>See <a href="examples/basic/.bazelrc">examples/basic/.bazelrc</a> for a working setup.</p>
 </blockquote>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# BUILD.bazel
 load(&quot;@gazelle//:def.bzl&quot;, &quot;gazelle&quot;, &quot;gazelle_binary&quot;)
@@ -186,11 +186,11 @@ gazelle(
 <span class="line"><span style="color:#005CC5">    RES</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> OUT</span><span style="color:#24292E">[</span><span style="color:#032F62">"BUILD.bazel&lt;br/&gt;(generated)"</span><span style="color:#24292E">]</span></span></code></pre>
 <p>The plugin runs in three phases per Gazelle's lifecycle:</p>
 <ol>
-<li><strong>Configure</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/ts/configure.go" target="_blank" rel="noopener noreferrer">ts/configure.go</a>): walks the directory tree, applying each directory's BUILD-file directives on top of inherited config.</li>
-<li><strong>GenerateRules</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/ts/generate.go" target="_blank" rel="noopener noreferrer">ts/generate.go</a>): partitions files into source, test, and bundler-config buckets; calls into the Rust staticlib via cgo to extract imports; and emits generated rules.</li>
-<li><strong>Resolve</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/ts/resolve.go" target="_blank" rel="noopener noreferrer">ts/resolve.go</a>): converts parsed import statements into Bazel deps using the RuleIndex for cross-package refs and <code>package.json</code> for npm packages.</li>
+<li><strong>Configure</strong> (<a href="ts/configure.go">ts/configure.go</a>): walks the directory tree, applying each directory's BUILD-file directives on top of inherited config.</li>
+<li><strong>GenerateRules</strong> (<a href="ts/generate.go">ts/generate.go</a>): partitions files into source, test, and bundler-config buckets; calls into the Rust staticlib via cgo to extract imports; and emits generated rules.</li>
+<li><strong>Resolve</strong> (<a href="ts/resolve.go">ts/resolve.go</a>): converts parsed import statements into Bazel deps using the RuleIndex for cross-package refs and <code>package.json</code> for npm packages.</li>
 </ol>
-<p>The Rust crate at <a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/crates/import_extractor" target="_blank" rel="noopener noreferrer">crates/import_extractor</a> is built as a <code>rust_static_library</code> and linked into the Go library via <code>cdeps</code>. Calls into it go through cgo, with protobuf via <code>prost</code> as the in-process wire format.</p>
+<p>The Rust crate at <a href="crates/import_extractor">crates/import_extractor</a> is built as a <code>rust_static_library</code> and linked into the Go library via <code>cdeps</code>. Calls into it go through cgo, with protobuf via <code>prost</code> as the in-process wire format.</p>
 <p>The plugin's separation of <code>Imports</code> (provider side) from <code>Resolve</code> (consumer side) is what makes cross-directory references work: <code>Imports()</code> registers each library at its package path in the RuleIndex, and <code>Resolve()</code> queries that index to convert <code>#packages/foo/bar.ts</code> style paths into <code>//packages/foo</code> labels.</p>
 <h3>Supported Import Patterns</h3>
 <p>The Rust parser handles every TypeScript import form; the resolver categorizes each one. Listed in roughly the order the resolver checks them:</p>
@@ -513,7 +513,7 @@ ts_test(
 <li><strong>Helpers stay in lib.</strong> If <code>vite.config.ts</code> and <code>lib.ts</code> both import <code>./shared.ts</code>, <code>shared.ts</code> lands in the library and the bundler-config target adds <code>:lib</code> to its deps. The closure leaks bundler to lib, but never lib to bundler.</li>
 <li><strong><code>lib.ts</code> importing a bundler-config file is a build error.</strong> The resolver does not route the import to the bundler-config target; the import goes unresolved and typecheck fails.</li>
 </ul>
-<p><code>ts_bundler_config</code>, like <code>ts_library</code>, is an abstract kind requiring <code>map_kind</code>. The distinct kind name lets <code>map_kind ts_bundler_config &lt;macro&gt;</code> rewrite bundler-config emissions independently of <code>ts_library</code>. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/ffd808db5910c27d15cd13b8513966bc2e75a4e2/examples/bundler-config" target="_blank" rel="noopener noreferrer">examples/bundler-config</a> for a complete walkthrough.</p>
+<p><code>ts_bundler_config</code>, like <code>ts_library</code>, is an abstract kind requiring <code>map_kind</code>. The distinct kind name lets <code>map_kind ts_bundler_config &lt;macro&gt;</code> rewrite bundler-config emissions independently of <code>ts_library</code>. See <a href="examples/bundler-config">examples/bundler-config</a> for a complete walkthrough.</p>
 <h3>Generated Attrs</h3>
 <h4><code>ts_library</code> (abstract)</h4>
 <table>

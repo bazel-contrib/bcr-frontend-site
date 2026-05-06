@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -93,7 +93,7 @@ This could either mean you have to add the '@@apple_linters' repository with a s
 <span class="line"><span style="color:#24292E">This could either mean you have to add the </span><span style="color:#032F62">'@@apple_linters'</span><span style="color:#24292E"> repository </span><span style="color:#D73A49">with</span><span style="color:#24292E"> a statement like </span><span style="color:#B31D28;font-style:italic">`http_archive`</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> your </span><span style="color:#005CC5">WORKSPACE</span><span style="color:#E36209"> file</span><span style="color:#24292E"> (note that transitive dependencies are </span><span style="color:#D73A49">not</span><span style="color:#24292E"> added automatically), </span><span style="color:#D73A49">or</span><span style="color:#24292E"> move an existing definition earlier </span><span style="color:#D73A49">in</span><span style="color:#24292E"> your </span><span style="color:#005CC5">WORKSPACE</span><span style="color:#E36209"> file</span><span style="color:#24292E">.</span></span></code></pre>
 <p>The <code>@apple_linters</code> repository is defined when <code>lint_setup</code> is called. You'll need to figure out where <code>load("@apple_linters//:defs.bzl, ...)</code> is getting called, and modify your build to ensure that <code>lint_setup</code> is called <em>before</em> linting is loaded.</p>
 <h3>API Documentation</h3>
-<p>Can be found in <a href="https://github.com/apple/apple_rules_lint/blob/ccfc3520169bd88ed73801c50ea4fe3abd535a12/api.md" target="_blank" rel="noopener noreferrer">the api docs</a></p>
+<p>Can be found in <a href="api.md">the api docs</a></p>
 <h2>Ruleset Authors</h2>
 <h3>WORKSPACE setup</h3>
 <p>To add linter support to your repo, add this to...</p>
@@ -162,7 +162,7 @@ so that other tooling can detect whether this is a lint test.</p>
 <code>java-spotbugs</code>, but you might have <code>go-gofmt</code> or <code>py-black</code>)</p>
 </li>
 <li><p>Create a macro that uses
-<a href="https://github.com/apple/apple_rules_lint/blob/ccfc3520169bd88ed73801c50ea4fe3abd535a12/api.md#get_lint_config" target="_blank" rel="noopener noreferrer">get_lint_config</a> to look up the config
+<a href="./api.md#get_lint_config">get_lint_config</a> to look up the config
 for you. If that's present, create a new instance of your test
 rule. You can see this in action
 <a href="https://github.com/SeleniumHQ/selenium/blob/selenium-4.0.0-beta-1/java/private/library.bzl">here</a>.</p>

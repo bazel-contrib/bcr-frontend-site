@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -45,7 +45,7 @@ There is no extra extraction or installation step.</p>
 <h3>Installation</h3>
 <p>See the <a href="https://github.com/lalten/rules_appimage/releases/latest">latest release notes</a> for a snippet to add to your <code>MODULE.bazel</code> or <code>WORKSPACE</code>.</p>
 <p>rules_appimage aims to be compatible and test with the last two <a href="https://bazel.build/release">Bazel LTS releases</a> but is likely to work with older versions as well.
-See <a href="https://github.com/lalten/rules_appimage/blob/0feb7ba159cdaf48b0aab19aaf5dbce4a664fede/.github/workflows/" target="_blank" rel="noopener noreferrer">CI config</a> for continuously tested versions.</p>
+See <a href=".github/workflows/">CI config</a> for continuously tested versions.</p>
 <h3>Usage</h3>
 <p>To package a binary target into an AppImage, add an <code>appimage</code> rule in a <code>BUILD</code> file and point it at the target.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@rules_appimage//appimage:appimage.bzl&quot;, &quot;appimage&quot;)
@@ -60,8 +60,8 @@ appimage(
 <span class="line"><span style="color:#E36209">    binary</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":program"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>There is also an <code>appimage_test</code> rule that takes the same arguments but runs the AppImage as a Bazel test target.
-For more details, see the <a href="https://github.com/lalten/rules_appimage/blob/0feb7ba159cdaf48b0aab19aaf5dbce4a664fede/docs/defs.md" target="_blank" rel="noopener noreferrer">rule documentation</a>.</p>
-<p>There is also an example workspace in <a href="https://github.com/lalten/rules_appimage/blob/0feb7ba159cdaf48b0aab19aaf5dbce4a664fede/examples/README.md" target="_blank" rel="noopener noreferrer"><code>examples/</code></a>.</p>
+For more details, see the <a href="docs/defs.md">rule documentation</a>.</p>
+<p>There is also an example workspace in <a href="./examples/README.md"><code>examples/</code></a>.</p>
 <h2>Running AppImages</h2>
 <h3>Via Bazel</h3>
 <p>You can <code>bazel run</code> AppImages directly:</p>

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -49,12 +49,12 @@ headers, and XML registry.</p>
 <p>For convenience, here are also links to the latest builds (HEAD).
 Those are untested automated builds. Those are not official releases, nor
 are guaranteed to work. Official releases builds are in the Vulkan SDK.</p>
-<p><img alt="Linux" src="https://raw.githubusercontent.com/KhronosGroup/SPIRV-Tools/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/kokoro/img/linux.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_linux_clang_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_linux_clang_release.svg" alt="Linux Build Status"></a>
-<img alt="MacOS" src="https://raw.githubusercontent.com/KhronosGroup/SPIRV-Tools/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/kokoro/img/macos.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_macos_clang_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_macos_clang_release.svg" alt="MacOS Build Status"></a>
-<img alt="Windows" src="https://raw.githubusercontent.com/KhronosGroup/SPIRV-Tools/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/kokoro/img/windows.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_windows_vs2022_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_windows_vs2022_release.svg" alt="Windows Build Status"></a></p>
-<p><a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/docs/downloads.md" target="_blank" rel="noopener noreferrer">More downloads</a></p>
+<p><img alt="Linux" src="kokoro/img/linux.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_linux_clang_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_linux_clang_release.svg" alt="Linux Build Status"></a>
+<img alt="MacOS" src="kokoro/img/macos.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_macos_clang_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_macos_clang_release.svg" alt="MacOS Build Status"></a>
+<img alt="Windows" src="kokoro/img/windows.png" width="20px" height="20px"><a href="https://storage.googleapis.com/spirv-tools/badges/build_link_windows_vs2022_release.html"><img src="https://storage.googleapis.com/spirv-tools/badges/build_status_windows_vs2022_release.svg" alt="Windows Build Status"></a></p>
+<p><a href="docs/downloads.md">More downloads</a></p>
 <h2>Versioning SPIRV-Tools</h2>
-<p>See <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/CHANGES" target="_blank" rel="noopener noreferrer"><code>CHANGES</code></a> for a high level summary of recent changes, by version.</p>
+<p>See <a href="CHANGES"><code>CHANGES</code></a> for a high level summary of recent changes, by version.</p>
 <p>SPIRV-Tools project version numbers are of the form <code>v</code><em>year</em><code>.</code><em>index</em> and with
 an optional <code>-dev</code> suffix to indicate work in progress.  For example, the
 following versions are ordered from oldest to newest:</p>
@@ -95,7 +95,7 @@ IDs or types is performed, except to check literal arguments to
 <li>Where tools expect binary input, a hex stream may be provided instead.  See
 <code>spirv-dis --help</code>.</li>
 </ul>
-<p>See <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/docs/syntax.md" target="_blank" rel="noopener noreferrer"><code>docs/syntax.md</code></a> for the assembly language syntax.</p>
+<p>See <a href="docs/syntax.md"><code>docs/syntax.md</code></a> for the assembly language syntax.</p>
 <h3>Validator</h3>
 <p>The validator checks validation rules described by the SPIR-V specification.</p>
 <p>Khronos recommends that tools that create or transform SPIR-V modules use the
@@ -105,7 +105,7 @@ This is especially encouraged for debug and development scenarios.</p>
 <p>The validator has one-sided error: it will only return an error when it has
 implemented a rule check and the module violates that rule.</p>
 <p>The validator is incomplete.
-See the <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/CHANGES" target="_blank" rel="noopener noreferrer">CHANGES</a> file for reports on completed work, and
+See the <a href="CHANGES">CHANGES</a> file for reports on completed work, and
 the <a href="https://github.com/KhronosGroup/SPIRV-Tools/projects/1">Validator
 sub-project</a> for planned
 and in-progress work.</p>
@@ -113,7 +113,7 @@ and in-progress work.</p>
 The validator will fail on a module that exceeds those minimum upper bound limits.
 The validator has been parameterized to allow larger values, for use when targeting 
 a more-than-minimally-capable SPIR-V consumer.</p>
-<p>See <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/tools/val/val.cpp" target="_blank" rel="noopener noreferrer"><code>tools/val/val.cpp</code></a> or run <code>spirv-val --help</code> for the command-line help.</p>
+<p>See <a href="tools/val/val.cpp"><code>tools/val/val.cpp</code></a> or run <code>spirv-val --help</code> for the command-line help.</p>
 <h3>Optimizer</h3>
 <p>The optimizer is a collection of code transforms, or "passes".
 Transforms are written for a diverse set of reasons:</p>
@@ -185,7 +185,7 @@ higher-level recipes.  These include:</p>
 <li>Optimization for performance (<code>spirv-opt -O</code>)</li>
 </ul>
 <p>For the latest list with detailed documentation, please refer to
-<a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/include/spirv-tools/optimizer.hpp" target="_blank" rel="noopener noreferrer"><code>include/spirv-tools/optimizer.hpp</code></a>.</p>
+<a href="include/spirv-tools/optimizer.hpp"><code>include/spirv-tools/optimizer.hpp</code></a>.</p>
 <p>For suggestions on using the code reduction options, please refer to this <a href="https://www.lunarg.com/shader-compiler-technologies/white-paper-spirv-opt/">white paper</a>.</p>
 <h3>Linker</h3>
 <p><em>Note:</em> The linker is still under development.</p>
@@ -195,7 +195,7 @@ higher-level recipes.  These include:</p>
 <li>Combine into a library (exports are retained) or an executable (no symbols
 are exported).</li>
 </ul>
-<p>See the <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/CHANGES" target="_blank" rel="noopener noreferrer">CHANGES</a> file for reports on completed work, and the <a href="https://github.com/KhronosGroup/SPIRV-Tools/projects/2">General
+<p>See the <a href="CHANGES">CHANGES</a> file for reports on completed work, and the <a href="https://github.com/KhronosGroup/SPIRV-Tools/projects/2">General
 sub-project</a> for
 planned and in-progress work.</p>
 <h3>Reducer</h3>
@@ -253,7 +253,7 @@ specific work is tracked via issues and sometimes in one of the
 <a href="https://github.com/KhronosGroup/SPIRV-Tools/projects">projects</a>.</p>
 <p>(To provide feedback on the SPIR-V <em>specification</em>, file an issue on the
 <a href="https://github.com/KhronosGroup/SPIRV-Headers">SPIRV-Headers</a> GitHub repository.)</p>
-<p>See <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/docs/projects.md" target="_blank" rel="noopener noreferrer"><code>docs/projects.md</code></a> to see how we use the
+<p>See <a href="docs/projects.md"><code>docs/projects.md</code></a> to see how we use the
 <a href="https://help.github.com/articles/tracking-the-progress-of-your-work-with-projects/">GitHub Project
 feature</a>
 to organize planned and in-progress work.</p>
@@ -267,10 +267,10 @@ other contribution to GitHub.</li>
 <li>Include tests to cover updated functionality.</li>
 <li>C++ code should follow the <a href="https://google.github.io/styleguide/cppguide.html">Google C++ Style Guide</a>.</li>
 <li>Code should be formatted with <code>clang-format</code>.
-<a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/kokoro/check-format/build.sh" target="_blank" rel="noopener noreferrer">kokoro/check-format/build.sh</a>
+<a href="kokoro/check-format/build.sh">kokoro/check-format/build.sh</a>
 shows how to download it. Note that we currently use
 <code>clang-format version 5.0.0</code> for SPIRV-Tools. Settings are defined by
-the included <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/.clang-format" target="_blank" rel="noopener noreferrer">.clang-format</a> file.</li>
+the included <a href=".clang-format">.clang-format</a> file.</li>
 </ul>
 <p>We intend to maintain a linear history on the GitHub <code>main</code> branch.</p>
 <h3>Getting the source</h3>
@@ -359,7 +359,7 @@ enclosing project should configure <code>googletest</code> before configuring SP
 configuring and building the project.</li>
 </ul>
 <h2>Build</h2>
-<p><em>Note</em>: Prebuilt binaries are available from the <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/docs/downloads.md" target="_blank" rel="noopener noreferrer">downloads</a> page.</p>
+<p><em>Note</em>: Prebuilt binaries are available from the <a href="docs/downloads.md">downloads</a> page.</p>
 <p>First <a href="#getting-the-source">get the sources</a>.
 Then build using CMake, Bazel, Android ndk-build, or the Emscripten SDK.</p>
 <h3>Build using CMake</h3>
@@ -425,8 +425,8 @@ WebAssembly module.</li>
 <p>SPIRV-Tools is regularly tested with the following compilers:</p>
 <p>On Linux</p>
 <ul>
-<li>GCC version 9.4</li>
-<li>Clang version 10.0</li>
+<li>GCC version 15</li>
+<li>Clang version 18</li>
 </ul>
 <p>On MacOS</p>
 <ul>
@@ -453,7 +453,7 @@ This should only be used with a debug build.</li>
 <li><code>SPIRV_WARN_EVERYTHING={ON|OFF}</code>, default <code>OFF</code> - On UNIX platforms enable
 more strict warnings.  The code might not compile with this option enabled.
 For Clang, enables <code>-Weverything</code>.  For GCC, enables <code>-Wpedantic</code>.
-See <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/CMakeLists.txt" target="_blank" rel="noopener noreferrer"><code>CMakeLists.txt</code></a> for details.</li>
+See <a href="CMakeLists.txt"><code>CMakeLists.txt</code></a> for details.</li>
 <li><code>SPIRV_WERROR={ON|OFF}</code>, default <code>ON</code> - Forces a compilation error on any
 warnings encountered by enabling the compiler-specific compiler front-end
 option.  No compiler front-end options are enabled when this option is OFF.</li>
@@ -489,7 +489,7 @@ $ANDROID_NDK/ndk-build -C ../android_test     \
 <span class="line"><span style="color:#005CC5">                      NDK_LIBS_OUT</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#D73A49">/</span><span style="color:#24292E">libs \</span></span>
 <span class="line"><span style="color:#005CC5">                      NDK_APP_OUT</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#D73A49">/</span><span style="color:#24292E">app</span></span></code></pre>
 <h3>Updating DEPS</h3>
-<p>Occasionally the entries in <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/DEPS" target="_blank" rel="noopener noreferrer">DEPS</a> will need to be updated. This is done on
+<p>Occasionally the entries in <a href="DEPS">DEPS</a> will need to be updated. This is done on
 demand when there is a request to do this, often due to downstream breakages.
 To update <code>DEPS</code>, run <code>utils/roll_deps.sh</code> and confirm that tests pass.
 The script requires Chromium's
@@ -724,7 +724,7 @@ math flags passed at linking-time in OpenCL.</li>
 </ul>
 <h2>Licence</h2>
 <p><a></a>
-Full license terms are in <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad913c44fe8700545f8ffe35d1382b7093/LICENSE" target="_blank" rel="noopener noreferrer">LICENSE</a></p>
+Full license terms are in <a href="LICENSE">LICENSE</a></p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Copyright (c) 2015-2016 The Khronos Group Inc.
 
 Licensed under the Apache License, Version 2.0 (the &quot;License&quot;);

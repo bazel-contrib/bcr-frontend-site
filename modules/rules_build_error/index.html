@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -32,7 +32,7 @@
 <p><code>rules_build_error</code> provides Bazel implementations that let developers verify code that <strong>should not</strong> compile.</p>
 <p>When executing <code>bazel test</code>, standard Bazel testing rules, like <code>cc_test</code>, will result in an error if a test code doesn’t compile. With <code>rules_build_error</code>, a <code>bazel build</code> command will instead fail when code <strong>does</strong> compile, indicating that the target is expected to raise a compilation error.</p>
 <h2>Usage</h2>
-<p>For more examples, see <a href="https://github.com/yuyawk/rules_build_error/blob/92827f7312389a6e4acbe811872f310a41da732e/examples" target="_blank" rel="noopener noreferrer">the example module</a>.</p>
+<p>For more examples, see <a href="examples">the example module</a>.</p>
 <p>Load this module from the <a href="https://registry.bazel.build/modules/rules_build_error">Bazel Central Registry</a> to use it as a Bazel module.</p>
 <h3>C/C++ example</h3>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@rules_build_error//lang/cc:defs.bzl&quot;, &quot;cc_build_error_test&quot;)
@@ -55,12 +55,12 @@ cc_build_error_test(
 <h2>Language-specific implementations</h2>
 <p>See individual language implementations:</p>
 <ul>
-<li><a href="https://github.com/yuyawk/rules_build_error/blob/92827f7312389a6e4acbe811872f310a41da732e/lang/cc/README.md" target="_blank" rel="noopener noreferrer">C/C++ README</a></li>
+<li><a href="lang/cc/README.md">C/C++ README</a></li>
 </ul>
 <h2>Matcher</h2>
-<p>The <code>matcher</code> struct allows specific error message matching criteria. Learn more in <a href="https://github.com/yuyawk/rules_build_error/blob/92827f7312389a6e4acbe811872f310a41da732e/matcher/README.md" target="_blank" rel="noopener noreferrer">its readme</a>.</p>
+<p>The <code>matcher</code> struct allows specific error message matching criteria. Learn more in <a href="matcher/README.md">its readme</a>.</p>
 <h2>Contributing</h2>
-<p>Pull requests and issues are welcome! See <a href="https://github.com/yuyawk/rules_build_error/blob/92827f7312389a6e4acbe811872f310a41da732e/DEVEL.md" target="_blank" rel="noopener noreferrer">DEVEL.md</a> for development documentation.</p>
+<p>Pull requests and issues are welcome! See <a href="DEVEL.md">DEVEL.md</a> for development documentation.</p>
 <h2>CI status</h2>
 <p><a href="https://github.com/yuyawk/rules_build_error/actions/workflows/tests.yml"><img src="https://github.com/yuyawk/rules_build_error/actions/workflows/tests.yml/badge.svg" alt="Tests"></a></p>
 <p><a href="https://github.com/yuyawk/rules_build_error/actions/workflows/bazel-steward.yml"><img src="https://github.com/yuyawk/rules_build_error/actions/workflows/bazel-steward.yml/badge.svg" alt="Bazel Steward"></a></p>

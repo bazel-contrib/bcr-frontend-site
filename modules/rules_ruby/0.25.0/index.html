@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -127,12 +127,12 @@ register_toolchains(&quot;@ruby_toolchains//:all&quot;)" style="position: absolu
 </ol>
 <h2>Documentation</h2>
 <ul>
-<li>See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/docs/repository_rules.md" target="_blank" rel="noopener noreferrer">repository rules</a> for the documentation of <code>WORKSPACE</code> rules.</li>
-<li>See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/docs/rules.md" target="_blank" rel="noopener noreferrer">rules</a> for the documentation of <code>BUILD</code> rules.</li>
-<li>See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/docs/rails.md" target="_blank" rel="noopener noreferrer">rails</a> for the documentation of Ruby on Rails rules.</li>
+<li>See <a href="docs/repository_rules.md">repository rules</a> for the documentation of <code>WORKSPACE</code> rules.</li>
+<li>See <a href="docs/rules.md">rules</a> for the documentation of <code>BUILD</code> rules.</li>
+<li>See <a href="docs/rails.md">rails</a> for the documentation of Ruby on Rails rules.</li>
 </ul>
 <h2>Examples</h2>
-<p>See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/examples/" target="_blank" rel="noopener noreferrer"><code>examples</code></a> directory for a comprehensive set of examples how to use the ruleset.</p>
+<p>See <a href="examples/"><code>examples</code></a> directory for a comprehensive set of examples how to use the ruleset.</p>
 <h2>Toolchains</h2>
 <p>The following toolchains are known to work and tested on CI.</p>
 <table>
@@ -266,7 +266,7 @@ ruby.toolchain(
 <span class="line"><span style="color:#E36209">    portable_ruby</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#E36209">    version_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:.ruby-version"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<p>This ruleset ships with <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/ruby/private/portable_ruby_checksums.bzl" target="_blank" rel="noopener noreferrer">default checksums</a> to securely download and properly cache
+<p>This ruleset ships with <a href="ruby/private/portable_ruby_checksums.bzl">default checksums</a> to securely download and properly cache
 the Ruby binaries. If you want to use Ruby version not available with ruleset release,
 you should use <code>portable_ruby_release_suffix</code> and <code>portable_ruby_checksums</code> attribute.</p>
 <p>We have provided the <code>generate_portable_ruby_checksums</code> utility to add/update these
@@ -320,7 +320,7 @@ However, some are known not to work or work only partially (e.g. mRuby has no bu
 <h2>Known Issues</h2>
 <ul>
 <li>JRuby/TruffleRuby might need <code>HOME</code> variable exposed.
-See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/examples/gem/.bazelrc" target="_blank" rel="noopener noreferrer"><code>examples/gem/.bazelrc</code></a> to learn how to do that.
+See <a href="examples/gem/.bazelrc"><code>examples/gem/.bazelrc</code></a> to learn how to do that.
 This is to be fixed in <a href="https://github.com/jruby/jruby/issues/5661"><code>jruby/jruby#5661</code></a> and <a href="https://github.com/oracle/truffleruby/issues/2784"><code>oracle/truffleruby#2784</code></a>.</li>
 <li>JRuby might fail with <code>Errno::EACCES: Permission denied - NUL</code> error on Windows.
 You need to configure JDK to allow proper access.
@@ -329,7 +329,7 @@ This is described in <a href="https://github.com/jruby/jruby/issues/7182#issueco
 This is fixed in <a href="https://github.com/rubocop/rubocop/pull/12062"><code>rubocop/rubocop#12062</code></a>.</li>
 <li>REPL doesn't work when used with <code>bazel test</code>.
 To work it around, use a debugger with remote client support such as <a href="https://github.com/ruby/debug"><code>ruby/debug</code></a> .
-See <a href="https://github.com/bazel-contrib/rules_ruby/blob/2c44d36d4bb402b6e14794784920068062ebef78/examples/gem/.bazelrc" target="_blank" rel="noopener noreferrer"><code>examples/gem/.bazelrc</code></a> to learn how to do that.</li>
+See <a href="examples/gem/.bazelrc"><code>examples/gem/.bazelrc</code></a> to learn how to do that.</li>
 <li>Some gems contain files with spaces which cause Bazel error <code>link or target filename contains space</code>.
 To work it around, use <a href="https://bazel.build/reference/command-line-reference#flag--experimental_inprocess_symlink_creation"><code>--experimental_inprocess_symlink_creation</code></a> Bazel flag.
 See <a href="https://github.com/bazelbuild/bazel/issues/4327"><code>bazelbuild/bazel#4327</code></a> for more details.</li>

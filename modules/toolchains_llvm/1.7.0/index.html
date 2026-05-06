@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -30,14 +30,14 @@
 <h2>Quickstart</h2>
 <p>See notes on the <a href="https://github.com/bazel-contrib/toolchains_llvm/releases">release</a>
 for how to get started.</p>
-<p>NOTE: For releases prior to 0.10.1, please also see <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/REPO_RENAME.md" target="_blank" rel="noopener noreferrer">these notes</a>.</p>
+<p>NOTE: For releases prior to 0.10.1, please also see <a href="REPO_RENAME.md">these notes</a>.</p>
 
 
 <h2>Basic Usage</h2>
 <p>The toolchain can automatically detect your OS and arch type, and use the right
 pre-built binary LLVM distribution. See the section on "Bring Your Own LLVM"
 below for more options.</p>
-<p>See in-code documentation in <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/rules.bzl" target="_blank" rel="noopener noreferrer">rules.bzl</a> for available
+<p>See in-code documentation in <a href="toolchain/rules.bzl">rules.bzl</a> for available
 attributes to <code>llvm_toolchain</code>.</p>
 <h2>Advanced Usage</h2>
 <h3>Per host architecture LLVM version</h3>
@@ -67,7 +67,7 @@ map their respective target to a distinct version:</p>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>Customizations</h3>
 <p>We currently offer limited customizability through attributes of the
-<a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/rules.bzl" target="_blank" rel="noopener noreferrer">llvm_toolchain_* rules</a>. You can send us a PR to add
+<a href="toolchain/rules.bzl">llvm_toolchain_* rules</a>. You can send us a PR to add
 more configuration attributes.</p>
 <p>The <code>MODULE.bazel</code> example below demonstrates how to add new LLVM distributions before the toolchain has
 been updated. They can easily be computed using the provided checksum tool (see <code>llvm_checksums.sh -h</code>).</p>
@@ -93,7 +93,7 @@ llvm.toolchain(
 <span class="line"><span style="color:#24292E">    },</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The following <code>WORKSPACE</code> snippet shows how to add a specific version for a specific target before
-the version was added to <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/internal/llvm_distributions.bzl" target="_blank" rel="noopener noreferrer">llvm_distributions.bzl</a>.</p>
+the version was added to <a href="toolchain/internal/llvm_distributions.bzl">llvm_distributions.bzl</a>.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="llvm_toolchain(
     name = &quot;llvm_toolchain&quot;,
     llvm_version = &quot;19.1.6&quot;,
@@ -263,8 +263,8 @@ The following pairs have been tested to work for some hello-world binaries:</p>
 <p>A recommended approach would be to define two toolchains, one without sysroot
 for single-platform builds, and one with sysroot for cross-compilation builds.
 Then, when cross-compiling, explicitly specify the toolchain with the sysroot
-and the target platform. For example, see the <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/tests/MODULE.bazel" target="_blank" rel="noopener noreferrer">MODULE.bazel</a>
-file for <code>llvm_toolchain_with_sysroot</code> and the <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/tests/scripts/run_xcompile_tests.sh" target="_blank" rel="noopener noreferrer">test
+and the target platform. For example, see the <a href="tests/MODULE.bazel">MODULE.bazel</a>
+file for <code>llvm_toolchain_with_sysroot</code> and the <a href="tests/scripts/run_xcompile_tests.sh">test
 script</a> for cross-compilation.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel build \
   --platforms=@toolchains_llvm//platforms:linux-x86_64 \
@@ -278,8 +278,8 @@ script</a> for cross-compilation.</p>
 <code>exec_os</code>, <code>exec_arch</code> attribute pair, and either the <code>distribution</code> attribute,
 or the <code>urls</code> attribute. This allows one to run their builds on one platform
 (e.g. macOS) and their build actions to run on another (e.g. Linux), enabling
-remote build execution (RBE). For example, see the <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/tests/MODULE.bazel" target="_blank" rel="noopener noreferrer">MODULE.bazel</a>
-file for <code>llvm_toolchain_linux_exec</code> and the <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/tests/scripts/run_docker_exec_test.sh" target="_blank" rel="noopener noreferrer">test
+remote build execution (RBE). For example, see the <a href="tests/MODULE.bazel">MODULE.bazel</a>
+file for <code>llvm_toolchain_linux_exec</code> and the <a href="tests/scripts/run_docker_exec_test.sh">test
 script</a> for running the build actions on
 Linux even if the build is being run from macOS.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel build \
@@ -297,12 +297,12 @@ Linux even if the build is being run from macOS.</p>
 <li>To help us detect if you are cross-compiling or not, note the arch string as
 given by <code>python3 -c 'import platform; print(platform.machine())</code>.</li>
 <li>Edit <code>SUPPORTED_TARGETS</code> in
-<a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/internal/common.bzl" target="_blank" rel="noopener noreferrer">toolchain/internal/common.bzl</a> with the os
+<a href="toolchain/internal/common.bzl">toolchain/internal/common.bzl</a> with the os
 and the arch string from above.</li>
 <li>Add <code>target_system_name</code>, etc. in
-<a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/cc_toolchain_config.bzl" target="_blank" rel="noopener noreferrer">toolchain/cc_toolchain_config.bzl</a>.</li>
+<a href="toolchain/cc_toolchain_config.bzl">toolchain/cc_toolchain_config.bzl</a>.</li>
 <li>For cross-compiling, add a <code>platform</code> bazel type for your target platform in
-<a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/platforms/BUILD.bazel" target="_blank" rel="noopener noreferrer">platforms/BUILD.bazel</a>, and add an appropriate
+<a href="platforms/BUILD.bazel">platforms/BUILD.bazel</a>, and add an appropriate
 sysroot entry to your <code>llvm_toolchain</code> repository definition.</li>
 <li>If not cross-compiling, bring your own LLVM (see section above) through the
 <code>toolchain_roots</code> or <code>urls</code> attribute.</li>
@@ -333,7 +333,7 @@ that you can reference, and you may have to alias the tools you want with a
 <p>As a convenience, some targets are aliased appropriately in the configuration
 repo (as opposed to the LLVM distribution repo) for you to use and will work
 even when using <code>toolchain_roots</code>. The complete list is in the file
-<a href="https://github.com/bazel-contrib/toolchains_llvm/blob/98414f360d37e4fc9fb308b357d1bd8df9f92428/toolchain/aliases.bzl" target="_blank" rel="noopener noreferrer">aliases.bzl</a>. If your repo is named <code>llvm_toolchain</code>,
+<a href="toolchain/aliases.bzl">aliases.bzl</a>. If your repo is named <code>llvm_toolchain</code>,
 then they can be referenced as:</p>
 <ul>
 <li><code>@llvm_toolchain//:omp</code></li>

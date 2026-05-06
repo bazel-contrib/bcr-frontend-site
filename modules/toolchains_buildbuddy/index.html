@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -32,22 +32,22 @@
 <p>For the most up-to-date instructions, see our <a href="https://buildbuddy.io/docs/rbe-setup">Official Documentation</a>.</p>
 <h4>BzlMod</h4>
 <p>Add the following to your <code>MODULE.bazel</code> file:</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;toolchains_buildbuddy&quot;)
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;toolchains_buildbuddy&quot;, version = &quot;0.0.4&quot;)
 
 # Use the extension to create toolchain and platform targets
-buildbuddy = use_extension(&quot;@buildbuddy//:extensions.bzl&quot;, &quot;buildbuddy&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "toolchains_buildbuddy"</span><span style="color:#24292E">)</span></span>
+buildbuddy = use_extension(&quot;@toolchains_buildbuddy//:extensions.bzl&quot;, &quot;buildbuddy&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "toolchains_buildbuddy"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.4"</span><span style="color:#24292E">)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#6A737D"># Use the extension to create toolchain and platform targets</span></span>
-<span class="line"><span style="color:#24292E">buildbuddy </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@buildbuddy//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy"</span><span style="color:#24292E">)</span></span></code></pre>
+<span class="line"><span style="color:#24292E">buildbuddy </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@toolchains_buildbuddy//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>The execution platforms and CC toolchains should be registered automatically under BzlMod.</p>
 <p>For a more detailed example and customization options, see our <a href="https://github.com/buildbuddy-io/buildbuddy-toolchain/tree/master/examples/bzlmod">BzlMod Example</a>.</p>
 <h4>WORKSPACE</h4>
 <p>Add the following lines to your <code>WORKSPACE</code> file. You'll probably want to pin your version to a specific commit rather than master.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="http_archive(
     name = &quot;io_buildbuddy_buildbuddy_toolchain&quot;,
-    sha256 = &quot;62ab60d07205f98c4fc3735bb21630272490fce193c59c3bb2cb2b962176400c&quot;,
-    strip_prefix = &quot;buildbuddy-toolchain-0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d&quot;,
-    urls = [&quot;https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d.tar.gz&quot;],
+    integrity = &quot;sha256-4rtmioGI2dzQey1h0fw7z2exUCCelNv0Uff7uwrQihc=&quot;,
+    strip_prefix = &quot;buildbuddy-toolchain-v0.0.4&quot;,
+    urls = [&quot;https://github.com/buildbuddy-io/buildbuddy-toolchain/releases/download/v0.0.4/buildbuddy-toolchain-v0.0.4.tar.gz&quot;],
 )
 
 load(&quot;@io_buildbuddy_buildbuddy_toolchain//:deps.bzl&quot;, &quot;buildbuddy_deps&quot;)
@@ -58,9 +58,9 @@ load(&quot;@io_buildbuddy_buildbuddy_toolchain//:rules.bzl&quot;, &quot;buildbud
 
 buildbuddy(name = &quot;buildbuddy_toolchain&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">http_archive(</span></span>
 <span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "io_buildbuddy_buildbuddy_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "62ab60d07205f98c4fc3735bb21630272490fce193c59c3bb2cb2b962176400c"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildbuddy-toolchain-0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d.tar.gz"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    integrity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sha256-4rtmioGI2dzQey1h0fw7z2exUCCelNv0Uff7uwrQihc="</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildbuddy-toolchain-v0.0.4"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/buildbuddy-io/buildbuddy-toolchain/releases/download/v0.0.4/buildbuddy-toolchain-v0.0.4.tar.gz"</span><span style="color:#24292E">],</span></span>
 <span class="line"><span style="color:#24292E">)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@io_buildbuddy_buildbuddy_toolchain//:deps.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy_deps"</span><span style="color:#24292E">)</span></span>

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -63,9 +63,9 @@ development inside a Bazel workspace.</p>
 </ul>
 <h2>Documentation</h2>
 <ul>
-<li><a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906//docs/README.md" target="_blank" rel="noopener noreferrer">Rules and API documentation</a></li>
-<li><a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906//docs/design/high-level.md" target="_blank" rel="noopener noreferrer">High-level design</a></li>
-<li><a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906//docs/faq.md" target="_blank" rel="noopener noreferrer">Frequently Asked Questions</a></li>
+<li><a href="/docs/README.md">Rules and API documentation</a></li>
+<li><a href="/docs/design/high-level.md">High-level design</a></li>
+<li><a href="/docs/faq.md">Frequently Asked Questions</a></li>
 </ul>
 <h2>Prerequisites</h2>
 <h3>Mac OS</h3>
@@ -84,13 +84,13 @@ EOF" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox=
 <span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">action_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">PATH</span></span>
 <span class="line"><span style="color:#005CC5">EOF</span></span></code></pre>
 <p>This approach is necessary to successfully execute the examples on an Ubuntu runner using Github
-actions. See the <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906/.github/workflows/ci.yml" target="_blank" rel="noopener noreferrer">CI GitHub workflow</a> for more details.</p>
+actions. See the <a href=".github/workflows/ci.yml">CI GitHub workflow</a> for more details.</p>
 <h2>Quickstart</h2>
 <p>The following provides a quick introduction on how to set up and use the features in this
 repository. These instructions assume that you are using <a href="https://bazel.build/external/module">Bazel modules</a> to load your external
 dependencies. If you are using Bazel's legacy external dependency management, we recommend using
 <a href="https://bazel.build/external/migration#hybrid-mode">Bazel's hybrid mode</a>, then follow the steps in this quickstart guide.</p>
-<p>Also, check out the <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906/examples/" target="_blank" rel="noopener noreferrer">examples</a> for more information.</p>
+<p>Also, check out the <a href="examples/">examples</a> for more information.</p>
 <h3>1. Enable bzlmod</h3>
 <p>This repository supports <a href="https://bazel.build/external/overview#bzlmod">bzlmod</a>.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="common --enable_bzlmod" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_bzlmod</span></span></code></pre>
@@ -239,12 +239,12 @@ identified.</li>
 <h3>8. Start coding</h3>
 <p>You are ready to start coding.</p>
 <h2>Using a Swift package registry</h2>
-<p>See <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906//docs/swift_package_registry.md" target="_blank" rel="noopener noreferrer">our document on using a Swift package registry</a>.</p>
+<p>See <a href="/docs/swift_package_registry.md">our document on using a Swift package registry</a>.</p>
 <h2>Tips and Tricks</h2>
 <p>The following are a few tips to consider as you work with your repository:</p>
 <ul>
 <li>Are you trying to use a Swift package and it just won't build under Bazel? If you can figure out
-how to fix it, you can patch the Swift package. Check out <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/0d9ef23b836e5f7e4266b4507add4bdd13347906/docs/patch_swift_package.md" target="_blank" rel="noopener noreferrer">our document on patching Swift packages</a>.</li>
+how to fix it, you can patch the Swift package. Check out <a href="docs/patch_swift_package.md">our document on patching Swift packages</a>.</li>
 </ul>
 
 

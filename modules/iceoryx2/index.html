@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -30,54 +30,38 @@
 
 <p><a href="https://github.com/eclipse-iceoryx/iceoryx2/actions/workflows/build-test.yml?query=branch%3Amain++"><img src="https://github.com/eclipse-iceoryx/iceoryx2/workflows/CI/badge.svg" alt="CI"></a>
 <a href="https://codecov.io/gh/eclipse-iceoryx/iceoryx2?branch=main"><img src="https://codecov.io/gh/eclipse-iceoryx/iceoryx2/branch/main/graph/badge.svg?branch=main" alt="Codecov"></a>
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/benchmarks/README.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Benchmarks-gray" alt="Benchmarks"></a>
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/CHANGELOG.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Changelog-gray" alt="Changelog"></a>
-<a href="https://crates.io/crates/iceoryx2"><img src="https://img.shields.io/crates/v/iceoryx2?color=blue" alt="Crates.io"></a>
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/examples/" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Examples-gray" alt="Examples"></a>
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/FAQ.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/FAQ-gray" alt="FAQ"></a>
+<a href="examples/"><img src="https://img.shields.io/badge/Examples-gray" alt="Examples"></a>
+<a href="FAQ.md"><img src="https://img.shields.io/badge/FAQ-gray" alt="FAQ"></a>
 <a href="https://gitter.im/eclipse/iceoryx"><img src="https://badges.gitter.im/eclipse-iceoryx/iceoryx.svg" alt="Gitter"></a>
-<a href="https://opensource.org/licenses/Apache-2.0"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a>
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/ROADMAP.md" target="_blank" rel="noopener noreferrer"><img src="https://img.shields.io/badge/Roadmap-gray" alt="Roadmap"></a></p>
+<a href="https://github.com/eclipse-iceoryx/iceoryx2/wiki/Developer-Meetup"><img src="https://img.shields.io/badge/Developer_Meetup-gray?style=social" alt="Developer Meetup"></a>
+<a href="ROADMAP.md"><img src="https://img.shields.io/badge/Roadmap-gray" alt="Roadmap"></a></p>
 <p align="center">
 <img src="https://github.com/eclipse-iceoryx/iceoryx2/assets/56729169/3230a125-19e5-4e98-a752-da026a086782" width="50%">
 </p>
 
 
 
-<h1>iceoryx2 - Zero-Copy Lock-Free IPC Purely Written In Rust</h1>
+<h1>iceoryx2 - Zero-Copy Lock-Free IPC with a Rust Core</h1>
 <ul>
-<li><a href="#iceoryx2---zero-copy-lock-free-ipc-purely-written-in-rust">iceoryx2 - Zero-Copy Lock-Free IPC Purely Written In Rust</a><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#documentation">Documentation</a></li>
 <li><a href="#performance">Performance</a><ul>
-<li><a href="#comparision-of-mechanisms">Comparision Of Mechanisms</a><ul>
+<li><a href="#comparison-of-mechanisms">Comparison Of Mechanisms</a><ul>
 <li><a href="#benchmark-system">Benchmark-System</a></li>
 </ul>
 </li>
-<li><a href="#comparision-of-architectures">Comparision Of Architectures</a></li>
+<li><a href="#comparison-of-architectures">Comparison Of Architectures</a></li>
 </ul>
 </li>
-<li><a href="#getting-started">Getting Started</a><ul>
-<li><a href="#publish-subscribe">Publish Subscribe</a><ul>
-<li><a href="#publisherrs">publisher.rs</a></li>
-<li><a href="#subscriberrs">subscriber.rs</a></li>
-</ul>
-</li>
-<li><a href="#events">Events</a><ul>
-<li><a href="#notifierrs">notifier.rs</a></li>
-<li><a href="#listenerrs">listener.rs</a></li>
-<li><a href="#listenerrs-grabbing-all-events-at-once">listener.rs (grabbing all events at once)</a></li>
-</ul>
-</li>
-<li><a href="#custom-configuration">Custom Configuration</a></li>
+<li><a href="#documentation">Documentation</a><ul>
+<li><a href="#user-documentation">User Documentation</a></li>
+<li><a href="#contributor-documentation">Contributor Documentation</a></li>
+<li><a href="#api-references">API References</a></li>
 </ul>
 </li>
 <li><a href="#supported-platforms">Supported Platforms</a></li>
 <li><a href="#language-bindings">Language Bindings</a></li>
 <li><a href="#commercial-support">Commercial Support</a></li>
 <li><a href="#thanks-to-all-contributors">Thanks To All Contributors</a></li>
-</ul>
-</li>
 </ul>
 <h2>Introduction</h2>
 <p>Welcome to iceoryx2, the efficient, and ultra-low latency inter-process
@@ -87,7 +71,7 @@ reliable zero-copy and lock-free inter-process communication mechanisms.</p>
 applications iceoryx2 is for you. With iceoryx2, you can:</p>
 <ul>
 <li>Send huge amounts of data using a publish/subscribe, request/response,
-pipeline (planned) or blackboard pattern (planned), making it ideal
+pipeline (planned) or blackboard pattern, making it ideal
 for scenarios where large datasets need to be shared.</li>
 <li>Exchange signals through events, enabling quick and reliable signaling between
 processes.</li>
@@ -96,8 +80,8 @@ processes.</li>
 seamless inter-process communication (IPC).</p>
 <p>It is all about providing a seamless experience for inter-process communication,
 featuring versatile messaging patterns. Whether you're diving into
-publish-subscribe, events, or the promise of upcoming features like
-request-response, pipelines, and blackboard, iceoryx2 has you covered.</p>
+publish-subscribe, events, request-response, or the promise of upcoming features
+like pipelines, and blackboard, iceoryx2 has you covered.</p>
 <p>One of the features of iceoryx2 is its consistently low transmission latency
 regardless of payload size, ensuring a predictable and reliable communication
 experience.</p>
@@ -111,31 +95,12 @@ a seamless transition and offering enhanced capabilities for your inter-process
 communication needs. So, if you're looking for lightning-fast, cross-platform
 communication that doesn't compromise on performance or modularity, iceoryx2 is
 your answer.</p>
-<h2>Documentation</h2>
-<p>The documentation can be found at:</p>
-<table>
-<thead>
-<tr>
-<th align="center">language</th>
-<th align="right">documentation link</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="center">C</td>
-<td align="right"><a href="https://iceoryx2.readthedocs.io">https://iceoryx2.readthedocs.io</a></td>
-</tr>
-<tr>
-<td align="center">C++</td>
-<td align="right"><a href="https://iceoryx2.readthedocs.io">https://iceoryx2.readthedocs.io</a></td>
-</tr>
-<tr>
-<td align="center">Rust</td>
-<td align="right"><a href="https://docs.rs/iceoryx2/latest/iceoryx2/">https://docs.rs/iceoryx2/latest/iceoryx2/</a></td>
-</tr>
-</tbody></table>
+<p>Feel free to join the <a href="https://gitter.im/eclipse/iceoryx">Gitter Chat</a> or
+the <a href="https://github.com/eclipse-iceoryx/iceoryx2/wiki/Developer-Meetup">Developer Meetup</a>
+if you want to have a chat with the developers of iceoryx.</p>
 <h2>Performance</h2>
-<h3>Comparision Of Mechanisms</h3>
-<p><img src="https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/7966fcf959eaaab204630217efa2f060f112e128/internal/plots/benchmark_mechanism.svg" alt="benchmark of different mechanism"></p>
+<h3>Comparison Of Mechanisms</h3>
+<p><img src="https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/refs/heads/main/internal/plots/benchmark_mechanism.svg" alt="benchmark of different mechanism"></p>
 <h4>Benchmark-System</h4>
 <ul>
 <li><strong>CPU:</strong> Intel i7 13700h</li>
@@ -146,391 +111,27 @@ your answer.</p>
 </ul>
 </li>
 </ul>
-<h3>Comparision Of Architectures</h3>
-<p><img src="https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/7966fcf959eaaab204630217efa2f060f112e128/internal/plots/benchmark_architecture.svg" alt="benchmark on different systems"></p>
-<h2>Getting Started</h2>
-<h3>Publish Subscribe</h3>
-<p>This minimal example showcases a publisher sending the number 1234 every second,
-while a subscriber efficiently receives and prints the data.</p>
-<h4>publisher.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let service = node.service_builder(&amp;&quot;My/Funk/ServiceName&quot;.try_into()?)
-        .publish_subscribe::&lt;usize&gt;()
-        .open_or_create()?;
-
-    let publisher = service.publisher_builder().create()?;
-
-    while node.wait(CYCLE_TIME).is_ok() {
-        let sample = publisher.loan_uninit()?;
-        let sample = sample.write_payload(1234);
-        sample.send()?;
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn std::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let service = node.service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"My/Funk/ServiceName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .publish_subscribe::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">usize</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let publisher = service.publisher_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#24292E">        let sample = publisher.loan_uninit()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">        let sample = sample.write_payload(</span><span style="color:#005CC5">1234</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">        sample.send()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<h4>subscriber.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let service = node.service_builder(&amp;&quot;My/Funk/ServiceName&quot;.try_into()?)
-        .publish_subscribe::&lt;usize&gt;()
-        .open_or_create()?;
-
-    let subscriber = service.subscriber_builder().create()?;
-
-    while node.wait(CYCLE_TIME).is_ok() {
-        while let Some(sample) = subscriber.receive()? {
-            println!(&quot;received: {:?}&quot;, *sample);
-        }
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn std::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let service = node.service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"My/Funk/ServiceName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .publish_subscribe::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">usize</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let subscriber = service.subscriber_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#D73A49">        while</span><span style="color:#24292E"> let Some(sample) = subscriber.receive()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">            println!(</span><span style="color:#032F62">"received: </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">?}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#D73A49">*</span><span style="color:#24292E">sample);</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p>This example is a simplified version of the
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/examples/rust/publish_subscribe/" target="_blank" rel="noopener noreferrer">publish-subscribe example</a>. You can execute
-it by opening two terminals and calling:</p>
-<p><strong>Terminal 1:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example publish_subscribe_publisher" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example publish_subscribe_publisher</span></span></code></pre>
-<p><strong>Terminal 2:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example publish_subscribe_subscriber" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example publish_subscribe_subscriber</span></span></code></pre>
-<h3>Request Response</h3>
-<p>This example showcases a client sending a request with the number 123 every
-second, while a server responds with the number 456 as soon as it receives
-the request.</p>
-<h4>client.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn core::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let service = node
-        .service_builder(&amp;&quot;My/Funk/ServiceName&quot;.try_into()?)
-        .request_response::&lt;u64, u64&gt;()
-        .open_or_create()?;
-
-    let client = service.client_builder().create()?;
-
-    // send first request
-    let request = client.loan_uninit()?;
-    let request = request.write_payload(1234);
-    let mut pending_response = request.send()?;
-
-    while node.wait(CYCLE_TIME).is_ok() {
-        // acquire all responses to our request from our buffer that were sent by the servers
-        while let Some(response) = pending_response.receive()? {
-            println!(&quot;  received response: {:?}&quot;, *response);
-        }
-
-        // send another request
-        let request = client.loan_uninit()?;
-        let request = request.write_payload(123);
-        pending_response = request.send()?;
-   }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn core::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let service = node</span></span>
-<span class="line"><span style="color:#24292E">        .service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"My/Funk/ServiceName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .request_response::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">u64, u64</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let client = service.client_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> send first request</span></span>
-<span class="line"><span style="color:#24292E">    let request = client.loan_uninit()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    let request = request.write_payload(</span><span style="color:#005CC5">1234</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    let mut pending_response = request.send()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> acquire </span><span style="color:#005CC5">all</span><span style="color:#24292E"> responses to our request </span><span style="color:#D73A49">from</span><span style="color:#24292E"> our buffer that were sent by the servers</span></span>
-<span class="line"><span style="color:#D73A49">        while</span><span style="color:#24292E"> let Some(response) = pending_response.receive()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">            println!(</span><span style="color:#032F62">"  received response: </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">?}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#D73A49">*</span><span style="color:#24292E">response);</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> send another request</span></span>
-<span class="line"><span style="color:#24292E">        let request = client.loan_uninit()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">        let request = request.write_payload(</span><span style="color:#005CC5">123</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">        pending_response = request.send()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">   }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<h4>server.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_millis(100);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn core::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let service = node
-        .service_builder(&amp;&quot;My/Funk/ServiceName&quot;.try_into()?)
-        .request_response::&lt;u64, u64&gt;()
-        .open_or_create()?;
-
-    let server = service.server_builder().create()?;
-
-    while node.wait(CYCLE_TIME).is_ok() {
-        while let Some(active_request) = server.receive()? {
-            let response = active_request.loan_uninit()?;
-            let response = response.write_payload(456);
-            response.send()?;
-        }
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_millis(</span><span style="color:#005CC5">100</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn core::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let service = node</span></span>
-<span class="line"><span style="color:#24292E">        .service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"My/Funk/ServiceName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .request_response::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">u64, u64</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let server = service.server_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#D73A49">        while</span><span style="color:#24292E"> let Some(active_request) = server.receive()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">            let response = active_request.loan_uninit()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">            let response = response.write_payload(</span><span style="color:#005CC5">456</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">            response.send()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p>This example is a simplified version of the
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/examples/rust/request_response/" target="_blank" rel="noopener noreferrer">request response example</a>. You can execute it
-by opening two terminals and calling:</p>
-<p><strong>Terminal 1:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example request_response_client" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example request_response_client</span></span></code></pre>
-<p><strong>Terminal 2:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example request_response_server" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example request_response_server</span></span></code></pre>
-<h3>Events</h3>
-<p>This minimal example showcases how push-notifications can be realized by using
-services with event messaging pattern between two processes. The <code>listener.rs</code>
-hereby waits for a notification from the <code>notifier.rs</code>.</p>
-<h4>notifier.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let event = node.service_builder(&amp;&quot;MyEventName&quot;.try_into()?)
-        .event()
-        .open_or_create()?;
-
-    let notifier = event.notifier_builder().create()?;
-
-    let id = EventId::new(12);
-    while node.wait(CYCLE_TIME).is_ok() {
-        notifier.notify_with_custom_event_id(id)?;
-
-        println!(&quot;Trigger event with id {:?} ...&quot;, id);
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn std::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let event = node.service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"MyEventName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .event()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let notifier = event.notifier_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let </span><span style="color:#005CC5">id</span><span style="color:#24292E"> = EventId::new(</span><span style="color:#005CC5">12</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#24292E">        notifier.notify_with_custom_event_id(</span><span style="color:#005CC5">id</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">        println!(</span><span style="color:#032F62">"Trigger event with id </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">?}</span><span style="color:#032F62"> ..."</span><span style="color:#24292E">, </span><span style="color:#005CC5">id</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<h4>listener.rs</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let event = node.service_builder(&amp;&quot;MyEventName&quot;.try_into()?)
-        .event()
-        .open_or_create()?;
-
-    let listener = event.listener_builder().create()?;
-
-    while node.wait(Duration::ZERO).is_ok() {
-        if let Ok(Some(event_id)) = listener.timed_wait_one(CYCLE_TIME) {
-            println!(&quot;event was triggered with id: {:?}&quot;, event_id);
-        }
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn std::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let event = node.service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"MyEventName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .event()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let listener = event.listener_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(Duration::</span><span style="color:#005CC5">ZERO</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> let Ok(Some(event_id)) = listener.timed_wait_one(</span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#24292E">            println!(</span><span style="color:#032F62">"event was triggered with id: </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">?}</span><span style="color:#032F62">"</span><span style="color:#24292E">, event_id);</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<h4>listener.rs (grabbing all events at once)</h4>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="use core::time::Duration;
-use iceoryx2::prelude::*;
-
-const CYCLE_TIME: Duration = Duration::from_secs(1);
-
-fn main() -&gt; Result&lt;(), Box&lt;dyn std::error::Error&gt;&gt; {
-    let node = NodeBuilder::new().create::&lt;ipc::Service&gt;()?;
-
-    let event = node.service_builder(&amp;&quot;MyEventName&quot;.try_into()?)
-        .event()
-        .open_or_create()?;
-
-    let listener = event.listener_builder().create()?;
-
-    while node.wait(Duration::ZERO).is_ok() {
-        listener.timed_wait_all(
-            |event_id| {
-                println!(&quot;event was triggered with id: {:?}&quot;, event_id);
-            },
-            CYCLE_TIME,
-        )?;
-    }
-
-    Ok(())
-}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">use core::time::Duration</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">use iceoryx2::prelude::</span><span style="color:#D73A49">*</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">CYCLE_TIME</span><span style="color:#24292E">: Duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Duration::from_secs(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">fn main() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Result</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(), Box</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dyn std::error::Error</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    let node = NodeBuilder::new().create::</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ipc::Service</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let event = node.service_builder(</span><span style="color:#D73A49">&amp;</span><span style="color:#032F62">"MyEventName"</span><span style="color:#24292E">.try_into()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .event()</span></span>
-<span class="line"><span style="color:#24292E">        .open_or_create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    let listener = event.listener_builder().create()</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> node.wait(Duration::</span><span style="color:#005CC5">ZERO</span><span style="color:#24292E">).is_ok() {</span></span>
-<span class="line"><span style="color:#24292E">        listener.timed_wait_all(</span></span>
-<span class="line"><span style="color:#D73A49">            |</span><span style="color:#24292E">event_id</span><span style="color:#D73A49">|</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">                println!(</span><span style="color:#032F62">"event was triggered with id: </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">?}</span><span style="color:#032F62">"</span><span style="color:#24292E">, event_id);</span></span>
-<span class="line"><span style="color:#24292E">            },</span></span>
-<span class="line"><span style="color:#005CC5">            CYCLE_TIME</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">        )</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Ok(())</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p>This example is a simplified version of the
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/examples/rust/event/" target="_blank" rel="noopener noreferrer">event example</a>. You can execute it by opening two
-terminals and calling:</p>
-<p><strong>Terminal 1:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example event_notifier" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example event_notifier</span></span></code></pre>
-<p><strong>Terminal 2:</strong></p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo run --example event_listener" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">example event_listener</span></span></code></pre>
-<h3>Custom Configuration</h3>
-<p>It is possible to configure default quality of service settings, paths and file
-suffixes in a custom configuration file. For more details visit the
-<a href="https://github.com/eclipse-iceoryx/iceoryx2/blob/7966fcf959eaaab204630217efa2f060f112e128/config/" target="_blank" rel="noopener noreferrer">configuration directory</a>.</p>
+<h3>Comparison Of Architectures</h3>
+<p><img src="https://raw.githubusercontent.com/eclipse-iceoryx/iceoryx2/refs/heads/main/internal/plots/benchmark_architecture.svg" alt="benchmark on different systems"></p>
+<h2>Documentation</h2>
+<h3>User Documentation</h3>
+<ul>
+<li><a href="https://ekxide.github.io/iceoryx2-book">The iceoryx2 Book</a> (by <a href="https://ekxide.io">ekxide</a>)</li>
+<li><a href="examples">Examples</a></li>
+<li><a href="doc/release-notes">Release Notes</a></li>
+<li><a href="FAQ.md">User FAQ</a></li>
+</ul>
+<h3>Contributor Documentation</h3>
+<ul>
+<li><a href="FAQ_ICEORYX_DEVS.md">Contributor FAQ</a></li>
+</ul>
+<h3>API References</h3>
+<ul>
+<li><a href="https://docs.rs/iceoryx2/latest/iceoryx2/">Rust API Reference</a></li>
+<li><a href="https://eclipse-iceoryx.github.io/iceoryx2/python/latest/">Python API Reference</a></li>
+<li><a href="https://eclipse-iceoryx.github.io/iceoryx2/cxx/latest/">C++ API Reference</a></li>
+<li><a href="https://eclipse-iceoryx.github.io/iceoryx2/c/latest/">C API Reference</a></li>
+</ul>
 <h2>Supported Platforms</h2>
 <p>The support levels can be adjusted when required.</p>
 <table>
@@ -544,7 +145,13 @@ suffixes in a custom configuration file. For more details visit the
 </thead>
 <tbody><tr>
 <td>Android</td>
-<td align="left">planned</td>
+<td align="left">proof-of-concept[^1]</td>
+<td align="center">-</td>
+<td align="right">tier 1</td>
+</tr>
+<tr>
+<td>Bare Metal</td>
+<td align="left">proof-of-concept[^2]</td>
 <td align="center">-</td>
 <td align="right">tier 1</td>
 </tr>
@@ -556,6 +163,12 @@ suffixes in a custom configuration file. For more details visit the
 </tr>
 <tr>
 <td>FreeRTOS</td>
+<td align="left">planned</td>
+<td align="center">-</td>
+<td align="right">tier 2</td>
+</tr>
+<tr>
+<td>ThreadX</td>
 <td align="left">planned</td>
 <td align="center">-</td>
 <td align="right">tier 2</td>
@@ -591,14 +204,32 @@ suffixes in a custom configuration file. For more details visit the
 <td align="right">tier 2</td>
 </tr>
 <tr>
-<td>QNX</td>
-<td align="left">planned</td>
-<td align="center">-</td>
+<td>QNX 7.1</td>
+<td align="left">done</td>
+<td align="center">tier 3</td>
 <td align="right">tier 1</td>
 </tr>
 <tr>
-<td>VxWorks</td>
+<td>QNX 8.0</td>
+<td align="left">done</td>
+<td align="center">tier 3</td>
+<td align="right">tier 1</td>
+</tr>
+<tr>
+<td>RTEMS</td>
 <td align="left">planned</td>
+<td align="center">-</td>
+<td align="right">tier 2</td>
+</tr>
+<tr>
+<td>Redox OS</td>
+<td align="left">planned</td>
+<td align="center">-</td>
+<td align="right">tier 2</td>
+</tr>
+<tr>
+<td>VxWorks</td>
+<td align="left">proof-of-concept[^3]</td>
 <td align="center">-</td>
 <td align="right">tier 1</td>
 </tr>
@@ -615,56 +246,92 @@ suffixes in a custom configuration file. For more details visit the
 <td align="right">tier 2</td>
 </tr>
 </tbody></table>
+<p>[^1]: A proof-of-concept for Android platform support is available. Currently
+      only local, inter-thread communication works.
+[^2]: A proof-of-concept with <code>no_std</code> bare-metal support is available. The event
+      messaging-pattern does not yet work and the memory usage is not yet optimized.
+[^3]: A proof-of-concept for VxWorks platform support is available on <a href="https://github.com/ekxide/iceoryx2/blob/vxworks-mvp/doc/development-setup/vxworks.md">this
+      branch</a>
+      on the <a href="https://ekxide.io">ekxide</a> fork</p>
 <ul>
 <li><strong>tier 1</strong> - All safety and security features are working.</li>
 <li><strong>tier 2</strong> - Works with a restricted security and safety feature set.</li>
-<li><strong>tier 3</strong> - Work in progress. Might compile and run or not.</li>
+<li><strong>tier 3</strong> - Not tested in our CI, so may or may not compile and run.</li>
 </ul>
+
+<blockquote>
+<p>[!NOTE]
+Some commercial operating systems require expensive licenses and the support
+for these platforms relies on funding for the license costs.</p>
+</blockquote>
+
+
+
+<blockquote>
+<p>[!NOTE]
+Yocto recipes are available at <a href="https://github.com/eclipse-iceoryx/meta-iceoryx2">meta-iceoryx2</a></p>
+</blockquote>
+
+
 <h2>Language Bindings</h2>
 <table>
 <thead>
 <tr>
-<th>Language</th>
+<th align="left">Language</th>
 <th align="right">State</th>
 </tr>
 </thead>
 <tbody><tr>
-<td>C / C++</td>
+<td align="left">C</td>
 <td align="right">done</td>
 </tr>
 <tr>
-<td>Python</td>
+<td align="left">C++</td>
+<td align="right">done</td>
+</tr>
+<tr>
+<td align="left">C#</td>
+<td align="right"><a href="https://github.com/eclipse-iceoryx/iceoryx2-csharp">done</a>[^4]</td>
+</tr>
+<tr>
+<td align="left">Dart</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Go</td>
+<td align="left">Go</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>C#</td>
+<td align="left">Java</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Java</td>
+<td align="left">Kotlin</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Kotlin</td>
+<td align="left">Lua</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Lua</td>
+<td align="left">Python</td>
+<td align="right">done</td>
+</tr>
+<tr>
+<td align="left">Swift</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Swift</td>
+<td align="left">Typescript</td>
 <td align="right">planned</td>
 </tr>
 <tr>
-<td>Zig</td>
+<td align="left">Zig</td>
 <td align="right">planned</td>
 </tr>
 </tbody></table>
+<p>[^4]: C# bindings are available in a separate repository. May not be up to date
+      with <code>main</code>.</p>
 <h2>Commercial Support</h2>
 
 

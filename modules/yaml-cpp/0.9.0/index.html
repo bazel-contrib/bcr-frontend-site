@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -51,15 +51,6 @@ cmake [-G generator] [-DYAML_BUILD_SHARED_LIBS=on|OFF] .." style="position: abso
 </li>
 <li><p><code>yaml-cpp</code> builds a static library by default, you may want to build a shared library by specifying <code>-DYAML_BUILD_SHARED_LIBS=ON</code>.</p>
 </li>
-<li><p><a href="https://gcc.gnu.org/onlinedocs/libstdc++/manual/debug_mode.html">Debug mode of the GNU standard C++
-library</a>
-can be used when both <code>yaml-cpp</code> and client code is compiled with the
-<code>_GLIBCXX_DEBUG</code> flag (e.g. by calling CMake with <code>-D CMAKE_CXX_FLAGS_DEBUG='-g -D_GLIBCXX_DEBUG'</code> option).</p>
-<p>Note that for <code>yaml-cpp</code> unit tests to run successfully, the <em>GoogleTest</em>
-library also must be built with this flag, i.e. the system one cannot be
-used (the <em>YAML_USE_SYSTEM_GTEST</em> CMake option must be <em>OFF</em>, which is the
-default).</p>
-</li>
 <li><p>For more options on customizing the build, see the <a href="https://github.com/jbeder/yaml-cpp/blob/master/CMakeLists.txt">CMakeLists.txt</a> file.</p>
 </li>
 </ul>
@@ -68,31 +59,10 @@ default).</p>
 <li>The command you'll need to run depends on the generator you chose earlier.</li>
 </ul>
 <p><strong>Note:</strong> To clean up, just remove the <code>build</code> directory.</p>
-<h2>How to Integrate it within your project using CMake</h2>
-<p>You can use for example FetchContent :</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="include(FetchContent)
-
-FetchContent_Declare(
-  yaml-cpp
-  GIT_REPOSITORY https://github.com/jbeder/yaml-cpp.git
-  GIT_TAG &lt;tag_name&gt; # Can be a tag (yaml-cpp-x.x.x), a commit hash, or a branch name (master)
-)
-FetchContent_MakeAvailable(yaml-cpp)
-
-target_link_libraries(YOUR_LIBRARY PUBLIC yaml-cpp::yaml-cpp) # The library or executable that require yaml-cpp library" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">include(FetchContent)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">FetchContent_Declare(</span></span>
-<span class="line"><span style="color:#24292E">  yaml</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp</span></span>
-<span class="line"><span style="color:#005CC5">  GIT_REPOSITORY</span><span style="color:#24292E"> https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">jbeder</span><span style="color:#D73A49">/</span><span style="color:#24292E">yaml</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp.git</span></span>
-<span class="line"><span style="color:#005CC5">  GIT_TAG</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">tag_name</span><span style="color:#D73A49">&gt;</span><span style="color:#6A737D"> # Can be a tag (yaml-cpp-x.x.x), a commit hash, or a branch name (master)</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">FetchContent_MakeAvailable(yaml</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(</span><span style="color:#005CC5">YOUR_LIBRARY</span><span style="color:#005CC5"> PUBLIC</span><span style="color:#24292E"> yaml</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp::yaml</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp) </span><span style="color:#6A737D"># The library or executable that require yaml-cpp library</span></span></code></pre>
 <h2>Recent Releases</h2>
-<p><a href="https://github.com/jbeder/yaml-cpp/releases/tag/0.8.0">yaml-cpp 0.8.0</a> released!</p>
+<p><a href="https://github.com/jbeder/yaml-cpp/releases/tag/yaml-cpp-0.6.0">yaml-cpp 0.6.0</a> released! This release requires C++11, and no longer depends on Boost.</p>
 <p><a href="https://github.com/jbeder/yaml-cpp/releases/tag/release-0.3.0">yaml-cpp 0.3.0</a> is still available if you want the old API.</p>
-<p><strong>The old API will stop receiving bugfixes in 2026.</strong> The 0.3.x versions provide the old API, and 0.5.x and above all provide the new API.</p>
+<p><strong>The old API will continue to be supported, and will still receive bugfixes!</strong> The 0.3.x and 0.4.x versions will be old API releases, and 0.5.x and above will all be new API releases.</p>
 <h1>API Documentation</h1>
 <p>The autogenerated API reference is hosted on <a href="https://codedocs.xyz/jbeder/yaml-cpp/index.html">CodeDocs</a></p>
 <h1>Third Party Integrations</h1>

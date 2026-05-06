@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -143,12 +143,12 @@ as how to use <code>hermetic_cc_toolchain</code> with bzlmod.</p>
 <ul>
 <li><code>@zig_sdk</code> - platform, constraint and toolchain definitions for supported platforms</li>
 <li><code>@zig_config</code> - internal config targets for HOST platform (not visible to main repository)</li>
-<li><code>@zig_config-{os}-{arch}</code> - internal config targets for supported platforms when explicitly provided to <a href="https://github.com/uber/hermetic_cc_toolchain/blob/57d458428a3ce0c617334ce59d70f7143b14c199/toolchain/defs.bzl#62" target="_blank" rel="noopener noreferrer">toolchains()</a> macro (not visible to main repository)</li>
+<li><code>@zig_config-{os}-{arch}</code> - internal config targets for supported platforms when explicitly provided to <a href="toolchain/defs.bzl#62">toolchains()</a> macro (not visible to main repository)</li>
 </ul>
 <p>By default <code>hermetic_cc_toolchain</code> creates toolchains just for the HOST execution
 platform. To create toolchains for other execution platforms than HOST, those need
-to be explicitly specified within <a href="https://github.com/uber/hermetic_cc_toolchain/blob/57d458428a3ce0c617334ce59d70f7143b14c199/toolchain/defs.bzl#62" target="_blank" rel="noopener noreferrer">toolchains()</a> macro call.
-The dictionary argument of <a href="https://github.com/uber/hermetic_cc_toolchain/blob/57d458428a3ce0c617334ce59d70f7143b14c199/toolchain/defs.bzl#L67" target="_blank" rel="noopener noreferrer">exec_platforms</a>, specifies additional execution platforms and has to conform Bazel's
+to be explicitly specified within <a href="toolchain/defs.bzl#62">toolchains()</a> macro call.
+The dictionary argument of <a href="toolchain/defs.bzl#L67">exec_platforms</a>, specifies additional execution platforms and has to conform Bazel's
 <a href="https://bazel.build/rules/lib/toplevel/attr#string_dict">attr.string_dict()</a>, e.g.:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="_EXEC_PLATFORMS = {
     &quot;linux&quot;: [&quot;arm64&quot;],
@@ -179,7 +179,7 @@ zig_toolchains(
 <span class="line"><span style="color:#E36209">  exec_platforms</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> _MACOS_EXEC_PLATFORMS</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h4>MODULE.bazel</h4>
-<p><a href="https://github.com/uber/hermetic_cc_toolchain/blob/57d458428a3ce0c617334ce59d70f7143b14c199/toolchain/ext.bzl#40" target="_blank" rel="noopener noreferrer">toolchains</a> module extension provides <a href="https://github.com/uber/hermetic_cc_toolchain/blob/57d458428a3ce0c617334ce59d70f7143b14c199/toolchain/ext.bzl#4" target="_blank" rel="noopener noreferrer">exec_platform</a>
+<p><a href="toolchain/ext.bzl#40">toolchains</a> module extension provides <a href="toolchain/ext.bzl#4">exec_platform</a>
 tag class, which allows to specify additional execution platforms.
 To add toolchains for <code>windows-amd64</code> execution platform (additionally to HOST execution
 platform), call <code>toolchains.exec_platform()</code>:</p>

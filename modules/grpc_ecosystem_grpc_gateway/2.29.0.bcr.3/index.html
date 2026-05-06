@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.dd7dbf42.js" defer=""></script>
-		<script src="/registry.3e3932e5.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.463a4953.js" defer=""></script>
+		<script src="/registry.fc4bb526.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -50,7 +50,7 @@ translates a RESTful HTTP API into gRPC. This server is generated according to t
 annotations in your service definitions.</p>
 <p>This helps you provide your APIs in both gRPC and RESTful style at the same time.</p>
 <div align="center">
-<img src="https://raw.githubusercontent.com/grpc-ecosystem/grpc-gateway/9083a972d2de24ef3290e39966de559a483d8dff/docs/assets/images/architecture_introduction_diagram.svg">
+<img src="docs/assets/images/architecture_introduction_diagram.svg">
 </div>
 
 <h2>Docs</h2>
@@ -181,7 +181,7 @@ go get -tool google.golang.org/grpc/cmd/protoc-gen-go-grpc" style="position: abs
 <p>Make sure that your <code>$GOBIN</code> is in your <code>$PATH</code>.</p>
 <h3>Download the binaries</h3>
 <p>You may alternatively download the binaries from the <a href="https://github.com/grpc-ecosystem/grpc-gateway/releases/latest">GitHub releases page</a>.
-We generate <a href="https://github.com/grpc-ecosystem/grpc-gateway/blob/9083a972d2de24ef3290e39966de559a483d8dff/slsa.dev" target="_blank" rel="noopener noreferrer">SLSA3 signatures</a> using the OpenSSF's <a href="https://github.com/slsa-framework/slsa-github-generator">slsa-framework/slsa-github-generator</a> during the release process. To verify a release binary:</p>
+We generate <a href="slsa.dev">SLSA3 signatures</a> using the OpenSSF's <a href="https://github.com/slsa-framework/slsa-github-generator">slsa-framework/slsa-github-generator</a> during the release process. To verify a release binary:</p>
 <ol>
 <li>Install the verification tool from <a href="https://github.com/slsa-framework/slsa-verifier#installation">slsa-framework/slsa-verifier#installation</a>.</li>
 <li>Download the provenance file <code>attestation.intoto.jsonl</code> from the <a href="https://github.com/grpc-ecosystem/grpc-gateway/releases/latest">GitHub releases page</a>.</li>
@@ -365,7 +365,7 @@ deps:
 <span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> buf.build</span><span style="color:#D73A49">/</span><span style="color:#24292E">googleapis</span><span style="color:#D73A49">/</span><span style="color:#24292E">googleapis</span></span></code></pre>
 <p>Always run <code>buf dep update</code> after adding a dependency to your <code>buf.yaml</code>.</p>
 </blockquote>
-<p>See <a href="https://github.com/grpc-ecosystem/grpc-gateway/blob/9083a972d2de24ef3290e39966de559a483d8dff/examples/internal/proto/examplepb/a_bit_of_everything.proto" target="_blank" rel="noopener noreferrer">a_bit_of_everything.proto</a>
+<p>See <a href="examples/internal/proto/examplepb/a_bit_of_everything.proto">a_bit_of_everything.proto</a>
 for examples of more annotations you can add to customize gateway behavior
 and generated OpenAPI output.</p>
 <p>Here's what a <code>buf.gen.yaml</code> file might look like:</p>

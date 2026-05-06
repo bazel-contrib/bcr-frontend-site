@@ -6,7 +6,7 @@
 		<link href="/bcr.f147482a.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.f152a24b.js" defer=""></script>
-		<script src="/registry.6c44df73.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.75dee1b3.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -660,12 +660,12 @@ You can switch off implicit conversions by defining <code>JSON_USE_IMPLICIT_CONV
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> etc.</span></span></code></pre>
 <p>Note that <code>char</code> types are not automatically converted to JSON strings, but to integer numbers. A conversion to a string must be specified explicitly:</p>
-<pre><code lang="py">char ch = 'A';                       // ASCII value 65
-json j_default = ch;                 // stores integer number 65
-json j_string = std::string(1, ch);  // stores string "A"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">char ch </span><span style="color:#D73A49">=</span><span style="color:#032F62"> 'A'</span><span style="color:#24292E">;                       </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> ASCII</span><span style="color:#24292E"> value </span><span style="color:#005CC5">65</span></span>
+<span class="line"><span style="color:#24292E">json j_default </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ch;                 </span><span style="color:#D73A49">//</span><span style="color:#24292E"> stores integer number </span><span style="color:#005CC5">65</span></span>
+<span class="line"><span style="color:#24292E">json j_string </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::string(</span><span style="color:#005CC5">1</span><span style="color:#24292E">, ch);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> stores string </span><span style="color:#032F62">"A"</span></span></code></pre>
 <h3>Arbitrary types conversions</h3>
 <p>Every type can be serialized in JSON, not just STL containers and scalar types. Usually, you would do something along those lines:</p>
-<pre><code>namespace ns {
+<pre><code lang="py">namespace ns {
     // a simple struct to model a person
     struct person {
         std::string name;

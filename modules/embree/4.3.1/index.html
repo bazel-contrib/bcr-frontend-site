@@ -6,7 +6,7 @@
 		<link href="/bcr.f147482a.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.f152a24b.js" defer=""></script>
-		<script src="/registry.21368c7b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a142ede6.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -2612,15 +2612,15 @@ all these buffers must have the same stride and size.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code lang="py"></code></pre>
 <h2>RTC_GEOMETRY_TYPE_GRID</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_GRID</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> grid geometry </span><span style="color:#005CC5">type</span></span></code></pre>
+<pre><code>RTC_GEOMETRY_TYPE_GRID - grid geometry type</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
-<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_GRID</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCGeometry geometry =
+  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_GRID);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Grid meshes are created by passing <code>RTC_GEOMETRY_TYPE_GRID</code> to the
 <code>rtcNewGeometry</code> function call, and contain an array of grid
@@ -2635,12 +2635,12 @@ size of the grid buffer.</p>
 floating point coordinates (<code>RTC_FORMAT_FLOAT3</code> format), and the number
 of vertices is inferred from the size of that buffer.</p>
 <p>Each grid in the grid buffer is of the type <code>RTCGrid</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct RTCGrid</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> startVertexID;</span></span>
-<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> stride;</span></span>
-<span class="line"><span style="color:#24292E">  unsigned short width,height; </span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>struct RTCGrid
+{
+  unsigned int startVertexID;
+  unsigned int stride;
+  unsigned short width,height; 
+};</code></pre>
 <p>The <code>RTCGrid</code> structure describes a 2D grid of vertices (with respect
 to the vertex buffer of the grid mesh). The <code>width</code> and <code>height</code>
 members specify the number of vertices in u and v direction,
@@ -2664,15 +2664,15 @@ all these buffers must have the same stride and size.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>RTC_GEOMETRY_TYPE_SUBDIVISION</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> subdivision geometry </span><span style="color:#005CC5">type</span></span></code></pre>
+<pre><code>RTC_GEOMETRY_TYPE_SUBDIVISION - subdivision geometry type</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
-<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCGeometry geometry =
+  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_SUBDIVISION);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Catmull-Clark subdivision meshes are supported, including support for
 edge creases, vertex creases, holes, non-manifold geometry, and
@@ -2770,7 +2770,7 @@ not equal 4), have a special parametrization where the subpatch ID <code>n</code
 subdivision step) and the local hit location inside this quadrilateral
 are encoded in the UV coordinates. The following code extracts the
 sub-patch ID <code>i</code> and local UVs of this subpatch:</p>
-<pre><code lang="py">unsigned int l = floorf(0.5f*U);
+<pre><code>unsigned int l = floorf(0.5f*U);
 unsigned int h = floorf(0.5f*V);
 unsigned int i = 4*h+l;
 float u = 2.0f*fracf(0.5f*U)-0.5f;

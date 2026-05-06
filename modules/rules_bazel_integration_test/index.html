@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -60,8 +60,8 @@ with multiple versions of Bazel.</p>
 </ul>
 <h2>Quickstart</h2>
 <p>The following provides a quick introduction on how to use the rules in this repository. Also, check
-out <a href="/doc/">the documentation</a>, the <a href="/examples/BUILD.bazel">integration test defined in this repo</a>,
-and the <a href="/examples/custom_test_runner">custom test runner example</a> for more information.</p>
+out <a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//doc/" target="_blank" rel="noopener noreferrer">the documentation</a>, the <a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//examples/BUILD.bazel" target="_blank" rel="noopener noreferrer">integration test defined in this repo</a>,
+and the <a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//examples/custom_test_runner" target="_blank" rel="noopener noreferrer">custom test runner example</a> for more information.</p>
 <h3>1. Configure your workspace to use <code>rules_bazel_integration_test</code></h3>
 <h4>Recommended: Add dependency to <code>MODULE.bazel</code></h4>
 <p>If you are using Bazel with bzlmod enabled, add the following snippet to your <code>MODULE.bazel</code> file.</p>
@@ -363,8 +363,8 @@ filegroup(
 <span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//:__subpackages__"</span><span style="color:#24292E">],</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>2. Update the integration test targets to include the parent workspace files</h3>
-<p>The <a href="/doc/rules_and_macros_overview.md#bazel_integration_test"><code>bazel_integration_test</code></a> and
-<a href="/doc/rules_and_macros_overview.md#bazel_integration_tests"><code>bazel_integration_tests</code></a> declarations
+<p>The <a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//doc/rules_and_macros_overview.md#bazel_integration_test" target="_blank" rel="noopener noreferrer"><code>bazel_integration_test</code></a> and
+<a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//doc/rules_and_macros_overview.md#bazel_integration_tests" target="_blank" rel="noopener noreferrer"><code>bazel_integration_tests</code></a> declarations
 include a <code>workspace_files</code> attribute. If not specified, it defaults to a custom glob expression
 selecting files under the child workspace directory. To include the parent workspace files, add the
 attribute with an expression that globs the workspace files and the <code>//:local_repository_files</code>
@@ -392,7 +392,7 @@ target.</p>
 $ bazel test //examples:simple_test" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Execute the integration test called simple_test</span></span>
 <span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">examples:simple_test</span></span></code></pre>
 <h2>Custom Test Runner</h2>
-<p>For information on implementing a custom test runner, please see <a href="/doc/custom_test_runners.md">the
+<p>For information on implementing a custom test runner, please see <a href="https://github.com/bazel-contrib/rules_bazel_integration_test/blob/3ca334d3e92c2b2d806503ed3a46a5b56ca59134//doc/custom_test_runners.md" target="_blank" rel="noopener noreferrer">the
 documentation</a>.</p>
 <h2>Bazelisk Bazel Version Formats</h2>
 <p>Bazel integration tests require a Bazel version or a Bazel binary to use for the execution of an

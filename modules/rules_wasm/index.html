@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -35,7 +35,7 @@ but also welcomes language-specific rules to compile source code files into comp
 (including generating WIT bindings).</p>
 <h2>Rules</h2>
 <ul>
-<li><a href="wasm/defs.bzl"><code>//wasm:defs.bzl</code></a>:<ul>
+<li><a href="https://github.com/vimana-cloud/rules_wasm/blob/0b53d5eb6cf594fb8e647d563325618411c4545f/wasm/defs.bzl" target="_blank" rel="noopener noreferrer"><code>//wasm:defs.bzl</code></a>:<ul>
 <li><code>wasm_component</code> - Turn a core Wasm module into a component.</li>
 <li><code>wasm_plug</code> - Link the exports of a 'plug' component
 into the imports of a 'wrapper' component to create a new component.
@@ -44,7 +44,7 @@ without a <a href="https://github.com/bytecodealliance/wac">WAC</a> file.</li>
 <li><code>wit_package</code> - Bundle a group of WIT files into a unified package.</li>
 </ul>
 </li>
-<li><a href="rust/defs.bzl"><code>//rust:defs.bzl</code></a>:<ul>
+<li><a href="https://github.com/vimana-cloud/rules_wasm/blob/0b53d5eb6cf594fb8e647d563325618411c4545f/rust/defs.bzl" target="_blank" rel="noopener noreferrer"><code>//rust:defs.bzl</code></a>:<ul>
 <li><code>rust_component</code> - Compile a WIT interface and matching Rust implementation
 into a Wasm component.
 Use the default Rust toolchain.</li>
@@ -55,7 +55,7 @@ Use <code>rust_component</code> for a single macro to compile a component from R
 </li>
 <li>C support is hacky and needs to be adapted to a proper CC toolchain
 (blocked on <a href="https://github.com/bazelbuild/rules_cc/issues/277">bazelbuild/rules_cc#277</a>),
-but there's <a href="c/defs.bzl"><code>//c:defs.bzl</code></a>,
+but there's <a href="https://github.com/vimana-cloud/rules_wasm/blob/0b53d5eb6cf594fb8e647d563325618411c4545f/c/defs.bzl" target="_blank" rel="noopener noreferrer"><code>//c:defs.bzl</code></a>,
 which makes use of the <a href="https://github.com/WebAssembly/wasi-sdk">WASI SDK</a>:<ul>
 <li><code>c_component</code> - Compile a WIT interface and matching C implementation
 into a Wasm component.</li>
@@ -69,7 +69,7 @@ This is <a href="https://github.com/bazel-contrib/rules_go/issues/4333">fundamen
 because Bazel's Go rules require knowing about module metadata and dependencies
 during the analysis phase,
 but the output of <code>wit-bindgen-go</code> is only known for sure during the execution phase.
-Meanwhile, there's a temporary crutch: <a href="go/defs.bzl"><code>//go:defs.bzl</code></a>,
+Meanwhile, there's a temporary crutch: <a href="https://github.com/vimana-cloud/rules_wasm/blob/0b53d5eb6cf594fb8e647d563325618411c4545f/go/defs.bzl" target="_blank" rel="noopener noreferrer"><code>//go:defs.bzl</code></a>,
 which makes use of <a href="https://tinygo.org/">TinyGo</a> and is somewhat limited.<ul>
 <li><code>go_component</code> - Compile a WIT interface and matching Go implementation
 into a Wasm component.</li>
@@ -81,7 +81,7 @@ Use <code>go_component</code> for a single macro to compile a component from Go.
 </li>
 </ul>
 <h2>Examples</h2>
-<p>See <a href="example/"><code>example/</code></a>.</p>
+<p>See <a href="https://github.com/vimana-cloud/rules_wasm/blob/0b53d5eb6cf594fb8e647d563325618411c4545f/example/" target="_blank" rel="noopener noreferrer"><code>example/</code></a>.</p>
 <h2>Caveats</h2>
 <ul>
 <li>Currently works only for the following execution platforms

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -41,23 +41,19 @@
 </thead>
 <tbody><tr>
 <td>Test coverage</td>
-<td><a href="https://codecov.io/gh/gazebosim/gz-rendering/tree/main"><img src="https://codecov.io/gh/gazebosim/gz-rendering/tree/main/graph/badge.svg" alt="codecov"></a></td>
+<td><a href="https://codecov.io/gh/gazebosim/gz-rendering/tree/gz-rendering10"><img src="https://codecov.io/gh/gazebosim/gz-rendering/tree/gz-rendering10/graph/badge.svg" alt="codecov"></a></td>
 </tr>
 <tr>
-<td>GitHub: Ubuntu Noble</td>
-<td><a href="https://github.com/gazebosim/gz-rendering/actions/workflows/ci.yml?query=branch%3Amain"><img src="https://github.com/gazebosim/gz-rendering/actions/workflows/ci.yml/badge.svg" alt="Ubuntu CI"></a></td>
+<td>Ubuntu Noble</td>
+<td><a href="https://build.osrfoundation.org/job/gz_rendering-ci-gz-rendering10-noble-amd64"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-ci-gz-rendering10-noble-amd64" alt="Build Status"></a></td>
 </tr>
 <tr>
-<td>Jenkins: Ubuntu Noble</td>
-<td><a href="https://build.osrfoundation.org/job/gz_rendering-ci-main-noble-amd64"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-ci-main-noble-amd64" alt="Build Status"></a></td>
+<td>Homebrew</td>
+<td><a href="https://build.osrfoundation.org/job/gz_rendering-ci-gz-rendering10-homebrew-amd64"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-ci-gz-rendering10-homebrew-amd64" alt="Build Status"></a></td>
 </tr>
 <tr>
-<td>Jenkins: Homebrew</td>
-<td><a href="https://build.osrfoundation.org/job/gz_rendering-ci-main-homebrew-amd64"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-ci-main-homebrew-amd64" alt="Build Status"></a></td>
-</tr>
-<tr>
-<td>Jenkins: Windows</td>
-<td><a href="https://build.osrfoundation.org/job/gz_rendering-main-cnlwin"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-main-cnlwin" alt="Build Status"></a></td>
+<td>Windows</td>
+<td><a href="https://build.osrfoundation.org/job/gz_rendering-10-cnlwin"><img src="https://build.osrfoundation.org/buildStatus/icon?job=gz_rendering-10-cnlwin" alt="Build Status"></a></td>
 </tr>
 </tbody></table>
 <p>Gazebo Rendering is a C++ library designed to provide an abstraction
@@ -76,15 +72,15 @@ of libraries designed to rapidly develop robot applications.</p>
 <p><a href="#license">License</a></p>
 <h1>Features</h1>
 <ul>
-<li>Support for rendering engines including OGRE and OGRE-Next</li>
+<li>Support for rendering engines including OGRE and OptiX (experimental)</li>
 <li>Plugin-based architecture. Multiple rendering engine plugins can be loaded at run time.</li>
 <li>Object-oriented scene management.</li>
 </ul>
 <h1>Install</h1>
-<p>See the <a href="https://gazebosim.org/api/rendering/9/installation.html">installation tutorial</a>.</p>
+<p>See the <a href="https://gazebosim.org/api/rendering/10/installation.html">installation tutorial</a>.</p>
 <h1>Usage</h1>
 <p>The Gazebo Rendering API can be found in the documentation. See the
-<a href="https://gazebosim.org/api/rendering/9/installation.html">installation tutorial</a>
+<a href="https://gazebosim.org/api/rendering/10/installation.html">installation tutorial</a>
 on how to build the documentation files using Doxygen.</p>
 <p>You can also take a look at the sample applications in the <code>examples</code> folder.</p>
 <h1>Folder Structure</h1>
@@ -106,6 +102,8 @@ specific folders.</p>
 <li><p><code>ogre</code> : OGRE 1.x rendering engine plugin</p>
 </li>
 <li><p><code>ogre2</code> : OGRE-Next 2.x rendering engine plugin</p>
+</li>
+<li><p><code>optix</code> : OptiX rendering engine plugin</p>
 </li>
 </ul>
 <h1>Contributing</h1>

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -42,7 +42,8 @@ available from <a href="https://github.com/bazelbuild/rules_swift">rules_swift</
 for the reference documentation for the rules and other definitions in this
 repository.</p>
 <h2>Quick setup</h2>
-<p>Copy the latest <code>MODULE.bazel</code> snippet from <a href="https://github.com/bazelbuild/rules_apple/releases">the releases page</a>.</p>
+<p>Copy the latest <code>MODULE.bazel</code> or <code>WORKSPACE</code> snippet from <a href="https://github.com/bazelbuild/rules_apple/releases">the releases
+page</a>.</p>
 <h2>Examples</h2>
 <p>Minimal example:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@build_bazel_rules_apple//apple:ios.bzl&quot;, &quot;ios_application&quot;)
@@ -64,6 +65,7 @@ ios_application(
         &quot;iphone&quot;,
         &quot;ipad&quot;,
     ],
+    infoplists = [&quot;:Info.plist&quot;],
     minimum_os_version = &quot;15.0&quot;,
     deps = [&quot;:MyLibrary&quot;],
 )" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@build_bazel_rules_apple//apple:ios.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ios_application"</span><span style="color:#24292E">)</span></span>
@@ -85,6 +87,7 @@ ios_application(
 <span class="line"><span style="color:#032F62">        "iphone"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#032F62">        "ipad"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    infoplists</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":Info.plist"</span><span style="color:#24292E">],</span></span>
 <span class="line"><span style="color:#E36209">    minimum_os_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "15.0"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":MyLibrary"</span><span style="color:#24292E">],</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
@@ -109,19 +112,7 @@ page</a>.</p>
 </tr>
 </thead>
 <tbody><tr>
-<td align="center">10.x (most recent rolling)</td>
-<td align="center">2.*</td>
-<td align="center">current</td>
-<td align="center"><code>main</code></td>
-</tr>
-<tr>
-<td align="center">9.x</td>
-<td align="center">2.*</td>
-<td align="center">current</td>
-<td align="center"><code>main</code></td>
-</tr>
-<tr>
-<td align="center">8.x</td>
+<td align="center">8.x (most recent rolling)</td>
 <td align="center">2.*</td>
 <td align="center">current</td>
 <td align="center"><code>main</code></td>
@@ -129,14 +120,14 @@ page</a>.</p>
 <tr>
 <td align="center">7.x</td>
 <td align="center">2.*</td>
-<td align="center">4.*</td>
-<td align="center"><code>bazel/7.x</code></td>
+<td align="center">current</td>
+<td align="center"><code>main</code></td>
 </tr>
 <tr>
 <td align="center">6.x</td>
 <td align="center">2.*</td>
 <td align="center">3.13.0</td>
-<td align="center">N/A</td>
+<td align="center"><code>main</code></td>
 </tr>
 <tr>
 <td align="center">5.x</td>

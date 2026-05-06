@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -43,10 +43,10 @@
 <a href="https://coveralls.io/github/grpc/grpc-java?branch=master"><img src="https://coveralls.io/repos/grpc/grpc-java/badge.svg?branch=master&amp;service=github" alt="Line Coverage Status"></a>
 <a href="https://codecov.io/gh/grpc/grpc-java"><img src="https://codecov.io/gh/grpc/grpc-java/branch/master/graph/badge.svg" alt="Branch-adjusted Line Coverage Status"></a></p>
 <h2>Supported Platforms</h2>
-<p>gRPC-Java supports Java 8 and later. Android minSdkVersion 23 (Marshmallow) and
+<p>gRPC-Java supports Java 8 and later. Android minSdkVersion 21 (Lollipop) and
 later are supported with <a href="https://developer.android.com/studio/write/java8-support#supported_features">Java 8 language desugaring</a>.</p>
 <p>TLS usage on Android typically requires Play Services Dynamic Security Provider.
-Please see the <a href="SECURITY.md">Security Readme</a>.</p>
+Please see the <a href="https://github.com/grpc/grpc-java/blob/8fa6000259958fd3b2bdba579ea7dc002ad95777/SECURITY.md" target="_blank" rel="noopener noreferrer">Security Readme</a>.</p>
 <p>Older Java versions are not directly supported, but a branch remains available
 for fixes and releases. See <a href="https://github.com/grpc/proposal/blob/master/P5-jdk-version-support.md#proposal">gRFC P5 JDK Version Support
 Policy</a>.</p>
@@ -66,55 +66,55 @@ Policy</a>.</p>
 <p>For a guided tour, take a look at the <a href="https://grpc.io/docs/languages/java/quickstart">quick start
 guide</a> or the more explanatory <a href="https://grpc.io/docs/languages/java/basics">gRPC
 basics</a>.</p>
-<p>The <a href="https://github.com/grpc/grpc-java/tree/v1.81.0/examples">examples</a> and the
-<a href="https://github.com/grpc/grpc-java/tree/v1.81.0/examples/android">Android example</a>
+<p>The <a href="https://github.com/grpc/grpc-java/tree/v1.78.0/examples">examples</a> and the
+<a href="https://github.com/grpc/grpc-java/tree/v1.78.0/examples/android">Android example</a>
 are standalone projects that showcase the usage of gRPC.</p>
 <h2>Download</h2>
-<p>Download <a href="https://search.maven.org/search?q=g:io.grpc%20AND%20v:1.81.0">the JARs</a>. Or for Maven with non-Android, add to your <code>pom.xml</code>:</p>
+<p>Download <a href="https://search.maven.org/search?q=g:io.grpc%20AND%20v:1.78.0">the JARs</a>. Or for Maven with non-Android, add to your <code>pom.xml</code>:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="&lt;dependency&gt;
   &lt;groupId&gt;io.grpc&lt;/groupId&gt;
   &lt;artifactId&gt;grpc-netty-shaded&lt;/artifactId&gt;
-  &lt;version&gt;1.81.0&lt;/version&gt;
+  &lt;version&gt;1.78.0&lt;/version&gt;
   &lt;scope&gt;runtime&lt;/scope&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
   &lt;groupId&gt;io.grpc&lt;/groupId&gt;
   &lt;artifactId&gt;grpc-protobuf&lt;/artifactId&gt;
-  &lt;version&gt;1.81.0&lt;/version&gt;
+  &lt;version&gt;1.78.0&lt;/version&gt;
 &lt;/dependency&gt;
 &lt;dependency&gt;
   &lt;groupId&gt;io.grpc&lt;/groupId&gt;
   &lt;artifactId&gt;grpc-stub&lt;/artifactId&gt;
-  &lt;version&gt;1.81.0&lt;/version&gt;
+  &lt;version&gt;1.78.0&lt;/version&gt;
 &lt;/dependency&gt;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">io.grpc</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">netty</span><span style="color:#D73A49">-</span><span style="color:#24292E">shaded</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.81</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.78</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">scope</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">runtime</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">scope</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">io.grpc</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">protobuf</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.81</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.78</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">io.grpc</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.81</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">1.78</span><span style="color:#24292E">.0</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>Or for Gradle with non-Android, add to your dependencies:</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="runtimeOnly 'io.grpc:grpc-netty-shaded:1.81.0'
-implementation 'io.grpc:grpc-protobuf:1.81.0'
-implementation 'io.grpc:grpc-stub:1.81.0'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">runtimeOnly </span><span style="color:#032F62">'io.grpc:grpc-netty-shaded:1.81.0'</span></span>
-<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-protobuf:1.81.0'</span></span>
-<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-stub:1.81.0'</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="runtimeOnly 'io.grpc:grpc-netty-shaded:1.78.0'
+implementation 'io.grpc:grpc-protobuf:1.78.0'
+implementation 'io.grpc:grpc-stub:1.78.0'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">runtimeOnly </span><span style="color:#032F62">'io.grpc:grpc-netty-shaded:1.78.0'</span></span>
+<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-protobuf:1.78.0'</span></span>
+<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-stub:1.78.0'</span></span></code></pre>
 <p>For Android client, use <code>grpc-okhttp</code> instead of <code>grpc-netty-shaded</code> and
 <code>grpc-protobuf-lite</code> instead of <code>grpc-protobuf</code>:</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="implementation 'io.grpc:grpc-okhttp:1.81.0'
-implementation 'io.grpc:grpc-protobuf-lite:1.81.0'
-implementation 'io.grpc:grpc-stub:1.81.0'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-okhttp:1.81.0'</span></span>
-<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-protobuf-lite:1.81.0'</span></span>
-<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-stub:1.81.0'</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="implementation 'io.grpc:grpc-okhttp:1.78.0'
+implementation 'io.grpc:grpc-protobuf-lite:1.78.0'
+implementation 'io.grpc:grpc-stub:1.78.0'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-okhttp:1.78.0'</span></span>
+<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-protobuf-lite:1.78.0'</span></span>
+<span class="line"><span style="color:#24292E">implementation </span><span style="color:#032F62">'io.grpc:grpc-stub:1.78.0'</span></span></code></pre>
 <p>For <a href="https://bazel.build">Bazel</a>, you can either
 <a href="https://github.com/bazelbuild/rules_jvm_external">use Maven</a>
 (with the GAVs from above), or use <code>@io_grpc_grpc_java//api</code> et al (see below).</p>
@@ -143,7 +143,7 @@ and <code>src/test/proto</code> directories along with an appropriate plugin.</p
       &lt;configuration&gt;
         &lt;protocArtifact&gt;com.google.protobuf:protoc:3.25.8:exe:${os.detected.classifier}&lt;/protocArtifact&gt;
         &lt;pluginId&gt;grpc-java&lt;/pluginId&gt;
-        &lt;pluginArtifact&gt;io.grpc:protoc-gen-grpc-java:1.81.0:exe:${os.detected.classifier}&lt;/pluginArtifact&gt;
+        &lt;pluginArtifact&gt;io.grpc:protoc-gen-grpc-java:1.78.0:exe:${os.detected.classifier}&lt;/pluginArtifact&gt;
       &lt;/configuration&gt;
       &lt;executions&gt;
         &lt;execution&gt;
@@ -171,7 +171,7 @@ and <code>src/test/proto</code> directories along with an appropriate plugin.</p
 <span class="line"><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">configuration</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">protocArtifact</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">com.google.protobuf:protoc:</span><span style="color:#005CC5">3.25</span><span style="color:#24292E">.8:exe:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{os.detected.classifier}</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">protocArtifact</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">pluginId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">java</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">pluginId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">pluginArtifact</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">io.grpc:protoc</span><span style="color:#D73A49">-</span><span style="color:#24292E">gen</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">java:</span><span style="color:#005CC5">1.81</span><span style="color:#24292E">.0:exe:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{os.detected.classifier}</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">pluginArtifact</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">pluginArtifact</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">io.grpc:protoc</span><span style="color:#D73A49">-</span><span style="color:#24292E">gen</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc</span><span style="color:#D73A49">-</span><span style="color:#24292E">java:</span><span style="color:#005CC5">1.78</span><span style="color:#24292E">.0:exe:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{os.detected.classifier}</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">pluginArtifact</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">      &lt;/</span><span style="color:#24292E">configuration</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">executions</span><span style="color:#D73A49">&gt;</span></span>
 <span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">execution</span><span style="color:#D73A49">&gt;</span></span>
@@ -196,7 +196,7 @@ protobuf {
   }
   plugins {
     grpc {
-      artifact = 'io.grpc:protoc-gen-grpc-java:1.81.0'
+      artifact = 'io.grpc:protoc-gen-grpc-java:1.78.0'
     }
   }
   generateProtoTasks {
@@ -214,7 +214,7 @@ protobuf {
 <span class="line"><span style="color:#24292E">  }</span></span>
 <span class="line"><span style="color:#24292E">  plugins {</span></span>
 <span class="line"><span style="color:#24292E">    grpc {</span></span>
-<span class="line"><span style="color:#24292E">      artifact = </span><span style="color:#032F62">'io.grpc:protoc-gen-grpc-java:1.81.0'</span></span>
+<span class="line"><span style="color:#24292E">      artifact = </span><span style="color:#032F62">'io.grpc:protoc-gen-grpc-java:1.78.0'</span></span>
 <span class="line"><span style="color:#24292E">    }</span></span>
 <span class="line"><span style="color:#24292E">  }</span></span>
 <span class="line"><span style="color:#24292E">  generateProtoTasks {</span></span>
@@ -238,7 +238,7 @@ protobuf {
   }
   plugins {
     grpc {
-      artifact = 'io.grpc:protoc-gen-grpc-java:1.81.0'
+      artifact = 'io.grpc:protoc-gen-grpc-java:1.78.0'
     }
   }
   generateProtoTasks {
@@ -261,7 +261,7 @@ protobuf {
 <span class="line"><span style="color:#24292E">  }</span></span>
 <span class="line"><span style="color:#24292E">  plugins {</span></span>
 <span class="line"><span style="color:#24292E">    grpc {</span></span>
-<span class="line"><span style="color:#24292E">      artifact = </span><span style="color:#032F62">'io.grpc:protoc-gen-grpc-java:1.81.0'</span></span>
+<span class="line"><span style="color:#24292E">      artifact = </span><span style="color:#032F62">'io.grpc:protoc-gen-grpc-java:1.78.0'</span></span>
 <span class="line"><span style="color:#24292E">    }</span></span>
 <span class="line"><span style="color:#24292E">  }</span></span>
 <span class="line"><span style="color:#24292E">  generateProtoTasks {</span></span>
@@ -291,7 +291,7 @@ to check for usages of <code>@ExperimentalApi</code> and <code>@Internal</code> 
 that depends on gRPC. It may also be used to check for <code>@Internal</code> usage or
 unintended <code>@ExperimentalApi</code> consumption in non-library code.</p>
 <h2>How to Build</h2>
-<p>If you are making changes to gRPC-Java, see the <a href="COMPILING.md">compiling
+<p>If you are making changes to gRPC-Java, see the <a href="https://github.com/grpc/grpc-java/blob/8fa6000259958fd3b2bdba579ea7dc002ad95777/COMPILING.md" target="_blank" rel="noopener noreferrer">compiling
 instructions</a>.</p>
 <h2>High-level Components</h2>
 <p>At a high level there are three distinct layers to the library: <em>Stub</em>,

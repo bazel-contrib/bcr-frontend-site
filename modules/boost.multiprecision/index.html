@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -84,7 +84,7 @@ This usually provides better performance than using types configured without exp
 can be found <a href="https://www.youtube.com/watch?v=mK4WjpvLj4c">here</a>.</p>
 <h2>Using Multiprecision</h2>
 <p align="center">
-  <a href="https://godbolt.org/z/cPeboe4Ge" alt="godbolt">
+  <a href="https://godbolt.org/z/hd95P3ovK" alt="godbolt">
     <img src="https://img.shields.io/badge/try%20it%20on-godbolt-green"></a>
 </p>
 
@@ -94,7 +94,7 @@ floating-point backend type <code>cpp_bin_float</code> to compute ${\sim}100$ de
 <p>where we also observe that Multiprecision can seamlesly interoperate with
 <a href="https://github.com/boostorg/math"><code>Boost.Math</code></a>.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// ------------------------------------------------------------------------------
-// Copyright Christopher Kormanyos 2024 - 2026.
+// Copyright Christopher Kormanyos 2024 - 2025.
 // Distributed under the Boost Software License,
 // Version 1.0. (See accompanying file LICENSE_1_0.txt
 // or copy at http://www.boost.org/LICENSE_1_0.txt)
@@ -137,7 +137,7 @@ auto main() -&gt; int
 
   std::cout &lt;&lt; strm.str() &lt;&lt; std::endl;
 }" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> ------------------------------------------------------------------------------</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Copyright Christopher Kormanyos </span><span style="color:#005CC5">2024</span><span style="color:#D73A49"> -</span><span style="color:#005CC5"> 2026</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Copyright Christopher Kormanyos </span><span style="color:#005CC5">2024</span><span style="color:#D73A49"> -</span><span style="color:#005CC5"> 2025</span><span style="color:#24292E">.</span></span>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Distributed under the Boost Software License,</span></span>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Version </span><span style="color:#005CC5">1.0</span><span style="color:#24292E">. (See accompanying </span><span style="color:#E36209">file</span><span style="color:#005CC5"> LICENSE_1_0</span><span style="color:#24292E">.txt</span></span>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> copy at http:</span><span style="color:#D73A49">//</span><span style="color:#24292E">www.boost.org</span><span style="color:#D73A49">/</span><span style="color:#005CC5">LICENSE_1_0</span><span style="color:#24292E">.txt)</span></span>
@@ -180,10 +180,6 @@ auto main() -&gt; int
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> strm.str() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p>The expected output is</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="sqrt_pi   : 1.772453850905516027298167483341145182797549456122387128213807789852911284591032181374950656738544665
-gamma_half: 1.772453850905516027298167483341145182797549456122387128213807789852911284591032181374950656738544666" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">sqrt_pi   : </span><span style="color:#005CC5">1.772453850905516027298167483341145182797549456122387128213807789852911284591032181374950656738544665</span></span>
-<span class="line"><span style="color:#24292E">gamma_half: </span><span style="color:#005CC5">1.772453850905516027298167483341145182797549456122387128213807789852911284591032181374950656738544666</span></span></code></pre>
 <h2>Standalone</h2>
 <p>Defining <code>BOOST_MP_STANDALONE</code> allows <code>Boost.Multiprecision</code>
 to be used with the only dependency being <a href="https://github.com/boostorg/config">Boost.Config</a>.

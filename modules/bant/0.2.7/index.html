@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -161,7 +161,7 @@ classic way <code>"str %s %s" % (foo,bar)</code>.</li>
 <li>Array accesses.</li>
 <li>String and list concatenation with <code>+</code>.</li>
 <li>Some basic arithmetic operators.</li>
-<li>Macro substitution of <a href="./bant/builtin-macros.bnt">builtin-macros</a> (in a bant-specific syntax) to
+<li>Macro substitution of <a href="https://github.com/hzeller/bant/blob/f009ff3c9b5de76b87b530da23fc7f1eb4f2a622/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">builtin-macros</a> (in a bant-specific syntax) to
 help bant better see through some constructs (used in <code>dwyu</code>; to enable
 in printing: use <code>-b</code>).</li>
 </ul>
@@ -169,7 +169,7 @@ in printing: use <code>-b</code>).</li>
 <code>-vv</code> - it will show what operations it glossed over (If observed in the field:
 good candidate to implement next).</p>
 <h4>Macros</h4>
-<p>Bant ships with a set of <a href="./bant/builtin-macros.bnt">built-in macros</a> that map common
+<p>Bant ships with a set of <a href="https://github.com/hzeller/bant/blob/f009ff3c9b5de76b87b530da23fc7f1eb4f2a622/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">built-in macros</a> that map common
 custom rules (e.g. <code>cc_proto_library</code>) to standard Bazel rules so that <code>dwyu</code>
 and other commands can analyze them.</p>
 <p>If your project uses custom rules that bant doesn't know about (e.g.
@@ -197,7 +197,7 @@ strings in the AST of a rule matches a pattern.</p>
 <p>The output contains the full rule matching the grep pattern, highlighted text
 if output <code>isatty()</code>, the BUILD file, and location where it is found, the
 fully qualified name of the target, as well as visibility.</p>
-<p><img src="img/grep-print.png" alt="print grep output"></p>
+<p><img src="https://raw.githubusercontent.com/hzeller/bant/f009ff3c9b5de76b87b530da23fc7f1eb4f2a622/img/grep-print.png" alt="print grep output"></p>
 <p>Evaluation of <a href="https://bazel.build/docs/configurable-attributes#custom-flags">custom flags</a> in <code>select()</code> also works (partially: see note in
 <a href="#synopsis">synopsis</a> output), and similar to
 <code>bazel</code>, you pass these options with <code>--//...</code> to bant; let's use that

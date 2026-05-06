@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -36,7 +36,7 @@ sourcekit-bazel-bsp is designed specifically for projects that use the <a href="
 <h2>Features</h2>
 <ul>
 <li>(All IDEs + Claude) All of the usual indexing features such as code completion, jump to definition, error annotations, refactoring and more, for Swift, Obj-C, and C++ (via the official <a href="https://github.com/swiftlang/sourcekit-lsp">sourcekit-lsp</a>)</li>
-<li>(Cursor / VSCode): Building, launching, debugging (via <a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.lldb-dap">lldb-dap</a>), testing (both via the <em>Testing</em> tab and via the source file itself), as well as simulator management, all from within the IDE (via our <a href="ide/vscode/README.md">companion extension</a>)</li>
+<li>(Cursor / VSCode): Building, launching, debugging (via <a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.lldb-dap">lldb-dap</a>), testing (both via the <em>Testing</em> tab and via the source file itself), as well as simulator management, all from within the IDE (via our <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/ide/vscode/README.md" target="_blank" rel="noopener noreferrer">companion extension</a>)</li>
 </ul>
 <h2>Requirements</h2>
 <ul>
@@ -57,7 +57,7 @@ sourcekit-bazel-bsp is designed specifically for projects that use the <a href="
 </ul>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;sourcekit_bazel_bsp&quot;, version = &quot;0.8.3&quot;, repo_name = &quot;sourcekit_bazel_bsp&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sourcekit_bazel_bsp"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.3"</span><span style="color:#24292E">, </span><span style="color:#E36209">repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sourcekit_bazel_bsp"</span><span style="color:#24292E">)</span></span></code></pre>
 <ul>
-<li>Define a <code>setup_sourcekit_bsp</code> rule in a BUILD.bazel file of your choice. <a href="rules/setup_sourcekit_bsp.bzl">You can find the full list of arguments here</a>. Although the exact setup differs from project to project, here's what an example setup would look like:</li>
+<li>Define a <code>setup_sourcekit_bsp</code> rule in a BUILD.bazel file of your choice. <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/rules/setup_sourcekit_bsp.bzl" target="_blank" rel="noopener noreferrer">You can find the full list of arguments here</a>. Although the exact setup differs from project to project, here's what an example setup would look like:</li>
 </ul>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl&quot;, &quot;setup_sourcekit_bsp&quot;)
 
@@ -111,7 +111,7 @@ setup_sourcekit_bsp(
 <p>To use Claude's LSP features with a custom sourcekit-lsp binary:</p>
 <ul>
 <li>Uninstall the official swift-lsp plugin if you installed it previously.</li>
-<li>Create a custom plugin marketplace by <a href="Example/claude-marketplace/">copying the claude-marketplace folder from our Example project</a> to your repo, making sure to edit the binary path in <code>.lsp.json</code> to match what's used in your project (use absolute paths if possible).</li>
+<li>Create a custom plugin marketplace by <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/Example/claude-marketplace/" target="_blank" rel="noopener noreferrer">copying the claude-marketplace folder from our Example project</a> to your repo, making sure to edit the binary path in <code>.lsp.json</code> to match what's used in your project (use absolute paths if possible).</li>
 <li>Add the following entries to your <code>.claude/settings.json</code> (or <code>.claude/settings.local.json</code>):</li>
 </ul>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="{
@@ -143,19 +143,19 @@ setup_sourcekit_bsp(
 <h3>Cursor / VSCode</h3>
 <ul>
 <li>Download and install the official <a href="https://marketplace.visualstudio.com/items?itemName=swiftlang.swift-vscode">Swift</a> and <a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.lldb-dap">LLDB-DAP</a> extensions.<ul>
-<li>We recommend disabling the SwiftPM and Swiftly integrations as they can interfere with the BSP, as well as enabling the IDE's native auto-save function for a better experience. It's also a good idea to set up your <code>files.exclude</code> setting to cover all Bazel symlinks. For a complete list of recommended settings, check out the setup script from our <a href="./Example/tools/vscode/setup_sourcekit_vscode_settings.sh">Example project</a>. You can see them after running the project generation.</li>
+<li>We recommend disabling the SwiftPM and Swiftly integrations as they can interfere with the BSP, as well as enabling the IDE's native auto-save function for a better experience. It's also a good idea to set up your <code>files.exclude</code> setting to cover all Bazel symlinks. For a complete list of recommended settings, check out the setup script from our <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/Example/tools/vscode/setup_sourcekit_vscode_settings.sh" target="_blank" rel="noopener noreferrer">Example project</a>. You can see them after running the project generation.</li>
 </ul>
 </li>
 <li><strong>(Optional)</strong> Configure your workspace to use a custom <code>sourcekit-lsp</code> binary by placing the provided binary from the release archive (or compiling/providing one of your own) at a place of your choice, creating a <code>.vscode/settings.json</code> JSON file at the root of your repository, and adding the following entry to it: <code>"swift.sourcekit-lsp.serverPath": "(absolute path to the sourcekit-lsp binary to use)"</code><ul>
 <li>This is not strictly necessary. However, as we currently make use of LSP features that are not yet shipped with Xcode, you may face performance and other usability issues when using the version that is shipped with Xcode. Consider using the version provided alongside sourcekit-bazel-bsp (or compiling/providing your own) for the best experience.</li>
 </ul>
 </li>
-<li><strong>(Optional)</strong> To enable features like building and testing from within the IDE, follow the setup instructions for our <a href="ide/vscode/README.md">companion extension</a>. You can skip this if you're only interested in the indexing features such as jump-to-definition.</li>
+<li><strong>(Optional)</strong> To enable features like building and testing from within the IDE, follow the setup instructions for our <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/ide/vscode/README.md" target="_blank" rel="noopener noreferrer">companion extension</a>. You can skip this if you're only interested in the indexing features such as jump-to-definition.</li>
 <li>On the IDE, open a workspace containing the repository in question. If you already had one open, either restart the language server (<code>Cmd+Shift+P -&gt; Swift: Restart LSP Server</code>) or reload the entire window (<code>Cmd+Shift+P -&gt; Reload Window</code>) if you don't see the previous option. The BSP will then automatically bootstrap itself, with several progress indicators showing at the bottom of the IDE. It may take a while for the indexing features to kick in the first time you use it due to the lack of cache, but subsequent runs should be much faster.</li>
 </ul>
 <h4>After Integrating</h4>
 <p>While a <em>complete</em> indexing run can take a very long time on large projects, <strong>keep in mind that you don't need one.</strong> As long as the individual target you're working with is indexed (which happens automatically as you start working on it, as the LSP prioritizes targets you're actively modifying), all of the usual indexing features will work as you'd expect. Make sure to also check the best practices below to further optimize the BSP's performance.</p>
-<p>If you experience any trouble trying to get it to work, check out the <a href="./Example">Example/ folder</a> for a test project with a pre-configured Bazel and <code>.bsp/</code> folder setup. The <em>Troubleshooting</em> section below also contains instructions on how to make sure the integration is working and debug sourcekit-bazel-bsp.</p>
+<p>If you experience any trouble trying to get it to work, check out the <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/Example" target="_blank" rel="noopener noreferrer">Example/ folder</a> for a test project with a pre-configured Bazel and <code>.bsp/</code> folder setup. The <em>Troubleshooting</em> section below also contains instructions on how to make sure the integration is working and debug sourcekit-bazel-bsp.</p>
 <h3>Other IDEs, and AI Models</h3>
 <p>The setup instructions for other IDEs (and by extension, Claude Code) will depend on how the IDE integrates with LSPs. You should then search for instructions on how to install sourcekit-lsp on your IDE of choice and enable background indexing. We also recommend finding a way to override the sourcekit-lsp binary itself for the same reasons described in the Cursor / VSCode instructions.</p>
 <p>Although the main focus of this project is specifically Cursor / VSCode, we are very interested in knowing what your experience was integrating it with other IDEs. If you've found concrete setup steps for a particular IDE, you are welcome to open a PR including it in this README file.</p>

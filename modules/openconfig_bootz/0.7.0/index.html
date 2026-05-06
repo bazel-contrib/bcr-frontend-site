@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -31,8 +31,8 @@
 <p>Define a structured data format for exchanging as much data with the network
 device as possible, to take the device from a factory state to a fully
 production supportable state.</p>
-<p>Additionally, define both a dial-out and dial-in RPC service which can perform
-the boot workflow.</p>
+<p>Additionally, define both a dialout and dialin RPC service which can perform the
+boot workflow.</p>
 <p>The overall design of bootz is meant to allow operators of equipment to provide
 a data-only bootstrap request and allow vendors the freedom to implement the
 intent based on their own internal APIs.</p>
@@ -192,7 +192,7 @@ a set is having a specific output.</li>
 <p>We propose to follow the “multiple namespaces for configuration” approach
 described above, whereby separate configuration stores, per the diagram and
 process below.</p>
-<p><img src="docs/img/config-mgmt.png" alt="#configuration-mgmt"></p>
+<p><img src="https://raw.githubusercontent.com/openconfig/bootz/517d2dfd8110be129676d7a05138c6ac6f7236fc/docs/img/config-mgmt.png" alt="#configuration-mgmt"></p>
 <p>Figure 1: Proposed configuration namespaces and clients.</p>
 <p>The proposed operational model for devices is shown in Figure 1 above.</p>
 <ul>
@@ -298,9 +298,8 @@ or <code>OPTION_V6_SZTP_REDIRECT</code> (136).</li>
 <li>Bootstrapping Service<ol>
 <li>Device initiates a gRPC connection <code>Bootstrap.GetBootstrapData</code> to
 the bootz-server whose address was obtained from the DHCP server.</li>
-<li>In the TLS handshake, the server will send a CertificateRequest message.
-The device <strong>MUST</strong> present the IDevID cert of the active control card
-in this TLS handshake.</li>
+<li>The TLS connection <strong>MUST</strong> be secured on the client-side with the
+IDevID of the active control card.</li>
 <li>The responses from the bootz-server are signed by ownership-certificate.
 The device validates the ownership-voucher, which authenticates the
 ownership-certificate. The device verifies the signature of the message
@@ -554,12 +553,7 @@ install the OS.<ul>
 </ol>
 </li>
 <li>BootstrapStreamRequest.report_status_request<ol>
-<li>The device sends a <code>ReportStatusRequest</code> message to the bootz-server.
-NOTE: If this <code>ReportStatusRequest</code> message is sent in a new stream
-(i.e., there was a reboot breaking the previous stream), then the
-device must use the <code>server_trust_cert</code> received earlier from the
-<code>BootstrapDataResponse</code> to verify the identity of the Bootz server
-during the gRPC handshake of this new stream.<ul>
+<li>The device sends a <code>ReportStatusRequest</code> message to the bootz-server.<ul>
 <li>If bootstrapping is successful, the device should report all control
 cards as <code>CONTROL_CARD_STATUS_INITIALIZED</code> and
 <code>BOOTSTRAP_STATUS_SUCCESS</code>.</li>
@@ -606,10 +600,8 @@ or <code>OPTION_V6_SZTP_REDIRECT</code> (136).</li>
 <li>Bootstrapping Service<ol>
 <li>Device initiates a gRPC connection <code>Bootstrap.BootstrapStreamV1</code> to
 the bootz-server whose address was obtained from the DHCP server.</li>
-<li>In the TLS handshake, the server will send a CertificateRequest message.
-The device <strong>MUST NOT</strong> present a client certificate in this TLS
-handshake. The server MUST be configured to allow the handshake to
-proceed without a client certificate.</li>
+<li>The device <strong>MUST NOT</strong> present a client certificate in the TLS
+handshake.</li>
 </ol>
 </li>
 <li>BootstrapStreamRequestV1.bootstrap_request<ol>
@@ -685,9 +677,8 @@ the <code>TransportKey</code> message into the wire format, then invoke
 <code>TPM2_Import</code> command to import the received HMAC-SHA256 key into TPM,
 finally invoke <code>TPM2_Certify</code> command to certify any TPM residing key
 using the imported HMAC-SHA256 key. When invoking <code>TPM2_Certify</code>
-command, the <code>qualifyingData</code> argument must hold a <code>TPMT_HA</code> structure,
-with <code>TPMT_HA.hashAlg</code> field set to TPM_ALG_SHA256 and <code>TPMT_HA.digest</code>
-field set to the SHA256 hash over the <code>serialized_transport_key</code>.</li>
+command, the <code>qualifyingData</code> argument must be set to the SHA256 hash
+over the <code>serialized_transport_key</code> field.</li>
 <li>For TPM 1.2, populate the <code>tpm12_ek</code> field of this message. First
 create a <code>TransportKey</code> message by generating an ephemeral HPKE key
 according to the chosen cipher suite, and serialize the <code>TransportKey</code>
@@ -749,12 +740,7 @@ install the OS.<ul>
 </ol>
 </li>
 <li>BootstrapStreamRequestV1.report_status_request<ol>
-<li>The device sends a <code>ReportStatusRequest</code> message to Bootz server.
-NOTE: If this <code>ReportStatusRequest</code> message is sent in a new stream
-(i.e., there was a reboot breaking the previous stream), then the
-device must use the <code>server_trust_cert</code> received earlier from the
-<code>BootstrapDataResponse</code> to verify the identity of the Bootz server
-during the gRPC handshake of this new stream.<ul>
+<li>The device sends a <code>ReportStatusRequest</code> message to Bootz server.<ul>
 <li>If bootstrapping is successful, the device should report all control
 cards as <code>CONTROL_CARD_STATUS_INITIALIZED</code> and
 <code>BOOTSTRAP_STATUS_SUCCESS</code>.</li>
@@ -830,17 +816,17 @@ production state and sync's configuration and other files.</li>
 </ol>
 <h3>Certificate deployment options</h3>
 <h4>Bootz only</h4>
-<p><img src="design_images/bootz.png" alt="Alt text" title="Certs delivered as part of Bootz"></p>
+<p><img src="https://raw.githubusercontent.com/openconfig/bootz/517d2dfd8110be129676d7a05138c6ac6f7236fc/design_images/bootz.png" alt="Alt text" title="Certs delivered as part of Bootz"></p>
 <p>In the Bootz only workflow certificates are delivered by the bootz server in the
 initial bootz data payload. After reboot the device will use the provided
 security profile and certificates provided in the bootz message.</p>
 <h4>Bootz with Certz rotation</h4>
-<p><img src="design_images/bootz_certz.png" alt="Alt text" title="Certs delivered via Certz"></p>
+<p><img src="https://raw.githubusercontent.com/openconfig/bootz/517d2dfd8110be129676d7a05138c6ac6f7236fc/design_images/bootz_certz.png" alt="Alt text" title="Certs delivered via Certz"></p>
 <p>In this workflow the device will boot from bootz but will use it's IDevID cert
 for initial services. Once rebooted, the device can be reached via Certz using
 the IDevID cert.</p>
 <h4>Bootz with Enrollz and Attestz</h4>
-<p><img src="design_images/bootz_enrollz.png" alt="Alt text" title="Certs delivered via Certz after Enrollz"></p>
+<p><img src="https://raw.githubusercontent.com/openconfig/bootz/517d2dfd8110be129676d7a05138c6ac6f7236fc/design_images/bootz_enrollz.png" alt="Alt text" title="Certs delivered via Certz after Enrollz"></p>
 <p>This is the preferred workflow for security considerations. This workflow
 utilizes Enrollz and Attestz to provide enrollment then measured boot to
 validate the state of device before providing any "production" certificates.</p>

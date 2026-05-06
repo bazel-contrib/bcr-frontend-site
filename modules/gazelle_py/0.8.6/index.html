@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -104,7 +104,7 @@ examples/                     # Self-contained example workspaces (basic, compos
 <h2>What this repo gives you</h2>
 <ul>
 <li><strong><code>py</code></strong> — Gazelle Python language extension. Generates and maintains <code>BUILD.bazel</code> files for Python packages, emitting stock <a href="https://rules-python.readthedocs.io/en/stable/api/rules_python/python/defs.html#py_library"><code>py_library</code></a> and <a href="https://rules-python.readthedocs.io/en/stable/api/rules_python/python/defs.html#py_test"><code>py_test</code></a> rules. Consumers swap to their own macros via <code># gazelle:map_kind</code>. Compose your own <code>gazelle_binary(languages = ["@gazelle_py//py"])</code>.</li>
-<li><strong><code>crates/import_extractor</code></strong> — Rust staticlib that parses Python imports via <a href="https://github.com/astral-sh/ruff"><code>ruff</code></a>'s parser. Exposes a 2-function, plugin-namespaced C ABI (<code>gazelle_py_ie_dispatch</code> / <code>gazelle_py_ie_free</code>); the gazelle plugin links it via cgo and dispatches in-process — no subprocess startup, no JSON serialization, just protobuf bytes across the FFI boundary. See <a href="crates/import_extractor/README.md"><code>crates/import_extractor/README.md</code></a>.</li>
+<li><strong><code>crates/import_extractor</code></strong> — Rust staticlib that parses Python imports via <a href="https://github.com/astral-sh/ruff"><code>ruff</code></a>'s parser. Exposes a 2-function, plugin-namespaced C ABI (<code>gazelle_py_ie_dispatch</code> / <code>gazelle_py_ie_free</code>); the gazelle plugin links it via cgo and dispatches in-process — no subprocess startup, no JSON serialization, just protobuf bytes across the FFI boundary. See <a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/crates/import_extractor/README.md" target="_blank" rel="noopener noreferrer"><code>crates/import_extractor/README.md</code></a>.</li>
 </ul>
 <h2>Usage</h2>
 <p>Add <code>gazelle_py</code> to your <code>MODULE.bazel</code> (current version is <code>0.0.0</code>; replace once a release is tagged):</p>
@@ -153,7 +153,7 @@ build:linux --linkopt=-no-pie" style="position: absolute; right: 4px; top: 4px;"
 <span class="line"><span style="color:#6A737D"># rules_go cgo external link via clang+lld can't produce PIE. Drop</span></span>
 <span class="line"><span style="color:#6A737D"># when Go 1.27 (Aug 2026) lands PIE-compatible objects.</span></span>
 <span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">linkopt</span><span style="color:#D73A49">=-</span><span style="color:#24292E">no</span><span style="color:#D73A49">-</span><span style="color:#24292E">pie</span></span></code></pre>
-<p>See <a href="examples/basic/.bazelrc"><code>examples/basic/.bazelrc</code></a> for a working setup.</p>
+<p>See <a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/basic/.bazelrc" target="_blank" rel="noopener noreferrer"><code>examples/basic/.bazelrc</code></a> for a working setup.</p>
 </blockquote>
 <p>In your root <code>BUILD.bazel</code>, compose a <code>gazelle_binary</code> that includes our language and wire up a <code>gazelle</code> runner:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@gazelle//:def.bzl&quot;, &quot;gazelle&quot;, &quot;gazelle_binary&quot;)
@@ -192,7 +192,7 @@ bazel run //:gazelle -- update -mode=diff   # idempotency check" style="position
 <li><code>py_test</code> for tests (loaded from <code>@rules_python//python:defs.bzl</code>)</li>
 </ul>
 <p>If you have your own macros, use <code># gazelle:map_kind</code> to swap.</p>
-<p>Self-contained example workspaces live under <a href="examples/"><code>examples/</code></a>:</p>
+<p>Self-contained example workspaces live under <a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/" target="_blank" rel="noopener noreferrer"><code>examples/</code></a>:</p>
 <table>
 <thead>
 <tr>
@@ -201,27 +201,27 @@ bazel run //:gazelle -- update -mode=diff   # idempotency check" style="position
 </tr>
 </thead>
 <tbody><tr>
-<td><a href="examples/basic"><code>basic/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/basic" target="_blank" rel="noopener noreferrer"><code>basic/</code></a></td>
 <td>Single Python package, stdlib-only imports, sibling test. Smallest useful setup.</td>
 </tr>
 <tr>
-<td><a href="examples/composite"><code>composite/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/composite" target="_blank" rel="noopener noreferrer"><code>composite/</code></a></td>
 <td>Multi-package layout exercising the first-party <code>RuleIndex</code> for cross-directory imports.</td>
 </tr>
 <tr>
-<td><a href="examples/edge_cases"><code>edge_cases/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/edge_cases" target="_blank" rel="noopener noreferrer"><code>edge_cases/</code></a></td>
 <td>Nested-block imports (function/class bodies, <code>if TYPE_CHECKING:</code>, <code>try/except ImportError</code>) — regression net for the ruff visitor.</td>
 </tr>
 <tr>
-<td><a href="examples/file_mode"><code>file_mode/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/file_mode" target="_blank" rel="noopener noreferrer"><code>file_mode/</code></a></td>
 <td><code>python_generation_mode = file</code> — one library/test rule per <code>.py</code> file.</td>
 </tr>
 <tr>
-<td><a href="examples/project_mode"><code>project_mode/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/project_mode" target="_blank" rel="noopener noreferrer"><code>project_mode/</code></a></td>
 <td><code>python_generation_mode = project</code> — entire subtree rolled into a single library/test rule.</td>
 </tr>
 <tr>
-<td><a href="examples/naming_conventions"><code>naming_conventions/</code></a></td>
+<td><a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/examples/naming_conventions" target="_blank" rel="noopener noreferrer"><code>naming_conventions/</code></a></td>
 <td><code>$package_name$</code> naming placeholders, <code>python_skip_empty_init</code>, and the comma-list <code>python_test_file_pattern</code> replacement.</td>
 </tr>
 </tbody></table>
@@ -289,7 +289,7 @@ bazel run //:gazelle -- update -mode=diff   # idempotency check" style="position
 <span class="line"><span style="color:#24292E">    Idx</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">Res: matching labels</span></span>
 <span class="line"><span style="color:#24292E">    Res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Res: synthesize ancestor conftest deps (test rules only)</span></span>
 <span class="line"><span style="color:#24292E">    Res</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">Gz: rule.SetAttr(</span><span style="color:#032F62">"deps"</span><span style="color:#24292E">, </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span></span></code></pre>
-<p>The Rust crate at <a href="crates/import_extractor"><code>crates/import_extractor</code></a> is built as a <code>rust_static_library</code> and linked into the Go plugin via <code>cdeps</code>. Calls into it go through cgo - no subprocess, no IPC.</p>
+<p>The Rust crate at <a href="https://github.com/perplexityai/gazelle_py/blob/73c94cebba05efebb9753442a4fb415b84ee96f2/crates/import_extractor" target="_blank" rel="noopener noreferrer"><code>crates/import_extractor</code></a> is built as a <code>rust_static_library</code> and linked into the Go plugin via <code>cdeps</code>. Calls into it go through cgo - no subprocess, no IPC.</p>
 <h2>Configuration</h2>
 <p>All configuration is via <code># gazelle:&lt;key&gt; &lt;value&gt;</code> directives in <code>BUILD.bazel</code> files (they inherit into subdirectories). Directive keys mirror <a href="https://rules-python.readthedocs.io/en/latest/gazelle/docs/index.html">rules_python's gazelle plugin</a> so you can swap between the two without rewriting BUILD-file directives.</p>
 <p>The one exception is <code>python_source_extension</code>, which has no rules_python analog - rules_python hardcodes <code>.py</code>/<code>.pyi</code>.</p>

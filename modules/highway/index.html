@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -136,68 +136,29 @@ software projects."</li>
 <li><a href="https://github.com/kfjahnke/zimt">zimt</a>: C++11 template library to process n-dimensional arrays with multi-threaded SIMD code</li>
 <li><a href="https://github.com/google/highway/tree/master/hwy/contrib/sort">vectorized Quicksort</a> (<a href="https://arxiv.org/abs/2205.05982">paper</a>)</li>
 </ul>
-<p>Highway can also be installed via a package manager or from a repository:</p>
-<details>
-<summary>
-Click to expand BSD repositories
-</summary>
-
+<p>If you'd like to get Highway, in addition to cloning from this GitHub repository
+or using it as a Git submodule, you can also find it in the following package
+managers or repositories:</p>
 <ul>
-<li><a href="https://github.com/DragonFlyBSD/DPorts/tree/master/devel/highway">DragonFlyBSD</a></li>
-<li><a href="https://cgit.freebsd.org/ports/tree/devel/highway">FreeBSD</a></li>
-<li><a href="https://github.com/ghostbsd/ghostbsd-ports/tree/main/devel/highway">GhostBSD</a></li>
-<li><a href="https://www.midnightbsd.org/mports/devel/highway/README.html">MidnightBSD</a></li>
+<li>alpinelinux</li>
+<li>conan-io</li>
+<li>conda-forge</li>
+<li>DragonFlyBSD,</li>
+<li>fd00/yacp</li>
+<li>freebsd</li>
+<li>getsolus/packages</li>
+<li>ghostbsd</li>
+<li>microsoft/vcpkg</li>
+<li>MidnightBSD</li>
+<li>MSYS2</li>
+<li>NetBSD</li>
+<li>openSUSE</li>
+<li>opnsense</li>
+<li>Xilinx/Vitis_Libraries</li>
+<li>xmake-io/xmake-repo</li>
 </ul>
-</details>
-
-<details>
-<summary>
-Click to expand cross platform package repositories
-</summary>
-
-<ul>
-<li><a href="https://conan.io/center/recipes/highway">conan-io</a></li>
-<li><a href="https://anaconda.org/channels/conda-forge/packages/libhwy/overview">conda-forge</a></li>
-<li><a href="https://docs.easybuild.io/version-specific/supported-software/h/Highway/">EasyBuild</a></li>
-<li><a href="https://formulae.brew.sh/formula/highway">Homebrew</a></li>
-<li><a href="https://vcpkg.io/en/package/highway">microsoft/vcpkg</a></li>
-<li><a href="https://packages.spack.io/package.html?name=highway">spack</a></li>
-<li><a href="https://github.com/xmake-io/xmake-repo/tree/dev/packages/h/highway">xmake-io/xmake-repo</a></li>
-</ul>
-</details>
-
-<details>
-<summary>
-Click to expand linux package repositories
-</summary>
-
-<p>Obtained from <a href="https://repology.org/project/highway-simd-library/versions">repology</a></p>
-<p><a href="https://repology.org/project/highway-simd-library/versions"><img src="https://repology.org/badge/vertical-allrepos/highway-simd-library.svg" alt="Packaging status"></a></p>
-</details>
-
-<details>
-<summary>
-    Click to expand Windows package repositories
-</summary>
-
-<ul>
-<li><a href="https://github.com/fd00/yacp/tree/master/highway">fd00/yacp</a></li>
-<li><a href="https://packages.msys2.org/search?t=binpkg&amp;q=highway">MSYS2</a></li>
-</ul>
-</details>
-
-<details>
-<summary>
-  Click to expand other operating systems and environments where Highway
-    has been used
-</summary>
-
-<ul>
-<li><a href="https://opnsense.org/">OPNsense</a></li>
-<li><a href="https://github.com/Xilinx/Vitis_Libraries">Xilinx/Vitis_Libraries</a></li>
-</ul>
-</details>
-
+<p>See also the list at <a href="https://repology.org/project/highway-simd-library/versions">https://repology.org/project/highway-simd-library/versions</a>
+.</p>
 <h2>Current status</h2>
 <h3>Targets</h3>
 <p>Highway supports 27 targets, listed in alphabetical order of platform:</p>
@@ -249,7 +210,7 @@ updates that have the same major version number.</p>
 native x86, or QEMU for RISC-V and Arm) and MSVC 2019 (v19.28, running on native
 x86).</p>
 <p>Before releases, we also test on x86 with Clang and GCC, and Armv7/8 via GCC
-cross-compile. See the <a href="g3doc/release_testing_process.md">testing process</a> for
+cross-compile. See the <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/release_testing_process.md" target="_blank" rel="noopener noreferrer">testing process</a> for
 details.</p>
 <h3>Related modules</h3>
 <p>The <code>contrib</code> directory contains SIMD-related utilities: an image class with
@@ -262,13 +223,13 @@ functions including a complete math library.</p>
 <p>If you have existing code using x86/NEON intrinsics, you may be interested in
 <a href="https://github.com/simd-everywhere/simde">SIMDe</a>, which emulates those
 intrinsics using other platforms' intrinsics or autovectorization.</p>
-<p><a href="https://github.com/xtensor-stack/xsimd">xSIMD</a> is a header only C++ library. It
-supports Arm, Power, RISC-V, WebAssembly and x86 targets. Has a high level
+<p><a href="https://github.com/xtensor-stack/xsimd">xSIMD</a> is a header only C++ library.
+It supports Arm, Power, RISC-V, WebAssembly and x86 targets.  Has a high level
 interface, but fewer supported operations.</p>
 <p><a href="https://github.com/ashvardanian/NumKong">NumKong</a> a SIMD accelerated math C
 library focused on operations such as dot products and mixed precision matrix
-multiplications. It can be used from C++, Go, Python, Rust, Swift and
-WebAssembly. Accelerated operations are available on Arm, LoongArch, Power,
+multiplications.  It can be used from C++, Go, Python, Rust, Swift and
+WebAssembly.  Accelerated operations are availble on ARM, LoongArch, Power,
 RISC-V and x86.</p>
 <h2>Installation</h2>
 <p>This project uses CMake to generate and build. In a Debian-based system you can
@@ -310,10 +271,10 @@ above plus <code>-isystem /usr/i686-linux-gnu/include/c++/12/i686-linux-gnu</cod
 <p>The highway port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
 <h2>Quick start</h2>
 <p>You can use the <code>benchmark</code> inside examples/ as a starting point.</p>
-<p>A <a href="g3doc/quick_reference.md">quick-reference page</a> briefly lists all operations
-and their parameters, and the <a href="g3doc/instruction_matrix.pdf">instruction_matrix</a>
+<p>A <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference page</a> briefly lists all operations
+and their parameters, and the <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/instruction_matrix.pdf" target="_blank" rel="noopener noreferrer">instruction_matrix</a>
 indicates the number of instructions per operation.</p>
-<p>The <a href="g3doc/faq.md">FAQ</a> answers questions about portability, API design and
+<p>The <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/faq.md" target="_blank" rel="noopener noreferrer">FAQ</a> answers questions about portability, API design and
 where to find more information.</p>
 <p>We recommend using full SIMD vectors whenever possible for maximum performance
 portability. To obtain them, pass a <code>ScalableTag&lt;float&gt;</code> (or equivalently
@@ -352,7 +313,7 @@ target-specific vector types.</p>
 <ul>
 <li><p>For static dispatch, <code>HWY_TARGET</code> will be the best available target among
 <code>HWY_BASELINE_TARGETS</code>, i.e. those allowed for use by the compiler (see
-<a href="g3doc/quick_reference.md">quick-reference</a>). Functions inside
+<a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference</a>). Functions inside
 <code>HWY_NAMESPACE</code> can be called using <code>HWY_STATIC_DISPATCH(func)(args)</code> within
 the same module they are defined in. You can call the function from other
 modules by wrapping it in a regular function and declaring the regular
@@ -362,7 +323,7 @@ function in a header.</p>
 <code>HWY_EXPORT</code> macro that is used by <code>HWY_DYNAMIC_DISPATCH(func)(args)</code> to
 call the best function pointer for the current CPU's supported targets. A
 module is automatically compiled for each target in <code>HWY_TARGETS</code> (see
-<a href="g3doc/quick_reference.md">quick-reference</a>) if <code>HWY_TARGET_INCLUDE</code> is
+<a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference</a>) if <code>HWY_TARGET_INCLUDE</code> is
 defined and <code>foreach_target.h</code> is included. Note that the first invocation
 of <code>HWY_DYNAMIC_DISPATCH</code>, or each call to the pointer returned by the first
 invocation of <code>HWY_DYNAMIC_POINTER</code>, involves some CPU detection overhead.
@@ -402,23 +363,6 @@ function templates) are usually inlined.</p>
 <p>Applications should be compiled with optimizations enabled. Without inlining
 SIMD code may slow down by factors of 10 to 100. For clang and GCC, <code>-O2</code> is
 generally sufficient.</p>
-<p>For Clang and GCC, we recommend using dynamic dispatch (see Quick start),
-because this avoids the need for extra compiler flags which may be incompatible
-with other libraries and always uses the best available instructions. If you
-know exactly which CPU you are running on, you can specify that as the baseline
-target, which avoids generating code for any older instruction sets. Compiler
-flags must match the predefined macro checks for <code>HWY_BASELINE_*</code> in
-<code>detect_targets.h</code>. They can also be deduced from the <code>HWY_TARGET_STR</code> in
-<code>set_macros-inl.h</code>. For x86, suggested flags are currently:</p>
-<ul>
-<li><code>HWY_AVX2</code>: <code>-march=x86-64-v3 -maes -mpclmul</code>, or <code>-march=haswell -maes</code></li>
-<li><code>HWY_AVX3</code>: <code>-march=x86-64-v4</code>, or <code>-march=skx</code></li>
-<li><code>HWY_AVX3_DL</code>: <code>-march=icelake-server</code></li>
-<li><code>HWY_ZEN4</code>: <code>-march=znver4</code></li>
-<li><code>HWY_AVX3_SPR</code>: <code>-march=icelake-server -mavx512fp16 -mavx512bf16</code></li>
-<li><code>HWY_AVX10_2</code>: <code>-march=novalake</code> (requires GCC 16 or Clang 22)</li>
-</ul>
-<p>See also the godbolt examples above mentioning -m targets.</p>
 <p>For MSVC, we recommend compiling with <code>/Gv</code> to allow non-inlined functions to
 pass vector arguments in registers. If intending to use the AVX2 target together
 with half-width vectors (e.g. for <code>PromoteTo</code>), it is also important to compile
@@ -515,10 +459,10 @@ because it avoids the cost of masking in all but the final iteration.</p>
 </ul>
 <h2>Additional resources</h2>
 <ul>
-<li><a href="g3doc/highway_intro.pdf">Highway introduction (slides)</a></li>
-<li><a href="g3doc/instruction_matrix.pdf">Overview of instructions per operation on different architectures</a></li>
-<li><a href="g3doc/design_philosophy.md">Design philosophy and comparison</a></li>
-<li><a href="g3doc/impl_details.md">Implementation details</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/highway_intro.pdf" target="_blank" rel="noopener noreferrer">Highway introduction (slides)</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/instruction_matrix.pdf" target="_blank" rel="noopener noreferrer">Overview of instructions per operation on different architectures</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/design_philosophy.md" target="_blank" rel="noopener noreferrer">Design philosophy and comparison</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/impl_details.md" target="_blank" rel="noopener noreferrer">Implementation details</a></li>
 </ul>
 <h2>Acknowledgments</h2>
 <p>We have used <a href="https://gitlab.inria.fr/bramas/farm-sve">farm-sve</a> by Berenger

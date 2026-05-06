@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -79,7 +79,8 @@ appropriate Swift toolchain for your platform. Take care to ensure that you have
 all of Swift's dependencies installed (such as ICU, Clang, and so forth), and
 also ensure that the Swift compiler is available on your system path.</p>
 <h3>2. Configure your workspace</h3>
-<p>Copy the <code>MODULE.bazel</code> snippet from <a href="https://github.com/bazelbuild/rules_swift/releases">the releases page</a>.</p>
+<p>Copy the <code>WORKSPACE</code> snippet from <a href="https://github.com/bazelbuild/rules_swift/releases">the releases
+page</a>.</p>
 <h3>3. Additional configuration (Linux only)</h3>
 <p>The <code>swift_binary</code> and <code>swift_test</code> rules expect to use <code>clang</code> as the driver
 for linking, and they query the Bazel C++ API and CROSSTOOL to determine which
@@ -101,7 +102,7 @@ toolchain's Info.plist file.</p>
 encountered first on your <code>PATH</code>.</p>
 <h2>Supporting debugging</h2>
 <p>To make cacheable builds work correctly with debugging see
-<a href="doc/debuggable_remote_swift.md">this doc</a>.</p>
+<a href="https://github.com/bazelbuild/rules_swift/blob/4090e6731b5e8869bce9b9b22d1d2c214c1dbfbf/doc/debuggable_remote_swift.md" target="_blank" rel="noopener noreferrer">this doc</a>.</p>
 <h2>Swift Package Manager Support</h2>
 <p>To download, build, and reference external Swift packages as Bazel
 targets, check out

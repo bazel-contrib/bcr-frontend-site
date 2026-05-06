@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -80,14 +80,14 @@ Agent[&quot;Agent (listens on socket)&quot;]" style="position: absolute; right: 
 <h2>Supported providers</h2>
 <p>The following providers are supported as of today:</p>
 <ul>
-<li><a href="/docs/providers/remoteapis.md">Remote Execution &amp; Remote Caching Services</a></li>
-<li><a href="/docs/providers/s3.md">AWS S3</a></li>
-<li><a href="/docs/providers/azstorage.md">Azure Blob Storage</a></li>
-<li><a href="/docs/providers/r2.md">Cloudflare R2</a></li>
-<li><a href="/docs/providers/gcs.md">Google Cloud Storage (GCS)</a></li>
-<li><a href="/docs/providers/gar.md">Google Artifact Registry</a></li>
-<li><a href="/docs/providers/github.md">GitHub</a></li>
-<li><a href="/docs/providers/oci.md">Container Registries</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/remoteapis.md" target="_blank" rel="noopener noreferrer">Remote Execution &amp; Remote Caching Services</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/s3.md" target="_blank" rel="noopener noreferrer">AWS S3</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/azstorage.md" target="_blank" rel="noopener noreferrer">Azure Blob Storage</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/r2.md" target="_blank" rel="noopener noreferrer">Cloudflare R2</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/gcs.md" target="_blank" rel="noopener noreferrer">Google Cloud Storage (GCS)</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/gar.md" target="_blank" rel="noopener noreferrer">Google Artifact Registry</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/github.md" target="_blank" rel="noopener noreferrer">GitHub</a></li>
+<li><a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/oci.md" target="_blank" rel="noopener noreferrer">Container Registries</a></li>
 </ul>
 <h2>Installation and usage</h2>
 <a href="https://repology.org/project/tweag-credential-helper/versions">
@@ -218,11 +218,11 @@ common:windows --credential_helper=*.blob.core.windows.net=%workspace%/tools/cre
 <p>Simply remove a line if you do not want the credential helper to be used for that service.
 You can also configure the helper to be used for every domain (<code>--credential_helper=%workspace%/tools/credential-helper</code>).</p>
 <p>Now is a good time to install the credential helper. Simply run <code>bazel run @tweag-credential-helper//installer</code> to add the binary to your system. This step needs to be performed once per user.
-Alternatively, you can <a href="/docs/plugins.md">write custom plugins that are part of your own Bazel workspace and build your own helper</a>.</p>
-<p>Follow the <a href="/docs/providers/">provider-specific documentation</a> to ensure you can authenticate to the service.
+Alternatively, you can <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/plugins.md" target="_blank" rel="noopener noreferrer">write custom plugins that are part of your own Bazel workspace and build your own helper</a>.</p>
+<p>Follow the <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/providers/" target="_blank" rel="noopener noreferrer">provider-specific documentation</a> to ensure you can authenticate to the service.
 In most cases, you the credential helper can guide you through the required setup for a URL with the following command:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="tools/credential-helper setup-uri &lt;URL&gt;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">credential</span><span style="color:#D73A49">-</span><span style="color:#24292E">helper setup</span><span style="color:#D73A49">-</span><span style="color:#24292E">uri </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">URL</span><span style="color:#D73A49">&gt;</span></span></code></pre>
-<p>You can also look at the <a href="/examples/full/">example project</a> to see how everything works together.</p>
+<p>You can also look at the <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//examples/full/" target="_blank" rel="noopener noreferrer">example project</a> to see how everything works together.</p>
 <h2>Configuration</h2>
 <p>The credential helper has sensible defaults out of the box. If needed, you can use environment variables or a configuration file to change settings.</p>
 <h2>Config file</h2>
@@ -235,7 +235,7 @@ You can override the config file location using the <code>$CREDENTIAL_HELPER_CON
 <li><code>.urls[].path</code>: Path of the url. Matches any path when empty and uses globbing otherwise (a <code>*</code> matches any characters).</li>
 <li><code>.urls[].helper</code>: Helper to use for this url. Can be one of <code>s3</code>, <code>gcs</code>, <code>github</code>, <code>oci</code> or <code>null</code>.</li>
 <li><code>.urls[].config</code>: Optional helper-specific configuration. Refer to the documentation of the chosen helper for more information.</li>
-<li><code>.urls[].config.lookup_chain</code>: Most helpers support configurable sources for secrets. Consult <a href="/docs/lookup_chain.md">the documenation on lookup chains</a> for more information.</li>
+<li><code>.urls[].config.lookup_chain</code>: Most helpers support configurable sources for secrets. Consult <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/lookup_chain.md" target="_blank" rel="noopener noreferrer">the documenation on lookup chains</a> for more information.</li>
 </ul>
 <h3>Example</h3>
 <p><code>.tweag-credential-helper.json</code>:</p>
@@ -385,8 +385,8 @@ bazel ..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" vi
 </ol>
 <h2>Hacking &amp; Contributing</h2>
 <p>We invite external contributions and are eager to work together with the build systems community.
-Please refer to the <a href="/docs/CONTRIBUTING.md">CONTRIBUTING</a> guide to learn more.
-If you want to check out the code and run a development version, follow the <a href="/docs/HACKING.md">HACKING</a> guide to get started.</p>
+Please refer to the <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">CONTRIBUTING</a> guide to learn more.
+If you want to check out the code and run a development version, follow the <a href="https://github.com/tweag/credential-helper/blob/4ea7815e9d9570d618f24beb3ecbec92c7941a21//docs/HACKING.md" target="_blank" rel="noopener noreferrer">HACKING</a> guide to get started.</p>
 <h2>Security Considerations</h2>
 <p>In most circumstances, a credential helper improves security by decoupling resource configuration from the credentials required to access them. This reduces the need for hardcoded credentials stored in source code, minimizing potential security vulnerabilities.</p>
 <h3>Credential Handling</h3>

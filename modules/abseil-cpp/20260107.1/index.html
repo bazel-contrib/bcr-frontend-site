@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -67,7 +67,7 @@ the Abseil code, running tests, and getting a simple binary working.</p>
 build systems for Abseil.
 See the <a href="https://abseil.io/docs/cpp/quickstart">quickstart</a> for more information
 on building Abseil using the Bazel build system.
-If you require CMake support, please check the <a href="CMake/README.md">CMake build
+If you require CMake support, please check the <a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/CMake/README.md" target="_blank" rel="noopener noreferrer">CMake build
 instructions</a> and <a href="https://abseil.io/docs/cpp/quickstart-cmake">CMake
 Quickstart</a>.</p>
 <p><a></a></p>
@@ -82,66 +82,66 @@ tools.</p>
 <h2>Codemap</h2>
 <p>Abseil contains the following C++ library components:</p>
 <ul>
-<li><a href="absl/base/"><code>base</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/base/" target="_blank" rel="noopener noreferrer"><code>base</code></a>
 <br> The <code>base</code> library contains initialization code and other code which
 all other Abseil code depends on. Code within <code>base</code> may not depend on any
 other code (other than the C++ standard library).</li>
-<li><a href="absl/algorithm/"><code>algorithm</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/algorithm/" target="_blank" rel="noopener noreferrer"><code>algorithm</code></a>
 <br> The <code>algorithm</code> library contains additions to the C++ <code>&lt;algorithm&gt;</code>
 library and container-based versions of such algorithms.</li>
-<li><a href="absl/cleanup/"><code>cleanup</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/cleanup/" target="_blank" rel="noopener noreferrer"><code>cleanup</code></a>
 <br> The <code>cleanup</code> library contains the control-flow-construct-like type
 <code>absl::Cleanup</code> which is used for executing a callback on scope exit.</li>
-<li><a href="absl/container/"><code>container</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/container/" target="_blank" rel="noopener noreferrer"><code>container</code></a>
 <br> The <code>container</code> library contains additional STL-style containers,
 including Abseil's unordered "Swiss table" containers.</li>
-<li><a href="absl/crc/"><code>crc</code></a> The <code>crc</code> library contains code for
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/crc/" target="_blank" rel="noopener noreferrer"><code>crc</code></a> The <code>crc</code> library contains code for
 computing error-detecting cyclic redundancy checks on data.</li>
-<li><a href="absl/debugging/"><code>debugging</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/debugging/" target="_blank" rel="noopener noreferrer"><code>debugging</code></a>
 <br> The <code>debugging</code> library contains code useful for enabling leak
 checks, and stacktrace and symbolization utilities.</li>
-<li><a href="absl/flags/"><code>flags</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/flags/" target="_blank" rel="noopener noreferrer"><code>flags</code></a>
 <br> The <code>flags</code> library contains code for handling command line flags for
 libraries and binaries built with Abseil.</li>
-<li><a href="absl/hash/"><code>hash</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/hash/" target="_blank" rel="noopener noreferrer"><code>hash</code></a>
 <br> The <code>hash</code> library contains the hashing framework and default hash
 functor implementations for hashable types in Abseil.</li>
-<li><a href="absl/log/"><code>log</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/log/" target="_blank" rel="noopener noreferrer"><code>log</code></a>
 <br> The <code>log</code> library contains <code>LOG</code> and <code>CHECK</code> macros and facilities
 for writing logged messages out to disk, <code>stderr</code>, or user-extensible
 destinations.</li>
-<li><a href="absl/memory/"><code>memory</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/memory/" target="_blank" rel="noopener noreferrer"><code>memory</code></a>
 <br> The <code>memory</code> library contains memory management facilities that augment
 C++'s <code>&lt;memory&gt;</code> library.</li>
-<li><a href="absl/meta/"><code>meta</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/meta/" target="_blank" rel="noopener noreferrer"><code>meta</code></a>
 <br> The <code>meta</code> library contains type checks
 similar to those available in the C++ <code>&lt;type_traits&gt;</code> library.</li>
-<li><a href="absl/numeric/"><code>numeric</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/numeric/" target="_blank" rel="noopener noreferrer"><code>numeric</code></a>
 <br> The <code>numeric</code> library contains 128-bit integer types as well as
 implementations of C++20's bitwise math functions.</li>
-<li><a href="absl/profiling/"><code>profiling</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/profiling/" target="_blank" rel="noopener noreferrer"><code>profiling</code></a>
 <br> The <code>profiling</code> library contains utility code for profiling C++
 entities.  It is currently a private dependency of other Abseil libraries.</li>
-<li><a href="absl/random/"><code>random</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/random/" target="_blank" rel="noopener noreferrer"><code>random</code></a>
 <br> The <code>random</code> library contains functions for generating pseudorandom
 values.</li>
-<li><a href="absl/status/"><code>status</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/status/" target="_blank" rel="noopener noreferrer"><code>status</code></a>
 <br> The <code>status</code> library contains abstractions for error handling,
 specifically <code>absl::Status</code> and <code>absl::StatusOr&lt;T&gt;</code>.</li>
-<li><a href="absl/strings/"><code>strings</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/strings/" target="_blank" rel="noopener noreferrer"><code>strings</code></a>
 <br> The <code>strings</code> library contains a variety of strings routines and
 utilities.</li>
-<li><a href="absl/synchronization/"><code>synchronization</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/synchronization/" target="_blank" rel="noopener noreferrer"><code>synchronization</code></a>
 <br> The <code>synchronization</code> library contains concurrency primitives (Abseil's
 <code>absl::Mutex</code> class, an alternative to <code>std::mutex</code>) and a variety of
 synchronization abstractions.</li>
-<li><a href="absl/time/"><code>time</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/time/" target="_blank" rel="noopener noreferrer"><code>time</code></a>
 <br> The <code>time</code> library contains abstractions for computing with absolute
 points in time, durations of time, and formatting and parsing time within
 time zones.</li>
-<li><a href="absl/types/"><code>types</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/types/" target="_blank" rel="noopener noreferrer"><code>types</code></a>
 <br> The <code>types</code> library contains non-container utility types.</li>
-<li><a href="absl/utility/"><code>utility</code></a>
+<li><a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/absl/utility/" target="_blank" rel="noopener noreferrer"><code>utility</code></a>
 <br> The <code>utility</code> library contains utility and helper code.</li>
 </ul>
 <p><a></a></p>
@@ -155,7 +155,7 @@ management</a> document for more details.</p>
 <p><a></a></p>
 <h2>License</h2>
 <p>The Abseil C++ library is licensed under the terms of the Apache
-license. See <a href="LICENSE">LICENSE</a> for more information.</p>
+license. See <a href="https://github.com/abseil/abseil-cpp/blob/255c84dadd029fd8ad25c5efb5933e47beaa00c7/LICENSE" target="_blank" rel="noopener noreferrer">LICENSE</a> for more information.</p>
 <p><a></a></p>
 <h2>Links</h2>
 <p>For more information about Abseil:</p>

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -33,11 +33,11 @@
 <h1>Fildesh: File Descriptor Shell Scripting</h1>
 <p>Fildesh is a domain-specific language to create nonlinear pipelines between programs.
 It can create pipes between programs with multiple inputs
-(<a href="eg/sum/add_test.fildesh">eg/sum/add_test.fildesh</a>)
+(<a href="https://github.com/fildesh/fildesh/blob/395e16c70caadf53dd311795f1adf21aed7cfc65/eg/sum/add_test.fildesh" target="_blank" rel="noopener noreferrer">eg/sum/add_test.fildesh</a>)
 and multiple outputs
-(<a href="eg/sum/dag.fildesh">eg/sum/dag.fildesh</a>)
+(<a href="https://github.com/fildesh/fildesh/blob/395e16c70caadf53dd311795f1adf21aed7cfc65/eg/sum/dag.fildesh" target="_blank" rel="noopener noreferrer">eg/sum/dag.fildesh</a>)
 that depend on each other
-(<a href="eg/sum/cycle.fildesh">eg/sum/cycle.fildesh</a>).
+(<a href="https://github.com/fildesh/fildesh/blob/395e16c70caadf53dd311795f1adf21aed7cfc65/eg/sum/cycle.fildesh" target="_blank" rel="noopener noreferrer">eg/sum/cycle.fildesh</a>).
 When the dataflow graph is not a tree,
 the <code>elastic</code> builtin should be used to avoid deadlocks in the undirected cycles.</p>
 <h2>Quick Start</h2>
@@ -77,7 +77,7 @@ bazel run //:fildesh -- $PWD/example/hello.fildesh" style="position: absolute; r
 <p>Consider writing an end-to-end test that checks whether a program gives an expected result for a particular input.
 In order to compare the expected and actual results, at least one of them is typically stored as a temporary string or file.
 With Fildesh, we can keep both in pipes.</p>
-<p>The following example (<a href="eg/sum/add_test.fildesh">eg/sum/add_test.fildesh</a>) shows how to test a program <code>add</code> that calculates the sum of numbers on each input line.
+<p>The following example (<a href="https://github.com/fildesh/fildesh/blob/395e16c70caadf53dd311795f1adf21aed7cfc65/eg/sum/add_test.fildesh" target="_blank" rel="noopener noreferrer">eg/sum/add_test.fildesh</a>) shows how to test a program <code>add</code> that calculates the sum of numbers on each input line.
 First, the script constructs an pipe named <code>expect</code> that contains the expected result.
 Next, three input lines are constructed and stored in their own pipes named <code>input_line_1</code>, <code>input_linee_2</code>, and <code>input_line_3</code>.
 Finally, those lines are spliced together, piped to <code>add</code>, and the result is compared against the expected one.</p>

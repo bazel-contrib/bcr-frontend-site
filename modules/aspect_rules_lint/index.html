@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -224,7 +224,7 @@ No need to create <code>sh_library</code> targets for your shell scripts, for ex
 <li>Non-hermetic: requires that a swift toolchain is installed on the machine.
 See <a href="https://github.com/bazelbuild/rules_swift#1-install-swift">https://github.com/bazelbuild/rules_swift#1-install-swift</a></li>
 </ol>
-<p>To add a tool, please follow the steps in <a href="./lint/README.md">lint/README.md</a> or <a href="./format/README.md">format/README.md</a>
+<p>To add a tool, please follow the steps in <a href="https://github.com/aspect-build/rules_lint/blob/afa593db6e46ff43a27c9219df838edad9e56f43/lint/README.md" target="_blank" rel="noopener noreferrer">lint/README.md</a> or <a href="https://github.com/aspect-build/rules_lint/blob/afa593db6e46ff43a27c9219df838edad9e56f43/format/README.md" target="_blank" rel="noopener noreferrer">format/README.md</a>
 and then send us a PR.
 Thanks!!</p>
 <h2>Installation</h2>
@@ -271,18 +271,18 @@ Thanks!!</p>
 <h3>Format</h3>
 <p>To format files, run the target you create when you install rules_lint.</p>
 <p>We recommend using a Git pre-commit hook to format changed files, and <a href="https://docs.aspect.build/workflows">Aspect Workflows</a> to provide the check on CI.</p>
-<p>See <a href="./docs/formatting.md">Formatting</a> for more ways to use the formatter.</p>
+<p>See <a href="https://github.com/aspect-build/rules_lint/blob/afa593db6e46ff43a27c9219df838edad9e56f43/docs/formatting.md" target="_blank" rel="noopener noreferrer">Formatting</a> for more ways to use the formatter.</p>
 <p>Also see <a href="https://registry.bazel.build/docs/aspect_rules_lint#format-defs-bzl">API Documentation</a></p>
 <p>Demo:
-<img src="./docs/format-demo.svg" alt="pre-commit format"></p>
+<img src="https://raw.githubusercontent.com/aspect-build/rules_lint/afa593db6e46ff43a27c9219df838edad9e56f43/docs/format-demo.svg" alt="pre-commit format"></p>
 <h3>Lint</h3>
 <p>To lint code, we recommend using the <a href="https://docs.aspect.build/cli">Aspect CLI</a> to get the missing <code>lint</code> command, and <a href="https://docs.aspect.build/workflows">Aspect Workflows</a> to provide first-class support for "linters as code reviewers".</p>
 <p>For example, running <code>bazel lint //src:all</code> prints lint warnings to the terminal for all targets in the <code>//src</code> package.
 Suggested fixes from the linter tools are presented interactively.</p>
-<p>See <a href="./docs/linting.md">Linting</a> for more ways to use the linter.</p>
+<p>See <a href="https://github.com/aspect-build/rules_lint/blob/afa593db6e46ff43a27c9219df838edad9e56f43/docs/linting.md" target="_blank" rel="noopener noreferrer">Linting</a> for more ways to use the linter.</p>
 <p>Also see <a href="https://registry.bazel.build/docs/aspect_rules_lint">API Documentation</a></p>
 <p>Demo:
-<img src="./docs/lint-fix-demo.svg" alt="bazel lint demo"></p>
+<img src="https://raw.githubusercontent.com/aspect-build/rules_lint/afa593db6e46ff43a27c9219df838edad9e56f43/docs/lint-fix-demo.svg" alt="bazel lint demo"></p>
 <h3>Ignoring files</h3>
 <p>The linters only visit files that are part of the Bazel dependency graph (listed as <code>srcs</code> to some library target).</p>
 <p>The formatter honors the <code>.gitignore</code> and <code>.gitattributes</code> files.

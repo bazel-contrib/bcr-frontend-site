@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -66,61 +66,6 @@ use_repo(cuda, &quot;cuda&quot;)" style="position: absolute; right: 4px; top: 4p
 <span class="line"><span style="color:#24292E">)</span></span>
 <span class="line"><span style="color:#24292E">use_repo(cuda, </span><span style="color:#032F62">"cuda"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><code>rules_cc</code> provides the C++ toolchain dependency for <code>rules_cuda</code>; in Bzlmod, the compatibility repository is handled by <code>rules_cc</code> itself.</p>
-<h4>Multi-version hermetic toolchains (Bzlmod)</h4>
-<p>To select CUDA versions and platforms at build time, define multiple <code>cuda.redist_json</code> entries and a single <code>cuda.toolkit</code>.
-Then use <code>@rules_cuda//cuda:version</code>, <code>@rules_cuda//cuda:exec_platform</code>, and <code>@rules_cuda//cuda:target_platform</code> flags.
-If <code>@rules_cuda//cuda:version</code> is unset, rules_cuda selects the highest declared redist version.</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cuda = use_extension(&quot;@rules_cuda//cuda:extensions.bzl&quot;, &quot;toolchain&quot;)
-
-cuda.redist_json(
-    name = &quot;cuda_13_0_2&quot;,
-    version = &quot;13.0.2&quot;,
-    platforms = [
-        &quot;linux-x86_64&quot;,
-        &quot;linux-sbsa&quot;,
-    ],
-)
-cuda.redist_json(
-    name = &quot;cuda_13_0_0&quot;,
-    version = &quot;13.0.0&quot;,
-    platforms = [
-        &quot;linux-x86_64&quot;,
-        &quot;linux-sbsa&quot;,
-    ],
-)
-
-cuda.toolkit(name = &quot;cuda&quot;)
-use_repo(cuda, &quot;cuda&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cuda </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_cuda//cuda:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cuda.redist_json(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cuda_13_0_2"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "13.0.2"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    platforms</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "linux-x86_64"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "linux-sbsa"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">cuda.redist_json(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cuda_13_0_0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "13.0.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    platforms</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "linux-x86_64"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "linux-sbsa"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cuda.toolkit(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cuda"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(cuda, </span><span style="color:#032F62">"cuda"</span><span style="color:#24292E">)</span></span></code></pre>
-<p>Example <code>.bazelrc</code> entries:</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="build --@rules_cuda//cuda:exec_platform=linux-x86_64
-build --@rules_cuda//cuda:target_platform=linux-x86_64
-# Optional: if omitted, the highest declared redist version is used.
-build --@rules_cuda//cuda:version=13.0.0" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_cuda</span><span style="color:#D73A49">//</span><span style="color:#24292E">cuda:exec_platform</span><span style="color:#D73A49">=</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span></span>
-<span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_cuda</span><span style="color:#D73A49">//</span><span style="color:#24292E">cuda:target_platform</span><span style="color:#D73A49">=</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span></span>
-<span class="line"><span style="color:#6A737D"># Optional: if omitted, the highest declared redist version is used.</span></span>
-<span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_cuda</span><span style="color:#D73A49">//</span><span style="color:#24292E">cuda:version</span><span style="color:#D73A49">=</span><span style="color:#005CC5">13.0</span><span style="color:#24292E">.0</span></span></code></pre>
-<p>Note: In Bzlmod, <code>platforms</code> is required for <code>cuda.redist_json</code> because module extensions don't have access to host OS/arch
-information, so the platforms must be declared explicitly.</p>
 <details>
 <summary>Traditional WORKSPACE approach</summary>
 
@@ -172,7 +117,7 @@ rules_cuda_toolchains(register_toolchains = True)" style="position: absolute; ri
 
 <h3>Toolchain Detection</h3>
 <p>For hermetic toolchains, the rules handle toolchain configuration and library downloading automatically.
-See <a href="tests/integration/toolchain_redist_json">cuda.redist_json integration test</a> for a comprehensible example.</p>
+See <a href="https://github.com/bazel-contrib/rules_cuda/blob/e10b718bc8d37abcb4c18d721806ef8ad74aa324/tests/integration/toolchain_redist_json" target="_blank" rel="noopener noreferrer">cuda.redist_json integration test</a> for a comprehensible example.</p>
 <p>For locally installed toolchains,
 <a href="https://github.com/bazel-contrib/rules_cuda/blob/ce98e4ae5c/cuda/private/repositories.bzl#L30-L45"><code>_detect_local_cuda_toolkit</code></a>
 and <a href="https://github.com/bazel-contrib/rules_cuda/blob/ce98e4ae5c/cuda/private/repositories.bzl#L215-L256"><code>detect_clang</code></a>
@@ -195,7 +140,7 @@ It builds a <code>cc_binary</code>-style target from CUDA sources.</li>
 It behaves like <code>cuda_binary</code> but creates a <code>cc_test</code>-style target that can be run with <code>bazel test</code>.</li>
 </ul>
 <h3>Flags</h3>
-<p>Some flags are defined in <a href="cuda/BUILD.bazel">cuda/BUILD.bazel</a>. To use them, for example:</p>
+<p>Some flags are defined in <a href="https://github.com/bazel-contrib/rules_cuda/blob/e10b718bc8d37abcb4c18d721806ef8ad74aa324/cuda/BUILD.bazel" target="_blank" rel="noopener noreferrer">cuda/BUILD.bazel</a>. To use them, for example:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel build --@rules_cuda//cuda:archs=compute_61:compute_61,sm_61" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_cuda</span><span style="color:#D73A49">//</span><span style="color:#24292E">cuda:archs</span><span style="color:#D73A49">=</span><span style="color:#24292E">compute_61:compute_61,sm_61</span></span></code></pre>
 <p>In <code>.bazelrc</code> file, you can define a shortcut alias for the flag, for example:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Convenient flag shortcuts.
@@ -221,11 +166,6 @@ By default, rules_cuda rules are enabled. See <code>examples/if_cuda</code> for 
 <li><p><code>@rules_cuda//cuda:host_copts</code></p>
 <p>Add copts to the host compiler.</p>
 </li>
-<li><p><code>@rules_cuda//cuda:cc_host_compile_flags_to_skip</code></p>
-<p>Configure which C++ toolchain host compile flags should be filtered out before forwarding to CUDA host compilation.
-This defaults to skipping <code>-c</code>, and can be repeated, for example:
-<code>--@rules_cuda//cuda:cc_host_compile_flags_to_skip=-c --@rules_cuda//cuda:cc_host_compile_flags_to_skip=-fno-canonical-system-headers</code>.</p>
-</li>
 <li><p><code>@rules_cuda//cuda:runtime</code></p>
 <p>Set the default cudart to link; for example, <code>--@rules_cuda//cuda:runtime=@cuda//:cuda_runtime_static</code> links the static CUDA runtime.</p>
 </li>
@@ -237,7 +177,7 @@ host and device code.</p>
 </ul>
 <h2>Examples</h2>
 <p>Check out the examples to see if they fit your needs.</p>
-<p>See <a href="./examples">examples</a> for basic usage.</p>
+<p>See <a href="https://github.com/bazel-contrib/rules_cuda/blob/e10b718bc8d37abcb4c18d721806ef8ad74aa324/examples" target="_blank" rel="noopener noreferrer">examples</a> for basic usage.</p>
 <p>See <a href="https://github.com/cloudhan/rules_cuda_examples">rules_cuda_examples</a> for extended real-world projects.</p>
 <h2>Known issue</h2>
 <p>Sometimes the following error occurs:</p>

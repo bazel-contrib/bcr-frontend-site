@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -92,8 +92,8 @@ the <a href="https://github.com/p4lang/behavioral-model">BMv2 behavioral model</
 <li>p4c-dpdk: can be used to target the <a href="https://doc.dpdk.org/guides/rel_notes/release_20_11.html">DPDK software switch (SWX) pipeline</a>,</li>
 <li>p4c-ebpf: can be used to generate C code which can be compiled to <a href="https://en.wikipedia.org/wiki/Berkeley_Packet_Filter">eBPF</a>
 and then loaded in the Linux kernel. The eBPF backend currently implements three architecture models:
-<a href="./backends/ebpf/README.md">ebpf_model.p4 for packet filtering, xdp_model.p4 for XDP</a> and
-<a href="./backends/ebpf/psa/README.md">the fully-featured PSA (Portable Switch Architecture) model</a>.</li>
+<a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/ebpf/README.md" target="_blank" rel="noopener noreferrer">ebpf_model.p4 for packet filtering, xdp_model.p4 for XDP</a> and
+<a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/ebpf/psa/README.md" target="_blank" rel="noopener noreferrer">the fully-featured PSA (Portable Switch Architecture) model</a>.</li>
 <li>p4test: a source-to-source P4 translator which can be used for
 testing, learning compiler internals and debugging,</li>
 <li>p4c-graphs: can be used to generate visual representations of a P4 program;
@@ -206,15 +206,15 @@ further customize the build (see file <code>CMakeLists.txt</code> for the full l
   symbols to run in gdb. Default is Release.</li>
 <li><code>-DCMAKE_INSTALL_PREFIX=&lt;path&gt;</code> -- set the directory where
  <code>cmake --build build --target install</code> installs the compiler. Defaults to /usr/local.</li>
-<li><code>-DENABLE_BMV2=ON|OFF</code>. Enable <a href="backends/bmv2/README.md">the bmv2 backend</a>. Default ON.</li>
-<li><code>-DENABLE_EBPF=ON|OFF</code>. Enable <a href="backends/ebpf/README.md">the ebpf backend</a>. Default ON.</li>
-<li><code>-DENABLE_P4TC=ON|OFF</code>. Enable <a href="backends/tc/README.md">the TC backend</a>. Default ON.</li>
-<li><code>-DENABLE_UBPF=ON|OFF</code>. Enable <a href="backends/ubpf/README.md">the ubpf backend</a>. Default ON.</li>
-<li><code>-DENABLE_DPDK=ON|OFF</code>. Enable <a href="backends/dpdk/README.md">the DPDK backend</a>. Default ON.</li>
-<li><code>-DENABLE_P4C_GRAPHS=ON|OFF</code>. Enable <a href="backends/graphs/README.md">the p4c-graphs backend</a>. Default ON.</li>
-<li><code>-DENABLE_P4FMT=ON|OFF</code>. Enable <a href="backends/p4fmt/README.md">the p4fmt backend</a>. Default ON.</li>
-<li><code>-DENABLE_P4TEST=ON|OFF</code>. Enable <a href="backends/p4test/README.md">the p4test backend</a>. Default ON.</li>
-<li><code>-DENABLE_TEST_TOOLS=ON|OFF</code>. Enable <a href="backends/p4tools/README.md">the p4tools backend</a>. Default OFF.</li>
+<li><code>-DENABLE_BMV2=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/bmv2/README.md" target="_blank" rel="noopener noreferrer">the bmv2 backend</a>. Default ON.</li>
+<li><code>-DENABLE_EBPF=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/ebpf/README.md" target="_blank" rel="noopener noreferrer">the ebpf backend</a>. Default ON.</li>
+<li><code>-DENABLE_P4TC=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/tc/README.md" target="_blank" rel="noopener noreferrer">the TC backend</a>. Default ON.</li>
+<li><code>-DENABLE_UBPF=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/ubpf/README.md" target="_blank" rel="noopener noreferrer">the ubpf backend</a>. Default ON.</li>
+<li><code>-DENABLE_DPDK=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/dpdk/README.md" target="_blank" rel="noopener noreferrer">the DPDK backend</a>. Default ON.</li>
+<li><code>-DENABLE_P4C_GRAPHS=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/graphs/README.md" target="_blank" rel="noopener noreferrer">the p4c-graphs backend</a>. Default ON.</li>
+<li><code>-DENABLE_P4FMT=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/p4fmt/README.md" target="_blank" rel="noopener noreferrer">the p4fmt backend</a>. Default ON.</li>
+<li><code>-DENABLE_P4TEST=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/p4test/README.md" target="_blank" rel="noopener noreferrer">the p4test backend</a>. Default ON.</li>
+<li><code>-DENABLE_TEST_TOOLS=ON|OFF</code>. Enable <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/p4tools/README.md" target="_blank" rel="noopener noreferrer">the p4tools backend</a>. Default OFF.</li>
 <li><code>-DENABLE_DOCS=ON|OFF</code>. Build documentation. Default is OFF.</li>
 <li><code>-DENABLE_GC=ON|OFF</code>. Enable the use of the garbage collection
 library. Default is ON.</li>
@@ -276,9 +276,9 @@ use them, but YMMV.</p>
 <p>Backends may have additional dependencies. The dependencies for the backends
 included with <code>P4C</code> are documented here:</p>
 <ul>
-<li><a href="backends/bmv2/README.md">BMv2</a></li>
-<li><a href="backends/ebpf/README.md">eBPF</a></li>
-<li><a href="backends/graphs/README.md">graphs</a></li>
+<li><a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/bmv2/README.md" target="_blank" rel="noopener noreferrer">BMv2</a></li>
+<li><a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/ebpf/README.md" target="_blank" rel="noopener noreferrer">eBPF</a></li>
+<li><a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/graphs/README.md" target="_blank" rel="noopener noreferrer">graphs</a></li>
 </ul>
 <h3>Ubuntu dependencies</h3>
 <p>Most dependencies can be installed using <code>apt-get install</code>:</p>
@@ -424,7 +424,7 @@ to produce readable crash dumps if it is available.  This is an optional
 dependency; if it is not available everything should build just fine, but
 crash dumps will not be very readable.</p>
 <h2>Development tools</h2>
-<p>There is a variety of design and development documentation <a href="docs/README.md">here</a>.</p>
+<p>There is a variety of design and development documentation <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/docs/README.md" target="_blank" rel="noopener noreferrer">here</a>.</p>
 <p>We recommend using <code>clang++</code> with no optimizations for speeding up
 compilation and simplifying debugging.</p>
 <p>We recommend installing a new version of <a href="http://ftp.gnu.org/gnu/gdb">gdb</a>,
@@ -549,8 +549,8 @@ p4c_add_test_with_args (&quot;mybackend&quot; ${MY_DRIVER} ${isXFail}
 <span class="line"><span style="color:#24292E">p4c_add_test_with_args (</span><span style="color:#032F62">"mybackend"</span><span style="color:#B31D28;font-style:italic"> $</span><span style="color:#24292E">{</span><span style="color:#005CC5">MY_DRIVER</span><span style="color:#24292E">} </span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{isXFail}</span></span>
 <span class="line"><span style="color:#032F62">  "switch_with_custom_profile"</span><span style="color:#B31D28;font-style:italic"> $</span><span style="color:#24292E">{</span><span style="color:#005CC5">SWITCH_P4</span><span style="color:#24292E">} </span><span style="color:#032F62">"-DCUSTOM_PROFILE"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>See the documentation for
-<a href="cmake/P4CUtils.cmake"><code>p4c_add_test_with_args</code></a> and
-<a href="cmake/P4CUtils.cmake"><code>p4c_add_tests</code></a> for more information on the
+<a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/cmake/P4CUtils.cmake" target="_blank" rel="noopener noreferrer"><code>p4c_add_test_with_args</code></a> and
+<a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/cmake/P4CUtils.cmake" target="_blank" rel="noopener noreferrer"><code>p4c_add_tests</code></a> for more information on the
 arguments to these macros.</p>
 <p>To pass custom arguments to P4C, you can set the environment variable <code>P4C_ARGS</code>:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="P4C_ARGS=&quot;-Xp4c=MY_CUSTOM_FLAG&quot; cmake --build build --target check" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">P4C_ARGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-Xp4c=MY_CUSTOM_FLAG"</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target check</span></span></code></pre>
@@ -610,9 +610,9 @@ access them from the IR</p>
 <ul>
 <li>Tables with multiple apply calls</li>
 </ul>
-<p>See also <a href="backends/bmv2/README.md#unsupported-p4_16-language-features">unsupported P4_16 language features</a>.</p>
+<p>See also <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/backends/bmv2/README.md#unsupported-p4_16-language-features" target="_blank" rel="noopener noreferrer">unsupported P4_16 language features</a>.</p>
 <h2>How to Contribute</h2>
-<p>We welcome and appreciate new contributions. Please take a moment to review our <a href="CONTRIBUTING.md">Contribution Guidelines</a> to get started.</p>
+<p>We welcome and appreciate new contributions. Please take a moment to review our <a href="https://github.com/p4lang/p4c/blob/a060f92878bcfd2845b2c494c6c9f1c4bde7c14a/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">Contribution Guidelines</a> to get started.</p>
 <h2>P4 Compiler Onboarding</h2>
 <p>Educational material on P4: </p>
 <ul>

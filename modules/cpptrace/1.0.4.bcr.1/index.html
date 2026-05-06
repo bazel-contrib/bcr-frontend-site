@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -37,7 +37,7 @@
 including MinGW and Cygwin environments. The goal: Make stack traces simple for once.</p>
 <p>In addition to providing access to stack traces, cpptrace also provides a mechanism for getting stacktraces from thrown
 exceptions which is immensely valuable for debugging and triaging. More info <a href="#traces-from-all-exceptions-cpptrace_try-and-cpptrace_catch">below</a>.</p>
-<p>Cpptrace also has a C API, docs <a href="docs/c-api.md">here</a>.</p>
+<p>Cpptrace also has a C API, docs <a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/docs/c-api.md" target="_blank" rel="noopener noreferrer">here</a>.</p>
 <h2>Table of Contents </h2>
 <ul>
 <li><a href="#30-second-overview">30-Second Overview</a><ul>
@@ -129,9 +129,9 @@ void trace() {
 <span class="line"><span style="color:#24292E">void trace() {</span></span>
 <span class="line"><span style="color:#24292E">    cpptrace::generate_trace().print();</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p><img src="res/demo.png" alt="Demo"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/demo.png" alt="Demo"></p>
 <p>Cpptrace can also retrieve function inlining information on optimized release builds:</p>
-<p><img src="res/inlining.png" alt="Inlining"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/inlining.png" alt="Inlining"></p>
 <p>Cpptrace provides access to resolved stack traces as well as fast and lightweight raw traces (just addresses) that can
 be resolved later:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="const auto raw_trace = cpptrace::generate_raw_trace();
@@ -140,7 +140,7 @@ raw_trace.resolve().print();" style="position: absolute; right: 4px; top: 4px;">
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> then later</span></span>
 <span class="line"><span style="color:#24292E">raw_trace.resolve().print()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>One of the most important features cpptrace offers is the ability to retrieve stack traces on arbitrary exceptions.
-More information on this system <a href="#traces-from-all-exceptions-cpptrace_try-and-cpptrace_catch">below</a>.</p>
+More information on this system <a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/(#traces-from-all-exceptions-cpptrace_try-and-cpptrace_catch)" target="_blank" rel="noopener noreferrer">below</a>.</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &lt;cpptrace/from_current.hpp&gt;
 #include &lt;iostream&gt;
 #include &lt;stdexcept&gt;
@@ -172,7 +172,7 @@ int main() {
 <span class="line"><span style="color:#24292E">        cpptrace::from_current_exception().print();</span></span>
 <span class="line"><span style="color:#24292E">    }</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p><img src="res/from_current.png" alt="from_current"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/from_current.png" alt="from_current"></p>
 <p>Cpptrace also provides a handful of traced exception objects that store stack traces when thrown. This is useful when
 the exceptions might not be caught by <code>CPPTRACE_CATCH</code>:</p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &lt;cpptrace/cpptrace.hpp&gt;
@@ -184,7 +184,7 @@ void trace() {
 <span class="line"><span style="color:#24292E">void trace() {</span></span>
 <span class="line"><span style="color:#24292E">    throw cpptrace::logic_error(</span><span style="color:#032F62">"This wasn't supposed to happen!"</span><span style="color:#24292E">);</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<p><img src="res/exception.png" alt="Exception"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/exception.png" alt="Exception"></p>
 <p>Additional notable features:</p>
 <ul>
 <li>Utilities for demangling</li>
@@ -196,7 +196,7 @@ void trace() {
 <li>Source code snippets in traces</li>
 <li>Extensive configuration options for <a href="#formatting">trace formatting</a> and pretty-printing</li>
 </ul>
-<p><img src="res/snippets.png" alt="Snippets"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/snippets.png" alt="Snippets"></p>
 <h2>CMake FetchContent Usage</h2>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="include(FetchContent)
 FetchContent_Declare(
@@ -785,7 +785,7 @@ int main() {
 <p>This functionality is entirely opt-in, to access this use <code>#include &lt;cpptrace/from_current.hpp&gt;</code>.</p>
 <p>Any declarator <code>catch</code> accepts works with <code>CPPTRACE_CATCH</code>, including <code>...</code>. This works with any thrown object, not just
 <code>std::exceptions</code>. It even works with <code>throw 0;</code>!</p>
-<p><img src="res/from_current.png" alt="from_current"></p>
+<p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/from_current.png" alt="from_current"></p>
 <p>API functions:</p>
 <ul>
 <li><code>cpptrace::raw_trace_from_current_exception</code>: Returns <code>const raw_trace&amp;</code> from the current exception.</li>
@@ -1450,7 +1450,7 @@ to produce a full trace there are three options:</p>
 resolution</li>
 </ol>
 <p>For traces on segfaults, e.g., only options 2 and 3 are viable. For more information an implementation of approach 3,
-see the comprehensive overview and demo at <a href="docs/signal-safe-tracing.md">signal-safe-tracing.md</a>.</p>
+see the comprehensive overview and demo at <a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/docs/signal-safe-tracing.md" target="_blank" rel="noopener noreferrer">signal-safe-tracing.md</a>.</p>
 <blockquote>
 <p>[!IMPORTANT]
 Currently signal-safe stack unwinding is only possible with <code>libunwind</code>, which must be
@@ -2259,9 +2259,9 @@ cpptrace.hpp. This can also be controlled with the macro <code>CPPTRACE_NO_STD_F
 <h1>Testing Methodology</h1>
 <p>Cpptrace currently uses integration and functional testing, building and running under every combination of back-end
 options. The implementation is based on <a href="https://docs.github.com/en/actions/using-jobs/using-a-matrix-for-your-jobs">github actions matrices</a> and driven by python scripts located in the
-<a href="ci/"><code>ci/</code></a> folder. Testing used to be done by github actions matrices directly, however, launching hundreds of two
+<a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/ci/" target="_blank" rel="noopener noreferrer"><code>ci/</code></a> folder. Testing used to be done by github actions matrices directly, however, launching hundreds of two
 second jobs was extremely inefficient. Test outputs are compared against expected outputs located in
-<a href="test/expected/"><code>test/expected/</code></a>. Stack trace addresses may point to the address after an instruction depending on the
+<a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/test/expected/" target="_blank" rel="noopener noreferrer"><code>test/expected/</code></a>. Stack trace addresses may point to the address after an instruction depending on the
 unwinding back-end, and the python script will check for an exact or near-match accordingly.</p>
 <h1>Notes About the Library</h1>
 <p>For the most part I'm happy with the state of the library. But I'm sure that there is room for improvement and issues
@@ -2289,8 +2289,7 @@ functionality has extended beyond the standard library's implementation.</p>
 <li>Providing traced exception objects</li>
 <li>Providing an API for signal-safe stacktrace generation</li>
 <li>Providing a way to retrieve stack traces from arbitrary exceptions, not just special cpptrace traced exception
-objects. This is a feature that has been proposed for a future version of the C++ standard,
-but cpptrace provides a solution for C++11.</li>
+objects. This is a feature coming to C++26, but cpptrace provides a solution for C++11.</li>
 </ul>
 <h2>What does cpptrace have over other C++ stacktrace libraries?</h2>
 <p>Other C++ stacktrace libraries, such as boost stacktrace and backward-cpp, fall short when it comes to portability and
@@ -2317,7 +2316,7 @@ either using the same compiler for both or using <code>-stdlib=libc++</code>/<co
 is used.</p>
 <h1>Contributing</h1>
 <p>I'm grateful for the help I've received with this library and I welcome contributions! For information on contributing
-please refer to <a href="./CONTRIBUTING.md">CONTRIBUTING.md</a>.</p>
+please refer to <a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">CONTRIBUTING.md</a>.</p>
 <h1>License</h1>
 <p>This library is under the MIT license.</p>
 <p>Cpptrace uses libdwarf on linux, macos, and mingw/cygwin unless configured to use something else. If this library is

@@ -5,8 +5,8 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
-		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.c9e8a4df.js" defer=""></script>
+		<script src="/registry.769f5cb4.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1676,15 +1676,15 @@ specified.</p>
 <p>Returns a message corresponding to the last error code.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError], [rtcSetDeviceErrorFunction]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code lang="py"></code></pre>
 <h2>rtcGetErrorString</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetErrorString </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns a string representation</span></span>
-<span class="line"><span style="color:#24292E">  of a given RTCError</span></span></code></pre>
+<pre><code>rtcGetErrorString - returns a string representation
+  of a given RTCError</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> rtcGetErrorString(RTCError code)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+const char* rtcGetErrorString(RTCError code);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Returns a string representation for a <code>RTCError</code> error code. For
 example, for the <code>RTCError</code> RTC_ERROR_UNKNOWN this function will return
@@ -1698,24 +1698,24 @@ should be used.</p>
 <p>Returns a string representation of a given <code>RTCError</code> error code.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcSetDeviceErrorFunction</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetDeviceErrorFunction </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets an error callback function </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the device</span></span></code></pre>
+<pre><code>rtcSetDeviceErrorFunction - sets an error callback function for the device</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">typedef void (</span><span style="color:#D73A49">*</span><span style="color:#24292E">RTCErrorFunction)(</span></span>
-<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr,</span></span>
-<span class="line"><span style="color:#24292E">  RTCError code,</span></span>
-<span class="line"><span style="color:#24292E">  const char</span><span style="color:#D73A49">*</span><span style="color:#005CC5"> str</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcSetDeviceErrorFunction(</span></span>
-<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
-<span class="line"><span style="color:#24292E">  RTCErrorFunction error,</span></span>
-<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+typedef void (*RTCErrorFunction)(
+  void* userPtr,
+  RTCError code,
+  const char* str
+);
+
+void rtcSetDeviceErrorFunction(
+  RTCDevice device,
+  RTCErrorFunction error,
+  void* userPtr
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Using the <code>rtcSetDeviceErrorFunction</code> call, it is possible to set a
 callback function (<code>error</code> argument) with payload (<code>userPtr</code> argument),
@@ -1735,25 +1735,25 @@ as a string (<code>str</code> argument) that further describes the error.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcSetDeviceMemoryMonitorFunction</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetDeviceMemoryMonitorFunction </span><span style="color:#D73A49">-</span><span style="color:#24292E"> registers a callback function</span></span>
-<span class="line"><span style="color:#24292E">  to track memory consumption</span></span></code></pre>
+<pre><code>rtcSetDeviceMemoryMonitorFunction - registers a callback function
+  to track memory consumption</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">typedef </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> (</span><span style="color:#D73A49">*</span><span style="color:#24292E">RTCMemoryMonitorFunction)(</span></span>
-<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr,</span></span>
-<span class="line"><span style="color:#24292E">  ssize_t </span><span style="color:#005CC5">bytes</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">  bool</span><span style="color:#24292E"> post</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcSetDeviceMemoryMonitorFunction(</span></span>
-<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
-<span class="line"><span style="color:#24292E">  RTCMemoryMonitorFunction memoryMonitor,</span></span>
-<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+typedef bool (*RTCMemoryMonitorFunction)(
+  void* userPtr,
+  ssize_t bytes,
+  bool post
+);
+
+void rtcSetDeviceMemoryMonitorFunction(
+  RTCDevice device,
+  RTCMemoryMonitorFunction memoryMonitor,
+  void* userPtr
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Using the <code>rtcSetDeviceMemoryMonitorFunction</code> call, it is possible to
 register a callback function (<code>memoryMonitor</code> argument) with payload
@@ -1795,14 +1795,14 @@ happened and a deallocation will later free that data block.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcNewScene</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new scene</span></span></code></pre>
+<pre><code>rtcNewScene - creates a new scene</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCScene rtcNewScene(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCScene rtcNewScene(RTCDevice device);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function creates a new scene bound to the specified device
 (<code>device</code> argument), and returns a handle to this scene. The scene
@@ -1813,14 +1813,14 @@ scene handle can be released using the <code>rtcReleaseScene</code> API call.</p
 and an error code is set that can be queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcRetainScene], [rtcReleaseScene]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetSceneDevice</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the device the scene got created </span><span style="color:#D73A49">in</span></span></code></pre>
+<pre><code>rtcGetSceneDevice - returns the device the scene got created in</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCDevice rtcGetSceneDevice(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCDevice rtcGetSceneDevice(RTCScene scene);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function returns the device object the scene got created in. The
 returned handle own one additional reference to the device object, thus
@@ -1831,14 +1831,14 @@ no longer required.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcReleaseDevice]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcRetainScene</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcRetainScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> increments the scene reference count</span></span></code></pre>
+<pre><code>rtcRetainScene - increments the scene reference count</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcRetainScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcRetainScene(RTCScene scene);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Scene objects are reference counted. The <code>rtcRetainScene</code> function
 increments the reference count of the passed scene object (<code>scene</code>
@@ -1850,14 +1850,14 @@ ownership of the object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewScene], [rtcReleaseScene]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcReleaseScene</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcReleaseScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> decrements the scene reference count</span></span></code></pre>
+<pre><code>rtcReleaseScene - decrements the scene reference count</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcReleaseScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcReleaseScene(RTCScene scene);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Scene objects are reference counted. The <code>rtcReleaseScene</code> function
 decrements the reference count of the passed scene object (<code>scene</code>
@@ -1871,17 +1871,17 @@ count decremented.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewScene], [rtcRetainScene]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcAttachGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcAttachGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> attaches a geometry to the scene</span></span></code></pre>
+<pre><code>rtcAttachGeometry - attaches a geometry to the scene</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> rtcAttachGeometry(</span></span>
-<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
-<span class="line"><span style="color:#24292E">  RTCGeometry geometry</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+unsigned int rtcAttachGeometry(
+  RTCScene scene,
+  RTCGeometry geometry
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcAttachGeometry</code> function attaches a geometry (<code>geometry</code>
 argument) to a scene (<code>scene</code> argument) and assigns a geometry ID to
@@ -1906,19 +1906,19 @@ map to its geometry representation. See <code>rtcSetGeometryUserData</code> and
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetGeometryUserData], [rtcGetGeometryUserData]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcAttachGeometryByID</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcAttachGeometryByID </span><span style="color:#D73A49">-</span><span style="color:#24292E"> attaches a geometry to the scene</span></span>
-<span class="line"><span style="color:#24292E">  using a specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
+<pre><code>rtcAttachGeometryByID - attaches a geometry to the scene
+  using a specified geometry ID</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcAttachGeometryByID(</span></span>
-<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
-<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
-<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcAttachGeometryByID(
+  RTCScene scene,
+  RTCGeometry geometry,
+  unsigned int geomID
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcAttachGeometryByID</code> function attaches a geometry (<code>geometry</code>
 argument) to a scene (<code>scene</code> argument) and assigns a user provided
@@ -1941,14 +1941,14 @@ consumption and performance overhead.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcDetachGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcDetachGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> detaches a geometry </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the scene</span></span></code></pre>
+<pre><code>rtcDetachGeometry - detaches a geometry from the scene</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcDetachGeometry(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcDetachGeometry(RTCScene scene, unsigned int geomID);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function detaches a geometry identified by its geometry ID
 (<code>geomID</code> argument) from a scene (<code>scene</code> argument). When detached, the
@@ -1960,15 +1960,15 @@ geometries from a scene at the same time.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the geometry bound to</span></span>
-<span class="line"><span style="color:#24292E">  the specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
+<pre><code>rtcGetGeometry - returns the geometry bound to
+  the specified geometry ID</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCGeometry rtcGetGeometry(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCGeometry rtcGetGeometry(RTCScene scene, unsigned int geomID);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetGeometry</code> function returns the geometry that is bound to the
 specified geometry ID (<code>geomID</code> argument) for the specified scene
@@ -1987,13 +1987,13 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID],
 [rtcGetGeometryThreadSafe]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetGeometryThreadSafe</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetGeometryThreadSafe </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the geometry bound to</span></span>
-<span class="line"><span style="color:#24292E">  the specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
+<pre><code>rtcGetGeometryThreadSafe - returns the geometry bound to
+  the specified geometry ID</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+<pre><code>#include &lt;embree4/rtcore.h&gt;
 
 RTCGeometry rtcGetGeometryThreadSafe(RTCScene scene, unsigned int geomID);</code></pre>
 <h4>DESCRIPTION {#description}</h4>

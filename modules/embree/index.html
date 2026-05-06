@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.874d1285.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b9786bd8.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1993,9 +1993,9 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetGeometryThreadSafe </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the geometry bound to</span></span>
 <span class="line"><span style="color:#24292E">  the specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCGeometry rtcGetGeometryThreadSafe(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+
+RTCGeometry rtcGetGeometryThreadSafe(RTCScene scene, unsigned int geomID);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetGeometryThreadSafe</code> function returns the geometry that is
 bound to the specified geometry ID (<code>geomID</code> argument) for the
@@ -2011,14 +2011,14 @@ the [rtcGetGeometry] function.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID], [rtcGetGeometry]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcCommitScene</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcCommitScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits scene changes</span></span></code></pre>
+<pre><code>rtcCommitScene - commits scene changes</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcCommitScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcCommitScene(RTCScene scene);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcCommitScene</code> function commits all changes for the specified
 scene (<code>scene</code> argument). This internally triggers building of a
@@ -2065,13 +2065,13 @@ every scene commit.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcCommitSceneWithQueue], [rtcJoinCommitScene]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcCommitSceneWithQueue</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcCommitSceneWithQueue </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits scene changes using a given</span></span>
-<span class="line"><span style="color:#005CC5">  SYCL</span><span style="color:#24292E"> queue </span><span style="color:#D73A49">for</span><span style="color:#24292E"> host</span><span style="color:#D73A49">-</span><span style="color:#24292E">to</span><span style="color:#D73A49">-</span><span style="color:#24292E">device memory transfers</span></span></code></pre>
+<pre><code>rtcCommitSceneWithQueue - commits scene changes using a given
+  SYCL queue for host-to-device memory transfers</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+<pre><code>#include &lt;embree4/rtcore.h&gt;
 
 void rtcCommitScene(RTCScene scene,
   sycl::queue queue,

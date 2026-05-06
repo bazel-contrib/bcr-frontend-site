@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.874d1285.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b9786bd8.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -147,8 +147,8 @@ with <code>*</code> characters, like in the following example:</p>
 <span class="line"><span style="color:#24292E">hello</span><span style="color:#D73A49">&gt;</span><span style="color:#D73A49"> /</span><span style="color:#24292E">mask</span></span>
 <span class="line"><span style="color:#24292E">hello</span><span style="color:#D73A49">&gt;</span><span style="color:#D73A49"> *********</span></span></code></pre>
 <p>You can enable and disable mask mode using the following two functions:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">void linenoiseMaskModeEnable(void)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">void linenoiseMaskModeDisable(void)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">void linenoiseMaskModeEnable(void);
+void linenoiseMaskModeDisable(void);</code></pre>
 <h2>Completion</h2>
 <p>Linenoise supports completion, which is the ability to complete the user
 input when she or he presses the <code>&lt;TAB&gt;</code> key.</p>
@@ -156,18 +156,18 @@ input when she or he presses the <code>&lt;TAB&gt;</code> key.</p>
 is called every time the user presses <code>&lt;TAB&gt;</code>. Your callback will return a
 list of items that are completions for the current string.</p>
 <p>The following is an example of registering a completion callback:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">linenoiseSetCompletionCallback(completion)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>linenoiseSetCompletionCallback(completion);</code></pre>
 <p>The completion must be a function returning <code>void</code> and getting as input
 a <code>const char</code> pointer, which is the line the user has typed so far, and
 a <code>linenoiseCompletions</code> object pointer, which is used as argument of
 <code>linenoiseAddCompletion</code> in order to add completions inside the callback.
 An example will make it more clear:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">void completion(const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">buf, linenoiseCompletions </span><span style="color:#D73A49">*</span><span style="color:#24292E">lc) {</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (buf[</span><span style="color:#005CC5">0</span><span style="color:#24292E">] </span><span style="color:#D73A49">==</span><span style="color:#032F62"> 'h'</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#24292E">        linenoiseAddCompletion(lc,</span><span style="color:#032F62">"hello"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">        linenoiseAddCompletion(lc,</span><span style="color:#032F62">"hello there"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>void completion(const char *buf, linenoiseCompletions *lc) {
+    if (buf[0] == 'h') {
+        linenoiseAddCompletion(lc,"hello");
+        linenoiseAddCompletion(lc,"hello there");
+    }
+}</code></pre>
 <p>Basically in your completion callback, you inspect the input, and return
 a list of items that are good completions by using <code>linenoiseAddCompletion</code>.</p>
 <p>If you want to test the completion feature, compile the example program
@@ -184,9 +184,9 @@ to the color the user is typing, and can also be bold.</p>
 possible to show on the right of the prompt a string <code>&lt;name&gt; &lt;url&gt;</code>.</p>
 <p>The feature works similarly to the history feature, using a callback.
 To register the callback we use:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">linenoiseSetHintsCallback(hints)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>linenoiseSetHintsCallback(hints);</code></pre>
 <p>The callback itself is implemented like this:</p>
-<pre><code lang="py">char *hints(const char *buf, int *color, int *bold) {
+<pre><code>char *hints(const char *buf, int *color, int *bold) {
     if (!strcasecmp(buf,"git remote add")) {
         *color = 35;
         *bold = 0;

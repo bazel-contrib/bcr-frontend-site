@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.c9e8a4df.js" defer=""></script>
-		<script src="/registry.3bc46670.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6e0b9275.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -907,66 +907,66 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 </ul>
 <h3>Binary formats (BSON, CBOR, MessagePack, UBJSON, and BJData)</h3>
 <p>Though JSON is a ubiquitous data format, it is not a very compact format suitable for data exchange, for instance over a network. Hence, the library supports <a href="https://bsonspec.org">BSON</a> (Binary JSON), <a href="https://cbor.io">CBOR</a> (Concise Binary Object Representation), <a href="https://msgpack.org">MessagePack</a>, <a href="https://ubjson.org">UBJSON</a> (Universal Binary JSON Specification) and <a href="https://neurojson.org/bjdata">BJData</a> (Binary JData) to efficiently encode JSON values to byte vectors and to decode such vectors.</p>
-<pre><code lang="py">// create a JSON value
-json j = R"({"compact": true, "schema": 0})"_json;
-
-// serialize to BSON
-std::vector&lt;std::uint8_t&gt; v_bson = json::to_bson(j);
-
-// 0x1B, 0x00, 0x00, 0x00, 0x08, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x00, 0x01, 0x10, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
-
-// roundtrip
-json j_from_bson = json::from_bson(v_bson);
-
-// serialize to CBOR
-std::vector&lt;std::uint8_t&gt; v_cbor = json::to_cbor(j);
-
-// 0xA2, 0x67, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xF5, 0x66, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
-
-// roundtrip
-json j_from_cbor = json::from_cbor(v_cbor);
-
-// serialize to MessagePack
-std::vector&lt;std::uint8_t&gt; v_msgpack = json::to_msgpack(j);
-
-// 0x82, 0xA7, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3, 0xA6, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
-
-// roundtrip
-json j_from_msgpack = json::from_msgpack(v_msgpack);
-
-// serialize to UBJSON
-std::vector&lt;std::uint8_t&gt; v_ubjson = json::to_ubjson(j);
-
-// 0x7B, 0x69, 0x07, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x54, 0x69, 0x06, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x69, 0x00, 0x7D
-
-// roundtrip
-json j_from_ubjson = json::from_ubjson(v_ubjson);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value</span></span>
+<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> R</span><span style="color:#032F62">"({"</span><span style="color:#24292E">compact</span><span style="color:#032F62">": true, "</span><span style="color:#24292E">schema</span><span style="color:#032F62">": 0})"</span><span style="color:#24292E">_json</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">BSON</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_bson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">1B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">08</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">01</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
+<span class="line"><span style="color:#24292E">json j_from_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_bson(v_bson)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">CBOR</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_cbor(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">A2</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">67</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">F5</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">66</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
+<span class="line"><span style="color:#24292E">json j_from_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_cbor(v_cbor)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to MessagePack</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_msgpack(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">82</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A7</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">C3</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A6</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
+<span class="line"><span style="color:#24292E">json j_from_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_msgpack(v_msgpack)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">UBJSON</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_ubjson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">7B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">07</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">54</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">06</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">7D</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
+<span class="line"><span style="color:#24292E">json j_from_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_ubjson(v_ubjson)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The library also supports binary types from BSON, CBOR (byte strings), and MessagePack (bin, ext, fixext). They are stored by default as <code>std::vector&lt;std::uint8_t&gt;</code> to be processed outside the library.</p>
-<pre><code>// CBOR byte string with payload 0xCAFE
-std::vector&lt;std::uint8_t&gt; v = {0x42, 0xCA, 0xFE};
-
-// read value
-json j = json::from_cbor(v);
-
-// the JSON value has type binary
-j.is_binary(); // true
-
-// get reference to stored binary value
-auto&amp; binary = j.get_binary();
-
-// the binary value has no subtype (CBOR has no binary subtypes)
-binary.has_subtype(); // false
-
-// access std::vector&lt;std::uint8_t&gt; member functions
-binary.size(); // 2
-binary[0]; // 0xCA
-binary[1]; // 0xFE
-
-// set subtype to 0x10
-binary.set_subtype(0x10);
-
-// serialize to MessagePack
-auto cbor = json::to_msgpack(j); // 0xD5 (fixext2), 0x10, 0xCA, 0xFE</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> CBOR</span><span style="color:#24292E"> byte string </span><span style="color:#D73A49">with</span><span style="color:#24292E"> payload </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CAFE</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">42</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CA</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">FE</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> read value</span></span>
+<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_cbor(v)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> the </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value has </span><span style="color:#005CC5">type</span><span style="color:#24292E"> binary</span></span>
+<span class="line"><span style="color:#24292E">j.is_binary(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> get reference to stored binary value</span></span>
+<span class="line"><span style="color:#24292E">auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> binary </span><span style="color:#D73A49">=</span><span style="color:#24292E"> j.get_binary()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> the binary value has no subtype (</span><span style="color:#005CC5">CBOR</span><span style="color:#24292E"> has no binary subtypes)</span></span>
+<span class="line"><span style="color:#24292E">binary.has_subtype(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> access std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> member functions</span></span>
+<span class="line"><span style="color:#24292E">binary.size(); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 2</span></span>
+<span class="line"><span style="color:#24292E">binary[</span><span style="color:#005CC5">0</span><span style="color:#24292E">]; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">CA</span></span>
+<span class="line"><span style="color:#24292E">binary[</span><span style="color:#005CC5">1</span><span style="color:#24292E">]; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">FE</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> subtype to </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span></span>
+<span class="line"><span style="color:#24292E">binary.set_subtype(</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to MessagePack</span></span>
+<span class="line"><span style="color:#24292E">auto cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_msgpack(j); </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">D5</span><span style="color:#24292E"> (fixext2), </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CA</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">FE</span></span></code></pre>
 <h2>Customers</h2>
 <p>The library is used in multiple projects, applications, operating systems, etc. The list below is not exhaustive, but the result of an internet search. If you know further customers of the library, please let me know, see <a href="#contact">contact</a>.</p>
 <p><a href="https://json.nlohmann.me/home/customers/"><img src="https://raw.githubusercontent.com/nlohmann/json/7c2b2ede37f9a3f5b9983b427459b367a75127cc/docs/mkdocs/docs/images/customers.png" alt="logos of customers using the library"></a></p>
@@ -989,7 +989,7 @@ auto cbor = json::to_msgpack(j); // 0xD5 (fixext2), 0x10, 0xCA, 0xFE</code></pre
 <li><p>GCC 4.8 has a bug <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57824">57824</a>: multiline raw strings cannot be the arguments to macros. Don't use multiline raw strings directly in macros with this compiler.</p>
 </li>
 <li><p>Android defaults to using very old compilers and C++ libraries. To fix this, add the following to your <code>Application.mk</code>. This will switch to the LLVM C++ library, the Clang compiler, and enable C++11 and other features disabled by default.</p>
-<pre><code>APP_STL := c++_shared
+<pre><code lang="py">APP_STL := c++_shared
 NDK_TOOLCHAIN_VERSION := clang3.6
 APP_CPPFLAGS += -frtti -fexceptions</code></pre>
 <p>  The code compiles successfully with <a href="https://developer.android.com/ndk/index.html?hl=ml">Android NDK</a>, Revision 9 - 11 (and possibly later) and <a href="https://www.crystax.net/en/android/ndk">CrystaX's Android NDK</a> version 10.</p>

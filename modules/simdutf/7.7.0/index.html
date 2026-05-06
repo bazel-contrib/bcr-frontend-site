@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.9df7ac52.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.874d1285.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1495,280 +1495,280 @@ if there is an error, or otherwise the number of code units written. You may use
 <span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "we have transcoded "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> res.count </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " characters"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
 <span class="line"><span style="color:#24292E">  }</span></span></code></pre>
 <p>We have several transcoding functions returning <code>simdutf::error</code> results:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string into Latin1 string </span><span style="color:#D73A49">with</span><span style="color:#24292E"> errors.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> If the string cannot be represented </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Latin1, an error</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> code </span><span style="color:#D73A49">is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param latin1_output  the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of code units validated </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf8_to_latin1_with_errors(const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> latin1_output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string into Latin1 string.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> If the string cannot be represented </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Latin1, an error</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param latin1_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16le_to_latin1_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> latin1_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string into Latin1 string.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> If the string cannot be represented </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Latin1, an error</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param latin1_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16be_to_latin1_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> latin1_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Using native endianness, convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#24292E"> string into Latin1 string.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> If the string cannot be represented </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Latin1, an error</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param latin1_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16_to_latin1_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> latin1_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Using native endianness; Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer  the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf8_to_utf16_with_errors(const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer  the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf8_to_utf16le_with_errors(const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer  the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf8_to_utf16be_with_errors(const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf32_buffer  the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char32_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf8_to_utf32_with_errors(const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char32_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf32_output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf8_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16le_to_utf8_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf8_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf8_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16be_to_utf8_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf8_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string into Latin1 string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> If the string cannot be represented </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Latin1, an error </span><span style="color:#D73A49">is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char32_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param latin1_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf32_to_latin1_with_errors(const char32_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> latin1_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char32_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf8_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf32_to_utf8_with_errors(const char32_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf8_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Using native endianness; Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char32_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf32_to_utf16_with_errors(const char32_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char32_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf32_to_utf16le_with_errors(const char32_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char32_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf16_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char16_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf32_to_utf16be_with_errors(const char32_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf16_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Using native endianness; Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#24292E"> string into</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#005CC5"> UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf32_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char32_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16_to_utf32_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char32_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf32_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf32_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char32_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16le_to_utf32_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char32_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf32_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/**</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Convert possibly broken </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">32</span><span style="color:#24292E"> string </span><span style="color:#D73A49">and</span><span style="color:#24292E"> stop on error.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> During the conversion also validation of the </span><span style="color:#005CC5">input</span><span style="color:#24292E"> string </span><span style="color:#D73A49">is</span><span style="color:#24292E"> done.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#24292E"> suitable to work </span><span style="color:#D73A49">with</span><span style="color:#24292E"> inputs </span><span style="color:#D73A49">from</span><span style="color:#24292E"> untrusted sources.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
-<span class="line"><span style="color:#D73A49"> *</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> string to convert</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param utf32_buffer   the pointer to buffer that can hold conversion result</span></span>
-<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @return</span><span style="color:#24292E"> a result pair struct (of </span><span style="color:#005CC5">type</span><span style="color:#24292E"> simdutf::result containing the two fields error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count) </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an error code </span><span style="color:#D73A49">and</span><span style="color:#24292E"> either position of the error (</span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> code units) </span><span style="color:#D73A49">if</span><span style="color:#005CC5"> any</span><span style="color:#24292E">, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the number of char32_t written </span><span style="color:#D73A49">if</span><span style="color:#24292E"> successful.</span></span>
-<span class="line"><span style="color:#D73A49"> */</span></span>
-<span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16be_to_utf32_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char32_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf32_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<p>If you have a UTF-16 input, you may change its endianness with a fast function.</p>
 <pre><code lang="py">/**
+ * Convert possibly broken UTF-8 string into Latin1 string with errors.
+ * If the string cannot be represented as Latin1, an error
+ * code is returned.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * @param input         the UTF-8 string to convert
+ * @param length        the length of the string in bytes
+ * @param latin1_output  the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of code units validated if successful.
+ */
+simdutf_warn_unused result convert_utf8_to_latin1_with_errors(const char * input, size_t length, char* latin1_output) noexcept;
+
+/**
+ * Convert possibly broken UTF-16LE string into Latin1 string.
+ * If the string cannot be represented as Latin1, an error
+ * is returned.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16LE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param latin1_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf16le_to_latin1_with_errors(const char16_t * input, size_t length, char* latin1_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-16BE string into Latin1 string.
+ * If the string cannot be represented as Latin1, an error
+ * is returned.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16BE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param latin1_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf16be_to_latin1_with_errors(const char16_t * input, size_t length, char* latin1_buffer) noexcept;
+
+/**
+ * Using native endianness, convert possibly broken UTF-16 string into Latin1 string.
+ * If the string cannot be represented as Latin1, an error
+ * is returned.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16 string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param latin1_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf16_to_latin1_with_errors(const char16_t * input, size_t length, char* latin1_buffer) noexcept;
+
+
+/**
+ * Using native endianness; Convert possibly broken UTF-8 string into UTF-16
+ * string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * @param input         the UTF-8 string to convert
+ * @param length        the length of the string in bytes
+ * @param utf16_buffer  the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf8_to_utf16_with_errors(const char * input, size_t length, char16_t* utf16_output) noexcept;
+
+/**
+ * Convert possibly broken UTF-8 string into UTF-16LE string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * @param input         the UTF-8 string to convert
+ * @param length        the length of the string in bytes
+ * @param utf16_buffer  the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf8_to_utf16le_with_errors(const char * input, size_t length, char16_t* utf16_output) noexcept;
+
+/**
+ * Convert possibly broken UTF-8 string into UTF-16BE string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * @param input         the UTF-8 string to convert
+ * @param length        the length of the string in bytes
+ * @param utf16_buffer  the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf8_to_utf16be_with_errors(const char * input, size_t length, char16_t* utf16_output) noexcept;
+
+/**
+ * Convert possibly broken UTF-8 string into UTF-32 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * @param input         the UTF-8 string to convert
+ * @param length        the length of the string in bytes
+ * @param utf32_buffer  the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char32_t written if successful.
+ */
+simdutf_warn_unused result convert_utf8_to_utf32_with_errors(const char * input, size_t length, char32_t* utf32_output) noexcept;
+
+
+/**
+ * Convert possibly broken UTF-16LE string into UTF-8 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16LE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param utf8_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf16le_to_utf8_with_errors(const char16_t * input, size_t length, char* utf8_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-16BE string into UTF-8 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16BE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param utf8_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf16be_to_utf8_with_errors(const char16_t * input, size_t length, char* utf8_buffer) noexcept;
+
+
+/**
+ * Convert possibly broken UTF-32 string into Latin1 string and stop on error.
+ * If the string cannot be represented as Latin1, an error is returned.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-32 string to convert
+ * @param length        the length of the string in 4-byte code units (char32_t)
+ * @param latin1_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf32_to_latin1_with_errors(const char32_t * input, size_t length, char* latin1_buffer) noexcept;
+
+
+/**
+ * Convert possibly broken UTF-32 string into UTF-8 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-32 string to convert
+ * @param length        the length of the string in 4-byte code units (char32_t)
+ * @param utf8_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char written if successful.
+ */
+simdutf_warn_unused result convert_utf32_to_utf8_with_errors(const char32_t * input, size_t length, char* utf8_buffer) noexcept;
+
+/**
+ * Using native endianness; Convert possibly broken UTF-32 string into UTF-16
+ * string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-32 string to convert
+ * @param length        the length of the string in 4-byte code units (char32_t)
+ * @param utf16_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf32_to_utf16_with_errors(const char32_t * input, size_t length, char16_t* utf16_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-32 string into UTF-16LE string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-32 string to convert
+ * @param length        the length of the string in 4-byte code units (char32_t)
+ * @param utf16_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf32_to_utf16le_with_errors(const char32_t * input, size_t length, char16_t* utf16_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-32 string into UTF-16BE string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-32 string to convert
+ * @param length        the length of the string in 4-byte code units (char32_t)
+ * @param utf16_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char16_t written if successful.
+ */
+simdutf_warn_unused result convert_utf32_to_utf16be_with_errors(const char32_t * input, size_t length, char16_t* utf16_buffer) noexcept;
+
+/**
+ * Using native endianness; Convert possibly broken UTF-16 string into
+ * UTF-32 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16 string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param utf32_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char32_t written if successful.
+ */
+simdutf_warn_unused result convert_utf16_to_utf32_with_errors(const char16_t * input, size_t length, char32_t* utf32_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-16LE string into UTF-32 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16LE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param utf32_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char32_t written if successful.
+ */
+simdutf_warn_unused result convert_utf16le_to_utf32_with_errors(const char16_t * input, size_t length, char32_t* utf32_buffer) noexcept;
+
+/**
+ * Convert possibly broken UTF-16BE string into UTF-32 string and stop on error.
+ *
+ * During the conversion also validation of the input string is done.
+ * This function is suitable to work with inputs from untrusted sources.
+ *
+ * This function is not BOM-aware.
+ *
+ * @param input         the UTF-16BE string to convert
+ * @param length        the length of the string in 2-byte code units (char16_t)
+ * @param utf32_buffer   the pointer to buffer that can hold conversion result
+ * @return a result pair struct (of type simdutf::result containing the two fields error and count) with an error code and either position of the error (in the input in code units) if any, or the number of char32_t written if successful.
+ */
+simdutf_warn_unused result convert_utf16be_to_utf32_with_errors(const char16_t * input, size_t length, char32_t* utf32_buffer) noexcept;</code></pre>
+<p>If you have a UTF-16 input, you may change its endianness with a fast function.</p>
+<pre><code>/**
  * Change the endianness of the input. Can be used to go from UTF-16LE to UTF-16BE or
  * from UTF-16BE to UTF-16LE.
  *

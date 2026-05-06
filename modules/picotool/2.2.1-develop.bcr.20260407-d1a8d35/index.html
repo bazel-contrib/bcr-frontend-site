@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.325baf41.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9df7ac52.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1196,34 +1196,34 @@ is in <a href="json/sample-permissions.json">sample-permissions.json</a>. The sc
 <span class="line"><span style="color:#24292E">            Output </span><span style="color:#005CC5">DIS</span></span></code></pre>
 <h2>link</h2>
 <p>This command is used to link multiple binaries with block loops into a single larger block loop. It can currently link up to 3 files into a block loop. It will add the required Rolling Window Delta items to the new block loop, to ensure that everyting is rolled correctly when being executed. For examples of its usage, see the universal examples in <a href="https://github.com/raspberrypi/pico-examples?tab=readme-ov-file#universal">pico-examples</a>.</p>
-<pre><code lang="py">$ picotool help link
-LINK:
-    Link multiple binaries into one block loop.
-
-SYNOPSIS:
-    picotool link [--quiet] [--verbose] &lt;outfile&gt; [-t &lt;type&gt;] &lt;infile1&gt; [-t &lt;type&gt;] &lt;infile2&gt; [-t &lt;type&gt;] [&lt;infile3&gt;] [-t &lt;type&gt;] [-p &lt;pad&gt;]
-
-OPTIONS:
-        --quiet
-            Don't print any output
-        --verbose
-            Print verbose output
-        -p &lt;pad&gt;
-            Specify alignment to pad to, defaults to 0x1000
-    File to write to
-        &lt;outfile&gt;
-            The file name
-        -t &lt;type&gt;
-            Specify file type (uf2 | bin) explicitly, ignoring file extension
-    Files to link
-        &lt;infile1&gt;
-            The file name
-        -t &lt;type&gt;
-            Specify file type (uf2 | elf | bin) explicitly, ignoring file extension
-        &lt;infile2&gt;
-            The file name
-        &lt;infile3&gt;
-            The file name</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool </span><span style="color:#005CC5">help</span><span style="color:#24292E"> link</span></span>
+<span class="line"><span style="color:#005CC5">LINK</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    Link multiple binaries into one block loop.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">SYNOPSIS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    picotool link [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">quiet] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">verbose] </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">outfile</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [</span><span style="color:#D73A49">-</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">infile1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [</span><span style="color:#D73A49">-</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">infile2</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [</span><span style="color:#D73A49">-</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] [</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">infile3</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">p </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">pad</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">quiet</span></span>
+<span class="line"><span style="color:#24292E">            Don</span><span style="color:#032F62">'t print any output</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">verbose</span></span>
+<span class="line"><span style="color:#24292E">            Print verbose output</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">p </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">pad</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            Specify alignment to pad to, defaults to </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">1000</span></span>
+<span class="line"><span style="color:#24292E">    File to write to</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">outfile</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            The </span><span style="color:#E36209">file</span><span style="color:#24292E"> name</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            Specify </span><span style="color:#E36209">file</span><span style="color:#005CC5"> type</span><span style="color:#24292E"> (uf2 </span><span style="color:#D73A49">|</span><span style="color:#005CC5"> bin</span><span style="color:#24292E">) explicitly, ignoring </span><span style="color:#E36209">file</span><span style="color:#24292E"> extension</span></span>
+<span class="line"><span style="color:#24292E">    Files to link</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">infile1</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            The </span><span style="color:#E36209">file</span><span style="color:#24292E"> name</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">t </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            Specify </span><span style="color:#E36209">file</span><span style="color:#005CC5"> type</span><span style="color:#24292E"> (uf2 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> elf </span><span style="color:#D73A49">|</span><span style="color:#005CC5"> bin</span><span style="color:#24292E">) explicitly, ignoring </span><span style="color:#E36209">file</span><span style="color:#24292E"> extension</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">infile2</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            The </span><span style="color:#E36209">file</span><span style="color:#24292E"> name</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">infile3</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            The </span><span style="color:#E36209">file</span><span style="color:#24292E"> name</span></span></code></pre>
 <h2>Binary Information</h2>
 <p>Binary information is machine locatable and generally machine consumable. I say generally because anyone can
 include any information, and we can tell it from ours, but it is up to them whether they make their data self describing.</p>
@@ -1246,81 +1246,81 @@ in most binaries from launch!!</p>
 <h3>Pins</h3>
 <p>This is certainly handy when you have an executable called 'hello_world.elf' but you forgot what board it is built for...</p>
 <p>Static (fixed) pin assignments can be recorded in the binary in very compact form:</p>
-<pre><code>$ picotool info --pins sprite_demo.elf
-File sprite_demo.elf:
-
-Fixed Pin Information
-0-4:    Red 0-4
-6-10:   Green 0-4
-11-15:  Blue 0-4
-16:     HSync
-17:     VSync
-18:     Display Enable
-19:     Pixel Clock
-20:     UART1 TX
-21:     UART1 RX</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool info </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">pins sprite_demo.elf</span></span>
+<span class="line"><span style="color:#24292E">File sprite_demo.elf:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Fixed Pin Information</span></span>
+<span class="line"><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span><span style="color:#24292E">:    Red </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">6</span><span style="color:#D73A49">-</span><span style="color:#005CC5">10</span><span style="color:#24292E">:   Green </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">11</span><span style="color:#D73A49">-</span><span style="color:#005CC5">15</span><span style="color:#24292E">:  Blue </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">16</span><span style="color:#24292E">:     HSync</span></span>
+<span class="line"><span style="color:#005CC5">17</span><span style="color:#24292E">:     VSync</span></span>
+<span class="line"><span style="color:#005CC5">18</span><span style="color:#24292E">:     Display Enable</span></span>
+<span class="line"><span style="color:#005CC5">19</span><span style="color:#24292E">:     Pixel Clock</span></span>
+<span class="line"><span style="color:#005CC5">20</span><span style="color:#24292E">:     </span><span style="color:#005CC5">UART1</span><span style="color:#005CC5"> TX</span></span>
+<span class="line"><span style="color:#005CC5">21</span><span style="color:#24292E">:     </span><span style="color:#005CC5">UART1</span><span style="color:#005CC5"> RX</span></span></code></pre>
 <h3>Configuration</h3>
 <p>This is very handy if you want to be able to modify parameters in a binary, without having to recompile it.</p>
-<pre><code>$ picotool config -s name Jane
-name = "Billy"
-setting name -&gt; "Jane"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool config </span><span style="color:#D73A49">-</span><span style="color:#24292E">s name Jane</span></span>
+<span class="line"><span style="color:#24292E">name </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Billy"</span></span>
+<span class="line"><span style="color:#24292E">setting name </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#032F62"> "Jane"</span></span></code></pre>
 <h3>Including Binary information</h3>
 <p>Binary information is declared in the program by macros (vile warped macros); for the pins example:</p>
-<pre><code>$ picotool info --pins sprite_demo.elf
-File sprite_demo.elf:
-
-Fixed Pin Information
-0-4:    Red 0-4
-6-10:   Green 0-4
-11-15:  Blue 0-4
-16:     HSync
-17:     VSync
-18:     Display Enable
-19:     Pixel Clock
-20:     UART1 TX
-21:     UART1 RX</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool info </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">pins sprite_demo.elf</span></span>
+<span class="line"><span style="color:#24292E">File sprite_demo.elf:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Fixed Pin Information</span></span>
+<span class="line"><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span><span style="color:#24292E">:    Red </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">6</span><span style="color:#D73A49">-</span><span style="color:#005CC5">10</span><span style="color:#24292E">:   Green </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">11</span><span style="color:#D73A49">-</span><span style="color:#005CC5">15</span><span style="color:#24292E">:  Blue </span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4</span></span>
+<span class="line"><span style="color:#005CC5">16</span><span style="color:#24292E">:     HSync</span></span>
+<span class="line"><span style="color:#005CC5">17</span><span style="color:#24292E">:     VSync</span></span>
+<span class="line"><span style="color:#005CC5">18</span><span style="color:#24292E">:     Display Enable</span></span>
+<span class="line"><span style="color:#005CC5">19</span><span style="color:#24292E">:     Pixel Clock</span></span>
+<span class="line"><span style="color:#005CC5">20</span><span style="color:#24292E">:     </span><span style="color:#005CC5">UART1</span><span style="color:#005CC5"> TX</span></span>
+<span class="line"><span style="color:#005CC5">21</span><span style="color:#24292E">:     </span><span style="color:#005CC5">UART1</span><span style="color:#005CC5"> RX</span></span></code></pre>
 <p>... there is one line in the <code>setup_default_uart</code> function:</p>
-<pre><code>bi_decl_if_func_used(bi_2pins_with_func(PICO_DEFAULT_UART_RX_PIN, PICO_DEFAULT_UART_TX_PIN, GPIO_FUNC_UART));</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bi_decl_if_func_used(bi_2pins_with_func(</span><span style="color:#005CC5">PICO_DEFAULT_UART_RX_PIN</span><span style="color:#24292E">, </span><span style="color:#005CC5">PICO_DEFAULT_UART_TX_PIN</span><span style="color:#24292E">, </span><span style="color:#005CC5">GPIO_FUNC_UART</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The two pin numbers, and the function UART are stored, then decoded to their actual function names (UART1 TX etc) by picotool.
 The <code>bi_decl_if_func_used</code> makes sure the binary information is only included if the containing function is called.</p>
 <p>Equally, the video code contains a few lines like this:</p>
-<pre><code>bi_decl_if_func_used(bi_pin_mask_with_name(0x1f &lt;&lt; (PICO_SCANVIDEO_COLOR_PIN_BASE + PICO_SCANVIDEO_DPI_PIXEL_RSHIFT), "Red 0-4"));</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bi_decl_if_func_used(bi_pin_mask_with_name(</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">1f</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> (</span><span style="color:#005CC5">PICO_SCANVIDEO_COLOR_PIN_BASE</span><span style="color:#D73A49"> +</span><span style="color:#005CC5"> PICO_SCANVIDEO_DPI_PIXEL_RSHIFT</span><span style="color:#24292E">), </span><span style="color:#032F62">"Red 0-4"</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>For the configuration example, you put the line</p>
-<pre><code>bi_decl(bi_ptr_string(0x1111, 0x3333, name, "Billy", 128));</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bi_decl(bi_ptr_string(</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">1111</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">3333</span><span style="color:#24292E">, name, </span><span style="color:#032F62">"Billy"</span><span style="color:#24292E">, </span><span style="color:#005CC5">128</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>into your code, which will then create the name variable for you to subsequently print.
 The parameters are the tag, the ID, variable name, default value, and maximum string length.</p>
-<pre><code>printf("Name is %s\n", name);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">printf(</span><span style="color:#032F62">"Name is </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, name)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h3>Details</h3>
 <p>Things are designed to waste as little space as possible, but you can turn everything off with preprocessor variable <code>PICO_NO_BINARY_INFO=1</code>. Additionally,
 any SDK code that inserts binary info can be separately excluded by its own preprocessor variable.</p>
 <p>You need</p>
-<pre><code>#include "pico/binary_info.h"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "pico/binary_info.h"</span></span></code></pre>
 <p>Basically you either use <code>bi_decl(bi_blah(...))</code> for unconditional inclusion of the binary info blah, or
 <code>bi_decl_if_func_used(bi_blah(...))</code> for binary information that may be stripped if the enclosing function
 is not included in the binary by the linker (think <code>--gc-sections</code>)</p>
 <p>There are a bunch of bi_ macros in the headers</p>
-<pre><code>#define bi_binary_end(end) ...
-#define bi_program_name(name) ...
-#define bi_program_description(description) ...
-#define bi_program_version_string(version_string) ...
-#define bi_program_build_date_string(date_string) ...
-#define bi_program_url(url) ...
-#define bi_program_feature(feature) ...
-#define bi_program_build_attribute(attr) ...
-#define bi_1pin_with_func(p0, func) ...
-#define bi_2pins_with_func(p0, p1, func) ...
-#define bi_3pins_with_func(p0, p1, p2, func) ...
-#define bi_4pins_with_func(p0, p1, p2, p3, func) ...
-#define bi_5pins_with_func(p0, p1, p2, p3, p4, func) ...
-#define bi_pin_range_with_func(plo, phi, func) ...
-#define bi_pin_mask_with_name(pmask, label) ...
-#define bi_pin_mask_with_names(pmask, label) ...
-#define bi_1pin_with_name(p0, name) ...
-#define bi_2pins_with_names(p0, name0, p1, name1) ...
-#define bi_3pins_with_names(p0, name0, p1, name1, p2, name2) ...
-#define bi_4pins_with_names(p0, name0, p1, name1, p2, name2, p3, name3) ...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#define bi_binary_end(end) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_name(name) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_description(description) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_version_string(version_string) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_build_date_string(date_string) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_url(url) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_feature(feature) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_program_build_attribute(attr) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_1pin_with_func(p0, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_2pins_with_func(p0, p1, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_3pins_with_func(p0, p1, p2, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_4pins_with_func(p0, p1, p2, p3, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_5pins_with_func(p0, p1, p2, p3, p4, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_pin_range_with_func(plo, phi, func) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_pin_mask_with_name(pmask, label) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_pin_mask_with_names(pmask, label) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_1pin_with_name(p0, name) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_2pins_with_names(p0, name0, p1, name1) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_3pins_with_names(p0, name0, p1, name1, p2, name2) ...</span></span>
+<span class="line"><span style="color:#6A737D">#define bi_4pins_with_names(p0, name0, p1, name1, p2, name2, p3, name3) ...</span></span></code></pre>
 <p>which make use of underlying macros, e.g.</p>
-<pre><code>#define bi_program_url(url) bi_string(BINARY_INFO_TAG_RASPBERRY_PI, BINARY_INFO_ID_RP_PROGRAM_URL, url)</code></pre>
+<pre><code lang="py">#define bi_program_url(url) bi_string(BINARY_INFO_TAG_RASPBERRY_PI, BINARY_INFO_ID_RP_PROGRAM_URL, url)</code></pre>
 <p>NOTE: It is easy to forget to enclose these in <code>bi_decl</code> etc., so an effort has been made (at the expense of a lot of kittens)
 to make the build fail with a <em>somewhat</em> helpful error message if you do so.</p>
 <p>For example, trying to compile</p>

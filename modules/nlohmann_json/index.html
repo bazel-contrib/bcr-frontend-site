@@ -6,7 +6,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.88ba187e.js" defer=""></script>
-		<script src="/registry.b9786bd8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e44a985e.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -886,17 +886,17 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 <span class="line"><span style="color:#24292E">})</span></span></code></pre>
 <p>The <code>NLOHMANN_JSON_SERIALIZE_ENUM()</code> macro declares a set of <code>to_json()</code> / <code>from_json()</code> functions for type <code>TaskState</code> while avoiding repetition and boilerplate serialization code.</p>
 <p><strong>Usage:</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> enum to </span><span style="color:#005CC5">JSON</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> string</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> TS_STOPPED</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(j </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "stopped"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> json string to enum</span></span>
-<span class="line"><span style="color:#24292E">json j3 </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "running"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(j3.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">TaskState</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> TS_RUNNING</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> undefined json value to enum (where the first </span><span style="color:#005CC5">map</span><span style="color:#24292E"> entry above </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the default)</span></span>
-<span class="line"><span style="color:#24292E">json jPi </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 3.14</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(jPi.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">TaskState</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> TS_INVALID</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">// enum to JSON as string
+json j = TS_STOPPED;
+assert(j == "stopped");
+
+// json string to enum
+json j3 = "running";
+assert(j3.get&lt;TaskState&gt;() == TS_RUNNING);
+
+// undefined json value to enum (where the first map entry above is the default)
+json jPi = 3.14;
+assert(jPi.get&lt;TaskState&gt;() == TS_INVALID);</code></pre>
 <p>Just as in <a href="#arbitrary-types-conversions">Arbitrary Type Conversions</a> above,</p>
 <ul>
 <li><code>NLOHMANN_JSON_SERIALIZE_ENUM()</code> MUST be declared in your enum type's namespace (which can be the global namespace), or the library will not be able to locate it, and it will default to integer serialization.</li>
@@ -909,42 +909,42 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 </ul>
 <h3>Binary formats (BSON, CBOR, MessagePack, UBJSON, and BJData)</h3>
 <p>Though JSON is a ubiquitous data format, it is not a very compact format suitable for data exchange, for instance over a network. Hence, the library supports <a href="https://bsonspec.org">BSON</a> (Binary JSON), <a href="https://cbor.io">CBOR</a> (Concise Binary Object Representation), <a href="https://msgpack.org">MessagePack</a>, <a href="https://ubjson.org">UBJSON</a> (Universal Binary JSON Specification) and <a href="https://neurojson.org/bjdata">BJData</a> (Binary JData) to efficiently encode JSON values to byte vectors and to decode such vectors.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> R</span><span style="color:#032F62">"({"</span><span style="color:#24292E">compact</span><span style="color:#032F62">": true, "</span><span style="color:#24292E">schema</span><span style="color:#032F62">": 0})"</span><span style="color:#24292E">_json</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">BSON</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_bson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">1B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">08</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">01</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_bson(v_bson)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">CBOR</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_cbor(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">A2</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">67</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">F5</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">66</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_cbor(v_cbor)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to MessagePack</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_msgpack(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">82</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A7</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">C3</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A6</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_msgpack(v_msgpack)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">UBJSON</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_ubjson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">7B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">07</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">54</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">06</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">7D</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_ubjson(v_ubjson)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// create a JSON value
+json j = R"({"compact": true, "schema": 0})"_json;
+
+// serialize to BSON
+std::vector&lt;std::uint8_t&gt; v_bson = json::to_bson(j);
+
+// 0x1B, 0x00, 0x00, 0x00, 0x08, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x00, 0x01, 0x10, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+// roundtrip
+json j_from_bson = json::from_bson(v_bson);
+
+// serialize to CBOR
+std::vector&lt;std::uint8_t&gt; v_cbor = json::to_cbor(j);
+
+// 0xA2, 0x67, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xF5, 0x66, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
+
+// roundtrip
+json j_from_cbor = json::from_cbor(v_cbor);
+
+// serialize to MessagePack
+std::vector&lt;std::uint8_t&gt; v_msgpack = json::to_msgpack(j);
+
+// 0x82, 0xA7, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3, 0xA6, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
+
+// roundtrip
+json j_from_msgpack = json::from_msgpack(v_msgpack);
+
+// serialize to UBJSON
+std::vector&lt;std::uint8_t&gt; v_ubjson = json::to_ubjson(j);
+
+// 0x7B, 0x69, 0x07, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x54, 0x69, 0x06, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x69, 0x00, 0x7D
+
+// roundtrip
+json j_from_ubjson = json::from_ubjson(v_ubjson);</code></pre>
 <p>The library also supports binary types from BSON, CBOR (byte strings), and MessagePack (bin, ext, fixext). They are stored by default as <code>std::vector&lt;std::uint8_t&gt;</code> to be processed outside the library.</p>
-<pre><code lang="py">// CBOR byte string with payload 0xCAFE
+<pre><code>// CBOR byte string with payload 0xCAFE
 std::vector&lt;std::uint8_t&gt; v = {0x42, 0xCA, 0xFE};
 
 // read value

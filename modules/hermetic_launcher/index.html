@@ -1,0 +1,690 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">hermetic_launcher</span> <span class="f2 d-inline-block">0.0.5<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.4mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/hermeticbuild/hermetic-launcher" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/hermetic_launcher/0.0.5/overview" data-name="overview" id=":m7.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/hermetic_launcher/0.0.5/docs" data-name="docs" id=":m7.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/hermetic_launcher/0.0.5/testing" data-name="testing" id=":m7.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;hermetic_launcher&quot;, version = &quot;0.0.5&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermetic_launcher"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.5"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">2</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.9.0">bazel_skylib<span class="ml-1 text-light text-small">1.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Hermetic Launcher</h1>
+<p>A minimal, cross-platform Bazel runfiles stub runner that replaces shell scripts with tiny native binaries.</p>
+<h2>Why This Exists</h2>
+<p><strong>Problem</strong>: Many Bazel rules create shell script wrappers to invoke tools with their runfiles dependencies. Shell scripts aren't cross-platform—bash scripts don't work on Windows, batch files don't work on Unix.</p>
+<p><strong>Solution</strong>: This project provides tiny native binaries (10-68KB) that:</p>
+<ul>
+<li>Work on <strong>Linux, macOS, and Windows</strong></li>
+<li>Resolve Bazel runfiles paths</li>
+<li>Forward arguments to the actual tool</li>
+<li>Can be <strong>"cross-compiled"</strong> (finalized) from any build platform for any target platform</li>
+</ul>
+<h2>Primary Use Case: Bazel Rules</h2>
+<p>Instead of generating platform-specific shell scripts like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#!/bin/bash
+# Generated wrapper script - Linux/macOS only because of shebang!
+exec $RUNFILES_DIR/my_workspace/bin/tool &quot;$@&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#!/bin/bash</span></span>
+<span class="line"><span style="color:#6A737D"># Generated wrapper script - Linux/macOS only because of shebang!</span></span>
+<span class="line"><span style="color:#005CC5">exec</span><span style="color:#B31D28;font-style:italic"> $</span><span style="color:#005CC5">RUNFILES_DIR</span><span style="color:#D73A49">/</span><span style="color:#24292E">my_workspace</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool </span><span style="color:#032F62">"$@"</span></span></code></pre>
+<p>Create a launcher binary for the target platform:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="./finalize-stub \
+  --template runfiles-stub-x86_64-linux \
+  --transform 0 \
+  --output my_tool \
+  -- \
+  my_workspace/bin/tool
+
+# Runtime: works with runfiles
+RUNFILES_DIR=/path/to/runfiles ./my_tool --flag arg1 arg2" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">output my_tool \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#24292E">  my_workspace</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Runtime: works with runfiles</span></span>
+<span class="line"><span style="color:#005CC5">RUNFILES_DIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">runfiles .</span><span style="color:#D73A49">/</span><span style="color:#24292E">my_tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">flag arg1 arg2</span></span></code></pre>
+<p>This enables Bazel rules to create tiny, platform-agnostic entrypoints that work identically on Linux, macOS, and Windows.</p>
+<h2>Features</h2>
+<ul>
+<li><strong>Cross-platform</strong>: Linux (x86_64, aarch64), macOS (x86_64, aarch64), Windows (x86_64)</li>
+<li><strong>True cross-compilation</strong>: Finalize launcher for <strong>any target platform</strong> from <strong>any build platform</strong><ul>
+<li>Build on Linux → create Windows/macOS launcher</li>
+<li>Build on macOS → create Linux/Windows launcher</li>
+<li>Build on Windows → create Linux/macOS launcher</li>
+</ul>
+</li>
+<li><strong>Deterministic</strong>: Same inputs always produce identical output, regardless of build platform</li>
+<li><strong>Tiny binaries</strong>: 10-68KB depending on platform</li>
+<li><strong>Runtime arguments</strong>: Forward <code>$@</code> to the wrapped tool</li>
+<li><strong>No dependencies</strong>: Fully static on Linux, minimal dependencies on macOS/Windows</li>
+</ul>
+<h2>Quick Start</h2>
+<h3>Download Pre-built Binaries</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Download from GitHub releases
+VERSION=&lt;version&gt; # could be &quot;binaries-20251216&quot;
+wget https://github.com/hermeticbuild/hermetic-launcher/releases/download/${VERSION}/runfiles-stub-x86_64-linux
+wget https://github.com/hermeticbuild/hermetic-launcher/releases/download/${VERSION}/finalize-stub-x86_64-linux
+chmod +x runfiles-stub-x86_64-linux
+chmod +x finalize-stub-x86_64-linux" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Download from GitHub releases</span></span>
+<span class="line"><span style="color:#005CC5">VERSION</span><span style="color:#D73A49">=&lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#6A737D"> # could be "binaries-20251216"</span></span>
+<span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">hermeticbuild</span><span style="color:#D73A49">/</span><span style="color:#24292E">hermetic</span><span style="color:#D73A49">-</span><span style="color:#24292E">launcher</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{</span><span style="color:#005CC5">VERSION</span><span style="color:#24292E">}</span><span style="color:#D73A49">/</span><span style="color:#24292E">runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span></span>
+<span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">hermeticbuild</span><span style="color:#D73A49">/</span><span style="color:#24292E">hermetic</span><span style="color:#D73A49">-</span><span style="color:#24292E">launcher</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{</span><span style="color:#005CC5">VERSION</span><span style="color:#24292E">}</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span></span>
+<span class="line"><span style="color:#24292E">chmod </span><span style="color:#D73A49">+</span><span style="color:#24292E">x runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span></span>
+<span class="line"><span style="color:#24292E">chmod </span><span style="color:#D73A49">+</span><span style="color:#24292E">x finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span></span></code></pre>
+<h3>Create a Stub</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Finalize a stub that wraps /bin/echo
+./finalize-stub-x86_64-linux \
+  --template runfiles-stub-x86_64-linux \
+  --transform 0 \
+  --output my_echo \
+  -- \
+  _main/echo
+
+# Create a manifest (This maps the runfile _main/echo to /bin/echo)
+# Note: you can either use a runfiles manifest or a runfiles directory.
+cat &gt; manifest.txt &lt;&lt; 'EOF'
+_main/echo /bin/echo
+EOF
+
+# Run it - embedded args + runtime args
+RUNFILES_MANIFEST_FILE=manifest.txt ./my_echo &quot;Hello from embedded!&quot; arg1 arg2
+# Output: Hello from embedded! arg1 arg2" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Finalize a stub that wraps /bin/echo</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">output my_echo \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#24292E">  _main</span><span style="color:#D73A49">/</span><span style="color:#24292E">echo</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Create a manifest (This maps the runfile _main/echo to /bin/echo)</span></span>
+<span class="line"><span style="color:#6A737D"># Note: you can either use a runfiles manifest or a runfiles directory.</span></span>
+<span class="line"><span style="color:#24292E">cat </span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> manifest.txt </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> 'EOF'</span></span>
+<span class="line"><span style="color:#24292E">_main</span><span style="color:#D73A49">/</span><span style="color:#24292E">echo </span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">echo</span></span>
+<span class="line"><span style="color:#005CC5">EOF</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Run it - embedded args + runtime args</span></span>
+<span class="line"><span style="color:#005CC5">RUNFILES_MANIFEST_FILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">manifest.txt .</span><span style="color:#D73A49">/</span><span style="color:#24292E">my_echo </span><span style="color:#032F62">"Hello from embedded!"</span><span style="color:#24292E"> arg1 arg2</span></span>
+<span class="line"><span style="color:#6A737D"># Output: Hello from embedded! arg1 arg2</span></span></code></pre>
+<p>The stub:</p>
+<ol>
+<li>Resolves <code>_main/echo</code> to <code>/bin/echo</code> through runfiles (because <code>--transform=0</code>)</li>
+<li>Appends runtime arguments (<code>arg1 arg2</code>)</li>
+<li>Executes: <code>/bin/echo "Hello from embedded!" arg1 arg2</code></li>
+</ol>
+<h2>How It Works</h2>
+<h3>Two-Step Process</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="┌──────────────────┐
+│  Template Binary │  Generic stub for a platform (10-68KB)
+│ (runfiles-stub)  │  Contains placeholder sections
+└────────┬─────────┘
+         │
+         │ finalize-stub patches placeholders with:
+         │  - Number of arguments
+         │  - Which args to transform (bitmask)
+         │  - Actual argument values
+         │
+         ▼
+┌──────────────────┐
+│ Finalized Binary │  Ready-to-use stub (same size)
+│   (my_tool)      │  Embedded args + accepts runtime args
+└────────┬─────────┘
+         │
+         │ At runtime:
+         │  1. Checks for RUNFILES_DIR, RUNFILES_MANIFEST_FILE, &lt;executable&gt;.runfiles_manifest, or &lt;executable&gt;.runfiles
+         │  2. Resolves selected embedded args through runfiles
+         │  3. Appends runtime $@ arguments
+         │  4. Executes target with all args
+         │
+         ▼
+    Target Program" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">┌──────────────────┐</span></span>
+<span class="line"><span style="color:#24292E">│  Template Binary │  Generic stub </span><span style="color:#D73A49">for</span><span style="color:#24292E"> a platform (</span><span style="color:#005CC5">10</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">68KB</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">│ (runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub)  │  Contains placeholder sections</span></span>
+<span class="line"><span style="color:#24292E">└────────┬─────────┘</span></span>
+<span class="line"><span style="color:#24292E">         │</span></span>
+<span class="line"><span style="color:#24292E">         │ finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub patches placeholders </span><span style="color:#D73A49">with</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#D73A49">-</span><span style="color:#24292E"> Number of arguments</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#D73A49">-</span><span style="color:#24292E"> Which args to transform (bitmask)</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#D73A49">-</span><span style="color:#24292E"> Actual argument values</span></span>
+<span class="line"><span style="color:#24292E">         │</span></span>
+<span class="line"><span style="color:#24292E">         ▼</span></span>
+<span class="line"><span style="color:#24292E">┌──────────────────┐</span></span>
+<span class="line"><span style="color:#24292E">│ Finalized Binary │  Ready</span><span style="color:#D73A49">-</span><span style="color:#24292E">to</span><span style="color:#D73A49">-</span><span style="color:#24292E">use stub (same size)</span></span>
+<span class="line"><span style="color:#24292E">│   (my_tool)      │  Embedded args </span><span style="color:#D73A49">+</span><span style="color:#24292E"> accepts runtime args</span></span>
+<span class="line"><span style="color:#24292E">└────────┬─────────┘</span></span>
+<span class="line"><span style="color:#24292E">         │</span></span>
+<span class="line"><span style="color:#24292E">         │ At runtime:</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#005CC5">1</span><span style="color:#24292E">. Checks </span><span style="color:#D73A49">for</span><span style="color:#005CC5"> RUNFILES_DIR</span><span style="color:#24292E">, </span><span style="color:#005CC5">RUNFILES_MANIFEST_FILE</span><span style="color:#24292E">, </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">executable</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">.runfiles_manifest, </span><span style="color:#D73A49">or</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">executable</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">.runfiles</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#005CC5">2</span><span style="color:#24292E">. Resolves selected embedded args through runfiles</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#005CC5">3</span><span style="color:#24292E">. Appends runtime </span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#D73A49">@</span><span style="color:#24292E"> arguments</span></span>
+<span class="line"><span style="color:#24292E">         │  </span><span style="color:#005CC5">4</span><span style="color:#24292E">. Executes target </span><span style="color:#D73A49">with</span><span style="color:#005CC5"> all</span><span style="color:#24292E"> args</span></span>
+<span class="line"><span style="color:#24292E">         │</span></span>
+<span class="line"><span style="color:#24292E">         ▼</span></span>
+<span class="line"><span style="color:#24292E">    Target Program</span></span></code></pre>
+<h3>Cross-Platform Finalization</h3>
+<p>The finalizer works on any platform to create launchers for any platform:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# On Linux, create launcher for the target platform of choice
+./finalize-stub-x86_64-linux --template runfiles-stub-x86_64-linux --output stub-linux -- /bin/tool
+./finalize-stub-x86_64-linux --template runfiles-stub-x86_64-macos --output stub-macos -- /bin/tool
+./finalize-stub-x86_64-linux --template runfiles-stub-x86_64-windows.exe --output stub.exe -- 'C:\Windows\System32\cmd.exe'
+
+# The finalizer just patches bytes - no platform-specific logic needed!" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># On Linux, create launcher for the target platform of choice</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">macos </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">macos </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">-</span><span style="color:#24292E">x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">windows.exe </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output stub.exe </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#032F62"> 'C:\Windows\System32\cmd.exe'</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># The finalizer just patches bytes - no platform-specific logic needed!</span></span></code></pre>
+<p>This is crucial for Bazel: your <strong>exec platform</strong> (where the build runs) can create stubs for any <strong>target platform</strong> (where the output runs).</p>
+<h2>Supported Platforms</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Architectures</th>
+<th>Template Size</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Linux</strong></td>
+<td>x86_64, aarch64</td>
+<td>10-68KB</td>
+<td>Fully static, no dependencies</td>
+</tr>
+<tr>
+<td><strong>macOS</strong></td>
+<td>x86_64, aarch64</td>
+<td>13-49KB</td>
+<td>Links with libSystem</td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>x86_64</td>
+<td>22KB</td>
+<td>Links with kernel32.dll, shell32.dll</td>
+</tr>
+</tbody></table>
+<p><strong>Finalizers</strong> (the tool that patches templates):</p>
+<ul>
+<li>Linux: x86_64, aarch64 (static musl binaries)</li>
+<li>macOS: x86_64, aarch64</li>
+<li>Windows: x86_64</li>
+</ul>
+<h2>Usage</h2>
+<h3>Basic Usage</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Syntax
+finalize-stub --template &lt;template&gt; [OPTIONS] -- &lt;arg0&gt; [arg1 ...]
+
+# No transforms (default - all arguments are literal)
+finalize-stub --template template --output my_tool -- my_workspace/bin/tool data/input.txt
+
+# Transform only specific arguments (repeated flags)
+finalize-stub --template template --transform 0 --transform 2 --output my_tool -- /bin/tool --flag data/file
+
+# Transform only specific arguments (comma-separated)
+finalize-stub --template template --transform 0,2 --output my_tool -- /bin/tool --flag data/file
+#                                             ^^^                       ^^^        ^^^^    ^^^
+#                                          arg0,arg2                 transform   literal transform" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Syntax</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">template</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [</span><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">arg0</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [arg1 </span><span style="color:#005CC5">...</span><span style="color:#24292E">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># No transforms (default - all arguments are literal)</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output my_tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E"> my_workspace</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool data</span><span style="color:#D73A49">/</span><span style="color:#005CC5">input</span><span style="color:#24292E">.txt</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Transform only specific arguments (repeated flags)</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">transform </span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">output my_tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">flag data</span><span style="color:#D73A49">/</span><span style="color:#E36209">file</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Transform only specific arguments (comma-separated)</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">output my_tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">flag data</span><span style="color:#D73A49">/</span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#6A737D">#                                             ^^^                       ^^^        ^^^^    ^^^</span></span>
+<span class="line"><span style="color:#6A737D">#                                          arg0,arg2                 transform   literal transform</span></span></code></pre>
+<h3>Options</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="--template &lt;PATH&gt;           Path to template runfiles-stub binary (required)
+
+--transform &lt;N&gt;             Mark argument N for runfiles resolution (0-9)
+                            Can be repeated for multiple arguments (--transform 0 --transform 2)
+                            or comma-separated (--transform 0,2)
+                            Default: no arguments are transformed
+
+--export-runfiles-env       Export runfiles environment variables to child process
+                            Values: true (default) or false
+                            When true: RUNFILES_DIR, RUNFILES_MANIFEST_FILE, and JAVA_RUNFILES
+                            are set in the child process based on discovered runfiles
+                            When false: child process inherits environment unchanged
+
+--output &lt;PATH&gt;             Output file path (default: stdout)
+
+--                          Separates flags from positional arguments (recommended)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">PATH</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">           Path to template runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub binary (required)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">N</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">             Mark argument N </span><span style="color:#D73A49">for</span><span style="color:#24292E"> runfiles resolution (</span><span style="color:#005CC5">0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">9</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">                            Can be repeated </span><span style="color:#D73A49">for</span><span style="color:#24292E"> multiple arguments (</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">transform </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#D73A49">                            or</span><span style="color:#24292E"> comma</span><span style="color:#D73A49">-</span><span style="color:#24292E">separated (</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">                            Default: no arguments are transformed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">export</span><span style="color:#D73A49">-</span><span style="color:#24292E">runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">env       Export runfiles environment variables to child process</span></span>
+<span class="line"><span style="color:#24292E">                            Values: true (default) </span><span style="color:#D73A49">or</span><span style="color:#24292E"> false</span></span>
+<span class="line"><span style="color:#24292E">                            When true: </span><span style="color:#005CC5">RUNFILES_DIR</span><span style="color:#24292E">, </span><span style="color:#005CC5">RUNFILES_MANIFEST_FILE</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#005CC5"> JAVA_RUNFILES</span></span>
+<span class="line"><span style="color:#24292E">                            are </span><span style="color:#005CC5">set</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> the child process based on discovered runfiles</span></span>
+<span class="line"><span style="color:#24292E">                            When false: child process inherits environment unchanged</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">PATH</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">             Output </span><span style="color:#E36209">file</span><span style="color:#24292E"> path (default: stdout)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">                          Separates flags </span><span style="color:#D73A49">from</span><span style="color:#24292E"> positional arguments (recommended)</span></span></code></pre>
+<h3>Runtime Arguments</h3>
+<p>Finalized stubs forward runtime arguments to the target:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Create stub with embedded args
+finalize-stub --template template --transform 0 --output stub -- /bin/grep &quot;pattern&quot;
+
+# Run with additional args - they're forwarded as argv
+./stub file1.txt file2.txt
+# Executes: /bin/grep &quot;pattern&quot; file1.txt file2.txt" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Create stub with embedded args</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">output stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">grep </span><span style="color:#032F62">"pattern"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Run with additional args - they're forwarded as argv</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">stub file1.txt file2.txt</span></span>
+<span class="line"><span style="color:#6A737D"># Executes: /bin/grep "pattern" file1.txt file2.txt</span></span></code></pre>
+<p>This is like bash <code>$@</code> - embedded args come first, runtime args are appended.</p>
+<h3>Runfiles Environment</h3>
+<p>Stubs discover runfiles through environment variables or automatic detection:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Manifest-based (file maps runfiles paths to absolute paths)
+RUNFILES_MANIFEST_FILE=/path/to/manifest.txt ./stub
+
+# Directory-based (simple directory layout)
+RUNFILES_DIR=/path/to/runfiles ./stub
+
+# Automatic fallback (discovers &lt;stub&gt;.runfiles/ directory)
+./stub  # Looks for ./stub.runfiles/ automatically" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Manifest-based (file maps runfiles paths to absolute paths)</span></span>
+<span class="line"><span style="color:#005CC5">RUNFILES_MANIFEST_FILE</span><span style="color:#D73A49">=/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">manifest.txt .</span><span style="color:#D73A49">/</span><span style="color:#24292E">stub</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Directory-based (simple directory layout)</span></span>
+<span class="line"><span style="color:#005CC5">RUNFILES_DIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">runfiles .</span><span style="color:#D73A49">/</span><span style="color:#24292E">stub</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Automatic fallback (discovers &lt;stub&gt;.runfiles/ directory)</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">stub  </span><span style="color:#6A737D"># Looks for ./stub.runfiles/ automatically</span></span></code></pre>
+<h4>Environment Variable Export</h4>
+<p>By default (<code>--export-runfiles-env=true</code>), stubs export runfiles environment variables to the child process:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Create stub with export enabled (default)
+finalize-stub --template template --transform 0 --output stub -- tool
+
+# Child process receives:
+#   RUNFILES_MANIFEST_FILE (if manifest-based)
+#   RUNFILES_DIR (if directory-based or fallback)
+#   JAVA_RUNFILES (same as RUNFILES_DIR)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Create stub with export enabled (default)</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">transform </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">output stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E"> tool</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Child process receives:</span></span>
+<span class="line"><span style="color:#6A737D">#   RUNFILES_MANIFEST_FILE (if manifest-based)</span></span>
+<span class="line"><span style="color:#6A737D">#   RUNFILES_DIR (if directory-based or fallback)</span></span>
+<span class="line"><span style="color:#6A737D">#   JAVA_RUNFILES (same as RUNFILES_DIR)</span></span></code></pre>
+<p>This allows child processes to use Bazel's runfiles libraries without manual environment setup.</p>
+<p>To disable export and keep the environment unchanged:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Create stub with export disabled
+finalize-stub --template template --export-runfiles-env=false --output stub -- tool
+
+# Child process inherits parent environment unchanged" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Create stub with export disabled</span></span>
+<span class="line"><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">template template </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">export</span><span style="color:#D73A49">-</span><span style="color:#24292E">runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">env</span><span style="color:#D73A49">=</span><span style="color:#24292E">false </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output stub </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E"> tool</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Child process inherits parent environment unchanged</span></span></code></pre>
+<h2>Building from Source</h2>
+<h3>Prerequisites</h3>
+<ul>
+<li>Rust toolchain (stable)</li>
+<li>For cross-compilation: platform toolchains (mingw-w64 for Windows, etc.)</li>
+</ul>
+<h3>Build All Binaries</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Linux templates
+cd runfiles-stub
+cargo build --release --target x86_64-unknown-linux-gnu
+cargo build --release --target aarch64-unknown-linux-gnu
+
+# macOS templates
+cargo build --release --target x86_64-apple-darwin
+cargo build --release --target aarch64-apple-darwin
+
+# Windows template
+cargo build --release --target x86_64-pc-windows-gnu
+
+# Finalizers
+cd ../finalize-stub
+cargo build --release --target x86_64-unknown-linux-musl
+cargo build --release --target aarch64-unknown-linux-musl
+cargo build --release --target x86_64-apple-darwin
+cargo build --release --target aarch64-apple-darwin
+cargo build --release --target x86_64-pc-windows-gnu" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Linux templates</span></span>
+<span class="line"><span style="color:#24292E">cd runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">unknown</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">unknown</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># macOS templates</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">darwin</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">darwin</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Windows template</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">pc</span><span style="color:#D73A49">-</span><span style="color:#24292E">windows</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Finalizers</span></span>
+<span class="line"><span style="color:#24292E">cd ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">unknown</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">musl</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">unknown</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">musl</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">darwin</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">darwin</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target x86_64</span><span style="color:#D73A49">-</span><span style="color:#24292E">pc</span><span style="color:#D73A49">-</span><span style="color:#24292E">windows</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span></span></code></pre>
+<p>See <code>.github/workflows/release.yml</code> for the complete build matrix.</p>
+<h3>Running Integration Tests</h3>
+<p>The <code>integration-tests/</code> directory contains a comprehensive test suite:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Build the test binaries
+cd integration-tests
+cargo build --release
+
+# Run tests (requires template and finalizer binaries)
+./target/release/test-runner \
+  --template ../runfiles-stub/target/release/runfiles-stub \
+  --finalizer ../finalize-stub/target/release/finalize-stub \
+  --test-binaries ./target/release" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Build the test binaries</span></span>
+<span class="line"><span style="color:#24292E">cd integration</span><span style="color:#D73A49">-</span><span style="color:#24292E">tests</span></span>
+<span class="line"><span style="color:#24292E">cargo build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">release</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Run tests (requires template and finalizer binaries)</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">target</span><span style="color:#D73A49">/</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">test</span><span style="color:#D73A49">-</span><span style="color:#24292E">runner \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">template ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">/</span><span style="color:#24292E">target</span><span style="color:#D73A49">/</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">runfiles</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">finalizer ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub</span><span style="color:#D73A49">/</span><span style="color:#24292E">target</span><span style="color:#D73A49">/</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">finalize</span><span style="color:#D73A49">-</span><span style="color:#24292E">stub \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">test</span><span style="color:#D73A49">-</span><span style="color:#24292E">binaries .</span><span style="color:#D73A49">/</span><span style="color:#24292E">target</span><span style="color:#D73A49">/</span><span style="color:#24292E">release</span></span></code></pre>
+<h2>Architecture Details</h2>
+<h3>Platform Implementations</h3>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Entry Point</th>
+<th>API</th>
+<th>Process Execution</th>
+<th>Path Separator</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Linux</strong></td>
+<td>Custom <code>_start</code></td>
+<td>Raw syscalls (no libc)</td>
+<td><code>execve</code> syscall</td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><strong>macOS</strong></td>
+<td>Standard <code>main</code></td>
+<td>libSystem functions</td>
+<td><code>execve</code> function</td>
+<td><code>/</code></td>
+</tr>
+<tr>
+<td><strong>Windows</strong></td>
+<td>Standard <code>main</code></td>
+<td>Win32 API (UTF-16)</td>
+<td><code>CreateProcessW</code></td>
+<td><code>\</code></td>
+</tr>
+</tbody></table>
+<h3>Runfiles Path Handling</h3>
+<p><strong>Input</strong> (embedded arguments): Always Unix-style forward slashes</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="my_workspace/bin/tool
+data/input.txt" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">my_workspace</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool</span></span>
+<span class="line"><span style="color:#24292E">data</span><span style="color:#D73A49">/</span><span style="color:#005CC5">input</span><span style="color:#24292E">.txt</span></span></code></pre>
+<p><strong>Output</strong> (after runfiles resolution): Platform-native</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Linux/macOS:  /absolute/path/to/tool
+Windows:      C:\absolute\path\to\tool" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">Linux</span><span style="color:#D73A49">/</span><span style="color:#24292E">macOS:  </span><span style="color:#D73A49">/</span><span style="color:#24292E">absolute</span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">tool</span></span>
+<span class="line"><span style="color:#24292E">Windows:      C:\</span><span style="color:#B31D28;font-style:italic">absolute\path\to\tool</span></span></code></pre>
+<p>The Windows implementation automatically converts <code>/</code> to <code>\</code>.</p>
+<h3>Binary Size Breakdown</h3>
+<p>Sizes vary by platform due to different linking requirements:</p>
+<ul>
+<li><strong>x86_64 Linux</strong>: ~10KB (fully static, no libc)</li>
+<li><strong>aarch64 Linux</strong>: ~67KB (static, larger due to alignment and number of instructions)</li>
+<li><strong>x86_64 macOS</strong>: ~13KB (links libSystem)</li>
+<li><strong>aarch64 macOS</strong>: ~49KB (links libSystem, ARM64)</li>
+<li><strong>x86_64 Windows</strong>: ~22KB (links kernel32.dll)</li>
+</ul>
+<h2>Use Cases for Bazel Rules</h2>
+<h3>1. Tool Wrappers</h3>
+<p>Create consistent wrappers for tools that need runfiles.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@hermetic_launcher//launcher:launcher_binary.bzl&quot;, &quot;launcher_binary&quot;)
+
+# Simple wrapper that invokes a tool with arguments
+launcher_binary(
+    name = &quot;buildozer_version_command&quot;,
+    entrypoint = &quot;@buildozer&quot;,
+    embedded_args = [&quot;--version&quot;],
+)
+
+# Wrapper with data dependencies and path resolution
+launcher_binary(
+    name = &quot;hash_file&quot;,
+    entrypoint = &quot;@openssl&quot;,
+    embedded_args = [
+        &quot;dgst&quot;,
+        &quot;-sha256&quot;,
+        &quot;$(rlocationpath :file_to_hash.txt)&quot;,  # Auto-detected for transformation
+    ],
+    data = [&quot;:file_to_hash.txt&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@hermetic_launcher//launcher:launcher_binary.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"launcher_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Simple wrapper that invokes a tool with arguments</span></span>
+<span class="line"><span style="color:#24292E">launcher_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildozer_version_command"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entrypoint</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@buildozer"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"--version"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Wrapper with data dependencies and path resolution</span></span>
+<span class="line"><span style="color:#24292E">launcher_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hash_file"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entrypoint</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@openssl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "dgst"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "-sha256"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "$(rlocationpath :file_to_hash.txt)"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Auto-detected for transformation</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":file_to_hash.txt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p><strong>Key features:</strong></p>
+<ul>
+<li><strong>Automatic path transformation</strong>: Arguments matching <code>$(rlocationpath ...)</code> are automatically resolved through runfiles</li>
+<li><strong>Runtime argument forwarding</strong>: Additional arguments passed at runtime are appended<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel run //:hash_file -- --some-extra-flag
+# Executes: openssl dgst -sha256 /resolved/path/to/file.txt --some-extra-flag" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hash_file </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">some</span><span style="color:#D73A49">-</span><span style="color:#24292E">extra</span><span style="color:#D73A49">-</span><span style="color:#24292E">flag</span></span>
+<span class="line"><span style="color:#6A737D"># Executes: openssl dgst -sha256 /resolved/path/to/file.txt --some-extra-flag</span></span></code></pre>
+</li>
+<li><strong>Cross-platform</strong>: The same BUILD file works on Linux, macOS, and Windows</li>
+</ul>
+<h3>2. Test Runners</h3>
+<p>Wrap test executables with their data dependencies:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="launcher_binary(
+    name = &quot;integration_test&quot;,
+    entrypoint = &quot;//test:runner&quot;,
+    embedded_args = [
+        &quot;$(rlocationpath //test/data:fixtures.json)&quot;,
+        &quot;--verbose&quot;,
+    ],
+    data = [&quot;//test/data:fixtures.json&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">launcher_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "integration_test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entrypoint</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//test:runner"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "$(rlocationpath //test/data:fixtures.json)"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "--verbose"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//test/data:fixtures.json"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>3. Interpreted Language Binaries</h3>
+<p>Create native binaries for interpreted languages like Python, Ruby, or Node.js.
+In those cases, you tend to have an interpreter binary that is not aware of runfiles and is generic for every binary of that language and a script that is executed on startup.
+Neither are good to be used as the "executable" file of a Bazel "*_binary" rule, so hermetic-launcher can be used to invoke the interpreter with a path to the script entrypoint.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Python script wrapped as a native binary
+launcher_binary(
+    name = &quot;my_python_tool&quot;,
+    entrypoint = &quot;@python_3_11//:python&quot;,
+    embedded_args = [
+        &quot;$(rlocationpath //tools:script.py)&quot;,
+    ],
+    data = [&quot;//tools:script.py&quot;],
+    visibility = [&quot;//visibility:public&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Python script wrapped as a native binary</span></span>
+<span class="line"><span style="color:#24292E">launcher_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_python_tool"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entrypoint</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@python_3_11//:python"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "$(rlocationpath //tools:script.py)"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools:script.py"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>This creates a native executable that:</p>
+<ol>
+<li>Resolves the Python interpreter through runfiles</li>
+<li>Resolves the script path through runfiles</li>
+<li>Executes: <code>python /resolved/path/to/script.py</code></li>
+<li>Works identically on Linux, macOS, and Windows</li>
+</ol>
+<p>The launcher is tiny (10-68KB) regardless of the script size.</p>
+<h2>Advanced Usage for Rule Authors</h2>
+<p>For rule authors who need more control than <code>launcher_binary</code> provides, the <code>launcher</code> struct in <code>@hermetic_launcher//launcher:lib.bzl</code> offers a lower-level API to construct custom launchers within your own rule implementations.</p>
+<h3>When to Use the Launcher Struct</h3>
+<p>Use the <code>launcher</code> struct when you need to:</p>
+<ul>
+<li>Dynamically determine arguments based on rule context</li>
+<li>Integrate launcher generation into complex custom rules</li>
+<li>Build launchers with <code>cfg = "exec"</code> for tools that run during the build</li>
+<li>Have fine-grained control over which arguments are transformed</li>
+</ul>
+<p>Use <code>launcher_binary</code> when you can express your launcher declaratively with static attributes.</p>
+<h3>API Reference</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@hermetic_launcher//launcher:lib.bzl&quot;, &quot;launcher&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@hermetic_launcher//launcher:lib.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"launcher"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>The <code>launcher</code> struct provides these functions:</p>
+<h4><code>launcher.args_from_entrypoint(executable_file)</code></h4>
+<p>Initialize embedded args from an entrypoint executable file. Returns <code>(embedded_args, transformed_args)</code> with the entrypoint as the first argument.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="embedded_args, transformed_args = launcher.args_from_entrypoint(
+    executable_file = ctx.executable.tool,
+)
+# Returns: ([&quot;_main/path/to/tool&quot;], [&quot;0&quot;])" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">embedded_args, transformed_args </span><span style="color:#D73A49">=</span><span style="color:#24292E"> launcher.args_from_entrypoint(</span></span>
+<span class="line"><span style="color:#E36209">    executable_file</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> ctx.executable.tool,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># Returns: (["_main/path/to/tool"], ["0"])</span></span></code></pre>
+<h4><code>launcher.append_runfile(file, embedded_args, transformed_args)</code></h4>
+<p>Add a file that needs runfiles path resolution at runtime. Automatically marks it for transformation.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="embedded_args, transformed_args = launcher.append_runfile(
+    file = ctx.file.config,
+    embedded_args = embedded_args,
+    transformed_args = transformed_args,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">embedded_args, transformed_args </span><span style="color:#D73A49">=</span><span style="color:#24292E"> launcher.append_runfile(</span></span>
+<span class="line"><span style="color:#E36209">    file</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> ctx.file.config,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> embedded_args,</span></span>
+<span class="line"><span style="color:#E36209">    transformed_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> transformed_args,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h4><code>launcher.append_embedded_arg(arg, embedded_args, transformed_args)</code></h4>
+<p>Add a literal argument that will NOT be transformed through runfiles.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="embedded_args, transformed_args = launcher.append_embedded_arg(
+    arg = &quot;--verbose&quot;,
+    embedded_args = embedded_args,
+    transformed_args = transformed_args,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">embedded_args, transformed_args </span><span style="color:#D73A49">=</span><span style="color:#24292E"> launcher.append_embedded_arg(</span></span>
+<span class="line"><span style="color:#E36209">    arg</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "--verbose"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> embedded_args,</span></span>
+<span class="line"><span style="color:#E36209">    transformed_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> transformed_args,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h4><code>launcher.append_raw_transformed_arg(arg, embedded_args, transformed_args)</code></h4>
+<p>Add an argument that WILL be transformed through runfiles, but without converting a File object first.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="embedded_args, transformed_args = launcher.append_raw_transformed_arg(
+    arg = &quot;my_workspace/data/file.txt&quot;,
+    embedded_args = embedded_args,
+    transformed_args = transformed_args,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">embedded_args, transformed_args </span><span style="color:#D73A49">=</span><span style="color:#24292E"> launcher.append_raw_transformed_arg(</span></span>
+<span class="line"><span style="color:#E36209">    arg</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_workspace/data/file.txt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> embedded_args,</span></span>
+<span class="line"><span style="color:#E36209">    transformed_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> transformed_args,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h4><code>launcher.compile_stub(ctx, embedded_args, transformed_args, output_file, cfg, template_exec_group)</code></h4>
+<p>Compile the final launcher stub binary.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="launcher.compile_stub(
+    ctx = ctx,
+    embedded_args = embedded_args,
+    transformed_args = transformed_args,
+    output_file = exe,
+    cfg = &quot;target&quot;,  # or &quot;exec&quot; for build-time tools
+    template_exec_group = None,  # or exec group name for exec cfg
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">launcher.compile_stub(</span></span>
+<span class="line"><span style="color:#E36209">    ctx</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> ctx,</span></span>
+<span class="line"><span style="color:#E36209">    embedded_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> embedded_args,</span></span>
+<span class="line"><span style="color:#E36209">    transformed_args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> transformed_args,</span></span>
+<span class="line"><span style="color:#E36209">    output_file</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> exe,</span></span>
+<span class="line"><span style="color:#E36209">    cfg</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "target"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># or "exec" for build-time tools</span></span>
+<span class="line"><span style="color:#E36209">    template_exec_group</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> None</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># or exec group name for exec cfg</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p><strong>Parameters:</strong></p>
+<ul>
+<li><code>cfg</code>: <code>"target"</code> (default) for binaries that run on the target platform, or <code>"exec"</code> for tools that run during the build</li>
+<li><code>template_exec_group</code>: Name of the exec group when using <code>cfg = "exec"</code> (e.g., <code>"host"</code>)</li>
+</ul>
+<h4><code>launcher.to_rlocation_path(file)</code></h4>
+<p>Convert a File object to its rlocation path string.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="path = launcher.to_rlocation_path(ctx.file.data)
+# Returns: &quot;_main/path/to/data&quot; or &quot;external_repo/path/to/data&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">path </span><span style="color:#D73A49">=</span><span style="color:#24292E"> launcher.to_rlocation_path(ctx.file.data)</span></span>
+<span class="line"><span style="color:#6A737D"># Returns: "_main/path/to/data" or "external_repo/path/to/data"</span></span></code></pre>
+<h3>Required Toolchains</h3>
+<p>When using the <code>launcher</code> struct in your rules, declare the appropriate toolchains:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# For target platform launchers (cfg = &quot;target&quot;)
+toolchains = [
+    launcher.finalizer_toolchain_type,
+    launcher.template_toolchain_type,
+]
+
+# For exec platform launchers (cfg = &quot;exec&quot;)
+toolchains = [
+    launcher.finalizer_toolchain_type,
+    launcher.template_exec_toolchain_type,
+]" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># For target platform launchers (cfg = "target")</span></span>
+<span class="line"><span style="color:#24292E">toolchains </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#24292E">    launcher.finalizer_toolchain_type,</span></span>
+<span class="line"><span style="color:#24292E">    launcher.template_toolchain_type,</span></span>
+<span class="line"><span style="color:#24292E">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># For exec platform launchers (cfg = "exec")</span></span>
+<span class="line"><span style="color:#24292E">toolchains </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#24292E">    launcher.finalizer_toolchain_type,</span></span>
+<span class="line"><span style="color:#24292E">    launcher.template_exec_toolchain_type,</span></span>
+<span class="line"><span style="color:#24292E">]</span></span></code></pre>
+<h2>FAQ</h2>
+<p><strong>Q: Why not just use shell scripts?</strong>
+A: Shell scripts aren't cross-platform. Bash doesn't work on Windows, batch files don't work on Unix. Native launchers work everywhere.</p>
+<p><strong>Q: How is this different from other Bazel runfiles libraries?</strong>
+A: This creates standalone binaries, not library code. The launcher is your program's entry point.</p>
+<p><strong>Q: Can I use this outside Bazel?</strong>
+A: Yes! As long as you set <code>RUNFILES_DIR</code>, <code>RUNFILES_MANIFEST_FILE</code>, or you create <code>&lt;executable&gt;.runfiles</code>, launchers work anywhere.</p>
+<p><strong>Q: Why are the binaries different sizes?</strong>
+A: Platform differences. Linux can be fully static (smaller), macOS requires libSystem, Windows needs DLLs, ARM architectures need more instructions than x86 and have stricter alignment requirements.</p>
+<p><strong>Q: Is the finalizer deterministic?</strong>
+A: Yes! The same inputs produce byte-identical outputs regardless of which platform you run the finalizer on. This is tested in CI.</p>
+<h2>License</h2>
+<p>MIT License - See <a href="https://github.com/hermeticbuild/hermetic-launcher/blob/47fb1ff45779d976d83578f0ece159d827c556df/LICENSE" target="_blank" rel="noopener noreferrer">LICENSE</a> file for details.</p>
+<h2>Contributing</h2>
+<p>Contributions welcome! This project demonstrates:</p>
+<ul>
+<li>Cross-platform <code>no_std</code> Rust development</li>
+<li>Platform-specific system call interfaces</li>
+<li>Binary template patching techniques</li>
+<li>Bazel runfiles protocol implementation</li>
+</ul>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Minimal, deterministic Bazel launcher stubs for all platforms. Create tiny native binaries (10-68KB) from templates with embedded arguments and runfiles resolution. Built with Rust.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/hermeticbuild/hermetic-launcher" title="@hermeticbuild"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@hermeticbuild/hermetic-launcher</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/hermeticbuild.png" alt="@hermeticbuild"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/malt3/hermetic-launcher"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/hermetic_launcher-v0.0.5.docs.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></g></svg></span><span>Documentation</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">29</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, March 23, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 80.9%; background-color: var(--lang-Rust-bg, #ccc)" title="Rust: 80.9%"> </span><span style="width: 17.4%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 17.4%"> </span><span style="width: 1.1%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.1%"> </span><span style="width: 0.6%; background-color: var(--lang-Nix-bg, #ccc)" title="Nix: 0.6%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Rust-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/Rust">Rust</a><span class="ml-2 color-fg-muted">80.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">17.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Nix-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Nix</span><span class="ml-2 color-fg-muted">0.6%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/malt3" title="Malte Poll"><img class="avatar circle" width="48" height="48" src="https://github.com/malt3.png" alt="@malt3"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Attestations</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">3</label></span></h2><div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/MODULE.bazel.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/hermetic_launcher-v0.0.5.tar.gz.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">hermetic_launcher-v0.0.5.tar.gz</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/source.json.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">source.json</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/cerisier" title="Corentin Kerisit"><img class="avatar circle" width="48" height="48" src="https://github.com/cerisier.png" alt="@cerisier"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8075"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="hermetic_launcher@0.0.5 (#8075)"><span class="text-mono">#8075</span> <span class="text-light">hermetic_launcher@0.0.5 (#8075)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/hermetic_launcher-v0.0.5.tar.gz" title="https://github.com/hermeticbuild/hermetic-launcher/releases/download/v0.0.5/hermetic_launcher-v0.0.5.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/hermeticbu...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/hermetic_launcher/0.0.5/patches/module_dot_bazel_version.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel_version.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">5</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.0.5; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 67%, transparent 67%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.5"><span class="text-bold">0.0.5</span><sup class="color-fg-attention"> +1.7mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">67%<sup> 6</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-23</span></div></td></tr><tr class=""><td title="0.0.4; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 22%, transparent 22%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.4"><a class="Box-row-link" href="/#/modules/hermetic_launcher/0.0.4">0.0.4</a><sup class="color-fg-attention"> +1.5mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">22%<sup> 2</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-30</span></div></td></tr><tr class=""><td title="0.0.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 11%, transparent 11%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.3"><a class="Box-row-link" href="/#/modules/hermetic_launcher/0.0.3">0.0.3</a><sup class="color-fg-attention"> +21h</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">11%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-12-17</span></div></td></tr><tr class=""><td title="0.0.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.2"><a class="Box-row-link" href="/#/modules/hermetic_launcher/0.0.2">0.0.2</a><sup class="color-fg-attention"> +4h</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-12-16</span></div></td></tr><tr class=""><td title="0.0.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.1"><a class="Box-row-link" href="/#/modules/hermetic_launcher/0.0.1">0.0.1</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-12-16</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

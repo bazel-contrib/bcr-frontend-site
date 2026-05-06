@@ -1,0 +1,707 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">thorvg</span> <span class="f2 d-inline-block">1.0.3<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.3mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/thorvg/thorvg" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/thorvg/1.0.3/overview" data-name="overview" id=":pb.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/thorvg/1.0.3/docs" data-name="docs" id=":pb.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/thorvg/1.0.3/testing" data-name="testing" id=":pb.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;thorvg&quot;, version = &quot;1.0.3&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "thorvg"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.0.3"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">3</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.9.0">bazel_skylib<span class="ml-1 text-light text-small">1.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.17">rules_cc<span class="ml-1 text-light text-small">0.2.17</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.1mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><p><a href="https://insights.linuxfoundation.org/project/thorvg"><img src="https://insights.linuxfoundation.org/api/badge/health-score?project=thorvg" alt="LFX Health Score"></a>
+<a href="https://www.codefactor.io/repository/github/thorvg/thorvg"><img src="https://www.codefactor.io/repository/github/thorvg/thorvg/badge" alt="CodeFactor"></a>
+<img src="https://img.shields.io/badge/Size-%3E150kb-black" alt="BinarySize">
+<a href="LICENSE"><img src="https://img.shields.io/badge/licence-MIT-green.svg?style=flat" alt="License"></a>
+<a href="https://en.wikipedia.org/wiki/Thor_Vector_Graphics"><img src="https://img.shields.io/badge/Wikipedia-000000?style=flat&amp;logo=wikipedia&amp;logoColor=white" alt="Wikipedia"></a>
+<a href="https://deepwiki.com/thorvg/thorvg"><img src="https://deepwiki.com/badge.svg" alt="DeepWiki"></a>
+<a href="https://discord.gg/n25xj6J6HM"><img src="https://img.shields.io/badge/Community-5865f2?style=flat&amp;logo=discord&amp;logoColor=white" alt="Discord"></a>
+<a href="https://opencollective.com/thorvg"><img src="https://img.shields.io/badge/OpenCollective-84B5FC?style=flat&amp;logo=opencollective&amp;logoColor=white" alt="OpenCollective"></a>
+<br>
+<a href="https://github.com/thorvg/thorvg/actions/workflows/build_ubuntu.yml"><img src="https://github.com/thorvg/thorvg/actions/workflows/build_ubuntu.yml/badge.svg?branch=main&amp;event=push" alt="Build Ubuntu"></a>
+<a href="https://github.com/thorvg/thorvg/actions/workflows/build_windows.yml"><img src="https://github.com/thorvg/thorvg/actions/workflows/build_windows.yml/badge.svg?branch=main&amp;event=push" alt="Build Windows"></a>
+<a href="https://github.com/thorvg/thorvg/actions/workflows/build_macos.yml"><img src="https://github.com/thorvg/thorvg/actions/workflows/build_macos.yml/badge.svg?branch=main&amp;event=push" alt="Build macOS"></a>
+<a href="https://github.com/thorvg/thorvg/actions/workflows/build_ios.yml"><img src="https://github.com/thorvg/thorvg/actions/workflows/build_ios.yml/badge.svg?branch=main&amp;event=push" alt="Build iOS"></a>
+<a href="https://github.com/thorvg/thorvg/actions/workflows/build_android.yml"><img src="https://github.com/thorvg/thorvg/actions/workflows/build_android.yml/badge.svg?branch=main&amp;event=push" alt="Build Android"></a>
+<br>
+<a href="https://github.com/thorvg/thorvg/releases/latest"><img src="https://img.shields.io/github/v/release/thorvg/thorvg?color=orange" alt="Latest"></a>
+<a href="https://vcpkg.link/ports/thorvg"><img src="https://img.shields.io/vcpkg/v/thorvg?color=orange" alt="vcpkg"></a>
+<a href="https://aur.archlinux.org/packages/thorvg"><img src="https://img.shields.io/aur/version/thorvg?color=orange" alt="ArchLinux"></a>
+<a href="https://conan.io/center/recipes/thorvg"><img src="https://img.shields.io/conan/v/thorvg" alt="Conan"></a>
+<a href="https://src.fedoraproject.org/rpms/thorvg"><img src="https://img.shields.io/fedora/v/thorvg?color=orange" alt="Fedora"></a>
+<a href="https://packages.msys2.org/packages/mingw-w64-x86_64-thorvg?repo=mingw64"><img src="https://img.shields.io/badge/msys2-Latest-orange" alt="MSYS2"></a>
+<a href="https://nimble.directory/pkg/thorvg"><img src="https://img.shields.io/badge/nimble-Latest-FFE953?color=orange" alt="Nimble"></a>
+<a href="https://code.dlang.org/packages/bindbc-thorvg"><img src="https://img.shields.io/badge/dub-latest-orange" alt="DUB"></a>
+<a href="https://formulae.brew.sh/formula/thorvg"><img src="https://img.shields.io/badge/homebrew-latest-orange" alt="Homebrew"></a>
+<a href="https://www.npmjs.com/package/@thorvg/webcanvas"><img src="https://img.shields.io/npm/v/@thorvg/webcanvas?color=orange" alt="npm"></a>
+<a href="https://pypi.org/project/thorvg-python/"><img src="https://img.shields.io/pypi/v/thorvg-python?color=orange" alt="PyPI version"></a>
+<br></p>
+<h1>ThorVG</h1>
+<p align="center">
+  <img width="800" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/logo/512/thorvg-banner.png">
+</p>
+
+<p><strong>Thor Vector Graphics</strong> is a <strong>production-ready</strong> vector graphics engine designed for creating <strong>interactive apps</strong> and <strong>creative tools</strong>. It combines <strong>high performance</strong> with <strong>lightweight efficiency</strong>, as Thor embodies a dual meaning—<em>symbolizing both immense strength and lightning-fast agility</em>. Embracing the philosophy of <em>simplicity leads to reliability</em>, the ThorVG project provides <strong>intuitive, user-friendly interfaces</strong> while maintaining a <strong>compact footprint</strong> and <strong>minimal overhead</strong>. <br>
+<br>
+The following primitives are supported by ThorVG: <br></p>
+<ul>
+<li><strong>Lines &amp; Shapes</strong>: rectangles, circles, and paths with coordinate control</li>
+<li><strong>Filling</strong>: solid colors, linear &amp; radial gradients, and path clipping</li>
+<li><strong>Stroking</strong>: stroke width, joins, caps, dash patterns, and trimming</li>
+<li><strong>Scene Management</strong>: retainable scene graph and object transformations</li>
+<li><strong>Composition</strong>: various blending and masking</li>
+<li><strong>Text</strong>: unicode characters with horizontal multi-line text layout using scalable fonts (TTF)</li>
+<li><strong>Images</strong>: SVG, JPG, PNG, WebP, and raw bitmaps</li>
+<li><strong>Effects</strong>: blur, drop shadow, fill, tint, tritone and color replacement</li>
+<li><strong>Animations</strong>: Lottie</li>
+</ul>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_primitives.png">
+</p>
+
+<h3>Lightweight Design</h3>
+<p>​ThorVG is designed for a wide range of programs, offering adaptability for integration and use in various applications and systems. It achieves this through a single binary with selectively buildable, modular components in a building block style. This&nbsp;ensures&nbsp;both optimal size and easy maintenance. <br></p>
+<p align="center">
+  <img width="750" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_structure.png">
+</p>
+
+<p>The core library of ThorVG maintains a binary size of approximately <strong>150KB</strong>. This is significantly smaller compared to graphics engines designed primarily for desktop environments and offers the following advantages.<br></p>
+<ul>
+<li><strong>Memory Efficiency</strong>: Thanks to its low runtime memory usage, ThorVG operates stably even on low-spec systems.</li>
+<li><strong>Fast Boot</strong>: The library loads and initializes quickly, improving the overall startup speed of applications.</li>
+<li><strong>Low Size Deployment:</strong> With its small code and resource footprint, ThorVG is well-suited for embedded systems, IoT devices, and network-constrained environments.</li>
+</ul>
+<h3>Broad Portability</h3>
+<p>ThorVG is based on the <strong>C++</strong> standard and provides consistent functionality across various platforms through an abstraction layer that minimizes dependence on specific operating systems or hardware. <br></p>
+<ul>
+<li><strong>Extensive Platform Support</strong>: ThorVG supports web platforms, desktop operating systems such as Windows, macOS, and Linux, mobile platforms including Android and iOS, as well as embedded systems like Tizen and RTOS-based environments.</li>
+<li><strong>Microcontroller Support</strong>: ThorVG has been shown to run on microcontrollers like the ESP32, demonstrating its efficiency even within environments with highly limited memory and storage.</li>
+<li><strong>Headless Rendering Support</strong>: ThorVG can perform rendering without a display server, enabling use cases such as server-side graphics processing or offline rendering tools.</li>
+</ul>
+<p>If your program includes the main renderer, you can seamlessly utilize ThorVG APIs by transitioning drawing contexts between the main renderer and ThorVG. Throughout these API calls, ThorVG effectively serializes drawing commands among volatile paint nodes. Subsequently, it undertakes synchronous or asynchronous rendering via its render-backend engines. Additionally, ThorVG is adept at handling vector images, including formats like SVG and Lottie, and it remains adaptable for accommodating additional popular formats as needed. In the rendering process, the library may generate intermediate frame buffers for scene compositing, though only when essential. The accompanying diagram provides a concise overview of how to effectively incorporate ThorVG within your system.<br></p>
+<p align="center">
+  <img width="900" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_flow.png">
+</p>
+
+<h3>CPU Rasterization</h3>
+<p>ThorVG is optimized for CPU-based rasterization, with a strong focus on vector rendering in environments where GPU resources are limited, unavailable, or intentionally avoided. In representative CPU benchmarks, ThorVG demonstrates <strong>an average of ~1.8× faster performance</strong> to a widely-used vector graphics engine across common vector rendering workloads. The advantage is particularly clear in geometry-heavy scenarios such as rectangles, strokes, rotations, and circle rendering.</p>
+<h4>Performance Overview</h4>
+<p align="center">
+  <img width="1900" height="auto" alt="image" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_performance.png">
+</p>
+
+<h4>Test Conditions</h4>
+<ul>
+<li>Tested with 5k semi-transparent primitives, including shapes, strokes, and images, using alpha blending.</li>
+<li>Image filtering was performed using bilinear interpolation.</li>
+<li>Test Platform: Apple M1 (macOS 15)</li>
+<li>Render size: 2560 × 1440 (2K) for each test case</li>
+<li>Versions: ThorVG v1.0.0, Skia v144</li>
+</ul>
+<p align="center">
+  <img width="800" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_stress.png">
+</p>
+
+<h3>Threading</h3>
+<p>ThorVG incorporates a threading mechanism designed to seamlessly retrieve upcoming scenes without unnecessary delays. It utilizes a finely-tuned task scheduler based on thread pools to handle a variety of tasks, including encoding, decoding, updating, and rendering. This architecture ensures efficient use of multi-core processing.<br>
+<br>
+The task scheduler is carefully designed to abstract complexity, simplify integration, and enhance user convenience. Its use is optional, allowing users to adopt it based on their specific needs.<br></p>
+<p align="center">
+  <img width="900" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_thread.png">
+</p>
+
+<h3>Smart Rendering</h3>
+<p>ThorVG supports smart partial rendering, which enables more efficient rendering workflows by updating only the portions of a vector scene that have changed. By internally tracking modified regions, it minimizes unnecessary redraws and optimizes overall performance. This feature provides significant benefits in scenarios such as UI rendering, design tools, or applications where large parts of the scene remain static and only small elements update between frames. In such cases, avoiding full-scene rendering can greatly reduce computational workload and improve energy efficiency—making it particularly valuable on mobile and embedded systems.<br>
+<br>
+The following figure illustrates the geometry changes and highlights the minimal redraw region (outlined in red) that needs to be updated. Only the modified area between the previous and current frames is selectively redrawn, significantly improving performance.<br></p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_partial.png">
+</p>
+
+<p>Please note that in highly dynamic content—such as fast-paced games or full-screen animations where nearly all objects change every frame—partial rendering provides little to no benefit and may even introduce minor overhead. In these scenarios, full-scene rendering is typically the better choice. For a practical showcase, visit <a href="https://hermet.github.io/partial-test/">this page</a> demonstrating a performance comparison of partial rendering using ThorVG's software renderer.<br></p>
+<h3>Render Backends</h3>
+<p>Today, ThorVG provides its own implementation of multiple render-backend engines, allowing you to choose the one that best suits your app and system preferences.
+<br></p>
+<ul>
+<li>CPU/SIMD (Software)</li>
+<li>OpenGL/ES</li>
+<li>WebGL</li>
+<li>WebGPU</li>
+</ul>
+<p>ThorVG is particularly ahead of the curve in the web ecosystem. WebGPU introduces next-generation graphics APIs comparable to Vulkan, offering access to compute shaders and low-overhead GPU control. This enables more aggressive optimization strategies and broader application potential. On top of this, ThorVG fully supports all of its vector rendering features within the WebGPU backend, ensuring a complete and consistent experience across platforms.</p>
+<p>Furthermore, by abstracting underlying hardware graphics APIs such as Metal, Vulkan, and DirectX, ThorVG guarantees seamless integration across a wide range of systems, regardless of the specific hardware accelerations available.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_webgpu.png">
+
+</p><h3>Supported Platforms</h3>
+<p>ThorVG is designed to be portable across a wide range of devices, including small IoT devices, embedded systems, mobile platforms, game consoles, desktop environments, and the web. It is actively under development, with continuous efforts to expand support for essential platforms as needed. Currently, the major supported platforms include:<br></p>
+<p align="center">
+  <img width="650" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_platforms.png">
+</p>
+
+<h2>Contents</h2>
+<ul>
+<li><a href="#thorvg">ThorVG</a><ul>
+<li><a href="#installation">Installation</a><ul>
+<li><a href="#build-and-install">Build and Install</a></li>
+<li><a href="#build-with-visual-studio">Build with Visual Studio</a></li>
+<li><a href="#build-with-xcode">Build with Xcode</a></li>
+</ul>
+</li>
+<li><a href="#quick-start">Quick Start</a></li>
+<li><a href="#svg">SVG</a></li>
+<li><a href="#lottie">Lottie</a></li>
+<li><a href="#in-practice">In Practice</a><ul>
+<li><a href="#arcbrush">ArcBrush</a></li>
+<li><a href="#canva-ios">Canva iOS</a></li>
+<li><a href="#dotlottie">dotLottie</a></li>
+<li><a href="#espressif">Espressif</a></li>
+<li><a href="#flux-audio">Flux Audio</a></li>
+<li><a href="#godot">Godot</a></li>
+<li><a href="#lottie-creator">Lottie Creator</a></li>
+<li><a href="#lvgl">LVGL</a></li>
+<li><a href="#metamodule">MetaModule</a></li>
+<li><a href="#segger">Segger</a></li>
+<li><a href="#tinypixos">TinyPiXOS</a></li>
+<li><a href="#tizen">Tizen</a></li>
+</ul>
+</li>
+<li><a href="#interactive-app">Interactive App</a></li>
+<li><a href="#examples">Examples</a><ul>
+<li><a href="#c-examples">C++ Examples</a></li>
+<li><a href="#playground">Playground</a></li>
+</ul>
+</li>
+<li><a href="#tools">Tools</a><ul>
+<li><a href="#thorvg-viewer">ThorVG Viewer</a></li>
+<li><a href="#vs-code-liveview">VS Code LiveView</a></li>
+<li><a href="#lottie-to-gif">Lottie to GIF</a></li>
+<li><a href="#svg-to-png">SVG to PNG</a></li>
+</ul>
+</li>
+<li><a href="#related-projects">Related Projects</a></li>
+<li><a href="#api-bindings">API Bindings</a></li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#references">References</a> </li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#contributors">Contributors</a></li>
+<li><a href="#partners">Partners</a></li>
+<li><a href="#sponsors">Sponsors</a></li>
+<li><a href="#communication">Communication</a></li>
+</ul>
+</li>
+</ul>
+<p><a href="#contents"></a>
+<br></p>
+<h2>Installation</h2>
+<p>This section details the steps required to configure the environment for installing ThorVG.<br>
+<br></p>
+<h3>Build and Install</h3>
+<p>ThorVG supports <a href="https://mesonbuild.com/">meson</a> build system. Install <a href="http://mesonbuild.com/Getting-meson.html">meson</a> and <a href="https://ninja-build.org/">ninja</a> if you don't have them already.</p>
+<p>Run meson to configure ThorVG in the thorvg root folder.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir</span></span></code></pre>
+<p>Run ninja to build &amp; install ThorVG:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ninja -C builddir install" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ninja </span><span style="color:#D73A49">-</span><span style="color:#24292E">C builddir install</span></span></code></pre>
+<p>Regardless of the installation, all build results (symbols, executable) are generated in the builddir folder in thorvg. Some results such as examples won't be installed, you can check More examples section to see how to change it. <br>
+​<br>
+Note that some systems might include ThorVG package as a default component. In that case, you can skip this manual installation.<br></p>
+<h3>Build with Visual Studio</h3>
+<p>If you want to create Visual Studio project files, use the command <code>--backend=vs</code>. The resulting solution file <code>thorvg.sln</code> will be located in the build folder.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir --backend=vs" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">backend</span><span style="color:#D73A49">=</span><span style="color:#24292E">vs</span></span></code></pre>
+<h3>Build with Xcode</h3>
+<p>If you want to create Xcode project files, use the command <code>--backend=xcode</code>. The resulting solution file <code>thorvg.xcodeproj</code> will be located in the build folder.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir --backend=xcode" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">backend</span><span style="color:#D73A49">=</span><span style="color:#24292E">xcode</span></span></code></pre>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Quick Start</h2>
+<p>ThorVG renders vector shapes to a given canvas buffer. The following is a quick start to show you how to use the essential APIs.</p>
+<p>First, you should initialize the ThorVG engine:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="tvg::Initializer::init(4);   //4 threads" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">tvg::Initializer::init(</span><span style="color:#005CC5">4</span><span style="color:#24292E">);   </span><span style="color:#D73A49">//</span><span style="color:#005CC5">4</span><span style="color:#24292E"> threads</span></span></code></pre>
+<p>Then it would be best if you prepared an empty canvas for drawing on it:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="static uint32_t buffer[WIDTH * HEIGHT];                                   //canvas target buffer
+
+auto canvas = tvg::SwCanvas::gen();                                       //generate a canvas
+canvas-&gt;target(buffer, WIDTH, WIDTH, HEIGHT, tvg::ColorSpace::ARGB8888);  //buffer, stride, w, h, Colorspace" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">static uint32_t buffer[</span><span style="color:#005CC5">WIDTH</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> HEIGHT</span><span style="color:#24292E">];                                   </span><span style="color:#D73A49">//</span><span style="color:#24292E">canvas target buffer</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto canvas </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::SwCanvas::gen();                                       </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a canvas</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">target(buffer, </span><span style="color:#005CC5">WIDTH</span><span style="color:#24292E">, </span><span style="color:#005CC5">WIDTH</span><span style="color:#24292E">, </span><span style="color:#005CC5">HEIGHT</span><span style="color:#24292E">, tvg::ColorSpace::</span><span style="color:#005CC5">ARGB8888</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E">buffer, stride, w, h, Colorspace</span></span></code></pre>
+<p>Next you can draw multiple shapes on the canvas:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto rect = tvg::Shape::gen();               //generate a shape
+rect-&gt;appendRect(50, 50, 200, 200, 20, 20);  //define it as a rounded rectangle (x, y, w, h, rx, ry)
+rect-&gt;fill(100, 100, 100);                   //set its color (r, g, b)
+canvas-&gt;add(rect);                           //add the rectangle to the canvas
+
+auto circle = tvg::Shape::gen();             //generate a shape
+circle-&gt;appendCircle(400, 400, 100, 100);    //define it as a circle (cx, cy, rx, ry)
+
+auto fill = tvg::RadialGradient::gen();      //generate a radial gradient
+fill-&gt;radial(400, 400, 150, 400, 400, 0);    //set the radial gradient geometry info (cx, cy, radius, fx, fy, fr)
+
+tvg::Fill::ColorStop colorStops[2];          //gradient colors
+colorStops[0] = {0.0, 255, 255, 255, 255};   //1st color values (offset, r, g, b, a)
+colorStops[1] = {1.0, 0, 0, 0, 255};         //2nd color values (offset, r, g, b, a)
+fill-&gt;colorStops(colorStops, 2);             //set the gradient colors info
+
+circle-&gt;fill(fill);                          //set the circle fill
+canvas-&gt;add(circle);                         //add the circle to the canvas" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto rect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();               </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a shape</span></span>
+<span class="line"><span style="color:#24292E">rect</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">appendRect(</span><span style="color:#005CC5">50</span><span style="color:#24292E">, </span><span style="color:#005CC5">50</span><span style="color:#24292E">, </span><span style="color:#005CC5">200</span><span style="color:#24292E">, </span><span style="color:#005CC5">200</span><span style="color:#24292E">, </span><span style="color:#005CC5">20</span><span style="color:#24292E">, </span><span style="color:#005CC5">20</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E">define it </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a rounded rectangle (x, y, w, h, rx, ry)</span></span>
+<span class="line"><span style="color:#24292E">rect</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(</span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">);                   </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> its color (r, g, b)</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(rect);                           </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the rectangle to the canvas</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto circle </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();             </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a shape</span></span>
+<span class="line"><span style="color:#24292E">circle</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">appendCircle(</span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">);    </span><span style="color:#D73A49">//</span><span style="color:#24292E">define it </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a circle (cx, cy, rx, ry)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto fill </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::RadialGradient::gen();      </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a radial gradient</span></span>
+<span class="line"><span style="color:#24292E">fill</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">radial(</span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);    </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the radial gradient geometry info (cx, cy, radius, fx, fy, fr)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tvg::Fill::ColorStop colorStops[</span><span style="color:#005CC5">2</span><span style="color:#24292E">];          </span><span style="color:#D73A49">//</span><span style="color:#24292E">gradient colors</span></span>
+<span class="line"><span style="color:#24292E">colorStops[</span><span style="color:#005CC5">0</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">0.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">};   </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic">1st</span><span style="color:#24292E"> color values (offset, r, g, b, a)</span></span>
+<span class="line"><span style="color:#24292E">colorStops[</span><span style="color:#005CC5">1</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">};         </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic">2nd</span><span style="color:#24292E"> color values (offset, r, g, b, a)</span></span>
+<span class="line"><span style="color:#24292E">fill</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">colorStops(colorStops, </span><span style="color:#005CC5">2</span><span style="color:#24292E">);             </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the gradient colors info</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">circle</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(fill);                          </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the circle fill</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(circle);                         </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the circle to the canvas</span></span></code></pre>
+<p>This code generates the following result:</p>
+<p align="center">
+  <img width="416" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_shapes.png">
+</p>
+
+<p>You can also draw you own shapes and use dashed stroking:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto path = tvg::Shape::gen();               //generate a path
+path-&gt;moveTo(199, 34);                       //set sequential path coordinates
+path-&gt;lineTo(253, 143);
+path-&gt;lineTo(374, 160);
+path-&gt;lineTo(287, 244);
+path-&gt;lineTo(307, 365);
+path-&gt;lineTo(199, 309);
+path-&gt;lineTo(97, 365);
+path-&gt;lineTo(112, 245);
+path-&gt;lineTo(26, 161);
+path-&gt;lineTo(146, 143);
+path-&gt;close();
+
+path-&gt;fill(150, 150, 255);                   //path color
+
+path-&gt;strokeWidth(3);                        //stroke width
+path-&gt;strokeFill(0, 0, 255);                 //stroke color
+path-&gt;strokeJoin(tvg::StrokeJoin::Round);    //stroke join style
+path-&gt;strokeCap(tvg::StrokeCap::Round);      //stroke cap style
+
+float pattern[2] = {10, 10};                 //stroke dash pattern (line, gap)
+path-&gt;strokeDash(pattern, 2);                //set the stroke pattern
+
+canvas-&gt;add(path);                           //add the path to the canvas" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto path </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();               </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a path</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">moveTo(</span><span style="color:#005CC5">199</span><span style="color:#24292E">, </span><span style="color:#005CC5">34</span><span style="color:#24292E">);                       </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> sequential path coordinates</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">253</span><span style="color:#24292E">, </span><span style="color:#005CC5">143</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">374</span><span style="color:#24292E">, </span><span style="color:#005CC5">160</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">287</span><span style="color:#24292E">, </span><span style="color:#005CC5">244</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">307</span><span style="color:#24292E">, </span><span style="color:#005CC5">365</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">199</span><span style="color:#24292E">, </span><span style="color:#005CC5">309</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">97</span><span style="color:#24292E">, </span><span style="color:#005CC5">365</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">112</span><span style="color:#24292E">, </span><span style="color:#005CC5">245</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">26</span><span style="color:#24292E">, </span><span style="color:#005CC5">161</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">146</span><span style="color:#24292E">, </span><span style="color:#005CC5">143</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">close()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(</span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">);                   </span><span style="color:#D73A49">//</span><span style="color:#24292E">path color</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeWidth(</span><span style="color:#005CC5">3</span><span style="color:#24292E">);                        </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke width</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeFill(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">);                 </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke color</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeJoin(tvg::StrokeJoin::Round);    </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke join style</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeCap(tvg::StrokeCap::Round);      </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke cap style</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">float</span><span style="color:#24292E"> pattern[</span><span style="color:#005CC5">2</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">};                 </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke dash pattern (line, gap)</span></span>
+<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeDash(pattern, </span><span style="color:#005CC5">2</span><span style="color:#24292E">);                </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the stroke pattern</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(path);                           </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the path to the canvas</span></span></code></pre>
+<p>The code generates the following result:</p>
+<p align="center">
+  <img width="300" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_path.png">
+</p>
+
+<p>Now begin rendering &amp; finish it at a particular time:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="canvas-&gt;draw();
+canvas-&gt;sync();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">draw()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">sync()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Then you can acquire the rendered image from the buffer memory.</p>
+<p>Lastly, terminate the engine after its usage:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="tvg::Initializer::term();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">tvg::Initializer::term()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>SVG</h2>
+<p>ThorVG facilitates <a href="https://www.w3.org/TR/SVGTiny12/">SVG Tiny Specification</a> rendering via its dedicated SVG interpreter. Adhering to the SVG Tiny Specification, the implementation maintains a lightweight profile, rendering it particularly advantageous for embedded systems. While ThorVG comprehensively adheres to <a href="https://github.com/thorvg/thorvg/wiki/SVG-Support">most of the SVG Tiny specs</a>, certain features remain unsupported within the current framework. These include:<br></p>
+<ul>
+<li>Animation </li>
+<li>Interactivity</li>
+<li>Multimedia</li>
+</ul>
+<p>The figure below highlights ThorVG's SVG rendering capabilities:</p>
+<p align="center">
+  <img width="780" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_svg.jpg">
+</p>
+
+<p>The following code snippet shows how to draw SVG image using ThorVG:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto picture = tvg::Picture::gen();         //generate a picture
+picture-&gt;load(&quot;tiger.svg&quot;);                 //load a SVG file
+canvas-&gt;add(picture);                       //add the picture to the canvas" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto picture </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Picture::gen();         </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a picture</span></span>
+<span class="line"><span style="color:#24292E">picture</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">load(</span><span style="color:#032F62">"tiger.svg"</span><span style="color:#24292E">);                 </span><span style="color:#D73A49">//</span><span style="color:#24292E">load a </span><span style="color:#005CC5">SVG</span><span style="color:#E36209"> file</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(picture);                       </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the picture to the canvas</span></span></code></pre>
+<p>The result is:</p>
+<p align="center">
+  <img width="300" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_tiger.png">
+</p>
+
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Lottie</h2>
+<p>ThorVG supports the most powerful <a href="https://github.com/thorvg/thorvg/wiki/Lottie-Support">Lottie Animation features</a>. Lottie is an industry standard, JSON-based vector animation file format that enables seamless distribution of animations on any platform, akin to shipping static assets. These files are compact and compatible with various devices, scaling up or down without pixelation. With Lottie, you can easily create, edit, test, collaborate, and distribute animations in a user-friendly manner. For more information, please visit <a href="https://lottie.github.io/">Lottie Animation Community</a>' website. <br>
+<br>
+ThorVG offers great flexibility in building its binary. Besides serving as a general graphics engine, it can be configured as a compact Lottie animation playback library with specific build options:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$meson setup builddir -Dloaders=&quot;lottie&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dloaders</span><span style="color:#D73A49">=</span><span style="color:#032F62">"lottie"</span></span></code></pre>
+<p>Alternatively, to support additional bitmap image formats:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$meson setup builddir -Dloaders=&quot;lottie, png, jpg, webp&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dloaders</span><span style="color:#D73A49">=</span><span style="color:#032F62">"lottie, png, jpg, webp"</span></span></code></pre>
+<p>Please note that ThorVG supports Lottie Expressions by default. Lottie Expressions are small JavaScript code snippets that can be applied to animated properties in your Lottie animations, evaluating to a single value. This is an advanced feature in the Lottie specification and may impact binary size and performance, especially when targeting small devices such as MCUs. If this feature is not essential for your requirements, you can disable it using the <code>extra</code> build option in ThorVG:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$meson setup builddir -Dloaders=&quot;lottie&quot; -Dextra=&quot;&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dloaders</span><span style="color:#D73A49">=</span><span style="color:#032F62">"lottie"</span><span style="color:#D73A49"> -</span><span style="color:#24292E">Dextra</span><span style="color:#D73A49">=</span><span style="color:#032F62">""</span></span></code></pre>
+<p>The following code snippet demonstrates how to use ThorVG to play a Lottie animation.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto animation = tvg::Animation::gen();     //generate an animation
+auto picture = animation-&gt;picture()         //acquire a picture which associated with the animation.
+picture-&gt;load(&quot;lottie.json&quot;);               //load a Lottie file
+auto duration = animation-&gt;duration();      //figure out the animation duration time in seconds.
+canvas-&gt;add(picture);                       //add the picture to the canvas" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto animation </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Animation::gen();     </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate an animation</span></span>
+<span class="line"><span style="color:#24292E">auto picture </span><span style="color:#D73A49">=</span><span style="color:#24292E"> animation</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">picture()         </span><span style="color:#D73A49">//</span><span style="color:#24292E">acquire a picture which associated </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the animation.</span></span>
+<span class="line"><span style="color:#24292E">picture</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">load(</span><span style="color:#032F62">"lottie.json"</span><span style="color:#24292E">);               </span><span style="color:#D73A49">//</span><span style="color:#24292E">load a Lottie </span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#24292E">auto duration </span><span style="color:#D73A49">=</span><span style="color:#24292E"> animation</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">duration();      </span><span style="color:#D73A49">//</span><span style="color:#24292E">figure out the animation duration time </span><span style="color:#D73A49">in</span><span style="color:#24292E"> seconds.</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(picture);                       </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the picture to the canvas</span></span></code></pre>
+<p>First, an animation and a picture are generated. The Lottie file (lottie.json) is loaded into the picture, and then the picture is added to the canvas. The animation frames are controlled using the animation object to play the Lottie animation. Also you might want to know the animation duration time to run your animation loop.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="animation-&gt;frame(animation-&gt;totalFrame() * progress);  //Set a current animation frame to display
+canvas-&gt;update(animation-&gt;picture());                  //Update the picture to be redrawn." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">animation</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">frame(animation</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">totalFrame() </span><span style="color:#D73A49">*</span><span style="color:#24292E"> progress);  </span><span style="color:#D73A49">//</span><span style="color:#24292E">Set a current animation frame to display</span></span>
+<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">update(animation</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">picture());                  </span><span style="color:#D73A49">//</span><span style="color:#24292E">Update the picture to be redrawn.</span></span></code></pre>
+<p>Let's suppose the progress variable determines the position of the animation, ranging from 0 to 1 based on the total duration time of the animation. Adjusting the progress value allows you to control the animation at the desired position. Afterwards, the canvas is updated to redraw the picture with the updated animation frame.<br>
+<br></p>
+<p align="center">
+  <img width="600" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_lottie.gif">
+</p>
+
+<p>Please check out the <a href="https://thorvg-perf-test.vercel.app/">ThorVG Test App</a> to see the performance of various Lottie animations powered by ThorVG. If you're working on the frontend, you can also download the ThorVG npm package <a href="https://www.npmjs.com/package/@thorvg/lottie-player">here</a>.<br></p>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>In Practice</h2>
+<h3>ArcBrush</h3>
+<p><a href="https://arcbrush.com/">ArcBrush</a> is a free, node-based image editor built for creators who value speed, flexibility, and full creative control. It leverages ThorVG for high-performance SVG rasterization in production.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_arcbrush.jpg">
+</p>
+
+<h3>Canva iOS</h3>
+<p><a href="https://www.canva.com">Canva</a> is a popular visual communication platform known for its intuitive interface and rich design resources. Its iOS app switched from a previous Lottie engine to ThorVG, achieving about 80% faster rendering and 70% lower peak memory usage.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_canvaios.png">
+</p>
+
+<h3>dotLottie</h3>
+<p><a href="https://dotlottie.io/">dotLottie</a> is an open-source format that bundles multiple Lottie animations with assets like images and fonts, supporting interactivity and state machines. Using ZIP compression (.lottie), it enables efficient distribution, and its player runs on ThorVG for rendering.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_dotlottie.png">
+</p>
+
+<h3>Espressif</h3>
+<p><a href="https://www.espressif.com/en">Espressif Systems</a> provides ThorVG as an official component in its ESP-IDF, simplifying integration into projects. This enables developers to easily use ThorVG’s rendering on IoT devices powered by ESP32 and ESP32-P4.</p>
+<p align="center">
+  <img width="600" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_espressif.png">
+</p>
+
+<h3>Flux Audio</h3>
+<p><a href="https://www.flux.audio/">Flux Audio</a> is a high-performance audio company focused on premium sound. ThorVG powers its UI with fast, scalable vector rendering, demonstrating its flexibility in modern audio platforms.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_flux.jpg">
+</p>
+
+<h3>Godot</h3>
+<p>ThorVG is integrated into the <a href="https://www.godotengine.org">Godot</a> game engine to enable high-quality vector-based UI and assets. Godot is a modern open-source engine that provides a full toolset for efficient game development.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_godot.png">
+</p>
+
+<h3>Lottie Creator</h3>
+<p><a href="https://creator.lottiefiles.com/">Lottie Creator</a> enables lightweight, customizable, and interactive animations for web, apps, and social, enhanced by AI-based Motion Copilot. ThorVG powers its Canvas engine, delivering fast and scalable vector rendering across platforms.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_creator.png">
+</p>
+
+<h3>LVGL</h3>
+<p><a href="https://lvgl.io/">LVGL</a> is an open-source graphics library for embedded systems with limited resources, offering lightweight and customizable GUI support for microcontrollers and IoT devices. ThorVG serves as its vector drawing primitives library.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_lvgl.png">
+</p>
+
+<h3>MetaModule</h3>
+<p>ThorVG is used as a lightweight vector rasterization backend in <a href="https://4mscompany.com/metamodule">MetaModule</a> firmware, an embedded modular synthesizer environment, enabling efficient UI rendering under real-time constraints.</p>
+<p align="center">
+  <img width="400" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_metamodule.png">
+</p>
+
+
+<h3>Segger</h3>
+<p><a href="https://www.segger.com/">SEGGER</a> Microcontroller provides tools for embedded system development, including RTOS, middleware, and debugging solutions. It adopts ThorVG as a GPU driver to enable high-performance vector rendering for GUI applications.</p>
+<p align="center">
+  <img width="650" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_segger.png">
+</p>
+
+<h3>TinyPiXOS</h3>
+<p><a href="https://www.tinypixos.com/en/">TinyPiXOS</a>&nbsp;is a lightweight, open-source Linux OS with a custom C/C++ graphics stack replacing X11/Wayland. ThorVG handles core GUI rendering, delivering efficient performance and high visual quality in constrained environments.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_tinypixos.png">
+</p>
+
+<h3>Tizen</h3>
+<p>ThorVG is integrated into the <a href="https://www.tizen.org">Tizen</a> platform as its vector graphics engine, powering NUI’s vector graphics backend for rendering primitives and scalable content like SVG and Lottie animations.</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_tizen.png">
+</p>
+<br>
+
+<p>Would you like us to showcase your project with ThorVG? Feel free to <a href="https://github.com/thorvg/thorvg/issues">open an issue</a> or submit a pull request!</p>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Interactive App</h2>
+<p>Check out <a href="https://github.com/thorvg/thorvg.janitor">Thor Janitor</a>, an interactive demo game fully rendered using ThorVG. It renders tens of thousands of objects in real-time with effects like DropShadow and Blur, running stably at 120+ FPS!</p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/user-attachments/assets/8a4bd16a-bb72-4b41-b007-eadc2220d1eb">
+</p>
+
+<p align="center">
+  <strong><a href="https://youtu.be/jdnnzmtHy9k">Watch the full video!</a></strong>
+</p>
+
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Examples</h2>
+<h3>C++ Examples</h3>
+<p>A wide range of native sample codes is available in the <a href="https://github.com/thorvg/thorvg.example">thorvg.example</a> repository to help you understand and work with the ThorVG C++ APIs.</p>
+<h3>Playground</h3>
+<p>The <a href="https://www.thorvg.org/playground">ThorVG Playground</a> is an interactive web-based environment where you can explore various graphic features and instantly see the results in real time.</p>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Tools</h2>
+<h3>ThorVG Viewer</h3>
+<p>ThorVG provides a resource verification tool for the ThorVG engine. The <a href="https://thorvg.github.io/thorvg.viewer/">ThorVG viewer</a> enables instant rendering directly in the web browser using the ThorVG WebAssembly binary, allowing real-time editing of vector elements. It does not upload your resources to any external server and supports exporting to formats such as GIF, ensuring that designer copyrights remain protected.<br></p>
+<p align="center">
+  <img width="700" height="auto" src="https://github.com/thorvg/thorvg/assets/3711518/edadcc5e-3bbf-489d-a9a1-9570079c7d55">
+</p>
+
+<h3>VS Code LiveView</h3>
+<p>A <a href="https://marketplace.visualstudio.com/items?itemName=thorvg.thorvg-liveview">Visual Studio Code extension</a> that integrates ThorVG Viewer for previewing Lottie animations and SVG files directly inside the editor.
+<br></p>
+<p align="center">
+  <img width="1000" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_vscode.gif">
+</p>
+
+<h3>Lottie to GIF</h3>
+<p>ThorVG provides an executable <code>tvg-lottie2gif</code> converter that generates a GIF file from a Lottie file.</p>
+<p>To use the <code>tvg-lottie2gif</code>, you must turn on this feature in the build option:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir -Dtools=lottie2gif -Dsavers=gif" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dtools</span><span style="color:#D73A49">=</span><span style="color:#24292E">lottie2gif </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dsavers</span><span style="color:#D73A49">=</span><span style="color:#24292E">gif</span></span></code></pre>
+<p>To use the 'tvg-lottie2gif' converter, you need to provide the 'Lottie files' parameter. This parameter can be a file name with the '.json' extension or a directory name. It also accepts multiple files or directories separated by spaces. If a directory is specified, the converter will search for files with the '.json' extension within that directory and all its subdirectories.<br>
+<br>
+Optionally, you can specify the image resolution in the 'WxH' format, with two numbers separated by an 'x' sign, following the '-r' flag.<br>
+<br>
+Both flags, if provided, are applied to all of the <code>.json</code> files.</p>
+<p>The usage examples of the <code>tvg-lottie2gif</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Usage:
+    tvg-lottie2gif [Lottie file] or [Lottie folder] [-r resolution] [-f fps] [-b background color]
+
+Flags:
+    -r set the output image resolution.
+    -f specifies the frames per second (fps) for the generated animation.
+    -b specifies the base background color (RGB in hex). If not specified, the background color will follow the original content.
+
+Examples:
+    $ tvg-lottie2gif input.json
+    $ tvg-lottie2gif input.json -f 30
+    $ tvg-lottie2gif input.json -r 600x600 -f 30
+    $ tvg-lottie2gif lottiefolder
+    $ tvg-lottie2gif lottiefolder -r 600x600
+    $ tvg-lottie2gif lottiefolder -r 600x600 -f 30 -b fa7410" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">Usage:</span></span>
+<span class="line"><span style="color:#24292E">    tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif [Lottie </span><span style="color:#E36209">file</span><span style="color:#24292E">] </span><span style="color:#D73A49">or</span><span style="color:#24292E"> [Lottie folder] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">r resolution] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">f fps] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">b background color]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Flags:</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">r </span><span style="color:#005CC5">set</span><span style="color:#24292E"> the output image resolution.</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">f specifies the frames per second (fps) </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the generated animation.</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">b specifies the base background color (</span><span style="color:#005CC5">RGB</span><span style="color:#D73A49"> in</span><span style="color:#005CC5"> hex</span><span style="color:#24292E">). If </span><span style="color:#D73A49">not</span><span style="color:#24292E"> specified, the background color will follow the original content.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Examples:</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif </span><span style="color:#005CC5">input</span><span style="color:#24292E">.json</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif </span><span style="color:#005CC5">input</span><span style="color:#24292E">.json </span><span style="color:#D73A49">-</span><span style="color:#24292E">f </span><span style="color:#005CC5">30</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif </span><span style="color:#005CC5">input</span><span style="color:#24292E">.json </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">600x600</span><span style="color:#D73A49"> -</span><span style="color:#24292E">f </span><span style="color:#005CC5">30</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif lottiefolder</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif lottiefolder </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">600x600</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">lottie2gif lottiefolder </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">600x600</span><span style="color:#D73A49"> -</span><span style="color:#24292E">f </span><span style="color:#005CC5">30</span><span style="color:#D73A49"> -</span><span style="color:#24292E">b fa7410</span></span></code></pre>
+<h3>SVG to PNG</h3>
+<p>ThorVG provides an executable <code>tvg-svg2png</code> converter that generates a PNG file from an SVG file.</p>
+<p>To use the <code>tvg-svg2png</code>, you must turn on this feature in the build option:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir -Dtools=svg2png" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dtools</span><span style="color:#D73A49">=</span><span style="color:#24292E">svg2png</span></span></code></pre>
+<p>To use the 'tvg-svg2png' converter, you need to provide the 'SVG files' parameter. This parameter can be a file name with the '.svg' extension or a directory name. It also accepts multiple files or directories separated by spaces. If a directory is specified, the converter will search for files with the '.svg' extension within that directory and all its subdirectories.<br>
+<br>
+Optionally, you can specify the image resolution in the 'WxH' format, with two numbers separated by an 'x' sign, following the '-r' flag.<br>
+<br>
+The background color can be set with the <code>-b</code> flag. The <code>bgColor</code> parameter should be passed as a three-bytes hexadecimal value in the <code>ffffff</code> format. The default background is transparent.<br>
+<br>
+Both flags, if provided, are applied to all of the <code>.svg</code> files.</p>
+<p>The usage examples of the <code>tvg-svg2png</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Usage:
+    tvg-svg2png [SVG files] [-r resolution] [-b bgColor]
+
+Flags:
+    -r set the output image resolution.
+    -b set the output image background color.
+
+Examples:
+    $ tvg-svg2png input.svg
+    $ tvg-svg2png input.svg -r 200x200
+    $ tvg-svg2png input.svg -r 200x200 -b ff00ff
+    $ tvg-svg2png input1.svg input2.svg -r 200x200 -b ff00ff
+    $ tvg-svg2png . -r 200x200" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">Usage:</span></span>
+<span class="line"><span style="color:#24292E">    tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png [</span><span style="color:#005CC5">SVG</span><span style="color:#24292E"> files] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">r resolution] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">b bgColor]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Flags:</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">r </span><span style="color:#005CC5">set</span><span style="color:#24292E"> the output image resolution.</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">b </span><span style="color:#005CC5">set</span><span style="color:#24292E"> the output image background color.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Examples:</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png </span><span style="color:#005CC5">input</span><span style="color:#24292E">.svg</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png </span><span style="color:#005CC5">input</span><span style="color:#24292E">.svg </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">200x200</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png </span><span style="color:#005CC5">input</span><span style="color:#24292E">.svg </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">200x200</span><span style="color:#D73A49"> -</span><span style="color:#24292E">b ff00ff</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png input1.svg input2.svg </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">200x200</span><span style="color:#D73A49"> -</span><span style="color:#24292E">b ff00ff</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    $</span><span style="color:#24292E"> tvg</span><span style="color:#D73A49">-</span><span style="color:#24292E">svg2png . </span><span style="color:#D73A49">-</span><span style="color:#24292E">r </span><span style="color:#B31D28;font-style:italic">200x200</span></span></code></pre>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Related Projects</h2>
+<p>ThorVG is designed to be portable and extensible across various platforms. The following projects integrate ThorVG into specific environments or tools: <br></p>
+<ul>
+<li><a href="https://github.com/thorvg/thorvg.android">ThorVG Android</a> – Kotlin-based ThorVG support for Android.</li>
+<li><a href="https://github.com/thorvg/thorvg.example">ThorVG Example</a> – An example set demonstrates how to use ThorVG's APIs.</li>
+<li><a href="https://github.com/thorvg/thorvg.flutter">ThorVG Flutter</a> - A Flutter plugin for using ThorVG on Android and iOS.</li>
+<li><a href="https://github.com/thorvg/thorvg.janitor">ThorVG Janitor</a> - A demo game showcasing ThorVG’s real-time rendering features.</li>
+<li><a href="https://github.com/thorvg/thorvg.swift">ThorVG Swift</a> - Swift bindings for rendering vector graphics with ThorVG.</li>
+<li><a href="https://github.com/thorvg/thorvg.unity">ThorVG Unity</a> – ThorVG integration for Unity using C#.</li>
+<li><a href="https://github.com/thorvg/thorvg.viewer">ThorVG Viewer</a> - A browser-based viewer for ThorVG using WebAssembly.</li>
+<li><a href="https://github.com/thorvg/thorvg.vscode">ThorVG VS Code</a> - ThorVG VS Code Extensions.</li>
+<li><a href="https://github.com/thorvg/thorvg.web">ThorVG Web</a> - WebAssembly-based integration of ThorVG for web apps.</li>
+</ul>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>API Bindings</h2>
+<p>Our main development APIs are written in C++, but ThorVG also provides API bindings for C.</p>
+<p>To enable CAPI binding, you need to activate this feature in the build options:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson setup builddir -Dbindings=&quot;capi&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#D73A49">-</span><span style="color:#24292E">Dbindings</span><span style="color:#D73A49">=</span><span style="color:#032F62">"capi"</span></span></code></pre>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Documentation</h2>
+<p>The ThorVG API documentation is available at <a href="https://www.thorvg.org/apis">thorvg.org/apis</a>, and can also be found directly in this repository via the <a href="https://github.com/thorvg/thorvg/blob/main/inc/thorvg.h">C++ API</a> and <a href="https://github.com/thorvg/thorvg/blob/main/src/bindings/capi/thorvg_capi.h">C API</a>. </p>
+<p>For comprehensive and well-structured technical information, please visit the <a href="https://deepwiki.com/thorvg/thorvg">DeepWiki</a>, which offers in-depth guidance on ThorVG's architecture, features, and usage.</p>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>References</h2>
+<ul>
+<li><a href="https://youtu.be/qhHMycRPQ9M?si=RXAag3Fxm8R7W_I0">Universal Motion Graphics across All Platforms: Unleashing Creativity with ThorVG</a></li>
+<li><a href="https://lottiefiles.com/blog/working-with-lottie-animations/canva-enhances-ios-rendering-faster-and-efficient-with-thorvg">Canva Enhances iOS Lottie Rendering: 80% Faster and 70% More Efficient with ThorVG</a></li>
+</ul>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Dependencies</h2>
+<p>ThorVG provides flexible image loading capabilities, supporting both static and external loaders. This design ensures that even in environments lacking external libraries, users can rely on built-in static loaders for core functionality. At its core, the ThorVG library is fully self-contained and operates without mandatory external dependencies. However, several optional feature extensions are available, each with its own set of dependencies.</p>
+<p>The following outlines the dependencies for these optional features:</p>
+<ul>
+<li><strong>GL Engine</strong>: <a href="https://www.khronos.org/opengl/">OpenGL 3.3</a>, <a href="https://www.khronos.org/opengles/">OpenGL ES 3.0</a>, or a browser with <a href="https://www.khronos.org/webgl/">WebGL2</a> support.</li>
+<li><strong>WG Engine</strong>: <a href="https://github.com/gfx-rs/wgpu-native">webgpu-native v0.27</a> or a browser with <a href="https://www.w3.org/TR/webgpu/">WebGPU</a> support.</li>
+<li><strong>PNG Loader</strong> (external): <a href="https://github.com/pnggroup/libpng">libpng</a></li>
+<li><strong>JPEG Loader</strong> (external): <a href="https://github.com/libjpeg-turbo/libjpeg-turbo">libjpeg-turbo</a></li>
+<li><strong>WebP Loader</strong> (external): <a href="https://developers.google.com/speed/webp/download">libwebp</a></li>
+</ul>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Contributors</h2>
+<p>ThorVG stands as a purely open-source initiative. We are grateful to the individuals, organizations, and companies that have contributed to the development of the ThorVG project. The dedicated efforts of the individuals and entities listed below have enabled ThorVG to reach its current state.</p>
+<ul>
+<li><a href="https://github.com/thorvg/thorvg/blob/main/CONTRIBUTORS.md">Individuals</a></li>
+<li><a href="https://godotengine.org/">Godot</a></li>
+<li><a href="https://lvgl.io/">LVGL</a></li>
+<li><a href="https://www.canva.com/">Canva Pty Ltd</a></li>
+</ul>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Partners</h2>
+<p>Partners engage in strategic collaboration with ThorVG, working together to shape the future of scalable, high-performance vector graphics. We acknowledge organizations that have supported ThorVG’s journey through development, integration, collaboration, and community involvement.</p>
+<p align="center">
+  <a href="https://www.lottiefiles.com">
+  <img width="250" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/partner_lottiefiles.jpg" alt="LottieFiles">
+  </a>
+</p>
+
+<p align="center">
+  <a href="https://www.samsung.com">
+  <img width="250" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/partner_samsung.jpg" alt="Samsung">
+  </a>
+</p>
+
+<br>
+
+<p>If you’re interested in partnering with ThorVG, we’d love to hear from you. Please reach out at <a href="mailto:thorvg@thorvg.org">thorvg@thorvg.org</a></p>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Sponsors</h2>
+<p>We sincerely thank our sponsors and supporters who help drive the continuous evolution of ThorVG. Your support is more than a contribution — it is an investment in a high-performance, accessible graphics engine built for real-world production.
+<br>
+<br></p>
+<p align="center">
+  <a href="https://www.lottiefiles.com">
+  <img width="250" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/partner_lottiefiles.jpg" alt="LottieFiles">
+  </a>
+</p>
+<br>
+ThorVG is designed to remain open, accessible, and community-driven. To help ensure long-term sustainability and faster technical iteration, we provide additional support channels for our corporate and professional sponsors.
+<br>
+<br>
+
+<ul>
+<li><a href="https://github.com/sponsors/thorvg">GitHub Sponsors</a></li>
+<li><a href="https://opencollective.com/thorvg">Open Collective</a></li>
+</ul>
+<p><a href="#contents">Back to contents</a>
+<br>
+<br></p>
+<h2>Communication</h2>
+<p>For real-time conversations and discussions, please join us on <a href="https://discord.gg/n25xj6J6HM">Discord</a></p>
+<p><a href="#contents">Back to contents</a></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">A production-ready C++ vector graphics engine supporting SVG and Lottie formats, featuring advanced rendering backends such as WebGPU for high-performance graphics.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/thorvg/thorvg" title="@thorvg"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@thorvg/thorvg</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/thorvg.png" alt="@thorvg"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/thorvg/thorvg"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1546</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Sunday, March 29, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 84.6%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 84.6%"> </span><span style="width: 15%; background-color: var(--lang-C-bg, #ccc)" title="C: 15%"> </span><span style="width: 0.4%; background-color: var(--lang-Meson-bg, #ccc)" title="Meson: 0.4%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">84.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">15%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/kekxv" title="kekxv"><img class="avatar circle" width="48" height="48" src="https://github.com/kekxv.png" alt="@kekxv"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/kekxv" title="@kekxv"><img class="avatar circle" width="48" height="48" src="https://github.com/kekxv.png" alt="@kekxv"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8171"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="feat: thorvg.1.0.3 (#8171)"><span class="text-mono">#8171</span> <span class="text-light">feat: thorvg.1.0.3 (#8171)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/thorvg/thorvg/releases/download/v1.0.3/thorvg-1.0.3.tar.xz" title="https://github.com/thorvg/thorvg/releases/download/v1.0.3/thorvg-1.0.3.tar.xz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/thorvg/tho...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/thorvg/1.0.3/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/thorvg/1.0.3/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.0.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.0.3"><span class="text-bold">1.0.3</span><sup class="color-fg-attention"> +17d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-29</span></div></td></tr><tr class=""><td title="1.0.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.0.1"><a class="Box-row-link" href="/#/modules/thorvg/1.0.1">1.0.1</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-11</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

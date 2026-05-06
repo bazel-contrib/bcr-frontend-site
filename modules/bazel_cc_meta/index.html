@@ -1,0 +1,494 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">bazel_cc_meta</span> <span class="f2 d-inline-block">0.2.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.4mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/mikael-s-persson/bazel_cc_meta" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/bazel_cc_meta/0.2.0/overview" data-name="overview" id=":7f.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/bazel_cc_meta/0.2.0/docs" data-name="docs" id=":7f.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/bazel_cc_meta/0.2.0/testing" data-name="testing" id=":7f.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;bazel_cc_meta&quot;, version = &quot;0.2.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.2.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">5</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.9.0">bazel_skylib<span class="ml-1 text-light text-small">1.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/buildozer/8.5.1">buildozer<span class="ml-1 text-light text-small">8.5.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.17">rules_cc<span class="ml-1 text-light text-small">0.2.17</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_python/1.7.0">rules_python<span class="ml-1 text-light text-small">1.7.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_python/2.0.0">2.0.0<span title="Version Distance"><sup style="padding-left: 3px">+18<span class="color-fg-attention"> (5.5mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_shell/0.6.1">rules_shell<span class="ml-1 text-light text-small">0.6.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_shell/0.8.0">0.8.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (7.2mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Bazel C/C++ Metadata Analyzer (bazel_cc_meta)</h1>
+<p>Bazel tools to analyze C/C++ metadata and target dependencies.</p>
+<p>The objective of this library is to enable Bazel projects to generate helpful metadata around
+the C/C++ targets and their dependencies. Core capabilities include:</p>
+<ul>
+<li>Generate a <code>compile_commands.json</code> file for all C/C++ sources involved in a project's builds.<ul>
+<li>The <code>compile_commands.json</code> captures compilation commands and enables use of <code>clangd</code> (LSP) and other clang-based tools.</li>
+</ul>
+</li>
+<li>Gather a mapping of targets to "exports", aka includable headers, such that missing direct dependencies can be automatically found.</li>
+<li>Analyze direct dependencies of targets compared to included headers to add missing ones or remove unused ones.</li>
+</ul>
+<h1>Getting started</h1>
+<h2>MODULE.bazel (recommended)</h2>
+<p>Importing into a Bazel module is done as usual. Some examples are given below.</p>
+<h3>Release version from Bazel Central Registry (recommended)</h3>
+<p>Put the following into your MODULE.bazel file (with <code>X.Y.Z</code> being the latest version on the <a href="https://registry.bazel.build/">registry</a>):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;bazel_cc_meta&quot;, version = &quot;X.Y.Z&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "X.Y.Z"</span><span style="color:#24292E">)</span></span></code></pre>
+<h3>Release version as <code>http_archive</code></h3>
+<p>Put the following into your MODULE.bazel file (filling in version numbers and SHA, see <a href="https://github.com/mikael-s-persson/bazel_cc_meta/releases">releases page</a>)</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="http_archive = use_repo_rule(&quot;@bazel_tools//tools/build_defs/repo:http.bzl&quot;, &quot;http_archive&quot;)
+
+bazel_dep(name = &quot;bazel_skylib&quot;, version = &quot;&lt;insert appropriate version number&gt;&quot;)
+bazel_dep(name = &quot;rules_python&quot;, version = &quot;&lt;insert appropriate version number&gt;&quot;)
+bazel_dep(name = &quot;rules_cc&quot;, version = &quot;&lt;insert appropriate version number&gt;&quot;)
+bazel_dep(name = &quot;rules_shell&quot;, version = &quot;&lt;insert appropriate version number&gt;&quot;)
+bazel_dep(name = &quot;buildozer&quot;, version = &quot;&lt;insert appropriate version number&gt;&quot;)
+
+http_archive(
+    name = &quot;bazel_cc_meta&quot;,
+    integrity = &quot;&lt;insert sha integrity check&gt;&quot;,
+    strip_prefix = &quot;bazel_cc_meta-X.Y.Z&quot;,
+    urls = [&quot;https://github.com/mikael-s-persson/bazel_cc_meta/archive/refs/tags/vX.Y.Z.tar.gz&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">http_archive </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_repo_rule(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_skylib"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert appropriate version number&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_python"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert appropriate version number&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_cc"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert appropriate version number&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_shell"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert appropriate version number&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildozer"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert appropriate version number&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    integrity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;insert sha integrity check&gt;"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta-X.Y.Z"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/mikael-s-persson/bazel_cc_meta/archive/refs/tags/vX.Y.Z.tar.gz"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Git commit as <code>git_override</code></h3>
+<p>Put the following into your MODULE.bazel file</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;bazel_cc_meta&quot;, version = &quot;0.0.0&quot;)
+git_override(
+    module_name = &quot;bazel_cc_meta&quot;,
+    commit = &lt;commit_you_are_interested_in&gt;,
+    remote = &quot;https://github.com/mikael-s-persson/bazel_cc_meta&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    commit</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">commit_you_are_interested_in</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/mikael-s-persson/bazel_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h1>Usage</h1>
+<h2>Default aspect</h2>
+<p>The most basic usage of <code>bazel_cc_meta</code> is to use the default configurations (aspect).</p>
+<ul>
+<li>Default aspect: <code>@bazel_cc_meta//:defs.bzl%default_cc_meta_aspect</code></li>
+<li>Default refresh "all" tool: <code>@bazel_cc_meta//cc_meta:refresh_all</code></li>
+<li>Fix dependency tool: <code>@bazel_cc_meta//cc_meta:fix_deps</code></li>
+</ul>
+<p>If default tools (aspect or refresh tool) are not appropriate (see "Known issues"), custom
+configurations can be created, see sections below.</p>
+<p>To use the default tools, use <code>bazel run</code> to invoke the refresh tool:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel run [build_options] @bazel_cc_meta//cc_meta:refresh_all -- [build_options]" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel run [build_options] </span><span style="color:#D73A49">@</span><span style="color:#24292E">bazel_cc_meta</span><span style="color:#D73A49">//</span><span style="color:#24292E">cc_meta:refresh_all </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E"> [build_options]</span></span></code></pre>
+<p>Where <code>build_options</code> should be the build configuration options you need when building your
+targets, e.g., <code>-c opt --config=clang</code>. The trailing <code>build_options</code> are the options that
+the script will use when invoking <code>bazel</code> under-the-hood, so those are the options that truly
+determine what gets analyzed (technically, the first set is just the option for running the
+script). So, in short, they should usually match and match how you build your project.</p>
+<p>The refresh script runs the "aspect" on the build graph spawning from <code>//...</code> and generates
+three files:</p>
+<ul>
+<li><code>compile_commands.json</code>: Compilation commands for all your sources (and "external"
+sources) and enables use of <code>clangd</code> (LSP) and other clang-based tools.</li>
+<li><code>target_exports.json</code>: Maps all discoverable targets to their set of "exports", aka
+public headers (incl. textual headers).</li>
+<li><code>dependency_issues.json</code>: Summary of dependency issues found in your targets, such
+as missing dependencies (aka "not_found" headers) and unused ones.</li>
+</ul>
+<p>Running the aspect on your build graph does not require your code's actual build artifacts
+and will only run on targets whose aspect output are not up-to-date. Thus, it's
+usually quick after the first run.</p>
+<p>To automatically fix the issues listed in <code>dependency_issues.json</code>, run the <code>fix_deps</code> tool:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel run [build_options] @bazel_cc_meta//cc_meta:fix_deps" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel run [build_options] </span><span style="color:#D73A49">@</span><span style="color:#24292E">bazel_cc_meta</span><span style="color:#D73A49">//</span><span style="color:#24292E">cc_meta:fix_deps</span></span></code></pre>
+<p>The <code>build_options</code> don't really matter here, as <code>fix_deps</code> does not build anything and it's
+just a vanilla python script. Under-the-hood, it uses <code>buildozer</code> to fix issues with build
+rules, and it is therefore subject to its shortcomings (see Known issues).</p>
+<p>This is pretty much it. But, given how creative C++ programmers are at creating convoluted
+build rules that defeat any sane analysis tool, there is a good chance that customizations
+will be needed to work around those issues (see Known issues for known examples).</p>
+<h2>Tags</h2>
+<p>Certain tags can by used in the <code>tags</code> attribute of targets to tell <code>bazel_cc_meta</code> to
+treat certain targets differently.</p>
+<ul>
+<li><code>alwayslink = True</code> attribute will cause the target to be considered as always used
+if it is being depended upon, so it won't be removed by the fixer, since that is
+generally appropriate for such targets.</li>
+<li><code>tags = ["cc_meta_skip"]</code> this tag causes the target to be skipped by <code>bazel_cc_meta</code>
+aspects. Outputs will still be produced for basic information, but crucially, the
+compilation commands or preprocessing will not be attempted.</li>
+<li><code>tags = ["cc_meta_forward_exports"]</code> this tag causes the exports of this target's direct
+dependencies to be forward or attributed to this target. Note that this is not recursive.</li>
+</ul>
+<p>If you need some of the above behaviors to apply to targets not under your control, you
+will have to create a custom deviations set (see following sections). But if you can,
+using these tags is preferred as more scalable and performant.</p>
+<h2>Custom aspects</h2>
+<p>The mechanics of this tool rely on three components:</p>
+<ul>
+<li>A <a href="https://bazel.build/extending/aspects">Bazel Aspect</a> that analyzes the targets. An
+aspect is like a shadow build graph that can be "tacked on" to build rules.</li>
+<li>A refresh script that primarily runs a given aspect on a given set of target patterns,
+like <code>//...:all</code>.</li>
+<li>A set of deviations (and skipped tags) that configure the aspect to treat certain targets
+differently.</li>
+</ul>
+<p>Effectively, in order to customize either the target patterns or the deviations, you need
+to instantiate your own custom trio of components. Doing so requires a <code>BUILD</code> and a <code>.bzl</code>
+file (don't ask why). The deviations and refresh script will be rules in your <code>BUILD</code> file.
+The aspect, parametrized by your custom deviations, will be created in your <code>.bzl</code> file.</p>
+<p>In a BUILD file (e.g., //my:BUILD):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_cc_meta//cc_meta:cc_meta.bzl&quot;, &quot;make_cc_meta_deviations&quot;, &quot;refresh_cc_meta&quot;)
+
+make_cc_meta_deviations(
+    name = &quot;my_cc_meta_deviations&quot;,
+    deviations = {
+        # gtest and gtest_main export the gtest headers and should always be linked in (for main).
+        &quot;@com_google_googletest//:gtest&quot;: {&quot;exports&quot;: [
+            &quot;gtest/gtest.h&quot;,
+            &quot;gmock/gmock.h&quot;,
+        ]},
+        &quot;@com_google_googletest//:gtest_main&quot;: {
+            &quot;alwaysused&quot;: True,
+            &quot;forward_exports&quot;: True,
+        },
+    },
+    visibility = [&quot;//visibility:public&quot;],
+)
+
+refresh_cc_meta(
+    name = &quot;refresh_foo_cc_meta&quot;,
+    cc_meta_aspect = &quot;//my:defs.bzl%my_cc_meta_aspect&quot;,   # Default: &quot;@bazel_cc_meta//:defs.bzl%default_cc_meta_aspect&quot;
+    targets = [&quot;//my:foo&quot;],                               # Default: &quot;//...&quot; (aka &quot;all&quot;)
+    visibility = [&quot;//visibility:public&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_cc_meta//cc_meta:cc_meta.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"make_cc_meta_deviations"</span><span style="color:#24292E">, </span><span style="color:#032F62">"refresh_cc_meta"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">make_cc_meta_deviations(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_cc_meta_deviations"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # gtest and gtest_main export the gtest headers and should always be linked in (for main).</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest"</span><span style="color:#24292E">: {</span><span style="color:#032F62">"exports"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">            "gtest/gtest.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "gmock/gmock.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ]},</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest_main"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">            "alwaysused"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "forward_exports"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        },</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">refresh_cc_meta(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "refresh_foo_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    cc_meta_aspect</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//my:defs.bzl%my_cc_meta_aspect"</span><span style="color:#24292E">,   </span><span style="color:#6A737D"># Default: "@bazel_cc_meta//:defs.bzl%default_cc_meta_aspect"</span></span>
+<span class="line"><span style="color:#E36209">    targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//my:foo"</span><span style="color:#24292E">],                               </span><span style="color:#6A737D"># Default: "//..." (aka "all")</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>In a bzl file (e.g., //my:defs.bzl):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_cc_meta//cc_meta:cc_meta.bzl&quot;, &quot;cc_meta_aspect_factory&quot;)
+
+my_cc_meta_aspect = cc_meta_aspect_factory(
+    deviations = [Label(&quot;@//my:my_cc_meta_deviations&quot;)],  # Default: []
+    skipped_tags = [&quot;hacky_target&quot;],                      # Default: [] (&quot;cc_meta_skip&quot; always applies though)
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_cc_meta//cc_meta:cc_meta.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cc_meta_aspect_factory"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">my_cc_meta_aspect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cc_meta_aspect_factory(</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [Label(</span><span style="color:#032F62">"@//my:my_cc_meta_deviations"</span><span style="color:#24292E">)],  </span><span style="color:#6A737D"># Default: []</span></span>
+<span class="line"><span style="color:#E36209">    skipped_tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"hacky_target"</span><span style="color:#24292E">],                      </span><span style="color:#6A737D"># Default: [] ("cc_meta_skip" always applies though)</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>Note that multiple deviations rules can be given to the aspect, so that they can be logically
+separated. The following section digs into how those deviations are specified.</p>
+<p>Running your own custom aspect simply involve replacing <code>@bazel_cc_meta//cc_meta:refresh_all</code> with your
+custom refresh tool, e.g., <code>//my:refresh_foo_cc_meta</code> in the example above. The <code>fix_deps</code> tool does not
+need to change.</p>
+<h2>Custom deviations</h2>
+<p>The deviations are structured as a dictionary of dictionaries. The top-level
+key is the <code>Label</code> or <code>Target</code> to which the deviations should be applied.
+A deviation set is dictionary that can contain a few elements (all optional):</p>
+<ul>
+<li>"exports": a list of include paths (as they would appear in dependent code)
+that should be added to the set of include paths discovered for that target.
+This can be used for false-negatives, unusual include path specifications or
+deeply-wrapped targets.</li>
+<li>"alwaysused": a bool to signal that this target should always be considered as
+used, even if the dependent is not including any of its headers. By default,
+targets with the attribute "alwayslink = True" will be considered used. In
+some cases, with wrapped targets for example, it might be required to externally
+mark additional targets as used. Adding 'alwayslink = True' to a target has the
+same effect.</li>
+<li>"forward_exports": a bool to signal that this target should be considered as
+exporting all of its direct dependencies' exports. Note that this is not
+recursive, it only forwards direct exports. Applying this rule recursively is
+fraught with problems, so that option does not exist (sorry). Adding
+"cc_meta_forward_exports" to a target's 'tags' attribute has the same
+effect (preferred, if possible).</li>
+<li>"skip": a bool to signal that this target should not be analyzed. Note, however, that
+the other deviations will still be applied. In other words, listing "exports"
+and setting "skip" to true results that target not being analyzed but having
+that specific set of exports (only). Similarly, in conjunction with "forward_exports",
+the target would have only its direct dependencies' exports. Adding "cc_meta_skip" to
+a target's 'tags' attribute has the same effect (preferred, if possible).</li>
+</ul>
+<h2>Selecting deviations</h2>
+<p>Deviations can be "selected" (in the Bazel <code>select</code> sense) through the aspect
+specified in the "refresh" rule. This is, unfortunately, a bit verbose.
+Here is a basic example of a selectable set of deviations.</p>
+<p>In a BUILD file (e.g., //my:BUILD):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_cc_meta//cc_meta:cc_meta.bzl&quot;, &quot;make_cc_meta_deviations&quot;, &quot;refresh_cc_meta&quot;)
+
+make_cc_meta_deviations(
+    name = &quot;my_cc_meta_deviations&quot;,
+    deviations = {
+        # ... General deviations.
+    },
+    visibility = [&quot;//visibility:public&quot;],
+)
+
+make_cc_meta_deviations(
+    name = &quot;my_cc_meta_deviations_linux_only&quot;,
+    deviations = {
+        # ... Linux-only additional deviations.
+    },
+    # Restrict the deviations to Linux if the labels in the dictionary only exist in Linux.
+    target_compatible_with = select({
+        &quot;@platforms//os:linux&quot;: [],
+        &quot;//conditions:default&quot;: [&quot;@platforms//:incompatible&quot;],
+    }),
+    visibility = [&quot;//visibility:public&quot;],
+)
+
+refresh_cc_meta(
+    name = &quot;refresh_foo_cc_meta&quot;,
+    # Select the aspect based on the platform.
+    cc_meta_aspect = select({
+        &quot;@platforms//os:linux&quot;: &quot;//my:defs.bzl%my_cc_meta_aspect_for_linux&quot;,
+        &quot;//conditions:default&quot;: &quot;//my:defs.bzl%my_cc_meta_aspect&quot;,
+    }),
+    visibility = [&quot;//visibility:public&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_cc_meta//cc_meta:cc_meta.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"make_cc_meta_deviations"</span><span style="color:#24292E">, </span><span style="color:#032F62">"refresh_cc_meta"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">make_cc_meta_deviations(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_cc_meta_deviations"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # ... General deviations.</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">make_cc_meta_deviations(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_cc_meta_deviations_linux_only"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # ... Linux-only additional deviations.</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#6A737D">    # Restrict the deviations to Linux if the labels in the dictionary only exist in Linux.</span></span>
+<span class="line"><span style="color:#E36209">    target_compatible_with</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> select({</span></span>
+<span class="line"><span style="color:#032F62">        "@platforms//os:linux"</span><span style="color:#24292E">: [],</span></span>
+<span class="line"><span style="color:#032F62">        "//conditions:default"</span><span style="color:#24292E">: [</span><span style="color:#032F62">"@platforms//:incompatible"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">    }),</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">refresh_cc_meta(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "refresh_foo_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # Select the aspect based on the platform.</span></span>
+<span class="line"><span style="color:#E36209">    cc_meta_aspect</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> select({</span></span>
+<span class="line"><span style="color:#032F62">        "@platforms//os:linux"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//my:defs.bzl%my_cc_meta_aspect_for_linux"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//conditions:default"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//my:defs.bzl%my_cc_meta_aspect"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    }),</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>In a bzl file (e.g., //my:defs.bzl):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_cc_meta//cc_meta:cc_meta.bzl&quot;, &quot;cc_meta_aspect_factory&quot;)
+
+my_cc_meta_aspect = cc_meta_aspect_factory(
+    deviations = [Label(&quot;@//my:my_cc_meta_deviations&quot;)],
+)
+
+# Create an aspect for Linux that include both general and Linux-only deviations.
+my_cc_meta_aspect_for_linux = cc_meta_aspect_factory(
+    deviations = [Label(&quot;@//my:my_cc_meta_deviations&quot;), Label(&quot;@//my:my_cc_meta_deviations_linux_only&quot;)],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_cc_meta//cc_meta:cc_meta.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cc_meta_aspect_factory"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">my_cc_meta_aspect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cc_meta_aspect_factory(</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [Label(</span><span style="color:#032F62">"@//my:my_cc_meta_deviations"</span><span style="color:#24292E">)],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Create an aspect for Linux that include both general and Linux-only deviations.</span></span>
+<span class="line"><span style="color:#24292E">my_cc_meta_aspect_for_linux </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cc_meta_aspect_factory(</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [Label(</span><span style="color:#032F62">"@//my:my_cc_meta_deviations"</span><span style="color:#24292E">), Label(</span><span style="color:#032F62">"@//my:my_cc_meta_deviations_linux_only"</span><span style="color:#24292E">)],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h1>Known issues</h1>
+<h2>Approximate target queries</h2>
+<p>The <code>refresh</code> tool must use Bazel's <code>cquery</code> command to obtain a full list of dependencies spawning from the
+given target pattern (e.g., <code>//...:all</code>) and attempts to do so using the <code>cquery</code>
+(aka <a href="https://bazel.build/query/cquery">Configurable Query</a>) in order to respect the build configuration
+(e.g., <code>--config=</code>, <code>-c dbg</code>, etc.). This facility is approximate and could result in missing some targets.
+If you suspect that is the case (if using a particularly difficult configuration, such as for cross-compilation),
+then you can check what <code>bazel cquery //...:all</code> produces and if it lacks certain desired target, create
+your own custom 'refresh' rule (see previous section) with a more fine-grained target pattern.</p>
+<h2>Common problematic libraries</h2>
+<p>Some common libraries use convoluted target topologies (and unsurprisingly, all of them come from Google).
+Here are some suggested deviations to use to resolve some issues with common libraries:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="make_cc_meta_deviations(
+    name = &quot;suggested_cc_meta_info_mappings&quot;,
+    deviations = {
+        # gtest and gtest_main export the gtest headers and should always be linked in (for main).
+        &quot;@com_google_googletest//:gtest&quot;: {&quot;exports&quot;: [
+            &quot;gtest/gtest.h&quot;,
+            &quot;gmock/gmock.h&quot;,
+        ]},
+        &quot;@com_google_googletest//:gtest_main&quot;: {
+            &quot;alwaysused&quot;: True,
+            &quot;forward_exports&quot;: True,
+        },
+
+        # benchmark and benchmark_main export the benchmark headers and should always be linked in (for main).
+        &quot;@com_google_benchmark//:benchmark&quot;: {&quot;exports&quot;: [
+            &quot;benchmark/benchmark.h&quot;,
+        ]},
+        &quot;@com_google_benchmark//:benchmark_main&quot;: {
+            &quot;alwaysused&quot;: True,
+            &quot;forward_exports&quot;: True,
+        },
+
+        # protobuf's public target effectively re-exports its dependencies' headers.
+        &quot;@com_google_protobuf//:protobuf&quot;: {&quot;forward_exports&quot;: True},
+    },
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">make_cc_meta_deviations(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "suggested_cc_meta_info_mappings"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # gtest and gtest_main export the gtest headers and should always be linked in (for main).</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest"</span><span style="color:#24292E">: {</span><span style="color:#032F62">"exports"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">            "gtest/gtest.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "gmock/gmock.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ]},</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest_main"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">            "alwaysused"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "forward_exports"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # benchmark and benchmark_main export the benchmark headers and should always be linked in (for main).</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_benchmark//:benchmark"</span><span style="color:#24292E">: {</span><span style="color:#032F62">"exports"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">            "benchmark/benchmark.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ]},</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_benchmark//:benchmark_main"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">            "alwaysused"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "forward_exports"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        },</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">        # protobuf's public target effectively re-exports its dependencies' headers.</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_protobuf//:protobuf"</span><span style="color:#24292E">: {</span><span style="color:#032F62">"forward_exports"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">},</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h2>Fixing generated targets will fail</h2>
+<p>This is a basic limitation of trying to use <code>buildozer</code> to add or remove dependencies in generated targets.
+Fixes to generated targets have to be done manually because <code>buildozer</code> cannot know where those targets
+actually come from or where it's appropriate to change the dependencies.</p>
+<h2>Canonical public targets</h2>
+<p>Again, when packages declare aliases and wrapper targets, it causes problems. In particular, when trying
+to add missing dependencies such targets will generally resolve to some underlying private target that is
+not meant or allowed to be depended upon. It's not possible to reassign such targets back to the intended
+public alias. In these cases, there will be errors trying to add those dependencies and might require
+manual fixing.</p>
+<p>Adding a deviation on the alias target can help, especially "alwaysused" and "forward_exports".</p>
+<h2>Preprocessor logic</h2>
+<p>To discover include statements, this tool invokes the compiler in a preprocessor-only mode (<code>-E</code>) and
+asks for very shallow include expansion to efficiently discover only the top-level includes. This means
+that it can, to a degree, resolve preprocessor-based conditional includes and such, but it is limited
+and could fail on sources that use tricky preprocessor logic to decide what headers to include.
+Problems could be:</p>
+<ul>
+<li>Discovering the wrong includes.</li>
+<li>Failing to preprocess the sources if deeply buried macros are required to resolve top-level includes.</li>
+</ul>
+<p>These problems can generally be solved by either skipping those targets or by wrapping the problematic
+inclusion patterns in a more limited (and skipped) target. Those sorts of complicated preprocessor-based
+inclusion logic should be limited and insulated for good practice anyways, so this limitation is almost
+a feature rather than a bug.</p>
+<h2>Textual headers</h2>
+<p>Bazel's <code>cc_*</code> targets (in particular, <code>cc_library</code>) distinguish between <code>hdrs</code> and <code>textual_hdrs</code> by the
+key difference that <code>textual_hdrs</code> are files that can be (and are publicly) includable by dependent, like
+regular headers, but are not parsable (compilable) on their own. Commonly, these are header-like files
+that some libraries have which require some special inclusion pattern, such as <code>#</code>defining some things
+first or including the file within some class declaration. Again, this is very bad practice and heavily
+discouraged (as are preprocessor-based include logic). Bazel provides <code>textual_hdrs</code> for this purpose,
+and otherwise assumes all <code>hdrs</code> can be compiled or parsed on their own (e.g., for pre-compiled headers
+or C++ modules).</p>
+<p>This tool makes the same assumption. If you have code that does not follow that rule for all targets (which
+probably "just works" unless you use modules or layering checks), <strong>fix</strong> or skip those targets.</p>
+<p>In order to discover includes, this tool attempts to parse all files in <code>hdrs</code> and <code>srcs</code>, which means
+that includes within <code>textual_hdrs</code> <strong>are not discoverable</strong>.</p>
+<h2>Using GCC</h2>
+<p>Broadly-speaking, GCC and Clang are compatible, but there are differences that can matter in some cases.
+Since this tool (<code>bazel_cc_meta</code>) is mostly aimed at LLVM/Clang, such as producing a <code>compiler_commands.json</code>
+file to be consumed by <code>clangd</code> (LSP server), it is generally recommended to use Clang as the compiler.</p>
+<p>First, compilation flags may not be entirely the same between compilers, e.g., your build configuration
+might conditionally add flags only for Clang, or Bazel's C/C++ rules might also do that (I know it does,
+but not in ways that matters for <code>clangd</code>, afaik). In general, it is safer to use Clang at least when
+generating the <code>compiler_commands.json</code> (i.e., when invoking the refresh script).</p>
+<p>Second, GCC has particular idiosyncracies when it comes to extracting the dependencies (aka includes)
+while running the preprocessor-only pass, which this tool relies on to match imports to exports.
+The result is that identification of direct includes using GCC is less reliable, especially in the
+face of libraries (headers) being installed on the host/exec environment. In a nutshell, Clang allows
+for all include paths to be removed and successfully produce a list of direct unresolved includes.
+With GCC, this is not possible: removing all include paths causes unresolved includes of standard
+headers to trigger preprocessing errors (even if it is instructed not to fail because of that).
+So, we are forced to keep built-in include paths (e.g., <code>/usr/include</code>) and assume that any included
+file that GCC finds in those directories were meant to come from the system and not a Bazel
+target dependency. Of course, that assumption may be wrong, as in the case where the same library
+exists in both places (e.g., your Bazel project uses <code>@abseil-cpp</code>, but you also have <code>libabsl-dev</code>
+installed on your system).</p>
+<p>For those reasons, please use Clang, at least when running the refresh script.</p>
+<h1>Disclaimer</h1>
+<p>This package is highly experimental. Keep your expectations low in terms of supported platforms or
+target topologies. The weirder the setup, like using lots of "wrapper" targets, aliases or generated targets,
+the less likely it is to work.</p>
+<p>The primary platform targeted (where it is actually used) is Linux with reasonably recent Bazel and Python
+versions (guessing, at least Python &gt; 3.8, and Bazel &gt; 7.0).</p>
+<h1>Contributing</h1>
+<p>Contribute through the typical github mechanisms:</p>
+<ul>
+<li>Report issues</li>
+<li>Before reporting an issue, keep in mind that LSPs / editors can be finicky and sometimes require
+restarting the editor or clangd server to properly refresh its cache.</li>
+<li>Create pull requests</li>
+</ul>
+<h1>License</h1>
+<p>Copyright 2025-present, Mikael Persson.
+This project licensed under the Apache 2.0 license.</p>
+<h1>Credits</h1>
+<p>This tool was inspired by, and is effectively a combination of, the following tools:</p>
+<ul>
+<li><a href="https://github.com/martis42/depend_on_what_you_use">Depend-on-what-you-use (DWYU)</a></li>
+<li><a href="https://github.com/hedronvision/bazel-compile-commands-extractor">Hedron's Compile Commands Extractor</a></li>
+</ul>
+<p>The gist of this new tool is to use the best of both worlds. DWYU employs Bazel's aspects to create
+a shadow build graph over the existing build graph to extract information about imports and exports
+of <code>cc_*</code> targets in order to find and fix issues with dependencies. However, the implementation is
+unfortunately quite slow and limited, and <code>bazel_cc_meta</code> greatly improves the performance and adds
+the mapping of target to exports which allows for not just finding missing dependencies but also fixing
+them. Then, Hedron's generator of the <code>compile_commands.json</code> is based entirely on Bazel's query
+features (<code>query</code>, <code>cquery</code> and <code>aquery</code>) to extract the compilation commands for each source file.
+That has a number of problems, such as being approximate (Bazel's query system cannot always accurately
+reflect the actual build graph), very slow (invoking Bazel on each target), and cannot effectively employ
+Bazel's caching system to avoid repeated analysis of up-to-date targets. Gathering the compiler commands
+through an aspect is a far superior mechanism that solves all these shortcomings.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Bazel tools to analyze C/C++ metadata and target dependencies</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/mikael-s-persson/bazel_cc_meta" title="@mikael-s-persson"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@mikael-s-persson/bazel_cc_meta</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/mikael-s-persson.png" alt="@mikael-s-persson"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/mikael-s-persson/bazel_cc_meta"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">17</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, March 24, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 52.2%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 52.2%"> </span><span style="width: 47.8%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 47.8%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/Starlark">Starlark</a><span class="ml-2 color-fg-muted">52.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">47.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/mikael-s-persson" title="Mikael Persson"><img class="avatar circle" width="48" height="48" src="https://github.com/mikael-s-persson.png" alt="@mikael-s-persson"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/mikael-s-persson" title="Mikael Persson"><img class="avatar circle" width="48" height="48" src="https://github.com/mikael-s-persson.png" alt="@mikael-s-persson"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8084"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Added bazel_cc_meta module at 0.2.0 (#8084)"><span class="text-mono">#8084</span> <span class="text-light">Added bazel_cc_meta module at...</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/mikael-s-persson/bazel_cc_meta/releases/download/v0.2.0/bazel_cc_meta-0.2.0.tar.gz" title="https://github.com/mikael-s-persson/bazel_cc_meta/releases/download/v0.2.0/bazel_cc_meta-0.2.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/mikael-s-p...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/bazel_cc_meta/0.2.0/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.4.0</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.2.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.2.0"><span class="text-bold">0.2.0</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-24</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

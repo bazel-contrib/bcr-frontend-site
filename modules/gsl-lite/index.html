@@ -1,0 +1,706 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">gsl-lite</span> <span class="f2 d-inline-block">1.1.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.7mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/gsl-lite/gsl-lite" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/gsl-lite/1.1.0/overview" data-name="overview" id=":iw.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/gsl-lite/1.1.0/docs" data-name="docs" id=":iw.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/gsl-lite/1.1.0/testing" data-name="testing" id=":iw.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;gsl-lite&quot;, version = &quot;1.1.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gsl-lite"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.1.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">2</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.17">rules_cc<span class="ml-1 text-light text-small">0.2.17</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_license/1.0.0">rules_license<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1><em>gsl-lite</em></h1>
+<table>
+<thead>
+<tr>
+<th>metadata</th>
+<th>build</th>
+<th>packages</th>
+<th>try online</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://en.wikipedia.org/wiki/C%2B%2B#Standardization"><img src="https://badgen.net/badge/C++/98,11+/blue" alt="Language"></a> <br> <a href="https://opensource.org/license/MIT"><img src="https://badgen.net/github/license/gsl-lite/gsl-lite" alt="License"></a> <br> <a href="https://github.com/gsl-lite/gsl-lite/releases"><img src="https://badgen.net/github/release/gsl-lite/gsl-lite" alt="Version"></a></td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build/latest?definitionId=1&amp;branchName=master"><img src="https://dev.azure.com/gsl-lite/gsl-lite/_apis/build/status/gsl-lite.gsl-lite?branchName=master" alt="Azure Pipelines build status"></a> <br> <a href="https://ci.appveyor.com/project/gsl-lite/gsl-lite"><img src="https://ci.appveyor.com/api/projects/status/1v6eqy68m8g7tm06?svg=true" alt="AppVeyor build status"></a></td>
+<td><a href="https://vcpkg.io/en/package/gsl-lite"><img src="https://badgen.net/badge/latest/on%20Vcpkg/blue" alt="Vcpkg"></a> <br> <a href="https://conan.io/center/recipes/gsl-lite"><img src="https://badgen.net/badge/latest/on%20Conan/blue" alt="Conan"></a> <br> <a href="https://raw.githubusercontent.com/gsl-lite/gsl-lite/master/include/gsl-lite/gsl-lite.hpp"><img src="https://badgen.net/badge/latest/single%20header/blue" alt="single header"></a></td>
+<td><a href="https://gcc.godbolt.org/z/8jqq6P1G5"><img src="https://badgen.net/badge/on/Compiler%20Explorer/blue" alt="Try it on Compiler Explorer"></a> <br> <a href="https://wandbox.org/permlink/JADF95qldnpt0i0v"><img src="https://badgen.net/badge/on/Wandbox/blue" alt="Try it on Wandbox"></a></td>
+</tr>
+</tbody></table>
+<p><em><strong>gsl-lite</strong></em> is a portable, single-file, header-only library for defensive programming based on the <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-gsl">C++ Core Guidelines Support Library</a> specification.</p>
+<h2>Contents</h2>
+<ul>
+<li><a href="#example-usage">Example usage</a></li>
+<li><a href="#in-a-nutshell">In a nutshell</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation-and-use">Installation and use</a></li>
+<li><a href="#why-gsl-lite">Why <em>gsl-lite</em>?</a></li>
+<li><a href="#features">Features</a></li>
+<li><a href="doc/Reference.md">Reference documentation</a></li>
+<li><a href="#migration-guide">Migration guide</a></li>
+<li><a href="#using-gsl-lite-in-libraries">Using <em>gsl-lite</em> in libraries</a></li>
+<li><a href="#reported-to-work-with">Reported to work with</a></li>
+<li><a href="#version-semantics">Version semantics</a></li>
+<li><a href="#contributing">Contributing</a></li>
+</ul>
+<h2>Example usage</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &lt;memory&gt;
+#include &lt;utility&gt;
+#include &lt;numeric&gt;
+
+#include &lt;gsl-lite/gsl-lite.hpp&gt;
+
+
+namespace my_lib {
+
+    // Define this in your own namespace.
+    namespace gsl = ::gsl_lite;
+
+    // `span&lt;T[, Extent]&gt;`: contiguous range with bounds checks
+    double mean( gsl::span&lt;double const&gt; values )
+    {
+        // `gsl_Expects( cond )`: precondition check
+        gsl_Expects( !values.empty() );
+    
+        double sum = std::accumulate( values.begin(), values.end(), 0. );
+
+        // `narrow_failfast&lt;T&gt;( u )`: checked numeric cast
+        double num = gsl::narrow_failfast&lt;double&gt;( std::ssize( values ) );
+
+        return sum / num;
+    }
+
+    class Resource
+    {
+        ...
+    public:
+        Resource( std::size_t size );
+    };
+
+    // Type-encoded precondition with `not_null&lt;P&gt;`
+    void consumeResource( gsl::not_null&lt;std::unique_ptr&lt;Resource&gt;&gt; resource );
+
+    // Type-encoded postcondition with `not_null&lt;P&gt;`
+    gsl::not_null&lt;std::unique_ptr&lt;Resource&gt;&gt; acquireResource( std::size_t size )
+    {
+        // A flavor of `make_unique&lt;T&gt;()` which returns `not_null&lt;std::unique_ptr&lt;T&gt;&gt;`
+        return gsl::make_unique&lt;Resource&gt;( size );
+    }
+
+} // namespace my_lib" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include &lt;memory&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;utility&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;numeric&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include &lt;gsl-lite/gsl-lite.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">namespace my_lib {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Define this </span><span style="color:#D73A49">in</span><span style="color:#24292E"> your own namespace.</span></span>
+<span class="line"><span style="color:#24292E">    namespace gsl = ::gsl_lite;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#B31D28;font-style:italic"> `span</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">T[, Extent]</span><span style="color:#D73A49;font-style:italic">&gt;</span><span style="color:#B31D28;font-style:italic">`</span><span style="color:#24292E">: contiguous </span><span style="color:#005CC5">range</span><span style="color:#D73A49"> with</span><span style="color:#24292E"> bounds checks</span></span>
+<span class="line"><span style="color:#24292E">    double mean( gsl::span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double const</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> values )</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#B31D28;font-style:italic"> `gsl_Expects( cond )`</span><span style="color:#24292E">: precondition check</span></span>
+<span class="line"><span style="color:#24292E">        gsl_Expects( </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">values.empty() );</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">        double </span><span style="color:#005CC5">sum</span><span style="color:#24292E"> = std::accumulate( values.begin(), values.end(), </span><span style="color:#005CC5">0</span><span style="color:#24292E">. );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#B31D28;font-style:italic"> `narrow_failfast</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">T</span><span style="color:#D73A49;font-style:italic">&gt;</span><span style="color:#B31D28;font-style:italic">( u )`</span><span style="color:#24292E">: checked numeric cast</span></span>
+<span class="line"><span style="color:#24292E">        double num = gsl::narrow_failfast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">( std::ssize( values ) );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        return</span><span style="color:#005CC5"> sum</span><span style="color:#D73A49"> /</span><span style="color:#24292E"> num;</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    class</span><span style="color:#24292E"> Resource</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#005CC5">        ...</span></span>
+<span class="line"><span style="color:#24292E">    public:</span></span>
+<span class="line"><span style="color:#24292E">        Resource( std::size_t size );</span></span>
+<span class="line"><span style="color:#24292E">    };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Type</span><span style="color:#D73A49">-</span><span style="color:#24292E">encoded precondition </span><span style="color:#D73A49">with</span><span style="color:#B31D28;font-style:italic"> `not_null</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">P</span><span style="color:#D73A49;font-style:italic">&gt;</span><span style="color:#B31D28;font-style:italic">`</span></span>
+<span class="line"><span style="color:#24292E">    void consumeResource( gsl::not_null</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Resource</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> resource );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Type</span><span style="color:#D73A49">-</span><span style="color:#24292E">encoded postcondition </span><span style="color:#D73A49">with</span><span style="color:#B31D28;font-style:italic"> `not_null</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">P</span><span style="color:#D73A49;font-style:italic">&gt;</span><span style="color:#B31D28;font-style:italic">`</span></span>
+<span class="line"><span style="color:#24292E">    gsl::not_null</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Resource</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> acquireResource( std::size_t size )</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> A flavor of </span><span style="color:#B31D28;font-style:italic">`make_unique</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">T</span><span style="color:#D73A49;font-style:italic">&gt;</span><span style="color:#B31D28;font-style:italic">()`</span><span style="color:#24292E"> which returns </span><span style="color:#B31D28;font-style:italic">`not_null</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">std::unique_ptr</span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">T</span><span style="color:#D73A49;font-style:italic">&gt;&gt;</span><span style="color:#B31D28;font-style:italic">`</span></span>
+<span class="line"><span style="color:#D73A49">        return</span><span style="color:#24292E"> gsl::make_unique</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Resource</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">( size );</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">} </span><span style="color:#D73A49">//</span><span style="color:#24292E"> namespace my_lib</span></span></code></pre>
+<h2>In a nutshell</h2>
+<p><em>gsl-lite</em> strives to implement the <a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-gsl">Guidelines Support Library specification</a> of the C++ Core Guidelines
+maintained by the <a href="https://isocpp.org/">Standard C++ Foundation</a>.
+The library is originally based on <a href="https://github.com/microsoft/gsl">Microsoft GSL</a> and was adapted for C++98, C++03. It also works when compiled as C++11, C++14, C++17, C++20, or C++23.</p>
+<p><em>gsl-lite</em> does not interfere with Microsoft GSL since both libraries live in different namespaces (<code>gsl_lite</code> vs. <code>gsl</code>).</p>
+<p><em>gsl-lite</em> recognizes when it is compiled for the CUDA platform and decorates some functions with <code>__host__</code> and <code>__device__</code> accordingly.</p>
+<h2>License</h2>
+<p><em>gsl-lite</em> uses the <a href="LICENSE">MIT</a> license.</p>
+<h2>Dependencies</h2>
+<p><em>gsl-lite</em> has no dependencies other than the <a href="http://en.cppreference.com/w/cpp/header">C++ standard library</a>.</p>
+<h2>Installation and use</h2>
+<p>The recommended way to consume <em>gsl-lite</em> in your CMake project is to use <code>find_package()</code> to locate the package <code>gsl-lite</code>
+and <code>target_link_libraries()</code> to link to the imported target <code>gsl-lite::gsl-lite</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake_minimum_required( VERSION 3.20 FATAL_ERROR )
+
+project( my-program LANGUAGES CXX )
+
+find_package( gsl-lite 1.1 REQUIRED )
+
+add_executable( my-program main.cpp )
+target_compile_features( my-program PRIVATE cxx_std_17 )
+target_link_libraries( my-program PRIVATE gsl-lite::gsl-lite )" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake_minimum_required( </span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.20</span><span style="color:#005CC5"> FATAL_ERROR</span><span style="color:#24292E"> )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">project( my</span><span style="color:#D73A49">-</span><span style="color:#24292E">program </span><span style="color:#005CC5">LANGUAGES</span><span style="color:#005CC5"> CXX</span><span style="color:#24292E"> )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">find_package( gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite </span><span style="color:#005CC5">1.1</span><span style="color:#005CC5"> REQUIRED</span><span style="color:#24292E"> )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable( my</span><span style="color:#D73A49">-</span><span style="color:#24292E">program main.cpp )</span></span>
+<span class="line"><span style="color:#24292E">target_compile_features( my</span><span style="color:#D73A49">-</span><span style="color:#24292E">program </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> cxx_std_17 )</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries( my</span><span style="color:#D73A49">-</span><span style="color:#24292E">program </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite::gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite )</span></span></code></pre>
+<p><em>gsl-lite</em> is available via <a href="https://vcpkg.io/en/package/gsl-lite">Vcpkg</a>, <a href="https://conan.io/center/recipes/gsl-lite">Conan</a>,
+and possibly other package managers. It may also be obtained with <a href="https://github.com/cpm-cmake/CPM.cmake">CPM</a>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CPMFindPackage( NAME gsl-lite VERSION 1.1.0 GITHUB_REPOSITORY gsl-lite/gsl-lite )" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CPMFindPackage( </span><span style="color:#005CC5">NAME</span><span style="color:#24292E"> gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite </span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 1.1</span><span style="color:#24292E">.0 </span><span style="color:#005CC5">GITHUB_REPOSITORY</span><span style="color:#24292E"> gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite</span><span style="color:#D73A49">/</span><span style="color:#24292E">gsl</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite )</span></span></code></pre>
+<p>See the directories <a href="https://github.com/gsl-lite/gsl-lite/tree/master/example/with-CPM">example/with-CPM</a> and
+<a href="https://github.com/gsl-lite/gsl-lite/tree/master/example/with-Vcpkg">example/with-Vcpkg</a> for example projects
+that use CPM and Vcpkg, respectively, to obtain <em>gsl-lite</em>.</p>
+<p>Once the build system is set up, include the <code>&lt;gsl-lite/gsl-lite.hpp&gt;</code> header file to use <em>gsl-lite</em>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// main.cpp
+
+#include &lt;iostream&gt;
+
+#include &lt;gsl-lite/gsl-lite.hpp&gt;
+
+void printCmdArgs( gsl_lite::span&lt;gsl_lite::zstring const&gt; cmdArgs )
+{
+    gsl_Expects( !cmdArgs.empty() );
+
+    auto argsWithoutExeName = cmdArgs.subspan( 1 );
+    for ( auto arg : argsWithoutExeName )
+    {
+        std::cout &lt;&lt; arg &lt;&lt; &quot;\n&quot;;
+    }
+}
+
+int main( int argc, char* argv[] )
+{
+    auto numArgs = gsl_lite::narrow_failfast&lt;std::size_t&gt;( argc );
+    auto cmdArgs = gsl_lite::span( argv, numArgs );
+    printCmdArgs( cmdArgs );
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> main.cpp</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include &lt;gsl-lite/gsl-lite.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void printCmdArgs( gsl_lite::span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">gsl_lite::zstring const</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> cmdArgs )</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    gsl_Expects( </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">cmdArgs.empty() );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    auto argsWithoutExeName = cmdArgs.subspan( </span><span style="color:#005CC5">1</span><span style="color:#24292E"> );</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> ( auto arg : argsWithoutExeName )</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> arg </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main( </span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> argv[] )</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    auto numArgs = gsl_lite::narrow_failfast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::size_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">( argc );</span></span>
+<span class="line"><span style="color:#24292E">    auto cmdArgs = gsl_lite::span( argv, numArgs );</span></span>
+<span class="line"><span style="color:#24292E">    printCmdArgs( cmdArgs );</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2>Why <em>gsl-lite</em>?</h2>
+<p><em>gsl-lite</em> is different from <a href="https://github.com/microsoft/gsl">Microsoft GSL</a>, the default implementation of the
+<a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines">C++ Core Guidelines support library (GSL)</a>, in the following ways:</p>
+<ul>
+<li><em>gsl-lite</em> maintains support for older versions of C++ (C++98, C++03, C++11) and older compilers.<br>(see: <a href="#reported-to-work-with">Reported to work with</a>)</li>
+<li><em>gsl-lite</em> supports <a href="https://developer.nvidia.com/cuda-toolkit">CUDA</a>, and many of its features can be used in CUDA kernel code.</li>
+<li><a href="doc/Reference.md#contract-and-assertion-checks">Contract and assertion checks</a> are more versatile and fine-grained, and
+runtime enforcement is <a href="doc/Reference.md#contract-checking-configuration-macros">configurable</a>.</li>
+<li>In <em>gsl-lite</em>, <code>not_null&lt;P&gt;</code> retains the copyability and movability of <code>P</code> and therefore may have a <a href="doc/Reference.md#nullability-and-the-moved-from-state"><em>moved-from state</em></a>,
+which Microsoft GSL <a href="https://github.com/microsoft/GSL/issues/1022#issuecomment-1022713632">expressly disallows</a>.
+As a consequence, <code>not_null&lt;std::unique_ptr&lt;T&gt;&gt;</code> is movable in <em>gsl-lite</em> but not in Microsoft GSL.</li>
+<li><em>gsl-lite</em> defines <a href="doc/Reference.md#feature-checking-macros">feature testing macros</a> and <a href="doc/Reference.md#polyfills">polyfills</a> useful for targeting multiple versions of C++.</li>
+<li><em>gsl-lite</em> comes as a single-header library.</li>
+</ul>
+<h2>Features</h2>
+<p>See the <a href="doc/Reference.md">reference documentation</a> for a detailed explanation of the features provided by <em>gsl-lite</em>, and
+Section&nbsp;<a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#S-gsl">GSL: Guidelines support library</a> of the C++ Core Guidelines
+for the specification of the Guidelines support library.</p>
+<table>
+<thead>
+<tr>
+<th>Feature \ library</th>
+<th align="center">GSL spec</th>
+<th align="center">MS GSL</th>
+<th align="center"><em>gsl‑lite</em></th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#gslview-views"><strong>Views:</strong></a></td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#ownerp-c11-and-higher"><code>owner&lt;&gt;</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓¹¹</td>
+<td align="left">Annotate a raw pointer that carries ownership</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#not_nullp"><code>not_null&lt;&gt;</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Annotate a (smart) pointer that must not be <code>nullptr</code>; enforces non-nullability at runtime<br>(cf. <code>strict_not_null&lt;&gt;</code> in Microsoft GSL)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#not_null_icp"><code>not_null_ic&lt;&gt;</code></a></td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Like <code>not_null&lt;&gt;</code> but allows implicit construction from nullable pointers<br>(cf. <code>not_null&lt;&gt;</code> in Microsoft GSL)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#not_nullp"><code>make_unique&lt;&gt;()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓¹¹</td>
+<td align="left">Like <a href="https://en.cppreference.com/w/cpp/memory/unique_ptr/make_unique"><code>std::make_unique&lt;T&gt;()</code></a> but returns <code>not_null&lt;std::unique_ptr&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#not_nullp"><code>make_shared&lt;&gt;()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓¹¹</td>
+<td align="left">Like <a href="https://en.cppreference.com/w/cpp/memory/shared_ptr/make_shared"><code>std::make_shared&lt;T&gt;()</code></a> but returns <code>not_null&lt;std::shared_ptr&lt;T&gt;&gt;</code></td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#safe-contiguous-ranges"><code>span&lt;&gt;</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Like <a href="https://en.cppreference.com/w/cpp/container/span"><code>std::span&lt;&gt;</code></a> but with bounds-checking</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#string-type-aliases"><code>zstring</code><br><code>czstring</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Aliases for <code>char *</code> and <code>char const *</code> to be used for 0-terminated strings (C-style strings)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#string-type-aliases"><code>wzstring</code><br><code>cwzstring</code></a></td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Aliases for <code>wchar_t *</code> and <code>wchar_t const *</code> to be used for 0-terminated strings (C-style strings)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#string-type-aliases"><code>u8zstring</code><br><code>cu8zstring</code></a></td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓²⁰</td>
+<td align="left">Aliases for <code>char8_t *</code> and <code>char8_t const *</code> to be used for 0-terminated UTF-8 strings</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#string-type-aliases"><code>u16zstring</code><br><code>cu16zstring</code></a></td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓¹¹</td>
+<td align="left">Aliases for <code>char16_t *</code> and <code>char16_t const *</code> to be used for 0-terminated UTF-16 strings</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#string-type-aliases"><code>u32zstring</code><br><code>cu32zstring</code></a></td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="center">✓¹¹</td>
+<td align="left">Aliases for <code>char32_t *</code> and <code>char32_t const *</code> to be used for 0-terminated UTF-32 strings</td>
+</tr>
+<tr>
+<td><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#gslassert-assertions"><strong>Assertions:</strong></a></td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>Expects()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">(✓)</td>
+<td align="left">Checks precondition<br>(only defined in <a href="doc/Reference.md#gsl_feature_gsl_compatibility_mode0">GSL compatibility mode</a>)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>Ensures()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">(✓)</td>
+<td align="left">Checks precondition<br>(only defined in <a href="doc/Reference.md#gsl_feature_gsl_compatibility_mode0">GSL compatibility mode</a>)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_Expects()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks precondition</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_ExpectsDebug()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks precondition unless <a href="https://en.cppreference.com/w/cpp/error/assert"><code>NDEBUG</code></a> is defined</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_ExpectsAudit()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks precondition if <a href="doc/Reference.md#runtime-enforcement">audit mode</a> is enabled</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_Ensures()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks postcondition</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_EnsuresDebug()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks postcondition unless <a href="https://en.cppreference.com/w/cpp/error/assert"><code>NDEBUG</code></a> is defined</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_EnsuresAudit()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checks postcondition if <a href="doc/Reference.md#runtime-enforcement">audit mode</a> is enabled</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_Assert()</code><br><code>gsl_AssertAt()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓<br>✓²⁰</td>
+<td align="left">Checks invariant (statement)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_Verify()</code><br><code>gsl_VerifyAt()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓<br>✓²⁰</td>
+<td align="left">Checks invariant (expression)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_AssertDebug()</code><br><code>gsl_AssertAtDebug()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓<br>✓²⁰</td>
+<td align="left">Checks invariant unless <a href="https://en.cppreference.com/w/cpp/error/assert"><code>NDEBUG</code></a> is defined</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_AssertAudit()</code><br><code>gsl_AssertAtAudit()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓<br>✓²⁰</td>
+<td align="left">Checks invariant if <a href="doc/Reference.md#runtime-enforcement">audit mode</a> is enabled</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#contract-and-assertion-checks"><code>gsl_FailFast()</code><br><code>gsl_FailFastAt()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓<br>✓²⁰</td>
+<td align="left">Terminates execution</td>
+</tr>
+<tr>
+<td><a href="https://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#gslutil-utilities"><strong>Utilities:</strong></a></td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="center">&nbsp;</td>
+<td align="left">&nbsp;</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#ad-hoc-resource-management-c11-and-higher"><code>finally()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓¹¹</td>
+<td align="left">Returns an object that executes a given action in its destructor; use for ad hoc resource cleanup</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#ad-hoc-resource-management-c11-and-higher"><code>on_return()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">(✓¹¹)</td>
+<td align="left">Creates an object that executes a given action in its destructor if no exception occurred<br>(<a href="doc/Reference.md#gsl_feature_experimental_return_guard0">opt-in</a> feature)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#ad-hoc-resource-management-c11-and-higher"><code>on_error()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">(✓¹¹)</td>
+<td align="left">Creates an object that executes a given action in its destructor if an exception was thrown<br>(<a href="doc/Reference.md#gsl_feature_experimental_return_guard0">opt-in</a> feature)</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#bounds-checked-element-access"><code>at()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Bounds-checked element access for C-style arrays and containers with random access</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#integer-type-aliases"><code>index</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Signed integer type for indexes and subscripts</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#integer-type-aliases"><code>dim</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Signed integer type for sizes</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#integer-type-aliases"><code>stride</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Signed integer type for index strides</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#integer-type-aliases"><code>diff</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Signed integer type for index differences</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#narrow_castt-u-"><code>narrow_cast&lt;&gt;()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Narrowing cast which tolerates lossy conversions; equivalent to <code>static_cast&lt;&gt;()</code></td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#narrowt-u-"><code>narrow&lt;&gt;()</code></a></td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="center">✓</td>
+<td align="left">Checked narrowing cast; throws <code>narrowing_error</code> if cast is lossy</td>
+</tr>
+<tr>
+<td><a href="doc/Reference.md#narrow_failfastt-u-"><code>narrow_failfast&lt;&gt;()</code></a></td>
+<td align="center">-</td>
+<td align="center">-</td>
+<td align="center">✓</td>
+<td align="left">Checked narrowing cast; fails assertion check if cast is lossy</td>
+</tr>
+</tbody></table>
+<p>¹¹: C++11 or newer required<br>²⁰: C++20 or newer required</p>
+<h2>Migration guide</h2>
+<p>Starting with v1.0, <em>gsl-lite</em> lives in the single header file <code>&lt;gsl-lite/gsl-lite.hpp&gt;</code>, and all its symbols reside in namespace
+<code>gsl_lite</code>. By default, <em>gsl-lite</em> no longer defines a namespace <code>gsl</code> or the unprefixed <code>Expects()</code> and <code>Ensures()</code> macros for
+precondition and postcondition checking.</p>
+<p>This change enables coexistence with <a href="https://github.com/microsoft/GSL">Microsoft GSL</a> (<a href="https://github.com/gsl-lite/gsl-lite/issues/194">#194</a>).</p>
+<h3>Adapting your code</h3>
+<p>If you are migrating from <em>gsl-lite</em> v0.*, adapt your code by referencing namespace <code>gsl_lite</code> rather than namespace <code>gsl</code>, and by
+using the prefixed macros <code>gsl_Expects()</code> and <code>gsl_Ensures()</code> rather than the unprefixed macros <code>Expects()</code> and <code>Ensures()</code> for
+precondition and postcondition checking.</p>
+<p>Note that <em>gsl-lite</em> v1 also changed the defaults for many of <em>gsl-lite</em>'s configuration options. See the
+<a href="https://github.com/gsl-lite/gsl-lite/releases/tag/v1.0.0">v1.0.0 release notes</a> for a comprehensive list of changes.
+This should not affect you if you had already opted in to version-1 defaults by setting <code>gsl_CONFIG_DEFAULTS_VERSION=1</code>
+or by linking to the <code>gsl::gsl-lite-v1</code> target in CMake.</p>
+<p>To reduce the pervasiveness of required changes, it can be useful to define a namespace alias inside your own namespace:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// my-lib.hpp
+
+#include &lt;gsl-lite/gsl-lite.hpp&gt;  // instead of &lt;gsl/gsl-lite.hpp&gt;
+
+namespace my_lib {
+
+    namespace gsl = ::gsl_lite;  // convenience alias
+
+    inline double median( gsl::span&lt;double const&gt; elements )
+    {
+        gsl_Expects( !elements.empty() );  // instead of Expects()
+        ...
+    }
+
+} // namespace my_lib" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> my</span><span style="color:#D73A49">-</span><span style="color:#24292E">lib.hpp</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include &lt;gsl-lite/gsl-lite.hpp&gt;  // instead of &lt;gsl/gsl-lite.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">namespace my_lib {</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    namespace gsl = ::gsl_lite;  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> convenience alias</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    inline double median( gsl::span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double const</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> elements )</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#24292E">        gsl_Expects( </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">elements.empty() );  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> instead of Expects()</span></span>
+<span class="line"><span style="color:#005CC5">        ...</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">} </span><span style="color:#D73A49">//</span><span style="color:#24292E"> namespace my_lib</span></span></code></pre>
+<h3>Using the GSL compatibility mode</h3>
+<p>To minimize the impact of the breaking changes, <em>gsl-lite</em> introduces an optional <em>GSL compatibility mode</em> controlled by the
+new configuration switch <a href="doc/Reference.md#feature-selection-macros"><code>gsl_FEATURE_GSL_COMPATIBILITY_MODE</code></a>, which is is disabled
+by default and can be enabled by defining <code>gsl_FEATURE_GSL_COMPATIBILITY_MODE=1</code>.</p>
+<p>If the GSL compatibility mode is enabled, <em>gsl-lite</em> additionally makes the following global definitions:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="namespace gsl = ::gsl_lite;
+#define Expects( x )  gsl_Expects( x )
+#define Ensures( x )  gsl_Ensures( x )" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">namespace gsl </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ::gsl_lite</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#6A737D">#define Expects( x )  gsl_Expects( x )</span></span>
+<span class="line"><span style="color:#6A737D">#define Ensures( x )  gsl_Ensures( x )</span></span></code></pre>
+<p>The GSL compatibility mode precludes the use of <em>gsl-lite</em> and Microsoft GSL in the same translation unit. Therefore, <strong>do not use
+the GSL compatibility mode when using <em>gsl-lite</em> in a public header file of a library.</strong> (See notes on
+<a href="#using-gsl-lite-in-libraries">using <em>gsl-lite</em> in libraries</a> below.)</p>
+<p>The GSL compatibility mode causes no link-time interference between <em>gsl-lite</em> and as Microsoft GSL. Both libraries may be used in
+the same project as long as no translation unit includes both at the same time.</p>
+<p>The legacy header file <code>&lt;gsl/gsl-lite.hpp&gt;</code> now forwards to <code>&lt;gsl-lite/gsl-lite.hpp&gt;</code> and implicitly enables the GSL compatibility mode.
+When the legacy header is included, it emits a warning message that urges to either migrate to header <code>&lt;gsl-lite/gsl-lite.hpp&gt;</code>,
+namespace <code>gsl_lite</code> and the prefixed contract checking macros <code>gsl_Expects()</code> and <code>gsl_Ensures()</code>, or to explicitly request GSL
+compatibility by defining <code>gsl_FEATURE_GSL_COMPATIBILITY_MODE=1</code>.</p>
+<h2>Using <em>gsl-lite</em> in libraries</h2>
+<p>Many features of <em>gsl-lite</em> are very useful for defining library interfaces, for instance spans, contract checks, or <code>not_null&lt;&gt;</code>.</p>
+<p><em>gsl-lite</em> can coexist with Microsoft GSL. However, the GSL compatibility mode of <em>gsl-lite</em> may cause interference with Microsoft GSL.
+Also, <em>gsl-lite</em> is customizable through a large number of configuration options and switches. These configuration macros may affect the API and
+ABI of <em>gsl-lite</em> in ways that renders it incompatible with other code. How <em>gsl-lite</em> is configured should be the prerogative of the consumer,
+not the author, of a library.</p>
+<p>Therefore, when using <em>gsl-lite</em> in a library, please mind the following suggestions:</p>
+<ul>
+<li>Do not define, or rely on, any of <em>gsl-lite</em>'s configuration options or switches when using <em>gsl-lite</em> in a library.</li>
+<li>In particular, do not enable the GSL compatibility mode.</li>
+<li>Do not use the legacy header file <code>&lt;gsl/gsl-lite.hpp&gt;</code>, which implicitly enables the GSL compatibility mode; use the header <code>&lt;gsl-lite/gsl-lite.hpp&gt;</code> instead.</li>
+<li>Use namespace <code>gsl_lite</code> rather than namespace <code>gsl</code>; if desired, define a <code>namespace gsl = ::gsl_lite;</code> alias in your own namespace.</li>
+<li>Use the prefixed contract checking macros <code>gsl_Expects()</code> and <code>gsl_Ensures()</code> rather than the unprefixed macros <code>Expects()</code> and <code>Ensures()</code>.</li>
+</ul>
+<h2>Reported to work with</h2>
+<p>The table below mentions the compiler versions and platforms <em>gsl-lite</em> is reported to work with.</p>
+<table>
+<thead>
+<tr>
+<th align="right">Compiler</th>
+<th align="left">OS</th>
+<th>Platforms</th>
+<th align="right">Versions</th>
+<th>CI</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right">GCC</td>
+<td align="left">Linux</td>
+<td>x64</td>
+<td align="right">4.7 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">9, 10, 11, 12, 13, 14</a></td>
+</tr>
+<tr>
+<td align="right">GCC (MinGW)</td>
+<td align="left">Windows</td>
+<td>x86, x64</td>
+<td align="right">4.8.4 and newer</td>
+<td></td>
+</tr>
+<tr>
+<td align="right">GCC (DJGPP)</td>
+<td align="left">DOSBox, FreeDOS</td>
+<td>x86</td>
+<td align="right">7.2</td>
+<td></td>
+</tr>
+<tr>
+<td align="right">GCC</td>
+<td align="left">MacOS</td>
+<td>x64</td>
+<td align="right">6 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">11, 12, 13, 14</a></td>
+</tr>
+<tr>
+<td align="right">Clang</td>
+<td align="left">Linux</td>
+<td>x64</td>
+<td align="right">3.5 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">11, 12, 13, 14, 15, 16, 17, 18, 19, 20</a></td>
+</tr>
+<tr>
+<td align="right">Clang with libstdc++</td>
+<td align="left">Linux</td>
+<td>x64</td>
+<td align="right">11 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">20</a></td>
+</tr>
+<tr>
+<td align="right">Clang</td>
+<td align="left">Windows</td>
+<td>x64</td>
+<td align="right">version shipped with VS</td>
+<td>VS <a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">2022, 2026</a></td>
+</tr>
+<tr>
+<td align="right">MSVC (Visual Studio)</td>
+<td align="left">Windows</td>
+<td>x86, x64</td>
+<td align="right">VS 2010 and newer</td>
+<td>VS <a href="https://ci.appveyor.com/project/gsl-lite/gsl-lite">2010, 2012, 2013, 2015, 2017, 2019</a>, <a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">2022, 2026</a></td>
+</tr>
+<tr>
+<td align="right">AppleClang (Xcode)</td>
+<td align="left">MacOS</td>
+<td>x64</td>
+<td align="right">7.3 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">15, 16, 17</a></td>
+</tr>
+<tr>
+<td align="right">NVCC (CUDA Toolkit)</td>
+<td align="left">Linux, Windows</td>
+<td>x64</td>
+<td align="right">10.2 and newer</td>
+<td><a href="https://dev.azure.com/gsl-lite/gsl-lite/_build?definitionId=1">12.8, 12.9</a></td>
+</tr>
+<tr>
+<td align="right">ARMCC</td>
+<td align="left"></td>
+<td>ARM</td>
+<td align="right">5 and newer</td>
+<td></td>
+</tr>
+</tbody></table>
+<h2>Version semantics</h2>
+<p><em>gsl-lite</em> follows <a href="https://semver.org/">Semantic Versioning</a> guidelines. We maintain <a href="https://en.wikipedia.org/wiki/Application_programming_interface">API</a> and
+<a href="https://en.wikipedia.org/wiki/Application_binary_interface">ABI</a> compatibility and avoid breaking changes in minor and patch releases.</p>
+<p>Development of <em>gsl-lite</em> happens in the <code>master</code> branch. Versioning semantics apply only to tagged releases: there is no stability guarantee between individual
+commits in the <code>master</code> branch, that is, anything added since the last tagged release may be renamed, removed, or have the semantics changed without further notice.</p>
+<p>A minor-version release will be compatible (in both ABI and API) with the previous minor-version release. Thus, once a change is released, it becomes part of the API.</p>
+<p>Some of the <a href="doc/Reference.md#configuration-options-and-switches">configuration options</a> may affect the API and ABI of <em>gsl-lite</em>.</p>
+<h2>Contributing</h2>
+<p>Contributions to <em>gsl-lite</em> through <a href="https://github.com/gsl-lite/gsl-lite/pulls">pull requests</a> or <a href="https://github.com/gsl-lite/gsl-lite/issues">issues</a> are welcome.</p>
+<p><em>gsl-lite</em> comes with a test suite that uses an included, slightly modified copy of the <a href="https://github.com/martinmoene/lest"><em>lest</em> test framework</a>.
+To build <em>gsl-lite</em>'s test suite, enable the CMake build option <code>GSL_LITE_OPT_BUILD_TESTS</code> when configuring the project.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">ISO C++ Core Guidelines Library implementation for C++98, C++11 up</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/gsl-lite/gsl-lite" title="@gsl-lite"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@gsl-lite/gsl-lite</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/gsl-lite.png" alt="@gsl-lite"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://gsl-lite.github.io/gsl-lite/"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">976</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, March 16, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 85%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 85%"> </span><span style="width: 13.9%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 13.9%"> </span><span style="width: 0.7%; background-color: var(--lang-Cuda-bg, #ccc)" title="Cuda: 0.7%"> </span><span style="width: 0.3%; background-color: var(--lang-HTML-bg, #ccc)" title="HTML: 0.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">85%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">13.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cuda-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Cuda</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-SCSS-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>SCSS</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/arjuna-fourgrowers" title="Arjuna Ariyaratne"><img class="avatar circle" width="48" height="48" src="https://github.com/arjuna-fourgrowers.png" alt="@arjuna-fourgrowers"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/spinningthelock" title="Arjuna Ariyaratne"><img class="avatar circle" width="48" height="48" src="https://github.com/spinningthelock.png" alt="@spinningthelock"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/7977"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add gsl-lite@1.1.0 (#7977)"><span class="text-mono">#7977</span> <span class="text-light">Add gsl-lite@1.1.0 (#7977)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/gsl-lite/gsl-lite/archive/refs/tags/v1.1.0.tar.gz" title="https://github.com/gsl-lite/gsl-lite/archive/refs/tags/v1.1.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/gsl-lite/g...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/gsl-lite/1.1.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/gsl-lite/1.1.0/overlay/test/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">test/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.1.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.1.0"><span class="text-bold">1.1.0</span><sup class="color-fg-attention"> +2.2mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-16</span></div></td></tr><tr class=""><td title="1.0.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.0.1"><a class="Box-row-link" href="/#/modules/gsl-lite/1.0.1">1.0.1</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-08</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

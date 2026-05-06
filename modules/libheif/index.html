@@ -1,0 +1,460 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">libheif</span> <span class="f2 d-inline-block">1.21.2<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 15d ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/strukturag/libheif" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/libheif/1.21.2/overview" data-name="overview" id=":vq.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/libheif/1.21.2/docs" data-name="docs" id=":vq.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/libheif/1.21.2/testing" data-name="testing" id=":vq.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;libheif&quot;, version = &quot;1.21.2&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "libheif"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.21.2"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">7</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.8.2">bazel_skylib<span class="ml-1 text-light text-small">1.8.2</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/bazel_skylib/1.9.0">1.9.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.7mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/brotli/1.2.0.bcr.1">brotli<span class="ml-1 text-light text-small">1.2.0.bcr.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/libde265/1.0.18">libde265<span class="ml-1 text-light text-small">1.0.18</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.4">rules_cc<span class="ml-1 text-light text-small">0.2.4</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+19<span class="color-fg-attention"> (7.5mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc_autoconf/0.9.0">rules_cc_autoconf<span class="ml-1 text-light text-small">0.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc_autoconf/0.10.1">0.10.1<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (22d)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/zlib/1.3.2">zlib<span class="ml-1 text-light text-small">1.3.2</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>libheif</h1>
+<p><a href="https://github.com/strukturag/libheif/actions"><img src="https://github.com/strukturag/libheif/workflows/build/badge.svg" alt="Build Status"></a> <a href="https://ci.appveyor.com/project/strukturag/libheif"><img src="https://ci.appveyor.com/api/projects/status/github/strukturag/libheif?svg=true" alt="Build Status"></a> <a href="https://scan.coverity.com/projects/strukturag-libheif"><img src="https://scan.coverity.com/projects/16641/badge.svg" alt="Coverity Scan Build Status"></a></p>
+<p>libheif is an ISO/IEC 23008-12 HEIF and AVIF (AV1 Image File Format) file format decoder and encoder.
+HEIC and AVIF are new image file formats employing HEVC (H.265) or AV1 image coding, respectively, for the
+best compression ratios currently possible.</p>
+<p>On top of HEIC and AVIF, libheif also supports HEIF images coded with VVC, AVC, JPEG, JPEG-2000, and ISO/IEC 23001-17.
+The ISO/IEC 23001-17 codec is built-in to libheif and allows to store lossless images and video in many different formats.</p>
+<p>libheif makes use of various codec libraries for implementing each compression format.
+For HEIC, <a href="https://github.com/strukturag/libde265">libde265</a> is used by default for decoding and x265 for encoding.
+For AVIF, libaom, dav1d, svt-av1, or rav1e are used as codecs.
+libheif can be built with a subset of the supported codecs to keep the size and the number of dependencies low.
+Alternatively, the libheif codecs can also be built as separate plugins that can be installed and loaded dynamically when used.</p>
+<h2>Supported features</h2>
+<p>libheif has support for:</p>
+<ul>
+<li>HEIC, AVIF, VVC, AVC, JPEG-in-HEIF, JPEG2000, uncompressed (ISO/IEC 23001-17:2024) codecs</li>
+<li>alpha channels, depth maps, thumbnails, auxiliary images</li>
+<li>multiple images in a file</li>
+<li>HEIF image sequences and MP4 video, including alpha channels</li>
+<li>tiled images with decoding individual tiles and encoding tiled images by adding tiles one after another</li>
+<li>HDR images, correct color transform according to embedded color profiles</li>
+<li>image transformations (crop, mirror, rotate), overlay images</li>
+<li>plugin interface to add alternative codecs</li>
+<li>reading EXIF and XMP metadata</li>
+<li>region annotations and mask images</li>
+<li>streaming of images and video by requesting data from the network through a data-reader interface</li>
+</ul>
+<p>Supported codecs:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Format</th>
+<th align="center">Decoders</th>
+<th align="center">Encoders</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">HEIC</td>
+<td align="center">libde265, ffmpeg</td>
+<td align="center">x265, kvazaar</td>
+</tr>
+<tr>
+<td align="left">AVIF</td>
+<td align="center">libaom, dav1d</td>
+<td align="center">libaom, rav1e, svt-av1</td>
+</tr>
+<tr>
+<td align="left">VVC</td>
+<td align="center">vvdec</td>
+<td align="center">vvenc, uvg266</td>
+</tr>
+<tr>
+<td align="left">AVC</td>
+<td align="center">openh264, ffmpeg</td>
+<td align="center">x264</td>
+</tr>
+<tr>
+<td align="left">JPEG</td>
+<td align="center">libjpeg(-turbo)</td>
+<td align="center">libjpeg(-turbo)</td>
+</tr>
+<tr>
+<td align="left">JPEG2000</td>
+<td align="center">OpenJPEG</td>
+<td align="center">OpenJPEG</td>
+</tr>
+<tr>
+<td align="left">HTJ2K</td>
+<td align="center">OpenJPEG</td>
+<td align="center">OpenJPH</td>
+</tr>
+<tr>
+<td align="left">uncompressed</td>
+<td align="center">built-in</td>
+<td align="center">built-in</td>
+</tr>
+</tbody></table>
+<h2>Programming API</h2>
+<p>The library has a C API for easy integration and wide language support.</p>
+<p>The decoder automatically supports both HEIF and AVIF (and the other compression formats) through the same API. The same decoding code can be used to decode any of them.
+The encoder can be switched between HEIF and AVIF simply by setting <code>heif_compression_HEVC</code> or <code>heif_compression_AV1</code>
+to <code>heif_context_get_encoder_for_format()</code>, or using any of the other compression formats.</p>
+<h3>Loading the primary image from a HEIF file</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="heif_context* ctx = heif_context_alloc();
+heif_context_read_from_file(ctx, input_filename, nullptr);
+
+// get a handle to the primary image
+heif_image_handle* handle;
+heif_context_get_primary_image_handle(ctx, &amp;handle);
+
+// decode the image and convert colorspace to RGB, saved as 24bit interleaved
+heif_image* img;
+heif_decode_image(handle, &amp;img, heif_colorspace_RGB, heif_chroma_interleaved_RGB, nullptr);
+
+int stride;
+const uint8_t* data = heif_image_get_plane_readonly(img, heif_channel_interleaved, &amp;stride);
+
+// ... process data as needed ...
+
+// clean up resources
+heif_image_release(img);
+heif_image_handle_release(handle);
+heif_context_free(ctx);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">heif_context</span><span style="color:#D73A49">*</span><span style="color:#24292E"> ctx </span><span style="color:#D73A49">=</span><span style="color:#24292E"> heif_context_alloc()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_context_read_from_file(ctx, input_filename, nullptr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> get a handle to the primary image</span></span>
+<span class="line"><span style="color:#24292E">heif_image_handle</span><span style="color:#D73A49">*</span><span style="color:#24292E"> handle</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_context_get_primary_image_handle(ctx, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">handle)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> decode the image </span><span style="color:#D73A49">and</span><span style="color:#24292E"> convert colorspace to </span><span style="color:#005CC5">RGB</span><span style="color:#24292E">, saved </span><span style="color:#D73A49">as</span><span style="color:#B31D28;font-style:italic"> 24bit</span><span style="color:#24292E"> interleaved</span></span>
+<span class="line"><span style="color:#24292E">heif_image</span><span style="color:#D73A49">*</span><span style="color:#24292E"> img</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_decode_image(handle, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">img, heif_colorspace_RGB, heif_chroma_interleaved_RGB, nullptr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> stride</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">const uint8_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> data </span><span style="color:#D73A49">=</span><span style="color:#24292E"> heif_image_get_plane_readonly(img, heif_channel_interleaved, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">stride)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> ...</span><span style="color:#24292E"> process data </span><span style="color:#D73A49">as</span><span style="color:#24292E"> needed </span><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> clean up resources</span></span>
+<span class="line"><span style="color:#24292E">heif_image_release(img)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_image_handle_release(handle)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_context_free(ctx)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Writing a HEIF file</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="heif_context* ctx = heif_context_alloc();
+
+// get the default encoder
+heif_encoder* encoder;
+heif_context_get_encoder_for_format(ctx, heif_compression_HEVC, &amp;encoder);
+
+// set the encoder parameters
+heif_encoder_set_lossy_quality(encoder, 50);
+
+// encode the image
+heif_image* image; // code to fill in the image omitted in this example
+heif_context_encode_image(ctx, image, encoder, nullptr, nullptr);
+
+heif_encoder_release(encoder);
+
+heif_context_write_to_file(ctx, &quot;output.heic&quot;);
+
+heif_context_free(ctx);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">heif_context</span><span style="color:#D73A49">*</span><span style="color:#24292E"> ctx </span><span style="color:#D73A49">=</span><span style="color:#24292E"> heif_context_alloc()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> get the default encoder</span></span>
+<span class="line"><span style="color:#24292E">heif_encoder</span><span style="color:#D73A49">*</span><span style="color:#24292E"> encoder</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">heif_context_get_encoder_for_format(ctx, heif_compression_HEVC, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">encoder)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> the encoder parameters</span></span>
+<span class="line"><span style="color:#24292E">heif_encoder_set_lossy_quality(encoder, </span><span style="color:#005CC5">50</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> encode the image</span></span>
+<span class="line"><span style="color:#24292E">heif_image</span><span style="color:#D73A49">*</span><span style="color:#24292E"> image; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> code to fill </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the image omitted </span><span style="color:#D73A49">in</span><span style="color:#24292E"> this example</span></span>
+<span class="line"><span style="color:#24292E">heif_context_encode_image(ctx, image, encoder, nullptr, nullptr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">heif_encoder_release(encoder)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">heif_context_write_to_file(ctx, </span><span style="color:#032F62">"output.heic"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">heif_context_free(ctx)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Get the EXIF data from a HEIF file</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="heif_item_id exif_id;
+
+int n = heif_image_handle_get_list_of_metadata_block_IDs(image_handle, &quot;Exif&quot;, &amp;exif_id, 1);
+if (n==1) {
+  size_t exifSize = heif_image_handle_get_metadata_size(image_handle, exif_id);
+  uint8_t* exifData = malloc(exifSize);
+  struct heif_error error = heif_image_handle_get_metadata(image_handle, exif_id, exifData);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">heif_item_id exif_id</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> n </span><span style="color:#D73A49">=</span><span style="color:#24292E"> heif_image_handle_get_list_of_metadata_block_IDs(image_handle, </span><span style="color:#032F62">"Exif"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">exif_id, </span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (n</span><span style="color:#D73A49">==</span><span style="color:#005CC5">1</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">  size_t exifSize = heif_image_handle_get_metadata_size(image_handle, exif_id);</span></span>
+<span class="line"><span style="color:#24292E">  uint8_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> exifData = malloc(exifSize);</span></span>
+<span class="line"><span style="color:#24292E">  struct heif_error error = heif_image_handle_get_metadata(image_handle, exif_id, exifData);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Image sequences, MP4 video</h3>
+<p>See the <a href="https://github.com/strukturag/libheif/wiki/Reading-and-Writing-Sequences">image sequences API documentation</a>.</p>
+<p>Since HEIF image sequences are very similar to MP4 video, libheif can also read and write MP4 video (without audio)
+with all supported codecs.</p>
+<h3>High-resolution tiled images</h3>
+<p>For very large resolution images, it is not always feasible to process the whole image.
+In this case, <code>libheif</code> can process the image tile by tile.
+See the <a href="https://github.com/strukturag/libheif/wiki/Reading-and-Writing-Tiled-Images">image tiling API documentation</a>.</p>
+<h3>More documenation</h3>
+<p>See the header files for the complete C API.</p>
+<p>There is also a C++ API which is a header-only wrapper to the C API.
+Hence, you can use the C++ API and still be binary compatible.
+Code using the C++ API is much less verbose than using the C API directly.</p>
+<h2>Compiling</h2>
+<p>This library uses the CMake build system (the earlier autotools build files have been removed in v1.16.0).</p>
+<p>For a minimal configuration, we recommend to use the codecs libde265 and x265 for HEIC and AOM for AVIF.
+Make sure that you compile and install <a href="https://github.com/strukturag/libde265">libde265</a>
+first, so that the configuration script will find this.
+Also install x265 and its development files if you want to use HEIF encoding, but note that x265 is GPL.
+An alternative to x265 is kvazaar (BSD).</p>
+<p>The basic build steps are as follows (--preset argument needs CMake &gt;= 3.21):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="mkdir build
+cd build
+cmake --preset=release ..
+make" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">preset</span><span style="color:#D73A49">=</span><span style="color:#24292E">release ..</span></span>
+<span class="line"><span style="color:#24292E">make</span></span></code></pre>
+<p>There are CMake presets to cover the most frequent use cases.</p>
+<ul>
+<li><code>release</code>: the preferred preset which compiles all codecs as separate plugins.
+If you do not want to distribute some of these plugins (e.g. HEIC), you can omit packaging these.</li>
+<li><code>release-noplugins</code>: this is a smaller, self-contained build of libheif without using the plugin system.
+A single library is built with support for HEIC and AVIF.</li>
+<li><code>testing</code>: for building and executing the unit tests. Also the internal library symbols are exposed. Do not use for distribution.</li>
+<li><code>fuzzing</code>: all codecs like in release build, but configured into a self-contained library with enabled fuzzers. The library should not distributed.</li>
+</ul>
+<p>You can optionally adapt these standard configurations to your needs.
+This can be done, for example, by calling <code>ccmake .</code> from within the <code>build</code> directory.</p>
+<h3>CMake configuration variables</h3>
+<p>Libheif supports many different codecs. In order to reduce the number of dependencies and the library size,
+you can choose which of these codecs to include. Each codec can be compiled either as built-in to the library
+with a hard dependency, or as a separate plugin file that is loaded dynamically.</p>
+<p>For each codec, there are two configuration variables:</p>
+<ul>
+<li><code>WITH_{codec}</code>: enables the codec</li>
+<li><code>WITH_{codec}_PLUGIN</code>: when enabled, the codec is compiled as a separate plugin.</li>
+</ul>
+<p>In order to use dynamic plugins, also make sure that <code>ENABLE_PLUGIN_LOADING</code> is enabled.
+The placeholder <code>{codec}</code> can have these values: <code>LIBDE265</code>, <code>X265</code>, <code>AOM_DECODER</code>, <code>AOM_ENCODER</code>, <code>SvtEnc</code>, <code>DAV1D</code>, <code>OpenH264</code>, <code>X264</code>, <code>FFMPEG_DECODER</code>, <code>JPEG_DECODER</code>, <code>JPEG_ENCODER</code>, <code>KVAZAAR</code>, <code>OpenJPEG_DECODER</code>, <code>OpenJPEG_ENCODER</code>, <code>OPENJPH_ENCODER</code>, <code>VVDEC</code>, <code>VVENC</code>, <code>UVG266</code>, <code>WEBCODECS</code>.</p>
+<p>Further options are:</p>
+<ul>
+<li><code>WITH_UNCOMPRESSED_CODEC</code>: enable support for uncompressed images according to ISO/IEC 23001-17:2024. This is <em>experimental</em>
+ and not available as a dynamic plugin. When enabled, it adds a dependency to <code>zlib</code>, and optionally will use <code>brotli</code>.</li>
+<li><code>WITH_HEADER_COMPRESSION</code>: enables support for compressed metadata. When enabled, it adds a dependency to <code>zlib</code>.
+ Note that header compression is not widely supported yet.</li>
+<li><code>WITH_LIBSHARPYUV</code>: enables high-quality YCbCr/RGB color space conversion algorithms (requires <code>libsharpyuv</code>,
+ e.g. from the <code>third-party</code> directory).</li>
+<li><code>ENABLE_EXPERIMENTAL_FEATURES</code>: enables functions that are currently in development and for which the API is not stable yet
+ and may contain security risks. When this is enabled, a header <code>heif_experimental.h</code> will be installed that contains this
+ unstable API. Distributions should not enable this in release or production builds.</li>
+<li><code>ENABLE_MULTITHREADING_SUPPORT</code>: can be used to disable any multithreading support, e.g. for embedded platforms.</li>
+<li><code>ENABLE_PARALLEL_TILE_DECODING</code>: when enabled, libheif will decode tiled images in parallel to speed up compilation.</li>
+<li><code>PLUGIN_DIRECTORY</code>: the directory where libheif will search for dynamic plugins when the environment
+variable <code>LIBHEIF_PLUGIN_PATH</code> is not set.</li>
+<li><code>WITH_REDUCED_VISIBILITY</code>: only export those symbols into the library that are public API.
+Has to be turned off for running some tests.</li>
+</ul>
+<h3>macOS</h3>
+<ol>
+<li><p>Install dependencies with Homebrew</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="brew install cmake make pkg-config x265 libde265 libjpeg libtool" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">brew install cmake make pkg</span><span style="color:#D73A49">-</span><span style="color:#24292E">config x265 libde265 libjpeg libtool</span></span></code></pre>
+</li>
+<li><p>Configure and build project (--preset argument needs CMake &gt;= 3.21):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="mkdir build
+cd build
+cmake --preset=release ..
+./configure
+make" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">preset</span><span style="color:#D73A49">=</span><span style="color:#24292E">release ..</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure</span></span>
+<span class="line"><span style="color:#24292E">make</span></span></code></pre>
+</li>
+</ol>
+<h3>Windows</h3>
+<p>You can build and install libheif using the <a href="https://github.com/Microsoft/vcpkg/">vcpkg</a> dependency manager:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.bat
+./vcpkg integrate install
+./vcpkg install libheif" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">Microsoft</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg.git</span></span>
+<span class="line"><span style="color:#24292E">cd vcpkg</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">bootstrap</span><span style="color:#D73A49">-</span><span style="color:#24292E">vcpkg.bat</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg integrate install</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg install libheif</span></span></code></pre>
+<p>The libheif port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
+<h3>Adding libaom encoder/decoder for AVIF</h3>
+<ul>
+<li>Run the <code>aom.cmd</code> script in the <code>third-party</code> directory to download libaom and
+compile it.</li>
+</ul>
+<p>When running <code>cmake</code> or <code>configure</code>, make sure that the environment variable
+<code>PKG_CONFIG_PATH</code> includes the absolute path to <code>third-party/aom/dist/lib/pkgconfig</code>.</p>
+<h3>Adding rav1e encoder for AVIF</h3>
+<ul>
+<li>Install <code>cargo</code>.</li>
+<li>Install <code>cargo-c</code> by executing</li>
+</ul>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cargo install --force cargo-c" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cargo install </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">force cargo</span><span style="color:#D73A49">-</span><span style="color:#24292E">c</span></span></code></pre>
+<ul>
+<li>Run the <code>rav1e.cmd</code> script in the <code>third-party</code> directory to download rav1e
+and compile it.</li>
+</ul>
+<p>When running <code>cmake</code>, make sure that the environment variable
+<code>PKG_CONFIG_PATH</code> includes the absolute path to <code>third-party/rav1e/dist/lib/pkgconfig</code>.</p>
+<h3>Adding dav1d decoder for AVIF</h3>
+<ul>
+<li>Install <a href="https://mesonbuild.com/"><code>meson</code></a>.</li>
+<li>Run the <code>dav1d.cmd</code> script in the <code>third-party</code> directory to download dav1d
+and compile it.</li>
+</ul>
+<p>When running <code>cmake</code>, make sure that the environment variable
+<code>PKG_CONFIG_PATH</code> includes the absolute path to <code>third-party/dav1d/dist/lib/x86_64-linux-gnu/pkgconfig</code>.</p>
+<h3>Adding SVT-AV1 encoder for AVIF</h3>
+<p>You can either use the SVT-AV1 encoder libraries installed in the system or use a self-compiled current version.
+If you want to compile SVT-AV1 yourself,</p>
+<ul>
+<li>Run the <code>svt.cmd</code> script in the <code>third-party</code> directory to download SVT-AV1
+and compile it.</li>
+</ul>
+<p>You have to enable SVT-AV1 with CMake.</p>
+<p>When running <code>cmake</code>, make sure that the environment variable
+<code>PKG_CONFIG_PATH</code> includes the absolute path to <code>third-party/SVT-AV1/Build/linux/install/lib/pkgconfig</code>.
+You may have to replace <code>linux</code> in this path with your system's identifier.</p>
+<h2>Codec plugins</h2>
+<p>Starting with v1.14.0, each codec backend can be compiled statically into libheif or as a dynamically loaded plugin.
+You can choose this individually for each codec backend in the CMake settings using <code>WITH_{codec}_PLUGIN</code> options.
+Compiling a codec backend as dynamic plugin will generate a shared library that is installed in the system together with libheif.
+The advantage is that only the required plugins have to be installed and libheif has fewer dependencies.</p>
+<p>The plugins are loaded from the colon-separated (semicolon-separated on Windows) list of directories stored in the environment variable <code>LIBHEIF_PLUGIN_PATH</code>.
+If this variable is empty, they are loaded from a directory specified in the CMake configuration.
+You can also add plugin directories programmatically.</p>
+<h3>Codec specific notes</h3>
+<ul>
+<li><p>The FFMPEG decoding plugin can make use of h265 hardware decoders. However, it currently (v1.17.0, ffmpeg v4.4.2) does not work
+correctly with all streams. Thus, libheif still prefers the libde265 decoder if it is available.</p>
+</li>
+<li><p>The "webcodecs" HEVC decoder can only be used in emscripten builds since it uses the web-browser's API. For the same reason, it is not available as a plugin.</p>
+</li>
+</ul>
+<h2>Usage</h2>
+<p>libheif comes with a set of command line tools:</p>
+<ul>
+<li><code>heif-dec</code> for decoding HEIF images to JPEG or PNG. It can also decode image sequences or MP4 video.</li>
+<li><code>heif-enc</code> for encoding JPEG, PNG, TIFF, or Y4M images to HEIF images, image sequences or MP4 video.</li>
+<li><code>heif-info</code> for getting some overview information about the HEIF file or (using the <code>-d</code> option) to dump the full box structure of the file.</li>
+<li><code>heif-view</code> for displaying HEIF image sequences</li>
+</ul>
+<h3><code>heif-enc</code> command line tool</h3>
+<p>You can find more documentation for the <code>heif-enc</code> tool on the <a href="https://github.com/strukturag/libheif/wiki/heif%E2%80%90enc-Command-Line-Tool">wiki page</a>.</p>
+<h3>Security limits</h3>
+<p>Libheif defines some security limits that prevent that very large images exceed the available memory or malicious input files can be used for a denial-of-service attack.
+When you are programming against the libheif API and you need to process very large images, you can set the <code>heif_security_limits</code> individually.
+When using <code>heif-dec</code>, there is the option to switch off security limits with <code>--disable-limits</code>.
+In case a third-party software is using libheif, but does not give you a way to switch off the limits, you can set an environment variable <code>LIBHEIF_SECURITY_LIMITS=off</code> to switch it off globally.
+Clearly, only do this if you know what you are doing and you are sure not to process malicious files.</p>
+<h2>Encoder benchmark</h2>
+<p>A current benchmark of the AVIF encoders (as of 14 Oct 2022) can be found on the Wiki page
+<a href="https://github.com/strukturag/libheif/wiki/AVIF-Encoder-Benchmark">AVIF encoding benchmark</a>.</p>
+<h2>Language bindings</h2>
+<ul>
+<li>.NET Platform (C#, F#, and other languages): <a href="https://github.com/0xC0000054/libheif-sharp">libheif-sharp</a></li>
+<li>C++: part of libheif</li>
+<li>Go: <a href="https://github.com/strukturag/libheif-go">libheif-go</a>, the wrapper distributed with libheif is deprecated</li>
+<li>JavaScript: by compilation with emscripten (see below)</li>
+<li>NodeJS module: <a href="https://www.npmjs.com/package/libheif-js">libheif-js</a></li>
+<li>Python: <a href="https://pypi.org/project/pyheif/">pyheif</a>, <a href="https://pypi.org/project/pillow-heif/">pillow_heif</a></li>
+<li>Rust: <a href="https://github.com/Cykooz/libheif-sys">libheif-sys</a></li>
+<li>Swift: <a href="https://swiftpackageregistry.com/SDWebImage/libheif-Xcode">libheif-Xcode</a></li>
+<li>JavaFX: <a href="https://github.com/lanthale/LibHeifFX">LibHeifFx</a></li>
+</ul>
+<p>Languages that can directly interface with C libraries (e.g., Swift, C#) should work out of the box.</p>
+<h2>Compiling to JavaScript / WASM</h2>
+<p>libheif can also be compiled to JavaScript using
+<a href="http://kripken.github.io/emscripten-site/">emscripten</a>.
+It can be built like this (in the libheif directory):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="mkdir buildjs
+cd buildjs
+USE_WASM=0 ../build-emscripten.sh .." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">mkdir buildjs</span></span>
+<span class="line"><span style="color:#24292E">cd buildjs</span></span>
+<span class="line"><span style="color:#005CC5">USE_WASM</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#24292E"> ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">build</span><span style="color:#D73A49">-</span><span style="color:#24292E">emscripten.sh ..</span></span></code></pre>
+<p>Set <code>USE_WASM=1</code> to build with WASM output.
+See the <code>build-emscripten.sh</code> script for further options.</p>
+<h2>Online demo</h2>
+<p>Check out this <a href="https://strukturag.github.io/libheif/">online demo</a>.
+This is <code>libheif</code> running in JavaScript in your browser.</p>
+<h2>Example programs</h2>
+<p>Some example programs are provided in the <code>examples</code> directory.
+The program <code>heif-dec</code> converts all images stored in an HEIF/AVIF file to JPEG or PNG.
+<code>heif-enc</code> lets you convert JPEG files to HEIF/AVIF.
+The program <code>heif-info</code> is a simple, minimal decoder that dumps the file structure to the console.</p>
+<p>For example convert <code>example.heic</code> to JPEGs and one of the JPEGs back to HEIF:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cd examples/
+./heif-dec example.heic example.jpeg
+./heif-enc example-1.jpeg -o example.heif" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cd examples</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">heif</span><span style="color:#D73A49">-</span><span style="color:#24292E">dec example.heic example.jpeg</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">heif</span><span style="color:#D73A49">-</span><span style="color:#24292E">enc example</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1.</span><span style="color:#24292E">jpeg </span><span style="color:#D73A49">-</span><span style="color:#24292E">o example.heif</span></span></code></pre>
+<p>In order to convert <code>example-1.jpeg</code> to AVIF use:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="./heif-enc example-1.jpeg -A -o example.avif" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">heif</span><span style="color:#D73A49">-</span><span style="color:#24292E">enc example</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1.</span><span style="color:#24292E">jpeg </span><span style="color:#D73A49">-</span><span style="color:#24292E">A </span><span style="color:#D73A49">-</span><span style="color:#24292E">o example.avif</span></span></code></pre>
+<p>There is also a GIMP plugin using libheif <a href="https://github.com/strukturag/heif-gimp-plugin">here</a>.</p>
+<h2>HEIF/AVIF thumbnails for the Gnome desktop</h2>
+<p>The program <code>heif-thumbnailer</code> can be used as an HEIF/AVIF thumbnailer for the Gnome desktop.
+The matching Gnome configuration files are in the <code>gnome</code> directory.
+Place the files <code>heif.xml</code> and <code>avif.xml</code> into <code>/usr/share/mime/packages</code> and <code>heif.thumbnailer</code> into <code>/usr/share/thumbnailers</code>.
+You may have to run <code>update-mime-database /usr/share/mime</code> to update the list of known MIME types.</p>
+<h2>gdk-pixbuf loader</h2>
+<p>libheif also includes a gdk-pixbuf loader for HEIF/AVIF images. 'make install' will copy the plugin
+into the system directories. However, you will still have to run <code>gdk-pixbuf-query-loaders --update-cache</code>
+to update the gdk-pixbuf loader database.</p>
+<h2>Software using libheif</h2>
+<ul>
+<li><a href="https://www.gimp.org/">GIMP</a></li>
+<li><a href="https://krita.org">Krita</a></li>
+<li><a href="https://imagemagick.org/">ImageMagick</a></li>
+<li><a href="http://www.graphicsmagick.org/">GraphicsMagick</a></li>
+<li><a href="https://www.darktable.org">darktable</a></li>
+<li><a href="https://www.digikam.org/">digiKam 7.0.0</a></li>
+<li><a href="https://github.com/libvips/libvips">libvips</a></li>
+<li><a href="https://api.kde.org/frameworks/kimageformats/html/index.html">kImageFormats</a></li>
+<li><a href="https://libgd.github.io/">libGD</a></li>
+<li><a href="https://kodi.wiki/view/Add-on:HEIF_image_decoder">Kodi HEIF image decoder plugin</a></li>
+<li><a href="https://github.com/h2non/bimg">bimg</a></li>
+<li><a href="https://gdal.org/drivers/raster/heif.html">GDAL</a></li>
+<li><a href="https://sites.google.com/site/openimageio/">OpenImageIO</a></li>
+<li><a href="https://www.xnview.com">XnView</a></li>
+</ul>
+<h2>Packaging status</h2>
+<p><a href="https://repology.org/project/libheif/versions"><img src="https://repology.org/badge/vertical-allrepos/libheif.svg?exclude_unsupported=1&amp;columns=3&amp;exclude_sources=modules,site&amp;header=libheif%20packaging%20status" alt="libheif packaging status"></a></p>
+<h2>Sponsors</h2>
+<p>Since I work as an independent developer, I need your support to be able to allocate time for libheif.
+You can <a href="https://github.com/sponsors/farindk">sponsor</a> the development using the link in the right hand column.</p>
+<p>A big thank you goes to these major sponsors for supporting the development of libheif:</p>
+<ul>
+<li>AOMedia</li>
+<li>OGC (Open Geospatial Consortium)</li>
+<li>Pinterest</li>
+<li>Shopify <img src="logos/sponsors/shopify.svg" alt="shopify-logo" height="20"></li>
+<li>StrukturAG</li>
+</ul>
+<h2>License</h2>
+<p>The libheif is distributed under the terms of the GNU Lesser General Public License.
+The sample applications are distributed under the terms of the MIT License.</p>
+<p>See COPYING for more details.</p>
+<p>Copyright (c) 2017-2020 Struktur AG<br>
+Copyright (c) 2017-2026 Dirk Farin<br>
+Contact: Dirk Farin <a href="mailto:dirk.farin@gmail.com">dirk.farin@gmail.com</a></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">libheif is an HEIF and AVIF file format decoder and encoder.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/strukturag/libheif" title="@strukturag"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@strukturag/libheif</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/strukturag.png" alt="@strukturag"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/strukturag/libheif/"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">2214</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, April 20, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 90.3%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 90.3%"> </span><span style="width: 5.5%; background-color: var(--lang-C-bg, #ccc)" title="C: 5.5%"> </span><span style="width: 1.7%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1.7%"> </span><span style="width: 1.2%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.2%"> </span><span style="width: 1.1%; background-color: var(--lang-Go-bg, #ccc)" title="Go: 1.1%"> </span><span style="width: 0.1%; background-color: var(--lang-JavaScript-bg, #ccc)" title="JavaScript: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">90.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">5.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Go-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Go</span><span class="ml-2 color-fg-muted">1.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-JavaScript-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>JavaScript</span><span class="ml-2 color-fg-muted">0.1%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/UebelAndre" title="UebelAndre"><img class="avatar circle" width="48" height="48" src="https://github.com/UebelAndre.png" alt="@UebelAndre"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/UebelAndre" title="@UebelAndre"><img class="avatar circle" width="48" height="48" src="https://github.com/UebelAndre.png" alt="@UebelAndre"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8383"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="libgd@2.3.3 (#8383)"><span class="text-mono">#8383</span> <span class="text-light">libgd@2.3.3 (#8383)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz" title="https://github.com/strukturag/libheif/releases/download/v1.21.2/libheif-1.21.2.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/strukturag...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/libheif/1.21.2/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/libheif/1.21.2/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/libheif/1.21.2/overlay/brotli_deps.bzl" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">brotli_deps.bzl</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/libheif/1.21.2/overlay/tests/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">tests/BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/libheif/1.21.2/overlay/tests/api_test.cc" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">tests/api_test.cc</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.21.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 100%, transparent 100%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.21.2"><span class="text-bold">1.21.2</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">100%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-20</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

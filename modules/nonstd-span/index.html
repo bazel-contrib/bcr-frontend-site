@@ -1,0 +1,883 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">nonstd-span</span> <span class="f2 d-inline-block">0.11.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 7.7mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/martinmoene/span-lite" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/nonstd-span/0.11.0/overview" data-name="overview" id=":7g.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/nonstd-span/0.11.0/docs" data-name="docs" id=":7g.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/nonstd-span/0.11.0/testing" data-name="testing" id=":7g.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;nonstd-span&quot;, version = &quot;0.11.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "nonstd-span"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.11.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">1</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.1.1">rules_cc<span class="ml-1 text-light text-small">0.1.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+28<span class="color-fg-attention"> (1.2y)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><p><a></a></p>
+<h1>span lite: A single-file header-only version of a C++20-like span for C++98, C++11 and later</h1>
+<p><a href="https://en.wikipedia.org/wiki/C%2B%2B#Standardization"><img src="https://img.shields.io/badge/C%2B%2B-98/11/14/17/20-blue.svg" alt="Language"></a> <a href="https://opensource.org/licenses/BSL-1.0"><img src="https://img.shields.io/badge/license-BSL-blue.svg" alt="License"></a> <a href="https://github.com/martinmoene/span-lite/actions/workflows/ci.yml"><img src="https://github.com/martinmoene/span-lite/actions/workflows/ci.yml/badge.svg" alt="Build Status"></a> <a href="https://github.com/martinmoene/span-lite/releases"><img src="https://badge.fury.io/gh/martinmoene%2Fspan-lite.svg" alt="Version"></a> <a href="https://github.com/martinmoene/span-lite/blob/master/include/nonstd/span.hpp"><img src="https://img.shields.io/badge/latest-download-blue.svg" alt="download"></a> <a href="https://conan.io/center/span-lite"><img src="https://img.shields.io/badge/on-conan-blue.svg" alt="Conan"></a> <a href="https://vcpkg.link/ports/span-lite"><img src="https://img.shields.io/badge/on-vcpkg-blue.svg" alt="Vcpkg"></a> <a href="https://wandbox.org/permlink/venR3Ko2Q4tlvcVk"><img src="https://img.shields.io/badge/on-wandbox-blue.svg" alt="Try it on wandbox"></a> <a href="https://godbolt.org/z/htwpnb"><img src="https://img.shields.io/badge/on-godbolt-blue.svg" alt="Try it on godbolt online"></a></p>
+<p><strong>Contents</strong>  </p>
+<ul>
+<li><a href="#example-usage">Example usage</a></li>
+<li><a href="#in-a-nutshell">In a nutshell</a></li>
+<li><a href="#license">License</a></li>
+<li><a href="#dependencies">Dependencies</a></li>
+<li><a href="#installation-and-use">Installation and use</a></li>
+<li><a href="#synopsis">Synopsis</a></li>
+<li><a href="#reported-to-work-with">Reported to work with</a></li>
+<li><a href="#building-the-tests">Building the tests</a></li>
+<li><a href="#other-implementations-of-span">Other implementations of span</a></li>
+<li><a href="#notes-and-references">Notes and references</a></li>
+<li><a href="#appendix">Appendix</a></li>
+</ul>
+<h2>Example usage</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;nonstd/span.hpp&quot;
+#include &lt;array&gt;
+#include &lt;vector&gt;
+#include &lt;iostream&gt;
+
+std::ptrdiff_t size( nonstd::span&lt;const int&gt; spn )
+{
+    return spn.size();
+}
+
+int main()
+{
+    int arr[] = { 1, };
+
+    std::cout &lt;&lt; 
+        &quot;C-array:&quot; &lt;&lt; size( arr ) &lt;&lt;
+        &quot; array:&quot;  &lt;&lt; size( std::array &lt;int, 2&gt;{ 1, 2, } ) &lt;&lt;
+        &quot; vector:&quot; &lt;&lt; size( std::vector&lt;int   &gt;{ 1, 2, 3, } );
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "nonstd/span.hpp"</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;array&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;vector&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::ptrdiff_t size( nonstd::span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> spn )</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> spn.size();</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> arr[] = { </span><span style="color:#005CC5">1</span><span style="color:#24292E">, };</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#032F62">        "C-array:"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> size( arr ) </span><span style="color:#D73A49">&lt;&lt;</span></span>
+<span class="line"><span style="color:#032F62">        " array:"</span><span style="color:#D73A49">  &lt;&lt;</span><span style="color:#24292E"> size( std::array </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">{ </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, } ) </span><span style="color:#D73A49">&lt;&lt;</span></span>
+<span class="line"><span style="color:#032F62">        " vector:"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> size( std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">   &gt;</span><span style="color:#24292E">{ </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, } );</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Compile and run</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="prompt&gt; g++ -std=c++11 -Wall -I../include -o 01-basic.exe 01-basic.cpp &amp;&amp; 01-basic.exe
+C-array:1 array:2 vector:3" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">prompt</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> g</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#24292E">std</span><span style="color:#D73A49">=</span><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#D73A49"> -</span><span style="color:#24292E">Wall </span><span style="color:#D73A49">-</span><span style="color:#24292E">I..</span><span style="color:#D73A49">/</span><span style="color:#24292E">include </span><span style="color:#D73A49">-</span><span style="color:#24292E">o </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">basic.exe </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">basic.cpp </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">basic.exe</span></span>
+<span class="line"><span style="color:#24292E">C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array:</span><span style="color:#005CC5">1</span><span style="color:#24292E"> array:</span><span style="color:#005CC5">2</span><span style="color:#24292E"> vector:</span><span style="color:#005CC5">3</span></span></code></pre>
+<h2>In a nutshell</h2>
+<p><strong>span lite</strong> is a single-file header-only library to provide a bounds-safe view for sequences of objects. The library provides a <a href="http://en.cppreference.com/w/cpp/container/span">C++20-like span</a> for use with C++98 and later. If available, <code>std::span</code> is used, unless <a href="#configuration">configured otherwise</a>. <em>span-lite</em> can detect the presence of <a href="https://github.com/martinmoene/byte-lite"><em>byte-lite</em></a> and if present, it provides <code>as_bytes()</code> and <code>as_writable_bytes()</code> also for C++14 and earlier. </p>
+<p><strong>Features and properties of span lite</strong> are ease of installation (single header), freedom of dependencies other than the standard library. To compensate for the class template argument deduction that is missing from pre-C++17 compilers, <code>nonstd::span</code> can provide <code>make_span</code> functions. See <a href="#configuration">configuration</a>.</p>
+<h2>License</h2>
+<p><em>span lite</em> is distributed under the <a href="https://github.com/martinmoene/span-lite/blob/master/LICENSE.txt">Boost Software License</a>.</p>
+<h2>Dependencies</h2>
+<p><em>span lite</em> has no other dependencies than the <a href="http://en.cppreference.com/w/cpp/header">C++ standard library</a>.</p>
+<h2>Installation and use</h2>
+<p><em>span lite</em> is a single-file header-only library. Put <code>span.hpp</code> in the <a href="include">include</a> folder directly into the project source tree or somewhere reachable from your project.</p>
+<h2>Synopsis</h2>
+<p><strong>Contents</strong><br><a href="#documentation-of-stdspan">Documentation of <code>std::span</code></a><br><a href="#later-additions">Later additions</a><br><a href="#non-standard-extensions">Non-standard extensions</a><br><a href="#configuration">Configuration</a>  </p>
+<h2>Documentation of <code>std::span</code></h2>
+<p>Depending on the compiler and C++-standard used, <code>nonstd::span</code> behaves less or more like <code>std::span</code>. To get an idea of the capabilities of <code>nonstd::span</code> with your configuration, look at the output of the <a href="test/span.t.cpp">tests</a>, issuing <code>span-main.t --pass @</code>. For <code>std::span</code>, see its <a href="http://en.cppreference.com/w/cpp/container/span">documentation at cppreference</a>.  </p>
+<h2>Later additions</h2>
+<h3><code>back()</code> and <code>front()</code></h3>
+<p><em>span lite</em> can provide <code>back()</code> and <code>front()</code> member functions for element access. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h2>Non-standard extensions</h2>
+<h3>Construct from std::initializer_list (p2447)</h3>
+<p><em>span lite</em> can provide construction from a std::initializer_list&lt;&gt; as a constant set of values as proposed in <a href="https://wg21.link/p2447">p2447</a>. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3>Construct from container</h3>
+<p>To construct a span from a container with compilers that cannot constrain such a single-parameter constructor to containers, <em>span lite</em> provides a constructor that takes an additional parameter of type <code>with_container_t</code>. Use <code>with_container</code> as value for this parameter. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3>Construct from <code>std::array</code> with const data</h3>
+<p><em>span lite</em> can provide construction of a span from a <code>std::array</code> with const data. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3><code>operator()</code></h3>
+<p><em>span lite</em> can provide member function call <code>operator()</code> for element access. It is equivalent to <code>operator[]</code> and has been marked <code>[[deprecated]]</code>. Its main purpose is to provide a migration path. </p>
+<h3><code>at()</code></h3>
+<p><em>span lite</em> can provide member function <code>at()</code> for element access. Unless exceptions have been disabled, <code>at()</code> throws std::out_of_range if the index falls outside the span. With exceptions disabled, <code>at(index_t)</code> delegates bounds checking to <code>operator[](index_t)</code>. See the table below and sections <a href="#configuration">configuration</a> and <a href="#disable-exceptions">disable exceptions</a>.</p>
+<h3><code>swap()</code></h3>
+<p><em>span lite</em> can provide a <code>swap()</code>member function. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3><code>operator==()</code> and other comparison functions</h3>
+<p><em>span lite</em> can provide functions to compare the content of two spans. However, C++20's span will not provide comparison and <em>span lite</em> will omit comparison at default in the near future. See the table below and section <a href="#configuration">configuration</a>. See also <a href="#regtyp">Revisiting Regular Types</a>.</p>
+<h3><code>same()</code></h3>
+<p><em>span lite</em> can provide function <code>same()</code> to determine if two spans refer as identical spans to the same data via the same type. If <code>same()</code> is enabled, <code>operator==()</code> incorporates it in its comparison. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3><code>first()</code>, <code>last()</code> and <code>subspan()</code></h3>
+<p><em>span lite</em> can provide functions <code>first()</code>, <code>last()</code> and <code>subspan()</code> to avoid having to use the <em>dot template</em> syntax when the span is a dependent type. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3><code>make_span()</code></h3>
+<p><em>span lite</em> can provide <code>make_span()</code> creator functions to compensate for the class template argument deduction that is missing from pre-C++17 compilers. See the table below and section <a href="#configuration">configuration</a>.</p>
+<h3><code>byte_span()</code></h3>
+<p><em>span lite</em> can provide <code>byte_span()</code> creator functions to represent an object as a span of bytes. This requires the C++17 type <code>std::byte</code> to be available. See the table below and section <a href="#configuration">configuration</a>.</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>std</th>
+<th>Function or method</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Macro</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_WITH_INITIALIZER_LIST_P2447</code></strong></td>
+</tr>
+<tr>
+<td><strong>Constructor</strong><br>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr explicit <strong>span</strong>( std::initializer_list&lt;value_type&gt; il ) noexcept<br>explicit for non-dynamic extent</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Macro</strong><br>&nbsp;</td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_WITH_CONTAINER</code></strong><br>macro <strong><code>span_FEATURE_WITH_CONTAINER_TO_STD</code></strong></td>
+</tr>
+<tr>
+<td><strong>Types</strong></td>
+<td>&nbsp;</td>
+<td><strong>with_container_t</strong> type to disambiguate below constructors</td>
+</tr>
+<tr>
+<td><strong>Objects</strong></td>
+<td>&nbsp;</td>
+<td><strong>with_container</strong> value to disambiguate below constructors</td>
+</tr>
+<tr>
+<td><strong>Constructors</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_CONSTRUCTION_FROM_STDARRAY_ELEMENT_TYPE</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class Container&gt;<br>constexpr <strong>span</strong>(with_container_t, Container &amp; cont)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class Container&gt;<br>constexpr <strong>span</strong>(with_container_t, Container const &amp; cont)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_MEMBER_CALL_OPERATOR</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr reference <strong>operator()</strong>(index_t idx) const<br>Equivalent to <strong>operator[]</strong>(), marked <code>[[deprecated]]</code></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_MEMBER_AT</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr reference <strong>at</strong>(index_t idx) const<br>May throw std::out_of_range exception</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Methods</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_MEMBER_BACK_FRONT</code></strong> (on since v0.5.0)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr reference <strong>back()</strong> const noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr reference <strong>front()</strong> const noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Method</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_MEMBER_SWAP</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>constexpr void <strong>swap</strong>(span &amp; other) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_COMPARISON</code></strong></td>
+</tr>
+<tr>
+<td><br><br>== != &lt; &gt; &lt;= &gt;=</td>
+<td>&nbsp;</td>
+<td>template&lt;class T1, index_t E1, class T2, index_t E2&gt;<br>constexpr bool<br><strong>operator==</strong>( span&lt;T1,E1&gt; const &amp; l, span&lt;T2,E2&gt; const &amp; r) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free function</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_SAME</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T1, index_t E1, class T2, index_t E2&gt;<br>constexpr bool<br><strong>same</strong>( span&lt;T1,E1&gt; const &amp; l, span&lt;T2,E2&gt; const &amp; r) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong><br>&nbsp;<br>&nbsp;</td>
+<td>&nbsp;</td>
+<td>macros <strong><code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB</code></strong>,<br><strong><code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_SPAN</code></strong>,<br><strong><code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_CONTAINER</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_SPAN</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;extent_t Count, class T, extent_t Extent&gt;<br>constexpr span&lt;T,Count&gt;<br><strong>first</strong>(span&lt;T,Extent&gt; spn)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T, extent_t Extent &gt;<br>constexpr span&lt;T&gt;<br><strong>first</strong>(span&lt;T,Extent&gt; spn, size_t count)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;extent_t Count, class T, extent_t Extent&gt;<br>constexpr span&lt;T,Count&gt;<br><strong>last</strong>(span&lt;T,Extent&gt; spn)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T, extent_t Extent &gt;<br>constexpr span&lt;T&gt;<br><strong>last</strong>(span&lt;T,Extent&gt; spn, size_t count)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;size_t Offset, extent_t Count, class T, extent_t Extent&gt;<br>constexpr span&lt;T, Count&gt;<br><strong>subspan</strong>(span&lt;T, Extent&gt; spn)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T, extent_t Extent&gt;<br>constexpr span&lt;T&gt;<br><strong>subspan</strong>( span&lt;T, Extent&gt; spn, size_t offset, extent_t count = dynamic_extent)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_CONTAINER</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;extent_t Count, class T&gt;<br>constexpr auto<br><strong>first</strong>(T &amp; t) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>constexpr auto<br><strong>first</strong>(T &amp; t, index_t count) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;extent_t Count, class T&gt;<br>constexpr auto<br><strong>last</strong>(T &amp; t) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>constexpr auto<br><strong>last</strong>(T &amp; t, extent_t count) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;index_t Offset, extent_t Count = dynamic_extent, class T&gt;<br>constexpr auto<br><strong>subspan</strong>(T &amp; t) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>constexpr auto<br><strong>subspan</strong>(T &amp; t, index_t offset, extent_t count = dynamic_extent) -&gt;...</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong><br>&nbsp;</td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_MAKE_SPAN</code></strong><br>macro <strong><code>span_FEATURE_MAKE_SPAN_TO_STD</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T&gt;<br>constexpr span&lt;T&gt;<br><strong>make_span</strong>(T * first, T * last) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T&gt;<br>constexpr span&lt;T&gt;<br><strong>make_span</strong>(T * ptr, index_t count) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class T, size_t N&gt;<br>constexpr span&lt;T,N&gt;<br><strong>make_span</strong>(T (&amp;arr)[N]) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T, size_t N&gt;<br>constexpr span&lt;T,N&gt;<br><strong>make_span</strong>(std::array&lt;T,N&gt; &amp; arr) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T, size_t N&gt;<br>constexpr span&lt;const T,N&gt;<br><strong>make_span</strong>(std::array&lt;T,N &gt; const &amp; arr) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>constexpr span&lt;T&gt;<br><strong>make_span</strong>(std::initializer_list&lt;T&gt; il) noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class Container&gt;<br>constexpr auto<br><strong>make_span</strong>(Container &amp; cont) -&gt;<br> span&lt;typename Container::value_type&gt; noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class Container&gt;<br>constexpr auto<br><strong>make_span</strong>(Container const &amp; cont) -&gt;<br> span&lt;const typename Container::value_type&gt; noexcept</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class Container&gt;<br>span&lt;typename Container::value_type&gt;<br><strong>make_span</strong>( with_container_t, Container &amp; cont )</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>template&lt;class Container&gt;<br>span&lt;const typename Container::value_type&gt;<br><strong>make_span</strong>( with_container_t, Container const &amp; cont )</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&lt; C++11</td>
+<td>template&lt;class T, Allocator&gt;<br>span&lt;T&gt;<br><strong>make_span</strong>(std::vector&lt;T, Allocator&gt; &amp; cont)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&lt; C++11</td>
+<td>template&lt;class T, Allocator&gt;<br>span&lt;const T&gt;<br><strong>make_span</strong>(std::vector&lt;T, Allocator&gt; const &amp; cont)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr>
+<td><strong>Free functions</strong></td>
+<td>&nbsp;</td>
+<td>macro <strong><code>span_FEATURE_BYTE_SPAN</code></strong></td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>span&lt;T, sizeof(T)&gt;<br><strong>byte_span</strong>(T &amp; t)</td>
+</tr>
+<tr>
+<td>&nbsp;</td>
+<td>&gt;= C++11</td>
+<td>template&lt;class T&gt;<br>span&lt;const T, sizeof(T)&gt;<br><strong>byte_span</strong>(T const &amp; t)</td>
+</tr>
+</tbody></table>
+<h2>Configuration</h2>
+<h3>Tweak header</h3>
+<p>If the compiler supports <a href="https://en.cppreference.com/w/cpp/preprocessor/include"><code>__has_include()</code></a>, <em>span lite</em> supports the <a href="https://vector-of-bool.github.io/2020/10/04/lib-configuration.html">tweak header</a> mechanism. Provide your <em>tweak header</em> as <code>nonstd/span.tweak.hpp</code> in a folder in the include-search-path. In the tweak header, provide definitions as documented below, like <code>#define span_CONFIG_NO_EXCEPTIONS 1</code>.</p>
+<h3>Standard selection macro</h3>
+<p>-D<b>span_CPLUSPLUS</b>=199711L<br>Define this macro to override the auto-detection of the supported C++ standard, if your compiler does not set the <code>__cplusplus</code> macro correctly.</p>
+<h3>Select <code>std::span</code> or <code>nonstd::span</code></h3>
+<p>At default, <em>span lite</em> uses <code>std::span</code> if it is available and lets you use it via namespace <code>nonstd</code>. You can however override this default and explicitly request to use <code>std::span</code> or span lite's <code>nonstd::span</code> as <code>nonstd::span</code> via the following macros.</p>
+<p>-D<b>span_CONFIG_SELECT_SPAN</b>=span_SPAN_DEFAULT<br>Define this to <code>span_SPAN_STD</code> to select <code>std::span</code> as <code>nonstd::span</code>. Define this to <code>span_SPAN_NONSTD</code> to select <code>nonstd::span</code> as <code>nonstd::span</code>. Default is undefined, which has the same effect as defining to <code>span_SPAN_DEFAULT</code>.</p>
+<h3>Select extent type</h3>
+<p>-D<b>span_CONFIG_EXTENT_TYPE</b>=std::size_t<br>Define this to <code>std::ptrdiff_t</code> to use the signed type. The default is <code>std::size_t</code>, as in C++20 (since v0.7.0).</p>
+<h3>Select size type</h3>
+<p>-D<b>span_CONFIG_SIZE_TYPE</b>=std::size_t<br>Define this to <code>std::ptrdiff_t</code> to use the signed type. The default is <code>std::size_t</code>, as in C++20 (since v0.7.0). Note <code>span_CONFIG_SIZE_TYPE</code> replaces <code>span_CONFIG_INDEX_TYPE</code> which is deprecated.</p>
+<h3>Disable exceptions</h3>
+<p>-D<b>span_CONFIG_NO_EXCEPTIONS</b>=0<br>Define this to 1 if you want to compile without exceptions. If not defined, the header tries and detect if exceptions have been disabled (e.g. via <code>-fno-exceptions</code>). Disabling exceptions will force contract violation to use termination, see <a href="#contract-violation-response-macros">contract violation macros</a>. Default is undefined.</p>
+<h3>Provide construction from std::initializer_list (p2447)</h3>
+<p>-D<b>span_FEATURE_WITH_INITIALIZER_LIST_P2447</b>=0<br>Define this to 1 to enable constructing a span from a std::initializer_list&lt;&gt; as a constant set of values. See proposal <a href="https://wg21.link/p2447">p2447</a>. Default is undefined.</p>
+<h3>Provide construction using <code>with_container_t</code></h3>
+<p>-D<b>span_FEATURE_WITH_CONTAINER</b>=0<br>Define this to 1 to enable constructing a span using <code>with_container_t</code>. Note that <code>span_FEATURE_WITH_CONTAINER</code> takes precedence over <code>span_FEATURE_WITH_CONTAINER_TO_STD</code>. Default is undefined.</p>
+<p>-D<b>span_FEATURE_WITH_CONTAINER_TO_STD</b>=<em>n</em><br>Define this to the highest C++ language version for which to enable constructing a span using <code>with_container_t</code>, like 98, 03, 11, 14, 17, 20. You can use 99 for inclusion with any standard, but prefer to use <code>span_FEATURE_WITH_CONTAINER</code> for this. Note that <code>span_FEATURE_WITH_CONTAINER</code> takes precedence over <code>span_FEATURE_WITH_CONTAINER_TO_STD</code>. Default is undefined.</p>
+<h3>Provide construction from <code>std::array</code> with const data</h3>
+<p>-D<b>span_FEATURE_CONSTRUCTION_FROM_STDARRAY_ELEMENT_TYPE</b>=0<br>Define this to 1 to enable constructing a span from a std::array with const data. Default is undefined.</p>
+<h3>Provide <code>operator()</code> member function</h3>
+<p>-D<b>span_FEATURE_MEMBER_CALL_OPERATOR</b>=0<br>Define this to 1 to provide member function <code>operator()</code>for element access. It is equivalent to <code>operator[]</code> and has been marked <code>[[deprecated]]</code>. Its main purpose is to provide a migration path. Default is undefined.</p>
+<h3>Provide <code>at()</code> member function</h3>
+<p>-D<b>span_FEATURE_MEMBER_AT</b>=0<br>Define this to 1 to provide member function <code>at()</code>. Define this to 2 to include index and size in message of std::out_of_range exception. Default is undefined.</p>
+<h3>Provide <code>back()</code> and <code>front()</code> member functions</h3>
+<p>-D<b>span_FEATURE_MEMBER_BACK_FRONT</b>=1  <em>(on since v0.5.0)</em><br>Define this to 0 to omit member functions <code>back()</code> and <code>front()</code>. Default is undefined.</p>
+<h3>Provide <code>swap()</code> member function</h3>
+<p>-D<b>span_FEATURE_MEMBER_SWAP</b>=0<br>Define this to 1 to provide member function <code>swap()</code>. Default is undefined.</p>
+<h3>Provide <code>operator==()</code> and other comparison functions</h3>
+<p>-D<b>span_FEATURE_COMPARISON</b>=0<br>Define this to 1 to include the comparison functions to compare the content of two spans. C++20's span does not provide comparison and <em>span lite</em> omits comparison from v0.7.0. Default is undefined.</p>
+<h3>Provide <code>same()</code> function</h3>
+<p>-D<b>span_FEATURE_SAME</b>=0<br>Define this to 1 to provide function <code>same()</code> to test if two spans refer as identical spans to the same data via the same type. If <code>same()</code> is enabled, <code>operator==()</code> incorporates it in its comparison. Default is undefined.</p>
+<h3>Provide <code>first()</code>, <code>last()</code> and <code>subspan()</code> functions</h3>
+<p>-D<b>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB</b>=0<br>Define this to 1 to enable both <code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_SPAN</code> and <code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_CONTAINER</code>. Default is undefined.</p>
+<p>-D<b>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_SPAN</b>=0<br>Define this to 1 to provide functions <code>first()</code>, <code>last()</code> and <code>subspan()</code> that take a <code>span&lt;&gt;</code> (work with C++98). This implies <code>span_FEATURE_MAKE_SPAN</code> to provide functions <code>make_span()</code> that are required for this feature. Default is undefined.</p>
+<p>-D<b>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB_CONTAINER</b>=0<br>Define this to 1 to provide functions <code>first()</code>, <code>last()</code> and <code>subspan()</code> that take a compatible container (requires C++11). This implies <code>span_FEATURE_MAKE_SPAN</code> to provide functions <code>make_span()</code> that are required for this feature. Default is undefined.</p>
+<h3>Provide <code>make_span()</code> functions</h3>
+<p>-D<b>span_FEATURE_MAKE_SPAN</b>=0<br>Define this to 1 to provide creator functions <code>nonstd::make_span()</code>. This feature is implied by using <code>span_FEATURE_NON_MEMBER_FIRST_LAST_SUB=1</code>. Note that <code>span_FEATURE_MAKE_SPAN</code> takes precedence over <code>span_FEATURE_MAKE_SPAN_TO_STD</code>. Default is undefined.</p>
+<p>-D<b>span_FEATURE_MAKE_SPAN_TO_STD</b>=<em>n</em><br>Define this to the highest C++ language version for which to provide creator functions <code>nonstd::make_span()</code>, like 98, 03, 11, 14, 17, 20. You can use 99 for inclusion with any standard, but prefer to use <code>span_FEATURE_MAKE_SPAN</code> for this. Note that <code>span_FEATURE_MAKE_SPAN</code> takes precedence over <code>span_FEATURE_MAKE_SPAN_TO_STD</code>. Default is undefined.</p>
+<h3>Provide <code>byte_span()</code> functions</h3>
+<p>-D<b>span_FEATURE_BYTE_SPAN</b>=0<br>Define this to 1 to provide creator functions <code>nonstd::byte_span()</code>. Default is undefined.</p>
+<h3>Contract violation response macros</h3>
+<p><em>span-lite</em> provides contract violation response control as suggested in proposal <a href="http://wg21.link/n4415">N4415</a>.</p>
+<p>-D<b>span_CONFIG_CONTRACT_LEVEL_ON</b>  (<em>default</em>)<br>Define this macro to include both <code>span_EXPECTS</code> and <code>span_ENSURES</code> in the code. This is the default case.</p>
+<p>-D<b>span_CONFIG_CONTRACT_LEVEL_OFF</b><br>Define this macro to exclude both <code>span_EXPECTS</code> and <code>span_ENSURES</code> from the code.</p>
+<p>-D<b>span_CONFIG_CONTRACT_LEVEL_EXPECTS_ONLY</b><br>Define this macro to include <code>span_EXPECTS</code> in the code and exclude <code>span_ENSURES</code> from the code.</p>
+<p>-D<b>span_CONFIG_CONTRACT_LEVEL_ENSURES_ONLY</b><br>Define this macro to exclude <code>span_EXPECTS</code> from the code and include <code>span_ENSURES</code> in the code.</p>
+<p>-D<b>span_CONFIG_CONTRACT_VIOLATION_TERMINATES</b>  (<em>default</em>)<br>Define this macro to call <code>std::terminate()</code> on a contract violation in <code>span_EXPECTS</code>, <code>span_ENSURES</code>. This is the default case.</p>
+<p>-D<b>span_CONFIG_CONTRACT_VIOLATION_THROWS</b><br>Define this macro to throw an exception of implementation-defined type that is derived from <code>std::runtime_exception</code> instead of calling <code>std::terminate()</code> on a contract violation in <code>span_EXPECTS</code> and <code>span_ENSURES</code>. See also <a href="#disable-exceptions">disable exceptions</a>.</p>
+<h2>Reported to work with</h2>
+<p>The table below mentions the compiler versions <em>span lite</em> is reported to work with.</p>
+<table>
+<thead>
+<tr>
+<th align="right">OS</th>
+<th align="left">Compiler</th>
+<th align="left">Where</th>
+<th align="left">Versions</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="right"><strong>GNU/Linux</strong></td>
+<td align="left">Clang/LLVM</td>
+<td align="left">Travis</td>
+<td align="left">3.5.0, 3.6.2, 3.7.1, 3.8.0, 3.9.1, 4.0.1</td>
+</tr>
+<tr>
+<td align="right">&nbsp;</td>
+<td align="left">GCC</td>
+<td align="left">Travis</td>
+<td align="left">5.5.0, 6.4.0, 7.3.0</td>
+</tr>
+<tr>
+<td align="right"><strong>OS X</strong></td>
+<td align="left">?</td>
+<td align="left">Local</td>
+<td align="left">?</td>
+</tr>
+<tr>
+<td align="right"><strong>Windows</strong></td>
+<td align="left">Clang/LLVM</td>
+<td align="left">Local</td>
+<td align="left">6.0.0</td>
+</tr>
+<tr>
+<td align="right">&nbsp;</td>
+<td align="left">GCC</td>
+<td align="left">Local</td>
+<td align="left">7.2.0</td>
+</tr>
+<tr>
+<td align="right">&nbsp;</td>
+<td align="left">Visual C++<br>(Visual Studio)</td>
+<td align="left">Local</td>
+<td align="left">8 (2005), 10 (2010), 11 (2012),<br>12 (2013), 14 (2015), 15 (2017)</td>
+</tr>
+<tr>
+<td align="right">&nbsp;</td>
+<td align="left">Visual C++<br>(Visual Studio)</td>
+<td align="left">AppVeyor</td>
+<td align="left">10 (2010), 11 (2012),<br>12 (2013), 14 (2015), 15 (2017)</td>
+</tr>
+</tbody></table>
+<h2>Building the tests</h2>
+<p>To build the tests you need:</p>
+<ul>
+<li><a href="http://cmake.org">CMake</a>, version 3.0 or later to be installed and in your PATH.</li>
+<li>A <a href="#reported-to-work-with">suitable compiler</a>.</li>
+</ul>
+<p>The <a href="https://github.com/martinmoene/lest"><em>lest</em> test framework</a> is included in the <a href="test">test folder</a>.</p>
+<p>The following steps assume that the <a href="https://github.com/martinmoene/span-lite"><em>span lite</em> source code</a> has been cloned into a directory named <code>./span-lite</code>.</p>
+<ol>
+<li><p>Create a directory for the build outputs.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cd ./span-lite
+ md build &amp;&amp; cd build" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cd .</span><span style="color:#D73A49">/</span><span style="color:#24292E">span</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite</span></span>
+<span class="line"><span style="color:#24292E"> md build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span></code></pre>
+</li>
+<li><p>Configure CMake to use the compiler of your choice (run <code>cmake --help</code> for a list).</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake -G &quot;Unix Makefiles&quot; -DSPAN_LITE_OPT_BUILD_TESTS=ON .." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">G </span><span style="color:#032F62">"Unix Makefiles"</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DSPAN_LITE_OPT_BUILD_TESTS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E"> ..</span></span></code></pre>
+</li>
+<li><p>Optional. You can control above configuration through the following options:</p>
+<p> <code>-DSPAN_LITE_OPT_BUILD_TESTS=ON</code>: build the tests for span, default off<br> <code>-DSPAN_LITE_OPT_BUILD_EXAMPLES=OFF</code>: build the examples, default off  </p>
+</li>
+<li><p>Build the test suite.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake --build ." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span></code></pre>
+</li>
+<li><p>Run the test suite.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ctest -V" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ctest </span><span style="color:#D73A49">-</span><span style="color:#24292E">V</span></span></code></pre>
+</li>
+</ol>
+<p>All tests should pass, indicating your platform is supported and you are ready to use <em>span lite</em>.</p>
+<h2>Other implementations of span</h2>
+<ul>
+<li><em>gsl-lite</em> <a href="https://github.com/martinmoene/gsl-lite/blob/73c4f16f2b35fc174fc2f09d44d5ab13e5c638c3/include/gsl/gsl-lite.hpp#L1221">span</a>.</li>
+<li>Microsoft GSL <a href="https://github.com/Microsoft/GSL/blob/master/include/gsl/span">span</a>.</li>
+<li>Google Abseil <a href="https://github.com/abseil/abseil-cpp/blob/master/absl/types/span.h">span</a>.</li>
+<li>Marshall Clow's <a href="https://github.com/mclow/snippets/blob/master/span.cpp">libc++ span snippet</a>.</li>
+<li>Tristan Brindle's <a href="https://github.com/tcbrindle/span">Implementation of C++20's std::span for older compilers</a>.</li>
+<li><a href="https://github.com/search?l=C%2B%2B&amp;q=span+c%2B%2B&amp;type=Repositories&amp;utf8=%E2%9C%93">Search <em>span c++</em> on GitHub</a>.</li>
+</ul>
+<h2>Notes and references</h2>
+<p><em>Interface and specification</em></p>
+<ul>
+<li><a href="https://en.cppreference.com/w/cpp/container/span">span on cppreference</a>.</li>
+<li><a href="http://wg21.link/p0122">p0122 - C++20 Proposal</a>.</li>
+<li><a href="http://eel.is/c++draft/views">span in C++20 Working Draft</a>.</li>
+</ul>
+<p><em>Presentations</em></p>
+<ul>
+<li>TBD</li>
+</ul>
+<p><em>Proposals</em></p>
+<ul>
+<li><a href="http://wg21.link/p0122">p0122 - span: bounds-safe views for sequences of objects</a>.</li>
+<li><a href="http://wg21.link/p1024">p1024 - Usability Enhancements for std::span</a>.</li>
+<li><a href="http://wg21.link/p1419">p1419 - A SFINAE-friendly trait to determine the extent of statically sized containers</a>.  </li>
+<li><a href="http://wg21.link/p0805">p0805 - Comparing Containers</a>.</li>
+<li><a href="http://wg21.link/p0805">p1085 - Should Span be Regular?</a>.</li>
+<li><a href="http://wg21.link/p0091">p0091 - Template argument deduction for class templates</a>.</li>
+<li><a href="http://wg21.link/p0856">p0856 - Restrict Access Property for mdspan and span</a>.</li>
+<li><a href="http://wg21.link/p1428">p1428 - Subscripts and sizes should be signed</a>.</li>
+<li><a href="http://wg21.link/p1089">p1089 - Sizes Should Only span Unsigned</a>.</li>
+<li><a href="http://wg21.link/p1227">p1227 - Signed size() functions</a>.</li>
+<li><a href="http://wg21.link/p1872">p1872 - span should have size_type, not index_type</a>.</li>
+<li><a href="https://wg21.link/p2447">p2447 - std::span and the missing constructor</a>.</li>
+<li><a href="https://cplusplus.github.io/LWG/issue3101">lwg 3101 - span's Container constructors need another constraint</a>.</li>
+<li><a href="https://www.reddit.com/r/cpp/comments/8prqzm/2018_rapperswil_iso_c_committee_trip_report/">Reddit - 2018-06 Rapperswil ISO C++ Committee Trip Report</a></li>
+<li><a href="https://www.reddit.com/r/cpp/comments/9vwvbz/2018_san_diego_iso_c_committee_trip_report_ranges/">Reddit - 2018-11 San Diego ISO C++ Committee Trip Report</a>.</li>
+<li><a href="https://www.reddit.com/r/cpp/comments/au0c4x/201902_kona_iso_c_committee_trip_report_c20/">Reddit - 2019-02 Kona ISO C++ Committee Trip Report</a>.</li>
+<li><a href="https://www.reddit.com/r/cpp/comments/cfk9de/201907_cologne_iso_c_committee_trip_report_the/">Reddit - 2019-07 Cologne ISO C++ Committee Trip Report</a></li>
+<li><a href="https://www.reddit.com/r/cpp/comments/dtuov8/201911_belfast_iso_c_committee_trip_report/">Reddit - 2019-11 Belfast ISO C++ Committee Trip Report</a></li>
+<li><a></a>Titus Winters. <a href="https://abseil.io/blog/20180531-regular-types">Revisiting Regular Types</a>. Abseil Blog. 31 May 2018.</li>
+</ul>
+<h2>Appendix</h2>
+<h3>A.1 Compile-time information</h3>
+<p>The version of <em>span lite</em> is available via tag <code>[.version]</code>. The following tags are available for information on the compiler and on the C++ standard library used: <code>[.compiler]</code>, <code>[.stdc++]</code>, <code>[.stdlanguage]</code> and <code>[.stdlibrary]</code>.</p>
+<h3>A.2 Span lite test specification</h3>
+<details>
+<summary>click to expand</summary>
+<p>
+
+</p><pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="span&lt;&gt;: Terminates construction from a nullptr and a non-zero size (C++11)
+span&lt;&gt;: Terminates construction from two pointers in the wrong order
+span&lt;&gt;: Terminates construction from a null pointer and a non-zero size
+span&lt;&gt;: Terminates creation of a sub span of the first n elements for n exceeding the span
+span&lt;&gt;: Terminates creation of a sub span of the last n elements for n exceeding the span
+span&lt;&gt;: Terminates creation of a sub span outside the span
+span&lt;&gt;: Terminates access outside the span
+span&lt;&gt;: Throws  on access outside the span via at(): std::out_of_range [span_FEATURE_MEMBER_AT&gt;0][span_CONFIG_NO_EXCEPTIONS=0]
+span&lt;&gt;: Termination throws std::logic_error-derived exception [span_CONFIG_CONTRACT_VIOLATION_THROWS=1]
+span&lt;&gt;: Allows to default-construct
+span&lt;&gt;: Allows to construct from a nullptr and a zero size (C++11)
+span&lt;&gt;: Allows to construct from two pointers
+span&lt;&gt;: Allows to construct from two iterators
+span&lt;&gt;: Allows to construct from two iterators - empty range
+span&lt;&gt;: Allows to construct from two iterators - move-only element
+span&lt;&gt;: Allows to construct from an iterator and a size
+span&lt;&gt;: Allows to construct from an iterator and a size - empty range
+span&lt;&gt;: Allows to construct from an iterator and a size - move-only element
+span&lt;&gt;: Allows to construct from two pointers to const
+span&lt;&gt;: Allows to construct from a non-null pointer and a size
+span&lt;&gt;: Allows to construct from a non-null pointer to const and a size
+span&lt;&gt;: Allows to construct from a temporary pointer and a size
+span&lt;&gt;: Allows to construct from a temporary pointer to const and a size
+span&lt;&gt;: Allows to construct from any pointer and a zero size (C++98)
+span&lt;&gt;: Allows to construct from a pointer and a size via a deduction guide (C++17)
+span&lt;&gt;: Allows to construct from an iterator and a size via a deduction guide (C++17)
+span&lt;&gt;: Allows to construct from two iterators via a deduction guide (C++17)
+span&lt;&gt;: Allows to construct from a C-array
+span&lt;&gt;: Allows to construct from a C-array via a deduction guide (C++17)
+span&lt;&gt;: Allows to construct from a const C-array
+span&lt;&gt;: Allows to construct from a C-array with size via decay to pointer (potentially dangerous)
+span&lt;&gt;: Allows to construct from a const C-array with size via decay to pointer (potentially dangerous)
+span&lt;&gt;: Allows to construct from a std::initializer_list&lt;&gt; (C++11)
+span&lt;&gt;: Allows to construct from a std::initializer_list&lt;&gt; as a constant set of values (C++11, p2447)
+span&lt;&gt;: Allows to construct from a std::array&lt;&gt; (C++11)
+span&lt;&gt;: Allows to construct from a std::array via a deduction guide (C++17)
+span&lt;&gt;: Allows to construct from a std::array&lt;&gt; with const data (C++11, span_FEATURE_CONSTR..._ELEMENT_TYPE=1)
+span&lt;&gt;: Allows to construct from an empty std::array&lt;&gt; (C++11)
+span&lt;&gt;: Allows to construct from a container (std::vector&lt;&gt;)
+span&lt;&gt;: Allows to construct from a container via a deduction guide (std::vector&lt;&gt;, C++17)
+span&lt;&gt;: Allows to tag-construct from a container (std::vector&lt;&gt;)
+span&lt;&gt;: Allows to tag-construct from a const container (std::vector&lt;&gt;)
+span&lt;&gt;: Allows to copy-construct from another span of the same type
+span&lt;&gt;: Allows to copy-construct from another span of a compatible type
+span&lt;&gt;: Allows to copy-construct from a temporary span of the same type (C++11)
+span&lt;&gt;: Allows to copy-assign from another span of the same type
+span&lt;&gt;: Allows to copy-assign from a temporary span of the same type (C++11)
+span&lt;&gt;: Allows to create a sub span of the first n elements
+span&lt;&gt;: Allows to create a sub span of the last n elements
+span&lt;&gt;: Allows to create a sub span starting at a given offset
+span&lt;&gt;: Allows to create a sub span starting at a given offset with a given length
+span&lt;&gt;: Allows to observe an element via array indexing
+span&lt;&gt;: Allows to observe an element via call indexing
+span&lt;&gt;: Allows to observe an element via at() [span_FEATURE_MEMBER_AT&gt;0]
+span&lt;&gt;: Allows to observe an element via data()
+span&lt;&gt;: Allows to observe the first element via front() [span_FEATURE_MEMBER_BACK_FRONT=1]
+span&lt;&gt;: Allows to observe the last element via back() [span_FEATURE_MEMBER_BACK_FRONT=1]
+span&lt;&gt;: Allows to change an element via array indexing
+span&lt;&gt;: Allows to change an element via call indexing
+span&lt;&gt;: Allows to change an element via at() [span_FEATURE_MEMBER_AT&gt;0]
+span&lt;&gt;: Allows to change an element via data()
+span&lt;&gt;: Allows to change the first element via front() [span_FEATURE_MEMBER_BACK_FRONT=1]
+span&lt;&gt;: Allows to change the last element via back() [span_FEATURE_MEMBER_BACK_FRONT=1]
+span&lt;&gt;: Allows to swap with another span [span_FEATURE_MEMBER_SWAP=1]
+span&lt;&gt;: Allows forward iteration
+span&lt;&gt;: Allows const forward iteration
+span&lt;&gt;: Allows reverse iteration
+span&lt;&gt;: Allows const reverse iteration
+span&lt;&gt;: Allows to identify if a span is the same as another span [span_FEATURE_SAME=1]
+span&lt;&gt;: Allows to compare equal to another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare unequal to another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare less than another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare less than or equal to another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare greater than another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare greater than or equal to another span of the same type [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to compare to another span of the same type and different cv-ness [span_FEATURE_SAME=0]
+span&lt;&gt;: Allows to compare empty spans as equal [span_FEATURE_COMPARISON=1]
+span&lt;&gt;: Allows to test for empty span via empty(), empty case
+span&lt;&gt;: Allows to test for empty span via empty(), non-empty case
+span&lt;&gt;: Allows to obtain the number of elements via size()
+span&lt;&gt;: Allows to obtain the number of elements via ssize()
+span&lt;&gt;: Allows to obtain the number of bytes via size_bytes()
+span&lt;&gt;: Allows to view the elements as read-only bytes
+span&lt;&gt;: Allows to view and change the elements as writable bytes
+make_span() [span_FEATURE_MAKE_SPAN_TO_STD=99]
+make_span(): Allows building from two pointers
+make_span(): Allows building from two const pointers
+make_span(): Allows building from a non-null pointer and a size
+make_span(): Allows building from a non-null const pointer and a size
+make_span(): Allows building from a C-array
+make_span(): Allows building from a const C-array
+make_span(): Allows building from a std::initializer_list&lt;&gt; (C++11)
+make_span(): Allows building from a std::initializer_list&lt;&gt; as a constant set of values (C++11)
+make_span(): Allows building from a std::array&lt;&gt; (C++11)
+make_span(): Allows building from a const std::array&lt;&gt; (C++11)
+make_span(): Allows building from a container (std::vector&lt;&gt;)
+make_span(): Allows building from a const container (std::vector&lt;&gt;)
+make_span(): Allows building from a container (with_container_t, std::vector&lt;&gt;)
+make_span(): Allows building from a const container (with_container_t, std::vector&lt;&gt;)
+byte_span() [span_FEATURE_BYTE_SPAN=1]
+byte_span(): Allows building a span of std::byte from a single object (C++17, byte-lite)
+byte_span(): Allows building a span of const std::byte from a single const object (C++17, byte-lite)
+first(), last(), subspan() [span_FEATURE_NON_MEMBER_FIRST_LAST_SUB=1]
+first(): Allows to create a sub span of the first n elements (span, template parameter)
+first(): Allows to create a sub span of the first n elements (span, function parameter)
+first(): Allows to create a sub span of the first n elements (compatible container, template parameter)
+first(): Allows to create a sub span of the first n elements (compatible container, function parameter)
+last(): Allows to create a sub span of the last n elements (span, template parameter)
+last(): Allows to create a sub span of the last n elements (span, function parameter)
+last(): Allows to create a sub span of the last n elements (compatible container, template parameter)
+last(): Allows to create a sub span of the last n elements (compatible container, function parameter)
+subspan(): Allows to create a sub span starting at a given offset (span, template parameter)
+subspan(): Allows to create a sub span starting at a given offset (span, function parameter)
+subspan(): Allows to create a sub span starting at a given offset (compatible container, template parameter)
+subspan(): Allows to create a sub span starting at a given offset (compatible container, function parameter)
+size(): Allows to obtain the number of elements via size()
+ssize(): Allows to obtain the number of elements via ssize()
+tuple_size&lt;&gt;: Allows to obtain the number of elements via std::tuple_size&lt;&gt; (C++11)
+tuple_element&lt;&gt;: Allows to obtain an element via std::tuple_element&lt;&gt; (C++11)
+tuple_element&lt;&gt;: Allows to obtain an element via std::tuple_element_t&lt;&gt; (C++11)
+get&lt;I&gt;(spn): Allows to access an element via std::get&lt;&gt;()
+tweak header: reads tweak header if supported [tweak]" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates construction </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a nullptr </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">zero size (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates construction </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two pointers </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the wrong order</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates construction </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a null pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">zero size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates creation of a sub span of the first n elements </span><span style="color:#D73A49">for</span><span style="color:#24292E"> n exceeding the span</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates creation of a sub span of the last n elements </span><span style="color:#D73A49">for</span><span style="color:#24292E"> n exceeding the span</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates creation of a sub span outside the span</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Terminates access outside the span</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Throws  on access outside the span via at(): std::out_of_range [span_FEATURE_MEMBER_AT</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">0</span><span style="color:#24292E">][span_CONFIG_NO_EXCEPTIONS=</span><span style="color:#005CC5">0</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Termination throws std::logic_error</span><span style="color:#D73A49">-</span><span style="color:#24292E">derived exception [span_CONFIG_CONTRACT_VIOLATION_THROWS=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to default</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a nullptr </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a zero size (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two pointers</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two iterators</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two iterators </span><span style="color:#D73A49">-</span><span style="color:#24292E"> empty </span><span style="color:#005CC5">range</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two iterators </span><span style="color:#D73A49">-</span><span style="color:#24292E"> move</span><span style="color:#D73A49">-</span><span style="color:#24292E">only element</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an iterator </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an iterator </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size </span><span style="color:#D73A49">-</span><span style="color:#24292E"> empty </span><span style="color:#005CC5">range</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an iterator </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size </span><span style="color:#D73A49">-</span><span style="color:#24292E"> move</span><span style="color:#D73A49">-</span><span style="color:#24292E">only element</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two pointers to const</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">null pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">null pointer to const </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a temporary pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a temporary pointer to const </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#005CC5"> any</span><span style="color:#24292E"> pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a zero size (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">98</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size via a deduction guide (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an iterator </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size via a deduction guide (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two iterators via a deduction guide (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array via a deduction guide (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array </span><span style="color:#D73A49">with</span><span style="color:#24292E"> size via decay to pointer (potentially dangerous)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array </span><span style="color:#D73A49">with</span><span style="color:#24292E"> size via decay to pointer (potentially dangerous)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::initializer_list</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::initializer_list</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> a constant </span><span style="color:#005CC5">set</span><span style="color:#24292E"> of values (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">, p2447)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::array</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::array via a deduction guide (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::array</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#D73A49"> with</span><span style="color:#24292E"> const data (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">, span_FEATURE_CONSTR</span><span style="color:#005CC5">...</span><span style="color:#E36209">_ELEMENT_TYPE</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an empty std::array</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a container (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a container via a deduction guide (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">, C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to tag</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a container (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to tag</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const container (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to copy</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> another span of the same </span><span style="color:#005CC5">type</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to copy</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> another span of a compatible </span><span style="color:#005CC5">type</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to copy</span><span style="color:#D73A49">-</span><span style="color:#24292E">construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a temporary span of the same </span><span style="color:#005CC5">type</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to copy</span><span style="color:#D73A49">-</span><span style="color:#24292E">assign </span><span style="color:#D73A49">from</span><span style="color:#24292E"> another span of the same </span><span style="color:#005CC5">type</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to copy</span><span style="color:#D73A49">-</span><span style="color:#24292E">assign </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a temporary span of the same </span><span style="color:#005CC5">type</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to create a sub span of the first n elements</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to create a sub span of the last n elements</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to create a sub span starting at a given offset</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to create a sub span starting at a given offset </span><span style="color:#D73A49">with</span><span style="color:#24292E"> a given length</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe an element via array indexing</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe an element via call indexing</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe an element via at() [span_FEATURE_MEMBER_AT</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">0</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe an element via data()</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe the first element via front() [span_FEATURE_MEMBER_BACK_FRONT=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to observe the last element via back() [span_FEATURE_MEMBER_BACK_FRONT=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change an element via array indexing</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change an element via call indexing</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change an element via at() [span_FEATURE_MEMBER_AT</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">0</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change an element via data()</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change the first element via front() [span_FEATURE_MEMBER_BACK_FRONT=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to change the last element via back() [span_FEATURE_MEMBER_BACK_FRONT=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to swap </span><span style="color:#D73A49">with</span><span style="color:#24292E"> another span [span_FEATURE_MEMBER_SWAP=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows forward iteration</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows const forward iteration</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows reverse iteration</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows const reverse iteration</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to identify </span><span style="color:#D73A49">if</span><span style="color:#24292E"> a span </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the same </span><span style="color:#D73A49">as</span><span style="color:#24292E"> another span [span_FEATURE_SAME=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare equal to another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare unequal to another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare less than another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare less than </span><span style="color:#D73A49">or</span><span style="color:#24292E"> equal to another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare greater than another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare greater than </span><span style="color:#D73A49">or</span><span style="color:#24292E"> equal to another span of the same type [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare to another span of the same </span><span style="color:#005CC5">type</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> different cv</span><span style="color:#D73A49">-</span><span style="color:#24292E">ness [span_FEATURE_SAME=</span><span style="color:#005CC5">0</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to compare empty spans </span><span style="color:#D73A49">as</span><span style="color:#24292E"> equal [span_FEATURE_COMPARISON=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to test </span><span style="color:#D73A49">for</span><span style="color:#24292E"> empty span via empty(), empty case</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to test </span><span style="color:#D73A49">for</span><span style="color:#24292E"> empty span via empty(), non</span><span style="color:#D73A49">-</span><span style="color:#24292E">empty case</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain the number of elements via size()</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain the number of elements via ssize()</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain the number of </span><span style="color:#005CC5">bytes</span><span style="color:#24292E"> via size_bytes()</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to view the elements </span><span style="color:#D73A49">as</span><span style="color:#24292E"> read</span><span style="color:#D73A49">-</span><span style="color:#24292E">only </span><span style="color:#005CC5">bytes</span></span>
+<span class="line"><span style="color:#24292E">span</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to view </span><span style="color:#D73A49">and</span><span style="color:#24292E"> change the elements </span><span style="color:#D73A49">as</span><span style="color:#24292E"> writable </span><span style="color:#005CC5">bytes</span></span>
+<span class="line"><span style="color:#24292E">make_span() [span_FEATURE_MAKE_SPAN_TO_STD=</span><span style="color:#005CC5">99</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two pointers</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two const pointers</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">null pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">null const pointer </span><span style="color:#D73A49">and</span><span style="color:#24292E"> a size</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const C</span><span style="color:#D73A49">-</span><span style="color:#24292E">array</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::initializer_list</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::initializer_list</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> a constant </span><span style="color:#005CC5">set</span><span style="color:#24292E"> of values (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a std::array</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const std::array</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a container (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const container (std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a container (with_container_t, std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">make_span(): Allows building </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a const container (with_container_t, std::vector</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">byte_span() [span_FEATURE_BYTE_SPAN=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">byte_span(): Allows building a span of std::byte </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a single </span><span style="color:#005CC5">object</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">, byte</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite)</span></span>
+<span class="line"><span style="color:#24292E">byte_span(): Allows building a span of const std::byte </span><span style="color:#D73A49">from</span><span style="color:#24292E"> a single const </span><span style="color:#005CC5">object</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">17</span><span style="color:#24292E">, byte</span><span style="color:#D73A49">-</span><span style="color:#24292E">lite)</span></span>
+<span class="line"><span style="color:#24292E">first(), last(), subspan() [span_FEATURE_NON_MEMBER_FIRST_LAST_SUB=</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">first(): Allows to create a sub span of the first n elements (span, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">first(): Allows to create a sub span of the first n elements (span, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">first(): Allows to create a sub span of the first n elements (compatible container, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">first(): Allows to create a sub span of the first n elements (compatible container, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">last(): Allows to create a sub span of the last n elements (span, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">last(): Allows to create a sub span of the last n elements (span, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">last(): Allows to create a sub span of the last n elements (compatible container, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">last(): Allows to create a sub span of the last n elements (compatible container, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">subspan(): Allows to create a sub span starting at a given offset (span, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">subspan(): Allows to create a sub span starting at a given offset (span, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">subspan(): Allows to create a sub span starting at a given offset (compatible container, template parameter)</span></span>
+<span class="line"><span style="color:#24292E">subspan(): Allows to create a sub span starting at a given offset (compatible container, function parameter)</span></span>
+<span class="line"><span style="color:#24292E">size(): Allows to obtain the number of elements via size()</span></span>
+<span class="line"><span style="color:#24292E">ssize(): Allows to obtain the number of elements via ssize()</span></span>
+<span class="line"><span style="color:#24292E">tuple_size</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain the number of elements via std::tuple_size</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">tuple_element</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain an element via std::tuple_element</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">tuple_element</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">: Allows to obtain an element via std::tuple_element_t</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> (C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">I</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(spn): Allows to access an element via std::get</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">()</span></span>
+<span class="line"><span style="color:#24292E">tweak header: reads tweak header </span><span style="color:#D73A49">if</span><span style="color:#24292E"> supported [tweak]</span></span></code></pre>
+<p></p>
+</details>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">span lite - A C++20-like span for C++98, C++11 and later in a single-file header-only library</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/martinmoene/span-lite" title="@martinmoene"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@martinmoene/span-lite</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/martinmoene.png" alt="@martinmoene"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/martinmoene/span-lite"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">515</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, September 15, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 79.8%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 79.8%"> </span><span style="width: 7.6%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 7.6%"> </span><span style="width: 6.8%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 6.8%"> </span><span style="width: 5.8%; background-color: var(--lang-Batchfile-bg, #ccc)" title="Batchfile: 5.8%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">79.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">7.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">6.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Batchfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Batchfile</span><span class="ml-2 color-fg-muted">5.8%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/mattyclarkson" title="Matt Clarkson"><img class="avatar circle" width="48" height="48" src="https://github.com/mattyclarkson.png" alt="@mattyclarkson"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/mattyclarkson" title="Matt Clarkson"><img class="avatar circle" width="48" height="48" src="https://github.com/mattyclarkson.png" alt="@mattyclarkson"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/5866"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="feat: add `nonstd-span` (#5866)"><span class="text-mono">#5866</span> <span class="text-light">feat: add `nonstd-span` (#5866)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/martinmoene/span-lite/archive/refs/tags/v0.11.0.tar.gz" title="https://github.com/martinmoene/span-lite/archive/refs/tags/v0.11.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/martinmoen...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/nonstd-span/0.11.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/nonstd-span/0.11.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.11.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.11.0"><span class="text-bold">0.11.0</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-09-15</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

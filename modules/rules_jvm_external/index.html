@@ -1,0 +1,1187 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">rules_jvm_external</span> <span class="f2 d-inline-block">7.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 13d ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/bazel-contrib/rules_jvm_external" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/rules_jvm_external/7.0/overview" data-name="overview" id=":126.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/rules_jvm_external/7.0/docs" data-name="docs" id=":126.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/rules_jvm_external/7.0/testing" data-name="testing" id=":126.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;rules_jvm_external&quot;, version = &quot;7.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_jvm_external"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "7.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">10</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_features/1.33.0">bazel_features<span class="ml-1 text-light text-small">1.33.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/bazel_features/1.47.0">1.47.0<span title="Version Distance"><sup style="padding-left: 3px">+14<span class="color-fg-attention"> (9.2mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.8.1">bazel_skylib<span class="ml-1 text-light text-small">1.8.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/bazel_skylib/1.9.0">1.9.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (5.4mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/package_metadata/0.0.7">package_metadata<span class="ml-1 text-light text-small">0.0.7</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/package_metadata/0.0.10">0.0.10<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (5.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_android/0.7.1">rules_android<span class="ml-1 text-light text-small">0.7.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_android/0.7.2">0.7.2<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (3.2mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_java/9.3.0">rules_java<span class="ml-1 text-light text-small">9.3.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_java/9.6.1">9.6.1<span title="Version Distance"><sup style="padding-left: 3px">+6<span class="color-fg-attention"> (2.5mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_kotlin/2.2.2">rules_kotlin<span class="ml-1 text-light text-small">2.2.2</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_kotlin/2.3.20">2.3.20<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (2.7mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_license/1.0.0">rules_license<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_shell/0.6.1">rules_shell<span class="ml-1 text-light text-small">0.6.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_shell/0.8.0">0.8.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (7.2mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/toml.bzl/0.3.0">toml.bzl<span class="ml-1 text-light text-small">0.3.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>rules_jvm_external</h1>
+<p>Transitive Maven artifact resolution and publishing rules for Bazel.</p>
+<ul>
+<li>Main build: <a href="https://buildkite.com/bazel/rules-jvm-external"><img src="https://badge.buildkite.com/26d895f5525652e57915a607d0ecd3fc945c8280a0bdff83d9.svg?branch=master" alt="Build
+Status"></a></li>
+<li>Examples build: <a href="https://buildkite.com/bazel/rules-jvm-external-examples"><img src="https://badge.buildkite.com/d1e93c6c5321c9f7d24c71d849f00542f4ac5c9eed763eca2d.svg" alt="Build status"></a></li>
+</ul>
+<h2>Features</h2>
+<ul>
+<li>MODULE.bazel bzlmod configuration</li>
+<li>Artifact version resolution with Coursier, Maven or Gradle</li>
+<li>Import downloaded JAR, AAR, source JARs</li>
+<li>Export built JARs to Maven repositories</li>
+<li>Pin resolved artifacts with their SHA-256 checksums into a version-controllable JSON file</li>
+<li>Custom Maven repositories</li>
+<li>Private Maven repositories using <code>netrc</code> files</li>
+<li>Integration with Bazel's downloader and caching mechanisms for sharing artifacts across Bazel workspaces</li>
+<li>Versionless target labels for simpler dependency management</li>
+<li>Ability to declare multiple sets of versioned artifacts</li>
+<li>Supported on Windows, macOS, Linux</li>
+</ul>
+<p>Get the <a href="https://github.com/bazelbuild/rules_jvm_external/releases/latest">latest release
+here</a>.</p>
+<h2>Examples</h2>
+<p>You can find examples in the <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/examples/" target="_blank" rel="noopener noreferrer"><code>examples/</code></a> directory.</p>
+<h3>Projects using rules_jvm_external</h3>
+<p>Find other GitHub projects using <code>rules_jvm_external</code>
+<a href="https://github.com/search?q=rules_jvm_external+filename%3AMODULE.bazel&amp;type=Code">with this search query</a>.</p>
+<h2>Prerequisites</h2>
+<p><strong>Compatibility guideline:</strong> This project aims to be backwards compatible with
+the (current LTS - 2) version. If the current LTS version is 9, then we aim to
+support versions 7, 8 and 9. </p>
+<p>The project will only support the last release of non-LTS releases. That is, if
+the current LTS version is 9, then only Bazel 7.7.1 would be supported of the 7.x
+versions.</p>
+<ul>
+<li>Support for Bazel versions between <code>7.x</code> and <code>9.x</code> is only available on releases <code>7.x</code></li>
+<li>Support for Bazel versions between <code>5.x</code> and <code>7.x</code> is only available on releases <code>6.x</code>.</li>
+<li>Support for Bazel versions between <code>4.x</code> and <code>5.4</code> is only available on releases <code>5.x</code>.</li>
+<li>Support for Bazel versions before <code>4.0.0</code> is only available on releases <code>4.2</code> or earlier.</li>
+</ul>
+<h2>API Reference</h2>
+<p>You can find the complete API reference for rules at <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/docs/api.md" target="_blank" rel="noopener noreferrer">docs/api.md</a> and for the
+bzlmod tag classes in [docs/bzlmod.md]</p>
+<h2>Usage</h2>
+<p>See <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/docs/bzlmod.md" target="_blank" rel="noopener noreferrer">bzlmod.md</a> for complete usage instructions.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# MODULE.bazel
+
+bazel_dep(name = &quot;rules_jvm_external&quot;, version = &quot;7.0.0&quot;)
+
+maven = use_extension(&quot;@rules_jvm_external//:extensions.bzl&quot;, &quot;maven&quot;)
+
+maven.install(
+    artifacts = [
+        &quot;junit:junit:4.12&quot;,
+        &quot;androidx.test.espresso:espresso-core:3.1.1&quot;,
+        &quot;org.hamcrest:hamcrest-library:1.3&quot;,
+    ],
+    repositories = [
+        # Private repositories are supported through HTTP Basic auth
+        &quot;http://username:password@localhost:8081/artifactory/my-repository&quot;,
+        &quot;https://maven.google.com&quot;,
+        &quot;https://repo1.maven.org/maven2&quot;,
+    ],
+    lock_file = &quot;//:maven_install.json&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_jvm_external"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "7.0.0"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_jvm_external//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"maven"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "junit:junit:4.12"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "androidx.test.espresso:espresso-core:3.1.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "org.hamcrest:hamcrest-library:1.3"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # Private repositories are supported through HTTP Basic auth</span></span>
+<span class="line"><span style="color:#032F62">        "http://username:password@localhost:8081/artifactory/my-repository"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "https://maven.google.com"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "https://repo1.maven.org/maven2"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:maven_install.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>Credentials for private repositories can also be specified using a property file
+or environment variables. See the <a href="https://get-coursier.io/docs/other-credentials.html#property-file">Coursier
+documentation</a>
+for more information. You may also use a <code>.netrc</code> file.</p>
+<h3>Pinning and lock files</h3>
+<p>In order to support repeatable builds, and to avoid projects needing to perform
+their own dependency resolution at build time, it is strongly recommend that
+projects "pin" their dependencies. This is a three step process:</p>
+<ol>
+<li>Add a <code>lock_file</code> attribute to the <code>install</code> tag. The lock file is traditionally
+called <code>maven_install.json</code>.</li>
+<li><code>touch maven_install.json BUILD.bazel</code> The lock file must exist before pinning
+but may be empty. It must also be a valid target. This command creates both of
+the required files.</li>
+<li><code>REPIN=1 bazel run @maven//:pin</code> This will generate the lock file.</li>
+</ol>
+<p>You may now add the build and lock file to source control.</p>
+<p>Subsequent repins are required every time you modify the artifacts or BOMs in
+used in the dependency resolution. <code>rules_jvm_external</code> will fail the build and
+notify you if a repin is ever required.</p>
+<p>Next, reference the artifacts in the BUILD file with their versionless label:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="java_library(
+    name = &quot;java_test_deps&quot;,
+    exports = [
+        &quot;@maven//:junit_junit&quot;,
+        &quot;@maven//:org_hamcrest_hamcrest_library&quot;,
+    ],
+)
+
+android_library(
+    name = &quot;android_test_deps&quot;,
+    exports = [
+        &quot;@maven//:junit_junit&quot;,
+        &quot;@maven//:androidx_test_espresso_espresso_core&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">java_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "java_test_deps"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exports</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:org_hamcrest_hamcrest_library"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">android_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "android_test_deps"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exports</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:androidx_test_espresso_espresso_core"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>The default label syntax for an artifact <code>foo.bar:baz-qux:1.2.3</code> is <code>@maven//:foo_bar_baz_qux</code>. That is,</p>
+<ul>
+<li>All non-alphanumeric characters are substituted with underscores.</li>
+<li>Only the group and artifact IDs are required.</li>
+<li>The target is located in the <code>@maven</code> top level package (<code>@maven//</code>).</li>
+</ul>
+<h2>Pinning artifacts and integration with Bazel's downloader</h2>
+<p><code>rules_jvm_external</code> supports pinning artifacts and their SHA-256 checksums into
+a <code>maven_install.json</code> file that can be checked into your repository.</p>
+<p>Without artifact pinning, in a clean checkout of your project, <code>rules_jvm_external</code>
+executes the full artifact resolution and fetching steps (which can take a bit of time)
+and does not verify the integrity of the artifacts against their checksums. The
+downloaded artifacts also cannot be shared across Bazel workspaces.</p>
+<p>By pinning artifact versions, you can get improved artifact resolution and build times,
+since using <code>maven_install.json</code> enables <code>rules_jvm_external</code> to integrate with Bazel's
+downloader that caches files on their sha256 checksums. It also improves resiliency and
+integrity by tracking the sha256 checksums and original artifact urls in the
+JSON file.</p>
+<p>Since all artifacts are persisted locally in Bazel's cache, it means that
+<strong>fully offline builds are possible</strong> after the initial <code>bazel fetch @maven//...</code>.
+The artifacts are downloaded with <code>http_file</code> which supports <code>netrc</code> for authentication.
+Your <code>~/.netrc</code> will be included automatically.
+To pass machine login credentials in the ~/.netrc file to coursier, specify
+<code>use_credentials_from_home_netrc_file = True</code> in your <code>maven_install</code> rule.
+For additional credentials, add them in the repository URLs passed to <code>maven_install</code>
+(so they will be included in the generated JSON).
+Alternatively, pass an array of <code>additional_netrc_lines</code> to <code>maven_install</code> for authentication with credentials from
+outside the workspace.</p>
+<p>To get started with pinning artifacts, run the following command to generate the
+initial <code>maven_install.json</code> at the root of your Bazel workspace:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel run @maven//:pin" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:pin</span></span></code></pre>
+<p>Then, specify <code>lock_file</code> in your <code>maven.install</code> in <code>MODULE.bazel</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    # artifacts, repositories, ...
+    lock_file = &quot;//:maven_install.json&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#6A737D">    # artifacts, repositories, ...</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:maven_install.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Updating <code>maven_install.json</code></h3>
+<p>Whenever you make a change to the list of <code>artifacts</code> or <code>repositories</code> and want
+to update <code>maven_install.json</code>, run this command to re-pin the unpinned <code>@maven</code>
+repository:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ REPIN=1 bazel run @maven//:pin" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5"> REPIN</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:pin</span></span></code></pre>
+<p>Without re-pinning, <code>maven_install</code> will not pick up the changes made to
+<code>MODULE.bazel</code>, as <code>maven_install.json</code> is now the source of truth.</p>
+<h3>Requiring lock file repinning when the list of artifacts changes</h3>
+<p>It can be easy to forget to update the <code>maven_install.json</code> lock file
+when updating artifacts in a <code>maven_install</code>. Normally,
+<code>rules_jvm_external</code> will print a warning to the console and continue
+the build when this happens, but by setting the
+<code>fail_if_repin_required</code> attribute to <code>True</code>, this will be treated as
+a build error, causing the build to fail. When this attribute is set,
+it is possible to update the <code>maven_install.json</code> file using:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# To repin everything:
+REPIN=1 bazel run @maven//:pin
+
+# To only repin rules_jvm_external:
+RULES_JVM_EXTERNAL_REPIN=1 bazel run @maven//:pin" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># To repin everything:</span></span>
+<span class="line"><span style="color:#005CC5">REPIN</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:pin</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># To only repin rules_jvm_external:</span></span>
+<span class="line"><span style="color:#005CC5">RULES_JVM_EXTERNAL_REPIN</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:pin</span></span></code></pre>
+<p>Alternatively, it is also possible to modify the
+<code>fail_if_repin_required</code> attribute in your <code>MODULE.bazel</code> file, run
+<code>bazel run @maven//:pin</code> and then reset the
+<code>fail_if_repin_required</code> attribute.</p>
+<h3>Custom location for <code>maven_install.json</code></h3>
+<p>You can specify a custom location for <code>maven_install.json</code> by changing the
+<code>lock_file</code> attribute value to point to the new file label. For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;maven_install_in_custom_location&quot;,
+    artifacts = [&quot;com.google.guava:guava:27.0-jre&quot;],
+    repositories = [&quot;https://repo1.maven.org/maven2&quot;],
+    lock_file = &quot;//tests/custom_maven_install:maven_install.json&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "maven_install_in_custom_location"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"com.google.guava:guava:27.0-jre"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://repo1.maven.org/maven2"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//tests/custom_maven_install:maven_install.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p><strong>Note:</strong> The <code>//:maven_install.json</code> label assumes you have a BUILD file in
+your project's root directory. If you do not have one, create an empty BUILD
+file to fix issues you may see. See
+<a href="https://github.com/bazelbuild/rules_jvm_external/issues/242">#242</a></p>
+<p><strong>Note:</strong> If you're using an older version of <code>rules_jvm_external</code> and
+haven't repinned your dependencies, you may see a warning that you lock
+file "does not contain a signature of the required artifacts" then don't
+worry: either ignore the warning or repin the dependencies.</p>
+<p>Future artifact pinning updates to <code>maven_install.json</code> will overwrite the file
+at the specified path instead of creating a new one at the default root
+directory location.</p>
+<h3>Multiple <code>maven_install.json</code> files</h3>
+<p>If you have multiple <code>maven.install</code> declarations, each should have a unique
+<code>name</code> and its own <code>lock_file</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;foo&quot;,
+    lock_file = &quot;//:foo_maven_install.json&quot;,
+    # ...
+)
+
+maven.install(
+    name = &quot;bar&quot;,
+    lock_file = &quot;//:bar_maven_install.json&quot;,
+    # ...
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "foo"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:foo_maven_install.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # ...</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bar"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:bar_maven_install.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # ...</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h2>Support for Maven BOM files</h2>
+<p>Maven BOMs can be used by using the <code>boms</code> attribute, for example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    boms = [
+        &quot;org.seleniumhq.selenium:selenium-bom:4.18.1&quot;,
+    ],
+    artifacts = [
+        # This dependency is included in the `selenium-bom`, so we can omit the version number
+        &quot;org.seleniumhq.selenium:selenium-java&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    boms</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "org.seleniumhq.selenium:selenium-bom:4.18.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # This dependency is included in the `selenium-bom`, so we can omit the version number</span></span>
+<span class="line"><span style="color:#032F62">        "org.seleniumhq.selenium:selenium-java"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h2>Generated targets</h2>
+<p>For the <code>junit:junit</code> example, using <code>bazel query @maven//:all --output=build</code>, we can see that the rule generated these targets:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="alias(
+  name = &quot;junit_junit_4_12&quot;,
+  actual = &quot;@maven//:junit_junit&quot;,
+)
+
+jvm_import(
+  name = &quot;junit_junit&quot;,
+  jars = [&quot;@maven//:https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar&quot;],
+  srcjar = &quot;@maven//:https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12-sources.jar&quot;,
+  deps = [&quot;@maven//:org_hamcrest_hamcrest_core&quot;],
+  tags = [&quot;maven_coordinates=junit:junit:4.12&quot;],
+)
+
+jvm_import(
+  name = &quot;org_hamcrest_hamcrest_core&quot;,
+  jars = [&quot;@maven//:https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar&quot;],
+  srcjar = &quot;@maven//:https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar&quot;,
+  deps = [],
+  tags = [&quot;maven_coordinates=org.hamcrest:hamcrest.library:1.3&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">alias(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "junit_junit_4_12"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  actual</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@maven//:junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">jvm_import(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  jars</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@maven//:https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12.jar"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">  srcjar</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@maven//:https/repo1.maven.org/maven2/junit/junit/4.12/junit-4.12-sources.jar"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@maven//:org_hamcrest_hamcrest_core"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">  tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"maven_coordinates=junit:junit:4.12"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">jvm_import(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "org_hamcrest_hamcrest_core"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  jars</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@maven//:https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">  srcjar</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@maven//:https/repo1.maven.org/maven2/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3-sources.jar"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [],</span></span>
+<span class="line"><span style="color:#E36209">  tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"maven_coordinates=org.hamcrest:hamcrest.library:1.3"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>These targets can be referenced by:</p>
+<ul>
+<li><code>@maven//:junit_junit</code></li>
+<li><code>@maven//:org_hamcrest_hamcrest_core</code></li>
+</ul>
+<p><strong>Transitive classes</strong>: To use a class from <code>hamcrest-core</code> in your test, it's not sufficient to just
+depend on <code>@maven//:junit_junit</code> even though JUnit depends on Hamcrest. The compile classes are not exported
+transitively, so your test should also depend on <code>@maven//:org_hamcrest_hamcrest_core</code>. However
+it is recommended that you add first-order dependencies directly to your build files.</p>
+<p><strong>Original coordinates</strong>: The generated <code>tags</code> attribute value also contains the original coordinates of
+the artifact, which integrates with rules like <a href="https://github.com/google/bazel-common/blob/f1115e0f777f08c3cdb115526c4e663005bec69b/tools/maven/pom_file.bzl#L177">bazel-common's
+<code>pom_file</code></a>
+for generating POM files. See the <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/examples/pom_file_generation/" target="_blank" rel="noopener noreferrer"><code>pom_file_generation</code>
+example</a> for more information.</p>
+<h2>Outdated artifacts</h2>
+<p>To check for updates of artifacts, run the following command at the root of your Bazel workspace:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel run @maven//:outdated" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:outdated</span></span></code></pre>
+<p>This will list the coordinates of every dependency that might need to be updated in your repo.</p>
+<h2>Advanced usage</h2>
+<h3>Fetch source JARs</h3>
+<p>To download the source JAR alongside the main artifact JAR, set <code>fetch_sources = True</code> in <code>maven_install</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven_install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    fetch_sources = True,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven_install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    fetch_sources</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Checksum verification</h3>
+<p>Artifact resolution will fail if a <code>SHA-1</code> or <code>MD5</code> checksum file for the
+artifact is missing in the repository. To disable this behavior, set
+<code>fail_on_missing_checksum = False</code> in <code>maven_install</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven_install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    fail_on_missing_checksum = False,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven_install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    fail_on_missing_checksum</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> False</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Using a custom Coursier download url</h3>
+<p>By default bazel bootstraps Coursier via <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/private/versions.bzl" target="_blank" rel="noopener noreferrer">the urls specificed in versions.bzl</a>.
+However in case they are not directly accessible in your environment, you can also specify a custom
+url to download Coursier. For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel build @maven_with_unsafe_shared_cache//... --repo_env=COURSIER_URL='https://my_secret_host.com/vXYZ/coursier.jar'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel build </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven_with_unsafe_shared_cache</span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">COURSIER_URL</span><span style="color:#D73A49">=</span><span style="color:#032F62">'https://my_secret_host.com/vXYZ/coursier.jar'</span></span></code></pre>
+<p>Please note it still requires the SHA to match.</p>
+<p>To use a different Coursier version entirely, you can override both the URL and SHA256:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel build @maven//... \
+  --repo_env=COURSIER_URL='https://github.com/coursier/coursier/releases/download/v2.1.25-M23/coursier.jar' \
+  --repo_env=COURSIER_SHA256='&lt;sha256-of-the-jar&gt;'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel build </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">COURSIER_URL</span><span style="color:#D73A49">=</span><span style="color:#032F62">'https://github.com/coursier/coursier/releases/download/v2.1.25-M23/coursier.jar'</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">COURSIER_SHA256</span><span style="color:#D73A49">=</span><span style="color:#032F62">'&lt;sha256-of-the-jar&gt;'</span></span></code></pre>
+<p>Note: rules_jvm_external is tested against a specific Coursier version. Using a
+different version is not officially supported and compatibility is not guaranteed.</p>
+<h3><code>artifact</code> helper macro</h3>
+<p>The <code>artifact</code> macro translates the artifact's <code>group:artifact</code> coordinates to
+the label of the versionless target. This target is an
+<a href="https://docs.bazel.build/versions/master/be/general.html#alias">alias</a> that
+points to the <code>java_import</code>/<code>aar_import</code> target in the <code>@maven</code> repository,
+which includes the transitive dependencies specified in the top level artifact's
+POM file.</p>
+<p>For example, <code>@maven//:junit_junit</code> is equivalent to <code>artifact("junit:junit")</code>.</p>
+<p>To use it, add the load statement to the top of your BUILD file:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@rules_jvm_external//:defs.bzl&quot;, &quot;artifact&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"artifact"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>Full <code>group:artifact:[packaging:[classifier:]]version</code> maven coordinates are also
+supported and translate to corresponding versionless target.</p>
+<p>Note that usage of this macro makes BUILD file refactoring with tools like
+<code>buildozer</code> more difficult, because the macro hides the actual target label at
+the syntax level.</p>
+<h3><code>java_plugin_artifact</code> helper macro</h3>
+<p>The <code>java_plugin_artifact</code> macro finds a <code>java_plugin</code> target which can be used
+to run an annotation procesor from a particular artifact.</p>
+<p>For example, if you pull <code>com.google.auto.value:auto-value</code> into a
+<code>maven_install</code>, you can use the <code>java_plugin_artifact</code> macro in the <code>plugins</code>
+attribute of a target like <code>java_library</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="java_library(
+    name = &quot;some_lib&quot;,
+    srcs = [&quot;SrcUsingAuto.java&quot;],
+    plugins = [
+        java_plugin_artifact(&quot;com.google.auto.value:auto-value&quot;, &quot;com.google.auto.value.processor.AutoValueProcessor&quot;),
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">java_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "some_lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"SrcUsingAuto.java"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    plugins</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#24292E">        java_plugin_artifact(</span><span style="color:#032F62">"com.google.auto.value:auto-value"</span><span style="color:#24292E">, </span><span style="color:#032F62">"com.google.auto.value.processor.AutoValueProcessor"</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Multiple <code>maven_install</code> declarations for isolated artifact version trees</h3>
+<p>If your project has several components that use different versions of the
+same artifact, you can specify multiple <code>maven.install</code> declarations in
+<code>MODULE.bazel</code>, with a unique repository name for each of them.</p>
+<p>For example, if you want to use the JRE version of Guava for a server app, and
+the Android version for an Android app, you can specify two <code>maven.install</code>
+declarations:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;server_app&quot;,
+    artifacts = [
+        &quot;com.google.guava:guava:27.0-jre&quot;,
+    ],
+)
+
+maven.install(
+    name = &quot;android_app&quot;,
+    artifacts = [
+        &quot;com.google.guava:guava:27.0-android&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "server_app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava:27.0-jre"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "android_app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava:27.0-android"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>This way, <code>rules_jvm_external</code> will invoke coursier to resolve artifact versions for
+both repositories independent of each other. Coursier will fail if it encounters
+version conflicts that it cannot resolve. The two Guava targets can then be used
+in BUILD files like so:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="java_binary(
+    name = &quot;my_server_app&quot;,
+    srcs = ...
+    deps = [
+        # a versionless alias to @server_app//:com_google_guava_guava_27_0_jre
+        &quot;@server_app//:com_google_guava_guava&quot;,
+    ]
+)
+
+android_binary(
+    name = &quot;my_android_app&quot;,
+    srcs = ...
+    deps = [
+        # a versionless alias to @android_app//:com_google_guava_guava_27_0_android
+        &quot;@android_app//:com_google_guava_guava&quot;,
+    ]
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">java_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_server_app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> ...</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # a versionless alias to @server_app//:com_google_guava_guava_27_0_jre</span></span>
+<span class="line"><span style="color:#032F62">        "@server_app//:com_google_guava_guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">android_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_android_app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> ...</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # a versionless alias to @android_app//:com_google_guava_guava_27_0_android</span></span>
+<span class="line"><span style="color:#032F62">        "@android_app//:com_google_guava_guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Detailed dependency information specifications</h3>
+<p>Although you can always give a dependency as a Maven coordinate string,
+occasionally special handling is required in the form of additional directives
+to properly situate the artifact in the dependency tree. For example, a given
+artifact may need to have one of its dependencies excluded to prevent a
+conflict.</p>
+<p>This situation is provided for by allowing the artifact to be specified as a map
+containing all of the required information. This map can express more
+information than the coordinate strings can, so internally the coordinate
+strings are parsed into the artifact map with default values for the additional
+items. To assist in generating the maps, you can use either the <code>artifact</code> or
+<code>amend_artifact</code> tags. An example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        &quot;junit:junit:4.12&quot;,
+    ],
+)
+
+maven.artifact(
+    group = &quot;com.google.guava&quot;,
+    artifact = &quot;guava&quot;,
+    version = &quot;27.0-android&quot;,
+    exclusions = [
+        ...
+    ]
+)
+
+maven.amend_artifact(
+    coordinates = &quot;junit:junit&quot;,
+    testonly = &quot;true&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "junit:junit:4.12"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven.artifact(</span></span>
+<span class="line"><span style="color:#E36209">    group</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.google.guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifact</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "27.0-android"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exclusions</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#005CC5">        ...</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">maven.amend_artifact(</span></span>
+<span class="line"><span style="color:#E36209">    coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "junit:junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    testonly</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "true"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>See <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/docs/bzlmod.md" target="_blank" rel="noopener noreferrer">bzlmod.md</a> for more details.</p>
+<h3>Artifact exclusion</h3>
+<p>If you want to exclude an artifact from the transitive closure of a top level
+artifact, specify its <code>group-id:artifact-id</code> in the <code>exclusions</code> attribute of
+the <code>maven.artifact</code> helper:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.artifact(
+    group = &quot;com.google.guava&quot;,
+    artifact = &quot;guava&quot;,
+    version = &quot;27.0-jre&quot;,
+    exclusions = [
+        &quot;org.codehaus.mojo:animal-sniffer-annotations&quot;,
+        &quot;com.google.j2objc:j2objc-annotations&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.artifact(</span></span>
+<span class="line"><span style="color:#E36209">    group</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.google.guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifact</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "27.0-jre"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exclusions</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "org.codehaus.mojo:animal-sniffer-annotations"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.j2objc:j2objc-annotations"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>You can also exclude artifacts globally using the <code>excluded_artifacts</code>
+attribute in the <code>install</code> tag:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    excluded_artifacts = [
+        &quot;com.google.guava:guava&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    excluded_artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Compile-only dependencies</h3>
+<p>If you want to mark certain artifacts as compile-only dependencies, use the
+<code>neverlink</code> attribute in the <code>artifact</code> or <code>amend_artifact</code> tag:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.amend_artifact(
+    coordinates = &quot;com.squareup:javapoet&quot;,
+    neverlink = &quot;true&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.amend_artifact(</span></span>
+<span class="line"><span style="color:#E36209">    coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.squareup:javapoet"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    neverlink</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "true"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>This instructs <code>rules_jvm_external</code> to mark the generated target for
+<code>com.squareup:javapoet</code> with the <code>neverlink = True</code> attribute, making the
+artifact available only for compilation and not at runtime.</p>
+<h3>Test-only dependencies</h3>
+<p>If you want to mark certain artifacts as test-only dependencies, use the
+<code>testonly</code> attribute in the <code>artifact</code> or <code>amend_artifact</code> tag:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.amend_artifact(
+    coordinates = &quot;junit:junit&quot;,
+    testonly = &quot;true&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.amend_artifact(</span></span>
+<span class="line"><span style="color:#E36209">    coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "junit:junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    testonly</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "true"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>This instructs <code>rules_jvm_external</code> to mark the generated target for
+<code>junit:junit</code> with the <code>testonly = True</code> attribute, making the
+artifact available only for tests (e.g. <code>java_test</code>), or targets specifically
+marked as <code>testonly = True</code>.</p>
+<h3>Resolving user-specified and transitive dependency version conflicts</h3>
+<p>Use the <code>version_conflict_policy</code> attribute to decide how to resolve conflicts
+between artifact versions specified in your <code>maven_install</code> rule and those
+implicitly picked up as transitive dependencies.</p>
+<p>The attribute value can be either <code>default</code> or <code>pinned</code>.</p>
+<p><code>default</code>: use <a href="https://get-coursier.io/docs/other-version-handling">Coursier's default algorithm</a>
+for version handling.</p>
+<p><code>pinned</code>: pin the versions of the artifacts that are explicitly specified in <code>maven_install</code>.</p>
+<p>For example, pulling in guava transitively via google-cloud-storage resolves to
+guava-26.0-android.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;pinning&quot;,
+    artifacts = [
+        &quot;com.google.cloud:google-cloud-storage:1.66.0&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pinning"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.cloud:google-cloud-storage:1.66.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel query @pinning//:all | grep guava_guava
+@pinning//:com_google_guava_guava
+@pinning//:com_google_guava_guava_26_0_android" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel query </span><span style="color:#D73A49">@</span><span style="color:#24292E">pinning</span><span style="color:#D73A49">//</span><span style="color:#24292E">:</span><span style="color:#005CC5">all</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> grep guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava_26_0_android</span></span></code></pre>
+<p>Pulling in guava-27.0-android directly works as expected.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;pinning&quot;,
+    artifacts = [
+        &quot;com.google.cloud:google-cloud-storage:1.66.0&quot;,
+        &quot;com.google.guava:guava:27.0-android&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pinning"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.cloud:google-cloud-storage:1.66.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava:27.0-android"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel query @pinning//:all | grep guava_guava
+@pinning//:com_google_guava_guava
+@pinning//:com_google_guava_guava_27_0_android" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel query </span><span style="color:#D73A49">@</span><span style="color:#24292E">pinning</span><span style="color:#D73A49">//</span><span style="color:#24292E">:</span><span style="color:#005CC5">all</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> grep guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava_27_0_android</span></span></code></pre>
+<p>Pulling in guava-25.0-android (a lower version), resolves to guava-26.0-android. This is the default version conflict policy in action, where artifacts are resolved to the highest version.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;pinning&quot;,
+    artifacts = [
+        &quot;com.google.cloud:google-cloud-storage:1.66.0&quot;,
+        &quot;com.google.guava:guava:25.0-android&quot;,
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pinning"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.cloud:google-cloud-storage:1.66.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava:25.0-android"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel query @pinning//:all | grep guava_guava
+@pinning//:com_google_guava_guava
+@pinning//:com_google_guava_guava_26_0_android" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel query </span><span style="color:#D73A49">@</span><span style="color:#24292E">pinning</span><span style="color:#D73A49">//</span><span style="color:#24292E">:</span><span style="color:#005CC5">all</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> grep guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava_26_0_android</span></span></code></pre>
+<p>Now, if we add <code>version_conflict_policy = "pinned"</code>, we should see guava-25.0-android getting pulled instead. The rest of non-specified artifacts still resolve to the highest version in the case of version conflicts.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;pinning&quot;,
+    artifacts = [
+        &quot;com.google.cloud:google-cloud-storage:1.66.0&quot;,
+        &quot;com.google.guava:guava:25.0-android&quot;,
+    ],
+    version_conflict_policy = &quot;pinned&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pinning"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.cloud:google-cloud-storage:1.66.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "com.google.guava:guava:25.0-android"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    version_conflict_policy</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pinned"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel query @pinning//:all | grep guava_guava
+@pinning//:com_google_guava_guava
+@pinning//:com_google_guava_guava_25_0_android" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel query </span><span style="color:#D73A49">@</span><span style="color:#24292E">pinning</span><span style="color:#D73A49">//</span><span style="color:#24292E">:</span><span style="color:#005CC5">all</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> grep guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava</span></span>
+<span class="line"><span style="color:#6F42C1">@pinning</span><span style="color:#B31D28;font-style:italic">//:com_google_guava_guava_25_0_android</span></span></code></pre>
+<p>There may be cases where you want the <code>default</code> pinning strategy, but
+want one specific dependency to be pinned, no matter what. In these
+cases, you can use the <code>force_version</code> attribute on the
+<code>artifact</code> or <code>amend_artifact</code> helper to ensure this happens.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    name = &quot;forcing_versions&quot;,
+    artifacts = [
+        # And something that depends on a more recent version of guava
+        &quot;xyz.rogfam:littleproxy:2.1.0&quot;,
+    ],
+)
+
+# Specify an ancient version of guava, and force its use. If we try to use `[23.3-jre]` as the version,
+# the resolution will fail when using `coursier`
+maven.artifact(
+    artifact = &quot;guava&quot;,
+    force_version = &quot;true&quot;,
+    group = &quot;com.google.guava&quot;,
+    version = &quot;23.3-jre&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "forcing_versions"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # And something that depends on a more recent version of guava</span></span>
+<span class="line"><span style="color:#032F62">        "xyz.rogfam:littleproxy:2.1.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Specify an ancient version of guava, and force its use. If we try to use `[23.3-jre]` as the version,</span></span>
+<span class="line"><span style="color:#6A737D"># the resolution will fail when using `coursier`</span></span>
+<span class="line"><span style="color:#24292E">maven.artifact(</span></span>
+<span class="line"><span style="color:#E36209">    artifact</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    force_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "true"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    group</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.google.guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "23.3-jre"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>In this case, once pinning is complete, guava <code>23.3-jre</code> will be selected.</p>
+<h3>Overriding generated targets</h3>
+<p>You can override the generated targets for artifacts with a target label of your
+choice. For instance, if you want to provide your own definition of
+<code>@maven//:com_google_guava_guava</code> at <code>//third_party/guava:guava</code>, use the
+<code>maven.override</code> tag:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.override(
+    coordinates = &quot;com.google.guava:guava&quot;,
+    target = &quot;@//third_party/guava:guava&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.override(</span></span>
+<span class="line"><span style="color:#E36209">    coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.google.guava:guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@//third_party/guava:guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>Note that the target label contains <code>@//</code>, which tells Bazel to reference the
+target relative to your main workspace, instead of the <code>@maven</code> workspace.</p>
+<p>The dependency that has been overridden is made available prefixed with
+<code>original_</code>. That is, in the example above, the version of Guava that was
+resolved could be accessed as <code>@maven//:original_com_google_guava_guava</code>.
+The primary use case this is designed to support is to allow specific 
+targets to have additional dependencies added (eg. to ensure a default 
+implementation of key interfaces are available on the classpath without 
+needing to modify every target)</p>
+<h3>Proxies</h3>
+<p>As with other Bazel repository rules, the standard <code>http_proxy</code>, <code>https_proxy</code>
+and <code>no_proxy</code> environment variables (and their uppercase counterparts) are
+supported.</p>
+<h3>Repository aliases</h3>
+<p>Maven artifact rules like <code>maven_jar</code> and <code>jvm_import_external</code> generate targets
+labels in the form of <code>@group_artifact//jar</code>, like <code>@com_google_guava_guava//jar</code>. This
+is different from the <code>@maven//:group_artifact</code> naming style used in this project.</p>
+<p>As some Bazel projects depend on the <code>@group_artifact//jar</code> style labels, we
+provide a <code>generate_compat_repositories</code> attribute in <code>maven.install</code>. If
+enabled, JAR artifacts can also be referenced using the <code>@group_artifact//jar</code>
+target label. For example, <code>@maven//:com_google_guava_guava</code> can also be
+referenced using <code>@com_google_guava_guava//jar</code>.</p>
+<p>The artifacts can also be referenced using the style used by
+<code>java_import_external</code> as <code>@group_artifact//:group_artifact</code> or
+<code>@group_artifact</code> for short.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    generate_compat_repositories = True,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    generate_compat_repositories</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Hiding transitive dependencies</h3>
+<p>As a convenience, transitive dependencies are visible to your build rules.
+However, this can lead to surprises when updating <code>maven_install</code>'s <code>artifacts</code>
+list, since doing so may eliminate transitive dependencies from the build
+graph.  To force rule authors to explicitly declare all directly referenced
+artifacts, use the <code>strict_visibility</code> attribute in <code>maven_install</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    strict_visibility = True
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    strict_visibility</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>It is also possible to change strict visibility value from default <code>//visibility:private</code>
+to a value specified by <code>strict_visibility_value</code> attribute.</p>
+<h3>Accessing transitive dependencies list</h3>
+<p>It is possible to retrieve full list of dependencies in the dependency tree, including
+transitive, source, javadoc and other artifacts. <code>maven_artifacts</code> list contains full
+versioned maven coordinate strings of all dependencies.</p>
+<p>For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@maven//:defs.bzl&quot;, &quot;maven_artifacts&quot;)
+
+load(&quot;@rules_jvm_external//:defs.bzl&quot;, &quot;artifact&quot;)
+load(&quot;@rules_jvm_external//:specs.bzl&quot;, &quot;parse&quot;)
+
+all_jar_coordinates = [c for c in maven_artifacts if parse.parse_maven_coordinate(c).get(&quot;packaging&quot;, &quot;jar&quot;) == &quot;jar&quot;]
+all_jar_targets = [artifact(c) for c in all_jar_coordinates]
+
+java_library(
+  name = &quot;depends_on_everything&quot;,
+  runtime_deps = all_jar_targets,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@maven//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"maven_artifacts"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"artifact"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:specs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"parse"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">all_jar_coordinates </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [c </span><span style="color:#D73A49">for</span><span style="color:#24292E"> c </span><span style="color:#D73A49">in</span><span style="color:#24292E"> maven_artifacts </span><span style="color:#D73A49">if</span><span style="color:#24292E"> parse.parse_maven_coordinate(c).get(</span><span style="color:#032F62">"packaging"</span><span style="color:#24292E">, </span><span style="color:#032F62">"jar"</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "jar"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">all_jar_targets </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [artifact(c) </span><span style="color:#D73A49">for</span><span style="color:#24292E"> c </span><span style="color:#D73A49">in</span><span style="color:#24292E"> all_jar_coordinates]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">java_library(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "depends_on_everything"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  runtime_deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> all_jar_targets,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Fetch and resolve timeout</h3>
+<p>The default timeout to fetch and resolve artifacts is 600 seconds.  If you need
+to change this to resolve a large number of artifacts you can set the
+<code>resolve_timeout</code> attribute in <code>maven_install</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    resolve_timeout = 900
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    resolve_timeout</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 900</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Ignoring empty jars</h3>
+<p>By default, if any fetched jar is empty (has 0 bytes) the corresponding artifact will still be included in the dependency tree.</p>
+<p>If you would like to avoid such artifacts, and treat jars that are empty (i.e. their checksum equals the checksum of an
+empty file) as if they were not found, you can set the <code>ignore_empty_files</code> attribute in <code>maven_install</code> to remove such
+artifacts from coursier's output:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    repositories = [
+        # ...
+    ],
+    # ...
+    ignore_empty_files = True
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#6A737D">    # ...</span></span>
+<span class="line"><span style="color:#E36209">    ignore_empty_files</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>This option may be useful if you see empty source jars when <code>fetch_sources</code> is enabled.</p>
+<h3>Duplicate artifact warning</h3>
+<p>By default you will be warned if there are duplicate artifacts in your artifact list. The <code>duplicate_version_warning</code> setting can be used to change this behavior. Use "none" to disable the warning and "error" to fail the build instead of warn.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="maven.install(
+    artifacts = [
+        # ...
+    ],
+    duplicate_version_warning = &quot;error&quot;
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">maven.install(</span></span>
+<span class="line"><span style="color:#E36209">    artifacts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ...</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    duplicate_version_warning</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "error"</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Provide JVM options for artifact resolution</h3>
+<p>You can set the <code>JDK_JAVA_OPTIONS</code> environment variable to provide additional JVM options to the artifact resolver.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="build --repo_env=JDK_JAVA_OPTIONS=-Djavax.net.ssl.trustStore=&lt;path-to-cacerts&gt;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">JDK_JAVA_OPTIONS</span><span style="color:#D73A49">=-</span><span style="color:#24292E">Djavax.net.ssl.trustStore</span><span style="color:#D73A49">=&lt;</span><span style="color:#24292E">path</span><span style="color:#D73A49">-</span><span style="color:#24292E">to</span><span style="color:#D73A49">-</span><span style="color:#24292E">cacerts</span><span style="color:#D73A49">&gt;</span></span></code></pre>
+<p>can be added to your .bazelrc file if you need to specify custom cacerts for artifact resolution.</p>
+<h3>Provide JVM options for Coursier with <code>COURSIER_OPTS</code></h3>
+<p>You can set up <code>COURSIER_OPTS</code> environment variable to provide some additional JVM options for Coursier.
+This is a space-separated list of options.</p>
+<p>Assume you'd like to override Coursier's memory settings:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="COURSIER_OPTS=&quot;-Xms1g -Xmx4g&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">COURSIER_OPTS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-Xms1g -Xmx4g"</span></span></code></pre>
+<h3>Resolving issues with nonstandard system default JDKs</h3>
+<p>Try to use OpenJDK explicitly if your machine or environment is set up to use a non-standard default implementation of the JDK and you encounter errors similar to the following:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="java.lang.NullPointerException
+    at java.base/jdk.internal.reflect.UnsafeFieldAccessorImpl.ensureObj(UnsafeFieldAccessorImpl.java:58)
+    at java.base/jdk.internal.reflect.UnsafeObjectFieldAccessorImpl.get(UnsafeObjectFieldAccessorImpl.java:36)
+    at java.base/java.lang.reflect.Field.get(Field.java:418)
+    at org.robolectric.shadows.ShadowActivityThread$_ActivityThread_$$Reflector0.getActivities(Unknown Source)
+    at org.robolectric.shadows.ShadowActivityThread.reset(ShadowActivityThread.java:277)
+    at org.robolectric.Shadows.reset(Shadows.java:2499)
+    at org.robolectric.android.internal.AndroidTestEnvironment.resetState(AndroidTestEnvironment.java:640)
+    at org.robolectric.RobolectricTestRunner.lambda$finallyAfterTest$0(RobolectricTestRunner.java:361)
+    at org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:86)
+    at org.robolectric.RobolectricTestRunner.finallyAfterTest(RobolectricTestRunner.java:359)
+    at org.robolectric.internal.SandboxTestRunner$2.lambda$evaluate$2(SandboxTestRunner.java:296)
+    at org.robolectric.internal.bytecode.Sandbox.lambda$runOnMainThread$0(Sandbox.java:99)
+    at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+    at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
+    at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:630)
+    at java.base/java.lang.Thread.run(Thread.java:830)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">java.lang.NullPointerException</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">jdk.internal.reflect.UnsafeFieldAccessorImpl.ensureObj(UnsafeFieldAccessorImpl.java:</span><span style="color:#005CC5">58</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">jdk.internal.reflect.UnsafeObjectFieldAccessorImpl.get(UnsafeObjectFieldAccessorImpl.java:</span><span style="color:#005CC5">36</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.reflect.Field.get(Field.java:</span><span style="color:#005CC5">418</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.shadows.ShadowActivityThread</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">_ActivityThread_</span><span style="color:#B31D28;font-style:italic">$$</span><span style="color:#24292E">Reflector0.getActivities(Unknown Source)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.shadows.ShadowActivityThread.reset(ShadowActivityThread.java:</span><span style="color:#005CC5">277</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.Shadows.reset(Shadows.java:</span><span style="color:#005CC5">2499</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.android.internal.AndroidTestEnvironment.resetState(AndroidTestEnvironment.java:</span><span style="color:#005CC5">640</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.RobolectricTestRunner.</span><span style="color:#D73A49">lambda</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">finallyAfterTest</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">0</span><span style="color:#24292E">(RobolectricTestRunner.java:</span><span style="color:#005CC5">361</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.util.PerfStatsCollector.measure(PerfStatsCollector.java:</span><span style="color:#005CC5">86</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.RobolectricTestRunner.finallyAfterTest(RobolectricTestRunner.java:</span><span style="color:#005CC5">359</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.internal.SandboxTestRunner</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">2.</span><span style="color:#D73A49">lambda</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">evaluate</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">2</span><span style="color:#24292E">(SandboxTestRunner.java:</span><span style="color:#005CC5">296</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.robolectric.internal.bytecode.Sandbox.</span><span style="color:#D73A49">lambda</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">runOnMainThread</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">0</span><span style="color:#24292E">(Sandbox.java:</span><span style="color:#005CC5">99</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.util.concurrent.FutureTask.run(FutureTask.java:</span><span style="color:#005CC5">264</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:</span><span style="color:#005CC5">1130</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.util.concurrent.ThreadPoolExecutor</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">Worker.run(ThreadPoolExecutor.java:</span><span style="color:#005CC5">630</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.Thread.run(Thread.java:</span><span style="color:#005CC5">830</span><span style="color:#24292E">)</span></span></code></pre>
+<p>or</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="java.lang.UnsatisfiedLinkError: libstdc++.so.6: cannot open shared object file: No such file or directory
+    at java.base/java.lang.ClassLoader$NativeLibrary.load0(Native Method)
+    at java.base/java.lang.ClassLoader$NativeLibrary.load(ClassLoader.java:2444)
+    at java.base/java.lang.ClassLoader$NativeLibrary.loadLibrary(ClassLoader.java:2500)
+    at java.base/java.lang.ClassLoader.loadLibrary0(ClassLoader.java:2716)
+    at java.base/java.lang.ClassLoader.loadLibrary(ClassLoader.java:2629)
+    at java.base/java.lang.Runtime.load0(Runtime.java:769)
+    at java.base/java.lang.System.load(System.java:1840)
+    at org.conscrypt.NativeLibraryUtil.loadLibrary(NativeLibraryUtil.java:52)
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+    at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+    at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+    at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+  ..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">java.lang.UnsatisfiedLinkError: libstdc</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">.so.6: cannot </span><span style="color:#005CC5">open</span><span style="color:#24292E"> shared </span><span style="color:#005CC5">object</span><span style="color:#E36209"> file</span><span style="color:#24292E">: No such </span><span style="color:#E36209">file</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> directory</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.ClassLoader</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">NativeLibrary.load0(Native Method)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.ClassLoader</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">NativeLibrary.load(ClassLoader.java:</span><span style="color:#005CC5">2444</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.ClassLoader</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">NativeLibrary.loadLibrary(ClassLoader.java:</span><span style="color:#005CC5">2500</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.ClassLoader.loadLibrary0(ClassLoader.java:</span><span style="color:#005CC5">2716</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.ClassLoader.loadLibrary(ClassLoader.java:</span><span style="color:#005CC5">2629</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.Runtime.load0(Runtime.java:</span><span style="color:#005CC5">769</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.System.load(System.java:</span><span style="color:#005CC5">1840</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at org.conscrypt.NativeLibraryUtil.loadLibrary(NativeLibraryUtil.java:</span><span style="color:#005CC5">52</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:</span><span style="color:#005CC5">62</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:</span><span style="color:#005CC5">43</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    at java.base</span><span style="color:#D73A49">/</span><span style="color:#24292E">java.lang.reflect.Method.invoke(Method.java:</span><span style="color:#005CC5">566</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">  ...</span></span></code></pre>
+<h2>Exporting and consuming artifacts from non-root modules</h2>
+<p>With bzlmod, dependencies from <code>bazel_dep</code> modules can be automatically
+merged. This allows non-root modules to contribute to the dependency
+resolution of the root module. The project calls this "module dependency
+layering".</p>
+<p>See <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/docs/bzlmod.md" target="_blank" rel="noopener noreferrer">bzlmod.md</a> for details on module dependency
+layering.</p>
+<h2>Publishing to External Repositories</h2>
+<p>In order to publish an artifact from your repo to a maven repository, you
+must first create a <code>java_export</code> target. This is similar to a regular
+<code>java_library</code>, but allows two additional parameters: the maven coordinates
+and an optional template file to use for the <code>pom.xml</code> file.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# user_project/BUILD
+load(&quot;@rules_jvm_external//:defs.bzl&quot;, &quot;java_export&quot;)
+
+java_export(
+  name = &quot;exported_lib&quot;,
+  maven_coordinates = &quot;com.example:project:0.0.1&quot;,
+  pom_template = &quot;pom.tmpl&quot;,  # You can omit this
+  srcs = glob([&quot;*.java&quot;]),
+  deps = [
+    &quot;//user_project/utils&quot;,
+    &quot;@maven//:com_google_guava_guava&quot;,
+  ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># user_project/BUILD</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"java_export"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">java_export(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "exported_lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  maven_coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example:project:0.0.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  pom_template</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pom.tmpl"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># You can omit this</span></span>
+<span class="line"><span style="color:#E36209">  srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"*.java"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#E36209">  deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">    "//user_project/utils"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "@maven//:com_google_guava_guava"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>If you wish to publish an artifact with Kotlin source code to a maven repository
+you can use <code>kt_jvm_export</code>. This rule has the same arguments and generated
+rules as <code>java_export</code>, but uses <code>kt_jvm_library</code> instead of <code>java_library</code>.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# user_project/BUILD
+load(&quot;@rules_jvm_external//:kt_defs.bzl&quot;, &quot;kt_jvm_export&quot;)
+
+kt_jvm_export(
+  name = &quot;exported_kt_lib&quot;,
+  maven_coordinates = &quot;com.example:project:0.0.1&quot;,
+  srcs = glob([&quot;*.kt&quot;]),
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># user_project/BUILD</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:kt_defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"kt_jvm_export"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">kt_jvm_export(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "exported_kt_lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  maven_coordinates</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example:project:0.0.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"*.kt"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>In order to publish the artifact, use <code>bazel run</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel run --define &quot;maven_repo=file://$HOME/.m2/repository&quot; //user_project:exported_lib.publish" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">define </span><span style="color:#032F62">"maven_repo=file://$HOME/.m2/repository"</span><span style="color:#D73A49"> //</span><span style="color:#24292E">user_project:exported_lib.publish</span></span></code></pre>
+<p>Or, to publish to (eg) Sonatype's OSS repo:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="MAVEN_USER=example_user MAVEN_PASSWORD=hunter2 bazel run --stamp \
+  --define &quot;maven_repo=https://oss.sonatype.org/service/local/staging/deploy/maven2&quot; \
+  --define gpg_sign=true \
+  //user_project:exported_lib.publish`" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">MAVEN_USER</span><span style="color:#D73A49">=</span><span style="color:#24292E">example_user </span><span style="color:#005CC5">MAVEN_PASSWORD</span><span style="color:#D73A49">=</span><span style="color:#24292E">hunter2 bazel run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">stamp \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">define </span><span style="color:#032F62">"maven_repo=https://oss.sonatype.org/service/local/staging/deploy/maven2"</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">define gpg_sign</span><span style="color:#D73A49">=</span><span style="color:#24292E">true \</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E">user_project:exported_lib.publish</span><span style="color:#B31D28;font-style:italic">`</span></span></code></pre>
+<p>Or, to publish to a Google Cloud Storage:</p>
+<p><code>bazel run --define "maven_repo=gs://example-bucket/repository" //user_project:exported_lib.publish</code></p>
+<p>Or, to publish to an Amazon S3 bucket:</p>
+<p><code>bazel run --define "maven_repo=s3://example-bucket/repository" //user_project:exported_lib.publish</code></p>
+<p>Or, to publish to a GCP Artifact Registry:</p>
+<p><code>bazel run --define "maven_repo=artifactregistry://us-west1-maven.pkg.dev/project/repository" //user_project:exported_lib.publish</code></p>
+<p>When using the <code>gpg_sign</code> option, the current default key will be used for
+signing, and the <code>gpg</code> binary needs to be installed on the machine.</p>
+<h2>Configuring the dependency resolver</h2>
+<p><code>rules_jvm_external</code> supports different mechanisms for dependency resolution.
+These can be selected using the <code>resolver</code> attribute of <code>maven_install</code>. The
+default resolver is one backed by <a href="https://get-coursier.io">coursier</a>.</p>
+<h3>Common options</h3>
+<p>All resolvers understand the following environment variables:</p>
+<table>
+<thead>
+<tr>
+<th>Environment variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>RJE_VERBOSE</code></td>
+<td>When set to <code>1</code> extra diagnostic logging will be sent to <code>stderr</code></td>
+</tr>
+<tr>
+<td><code>RJE_MAX_THREADS</code></td>
+<td>Integer giving the maximum number of threads to use <br>for downloads. The default value is whichever is lower: the number of processors on the machine, or 5</td>
+</tr>
+</tbody></table>
+<h3>Configuring Coursier</h3>
+<p>The default resolver is backed by <a href="https://get-coursier.io">coursier</a>, which
+is used in tools such as <a href="https://www.scala-sbt.org">sbt</a>. It supports being
+used without a lock file, but cannot handle resolutions which require Maven
+BOMs to be used. When using the coursier-backed resolver, the following
+environment variables are honoured:</p>
+<table>
+<thead>
+<tr>
+<th>Environment variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>COURSIER_CREDENTIALS</code></td>
+<td><a href="https://get-coursier.io/docs/other-credentials#inline">Documented here</a> on the coursier site. If set to an absolute path, this will be used for configuring the credentials</td>
+</tr>
+</tbody></table>
+<h3>Configuring Maven</h3>
+<p>A Maven-backed resolver can be used by using setting the <code>resolver</code>
+attribute of the <code>install</code> tag to <code>maven</code>. This resolver requires the use of a
+lock file. For bootstrapping purposes, this file may simply be an empty
+file. When using the maven-backed resolver, the following environment
+variables are honoured:</p>
+<table>
+<thead>
+<tr>
+<th>Environment variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>RJE_ASSUME_PRESENT</code></td>
+<td>Prevents the resolver from checking remote repositories to see if a dependency is present, and just assumes it is</td>
+</tr>
+<tr>
+<td><code>RJE_UNSAFE_CACHE</code></td>
+<td>When set to <code>1</code> will use your <code>$HOME/.m2/repository</code> directory to speed up dependency resolution</td>
+</tr>
+</tbody></table>
+<p>Using the unsafe cache option will use your local <code>$HOME/.m2/repository</code> as
+a source for dependency resolutions, but will not include any local paths in
+the generated lock file unless the <code>repositories</code> attribute contains <code>m2local</code>.</p>
+<p>The Maven-backed resolver will use credentials stored in a <code>$HOME/.netrc</code>
+file when performing dependency resolution</p>
+<h3>Configuring Gradle</h3>
+<p><strong>This resolver is considered experimental</strong></p>
+<p>A Gradle-backed resolver can be used by setting the <code>resolver</code>
+attribute of <code>maven_install</code> to <code>gradle</code>. This resolver requires the
+use of a lock file. For bootstrapping purposes, this file may simply
+be an empty file.</p>
+<table>
+<thead>
+<tr>
+<th>Environment variable</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>RJE_ASSUME_PRESENT</code></td>
+<td>Prevents the resolver from checking remote repositories to see if a dependency is present, and just assumes it is</td>
+</tr>
+<tr>
+<td><code>RJE_UNSAFE_CACHE</code></td>
+<td>When set to <code>1</code> will use your <code>$HOME/.gradle</code> directory to speed up dependency resolution</td>
+</tr>
+</tbody></table>
+<h2>IPv6 support</h2>
+<p>Certain IPv4/IPv6 dual-stack environments may require flags to override the default settings for downloading dependencies, for both Bazel's native downloader and Coursier as a downloader:</p>
+<p>Add:</p>
+<ul>
+<li><code>startup --host_jvm_args=-Djava.net.preferIPv6Addresses=true</code> to your <code>.bazelrc</code> file for Bazel's native downloader.</li>
+<li><code>-Djava.net.preferIPv6Addresses=true to the</code>COURSIER_OPTS` environment variable to provide JVM options for Coursier.</li>
+</ul>
+<p>For more information, read the <a href="https://bazel.build/docs/external#support-for-ipv6">official docs for IPv6 support in Bazel</a>.</p>
+<h2>Developing this project</h2>
+<h3>Verbose / debug mode</h3>
+<p>Set the <code>RJE_VERBOSE</code> environment variable to <code>true</code> to print <code>coursier</code>'s verbose
+output. For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ RJE_VERBOSE=true bazel run @maven//:pin" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5"> RJE_VERBOSE</span><span style="color:#D73A49">=</span><span style="color:#24292E">true bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">maven</span><span style="color:#D73A49">//</span><span style="color:#24292E">:pin</span></span></code></pre>
+<h3>Tests</h3>
+<p>In order to run tests, your system must have an Android SDK installed. You can install the Android SDK using <a href="https://developer.android.com/studio">Android Studio</a>, or through most system package managers.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ bazel test //..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel test </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<h4>Installing the Android SDK on macOS</h4>
+<p>The instructions for installing the Android SDK on macOS can be hard
+to find, but if you're comfortable using <a href="https://brew.sh">HomeBrew</a>,
+the following steps will install what you need and set up the
+<code>ANDROID_HOME</code> environment variable that's required in order to run
+<code>rules_jvm_external</code>'s own tests.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="brew install android-commandlinetools
+export ANDROID_HOME=&quot;$(brew --prefix)/share/android-commandlinetools&quot;
+sdkmanager &quot;build-tools;33.0.1&quot; &quot;cmdline-tools;latest&quot; &quot;ndk;21.4.7075529&quot; &quot;platform-tools&quot; &quot;platforms;android-33&quot;
+export ANDROID_NDK_HOME=&quot;$ANDROID_HOME/ndk/21.4.7075529&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">brew install android</span><span style="color:#D73A49">-</span><span style="color:#24292E">commandlinetools</span></span>
+<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">ANDROID_HOME</span><span style="color:#D73A49">=</span><span style="color:#032F62">"$(brew --prefix)/share/android-commandlinetools"</span></span>
+<span class="line"><span style="color:#24292E">sdkmanager </span><span style="color:#032F62">"build-tools;33.0.1"</span><span style="color:#032F62"> "cmdline-tools;latest"</span><span style="color:#032F62"> "ndk;21.4.7075529"</span><span style="color:#032F62"> "platform-tools"</span><span style="color:#032F62"> "platforms;android-33"</span></span>
+<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">ANDROID_NDK_HOME</span><span style="color:#D73A49">=</span><span style="color:#032F62">"$ANDROID_HOME/ndk/21.4.7075529"</span></span></code></pre>
+<p>You can add the <code>export ANDROID_HOME</code> to your <code>.zshrc</code> or similar
+config file.</p>
+<h3>Generating documentation</h3>
+<p>Use <a href="https://skydoc.bazel.build/docs/getting_started_stardoc.html">Stardoc</a> to
+generate API documentation in the <a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/docs/" target="_blank" rel="noopener noreferrer">docs</a> directory using
+<a href="https://github.com/bazel-contrib/rules_jvm_external/blob/548255817b4979bbf33152397eb4c745ccce2b9a/scripts/generate_docs.sh" target="_blank" rel="noopener noreferrer">generate_docs.sh</a>.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Bazel rules to resolve, fetch and export Maven artifacts</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/bazel-contrib/rules_jvm_external" title="@bazel-contrib"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@bazel-contrib/rules_jvm_external</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/bazel-contrib.png" alt="@bazel-contrib"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/rules_jvm_external"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">371</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Thursday, April 23, 2026 (13 days ago)</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 49.2%; background-color: var(--lang-Java-bg, #ccc)" title="Java: 49.2%"> </span><span style="width: 47.6%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 47.6%"> </span><span style="width: 2.7%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 2.7%"> </span><span style="width: 0.2%; background-color: var(--lang-Handlebars-bg, #ccc)" title="Handlebars: 0.2%"> </span><span style="width: 0.2%; background-color: var(--lang-Kotlin-bg, #ccc)" title="Kotlin: 0.2%"> </span><span style="width: 0.1%; background-color: var(--lang-Smarty-bg, #ccc)" title="Smarty: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Java-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/Java">Java</a><span class="ml-2 color-fg-muted">49.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">47.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">2.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Handlebars-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Handlebars</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Kotlin-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Kotlin</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Smarty-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Smarty</span><span class="ml-2 color-fg-muted">0.1%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">3</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/jin" title="Jingwen Chen"><img class="avatar circle" width="48" height="48" src="https://github.com/jin.png" alt="@jin"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/shs96c" title="Simon Stewart"><img class="avatar circle" width="48" height="48" src="https://github.com/shs96c.png" alt="@shs96c"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/cheister" title="Chris Heisterkamp"><img class="avatar circle" width="48" height="48" src="https://github.com/cheister.png" alt="@cheister"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/shs96c" title="Simon Mavi Stewart"><img class="avatar circle" width="48" height="48" src="https://github.com/shs96c.png" alt="@shs96c"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8501"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="rules_jvm_external 7.0 (#8501)"><span class="text-mono">#8501</span> <span class="text-light">rules_jvm_external 7.0 (#8501)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazel-contrib/rules_jvm_external/releases/download/7.0/rules_jvm_external-7.0.tar.gz" title="https://github.com/bazel-contrib/rules_jvm_external/releases/download/7.0/rules_jvm_external-7.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/bazel-cont...</span></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.0.0</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">17</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="7.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="7.0"><span class="text-bold">7.0</span><sup class="color-fg-attention"> +2.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-23</span></div></td></tr><tr class=""><td title="6.10; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 4%, transparent 4%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.10"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.10">6.10</a><sup class="color-fg-attention"> +3.0mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">4%<sup> 12</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-02-04</span></div></td></tr><tr class=""><td title="6.9; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 4%, transparent 4%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.9"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.9">6.9</a><sup class="color-fg-attention"> +3.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">4%<sup> 11</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-04</span></div></td></tr><tr class=""><td title="6.8; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 8%, transparent 8%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.8"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.8">6.8</a><sup class="color-fg-attention"> +4.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">8%<sup> 23</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-07-10</span></div></td></tr><tr class=""><td title="6.7; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 24%, transparent 24%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.7"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.7">6.7</a><sup class="color-fg-attention"> +2.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">24%<sup> 68</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-02-11</span></div></td></tr><tr class=""><td title="6.6; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 19%, transparent 19%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.6"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.6">6.6</a><sup class="color-fg-attention"> +26d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">19%<sup> 54</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-26</span></div></td></tr><tr class=""><td title="6.5; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.5"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.5">6.5</a><sup class="color-fg-attention"> +1.4mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">0%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-10-30</span></div></td></tr><tr class=""><td title="6.4; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.4"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.4">6.4</a><sup class="color-fg-attention"> +6d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-18</span></div></td></tr><tr class=""><td title="6.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 6%, transparent 6%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.3"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.3">6.3</a><sup class="color-fg-attention"> +2.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">6%<sup> 18</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-12</span></div></td></tr><tr class=""><td title="6.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 5%, transparent 5%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.2"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.2">6.2</a><sup class="color-fg-attention"> +2.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">5%<sup> 13</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-07-04</span></div></td></tr><tr class=""><td title="6.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 2%, transparent 2%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.1"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.1">6.1</a><sup class="color-fg-attention"> +3.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">2%<sup> 5</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-04-26</span></div></td></tr><tr class=""><td title="6.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 9%, transparent 9%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.0"><a class="Box-row-link" href="/#/modules/rules_jvm_external/6.0">6.0</a><sup class="color-fg-attention"> +7.0mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">9%<sup> 25</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-01-18</span></div></td></tr><tr class=""><td title="5.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 8%, transparent 8%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="5.3"><a class="Box-row-link" href="/#/modules/rules_jvm_external/5.3">5.3</a><sup class="color-fg-attention"> +2.4mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">8%<sup> 21</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-06-23</span></div></td></tr><tr class=""><td title="5.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 1%, transparent 1%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="5.2"><a class="Box-row-link" href="/#/modules/rules_jvm_external/5.2">5.2</a><sup class="color-fg-attention"> +1.2mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">1%<sup> 3</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-04-13</span></div></td></tr><tr class=""><td title="5.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 8%, transparent 8%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="5.1"><a class="Box-row-link" href="/#/modules/rules_jvm_external/5.1">5.1</a><sup class="color-fg-attention"> +3.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">8%<sup> 21</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-03-08</span></div></td></tr><tr class=""><td title="4.5; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 1%, transparent 1%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="4.5"><a class="Box-row-link" href="/#/modules/rules_jvm_external/4.5">4.5</a><sup class="color-fg-attention"> +1.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">1%<sup> 2</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2022-11-11</span></div></td></tr><tr class=""><td title="4.4.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 1%, transparent 1%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="4.4.2"><a class="Box-row-link" href="/#/modules/rules_jvm_external/4.4.2">4.4.2</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">1%<sup> 2</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2022-09-22</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

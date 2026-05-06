@@ -1,0 +1,882 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">hiredis</span> <span class="f2 d-inline-block">1.3.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 7.7mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/redis/hiredis" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/hiredis/1.3.0/overview" data-name="overview" id=":mw.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/hiredis/1.3.0/docs" data-name="docs" id=":mw.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/hiredis/1.3.0/testing" data-name="testing" id=":mw.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;hiredis&quot;, version = &quot;1.3.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hiredis"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.3.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">6</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/boringssl/0.20250818.0">boringssl<span class="ml-1 text-light text-small">0.20250818.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/boringssl/0.20260413.0">0.20260413.0<span title="Version Distance"><sup style="padding-left: 3px">+7<span class="color-fg-attention"> (7.9mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/glib/2.82.2.bcr.5">glib<span class="ml-1 text-light text-small">2.82.2.bcr.5</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/glib/2.82.2.bcr.8">2.82.2.bcr.8<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (10.6mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/libevent/2.1.12-stable.bcr.0">libevent<span class="ml-1 text-light text-small">2.1.12-stable.bcr.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/libuv/1.48.0">libuv<span class="ml-1 text-light text-small">1.48.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/libuv/1.48.0.bcr.1">1.48.0.bcr.1<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (1.7y)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.0">rules_cc<span class="ml-1 text-light text-small">0.2.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+23<span class="color-fg-attention"> (8.6mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><p><a href="https://github.com/redis/hiredis/actions/workflows/build.yml"><img src="https://github.com/redis/hiredis/actions/workflows/build.yml/badge.svg" alt="Build Status"></a></p>
+<p><strong>This Readme reflects the latest changed in the master branch. See <a href="https://github.com/redis/hiredis/tree/v1.0.0">v1.0.0</a> for the Readme and documentation for the latest release (<a href="https://abi-laboratory.pro/?view=timeline&amp;l=hiredis">API/ABI history</a>).</strong></p>
+<h1>HIREDIS</h1>
+<p>Hiredis is a minimalistic C client library for the <a href="https://redis.io/">Redis</a> database.</p>
+<p>It is minimalistic because it just adds minimal support for the protocol, but
+at the same time it uses a high level printf-alike API in order to make it
+much higher level than otherwise suggested by its minimal code base and the
+lack of explicit bindings for every Redis command.</p>
+<p>Apart from supporting sending commands and receiving replies, it comes with
+a reply parser that is decoupled from the I/O layer. It
+is a stream parser designed for easy reusability, which can for instance be used
+in higher level language bindings for efficient reply parsing.</p>
+<p>Hiredis only supports the binary-safe Redis protocol, so you can use it with any
+Redis version &gt;= 1.2.0.</p>
+<p>The library comes with multiple APIs. There is the
+<em>synchronous API</em>, the <em>asynchronous API</em> and the <em>reply parsing API</em>.</p>
+<h2>Upgrading to &gt; 1.2.0 (<strong>PRERELEASE</strong>)</h2>
+<ul>
+<li><p>After v1.2.0 we modified how we invoke <code>poll(2)</code> to wait for connections to complete, such that we will now retry
+the call if it is interrupted by a signal until:</p>
+<p>a) The connection succeeds or fails.
+b) The overall connection timeout is reached.</p>
+<p>In previous versions, an interrupted <code>poll(2)</code> call would cause the connection to fail
+with <code>c-&gt;err</code> set to <code>REDIS_ERR_IO</code> and <code>c-&gt;errstr</code> set to <code>poll(2): Interrupted system call</code>.</p>
+</li>
+</ul>
+<h2>Upgrading to <code>1.1.0</code></h2>
+<p>Almost all users will simply need to recompile their applications against the newer version of hiredis.</p>
+<p><strong>NOTE</strong>:  Hiredis can now return <code>nan</code> in addition to <code>-inf</code> and <code>inf</code> in a <code>REDIS_REPLY_DOUBLE</code>.
+           Applications that deal with <code>RESP3</code> doubles should make sure to account for this.</p>
+<h2>Upgrading to <code>1.0.2</code></h2>
+<p><span>NOTE:  v1.0.1 erroneously bumped SONAME, which is why it is skipped here.</span></p>
+<p>Version 1.0.2 is simply 1.0.0 with a fix for <a href="https://github.com/redis/hiredis/security/advisories/GHSA-hfm9-39pp-55p2">CVE-2021-32765</a>.  They are otherwise identical.</p>
+<h2>Upgrading to <code>1.0.0</code></h2>
+<p>Version 1.0.0 marks the first stable release of Hiredis.
+It includes some minor breaking changes, mostly to make the exposed API more uniform and self-explanatory.
+It also bundles the updated <code>sds</code> library, to sync up with upstream and Redis.
+For code changes see the <a href="CHANGELOG.md">Changelog</a>.</p>
+<p><em>Note:  As described below, a few member names have been changed but most applications should be able to upgrade with minor code changes and recompiling.</em></p>
+<h2>IMPORTANT:  Breaking changes from <code>0.14.1</code> -&gt; <code>1.0.0</code></h2>
+<ul>
+<li><code>redisContext</code> has two additional members (<code>free_privdata</code>, and <code>privctx</code>).</li>
+<li><code>redisOptions.timeout</code> has been renamed to <code>redisOptions.connect_timeout</code>, and we've added <code>redisOptions.command_timeout</code>.</li>
+<li><code>redisReplyObjectFunctions.createArray</code> now takes <code>size_t</code> instead of <code>int</code> for its length parameter.</li>
+</ul>
+<h2>IMPORTANT:  Breaking changes when upgrading from 0.13.x -&gt; 0.14.x</h2>
+<p>Bulk and multi-bulk lengths less than -1 or greater than <code>LLONG_MAX</code> are now
+protocol errors. This is consistent with the RESP specification. On 32-bit
+platforms, the upper bound is lowered to <code>SIZE_MAX</code>.</p>
+<p>Change <code>redisReply.len</code> to <code>size_t</code>, as it denotes the the size of a string</p>
+<p>User code should compare this to <code>size_t</code> values as well.  If it was used to
+compare to other values, casting might be necessary or can be removed, if
+casting was applied before.</p>
+<h2>Upgrading from <code>&lt;0.9.0</code></h2>
+<p>Version 0.9.0 is a major overhaul of hiredis in every aspect. However, upgrading existing
+code using hiredis should not be a big pain. The key thing to keep in mind when
+upgrading is that hiredis &gt;= 0.9.0 uses a <code>redisContext*</code> to keep state, in contrast to
+the stateless 0.0.1 that only has a file descriptor to work with.</p>
+<h2>Synchronous API</h2>
+<p>To consume the synchronous API, there are only a few function calls that need to be introduced:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisContext *redisConnect(const char *ip, int port);
+void *redisCommand(redisContext *c, const char *format, ...);
+void freeReplyObject(void *reply);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">redisConnect(const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">ip, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> port)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">void </span><span style="color:#D73A49">*</span><span style="color:#24292E">redisCommand(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5">format</span><span style="color:#24292E">, </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">void freeReplyObject(void </span><span style="color:#D73A49">*</span><span style="color:#24292E">reply)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Connecting</h3>
+<p>The function <code>redisConnect</code> is used to create a so-called <code>redisContext</code>. The
+context is where Hiredis holds state for a connection. The <code>redisContext</code>
+struct has an integer <code>err</code> field that is non-zero when the connection is in
+an error state. The field <code>errstr</code> will contain a string with a description of
+the error. More information on errors can be found in the <strong>Errors</strong> section.
+After trying to connect to Redis using <code>redisConnect</code> you should
+check the <code>err</code> field to see if establishing the connection was successful:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisContext *c = redisConnect(&quot;127.0.0.1&quot;, 6379);
+if (c == NULL || c-&gt;err) {
+    if (c) {
+        printf(&quot;Error: %s\n&quot;, c-&gt;errstr);
+        // handle error
+    } else {
+        printf(&quot;Can't allocate redis context\n&quot;);
+    }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnect(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (c </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> NULL</span><span style="color:#B31D28;font-style:italic"> ||</span><span style="color:#24292E"> c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err) {</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (c) {</span></span>
+<span class="line"><span style="color:#24292E">        printf(</span><span style="color:#032F62">"Error: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">errstr);</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> handle error</span></span>
+<span class="line"><span style="color:#24292E">    } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">        printf(</span><span style="color:#032F62">"Can't allocate redis context</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>One can also use <code>redisConnectWithOptions</code> which takes a <code>redisOptions</code> argument
+that can be configured with endpoint information as well as many different flags
+to change how the <code>redisContext</code> will be configured.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisOptions opt = {0};
+
+/* One can set the endpoint with one of our helper macros */
+if (tcp) {
+    REDIS_OPTIONS_SET_TCP(&amp;opt, &quot;localhost&quot;, 6379);
+} else {
+    REDIS_OPTIONS_SET_UNIX(&amp;opt, &quot;/tmp/redis.sock&quot;);
+}
+
+/* And privdata can be specified with another helper */
+REDIS_OPTIONS_SET_PRIVDATA(&amp;opt, myPrivData, myPrivDataDtor);
+
+/* Finally various options may be set via the `options` member, as described below */
+opt-&gt;options |= REDIS_OPT_PREFER_IPV4;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisOptions opt </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">0</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> One can </span><span style="color:#005CC5">set</span><span style="color:#24292E"> the endpoint </span><span style="color:#D73A49">with</span><span style="color:#24292E"> one of our helper macros </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (tcp) {</span></span>
+<span class="line"><span style="color:#24292E">    REDIS_OPTIONS_SET_TCP(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opt, </span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">} </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    REDIS_OPTIONS_SET_UNIX(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opt, </span><span style="color:#032F62">"/tmp/redis.sock"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> And privdata can be specified </span><span style="color:#D73A49">with</span><span style="color:#24292E"> another helper </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">REDIS_OPTIONS_SET_PRIVDATA(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opt, myPrivData, myPrivDataDtor)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Finally various options may be </span><span style="color:#005CC5">set</span><span style="color:#24292E"> via the </span><span style="color:#B31D28;font-style:italic">`options`</span><span style="color:#24292E"> member, </span><span style="color:#D73A49">as</span><span style="color:#24292E"> described below </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">opt</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">options </span><span style="color:#D73A49">|=</span><span style="color:#005CC5"> REDIS_OPT_PREFER_IPV4</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>If a connection is lost, <code>int redisReconnect(redisContext *c)</code> can be used to restore the connection using the same endpoint and options as the given context.</p>
+<h3>Configurable redisOptions flags</h3>
+<p>There are several flags you may set in the <code>redisOptions</code> struct to change default behavior.  You can specify the flags via the <code>redisOptions-&gt;options</code> member.</p>
+<table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>REDIS_OPT_NONBLOCK</td>
+<td>Tells hiredis to make a non-blocking connection.</td>
+</tr>
+<tr>
+<td>REDIS_OPT_REUSEADDR</td>
+<td>Tells hiredis to set the <a href="https://man7.org/linux/man-pages/man7/socket.7.html">SO_REUSEADDR</a> socket option</td>
+</tr>
+<tr>
+<td>REDIS_OPT_PREFER_IPV4<br>REDIS_OPT_PREFER_IPV6<br>REDIS_OPT_PREFER_IP_UNSPEC</td>
+<td>Informs hiredis to either prefer IPv4 or IPv6 when invoking <a href="https://man7.org/linux/man-pages/man3/gai_strerror.3.html">getaddrinfo</a>.  <code>REDIS_OPT_PREFER_IP_UNSPEC</code> will cause hiredis to specify <code>AF_UNSPEC</code> in the getaddrinfo call, which means both IPv4 and IPv6 addresses will be searched simultaneously.<br>Hiredis prefers IPv4 by default.</td>
+</tr>
+<tr>
+<td>REDIS_OPT_NO_PUSH_AUTOFREE</td>
+<td>Tells hiredis to not install the default RESP3 PUSH handler (which just intercepts and frees the replies).  This is useful in situations where you want to process these messages in-band.</td>
+</tr>
+<tr>
+<td>REDIS_OPT_NOAUTOFREEREPLIES</td>
+<td><strong>ASYNC</strong>: tells hiredis not to automatically invoke <code>freeReplyObject</code> after executing the reply callback.</td>
+</tr>
+<tr>
+<td>REDIS_OPT_NOAUTOFREE</td>
+<td><strong>ASYNC</strong>: Tells hiredis not to automatically free the <code>redisAsyncContext</code> on connection/communication failure, but only if the user makes an explicit call to <code>redisAsyncDisconnect</code> or <code>redisAsyncFree</code></td>
+</tr>
+</tbody></table>
+<p><em>Note: A <code>redisContext</code> is not thread-safe.</em></p>
+<h3>Other configuration using socket options</h3>
+<p>The following socket options are applied directly to the underlying socket.
+The values are not stored in the <code>redisContext</code>, so they are not automatically applied when reconnecting using <code>redisReconnect()</code>.
+These functions return <code>REDIS_OK</code> on success.
+On failure, <code>REDIS_ERR</code> is returned and the underlying connection is closed.</p>
+<p>To configure these for an asynchronous context (see <em>Asynchronous API</em> below), use <code>ac-&gt;c</code> to get the redisContext out of an asyncRedisContext.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="int redisEnableKeepAlive(redisContext *c);
+int redisEnableKeepAliveWithInterval(redisContext *c, int interval);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisEnableKeepAlive(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisEnableKeepAliveWithInterval(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> interval)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Enables TCP keepalive by setting the following socket options (with some variations depending on OS):</p>
+<ul>
+<li><code>SO_KEEPALIVE</code>;</li>
+<li><code>TCP_KEEPALIVE</code> or <code>TCP_KEEPIDLE</code>, value configurable using the <code>interval</code> parameter, default 15 seconds;</li>
+<li><code>TCP_KEEPINTVL</code> set to 1/3 of <code>interval</code>;</li>
+<li><code>TCP_KEEPCNT</code> set to 3.</li>
+</ul>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="int redisSetTcpUserTimeout(redisContext *c, unsigned int timeout);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisSetTcpUserTimeout(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> timeout)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Set the <code>TCP_USER_TIMEOUT</code> Linux-specific socket option which is as described in the <code>tcp</code> man page:</p>
+<blockquote>
+<p>When the value is greater than 0, it specifies the maximum amount of time in milliseconds that trans mitted data may remain unacknowledged before TCP will forcibly close the corresponding connection and return ETIMEDOUT to the application.
+If the option value is specified as 0, TCP will use the system default.</p>
+</blockquote>
+<h3>Sending commands</h3>
+<p>There are several ways to issue commands to Redis. The first that will be introduced is
+<code>redisCommand</code>. This function takes a format similar to printf. In the simplest form,
+it is used like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="reply = redisCommand(context, &quot;SET foo bar&quot;);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">reply </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCommand(context, </span><span style="color:#032F62">"SET foo bar"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>The specifier <code>%s</code> interpolates a string in the command, and uses <code>strlen</code> to
+determine the length of the string:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="reply = redisCommand(context, &quot;SET foo %s&quot;, value);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">reply </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCommand(context, </span><span style="color:#032F62">"SET foo </span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#24292E">, value)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>When you need to pass binary safe strings in a command, the <code>%b</code> specifier can be
+used. Together with a pointer to the string, it requires a <code>size_t</code> length argument
+of the string:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="reply = redisCommand(context, &quot;SET foo %b&quot;, value, (size_t) valuelen);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">reply </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCommand(context, </span><span style="color:#032F62">"SET foo </span><span style="color:#005CC5">%b</span><span style="color:#032F62">"</span><span style="color:#24292E">, value, (size_t) valuelen)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Internally, Hiredis splits the command in different arguments and will
+convert it to the protocol used to communicate with Redis.
+One or more spaces separates arguments, so you can use the specifiers
+anywhere in an argument:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="reply = redisCommand(context, &quot;SET key:%s %s&quot;, myid, value);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">reply </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCommand(context, </span><span style="color:#032F62">"SET key:</span><span style="color:#005CC5">%s</span><span style="color:#005CC5"> %s</span><span style="color:#032F62">"</span><span style="color:#24292E">, myid, value)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Using replies</h3>
+<p>The return value of <code>redisCommand</code> holds a reply when the command was
+successfully executed. When an error occurs, the return value is <code>NULL</code> and
+the <code>err</code> field in the context will be set (see section on <strong>Errors</strong>).
+Once an error is returned the context cannot be reused and you should set up
+a new connection.</p>
+<p>The standard replies that <code>redisCommand</code> are of the type <code>redisReply</code>. The
+<code>type</code> field in the <code>redisReply</code> should be used to test what kind of reply
+was received:</p>
+<h3>RESP2</h3>
+<ul>
+<li><p><strong><code>REDIS_REPLY_STATUS</code></strong>:</p>
+<ul>
+<li>The command replied with a status reply. The status string can be accessed using <code>reply-&gt;str</code>.
+The length of this string can be accessed using <code>reply-&gt;len</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_ERROR</code></strong>:</p>
+<ul>
+<li>The command replied with an error. The error string can be accessed identical to <code>REDIS_REPLY_STATUS</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_INTEGER</code></strong>:</p>
+<ul>
+<li>The command replied with an integer. The integer value can be accessed using the
+<code>reply-&gt;integer</code> field of type <code>long long</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_NIL</code></strong>:</p>
+<ul>
+<li>The command replied with a <strong>nil</strong> object. There is no data to access.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_STRING</code></strong>:</p>
+<ul>
+<li>A bulk (string) reply. The value of the reply can be accessed using <code>reply-&gt;str</code>.
+The length of this string can be accessed using <code>reply-&gt;len</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_ARRAY</code></strong>:</p>
+<ul>
+<li>A multi bulk reply. The number of elements in the multi bulk reply is stored in
+<code>reply-&gt;elements</code>. Every element in the multi bulk reply is a <code>redisReply</code> object as well
+and can be accessed via <code>reply-&gt;element[..index..]</code>.
+Redis may reply with nested arrays but this is fully supported.</li>
+</ul>
+</li>
+</ul>
+<h3>RESP3</h3>
+<p>Hiredis also supports every new <code>RESP3</code> data type which are as follows.  For more information about the protocol see the <code>RESP3</code> <a href="https://github.com/antirez/RESP3/blob/master/spec.md">specification.</a></p>
+<ul>
+<li><p><strong><code>REDIS_REPLY_DOUBLE</code></strong>:</p>
+<ul>
+<li>The command replied with a double-precision floating point number.
+The value is stored as a string in the <code>str</code> member, and can be converted with <code>strtod</code> or similar.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_BOOL</code></strong>:</p>
+<ul>
+<li>A boolean true/false reply.
+The value is stored in the <code>integer</code> member and will be either <code>0</code> or <code>1</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_MAP</code></strong>:</p>
+<ul>
+<li>An array with the added invariant that there will always be an even number of elements.
+The MAP is functionally equivalent to <code>REDIS_REPLY_ARRAY</code> except for the previously mentioned invariant.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_SET</code></strong>:</p>
+<ul>
+<li>An array response where each entry is unique.
+Like the MAP type, the data is identical to an array response except there are no duplicate values.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_PUSH</code></strong>:</p>
+<ul>
+<li>An array that can be generated spontaneously by Redis.
+This array response will always contain at least two subelements.  The first contains the type of <code>PUSH</code> message (e.g. <code>message</code>, or <code>invalidate</code>), and the second being a sub-array with the <code>PUSH</code> payload itself.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_ATTR</code></strong>:</p>
+<ul>
+<li>An array structurally identical to a <code>MAP</code> but intended as meta-data about a reply.
+<em>As of Redis 6.0.6 this reply type is not used in Redis</em></li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_BIGNUM</code></strong>:</p>
+<ul>
+<li>A string representing an arbitrarily large signed or unsigned integer value.
+The number will be encoded as a string in the <code>str</code> member of <code>redisReply</code>.</li>
+</ul>
+</li>
+<li><p><strong><code>REDIS_REPLY_VERB</code></strong>:</p>
+<ul>
+<li>A verbatim string, intended to be presented to the user without modification.
+The string payload is stored in the <code>str</code> member, and type data is stored in the <code>vtype</code> member (e.g. <code>txt</code> for raw text or <code>md</code> for markdown).</li>
+</ul>
+</li>
+</ul>
+<p>Replies should be freed using the <code>freeReplyObject()</code> function.
+Note that this function will take care of freeing sub-reply objects
+contained in arrays and nested arrays, so there is no need for the user to
+free the sub replies (it is actually harmful and will corrupt the memory).</p>
+<p><strong>Important:</strong> the current version of hiredis (1.0.0) frees replies when the
+asynchronous API is used. This means you should not call <code>freeReplyObject</code> when
+you use this API. The reply is cleaned up by hiredis <em>after</em> the callback
+returns.  We may introduce a flag to make this configurable in future versions of the library.</p>
+<h3>Cleaning up</h3>
+<p>To disconnect and free the context the following function can be used:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void redisFree(redisContext *c);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void redisFree(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>This function immediately closes the socket and then frees the allocations done in
+creating the context.</p>
+<h3>Sending commands (continued)</h3>
+<p>Together with <code>redisCommand</code>, the function <code>redisCommandArgv</code> can be used to issue commands.
+It has the following prototype:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void *redisCommandArgv(redisContext *c, int argc, const char **argv, const size_t *argvlen);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void </span><span style="color:#D73A49">*</span><span style="color:#24292E">redisCommandArgv(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, const char </span><span style="color:#D73A49">**</span><span style="color:#24292E">argv, const size_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">argvlen)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>It takes the number of arguments <code>argc</code>, an array of strings <code>argv</code> and the lengths of the
+arguments <code>argvlen</code>. For convenience, <code>argvlen</code> may be set to <code>NULL</code> and the function will
+use <code>strlen(3)</code> on every argument to determine its length. Obviously, when any of the arguments
+need to be binary safe, the entire array of lengths <code>argvlen</code> should be provided.</p>
+<p>The return value has the same semantic as <code>redisCommand</code>.</p>
+<h3>Pipelining</h3>
+<p>To explain how Hiredis supports pipelining in a blocking connection, there needs to be
+understanding of the internal execution flow.</p>
+<p>When any of the functions in the <code>redisCommand</code> family is called, Hiredis first formats the
+command according to the Redis protocol. The formatted command is then put in the output buffer
+of the context. This output buffer is dynamic, so it can hold any number of commands.
+After the command is put in the output buffer, <code>redisGetReply</code> is called. This function has the
+following two execution paths:</p>
+<ol>
+<li>The input buffer is non-empty:<ul>
+<li>Try to parse a single reply from the input buffer and return it</li>
+<li>If no reply could be parsed, continue at <em>2</em></li>
+</ul>
+</li>
+<li>The input buffer is empty:<ul>
+<li>Write the <strong>entire</strong> output buffer to the socket</li>
+<li>Read from the socket until a single reply could be parsed</li>
+</ul>
+</li>
+</ol>
+<p>The function <code>redisGetReply</code> is exported as part of the Hiredis API and can be used when a reply
+is expected on the socket. To pipeline commands, the only thing that needs to be done is
+filling up the output buffer. For this cause, two commands can be used that are identical
+to the <code>redisCommand</code> family, apart from not returning a reply:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void redisAppendCommand(redisContext *c, const char *format, ...);
+void redisAppendCommandArgv(redisContext *c, int argc, const char **argv, const size_t *argvlen);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void redisAppendCommand(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5">format</span><span style="color:#24292E">, </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">void redisAppendCommandArgv(redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, const char </span><span style="color:#D73A49">**</span><span style="color:#24292E">argv, const size_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">argvlen)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>After calling either function one or more times, <code>redisGetReply</code> can be used to receive the
+subsequent replies. The return value for this function is either <code>REDIS_OK</code> or <code>REDIS_ERR</code>, where
+the latter means an error occurred while reading a reply. Just as with the other commands,
+the <code>err</code> field in the context can be used to find out what the cause of this error is.</p>
+<p>The following examples shows a simple pipeline (resulting in only a single call to <code>write(2)</code> and
+a single call to <code>read(2)</code>):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisReply *reply;
+redisAppendCommand(context,&quot;SET foo bar&quot;);
+redisAppendCommand(context,&quot;GET foo&quot;);
+redisGetReply(context,(void**)&amp;reply); // reply for SET
+freeReplyObject(reply);
+redisGetReply(context,(void**)&amp;reply); // reply for GET
+freeReplyObject(reply);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisReply </span><span style="color:#D73A49">*</span><span style="color:#24292E">reply</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisAppendCommand(context,</span><span style="color:#032F62">"SET foo bar"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisAppendCommand(context,</span><span style="color:#032F62">"GET foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisGetReply(context,(void</span><span style="color:#D73A49">**</span><span style="color:#24292E">)</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">reply); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> reply </span><span style="color:#D73A49">for</span><span style="color:#005CC5"> SET</span></span>
+<span class="line"><span style="color:#24292E">freeReplyObject(reply);</span></span>
+<span class="line"><span style="color:#24292E">redisGetReply(context,(void</span><span style="color:#D73A49">**</span><span style="color:#24292E">)</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">reply); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> reply </span><span style="color:#D73A49">for</span><span style="color:#005CC5"> GET</span></span>
+<span class="line"><span style="color:#24292E">freeReplyObject(reply);</span></span></code></pre>
+<p>This API can also be used to implement a blocking subscriber:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="reply = redisCommand(context,&quot;SUBSCRIBE foo&quot;);
+freeReplyObject(reply);
+while(redisGetReply(context,(void *)&amp;reply) == REDIS_OK) {
+    // consume message
+    freeReplyObject(reply);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">reply </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCommand(context,</span><span style="color:#032F62">"SUBSCRIBE foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">freeReplyObject(reply)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E">(redisGetReply(context,(void </span><span style="color:#D73A49">*</span><span style="color:#24292E">)</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">reply) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> REDIS_OK</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> consume message</span></span>
+<span class="line"><span style="color:#24292E">    freeReplyObject(reply);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Errors</h3>
+<p>When a function call is not successful, depending on the function either <code>NULL</code> or <code>REDIS_ERR</code> is
+returned. The <code>err</code> field inside the context will be non-zero and set to one of the
+following constants:</p>
+<ul>
+<li><p><strong><code>REDIS_ERR_IO</code></strong>:
+  There was an I/O error while creating the connection, trying to write
+  to the socket or read from the socket. If you included <code>errno.h</code> in your
+  application, you can use the global <code>errno</code> variable to find out what is
+  wrong.</p>
+</li>
+<li><p><strong><code>REDIS_ERR_EOF</code></strong>:
+  The server closed the connection which resulted in an empty read.</p>
+</li>
+<li><p><strong><code>REDIS_ERR_PROTOCOL</code></strong>:
+  There was an error while parsing the protocol.</p>
+</li>
+<li><p><strong><code>REDIS_ERR_OTHER</code></strong>:
+  Any other error. Currently, it is only used when a specified hostname to connect
+  to cannot be resolved.</p>
+</li>
+</ul>
+<p>In every case, the <code>errstr</code> field in the context will be set to hold a string representation
+of the error.</p>
+<h2>Asynchronous API</h2>
+<p>Hiredis comes with an asynchronous API that works easily with any event library.
+Examples are bundled that show using Hiredis with <a href="http://software.schmorp.de/pkg/libev.html">libev</a>
+and <a href="http://monkey.org/~provos/libevent/">libevent</a>.</p>
+<h3>Connecting</h3>
+<p>The function <code>redisAsyncConnect</code> can be used to establish a non-blocking connection to
+Redis. It returns a pointer to the newly created <code>redisAsyncContext</code> struct. The <code>err</code> field
+should be checked after creation to see if there were errors creating the connection.
+Because the connection that will be created is non-blocking, the kernel is not able to
+instantly return if the specified host and port is able to accept a connection.
+In case of error, it is the caller's responsibility to free the context using <code>redisAsyncFree()</code></p>
+<p><em>Note: A <code>redisAsyncContext</code> is not thread-safe.</em></p>
+<p>An application function creating a connection might look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void appConnect(myAppData *appData)
+{
+    redisAsyncContext *c = redisAsyncConnect(&quot;127.0.0.1&quot;, 6379);
+    if (c-&gt;err) {
+        printf(&quot;Error: %s\n&quot;, c-&gt;errstr);
+        // handle error
+        redisAsyncFree(c);
+        c = NULL;
+    } else {
+        appData-&gt;context = c;
+        appData-&gt;connecting = 1;
+        c-&gt;data = appData; /* store application pointer for the callbacks */
+        redisAsyncSetConnectCallback(c, appOnConnect);
+        redisAsyncSetDisconnectCallback(c, appOnDisconnect);
+    }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void appConnect(myAppData </span><span style="color:#D73A49">*</span><span style="color:#24292E">appData)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c = redisAsyncConnect(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err) {</span></span>
+<span class="line"><span style="color:#24292E">        printf(</span><span style="color:#032F62">"Error: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">errstr);</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> handle error</span></span>
+<span class="line"><span style="color:#24292E">        redisAsyncFree(c);</span></span>
+<span class="line"><span style="color:#24292E">        c = </span><span style="color:#005CC5">NULL</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">context = c;</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">connecting = </span><span style="color:#005CC5">1</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">        c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">data = appData; </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> store application pointer </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the callbacks </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">        redisAsyncSetConnectCallback(c, appOnConnect);</span></span>
+<span class="line"><span style="color:#24292E">        redisAsyncSetDisconnectCallback(c, appOnDisconnect);</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>The asynchronous context <em>should</em> hold a <em>connect</em> callback function that is called when the connection
+attempt completes, either successfully or with an error.
+It <em>can</em> also hold a <em>disconnect</em> callback function that is called when the
+connection is disconnected (either because of an error or per user request). Both callbacks should
+have the following prototype:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void(const redisAsyncContext *c, int status);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void(const redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> status)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>On a <em>connect</em>, the <code>status</code> argument is set to <code>REDIS_OK</code> if the connection attempt succeeded.  In this
+case, the context is ready to accept commands.  If it is called with <code>REDIS_ERR</code> then the
+connection attempt failed. The <code>err</code> field in the context can be accessed to find out the cause of the error.
+After a failed connection attempt, the context object is automatically freed by the library after calling
+the connect callback.  This may be a good point to create a new context and retry the connection.</p>
+<p>On a disconnect, the <code>status</code> argument is set to <code>REDIS_OK</code> when disconnection was initiated by the
+user, or <code>REDIS_ERR</code> when the disconnection was caused by an error. When it is <code>REDIS_ERR</code>, the <code>err</code>
+field in the context can be accessed to find out the cause of the error.</p>
+<p>The context object is always freed after the disconnect callback fired. When a reconnect is needed,
+the disconnect callback is a good point to do so.</p>
+<p>Setting the connect or disconnect callbacks can only be done once per context. For subsequent calls the
+api will return <code>REDIS_ERR</code>. The function to set the callbacks have the following prototype:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="/* Alternatively you can use redisAsyncSetConnectCallbackNC which will be passed a non-const
+   redisAsyncContext* on invocation (e.g. allowing writes to the privdata member). */
+int redisAsyncSetConnectCallback(redisAsyncContext *ac, redisConnectCallback *fn);
+int redisAsyncSetDisconnectCallback(redisAsyncContext *ac, redisDisconnectCallback *fn);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Alternatively you can use redisAsyncSetConnectCallbackNC which will be passed a non</span><span style="color:#D73A49">-</span><span style="color:#24292E">const</span></span>
+<span class="line"><span style="color:#24292E">   redisAsyncContext</span><span style="color:#D73A49">*</span><span style="color:#24292E"> on invocation (e.g. allowing writes to the privdata member). </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisAsyncSetConnectCallback(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac, redisConnectCallback </span><span style="color:#D73A49">*</span><span style="color:#24292E">fn)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisAsyncSetDisconnectCallback(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac, redisDisconnectCallback </span><span style="color:#D73A49">*</span><span style="color:#24292E">fn)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><code>ac-&gt;data</code> may be used to pass user data to both callbacks.  A typical implementation
+might look something like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void appOnConnect(redisAsyncContext *c, int status)
+{
+    myAppData *appData = (myAppData*)c-&gt;data; /* get my application specific context*/
+    appData-&gt;connecting = 0;
+    if (status == REDIS_OK) {
+        appData-&gt;connected = 1;
+    } else {
+        appData-&gt;connected = 0;
+        appData-&gt;err = c-&gt;err;
+        appData-&gt;context = NULL; /* avoid stale pointer when callback returns */
+    }
+    appAttemptReconnect();
+}
+
+void appOnDisconnect(redisAsyncContext *c, int status)
+{
+    myAppData *appData = (myAppData*)c-&gt;data; /* get my application specific context*/
+    appData-&gt;connected = 0;
+    appData-&gt;err = c-&gt;err;
+    appData-&gt;context = NULL; /* avoid stale pointer when callback returns */
+    if (status == REDIS_OK) {
+        appNotifyDisconnectCompleted(mydata);
+    } else {
+        appNotifyUnexpectedDisconnect(mydata);
+        appAttemptReconnect();
+    }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void appOnConnect(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> status)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    myAppData </span><span style="color:#D73A49">*</span><span style="color:#24292E">appData = (myAppData</span><span style="color:#D73A49">*</span><span style="color:#24292E">)c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">data; </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> get my application specific context</span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">    appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">connecting = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (status </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> REDIS_OK</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">connected = </span><span style="color:#005CC5">1</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">connected = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err = c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err;</span></span>
+<span class="line"><span style="color:#24292E">        appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">context = </span><span style="color:#005CC5">NULL</span><span style="color:#24292E">; </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> avoid stale pointer when callback returns </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    appAttemptReconnect();</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void appOnDisconnect(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> status)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    myAppData </span><span style="color:#D73A49">*</span><span style="color:#24292E">appData = (myAppData</span><span style="color:#D73A49">*</span><span style="color:#24292E">)c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">data; </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> get my application specific context</span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">    appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">connected = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err = c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err;</span></span>
+<span class="line"><span style="color:#24292E">    appData</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">context = </span><span style="color:#005CC5">NULL</span><span style="color:#24292E">; </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> avoid stale pointer when callback returns </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (status </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> REDIS_OK</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">        appNotifyDisconnectCompleted(mydata);</span></span>
+<span class="line"><span style="color:#24292E">    } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">        appNotifyUnexpectedDisconnect(mydata);</span></span>
+<span class="line"><span style="color:#24292E">        appAttemptReconnect();</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Sending commands and their callbacks</h3>
+<p>In an asynchronous context, commands are automatically pipelined due to the nature of an event loop.
+Therefore, unlike the synchronous API, there is only a single way to send commands.
+Because commands are sent to Redis asynchronously, issuing a command requires a callback function
+that is called when the reply is received. Reply callbacks should have the following prototype:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void(redisAsyncContext *c, void *reply, void *privdata);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">c, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">reply, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">privdata)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>The <code>privdata</code> argument can be used to curry arbitrary data to the callback from the point where
+the command is initially queued for execution.</p>
+<p>The functions that can be used to issue commands in an asynchronous context are:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="int redisAsyncCommand(
+  redisAsyncContext *ac, redisCallbackFn *fn, void *privdata,
+  const char *format, ...);
+int redisAsyncCommandArgv(
+  redisAsyncContext *ac, redisCallbackFn *fn, void *privdata,
+  int argc, const char **argv, const size_t *argvlen);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisAsyncCommand(</span></span>
+<span class="line"><span style="color:#24292E">  redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac, redisCallbackFn </span><span style="color:#D73A49">*</span><span style="color:#24292E">fn, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">privdata,</span></span>
+<span class="line"><span style="color:#24292E">  const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5">format</span><span style="color:#24292E">, </span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisAsyncCommandArgv(</span></span>
+<span class="line"><span style="color:#24292E">  redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac, redisCallbackFn </span><span style="color:#D73A49">*</span><span style="color:#24292E">fn, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">privdata,</span></span>
+<span class="line"><span style="color:#005CC5">  int</span><span style="color:#24292E"> argc, const char </span><span style="color:#D73A49">**</span><span style="color:#24292E">argv, const size_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">argvlen)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Both functions work like their blocking counterparts. The return value is <code>REDIS_OK</code> when the command
+was successfully added to the output buffer and <code>REDIS_ERR</code> otherwise. Example: when the connection
+is being disconnected per user-request, no new commands may be added to the output buffer and <code>REDIS_ERR</code> is
+returned on calls to the <code>redisAsyncCommand</code> family.</p>
+<p>If the reply for a command with a <code>NULL</code> callback is read, it is immediately freed. When the callback
+for a command is non-<code>NULL</code>, the memory is freed immediately following the callback: the reply is only
+valid for the duration of the callback.</p>
+<p>All pending callbacks are called with a <code>NULL</code> reply when the context encountered an error.</p>
+<p>For every command issued, with the exception of <strong>SUBSCRIBE</strong> and <strong>PSUBSCRIBE</strong>, the callback is
+called exactly once.  Even if the context object id disconnected or deleted, every pending callback
+will be called with a <code>NULL</code> reply.</p>
+<p>For <strong>SUBSCRIBE</strong> and <strong>PSUBSCRIBE</strong>, the callbacks may be called repeatedly until an <code>unsubscribe</code>
+message arrives.  This will be the last invocation of the callback. In case of error, the callbacks
+may receive a final <code>NULL</code> reply instead.</p>
+<h3>Disconnecting</h3>
+<p>An asynchronous connection can be terminated using:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void redisAsyncDisconnect(redisAsyncContext *ac);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void redisAsyncDisconnect(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>When this function is called, the connection is <strong>not</strong> immediately terminated. Instead, new
+commands are no longer accepted and the connection is only terminated when all pending commands
+have been written to the socket, their respective replies have been read and their respective
+callbacks have been executed. After this, the disconnection callback is executed with the
+<code>REDIS_OK</code> status and the context object is freed.</p>
+<p>The connection can be forcefully disconnected using</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void redisAsyncFree(redisAsyncContext *ac);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void redisAsyncFree(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>In this case, nothing more is written to the socket, all pending callbacks are called with a <code>NULL</code>
+reply and the disconnection callback is called with <code>REDIS_OK</code>, after which the context object
+is freed.</p>
+<h3>Hooking it up to event library <em>X</em></h3>
+<p>There are a few hooks that need to be set on the context object after it is created.
+See the <code>adapters/</code> directory for bindings to <em>libev</em> and <em>libevent</em>.</p>
+<h2>Reply parsing API</h2>
+<p>Hiredis comes with a reply parsing API that makes it easy for writing higher
+level language bindings.</p>
+<p>The reply parsing API consists of the following functions:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisReader *redisReaderCreate(void);
+void redisReaderFree(redisReader *reader);
+int redisReaderFeed(redisReader *reader, const char *buf, size_t len);
+int redisReaderGetReply(redisReader *reader, void **reply);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisReader </span><span style="color:#D73A49">*</span><span style="color:#24292E">redisReaderCreate(void)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">void redisReaderFree(redisReader </span><span style="color:#D73A49">*</span><span style="color:#24292E">reader)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisReaderFeed(redisReader </span><span style="color:#D73A49">*</span><span style="color:#24292E">reader, const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">buf, size_t </span><span style="color:#005CC5">len</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> redisReaderGetReply(redisReader </span><span style="color:#D73A49">*</span><span style="color:#24292E">reader, void </span><span style="color:#D73A49">**</span><span style="color:#24292E">reply)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>The same set of functions are used internally by hiredis when creating a
+normal Redis context, the above API just exposes it to the user for a direct
+usage.</p>
+<h3>Usage</h3>
+<p>The function <code>redisReaderCreate</code> creates a <code>redisReader</code> structure that holds a
+buffer with unparsed data and state for the protocol parser.</p>
+<p>Incoming data -- most likely from a socket -- can be placed in the internal
+buffer of the <code>redisReader</code> using <code>redisReaderFeed</code>. This function will make a
+copy of the buffer pointed to by <code>buf</code> for <code>len</code> bytes. This data is parsed
+when <code>redisReaderGetReply</code> is called. This function returns an integer status
+and a reply object (as described above) via <code>void **reply</code>. The returned status
+can be either <code>REDIS_OK</code> or <code>REDIS_ERR</code>, where the latter means something went
+wrong (either a protocol error, or an out of memory error).</p>
+<p>The parser limits the level of nesting for multi bulk payloads to 7. If the
+multi bulk nesting level is higher than this, the parser returns an error.</p>
+<h3>Customizing replies</h3>
+<p>The function <code>redisReaderGetReply</code> creates <code>redisReply</code> and makes the function
+argument <code>reply</code> point to the created <code>redisReply</code> variable. For instance, if
+the response of type <code>REDIS_REPLY_STATUS</code> then the <code>str</code> field of <code>redisReply</code>
+will hold the status as a vanilla C string. However, the functions that are
+responsible for creating instances of the <code>redisReply</code> can be customized by
+setting the <code>fn</code> field on the <code>redisReader</code> struct. This should be done
+immediately after creating the <code>redisReader</code>.</p>
+<p>For example, <a href="https://github.com/pietern/hiredis-rb/blob/master/ext/hiredis_ext/reader.c">hiredis-rb</a>
+uses customized reply object functions to create Ruby objects.</p>
+<h3>Reader max buffer</h3>
+<p>Both when using the Reader API directly or when using it indirectly via a
+normal Redis context, the redisReader structure uses a buffer in order to
+accumulate data from the server.
+Usually this buffer is destroyed when it is empty and is larger than 16
+KiB in order to avoid wasting memory in unused buffers</p>
+<p>However when working with very big payloads destroying the buffer may slow
+down performances considerably, so it is possible to modify the max size of
+an idle buffer changing the value of the <code>maxbuf</code> field of the reader structure
+to the desired value. The special value of 0 means that there is no maximum
+value for an idle buffer, so the buffer will never get freed.</p>
+<p>For instance if you have a normal Redis context you can set the maximum idle
+buffer to zero (unlimited) just with:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="context-&gt;reader-&gt;maxbuf = 0;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">context</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">reader</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">maxbuf </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>This should be done only in order to maximize performances when working with
+large payloads. The context should be set back to <code>REDIS_READER_MAX_BUF</code> again
+as soon as possible in order to prevent allocation of useless memory.</p>
+<h3>Reader max array elements</h3>
+<p>By default the hiredis reply parser sets the maximum number of multi-bulk elements
+to 2^32 - 1 or 4,294,967,295 entries.  If you need to process multi-bulk replies
+with more than this many elements you can set the value higher or to zero, meaning
+unlimited with:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="context-&gt;reader-&gt;maxelements = 0;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">context</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">reader</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">maxelements </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h2>SSL/TLS Support</h2>
+<h3>Building</h3>
+<p>SSL/TLS support is not built by default and requires an explicit flag:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="make USE_SSL=1" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">USE_SSL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span></span></code></pre>
+<p>This requires OpenSSL development package (e.g. including header files to be
+available.</p>
+<p>When enabled, SSL/TLS support is built into extra <code>libhiredis_ssl.a</code> and
+<code>libhiredis_ssl.so</code> static/dynamic libraries. This leaves the original libraries
+unaffected so no additional dependencies are introduced.</p>
+<h3>Using it</h3>
+<p>First, you'll need to make sure you include the SSL header file:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &lt;hiredis/hiredis.h&gt;
+#include &lt;hiredis/hiredis_ssl.h&gt;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include &lt;hiredis/hiredis.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;hiredis/hiredis_ssl.h&gt;</span></span></code></pre>
+<p>You will also need to link against <code>libhiredis_ssl</code>, <strong>in addition</strong> to
+<code>libhiredis</code> and add <code>-lssl -lcrypto</code> to satisfy its dependencies.</p>
+<p>Hiredis implements SSL/TLS on top of its normal <code>redisContext</code> or
+<code>redisAsyncContext</code>, so you will need to establish a connection first and then
+initiate an SSL/TLS handshake.</p>
+<h4>Hiredis OpenSSL Wrappers</h4>
+<p>Before Hiredis can negotiate an SSL/TLS connection, it is necessary to
+initialize OpenSSL and create a context. You can do that in two ways:</p>
+<ol>
+<li>Work directly with the OpenSSL API to initialize the library's global context
+and create <code>SSL_CTX *</code> and <code>SSL *</code> contexts. With an <code>SSL *</code> object you can
+call <code>redisInitiateSSL()</code>.</li>
+<li>Work with a set of Hiredis-provided wrappers around OpenSSL, create a
+<code>redisSSLContext</code> object to hold configuration and use
+<code>redisInitiateSSLWithContext()</code> to initiate the SSL/TLS handshake.</li>
+</ol>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="/* An Hiredis SSL context. It holds SSL configuration and can be reused across
+ * many contexts.
+ */
+redisSSLContext *ssl_context;
+
+/* An error variable to indicate what went wrong, if the context fails to
+ * initialize.
+ */
+redisSSLContextError ssl_error = REDIS_SSL_CTX_NONE;
+
+/* Initialize global OpenSSL state.
+ *
+ * You should call this only once when your app initializes, and only if
+ * you don't explicitly or implicitly initialize OpenSSL it elsewhere.
+ */
+redisInitOpenSSL();
+
+/* Create SSL context */
+ssl_context = redisCreateSSLContext(
+    &quot;cacertbundle.crt&quot;,     /* File name of trusted CA/ca bundle file, optional */
+    &quot;/path/to/certs&quot;,       /* Path of trusted certificates, optional */
+    &quot;client_cert.pem&quot;,      /* File name of client certificate file, optional */
+    &quot;client_key.pem&quot;,       /* File name of client private key, optional */
+    &quot;redis.mydomain.com&quot;,   /* Server name to request (SNI), optional */
+    &amp;ssl_error);
+
+if(ssl_context == NULL || ssl_error != REDIS_SSL_CTX_NONE) {
+    /* Handle error and abort... */
+    /* e.g.
+    printf(&quot;SSL error: %s\n&quot;,
+        (ssl_error != REDIS_SSL_CTX_NONE) ?
+            redisSSLContextGetError(ssl_error) : &quot;Unknown error&quot;);
+    // Abort
+    */
+}
+
+/* Create Redis context and establish connection */
+c = redisConnect(&quot;localhost&quot;, 6443);
+if (c == NULL || c-&gt;err) {
+    /* Handle error and abort... */
+}
+
+/* Negotiate SSL/TLS */
+if (redisInitiateSSLWithContext(c, ssl_context) != REDIS_OK) {
+    /* Handle error, in c-&gt;err / c-&gt;errstr */
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> An Hiredis </span><span style="color:#005CC5">SSL</span><span style="color:#24292E"> context. It holds </span><span style="color:#005CC5">SSL</span><span style="color:#24292E"> configuration </span><span style="color:#D73A49">and</span><span style="color:#24292E"> can be reused across</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> many contexts.</span></span>
+<span class="line"><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#24292E">redisSSLContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ssl_context</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> An error variable to indicate what went wrong, </span><span style="color:#D73A49">if</span><span style="color:#24292E"> the context fails to</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> initialize.</span></span>
+<span class="line"><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#24292E">redisSSLContextError ssl_error </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> REDIS_SSL_CTX_NONE</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Initialize </span><span style="color:#D73A49">global</span><span style="color:#24292E"> OpenSSL state.</span></span>
+<span class="line"><span style="color:#D73A49"> *</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> You should call this only once when your app initializes, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> only </span><span style="color:#D73A49">if</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> you don</span><span style="color:#032F62">'t explicitly or implicitly initialize OpenSSL it elsewhere.</span></span>
+<span class="line"><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#24292E">redisInitOpenSSL()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Create </span><span style="color:#005CC5">SSL</span><span style="color:#24292E"> context </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">ssl_context </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisCreateSSLContext(</span></span>
+<span class="line"><span style="color:#032F62">    "cacertbundle.crt"</span><span style="color:#24292E">,     </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> File name of trusted </span><span style="color:#005CC5">CA</span><span style="color:#D73A49">/</span><span style="color:#24292E">ca bundle </span><span style="color:#E36209">file</span><span style="color:#24292E">, optional </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#032F62">    "/path/to/certs"</span><span style="color:#24292E">,       </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> Path of trusted certificates, optional </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#032F62">    "client_cert.pem"</span><span style="color:#24292E">,      </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> File name of client certificate </span><span style="color:#E36209">file</span><span style="color:#24292E">, optional </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#032F62">    "client_key.pem"</span><span style="color:#24292E">,       </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> File name of client private key, optional </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#032F62">    "redis.mydomain.com"</span><span style="color:#24292E">,   </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> Server name to request (</span><span style="color:#005CC5">SNI</span><span style="color:#24292E">), optional </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#D73A49">    &amp;</span><span style="color:#24292E">ssl_error)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E">(ssl_context </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> NULL</span><span style="color:#B31D28;font-style:italic"> ||</span><span style="color:#24292E"> ssl_error </span><span style="color:#D73A49">!=</span><span style="color:#005CC5"> REDIS_SSL_CTX_NONE</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Handle error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> abort</span><span style="color:#005CC5">...</span><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> e.g.</span></span>
+<span class="line"><span style="color:#24292E">    printf(</span><span style="color:#032F62">"SSL error: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        (ssl_error </span><span style="color:#D73A49">!=</span><span style="color:#005CC5"> REDIS_SSL_CTX_NONE</span><span style="color:#24292E">) </span><span style="color:#B31D28;font-style:italic">?</span></span>
+<span class="line"><span style="color:#24292E">            redisSSLContextGetError(ssl_error) : </span><span style="color:#032F62">"Unknown error"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Abort</span></span>
+<span class="line"><span style="color:#D73A49">    */</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Create Redis context </span><span style="color:#D73A49">and</span><span style="color:#24292E"> establish connection </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnect(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6443</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (c </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> NULL</span><span style="color:#B31D28;font-style:italic"> ||</span><span style="color:#24292E"> c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err) {</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Handle error </span><span style="color:#D73A49">and</span><span style="color:#24292E"> abort</span><span style="color:#005CC5">...</span><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Negotiate </span><span style="color:#005CC5">SSL</span><span style="color:#D73A49">/</span><span style="color:#005CC5">TLS</span><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (redisInitiateSSLWithContext(c, ssl_context) </span><span style="color:#D73A49">!=</span><span style="color:#005CC5"> REDIS_OK</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Handle error, </span><span style="color:#D73A49">in</span><span style="color:#24292E"> c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">err </span><span style="color:#D73A49">/</span><span style="color:#24292E"> c</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">errstr </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2>RESP3 PUSH replies</h2>
+<p>Redis 6.0 introduced PUSH replies with the reply-type <code>&gt;</code>.  These messages are generated spontaneously and can arrive at any time, so must be handled using callbacks.</p>
+<h3>Default behavior</h3>
+<p>Hiredis installs handlers on <code>redisContext</code> and <code>redisAsyncContext</code> by default, which will intercept and free any PUSH replies detected.  This means existing code will work as-is after upgrading to Redis 6 and switching to <code>RESP3</code>.</p>
+<h3>Custom PUSH handler prototypes</h3>
+<p>The callback prototypes differ between <code>redisContext</code> and <code>redisAsyncContext</code>.</p>
+<h4>redisContext</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void my_push_handler(void *privdata, void *reply) {
+    /* Handle the reply */
+
+    /* Note: We need to free the reply in our custom handler for
+             blocking contexts.  This lets us keep the reply if
+             we want. */
+    freeReplyObject(reply);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void my_push_handler(void </span><span style="color:#D73A49">*</span><span style="color:#24292E">privdata, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">reply) {</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Handle the reply </span><span style="color:#D73A49">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Note: We need to free the reply </span><span style="color:#D73A49">in</span><span style="color:#24292E"> our custom handler </span><span style="color:#D73A49">for</span></span>
+<span class="line"><span style="color:#24292E">             blocking contexts.  This lets us keep the reply </span><span style="color:#D73A49">if</span></span>
+<span class="line"><span style="color:#24292E">             we want. </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">    freeReplyObject(reply);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h4>redisAsyncContext</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void my_async_push_handler(redisAsyncContext *ac, void *reply) {
+    /* Handle the reply */
+
+    /* Note:  Because async hiredis always frees replies, you should
+              not call freeReplyObject in an async push callback. */
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void my_async_push_handler(redisAsyncContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">ac, void </span><span style="color:#D73A49">*</span><span style="color:#24292E">reply) {</span></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Handle the reply </span><span style="color:#D73A49">*/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Note:  Because </span><span style="color:#D73A49">async</span><span style="color:#24292E"> hiredis always frees replies, you should</span></span>
+<span class="line"><span style="color:#D73A49">              not</span><span style="color:#24292E"> call freeReplyObject </span><span style="color:#D73A49">in</span><span style="color:#24292E"> an </span><span style="color:#D73A49">async</span><span style="color:#24292E"> push callback. </span><span style="color:#D73A49">*/</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Installing a custom handler</h3>
+<p>There are two ways to set your own PUSH handlers.</p>
+<ol>
+<li><p>Set <code>push_cb</code> or <code>async_push_cb</code> in the <code>redisOptions</code> struct and connect with <code>redisConnectWithOptions</code> or <code>redisAsyncConnectWithOptions</code>.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisOptions = {0};
+REDIS_OPTIONS_SET_TCP(&amp;options, &quot;127.0.0.1&quot;, 6379);
+options-&gt;push_cb = my_push_handler;
+redisContext *context = redisConnectWithOptions(&amp;options);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisOptions </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">0</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">REDIS_OPTIONS_SET_TCP(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">options, </span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">options</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">push_cb </span><span style="color:#D73A49">=</span><span style="color:#24292E"> my_push_handler</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">context </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnectWithOptions(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">options)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+</li>
+<li><p>Call <code>redisSetPushCallback</code> or <code>redisAsyncSetPushCallback</code> on a connected context.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisContext *context = redisConnect(&quot;127.0.0.1&quot;, 6379);
+redisSetPushCallback(context, my_push_handler);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">context </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnect(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisSetPushCallback(context, my_push_handler)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><em>Note <code>redisSetPushCallback</code> and <code>redisAsyncSetPushCallback</code> both return any currently configured handler,  making it easy to override and then return to the old value.</em></p>
+</li>
+</ol>
+<h3>Specifying no handler</h3>
+<p>If you have a unique use-case where you don't want hiredis to automatically intercept and free PUSH replies, you will want to configure no handler at all.  This can be done in two ways.</p>
+<ol>
+<li><p>Set the <code>REDIS_OPT_NO_PUSH_AUTOFREE</code> flag in <code>redisOptions</code> and leave the callback function pointer <code>NULL</code>.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisOptions = {0};
+REDIS_OPTIONS_SET_TCP(&amp;options, &quot;127.0.0.1&quot;, 6379);
+options-&gt;options |= REDIS_OPT_NO_PUSH_AUTOFREE;
+redisContext *context = redisConnectWithOptions(&amp;options);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisOptions </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">0</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">REDIS_OPTIONS_SET_TCP(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">options, </span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">options</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">options </span><span style="color:#D73A49">|=</span><span style="color:#005CC5"> REDIS_OPT_NO_PUSH_AUTOFREE</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">context </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnectWithOptions(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">options)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+</li>
+<li><p>Call <code>redisSetPushCallback</code> with <code>NULL</code> once connected.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="redisContext *context = redisConnect(&quot;127.0.0.1&quot;, 6379);
+redisSetPushCallback(context, NULL);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">redisContext </span><span style="color:#D73A49">*</span><span style="color:#24292E">context </span><span style="color:#D73A49">=</span><span style="color:#24292E"> redisConnect(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6379</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">redisSetPushCallback(context, </span><span style="color:#005CC5">NULL</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><em>Note:  With no handler configured, calls to <code>redisCommand</code> may generate more than one reply, so this strategy is only applicable when there's some kind of blocking <code>redisGetReply()</code> loop (e.g. <code>MONITOR</code> or <code>SUBSCRIBE</code> workloads).</em></p>
+</li>
+</ol>
+<h2>Allocator injection</h2>
+<p>Hiredis uses a pass-thru structure of function pointers defined in <a href="https://github.com/redis/hiredis/blob/f5d25850/alloc.h#L41">alloc.h</a> that contain the currently configured allocation and deallocation functions.  By default they just point to libc (<code>malloc</code>, <code>calloc</code>, <code>realloc</code>, etc).</p>
+<h3>Overriding</h3>
+<p>One can override the allocators like so:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="hiredisAllocFuncs myfuncs = {
+    .mallocFn = my_malloc,
+    .callocFn = my_calloc,
+    .reallocFn = my_realloc,
+    .strdupFn = my_strdup,
+    .freeFn = my_free,
+};
+
+// Override allocators (function returns current allocators if needed)
+hiredisAllocFuncs orig = hiredisSetAllocators(&amp;myfuncs);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">hiredisAllocFuncs myfuncs </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    .mallocFn = my_malloc,</span></span>
+<span class="line"><span style="color:#24292E">    .callocFn = my_calloc,</span></span>
+<span class="line"><span style="color:#24292E">    .reallocFn = my_realloc,</span></span>
+<span class="line"><span style="color:#24292E">    .strdupFn = my_strdup,</span></span>
+<span class="line"><span style="color:#24292E">    .freeFn = my_free,</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Override allocators (function returns current allocators </span><span style="color:#D73A49">if</span><span style="color:#24292E"> needed)</span></span>
+<span class="line"><span style="color:#24292E">hiredisAllocFuncs orig </span><span style="color:#D73A49">=</span><span style="color:#24292E"> hiredisSetAllocators(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">myfuncs)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>To reset the allocators to their default libc function simply call:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="hiredisResetAllocators();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">hiredisResetAllocators()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h2>AUTHORS</h2>
+<p>Salvatore Sanfilippo (antirez at gmail),<br>Pieter Noordhuis (pcnoordhuis at gmail)<br>Michael Grunder (michael dot grunder at gmail)</p>
+<p><em>Hiredis is released under the BSD license.</em></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Minimalistic C client for Redis &gt;= 1.2</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/redis/hiredis" title="@redis"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@redis/hiredis</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/redis.png" alt="@redis"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/redis/hiredis"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">6645</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, September 15, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 92.8%; background-color: var(--lang-C-bg, #ccc)" title="C: 92.8%"> </span><span style="width: 3.2%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 3.2%"> </span><span style="width: 2.2%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 2.2%"> </span><span style="width: 1%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 1%"> </span><span style="width: 0.8%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.8%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C">C</a><span class="ml-2 color-fg-muted">92.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">3.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">2.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C++</span><span class="ml-2 color-fg-muted">1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.8%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/mattyclarkson" title="Matt Clarkson"><img class="avatar circle" width="48" height="48" src="https://github.com/mattyclarkson.png" alt="@mattyclarkson"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/mattyclarkson" title="Matt Clarkson"><img class="avatar circle" width="48" height="48" src="https://github.com/mattyclarkson.png" alt="@mattyclarkson"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/5877"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="feat: add `hiredis@1.3.0` (#5877)"><span class="text-mono">#5877</span> <span class="text-light">feat: add `hiredis@1.3.0` (#5...</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/redis/hiredis/archive/refs/tags/v1.3.0.tar.gz" title="https://github.com/redis/hiredis/archive/refs/tags/v1.3.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/redis/hire...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/hiredis/1.3.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/hiredis/1.3.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/hiredis/1.3.0/overlay/adapters/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">adapters/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.3.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.3.0"><span class="text-bold">1.3.0</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-09-15</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

@@ -1,0 +1,473 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">highway</span> <span class="f2 d-inline-block">1.3.0.bcr.1<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 21d ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/google/highway" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/highway/1.3.0.bcr.1/overview" data-name="overview" id=":mm.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/highway/1.3.0.bcr.1/docs" data-name="docs" id=":mm.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/highway/1.3.0.bcr.1/testing" data-name="testing" id=":mm.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;highway&quot;, version = &quot;1.3.0.bcr.1&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "highway"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.3.0.bcr.1"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">4</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.6.1">bazel_skylib<span class="ml-1 text-light text-small">1.6.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/bazel_skylib/1.9.0">1.9.0<span title="Version Distance"><sup style="padding-left: 3px">+6<span class="color-fg-attention"> (1.6y)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/0.0.10">platforms<span class="ml-1 text-light text-small">0.0.10</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (2.0y)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.0.9">rules_cc<span class="ml-1 text-light text-small">0.0.9</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+38<span class="color-fg-attention"> (2.6y)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_license/0.0.7">rules_license<span class="ml-1 text-light text-small">0.0.7</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_license/1.0.0">1.0.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (1.2y)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Efficient and performance-portable vector software</h1>
+<p>Highway is a C++ library that provides portable SIMD/vector intrinsics.</p>
+<p><a href="https://google.github.io/highway/en/master/">Documentation</a></p>
+<p>Previously licensed under Apache 2, now dual-licensed as Apache 2 / BSD-3.</p>
+<h2>Why</h2>
+<p>We are passionate about high-performance software. We see major untapped
+potential in CPUs (servers, mobile, desktops). Highway is for engineers who want
+to reliably and economically push the boundaries of what is possible in
+software.</p>
+<h2>How</h2>
+<p>CPUs provide SIMD/vector instructions that apply the same operation to multiple
+data items. This can reduce energy usage e.g. <em>fivefold</em> because fewer
+instructions are executed. We also often see <em>5-10x</em> speedups.</p>
+<p>Highway makes SIMD/vector programming practical and workable according to these
+guiding principles:</p>
+<p><strong>Does what you expect</strong>: Highway is a C++ library with carefully-chosen
+functions that map well to CPU instructions without extensive compiler
+transformations. The resulting code is more predictable and robust to code
+changes/compiler updates than autovectorization.</p>
+<p><strong>Works on widely-used platforms</strong>: Highway supports seven architectures; the
+same application code can target various instruction sets, including those with
+'scalable' vectors (size unknown at compile time). Highway only requires C++17
+(language features, not necessarily the library) and supports four families of
+compilers. If you want to use Highway on other platforms, please raise an issue.</p>
+<p><strong>Flexible to deploy</strong>: Applications using Highway can run on heterogeneous
+clouds or client devices, choosing the best available instruction set at
+runtime. Alternatively, developers may choose to target a single instruction set
+without any runtime overhead. In both cases, the application code is the same
+except for swapping <code>HWY_STATIC_DISPATCH</code> with <code>HWY_DYNAMIC_DISPATCH</code> plus one
+line of code. See also @kfjahnke's
+<a href="https://github.com/kfjahnke/zimt/blob/main/examples/multi_isa_example/multi_simd_isa.md">introduction to dispatching</a>.</p>
+<p><strong>Suitable for a variety of domains</strong>: Highway provides an extensive set of
+operations, used for image processing (floating-point), compression, video
+analysis, linear algebra, cryptography, sorting and random generation. We
+recognise that new use-cases may require additional ops and are happy to add
+them where it makes sense (e.g. no performance cliffs on some architectures). If
+you would like to discuss, please file an issue.</p>
+<p><strong>Rewards data-parallel design</strong>: Highway provides tools such as Gather,
+MaskedLoad, and FixedTag to enable speedups for legacy data structures. However,
+the biggest gains are unlocked by designing algorithms and data structures for
+scalable vectors. Helpful techniques include batching, structure-of-array
+layouts, and aligned/padded allocations.</p>
+<p>We recommend these resources for getting started:</p>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=R57biOOhnJM">SIMD programming with Highway talk</a></li>
+<li><a href="http://const.me/articles/simd/simd.pdf">SIMD for C++ Developers</a></li>
+<li><a href="https://en.algorithmica.org/hpc/">Algorithms for Modern Hardware</a></li>
+<li><a href="https://agner.org/optimize/optimizing_cpp.pdf">Optimizing software in C++</a></li>
+<li><a href="https://stackoverflow.blog/2020/07/08/improving-performance-with-simd-intrinsics-in-three-use-cases/">Improving performance with SIMD intrinsics in three use cases</a></li>
+</ul>
+<h2>Examples</h2>
+<p>Online demos using Compiler Explorer:</p>
+<ul>
+<li><a href="https://gcc.godbolt.org/z/KM3ben7ET">multiple targets with dynamic dispatch</a>
+(more complicated, but flexible and uses best available SIMD)</li>
+<li><a href="https://gcc.godbolt.org/z/rGnjMevKG">single target using -m flags</a>
+(simpler, but requires/only uses the instruction set enabled by compiler
+flags)</li>
+</ul>
+<p>We observe that Highway is referenced in the following open source projects,
+found via sourcegraph.com. Most are GitHub repositories. If you would like to
+add your project or link to it directly, feel free to raise an issue or contact
+us via the below email.</p>
+<ul>
+<li>Audio: <a href="https://github.com/google/zimtohrli">Zimtohrli perceptual metric</a></li>
+<li>Browsers: Chromium (+Vivaldi), Firefox (+floorp / foxhound / librewolf /
+Waterfox)</li>
+<li>Computational biology: <a href="https://github.com/bnprks/BPCells">RNA analysis</a>,
+<a href="https://github.com/OpenGene/fastplong">long-sequence preprocessing</a></li>
+<li>Computer graphics: ghostty-org/ghostty,
+<a href="https://github.com/rools/voxl">Sparse voxel renderer</a>,
+<a href="https://github.com/Tencent/tgfx">tgfx 2D Graphics library</a></li>
+<li>Cryptography: google/distributed_point_functions, google/shell-encryption</li>
+<li>Data structures: bkille/BitLib</li>
+<li>Image codecs: eustas/2im,
+<a href="https://github.com/GrokImageCompression/grok">Grok JPEG 2000</a>,
+<a href="https://github.com/libjxl/libjxl">JPEG XL</a>,
+<a href="https://github.com/osamu620/JPEGenc">JPEGenc</a>,
+<a href="https://github.com/google/jpegli">Jpegli</a>,
+<a href="https://aomedia.googlesource.com/aom/">libaom</a>,
+<a href="https://github.com/osamu620/OpenHTJ2K">OpenHTJ2K</a></li>
+<li>Image processing: awxkee/aire, cloudinary/ssimulacra2,
+<a href="https://github.com/libvips/libvips">libvips</a>, m-ab-s/media-autobuild_suite,</li>
+<li>Image viewers: AlienCowEatCake/ImageViewer, diffractor/diffractor,
+<a href="https://bitbucket.org/kfj/pv/">Lux panorama/image viewer</a>,
+mirillis/jpegxl-wic</li>
+<li>Information retrieval:
+<a href="https://github.com/iresearch-toolkit/iresearch">iresearch database index</a>,
+michaeljclark/zvec,
+<a href="https://github.com/varchar-io/nebula">nebula interactive analytics / OLAP</a>,
+<a href="https://github.com/google-research/google-research/tree/7a269cb2ce0ae1db591fe11b62cbc0be7d72532a/scann"><code>ScaNN</code> Scalable Nearest Neighbors</a>,</li>
+<li>Machine learning: array2d/deepx,
+<a href="https://github.com/google/gemma.cpp">gemma.cpp</a>, Tensorflow, Numpy,
+zpye/SimpleInfer</li>
+<li>Programming languages:
+<a href="https://github.com/exaloop/codon">AOT-compiled python</a>, oven-sh/bun, V8/V8,
+yinqiwen/rapidudf</li>
+<li>Robotics:
+<a href="https://github.com/RobotLocomotion/drake">MIT Model-Based Design and Verification</a></li>
+<li>Vector search: 1yefuwang1/vectorlite, vespa-engine/vespa</li>
+</ul>
+<p>Other</p>
+<ul>
+<li><a href="https://www.mnm-team.org/pub/Fopras/rock23/">Evaluation of C++ SIMD Libraries</a>:
+"Highway excelled with a strong performance across multiple SIMD extensions
+[..]. Thus, Highway may currently be the most suitable SIMD library for many
+software projects."</li>
+<li><a href="https://github.com/kfjahnke/zimt">zimt</a>: C++11 template library to process n-dimensional arrays with multi-threaded SIMD code</li>
+<li><a href="https://github.com/google/highway/tree/master/hwy/contrib/sort">vectorized Quicksort</a> (<a href="https://arxiv.org/abs/2205.05982">paper</a>)</li>
+</ul>
+<p>If you'd like to get Highway, in addition to cloning from this GitHub repository
+or using it as a Git submodule, you can also find it in the following package
+managers or repositories:</p>
+<ul>
+<li>alpinelinux</li>
+<li>conan-io</li>
+<li>conda-forge</li>
+<li>DragonFlyBSD,</li>
+<li>fd00/yacp</li>
+<li>freebsd</li>
+<li>getsolus/packages</li>
+<li>ghostbsd</li>
+<li>microsoft/vcpkg</li>
+<li>MidnightBSD</li>
+<li>MSYS2</li>
+<li>NetBSD</li>
+<li>openSUSE</li>
+<li>opnsense</li>
+<li>Xilinx/Vitis_Libraries</li>
+<li>xmake-io/xmake-repo</li>
+</ul>
+<p>See also the list at <a href="https://repology.org/project/highway-simd-library/versions">https://repology.org/project/highway-simd-library/versions</a>
+.</p>
+<h2>Current status</h2>
+<h3>Targets</h3>
+<p>Highway supports 27 targets, listed in alphabetical order of platform:</p>
+<ul>
+<li>Any: <code>EMU128</code>, <code>SCALAR</code>;</li>
+<li>Armv7+: <code>NEON_WITHOUT_AES</code>, <code>NEON</code>, <code>NEON_BF16</code>, <code>SVE</code>, <code>SVE2</code>, <code>SVE_256</code>,
+<code>SVE2_128</code>;</li>
+<li>IBM Z: <code>Z14</code>, <code>Z15</code>;</li>
+<li>LoongArch: <code>LSX</code>, <code>LASX</code>;</li>
+<li>POWER: <code>PPC8</code> (v2.07), <code>PPC9</code> (v3.0), <code>PPC10</code> (v3.1B, not yet supported due
+to compiler bugs, see #1207; also requires QEMU 7.2);</li>
+<li>RISC-V: <code>RVV</code> (1.0);</li>
+<li>WebAssembly: <code>WASM</code>, <code>WASM_EMU256</code> (a 2x unrolled version of wasm128,
+enabled if <code>HWY_WANT_WASM2</code> is defined. This will remain supported until it
+is potentially superseded by a future version of WASM.);</li>
+<li>x86:<ul>
+<li><code>SSE2</code></li>
+<li><code>SSSE3</code> (~Intel Core)</li>
+<li><code>SSE4</code> (~Nehalem, also includes AES + CLMUL).</li>
+<li><code>AVX2</code> (~Haswell, also includes BMI2 + F16 + FMA)</li>
+<li><code>AVX3</code> (~Skylake, AVX-512F/BW/CD/DQ/VL)</li>
+<li><code>AVX3_DL</code> (~Icelake, includes <code>BitAlg</code> + <code>CLMUL</code> + <code>GFNI</code> + <code>VAES</code> +
+<code>VBMI</code> + <code>VBMI2</code> + <code>VNNI</code> + <code>VPOPCNT</code>),</li>
+<li><code>AVX3_ZEN4</code> (AVX3_DL plus BF16, optimized for AMD Zen4; requires opt-in
+by defining <code>HWY_WANT_AVX3_ZEN4</code> if compiling for static dispatch, but
+enabled by default for runtime dispatch),</li>
+<li><code>AVX3_SPR</code> (~Sapphire Rapids, includes AVX-512FP16)</li>
+<li><code>AVX10_2</code> (~Diamond Rapids)</li>
+</ul>
+</li>
+</ul>
+<p>Our policy is that unless otherwise specified, targets will remain supported as
+long as they can be (cross-)compiled with currently supported Clang or GCC, and
+tested using QEMU. If the target can be compiled with LLVM trunk and tested
+using our version of QEMU without extra flags, then it is eligible for inclusion
+in our continuous testing infrastructure. Otherwise, the target will be manually
+tested before releases with selected versions/configurations of Clang and GCC.</p>
+<p>SVE was initially tested using farm_sve (see acknowledgments).</p>
+<h3>Versioning</h3>
+<p>Highway releases aim to follow the semver.org system (MAJOR.MINOR.PATCH),
+incrementing MINOR after backward-compatible additions and PATCH after
+backward-compatible fixes. We recommend using releases (rather than the Git tip)
+because they are tested more extensively, see below.</p>
+<p>The current version 1.0 signals an increased focus on backwards compatibility.
+Applications using documented functionality will remain compatible with future
+updates that have the same major version number.</p>
+<h3>Testing</h3>
+<p>Continuous integration tests build with a recent version of Clang (running on
+native x86, or QEMU for RISC-V and Arm) and MSVC 2019 (v19.28, running on native
+x86).</p>
+<p>Before releases, we also test on x86 with Clang and GCC, and Armv7/8 via GCC
+cross-compile. See the <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/release_testing_process.md" target="_blank" rel="noopener noreferrer">testing process</a> for
+details.</p>
+<h3>Related modules</h3>
+<p>The <code>contrib</code> directory contains SIMD-related utilities: an image class with
+aligned rows, a math library (16 functions already implemented, mostly
+trigonometry), and functions for computing dot products and sorting.</p>
+<h3>Other libraries</h3>
+<p>If you only require x86 support, you may also use Agner Fog's
+<a href="https://github.com/vectorclass">VCL vector class library</a>. It includes many
+functions including a complete math library.</p>
+<p>If you have existing code using x86/NEON intrinsics, you may be interested in
+<a href="https://github.com/simd-everywhere/simde">SIMDe</a>, which emulates those
+intrinsics using other platforms' intrinsics or autovectorization.</p>
+<p><a href="https://github.com/xtensor-stack/xsimd">xSIMD</a> is a header only C++ library.
+It supports Arm, Power, RISC-V, WebAssembly and x86 targets.  Has a high level
+interface, but fewer supported operations.</p>
+<p><a href="https://github.com/ashvardanian/NumKong">NumKong</a> a SIMD accelerated math C
+library focused on operations such as dot products and mixed precision matrix
+multiplications.  It can be used from C++, Go, Python, Rust, Swift and
+WebAssembly.  Accelerated operations are availble on ARM, LoongArch, Power,
+RISC-V and x86.</p>
+<h2>Installation</h2>
+<p>This project uses CMake to generate and build. In a Debian-based system you can
+install it via:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="sudo apt install cmake" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">sudo apt install cmake</span></span></code></pre>
+<p>Highway's unit tests use <a href="https://github.com/google/googletest">googletest</a>.
+By default, Highway's CMake downloads this dependency at configuration time.
+You can avoid this by setting the <code>HWY_SYSTEM_GTEST</code> CMake variable to ON and
+installing gtest separately:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="sudo apt install libgtest-dev" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">sudo apt install libgtest</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev</span></span></code></pre>
+<p>Alternatively, you can define <code>HWY_TEST_STANDALONE=1</code> and remove all occurrences
+of <code>gtest_main</code> in each BUILD file, then tests avoid the dependency on GUnit.</p>
+<p>Running cross-compiled tests requires support from the OS, which on Debian is
+provided by the <code>qemu-user-binfmt</code> package.</p>
+<p>To build Highway as a shared or static library (depending on BUILD_SHARED_LIBS),
+the standard CMake workflow can be used:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="mkdir -p build &amp;&amp; cd build
+cmake ..
+make -j &amp;&amp; make test" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">mkdir </span><span style="color:#D73A49">-</span><span style="color:#24292E">p build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">j </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> make test</span></span></code></pre>
+<p>Or you can run <code>run_tests.sh</code> (<code>run_tests.bat</code> on Windows).</p>
+<p>Bazel is also supported for building, but it is not as widely used/tested.</p>
+<p>When building for Armv7, a limitation of current compilers requires you to add
+<code>-DHWY_CMAKE_ARM7:BOOL=ON</code> to the CMake command line; see #834 and #1032. We
+understand that work is underway to remove this limitation.</p>
+<p>To benefit from Armv8/v9 vusdot and vusdotq instructions, you can add "+i8mm" to
+the -march compiler flag, assuming the target CPU(s) support that.</p>
+<p>Building on 32-bit x86 is not officially supported, and AVX2/3 are disabled by
+default there. Note that johnplatts has successfully built and run the Highway
+tests on 32-bit x86, including AVX2/3, on GCC 7/8 and Clang 8/11/12. On Ubuntu
+22.04, Clang 11 and 12, but not later versions, require extra compiler flags
+<code>-m32 -isystem /usr/i686-linux-gnu/include</code>. Clang 10 and earlier require the
+above plus <code>-isystem /usr/i686-linux-gnu/include/c++/12/i686-linux-gnu</code>. See
+<a href="https://github.com/google/highway/issues/1279">#1279</a>.</p>
+<h2>Building highway - Using vcpkg</h2>
+<p>highway is now available in <a href="https://github.com/Microsoft/vcpkg">vcpkg</a></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="vcpkg install highway" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">vcpkg install highway</span></span></code></pre>
+<p>The highway port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
+<h2>Quick start</h2>
+<p>You can use the <code>benchmark</code> inside examples/ as a starting point.</p>
+<p>A <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference page</a> briefly lists all operations
+and their parameters, and the <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/instruction_matrix.pdf" target="_blank" rel="noopener noreferrer">instruction_matrix</a>
+indicates the number of instructions per operation.</p>
+<p>The <a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/faq.md" target="_blank" rel="noopener noreferrer">FAQ</a> answers questions about portability, API design and
+where to find more information.</p>
+<p>We recommend using full SIMD vectors whenever possible for maximum performance
+portability. To obtain them, pass a <code>ScalableTag&lt;float&gt;</code> (or equivalently
+<code>HWY_FULL(float)</code>) tag to functions such as <code>Zero/Set/Load</code>. There are two
+alternatives for use-cases requiring an upper bound on the lanes:</p>
+<ul>
+<li><p>For up to <code>N</code> lanes, specify <code>CappedTag&lt;T, N&gt;</code> or the equivalent
+<code>HWY_CAPPED(T, N)</code>. The actual number of lanes will be <code>N</code> rounded down to
+the nearest power of two, such as 4 if <code>N</code> is 5, or 8 if <code>N</code> is 8. This is
+useful for data structures such as a narrow matrix. A loop is still required
+because vectors may actually have fewer than <code>N</code> lanes.</p>
+</li>
+<li><p>For exactly a power of two <code>N</code> lanes, specify <code>FixedTag&lt;T, N&gt;</code>. The largest
+supported <code>N</code> depends on the target, but is guaranteed to be at least
+<code>16/sizeof(T)</code>.</p>
+</li>
+</ul>
+<p>Due to ADL restrictions, user code calling Highway ops must either:</p>
+<ul>
+<li>Reside inside <code>namespace hwy { namespace HWY_NAMESPACE {</code>; or</li>
+<li>prefix each op with an alias such as <code>namespace hn = hwy::HWY_NAMESPACE; hn::Add()</code>; or</li>
+<li>add using-declarations for each op used: <code>using hwy::HWY_NAMESPACE::Add;</code>.</li>
+</ul>
+<p>Additionally, each function that calls Highway ops (such as <code>Load</code>) must either
+be prefixed with <code>HWY_ATTR</code>, OR reside between <code>HWY_BEFORE_NAMESPACE()</code> and
+<code>HWY_AFTER_NAMESPACE()</code>. Lambda functions currently require <code>HWY_ATTR</code> before
+their opening brace.</p>
+<p>Do not use namespace-scope nor <code>static</code> initializers for SIMD vectors because
+this can cause SIGILL when using runtime dispatch and the compiler chooses an
+initializer compiled for a target not supported by the current CPU. Instead,
+constants initialized via <code>Set</code> should generally be local (const) variables.</p>
+<p>The entry points into code using Highway differ slightly depending on whether
+they use static or dynamic dispatch. In both cases, we recommend that the
+top-level function receives one or more pointers to arrays, rather than
+target-specific vector types.</p>
+<ul>
+<li><p>For static dispatch, <code>HWY_TARGET</code> will be the best available target among
+<code>HWY_BASELINE_TARGETS</code>, i.e. those allowed for use by the compiler (see
+<a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference</a>). Functions inside
+<code>HWY_NAMESPACE</code> can be called using <code>HWY_STATIC_DISPATCH(func)(args)</code> within
+the same module they are defined in. You can call the function from other
+modules by wrapping it in a regular function and declaring the regular
+function in a header.</p>
+</li>
+<li><p>For dynamic dispatch, a table of function pointers is generated via the
+<code>HWY_EXPORT</code> macro that is used by <code>HWY_DYNAMIC_DISPATCH(func)(args)</code> to
+call the best function pointer for the current CPU's supported targets. A
+module is automatically compiled for each target in <code>HWY_TARGETS</code> (see
+<a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/quick_reference.md" target="_blank" rel="noopener noreferrer">quick-reference</a>) if <code>HWY_TARGET_INCLUDE</code> is
+defined and <code>foreach_target.h</code> is included. Note that the first invocation
+of <code>HWY_DYNAMIC_DISPATCH</code>, or each call to the pointer returned by the first
+invocation of <code>HWY_DYNAMIC_POINTER</code>, involves some CPU detection overhead.
+You can prevent this by calling the following before any invocation of
+<code>HWY_DYNAMIC_*</code>: <code>hwy::GetChosenTarget().Update(hwy::SupportedTargets());</code>.</p>
+</li>
+</ul>
+<p>See also a separate
+<a href="https://github.com/kfjahnke/zimt/blob/multi_isa/examples/multi_isa_example/multi_simd_isa.md">introduction to dynamic dispatch</a>
+by @kfjahnke.</p>
+<p>When using dynamic dispatch, <code>foreach_target.h</code> is included from translation
+units (.cc files), not headers. Headers containing vector code shared between
+several translation units require a special include guard, for example the
+following taken from <code>examples/skeleton-inl.h</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#if defined(HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_) == defined(HWY_TARGET_TOGGLE)
+#ifdef HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_
+#undef HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_
+#else
+#define HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_
+#endif
+
+#include &quot;hwy/highway.h&quot;
+// Your vector code
+#endif" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#if defined(HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_) == defined(HWY_TARGET_TOGGLE)</span></span>
+<span class="line"><span style="color:#6A737D">#ifdef HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_</span></span>
+<span class="line"><span style="color:#6A737D">#undef HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_</span></span>
+<span class="line"><span style="color:#6A737D">#else</span></span>
+<span class="line"><span style="color:#6A737D">#define HIGHWAY_HWY_EXAMPLES_SKELETON_INL_H_</span></span>
+<span class="line"><span style="color:#6A737D">#endif</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include "hwy/highway.h"</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Your vector code</span></span>
+<span class="line"><span style="color:#6A737D">#endif</span></span></code></pre>
+<p>By convention, we name such headers <code>-inl.h</code> because their contents (often
+function templates) are usually inlined.</p>
+<h2>Compiler flags</h2>
+<p>Applications should be compiled with optimizations enabled. Without inlining
+SIMD code may slow down by factors of 10 to 100. For clang and GCC, <code>-O2</code> is
+generally sufficient.</p>
+<p>For MSVC, we recommend compiling with <code>/Gv</code> to allow non-inlined functions to
+pass vector arguments in registers. If intending to use the AVX2 target together
+with half-width vectors (e.g. for <code>PromoteTo</code>), it is also important to compile
+with <code>/arch:AVX2</code>. This seems to be the only way to reliably generate
+VEX-encoded SSE instructions on MSVC. Sometimes MSVC generates VEX-encoded SSE
+instructions, if they are mixed with AVX, but not always, see
+<a href="https://developercommunity.visualstudio.com/t/10618264">DevCom-10618264</a>.
+Otherwise, mixing VEX-encoded AVX2 instructions and non-VEX SSE may cause severe
+performance degradation. Unfortunately, with <code>/arch:AVX2</code> option, the resulting
+binary will then require AVX2. Note that no such flag is needed for clang and
+GCC because they support target-specific attributes, which we use to ensure
+proper VEX code generation for AVX2 targets.</p>
+<h2>Strip-mining loops</h2>
+<p>When vectorizing a loop, an important question is whether and how to deal with
+a number of iterations ('trip count', denoted <code>count</code>) that does not evenly
+divide the vector size <code>N = Lanes(d)</code>. For example, it may be necessary to avoid
+writing past the end of an array.</p>
+<p>In this section, let <code>T</code> denote the element type and <code>d = ScalableTag&lt;T&gt;</code>.
+Assume the loop body is given as a function <code>template&lt;bool partial, class D&gt; void LoopBody(D d, size_t index, size_t max_n)</code>.</p>
+<p>"Strip-mining" is a technique for vectorizing a loop by transforming it into an
+outer loop and inner loop, such that the number of iterations in the inner loop
+matches the vector width. Then, the inner loop is replaced with vector
+operations.</p>
+<p>Highway offers several strategies for loop vectorization:</p>
+<ul>
+<li><p>Ensure all inputs/outputs are padded. Then the (outer) loop is simply</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="for (size_t i = 0; i &lt; count; i += N) LoopBody&lt;false&gt;(d, i, 0);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (size_t i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> count; i </span><span style="color:#D73A49">+</span><span style="color:#24292E">= N) LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">false</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(d, i, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span></code></pre>
+<p>Here, the template parameter and second function argument are not needed.</p>
+<p>This is the preferred option, unless <code>N</code> is in the thousands and vector
+operations are pipelined with long latencies. This was the case for
+supercomputers in the 90s, but nowadays ALUs are cheap and we see most
+implementations split vectors into 1, 2 or 4 parts, so there is little cost
+to processing entire vectors even if we do not need all their lanes. Indeed
+this avoids the (potentially large) cost of predication or partial
+loads/stores on older targets, and does not duplicate code.</p>
+</li>
+<li><p>Process whole vectors and include previously processed elements
+in the last vector:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="for (size_t i = 0; i &lt; count; i += N) LoopBody&lt;false&gt;(d, HWY_MIN(i, count - N), 0);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (size_t i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> count; i </span><span style="color:#D73A49">+</span><span style="color:#24292E">= N) LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">false</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(d, HWY_MIN(i, count </span><span style="color:#D73A49">-</span><span style="color:#24292E"> N), </span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span></code></pre>
+<p>This is the second preferred option provided that <code>count &gt;= N</code>
+and <code>LoopBody</code> is idempotent. Some elements might be processed twice, but
+a single code path and full vectorization is usually worth it. Even if
+<code>count &lt; N</code>, it usually makes sense to pad inputs/outputs up to <code>N</code>.</p>
+</li>
+<li><p>Use the <code>Transform*</code> functions in hwy/contrib/algo/transform-inl.h. This
+takes care of the loop and remainder handling and you simply define a
+generic lambda function (C++14) or functor which receives the current vector
+from the input/output array, plus optionally vectors from up to two extra
+input arrays, and returns the value to write to the input/output array.</p>
+<p>Here is an example implementing the BLAS function SAXPY (<code>alpha * x + y</code>):</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Transform1(d, x, n, y, [](auto d, const auto v, const auto v1) HWY_ATTR {
+  return MulAdd(Set(d, alpha), v, v1);
+});" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">Transform1(d, x, n, y, [](auto d, const auto v, const auto v1) </span><span style="color:#005CC5">HWY_ATTR</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> MulAdd(Set(d, alpha), v, v1);</span></span>
+<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+</li>
+<li><p>Process whole vectors as above, followed by a scalar loop:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="size_t i = 0;
+for (; i + N &lt;= count; i += N) LoopBody&lt;false&gt;(d, i, 0);
+for (; i &lt; count; ++i) LoopBody&lt;false&gt;(CappedTag&lt;T, 1&gt;(), i, 0);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">size_t i </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (; i </span><span style="color:#D73A49">+</span><span style="color:#24292E"> N </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> count; i </span><span style="color:#D73A49">+</span><span style="color:#24292E">= N) LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">false</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(d, i, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> count; </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">i) LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">false</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(CappedTag</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T, </span><span style="color:#005CC5">1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(), i, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span></code></pre>
+<p>The template parameter and second function arguments are again not needed.</p>
+<p>This avoids duplicating code, and is reasonable if <code>count</code> is large.
+If <code>count</code> is small, the second loop may be slower than the next option.</p>
+</li>
+<li><p>Process whole vectors as above, followed by a single call to a modified
+<code>LoopBody</code> with masking:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="size_t i = 0;
+for (; i + N &lt;= count; i += N) {
+  LoopBody&lt;false&gt;(d, i, 0);
+}
+if (i &lt; count) {
+  LoopBody&lt;true&gt;(d, i, count - i);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">size_t i </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (; i </span><span style="color:#D73A49">+</span><span style="color:#24292E"> N </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> count; i </span><span style="color:#D73A49">+</span><span style="color:#24292E">= N) {</span></span>
+<span class="line"><span style="color:#24292E">  LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">false</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(d, i, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> count) {</span></span>
+<span class="line"><span style="color:#24292E">  LoopBody</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">true</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(d, i, count </span><span style="color:#D73A49">-</span><span style="color:#24292E"> i);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>Now the template parameter and third function argument can be used inside
+<code>LoopBody</code> to non-atomically 'blend' the first <code>num_remaining</code> lanes of <code>v</code>
+with the previous contents of memory at subsequent locations:
+<code>BlendedStore(v, FirstN(d, num_remaining), d, pointer);</code>. Similarly,
+<code>MaskedLoad(FirstN(d, num_remaining), d, pointer)</code> loads the first
+<code>num_remaining</code> elements and returns zero in other lanes.</p>
+<p>This is a good default when it is infeasible to ensure vectors are padded,
+but is only safe <code>#if !HWY_MEM_OPS_MIGHT_FAULT</code>!
+In contrast to the scalar loop, only a single final iteration is needed.
+The increased code size from two loop bodies is expected to be worthwhile
+because it avoids the cost of masking in all but the final iteration.</p>
+</li>
+</ul>
+<h2>Additional resources</h2>
+<ul>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/highway_intro.pdf" target="_blank" rel="noopener noreferrer">Highway introduction (slides)</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/instruction_matrix.pdf" target="_blank" rel="noopener noreferrer">Overview of instructions per operation on different architectures</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/design_philosophy.md" target="_blank" rel="noopener noreferrer">Design philosophy and comparison</a></li>
+<li><a href="https://github.com/google/highway/blob/c34a36fb145de0a922a6e719b217033e1ff2eece/g3doc/impl_details.md" target="_blank" rel="noopener noreferrer">Implementation details</a></li>
+</ul>
+<h2>Acknowledgments</h2>
+<p>We have used <a href="https://gitlab.inria.fr/bramas/farm-sve">farm-sve</a> by Berenger
+Bramas; it has proved useful for checking the SVE port on an x86 development
+machine.</p>
+<p>This is not an officially supported Google product.
+Contact: <a href="mailto:janwas@google.com">janwas@google.com</a></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Performance-portable, length-agnostic SIMD with runtime dispatch</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/google/highway" title="@google"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@google/highway</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/google.png" alt="@google"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/google/highway"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">5494</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, April 14, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 97.3%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 97.3%"> </span><span style="width: 1.2%; background-color: var(--lang-C-bg, #ccc)" title="C: 1.2%"> </span><span style="width: 0.6%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 0.6%"> </span><span style="width: 0.5%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.5%"> </span><span style="width: 0.3%; background-color: var(--lang-Meson-bg, #ccc)" title="Meson: 0.3%"> </span><span style="width: 0.1%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">97.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Batchfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Batchfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Linker-Script-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Linker Script</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">3</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/jan-wassenberg" title="Jan Wassenberg"><img class="avatar circle" width="48" height="48" src="https://github.com/jan-wassenberg.png" alt="@jan-wassenberg"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/eustas" title="Eugene Kliuchnikov"><img class="avatar circle" width="48" height="48" src="https://github.com/eustas.png" alt="@eustas"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/rhettstucki" title="Rhett Stucki"><img class="avatar circle" width="48" height="48" src="https://github.com/rhettstucki.png" alt="@rhettstucki"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/UebelAndre" title="@UebelAndre"><img class="avatar circle" width="48" height="48" src="https://github.com/UebelAndre.png" alt="@UebelAndre"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8413"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="highway@1.3.0.bcr.1 (#8413)"><span class="text-mono">#8413</span> <span class="text-light">highway@1.3.0.bcr.1 (#8413)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/google/highway/releases/download/1.3.0/highway-1.3.0.tar.gz" title="https://github.com/google/highway/releases/download/1.3.0/highway-1.3.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/google/hig...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/highway/1.3.0.bcr.1/patches/bazel9.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">bazel9.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">4</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.3.0.bcr.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 50%, transparent 50%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.3.0.bcr.1"><span class="text-bold">1.3.0.bcr.1</span><sup class="color-fg-attention"> +7.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">50%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-14</span></div></td></tr><tr class=""><td title="1.3.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.3.0"><a class="Box-row-link" href="/#/modules/highway/1.3.0">1.3.0</a><sup class="color-fg-attention"> +9.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-08-18</span></div></td></tr><tr class=""><td title="1.2.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 50%, transparent 50%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.2.0"><a class="Box-row-link" href="/#/modules/highway/1.2.0">1.2.0</a><sup class="color-fg-attention"> +5.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">50%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-03</span></div></td></tr><tr class=""><td title="1.1.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.1.0"><a class="Box-row-link" href="/#/modules/highway/1.1.0">1.1.0</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-05-08</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

@@ -1,0 +1,1497 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">quill</span> <span class="f2 d-inline-block">11.1.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.9mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/odygrd/quill" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/quill/11.1.0/overview" data-name="overview" id=":ml.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/quill/11.1.0/docs" data-name="docs" id=":ml.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/quill/11.1.0/testing" data-name="testing" id=":ml.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;quill&quot;, version = &quot;11.1.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "quill"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "11.1.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">2</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/0.0.11">platforms<span class="ml-1 text-light text-small">0.0.11</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (1.3y)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.1.1">rules_cc<span class="ml-1 text-light text-small">0.1.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+28<span class="color-fg-attention"> (1.2y)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><div align="center">
+  
+
+  <br>
+  <img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs/logo.png" alt="Quill C++ Logging Library" width="200" height="auto">
+  <h1>Quill</h1>
+  <p><b>Asynchronous Low Latency C++ Logging Library</b></p>
+
+  <div>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Afedora">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/fedora.yml?branch=master&amp;label=Fedora&amp;style=flat-square&amp;logo=fedora" alt="fedora-ci">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Aubuntu">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/ubuntu.yml?branch=master&amp;label=Ubuntu&amp;style=flat-square&amp;logo=ubuntu" alt="ubuntu-ci">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Absd">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/bsd.yml?branch=master&amp;label=BSD&amp;style=flat-square&amp;logo=openbsd" alt="bsd-ci">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Amacos">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/macos.yml?branch=master&amp;label=macOS&amp;logoColor=white&amp;style=flat-square&amp;logo=apple" alt="macos-ci">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Awindows">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/windows.yml?branch=master&amp;label=Windows&amp;logoColor=blue&amp;style=flat-square&amp;logo=data:image/svg%2bxml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIGhlaWdodD0iODgiIHdpZHRoPSI4OCIgeG1sbnM6dj0iaHR0cHM6Ly92ZWN0YS5pby9uYW5vIj48cGF0aCBkPSJNMCAxMi40MDJsMzUuNjg3LTQuODYuMDE2IDM0LjQyMy0zNS42Ny4yMDN6bTM1LjY3IDMzLjUyOWwuMDI4IDM0LjQ1M0wuMDI4IDc1LjQ4LjAyNiA0NS43em00LjMyNi0zOS4wMjVMODcuMzE0IDB2NDEuNTI3bC00Ny4zMTguMzc2em00Ny4zMjkgMzkuMzQ5bC0uMDExIDQxLjM0LTQ3LjMxOC02LjY3OC0uMDY2LTM0LjczOXoiIGZpbGw9IiMwMGFkZWYiLz48L3N2Zz4=" alt="windows-ci">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions?query=workflow%3Aintelllvm">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/intelllvm.yml?branch=master&amp;label=Intel%20LLVM&amp;style=flat-square&amp;logo=intel" alt="intel-llvm-ci">
+    </a>
+  </div>
+
+  <div>
+    <a href="https://codecov.io/gh/odygrd/quill">
+      <img src="https://img.shields.io/codecov/c/gh/odygrd/quill/master.svg?logo=codecov&amp;style=flat-square" alt="Codecov">
+    </a>
+    <a href="https://github.com/odygrd/quill/actions/workflow/status/odygrd/quill/fuzz.yml">
+      <img src="https://img.shields.io/github/actions/workflow/status/odygrd/quill/fuzz.yml?branch=master&amp;label=Fuzz&amp;style=flat-square" alt="fuzz-ci">
+    </a>
+    <a href="https://app.codacy.com/gh/odygrd/quill/dashboard?utm_source=gh&amp;utm_medium=referral&amp;utm_content=&amp;utm_campaign=Badge_grade">
+      <img src="https://img.shields.io/codacy/grade/cd387bc34658475d98bff84db3ad5287?logo=codacy&amp;style=flat-square" alt="Codacy">
+    </a>
+    <a href="https://www.codefactor.io/repository/github/odygrd/quill">
+      <img src="https://img.shields.io/codefactor/grade/github/odygrd/quill?logo=codefactor&amp;style=flat-square" alt="CodeFactor">
+    </a>
+  </div>
+
+  <div>
+    <a href="https://opensource.org/licenses/MIT">
+      <img src="https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square" alt="license">
+    </a>
+    <a href="https://en.wikipedia.org/wiki/C%2B%2B17">
+      <img src="https://img.shields.io/badge/language-C%2B%2B17-red.svg?style=flat-square" alt="language">
+    </a>
+  </div>
+
+  <h4>
+    <a href="https://quillcpp.readthedocs.io" title="Explore the full documentation">📚 Documentation</a>
+    <span> · </span>
+    <a href="https://quillcpp.readthedocs.io/en/latest/cheat_sheet.html" title="Quick reference for common tasks">⚡ Cheat Sheet</a>
+    <span> · </span>
+    <a href="https://quillcpp.readthedocs.io/en/latest/faq.html" title="Frequently asked questions">❓ FAQ</a>
+    <span> · </span>
+    <a href="https://github.com/odygrd/quill/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=bug-report.md&amp;title=" title="Report a bug or issue">🐛 Report Bug</a>
+    <span> · </span>
+    <a href="https://github.com/odygrd/quill/issues/new?assignees=&amp;labels=&amp;projects=&amp;template=feature_request.md&amp;title=">💡 Request Feature</a>
+  </h4>
+
+  <div align="center"><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs/quill_demo.gif" alt="Logging Demo" width="75%"></div>
+</div>
+
+<hr>
+<h2>🧭 Table of Contents</h2>
+<ul>
+<li><a href="#-introduction">Introduction</a></li>
+<li><a href="#-quick-start">Quick Start</a></li>
+<li><a href="#-features">Features</a></li>
+<li><a href="#-performance">Performance</a></li>
+<li><a href="#-usage">Usage</a></li>
+<li><a href="#-design">Design</a></li>
+<li><a href="#-caveats">Caveats</a></li>
+<li><a href="#-license">License</a></li>
+</ul>
+<hr>
+<h2>✨ Introduction</h2>
+<p><strong>Quill</strong> is a <strong>high-performance asynchronous logging library</strong> written in <strong>C++</strong>. It is designed for low-latency,
+performance-critical applications where every microsecond counts.</p>
+<ul>
+<li><strong>Performance-Focused</strong>: Quill consistently outperforms many popular logging libraries.</li>
+<li><strong>Feature-Rich</strong>: Packed with advanced features to meet diverse logging needs.</li>
+<li><strong>Battle-Tested</strong>: Proven in demanding production environments. Extensively tested with sanitizers (ASan, UBSan, LSan) and fuzzed across a wide range of inputs.</li>
+<li><strong>Extensive Documentation</strong>: Comprehensive guides and examples available.</li>
+<li><strong>Community-Driven</strong>: Open to contributions, feedback, and feature requests.</li>
+</ul>
+<p>Try it on <a href="https://godbolt.org/z/n68asK7bY">Compiler Explorer</a></p>
+<hr>
+<h2>⏩ Quick Start</h2>
+<p>Getting started is easy and straightforward. Follow these steps to integrate the library into your project:</p>
+<h3>Installation</h3>
+<p>You can install Quill using the package manager of your choice:</p>
+<table>
+<thead>
+<tr>
+<th align="center">Package Manager</th>
+<th align="center">Installation Command</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">vcpkg</td>
+<td align="center"><code>vcpkg install quill</code></td>
+</tr>
+<tr>
+<td align="center">Conan</td>
+<td align="center"><code>conan install quill</code></td>
+</tr>
+<tr>
+<td align="center">Homebrew</td>
+<td align="center"><code>brew install quill</code></td>
+</tr>
+<tr>
+<td align="center">Meson WrapDB</td>
+<td align="center"><code>meson wrap install quill</code></td>
+</tr>
+<tr>
+<td align="center">Conda</td>
+<td align="center"><code>conda install -c conda-forge quill</code></td>
+</tr>
+<tr>
+<td align="center">Bzlmod</td>
+<td align="center"><code>bazel_dep(name = "quill", version = "x.y.z")</code></td>
+</tr>
+<tr>
+<td align="center">xmake</td>
+<td align="center"><code>xrepo install quill</code></td>
+</tr>
+<tr>
+<td align="center">nix</td>
+<td align="center"><code>nix-shell -p quill-log</code></td>
+</tr>
+<tr>
+<td align="center">build2</td>
+<td align="center"><code>libquill</code></td>
+</tr>
+</tbody></table>
+<h3>Setup</h3>
+<h4>Quickest Setup</h4>
+<p>For the quickest and simplest setup use <code>simple_logger()</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;quill/SimpleSetup.h&quot;
+#include &quot;quill/LogFunctions.h&quot;
+
+int main()
+{
+  // log to the console
+  auto* logger = quill::simple_logger();
+  quill::info(logger, &quot;Hello from {}!&quot;, &quot;Quill&quot;);
+
+  // log to a file
+  auto* logger2 = quill::simple_logger(&quot;test.log&quot;);
+  quill::warning(logger2, &quot;This message goes to a file&quot;);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "quill/SimpleSetup.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/LogFunctions.h"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> log to the console</span></span>
+<span class="line"><span style="color:#24292E">  auto</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::simple_logger();</span></span>
+<span class="line"><span style="color:#24292E">  quill::info(logger, </span><span style="color:#032F62">"Hello from </span><span style="color:#005CC5">{}</span><span style="color:#032F62">!"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Quill"</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> log to a </span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#24292E">  auto</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger2 = quill::simple_logger(</span><span style="color:#032F62">"test.log"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  quill::warning(logger2, </span><span style="color:#032F62">"This message goes to a file"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h4>Detailed Setup</h4>
+<p>For more detailed control and configuration options, use the <code>Backend</code> and <code>Frontend</code> APIs:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;quill/Backend.h&quot;
+#include &quot;quill/Frontend.h&quot;
+#include &quot;quill/LogMacros.h&quot;
+#include &quot;quill/Logger.h&quot;
+#include &quot;quill/sinks/ConsoleSink.h&quot;
+#include &lt;string_view&gt;
+
+int main()
+{
+  quill::Backend::start();
+
+  quill::Logger* logger = quill::Frontend::create_or_get_logger(
+    &quot;root&quot;, quill::Frontend::create_or_get_sink&lt;quill::ConsoleSink&gt;(&quot;sink_id_1&quot;));
+
+  LOG_INFO(logger, &quot;Hello from {}!&quot;, std::string_view{&quot;Quill&quot;});
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "quill/Backend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Frontend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/LogMacros.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Logger.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/sinks/ConsoleSink.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;string_view&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  quill::Backend::start();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  quill::Logger</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::Frontend::create_or_get_logger(</span></span>
+<span class="line"><span style="color:#032F62">    "root"</span><span style="color:#24292E">, quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::ConsoleSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"sink_id_1"</span><span style="color:#24292E">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  LOG_INFO(logger, </span><span style="color:#032F62">"Hello from </span><span style="color:#005CC5">{}</span><span style="color:#032F62">!"</span><span style="color:#24292E">, std::string_view{</span><span style="color:#032F62">"Quill"</span><span style="color:#24292E">});</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>Alternatively, you can use the macro-free mode.
+See <a href="https://quillcpp.readthedocs.io/en/latest/macro_free_mode.html">here</a> for details on performance
+trade-offs.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;quill/Backend.h&quot;
+#include &quot;quill/Frontend.h&quot;
+#include &quot;quill/LogFunctions.h&quot;
+#include &quot;quill/Logger.h&quot;
+#include &quot;quill/sinks/ConsoleSink.h&quot;
+#include &lt;string_view&gt;
+
+int main()
+{
+  quill::Backend::start();
+
+  quill::Logger* logger = quill::Frontend::create_or_get_logger(
+    &quot;root&quot;, quill::Frontend::create_or_get_sink&lt;quill::ConsoleSink&gt;(&quot;sink_id_1&quot;));
+
+  quill::info(logger, &quot;Hello from {}!&quot;, std::string_view{&quot;Quill&quot;});
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "quill/Backend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Frontend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/LogFunctions.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Logger.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/sinks/ConsoleSink.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;string_view&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  quill::Backend::start();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  quill::Logger</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::Frontend::create_or_get_logger(</span></span>
+<span class="line"><span style="color:#032F62">    "root"</span><span style="color:#24292E">, quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::ConsoleSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"sink_id_1"</span><span style="color:#24292E">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  quill::info(logger, </span><span style="color:#032F62">"Hello from </span><span style="color:#005CC5">{}</span><span style="color:#032F62">!"</span><span style="color:#24292E">, std::string_view{</span><span style="color:#032F62">"Quill"</span><span style="color:#24292E">});</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<hr>
+<h2>🎯 Features</h2>
+<ul>
+<li><strong>High-Performance</strong>: Ultra-low latency performance. View <a href="https://github.com/odygrd/quill#performance">Benchmarks</a></li>
+<li><strong>Asynchronous Processing</strong>: Background thread handles formatting and I/O, keeping your main thread responsive.</li>
+<li><strong>Minimal Header Includes</strong>:<ul>
+<li><strong>Frontend</strong>: Only <code>Logger.h</code> and <code>LogMacros.h</code> needed for logging. Lightweight with minimal dependencies.</li>
+<li><strong>Backend</strong>: Single <code>.cpp</code> file inclusion. No backend code injection into other translation units.</li>
+</ul>
+</li>
+<li><strong>Compile-Time Optimization</strong>: Eliminate specific log levels at compile time.</li>
+<li><strong>Custom Formatters</strong>: Define your own log output patterns.
+See <a href="https://quillcpp.readthedocs.io/en/latest/formatters.html">Formatters</a>.</li>
+<li><strong>Timestamp-Ordered Logs</strong>: Simplify debugging of multithreaded applications with chronologically ordered logs.</li>
+<li><strong>Flexible Timestamps</strong>: Support for <code>rdtsc</code>, <code>chrono</code>, or <code>custom clocks</code> - ideal for simulations and more.</li>
+<li><strong>Backtrace Logging</strong>: Store messages in a ring buffer for on-demand display.
+See <a href="https://quillcpp.readthedocs.io/en/latest/backtrace_logging.html">Backtrace Logging</a></li>
+<li><strong>Multiple Output Sinks</strong>: Console (with color), files (with rotation), JSON, ability to create custom sinks and more.</li>
+<li><strong>Log Filtering</strong>: Process only relevant messages.
+See <a href="https://quillcpp.readthedocs.io/en/latest/filters.html">Filters</a>.</li>
+<li><strong>JSON Logging</strong>: Structured log output.
+See <a href="https://quillcpp.readthedocs.io/en/latest/json_logging.html">JSON Logging</a></li>
+<li><strong>Configurable Queue Modes</strong>: <code>bounded/unbounded</code> and <code>blocking/dropping</code> options with monitoring on dropped messages,
+queue reallocations, and blocked hot threads.</li>
+<li><strong>Crash Handling</strong>: Built-in signal handler for log preservation during crashes.</li>
+<li><strong>Huge Pages Support (Linux)</strong>: Leverage huge pages on the hot path for optimized performance.</li>
+<li><strong>Wide Character Support (Windows)</strong>: Compatible with ASCII-encoded wide strings and STL containers consisting of wide
+strings.</li>
+<li><strong>Exception-Free Option</strong>: Configurable builds with or without exception handling.</li>
+<li><strong>Clean Codebase</strong>: Maintained to high standards, warning-free even at strict levels.</li>
+<li><strong>Type-Safe API</strong>: Built on <a href="https://github.com/fmtlib/fmt">{fmt}</a> library.</li>
+</ul>
+<hr>
+<h2>🚀 Performance</h2>
+<h3>System Configuration</h3>
+<ul>
+<li><p><strong>OS:</strong> Linux RHEL 9.4</p>
+</li>
+<li><p><strong>CPU:</strong> Intel Core i5-12600 (12th Gen) @ 4.8 GHz</p>
+</li>
+<li><p><strong>Compiler:</strong> GCC 13.1</p>
+</li>
+<li><p><strong>Benchmark-Tuned System:</strong> The system is specifically tuned for benchmarking.</p>
+</li>
+<li><p><strong>Command Line Parameters:</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cat /proc/cmdline
+BOOT_IMAGE=(hd0,gpt2)/vmlinuz-5.14.0-427.13.1.el9_4.x86_64 root=/dev/mapper/rhel-root ro crashkernel=1G-4G:192M,4G-64G:256M,64G-:512M resume=/dev/mapper/rhel-swap rd.lvm.lv=rhel/root rd.lvm.lv=rhel/swap rhgb quiet nohz=on nohz_full=1-5 rcu_nocbs=1-5 isolcpus=1-5 mitigations=off transparent_hugepage=never intel_pstate=disable nosoftlockup irqaffinity=0 processor.max_cstate=1 nosoftirqd sched_tick_offload=0 spec_store_bypass_disable=off spectre_v2=off iommu=pt" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cat </span><span style="color:#D73A49">/</span><span style="color:#24292E">proc</span><span style="color:#D73A49">/</span><span style="color:#24292E">cmdline</span></span>
+<span class="line"><span style="color:#005CC5">BOOT_IMAGE</span><span style="color:#D73A49">=</span><span style="color:#24292E">(hd0,gpt2)</span><span style="color:#D73A49">/</span><span style="color:#24292E">vmlinuz</span><span style="color:#D73A49">-</span><span style="color:#005CC5">5.14</span><span style="color:#24292E">.0</span><span style="color:#D73A49">-</span><span style="color:#005CC5">427.13</span><span style="color:#24292E">.1.el9_4.x86_64 root</span><span style="color:#D73A49">=/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#24292E">mapper</span><span style="color:#D73A49">/</span><span style="color:#24292E">rhel</span><span style="color:#D73A49">-</span><span style="color:#24292E">root ro crashkernel</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">1G</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">4G</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">192M</span><span style="color:#24292E">,</span><span style="color:#B31D28;font-style:italic">4G</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">64G</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">256M</span><span style="color:#24292E">,</span><span style="color:#B31D28;font-style:italic">64G</span><span style="color:#D73A49">-</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">512M</span><span style="color:#24292E"> resume</span><span style="color:#D73A49">=/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#24292E">mapper</span><span style="color:#D73A49">/</span><span style="color:#24292E">rhel</span><span style="color:#D73A49">-</span><span style="color:#24292E">swap rd.lvm.lv</span><span style="color:#D73A49">=</span><span style="color:#24292E">rhel</span><span style="color:#D73A49">/</span><span style="color:#24292E">root rd.lvm.lv</span><span style="color:#D73A49">=</span><span style="color:#24292E">rhel</span><span style="color:#D73A49">/</span><span style="color:#24292E">swap rhgb quiet nohz</span><span style="color:#D73A49">=</span><span style="color:#24292E">on nohz_full</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#005CC5">5</span><span style="color:#24292E"> rcu_nocbs</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#005CC5">5</span><span style="color:#24292E"> isolcpus</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#005CC5">5</span><span style="color:#24292E"> mitigations</span><span style="color:#D73A49">=</span><span style="color:#24292E">off transparent_hugepage</span><span style="color:#D73A49">=</span><span style="color:#24292E">never intel_pstate</span><span style="color:#D73A49">=</span><span style="color:#24292E">disable nosoftlockup irqaffinity</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#24292E"> processor.max_cstate</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E"> nosoftirqd sched_tick_offload</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#24292E"> spec_store_bypass_disable</span><span style="color:#D73A49">=</span><span style="color:#24292E">off spectre_v2</span><span style="color:#D73A49">=</span><span style="color:#24292E">off iommu</span><span style="color:#D73A49">=</span><span style="color:#24292E">pt</span></span></code></pre>
+</li>
+</ul>
+<p>You can find the benchmark code on the <a href="https://github.com/odygrd/logger_benchmarks">logger_benchmarks</a> repository.</p>
+<h3>Latency</h3>
+<p>The results presented in the tables below are measured in <code>nanoseconds (ns)</code>.</p>
+<p>The tables are sorted by the 95th percentile (lower is better).</p>
+<h4>Logging Numbers</h4>
+<p><code>LOG_INFO(logger, "Logging int: {}, int: {}, double: {}", i, j, d)</code>.</p>
+<h5>1 Thread Logging</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">12</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">11</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PlatformLab/NanoLog">PlatformLab NanoLog</a></td>
+<td align="center">13</td>
+<td align="center">14</td>
+<td align="center">16</td>
+<td align="center">18</td>
+<td align="center">21</td>
+<td align="center">24</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">21</td>
+<td align="center">21</td>
+<td align="center">21</td>
+<td align="center">22</td>
+<td align="center">59</td>
+<td align="center">93</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue (Log Functions)</a></td>
+<td align="center">27</td>
+<td align="center">28</td>
+<td align="center">29</td>
+<td align="center">30</td>
+<td align="center">31</td>
+<td align="center">33</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">7</td>
+<td align="center">7</td>
+<td align="center">29</td>
+<td align="center">31</td>
+<td align="center">33</td>
+<td align="center">55</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattiasflodin/reckless">Reckless</a></td>
+<td align="center">26</td>
+<td align="center">28</td>
+<td align="center">31</td>
+<td align="center">32</td>
+<td align="center">34</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog</a></td>
+<td align="center">42</td>
+<td align="center">42</td>
+<td align="center">43</td>
+<td align="center">75</td>
+<td align="center">83</td>
+<td align="center">94</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Iyengar111/NanoLog">Iyengar NanoLog</a></td>
+<td align="center">87</td>
+<td align="center">98</td>
+<td align="center">122</td>
+<td align="center">129</td>
+<td align="center">209</td>
+<td align="center">381</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">145</td>
+<td align="center">148</td>
+<td align="center">151</td>
+<td align="center">154</td>
+<td align="center">162</td>
+<td align="center">171</td>
+</tr>
+<tr>
+<td><a href="https://github.com/KjellKod/g3log">g3log</a></td>
+<td align="center">775</td>
+<td align="center">781</td>
+<td align="center">787</td>
+<td align="center">791</td>
+<td align="center">805</td>
+<td align="center">967</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">838</td>
+<td align="center">845</td>
+<td align="center">853</td>
+<td align="center">859</td>
+<td align="center">897</td>
+<td align="center">959</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Fnumbers_1_thread_logging.webp" alt="numbers_1_thread_logging.webp"></p>
+<h5>4 Threads Logging Simultaneously</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">12</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">13</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">7</td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">32</td>
+<td align="center">39</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">8</td>
+<td align="center">9</td>
+<td align="center">10</td>
+<td align="center">11</td>
+<td align="center">13</td>
+<td align="center">15</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PlatformLab/NanoLog">PlatformLab NanoLog</a></td>
+<td align="center">9</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">17</td>
+<td align="center">22</td>
+<td align="center">26</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">21</td>
+<td align="center">22</td>
+<td align="center">22</td>
+<td align="center">23</td>
+<td align="center">61</td>
+<td align="center">98</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattiasflodin/reckless">Reckless</a></td>
+<td align="center">19</td>
+<td align="center">23</td>
+<td align="center">26</td>
+<td align="center">27</td>
+<td align="center">31</td>
+<td align="center">57</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue (Log Functions)</a></td>
+<td align="center">28</td>
+<td align="center">29</td>
+<td align="center">30</td>
+<td align="center">31</td>
+<td align="center">33</td>
+<td align="center">44</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog</a></td>
+<td align="center">47</td>
+<td align="center">49</td>
+<td align="center">50</td>
+<td align="center">122</td>
+<td align="center">143</td>
+<td align="center">4248</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Iyengar111/NanoLog">Iyengar NanoLog</a></td>
+<td align="center">58</td>
+<td align="center">90</td>
+<td align="center">124</td>
+<td align="center">132</td>
+<td align="center">178</td>
+<td align="center">1478</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">214</td>
+<td align="center">260</td>
+<td align="center">327</td>
+<td align="center">359</td>
+<td align="center">452</td>
+<td align="center">754</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">1640</td>
+<td align="center">2538</td>
+<td align="center">2793</td>
+<td align="center">2896</td>
+<td align="center">4150</td>
+<td align="center">4962</td>
+</tr>
+<tr>
+<td><a href="https://github.com/KjellKod/g3log">g3log</a></td>
+<td align="center">1336</td>
+<td align="center">4102</td>
+<td align="center">4501</td>
+<td align="center">4641</td>
+<td align="center">6079</td>
+<td align="center">7363</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Fnumbers_4_thread_logging.webp" alt="numbers_4_thread_logging.webp"></p>
+<h4>Logging Large Strings</h4>
+<p>Logging <code>std::string</code> over 35 characters to prevent the short string optimization.</p>
+<p><code>LOG_INFO(logger, "Logging int: {}, int: {}, string: {}", i, j, large_string)</code>.</p>
+<h5>1 Thread Logging</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">17</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">11</td>
+<td align="center">12</td>
+<td align="center">14</td>
+<td align="center">14</td>
+<td align="center">16</td>
+<td align="center">18</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">14</td>
+<td align="center">15</td>
+<td align="center">16</td>
+<td align="center">19</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">23</td>
+<td align="center">23</td>
+<td align="center">24</td>
+<td align="center">25</td>
+<td align="center">62</td>
+<td align="center">96</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">8</td>
+<td align="center">8</td>
+<td align="center">28</td>
+<td align="center">29</td>
+<td align="center">33</td>
+<td align="center">52</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PlatformLab/NanoLog">PlatformLab NanoLog</a></td>
+<td align="center">15</td>
+<td align="center">19</td>
+<td align="center">29</td>
+<td align="center">32</td>
+<td align="center">37</td>
+<td align="center">43</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue (Log Functions)</a></td>
+<td align="center">31</td>
+<td align="center">33</td>
+<td align="center">34</td>
+<td align="center">35</td>
+<td align="center">36</td>
+<td align="center">38</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog</a></td>
+<td align="center">44</td>
+<td align="center">45</td>
+<td align="center">46</td>
+<td align="center">76</td>
+<td align="center">85</td>
+<td align="center">93</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattiasflodin/reckless">Reckless</a></td>
+<td align="center">89</td>
+<td align="center">105</td>
+<td align="center">111</td>
+<td align="center">114</td>
+<td align="center">120</td>
+<td align="center">131</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Iyengar111/NanoLog">Iyengar NanoLog</a></td>
+<td align="center">89</td>
+<td align="center">100</td>
+<td align="center">123</td>
+<td align="center">132</td>
+<td align="center">205</td>
+<td align="center">367</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">129</td>
+<td align="center">133</td>
+<td align="center">137</td>
+<td align="center">141</td>
+<td align="center">149</td>
+<td align="center">157</td>
+</tr>
+<tr>
+<td><a href="https://github.com/KjellKod/g3log">g3log</a></td>
+<td align="center">565</td>
+<td align="center">568</td>
+<td align="center">571</td>
+<td align="center">573</td>
+<td align="center">582</td>
+<td align="center">740</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">638</td>
+<td align="center">641</td>
+<td align="center">645</td>
+<td align="center">647</td>
+<td align="center">651</td>
+<td align="center">659</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Flarge_strings_1_thread_logging.webp" alt="large_strings_1_thread_logging.webp"></p>
+<h5>4 Threads Logging Simultaneously</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">10</td>
+<td align="center">12</td>
+<td align="center">13</td>
+<td align="center">13</td>
+<td align="center">16</td>
+<td align="center">19</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">8</td>
+<td align="center">11</td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">30</td>
+<td align="center">40</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">13</td>
+<td align="center">14</td>
+<td align="center">15</td>
+<td align="center">16</td>
+<td align="center">19</td>
+<td align="center">21</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">13</td>
+<td align="center">15</td>
+<td align="center">16</td>
+<td align="center">17</td>
+<td align="center">20</td>
+<td align="center">22</td>
+</tr>
+<tr>
+<td><a href="https://github.com/PlatformLab/NanoLog">PlatformLab NanoLog</a></td>
+<td align="center">11</td>
+<td align="center">16</td>
+<td align="center">20</td>
+<td align="center">24</td>
+<td align="center">38</td>
+<td align="center">46</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">23</td>
+<td align="center">24</td>
+<td align="center">25</td>
+<td align="center">26</td>
+<td align="center">65</td>
+<td align="center">104</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue (Log Functions)</a></td>
+<td align="center">31</td>
+<td align="center">33</td>
+<td align="center">35</td>
+<td align="center">36</td>
+<td align="center">39</td>
+<td align="center">46</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattiasflodin/reckless">Reckless</a></td>
+<td align="center">77</td>
+<td align="center">92</td>
+<td align="center">101</td>
+<td align="center">105</td>
+<td align="center">112</td>
+<td align="center">126</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog</a></td>
+<td align="center">51</td>
+<td align="center">55</td>
+<td align="center">59</td>
+<td align="center">119</td>
+<td align="center">136</td>
+<td align="center">2973</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Iyengar111/NanoLog">Iyengar NanoLog</a></td>
+<td align="center">55</td>
+<td align="center">86</td>
+<td align="center">103</td>
+<td align="center">128</td>
+<td align="center">170</td>
+<td align="center">1364</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">196</td>
+<td align="center">227</td>
+<td align="center">281</td>
+<td align="center">310</td>
+<td align="center">395</td>
+<td align="center">690</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">1357</td>
+<td align="center">2420</td>
+<td align="center">2607</td>
+<td align="center">2651</td>
+<td align="center">3939</td>
+<td align="center">5682</td>
+</tr>
+<tr>
+<td><a href="https://github.com/KjellKod/g3log">g3log</a></td>
+<td align="center">1050</td>
+<td align="center">3886</td>
+<td align="center">4271</td>
+<td align="center">4442</td>
+<td align="center">5693</td>
+<td align="center">6831</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Flarge_strings_4_thread_logging.webp" alt="large_strings_4_thread_logging.webp"></p>
+<h4>Logging Complex Types</h4>
+<p>Logging <code>std::vector&lt;std::string&gt;</code> containing 16 large strings, each ranging from 50 to 60 characters.</p>
+<p>Note: some of the previous loggers do not support passing a <code>std::vector</code> as an argument.</p>
+<p><code>LOG_INFO(logger, "Logging int: {}, int: {}, vector: {}", i, j, v)</code>.</p>
+<h5>1 Thread Logging</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">46</td>
+<td align="center">49</td>
+<td align="center">52</td>
+<td align="center">55</td>
+<td align="center">59</td>
+<td align="center">65</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">67</td>
+<td align="center">69</td>
+<td align="center">71</td>
+<td align="center">73</td>
+<td align="center">79</td>
+<td align="center">279</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">139</td>
+<td align="center">150</td>
+<td align="center">160</td>
+<td align="center">165</td>
+<td align="center">173</td>
+<td align="center">183</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">286</td>
+<td align="center">297</td>
+<td align="center">341</td>
+<td align="center">346</td>
+<td align="center">353</td>
+<td align="center">589</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">646</td>
+<td align="center">660</td>
+<td align="center">685</td>
+<td align="center">705</td>
+<td align="center">733</td>
+<td align="center">767</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">6301</td>
+<td align="center">6363</td>
+<td align="center">6419</td>
+<td align="center">6455</td>
+<td align="center">6802</td>
+<td align="center">7414</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">34432</td>
+<td align="center">34623</td>
+<td align="center">34797</td>
+<td align="center">34928</td>
+<td align="center">35703</td>
+<td align="center">36233</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Fvector_1_thread_logging.webp" alt="vector_1_thread_logging.webp"></p>
+<h5>4 Threads Logging Simultaneously</h5>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">50th</th>
+<th align="center">75th</th>
+<th align="center">90th</th>
+<th align="center">95th</th>
+<th align="center">99th</th>
+<th align="center">99.9th</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/odygrd/quill">Quill Bounded Dropping Queue</a></td>
+<td align="center">49</td>
+<td align="center">53</td>
+<td align="center">57</td>
+<td align="center">60</td>
+<td align="center">65</td>
+<td align="center">79</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog</a></td>
+<td align="center">69</td>
+<td align="center">72</td>
+<td align="center">74</td>
+<td align="center">76</td>
+<td align="center">82</td>
+<td align="center">292</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill Unbounded Queue</a></td>
+<td align="center">84</td>
+<td align="center">91</td>
+<td align="center">98</td>
+<td align="center">103</td>
+<td align="center">113</td>
+<td align="center">130</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">675</td>
+<td align="center">701</td>
+<td align="center">740</td>
+<td align="center">756</td>
+<td align="center">779</td>
+<td align="center">809</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">627</td>
+<td align="center">1225</td>
+<td align="center">1317</td>
+<td align="center">1376</td>
+<td align="center">205300</td>
+<td align="center">287631</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">6593</td>
+<td align="center">6671</td>
+<td align="center">6751</td>
+<td align="center">6815</td>
+<td align="center">7610</td>
+<td align="center">8794</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">36322</td>
+<td align="center">80294</td>
+<td align="center">151775</td>
+<td align="center">177681</td>
+<td align="center">272649</td>
+<td align="center">362401</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Fvector_4_thread_logging.webp" alt="vector_4_thread_logging.webp"></p>
+<p>The benchmark methodology involves logging 20 messages in a loop, calculating and storing the average latency for those
+20 messages, then waiting around ~2 milliseconds, and repeating this process for a specified number of iterations.</p>
+<p><em>In the <code>Quill Bounded Dropping</code> benchmarks, the dropping queue size is set to <code>262,144</code> bytes, which is double the
+default size of <code>131,072</code> bytes.</em></p>
+<h3>Throughput</h3>
+<p>Throughput is measured by calculating the maximum number of log messages the backend logging thread can write to a log
+file per second (higher is better).</p>
+<p>The tests were run on the same system used for the latency benchmarks.</p>
+<p>Although Quill’s primary focus is not on maximizing throughput, it efficiently manages log messages across multiple
+threads. Benchmarking throughput of asynchronous logging libraries presents certain challenges. Some libraries may drop
+log messages, leading to smaller-than-expected log files, while others only provide asynchronous flushing, making it
+difficult to verify when the backend thread has fully processed all messages.</p>
+<p>For comparison, we benchmark against other asynchronous logging libraries that offer guaranteed logging with a
+flush-and-wait mechanism.</p>
+<p>Note that <code>MS BinLog</code> writes log data to a binary file, which requires offline formatting with an additional
+program—this makes it an unfair comparison, but it is included for reference.</p>
+<p>Similarly, <code>BqLog (binary log)</code> uses the compressed binary log appender, and its log files are not human-readable unless
+processed offline. However, it is included for reference. The other version of <code>BqLog</code> is using a text appender and
+produces human-readable log files.</p>
+<p>In the same way, <code>Platformlab Nanolog</code> also outputs binary logs and is expected to deliver high throughput. However, for
+reasons unexplained, the benchmark runs significantly slower (10x longer) than the other libraries, so it is excluded
+from the table.</p>
+<p>Logging 4 million times the message <code>"Iteration: {} int: {} double: {}"</code></p>
+<table>
+<thead>
+<tr>
+<th>Library</th>
+<th align="center">million msg/second</th>
+<th align="center">elapsed time</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><a href="https://github.com/Morgan-Stanley/binlog">MS BinLog (binary log)</a></td>
+<td align="center">62.93</td>
+<td align="center">62 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog (binary log)</a></td>
+<td align="center">14.71</td>
+<td align="center">271 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">XTR</a></td>
+<td align="center">8.16</td>
+<td align="center">490 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/odygrd/quill">Quill</a></td>
+<td align="center">5.24</td>
+<td align="center">763 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/gabime/spdlog">spdlog</a></td>
+<td align="center">4.32</td>
+<td align="center">925 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/MengRao/fmtlog">fmtlog</a></td>
+<td align="center">2.82</td>
+<td align="center">1417 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/mattiasflodin/reckless">Reckless</a></td>
+<td align="center">2.72</td>
+<td align="center">1471 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/choll/xtr">Quill - Macro Free Mode</a></td>
+<td align="center">2.65</td>
+<td align="center">1510 ms</td>
+</tr>
+<tr>
+<td><a href="https://github.com/Tencent/BqLog">BqLog</a></td>
+<td align="center">2.60</td>
+<td align="center">1537 ms</td>
+</tr>
+<tr>
+<td><a href="https://www.boost.org">Boost.Log</a></td>
+<td align="center">0.39</td>
+<td align="center">10102 ms</td>
+</tr>
+</tbody></table>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fcharts%2Fthroughput.webp" alt="throughput.webp"></p>
+<h3>Compilation Time</h3>
+<p>Compile times are measured using <code>clang 17</code> and for <code>Release</code> build.</p>
+<p>Below, you can find the additional headers that the library will include when you need to log, following
+the <a href="https://github.com/odygrd/quill/blob/master/examples/recommended_usage/recommended_usage.cpp">recommended_usage</a>
+example</p>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fquill_v10_0_compiler_profile.speedscope.png" alt="quill_v10_0_compiler_profile.speedscope.png"></p>
+<p>There is also a compile-time benchmark measuring the compilation time of 2000 auto-generated log statements with
+various arguments. You can find
+it <a href="https://github.com/odygrd/quill/blob/master/benchmarks/compile_time/compile_time_bench.cpp">here</a>. It takes
+approximately 30 seconds to compile.</p>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fquill_v10_0_compiler_bench.speedscope.png" alt="quill_v10_0_compiler_bench.speedscope.png"></p>
+<h3>Verdict</h3>
+<p>Quill excels in hot path latency benchmarks and supports high throughput, offering a rich set of features that outshines
+other logging libraries.</p>
+<p>The human-readable log files facilitate easier debugging and analysis. While initially larger, they compress
+efficiently, with the size difference between human-readable and binary logs becoming minimal once zipped.</p>
+<p>For example, for the same amount of messages:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ms_binlog_backend_total_time.blog (binary log): 177 MB
+ms_binlog_backend_total_time.zip (zipped binary log): 35 MB" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ms_binlog_backend_total_time.blog (binary log): </span><span style="color:#005CC5">177</span><span style="color:#005CC5"> MB</span></span>
+<span class="line"><span style="color:#24292E">ms_binlog_backend_total_time.zip (zipped binary log): </span><span style="color:#005CC5">35</span><span style="color:#005CC5"> MB</span></span></code></pre>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="quill_backend_total_time.log (human-readable log): 448 MB
+quill_backend_total_time.zip (zipped human-readable log): 47 MB" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">quill_backend_total_time.log (human</span><span style="color:#D73A49">-</span><span style="color:#24292E">readable log): </span><span style="color:#005CC5">448</span><span style="color:#005CC5"> MB</span></span>
+<span class="line"><span style="color:#24292E">quill_backend_total_time.zip (zipped human</span><span style="color:#D73A49">-</span><span style="color:#24292E">readable log): </span><span style="color:#005CC5">47</span><span style="color:#005CC5"> MB</span></span></code></pre>
+<p>If Quill were not available, MS BinLog would be a strong alternative. It delivers great latency on the hot path and
+generates smaller binary log files. However, the binary logs necessitate offline processing with additional tools, which
+can be less convenient.</p>
+<hr>
+<h2>🧩 Usage</h2>
+<p>Also, see the <a href="https://quillcpp.readthedocs.io/en/latest/quick_start.html">Quick Start Guide</a> for a brief introduction.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;quill/Backend.h&quot;
+#include &quot;quill/Frontend.h&quot;
+#include &quot;quill/LogMacros.h&quot;
+#include &quot;quill/Logger.h&quot;
+#include &quot;quill/sinks/ConsoleSink.h&quot;
+#include &quot;quill/std/Array.h&quot;
+
+#include &lt;string&gt;
+#include &lt;utility&gt;
+
+int main()
+{
+  // Backend  
+  quill::BackendOptions backend_options;
+  quill::Backend::start(backend_options);
+
+  // Frontend
+  auto console_sink = quill::Frontend::create_or_get_sink&lt;quill::ConsoleSink&gt;(&quot;sink_id_1&quot;);
+  quill::Logger* logger = quill::Frontend::create_or_get_logger(&quot;root&quot;, std::move(console_sink));
+
+  // Change the LogLevel to print everything
+  logger-&gt;set_log_level(quill::LogLevel::TraceL3);
+
+  // A log message with number 123
+  int a = 123;
+  std::string l = &quot;log&quot;;
+  LOG_INFO(logger, &quot;A {} message with number {}&quot;, l, a);
+
+  // libfmt formatting language is supported 3.14e+00
+  double pi = 3.141592653589793;
+  LOG_INFO(logger, &quot;libfmt formatting language is supported {:.2e}&quot;, pi);
+
+  // Logging STD types is supported [1, 2, 3]
+  std::array&lt;int, 3&gt; arr = {1, 2, 3};
+  LOG_INFO(logger, &quot;Logging STD types is supported {}&quot;, arr);
+
+  // Logging STD types is supported [arr: [1, 2, 3]]
+  LOGV_INFO(logger, &quot;Logging STD types is supported&quot;, arr);
+
+  // A message with two variables [a: 123, b: 3.17]
+  double b = 3.17;
+  LOGV_INFO(logger, &quot;A message with two variables&quot;, a, b);
+
+  for (uint32_t i = 0; i &lt; 10; ++i)
+  {
+    // Will only log the message once per second
+    LOG_INFO_LIMIT(std::chrono::seconds{1}, logger, &quot;A {} message with number {}&quot;, l, a);
+    LOGV_INFO_LIMIT(std::chrono::seconds{1}, logger, &quot;A message with two variables&quot;, a, b);
+  }
+
+  LOG_TRACE_L3(logger, &quot;Support for floats {:03.2f}&quot;, 1.23456);
+  LOG_TRACE_L2(logger, &quot;Positional arguments are {1} {0} &quot;, &quot;too&quot;, &quot;supported&quot;);
+  LOG_TRACE_L1(logger, &quot;{:&gt;30}&quot;, std::string_view {&quot;right aligned&quot;});
+  LOG_DEBUG(logger, &quot;Debugging foo {}&quot;, 1234);
+  LOG_INFO(logger, &quot;Welcome to Quill!&quot;);
+  LOG_WARNING(logger, &quot;A warning message.&quot;);
+  LOG_ERROR(logger, &quot;An error message. error code {}&quot;, 123);
+  LOG_CRITICAL(logger, &quot;A critical error.&quot;);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "quill/Backend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Frontend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/LogMacros.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Logger.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/sinks/ConsoleSink.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/std/Array.h"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">#include &lt;string&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;utility&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Backend  </span></span>
+<span class="line"><span style="color:#24292E">  quill::BackendOptions backend_options;</span></span>
+<span class="line"><span style="color:#24292E">  quill::Backend::start(backend_options);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Frontend</span></span>
+<span class="line"><span style="color:#24292E">  auto console_sink = quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::ConsoleSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"sink_id_1"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  quill::Logger</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::Frontend::create_or_get_logger(</span><span style="color:#032F62">"root"</span><span style="color:#24292E">, std::move(console_sink));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Change the LogLevel to </span><span style="color:#005CC5">print</span><span style="color:#24292E"> everything</span></span>
+<span class="line"><span style="color:#24292E">  logger</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_log_level(quill::LogLevel::TraceL3);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> A log message </span><span style="color:#D73A49">with</span><span style="color:#24292E"> number </span><span style="color:#005CC5">123</span></span>
+<span class="line"><span style="color:#005CC5">  int</span><span style="color:#24292E"> a = </span><span style="color:#005CC5">123</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  std::string l = </span><span style="color:#032F62">"log"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  LOG_INFO(logger, </span><span style="color:#032F62">"A </span><span style="color:#005CC5">{}</span><span style="color:#032F62"> message with number </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, l, a);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> libfmt formatting language </span><span style="color:#D73A49">is</span><span style="color:#24292E"> supported </span><span style="color:#005CC5">3.14e+00</span></span>
+<span class="line"><span style="color:#24292E">  double pi = </span><span style="color:#005CC5">3.141592653589793</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  LOG_INFO(logger, </span><span style="color:#032F62">"libfmt formatting language is supported </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:.2e</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, pi);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Logging </span><span style="color:#005CC5">STD</span><span style="color:#24292E"> types </span><span style="color:#D73A49">is</span><span style="color:#24292E"> supported [</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">  std::array</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> arr = {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">};</span></span>
+<span class="line"><span style="color:#24292E">  LOG_INFO(logger, </span><span style="color:#032F62">"Logging STD types is supported </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, arr);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Logging </span><span style="color:#005CC5">STD</span><span style="color:#24292E"> types </span><span style="color:#D73A49">is</span><span style="color:#24292E"> supported [arr: [</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">]]</span></span>
+<span class="line"><span style="color:#24292E">  LOGV_INFO(logger, </span><span style="color:#032F62">"Logging STD types is supported"</span><span style="color:#24292E">, arr);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> A message </span><span style="color:#D73A49">with</span><span style="color:#24292E"> two variables [a: </span><span style="color:#005CC5">123</span><span style="color:#24292E">, b: </span><span style="color:#005CC5">3.17</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">  double b = </span><span style="color:#005CC5">3.17</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  LOGV_INFO(logger, </span><span style="color:#032F62">"A message with two variables"</span><span style="color:#24292E">, a, b);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  for</span><span style="color:#24292E"> (uint32_t i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 10</span><span style="color:#24292E">; </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">i)</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Will only log the message once per second</span></span>
+<span class="line"><span style="color:#24292E">    LOG_INFO_LIMIT(std::chrono::seconds{</span><span style="color:#005CC5">1</span><span style="color:#24292E">}, logger, </span><span style="color:#032F62">"A </span><span style="color:#005CC5">{}</span><span style="color:#032F62"> message with number </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, l, a);</span></span>
+<span class="line"><span style="color:#24292E">    LOGV_INFO_LIMIT(std::chrono::seconds{</span><span style="color:#005CC5">1</span><span style="color:#24292E">}, logger, </span><span style="color:#032F62">"A message with two variables"</span><span style="color:#24292E">, a, b);</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  LOG_TRACE_L3(logger, </span><span style="color:#032F62">"Support for floats </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:03.2f</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1.23456</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_TRACE_L2(logger, </span><span style="color:#032F62">"Positional arguments are </span><span style="color:#005CC5">{1}</span><span style="color:#005CC5"> {0}</span><span style="color:#032F62"> "</span><span style="color:#24292E">, </span><span style="color:#032F62">"too"</span><span style="color:#24292E">, </span><span style="color:#032F62">"supported"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_TRACE_L1(logger, </span><span style="color:#032F62">"</span><span style="color:#005CC5">{</span><span style="color:#D73A49">:&gt;30</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, std::string_view {</span><span style="color:#032F62">"right aligned"</span><span style="color:#24292E">});</span></span>
+<span class="line"><span style="color:#24292E">  LOG_DEBUG(logger, </span><span style="color:#032F62">"Debugging foo </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1234</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_INFO(logger, </span><span style="color:#032F62">"Welcome to Quill!"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_WARNING(logger, </span><span style="color:#032F62">"A warning message."</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_ERROR(logger, </span><span style="color:#032F62">"An error message. error code </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">123</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  LOG_CRITICAL(logger, </span><span style="color:#032F62">"A critical error."</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Output</h3>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fexample_output.png" alt="example_output.png"></p>
+<h3>External CMake</h3>
+<h4>Building and Installing Quill</h4>
+<p>To get started with Quill, clone the repository and install it using CMake:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="git clone https://github.com/odygrd/quill.git
+cd quill
+mkdir cmake_build
+cd cmake_build
+cmake ..
+make install" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">odygrd</span><span style="color:#D73A49">/</span><span style="color:#24292E">quill.git</span></span>
+<span class="line"><span style="color:#24292E">cd quill</span></span>
+<span class="line"><span style="color:#24292E">mkdir cmake_build</span></span>
+<span class="line"><span style="color:#24292E">cd cmake_build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">make install</span></span></code></pre>
+<ul>
+<li><strong>Custom Installation</strong>: Specify a custom directory with <code>-DCMAKE_INSTALL_PREFIX=/path/to/install/dir</code>.</li>
+<li><strong>Build Examples</strong>: Include examples with <code>-DQUILL_BUILD_EXAMPLES=ON</code>.</li>
+</ul>
+<p>Next, add Quill to your project using <code>find_package()</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="find_package(quill REQUIRED)
+target_link_libraries(your_target PUBLIC quill::quill)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">find_package(quill </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(your_target </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> quill::quill)</span></span></code></pre>
+<h4>Sample Directory Structure</h4>
+<p>Organize your project directory like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="my_project/
+├── CMakeLists.txt
+├── main.cpp" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">my_project</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">├── CMakeLists.txt</span></span>
+<span class="line"><span style="color:#24292E">├── main.cpp</span></span></code></pre>
+<h4>Sample CMakeLists.txt</h4>
+<p>Here’s a sample <code>CMakeLists.txt</code> to get you started:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# If Quill is in a non-standard directory, specify its path.
+set(CMAKE_PREFIX_PATH /path/to/quill)
+
+# Find and link the Quill library.
+find_package(quill REQUIRED)
+add_executable(example main.cpp)
+target_link_libraries(example PUBLIC quill::quill)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># If Quill is in a non-standard directory, specify its path.</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CMAKE_PREFIX_PATH</span><span style="color:#D73A49"> /</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">quill)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Find and link the Quill library.</span></span>
+<span class="line"><span style="color:#24292E">find_package(quill </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">add_executable(example main.cpp)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(example </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> quill::quill)</span></span></code></pre>
+<h3>Embedded CMake</h3>
+<p>For a more integrated approach, embed Quill directly into your project:</p>
+<h4>Sample Directory Structure</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="my_project/
+├── quill/            # Quill repo folder
+├── CMakeLists.txt
+├── main.cpp" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">my_project</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">├── quill</span><span style="color:#D73A49">/</span><span style="color:#6A737D">            # Quill repo folder</span></span>
+<span class="line"><span style="color:#24292E">├── CMakeLists.txt</span></span>
+<span class="line"><span style="color:#24292E">├── main.cpp</span></span></code></pre>
+<h4>Sample CMakeLists.txt</h4>
+<p>Use this <code>CMakeLists.txt</code> to include Quill directly:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake_minimum_required(VERSION 3.1.0)
+project(my_project)
+
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
+add_subdirectory(quill)
+add_executable(my_project main.cpp)
+target_link_libraries(my_project PUBLIC quill::quill)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.1</span><span style="color:#24292E">.0)</span></span>
+<span class="line"><span style="color:#24292E">project(my_project)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CMAKE_CXX_STANDARD</span><span style="color:#005CC5"> 17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CMAKE_CXX_STANDARD_REQUIRED</span><span style="color:#005CC5"> ON</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(quill)</span></span>
+<span class="line"><span style="color:#24292E">add_executable(my_project main.cpp)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(my_project </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> quill::quill)</span></span></code></pre>
+<h3>Android NDK</h3>
+<p>When building Quill for Android, you might need to add this flag during configuration, but in most cases, it works
+without it:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="-DQUILL_NO_THREAD_NAME_SUPPORT:BOOL=ON" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#005CC5">DQUILL_NO_THREAD_NAME_SUPPORT</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
+<p>For timestamps, use <code>quill::ClockSourceType::System</code>. Quill also includes an <code>AndroidSink</code>, which integrates with
+Android's logging system.</p>
+<h4>Minimal Example to Start Logging on Android</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="quill::Backend::start();
+
+auto sink = quill::Frontend::create_or_get_sink&lt;quill::AndroidSink&gt;(&quot;app&quot;, [](){
+    quill::AndroidSinkConfig asc;
+    asc.set_tag(&quot;app&quot;);
+    asc.set_format_message(true);
+    return asc;
+}());
+
+auto logger = quill::Frontend::create_or_get_logger(&quot;root&quot;, std::move(sink),
+                                                    quill::PatternFormatterOptions {}, 
+                                                    quill::ClockSourceType::System);
+
+LOG_INFO(logger, &quot;Test {}&quot;, 123);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">quill::Backend::start()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto sink </span><span style="color:#D73A49">=</span><span style="color:#24292E"> quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::AndroidSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"app"</span><span style="color:#24292E">, [](){</span></span>
+<span class="line"><span style="color:#24292E">    quill::AndroidSinkConfig asc;</span></span>
+<span class="line"><span style="color:#24292E">    asc.set_tag(</span><span style="color:#032F62">"app"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    asc.set_format_message(true);</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> asc;</span></span>
+<span class="line"><span style="color:#24292E">}())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto logger </span><span style="color:#D73A49">=</span><span style="color:#24292E"> quill::Frontend::create_or_get_logger(</span><span style="color:#032F62">"root"</span><span style="color:#24292E">, std::move(sink),</span></span>
+<span class="line"><span style="color:#24292E">                                                    quill::PatternFormatterOptions {}, </span></span>
+<span class="line"><span style="color:#24292E">                                                    quill::ClockSourceType::System)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">LOG_INFO(logger, </span><span style="color:#032F62">"Test </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">123</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Meson</h3>
+<h4>Using WrapDB</h4>
+<p>Easily integrate Quill with Meson’s <code>wrapdb</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="meson wrap install quill" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">meson wrap install quill</span></span></code></pre>
+<h4>Manual Integration</h4>
+<p>Copy the repository contents to your <code>subprojects</code> directory and add the following to your <code>meson.build</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="quill = subproject('quill')
+quill_dep = quill.get_variable('quill_dep')
+my_build_target = executable('name', 'main.cpp', dependencies : [quill_dep], install : true)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">quill </span><span style="color:#D73A49">=</span><span style="color:#24292E"> subproject(</span><span style="color:#032F62">'quill'</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">quill_dep </span><span style="color:#D73A49">=</span><span style="color:#24292E"> quill.get_variable(</span><span style="color:#032F62">'quill_dep'</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">my_build_target </span><span style="color:#D73A49">=</span><span style="color:#24292E"> executable(</span><span style="color:#032F62">'name'</span><span style="color:#24292E">, </span><span style="color:#032F62">'main.cpp'</span><span style="color:#24292E">, dependencies : [quill_dep], install : true)</span></span></code></pre>
+<h3>Bazel</h3>
+<h4>Using Blzmod</h4>
+<p>Quill is available on <code>BLZMOD</code> for easy integration.</p>
+<h4>Manual Integration</h4>
+<p>For manual setup, add Quill to your <code>BUILD.bazel</code> file like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cc_binary(name = &quot;app&quot;, srcs = [&quot;main.cpp&quot;], deps = [&quot;//quill_path:quill&quot;])" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cc_binary(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">, </span><span style="color:#E36209">srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"main.cpp"</span><span style="color:#24292E">], </span><span style="color:#E36209">deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//quill_path:quill"</span><span style="color:#24292E">])</span></span></code></pre>
+<hr>
+<h2>📐 Design</h2>
+<h3>Frontend (caller-thread)</h3>
+<p>When invoking a <code>LOG_</code> macro:</p>
+<ol>
+<li><p>Creates a static constexpr metadata object to store <code>Metadata</code> such as the format string and source location.</p>
+</li>
+<li><p>Pushes the data SPSC lock-free queue. For each log message, the following variables are pushed</p>
+</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th align="center">Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>timestamp</td>
+<td align="center">Current timestamp</td>
+</tr>
+<tr>
+<td>Metadata*</td>
+<td align="center">Pointer to metadata information</td>
+</tr>
+<tr>
+<td>Logger*</td>
+<td align="center">Pointer to the logger instance</td>
+</tr>
+<tr>
+<td>DecodeFunc</td>
+<td align="center">A pointer to a templated function containing all the log message argument types, used for decoding the message</td>
+</tr>
+<tr>
+<td>Args...</td>
+<td align="center">A serialized binary copy of each log message argument that was passed to the <code>LOG_</code> macro</td>
+</tr>
+</tbody></table>
+<h3>Backend</h3>
+<p>Consumes each message from the SPSC queue, retrieves all the necessary information and then formats the message.
+Subsequently, forwards the log message to all Sinks associated with the Logger.</p>
+<p><img src="https://raw.githubusercontent.com/odygrd/quill/7c0ffa54e51c2b8db6ec091c2922aeaf9b3b08c0/docs%2Fdesign.jpg" alt="design.jpg"></p>
+<hr>
+<h2>🚨 Caveats</h2>
+<p>Quill may not work well with <code>fork()</code> since it spawns a background thread and <code>fork()</code> doesn't work well with
+multithreading.</p>
+<p>If your application uses <code>fork()</code> and you want to log in the child processes as well, you should call <code>quill::start()</code>
+after the <code>fork()</code> call. Additionally, you should ensure that you write to different files in the parent and child
+processes to avoid conflicts.</p>
+<p>For example :</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;quill/Backend.h&quot;
+#include &quot;quill/Frontend.h&quot;
+#include &quot;quill/LogMacros.h&quot;
+#include &quot;quill/Logger.h&quot;
+#include &quot;quill/sinks/FileSink.h&quot;
+
+int main()
+{
+  // DO NOT CALL THIS BEFORE FORK
+  // quill::Backend::start();
+
+  if (fork() == 0)
+  {
+    quill::Backend::start();
+        
+    // Get or create a handler to the file - Write to a different file
+    auto file_sink = quill::Frontend::create_or_get_sink&lt;quill::FileSink&gt;(
+      &quot;child.log&quot;);
+    
+    quill::Logger* logger = quill::Frontend::create_or_get_logger(&quot;root&quot;, std::move(file_sink));
+
+    QUILL_LOG_INFO(logger, &quot;Hello from Child {}&quot;, 123);
+  }
+  else
+  {
+    quill::Backend::start();
+          
+    // Get or create a handler to the file - Write to a different file
+    auto file_sink = quill::Frontend::create_or_get_sink&lt;quill::FileSink&gt;(
+      &quot;parent.log&quot;);
+    
+    quill::Logger* logger = quill::Frontend::create_or_get_logger(&quot;root&quot;, std::move(file_sink));
+    
+    QUILL_LOG_INFO(logger, &quot;Hello from Parent {}&quot;, 123);
+  }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "quill/Backend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Frontend.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/LogMacros.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/Logger.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include "quill/sinks/FileSink.h"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#005CC5"> DO</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> CALL</span><span style="color:#005CC5"> THIS</span><span style="color:#005CC5"> BEFORE</span><span style="color:#005CC5"> FORK</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> quill::Backend::start();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (fork() </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#24292E">    quill::Backend::start();</span></span>
+<span class="line"><span style="color:#24292E">        </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get </span><span style="color:#D73A49">or</span><span style="color:#24292E"> create a handler to the </span><span style="color:#E36209">file</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> Write to a different </span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#24292E">    auto file_sink = quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::FileSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span></span>
+<span class="line"><span style="color:#032F62">      "child.log"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">    quill::Logger</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::Frontend::create_or_get_logger(</span><span style="color:#032F62">"root"</span><span style="color:#24292E">, std::move(file_sink));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    QUILL_LOG_INFO(logger, </span><span style="color:#032F62">"Hello from Child </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">123</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#D73A49">  else</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#24292E">    quill::Backend::start();</span></span>
+<span class="line"><span style="color:#24292E">          </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get </span><span style="color:#D73A49">or</span><span style="color:#24292E"> create a handler to the </span><span style="color:#E36209">file</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> Write to a different </span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#24292E">    auto file_sink = quill::Frontend::create_or_get_sink</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">quill::FileSink</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span></span>
+<span class="line"><span style="color:#032F62">      "parent.log"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">    quill::Logger</span><span style="color:#D73A49">*</span><span style="color:#24292E"> logger = quill::Frontend::create_or_get_logger(</span><span style="color:#032F62">"root"</span><span style="color:#24292E">, std::move(file_sink));</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">    QUILL_LOG_INFO(logger, </span><span style="color:#032F62">"Hello from Parent </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">123</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<hr>
+<h2>📝 License</h2>
+<p>Quill is licensed under the <a href="https://opensource.org/licenses/MIT">MIT License</a></p>
+<p>Quill depends on third party libraries with separate copyright notices and license terms.
+Your use of the source code for these subcomponents is subject to the terms and conditions of the following licenses.</p>
+<ul>
+<li>(<a href="https://opensource.org/licenses/MIT">MIT License</a>) <a href="https://github.com/fmtlib/fmt/blob/master/LICENSE">{fmt}</a></li>
+<li>(<a href="https://opensource.org/licenses/MIT">MIT License</a>) <a href="https://github.com/onqtam/doctest/blob/master/LICENSE.txt">doctest</a></li>
+</ul>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Asynchronous Low Latency C++ Logging Library</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/odygrd/quill" title="@odygrd"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@odygrd/quill</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/odygrd.png" alt="@odygrd"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/odygrd/quill"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">2890</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Sunday, March 8, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 96.6%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 96.6%"> </span><span style="width: 2%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 2%"> </span><span style="width: 1.3%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 1.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">96.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">1.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/odygrd" title="Odysseas Georgoudis"><img class="avatar circle" width="48" height="48" src="https://github.com/odygrd.png" alt="@odygrd"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/odygrd" title="Odysseas Georgoudis"><img class="avatar circle" width="48" height="48" src="https://github.com/odygrd.png" alt="@odygrd"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/7843"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="quill@11.1.0 (#7843)"><span class="text-mono">#7843</span> <span class="text-light">quill@11.1.0 (#7843)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/odygrd/quill/releases/download/v11.1.0/quill-11.1.0.zip" title="https://github.com/odygrd/quill/releases/download/v11.1.0/quill-11.1.0.zip"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/odygrd/qui...</span></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">13</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="11.1.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="11.1.0"><span class="text-bold">11.1.0</span><sup class="color-fg-attention"> +10d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-08</span></div></td></tr><tr class=""><td title="11.0.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="11.0.2"><a class="Box-row-link" href="/#/modules/quill/11.0.2">11.0.2</a><sup class="color-fg-attention"> +3.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-02-25</span></div></td></tr><tr class=""><td title="10.2.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="10.2.0"><a class="Box-row-link" href="/#/modules/quill/10.2.0">10.2.0</a><sup class="color-fg-attention"> +7.2mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-09</span></div></td></tr><tr class=""><td title="9.0.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="9.0.0"><a class="Box-row-link" href="/#/modules/quill/9.0.0">9.0.0</a><sup class="color-fg-attention"> +1.4mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-04-06</span></div></td></tr><tr class=""><td title="8.2.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="8.2.0"><a class="Box-row-link" href="/#/modules/quill/8.2.0">8.2.0</a><sup class="color-fg-attention"> +10d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-02-24</span></div></td></tr><tr class=""><td title="8.1.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="8.1.1"><a class="Box-row-link" href="/#/modules/quill/8.1.1">8.1.1</a><sup class="color-fg-attention"> +3.0mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-02-13</span></div></td></tr><tr class=""><td title="7.5.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="7.5.0"><a class="Box-row-link" href="/#/modules/quill/7.5.0">7.5.0</a><sup class="color-fg-attention"> +1.7mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-15</span></div></td></tr><tr class=""><td title="7.2.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="7.2.1"><a class="Box-row-link" href="/#/modules/quill/7.2.1">7.2.1</a><sup class="color-fg-attention"> +16d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-23</span></div></td></tr><tr class=""><td title="7.0.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="7.0.0"><a class="Box-row-link" href="/#/modules/quill/7.0.0">7.0.0</a><sup class="color-fg-attention"> +1.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-06</span></div></td></tr><tr class=""><td title="6.0.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="6.0.0"><a class="Box-row-link" href="/#/modules/quill/6.0.0">6.0.0</a><sup class="color-fg-attention"> +28d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-07-29</span></div></td></tr><tr class=""><td title="4.5.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="4.5.0"><a class="Box-row-link" href="/#/modules/quill/4.5.0">4.5.0</a><sup class="color-fg-attention"> +19d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-07-01</span></div></td></tr><tr class=""><td title="4.4.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="4.4.0"><a class="Box-row-link" href="/#/modules/quill/4.4.0">4.4.0</a><sup class="color-fg-attention"> +8d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-12</span></div></td></tr><tr class=""><td title="4.3.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="4.3.0"><a class="Box-row-link" href="/#/modules/quill/4.3.0">4.3.0</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-03</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

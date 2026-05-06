@@ -1,0 +1,506 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">sse2neon</span> <span class="f2 d-inline-block">1.8.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 10.8mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/DLTcollab/sse2neon" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/sse2neon/1.8.0/overview" data-name="overview" id=":kr.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/sse2neon/1.8.0/docs" data-name="docs" id=":kr.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/sse2neon/1.8.0/testing" data-name="testing" id=":kr.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;sse2neon&quot;, version = &quot;1.8.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sse2neon"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.8.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">1</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.1.1">rules_cc<span class="ml-1 text-light text-small">0.1.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+28<span class="color-fg-attention"> (1.2y)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>sse2neon</h1>
+<p><img src="https://github.com/DLTcollab/sse2neon/workflows/GitHub%20Actions/badge.svg" alt="GitHub Actions">
+<img src="https://img.shields.io/endpoint?url=https://DLTcollab.github.io/sse2neon/badge/coverage.json" alt="SSE Coverage"></p>
+<p>A C/C++ header file that converts Intel SSE intrinsics to Arm/Aarch64 NEON intrinsics.</p>
+<h2>Introduction</h2>
+<p><code>sse2neon</code> translates Intel SSE (Streaming SIMD Extensions) intrinsics to <a href="https://developer.arm.com/architectures/instruction-sets/simd-isas/neon">Arm NEON</a>,
+enabling rapid porting of x86 SIMD code to Arm platforms.
+The header file <code>sse2neon.h</code> provides NEON-based implementations of functions from Intel intrinsic headers (e.g., <code>&lt;xmmintrin.h&gt;</code>),
+preserving the original semantics.</p>
+<h2>Mapping and Coverage</h2>
+<table>
+<thead>
+<tr>
+<th>Header file</th>
+<th>Extension</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>&lt;mmintrin.h&gt;</code></td>
+<td>MMX</td>
+</tr>
+<tr>
+<td><code>&lt;xmmintrin.h&gt;</code></td>
+<td>SSE</td>
+</tr>
+<tr>
+<td><code>&lt;emmintrin.h&gt;</code></td>
+<td>SSE2</td>
+</tr>
+<tr>
+<td><code>&lt;pmmintrin.h&gt;</code></td>
+<td>SSE3</td>
+</tr>
+<tr>
+<td><code>&lt;tmmintrin.h&gt;</code></td>
+<td>SSSE3</td>
+</tr>
+<tr>
+<td><code>&lt;smmintrin.h&gt;</code></td>
+<td>SSE4.1</td>
+</tr>
+<tr>
+<td><code>&lt;nmmintrin.h&gt;</code></td>
+<td>SSE4.2</td>
+</tr>
+<tr>
+<td><code>&lt;wmmintrin.h&gt;</code></td>
+<td>AES</td>
+</tr>
+</tbody></table>
+<p><code>sse2neon</code> supports SSE, SSE2, SSE3, SSSE3, SSE4.1, SSE4.2, and AES extensions.</p>
+<p>Some SSE intrinsics map directly to a single NEON intrinsic (e.g., <code>_mm_loadu_si128</code> → <code>vld1q_s32</code>),
+while others require multiple NEON instructions (e.g., <code>_mm_maddubs_epi16</code> uses 13 instructions).</p>
+<p>See <a href="perf-tier.md">perf-tier.md</a> for detailed performance tier classification of all intrinsics.</p>
+<h3>Floating-point Compatibility</h3>
+<p>Some conversions produce different results than SSE due to IEEE-754 handling differences.</p>
+<p>For example, <code>_mm_rsqrt_ps</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="__m128 _mm_rsqrt_ps(__m128 in)
+{
+    float32x4_t out = vrsqrteq_f32(vreinterpretq_f32_m128(in));
+
+    out = vmulq_f32(
+        out, vrsqrtsq_f32(vmulq_f32(vreinterpretq_f32_m128(in), out), out));
+
+    return vreinterpretq_m128_f32(out);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">__m128 _mm_rsqrt_ps(__m128 </span><span style="color:#D73A49">in</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    float32x4_t out = vrsqrteq_f32(vreinterpretq_f32_m128(</span><span style="color:#D73A49">in</span><span style="color:#24292E">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    out = vmulq_f32(</span></span>
+<span class="line"><span style="color:#24292E">        out, vrsqrtsq_f32(vmulq_f32(vreinterpretq_f32_m128(</span><span style="color:#D73A49">in</span><span style="color:#24292E">), out), out));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> vreinterpretq_m128_f32(out);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>This NEON conversion returns NaN for input <code>0.0</code> because rsqrt(0) = INF, and the subsequent INF × 0 = NaN.
+The SSE intrinsic returns INF instead.
+Enable the compile-time precision flags below when exact SSE compatibility is required.</p>
+<h2>Requirements</h2>
+<p><strong>Architecture</strong>: Little-endian ARM only. Big-endian ARM is not supported and will produce a compile-time error.</p>
+<p><strong>Compilers</strong>:</p>
+<table>
+<thead>
+<tr>
+<th>Compiler</th>
+<th>Minimum Version</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GCC</td>
+<td>10+</td>
+<td>Earlier versions have vector instruction bugs</td>
+</tr>
+<tr>
+<td>Clang</td>
+<td>11+</td>
+<td>Earlier versions have vector instruction bugs</td>
+</tr>
+<tr>
+<td>MSVC</td>
+<td>2019+ (v142)</td>
+<td>ARM64 and ARM64EC targets supported</td>
+</tr>
+<tr>
+<td>Apple Clang</td>
+<td>12+</td>
+<td>macOS ARM64 (Apple Silicon)</td>
+</tr>
+</tbody></table>
+<p>Earlier GCC/Clang versions contain bugs in vector instruction generation that cause incorrect assembly output for certain NEON intrinsics (e.g., <code>rev16</code>, <code>rev32</code> with invalid operand combinations).</p>
+<p><a href="https://learn.microsoft.com/en-us/windows/arm/arm64ec">ARM64EC</a> is a hybrid ABI allowing ARM64 code to interoperate with x64 code.</p>
+<h2>Usage</h2>
+<ol>
+<li><p>Copy <code>sse2neon.h</code> into your source directory.</p>
+</li>
+<li><p>Replace SSE headers with sse2neon:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Before
+#include &lt;xmmintrin.h&gt;
+#include &lt;emmintrin.h&gt;
+
+// After
+#include &quot;sse2neon.h&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Before</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;xmmintrin.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;emmintrin.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> After</span></span>
+<span class="line"><span style="color:#6A737D">#include "sse2neon.h"</span></span></code></pre>
+<p>This also replaces <code>{p,t,s,n,w}mmintrin.h</code>.</p>
+</li>
+<li><p>Add the appropriate compiler flags:</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Compiler Flag</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>ARMv8-A AArch64</td>
+<td><code>-march=armv8-a+fp+simd+crypto+crc</code></td>
+</tr>
+<tr>
+<td>ARMv8-A AArch32</td>
+<td><code>-mfpu=neon-fp-armv8</code></td>
+</tr>
+<tr>
+<td>ARMv7-A</td>
+<td><code>-mfpu=neon</code></td>
+</tr>
+</tbody></table>
+<p>Remove <code>+crypto</code> and/or <code>+crc</code> if unsupported by your target.</p>
+</li>
+<li><p>For Windows ARM64EC (hybrid x64/ARM64 mode):</p>
+<ul>
+<li><code>sse2neon.h</code> automatically skips <code>&lt;intrin.h&gt;</code> when <code>_M_ARM64EC</code> is detected</li>
+<li>This avoids type conflicts between MSVC's SSE union types and sse2neon's NEON types</li>
+<li>No manual configuration needed when using MSVC with ARM64EC target</li>
+<li>Note: sse2neon's <code>__m128</code> type is not ABI-compatible with x64 code; users needing
+cross-ABI SIMD interop should use MSVC's softintrin instead</li>
+</ul>
+</li>
+<li><p>(Optional) To reduce the header file size for your specific target architecture and accelerate compilation,
+you can use the <a href="https://github.com/fanf2/unifdef">unifdef</a> tool to remove unused conditional compilation paths.
+For example, to generate a reduced version for AArch64:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="unifdef -DSSE2NEON_ARCH_AARCH64=1 -D__aarch64__=1\
+        -D__ARM_FEATURE_DIRECTED_ROUNDING=1 -D__ARM_FEATURE_FMA=1
+        -D__ARM_FEATURE_CRYPTO=1 -D__ARM_FEATURE_CRC32=1 -U__ARM_FEATURE_FRINT\
+        sse2neon.h &gt; sse2neon_aarch64.h" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">unifdef </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DSSE2NEON_ARCH_AARCH64</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> -</span><span style="color:#24292E">D__aarch64__</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">\</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#005CC5">D__ARM_FEATURE_DIRECTED_ROUNDING</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">D__ARM_FEATURE_FMA</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#005CC5">D__ARM_FEATURE_CRYPTO</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">D__ARM_FEATURE_CRC32</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">U__ARM_FEATURE_FRINT</span><span style="color:#24292E">\</span></span>
+<span class="line"><span style="color:#24292E">        sse2neon.h </span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> sse2neon_aarch64.h</span></span></code></pre>
+</li>
+</ol>
+<h2>Compile-time Configurations</h2>
+<p>NEON trades IEEE-754 compliance for performance when handling denormals and NaNs.
+Define these macros as <code>1</code> before including <code>sse2neon.h</code> to enable precise (but slower) implementations:</p>
+<table>
+<thead>
+<tr>
+<th>Macro</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>SSE2NEON_PRECISE_MINMAX</code></td>
+<td>Correct NaN handling in <code>_mm_min_{ps,pd}</code> and <code>_mm_max_{ps,pd}</code></td>
+</tr>
+<tr>
+<td><code>SSE2NEON_PRECISE_DIV</code></td>
+<td>Extra Newton-Raphson iteration for <code>_mm_rcp_ps</code> and <code>_mm_div_ps</code></td>
+</tr>
+<tr>
+<td><code>SSE2NEON_PRECISE_SQRT</code></td>
+<td>Extra Newton-Raphson iteration for <code>_mm_sqrt_ps</code> and <code>_mm_rsqrt_ps</code></td>
+</tr>
+<tr>
+<td><code>SSE2NEON_PRECISE_DP</code></td>
+<td>Conditional multiplication in <code>_mm_dp_pd</code></td>
+</tr>
+<tr>
+<td><code>SSE2NEON_UNDEFINED_ZERO</code></td>
+<td>Force zero for <code>_mm_undefined_{ps,pd,si128}</code> (MSVC already does this)</td>
+</tr>
+</tbody></table>
+<p>All precision flags are disabled by default to maximize performance.</p>
+<h3>Recommended Flag Combinations by Use Case</h3>
+<table>
+<thead>
+<tr>
+<th>Use Case</th>
+<th>Flags</th>
+<th>Rationale</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Graphics/Rendering</td>
+<td><code>MINMAX</code>, <code>SQRT</code> (+<code>DIV</code> if using <code>rcp</code>)</td>
+<td>NaN handling and normalization; <a href="https://github.com/blender/blender/blob/main/source/blender/blenlib/BLI_simd.hh">Blender</a> enables all three</td>
+</tr>
+<tr>
+<td>DSP/Audio</td>
+<td>None (defaults)</td>
+<td>Throughput over precision; inaudible differences</td>
+</tr>
+<tr>
+<td>Cryptography</td>
+<td>None (defaults)</td>
+<td>Integer-focused; FP precision irrelevant</td>
+</tr>
+<tr>
+<td>Scientific/Numerical</td>
+<td><code>MINMAX</code>, <code>SQRT</code>, <code>DP</code></td>
+<td>Reduces x86 divergence; see caveats below</td>
+</tr>
+<tr>
+<td>Game Physics</td>
+<td><code>MINMAX</code></td>
+<td>Prevents NaN propagation in collision detection</td>
+</tr>
+<tr>
+<td>Machine Learning</td>
+<td><code>MINMAX</code> for inference</td>
+<td>NaN handling for determinism; training tolerates defaults</td>
+</tr>
+</tbody></table>
+<p>Flags use <code>SSE2NEON_PRECISE_</code> prefix (e.g., <code>MINMAX</code> → <code>SSE2NEON_PRECISE_MINMAX</code>).</p>
+<p><strong>Architecture notes</strong>:</p>
+<ul>
+<li><code>DIV</code> flag affects <code>_mm_rcp*</code> (reciprocal approximation), not <code>_mm_div*</code> which uses native IEEE-754 division on ARMv8. Enable <code>DIV</code> on ARMv7 or when using reciprocal intrinsics.</li>
+<li>For strict determinism, also define <code>SSE2NEON_UNDEFINED_ZERO=1</code>. Some divergences (FTZ/DAZ, NaN payloads) cannot be fully eliminated.</li>
+</ul>
+<p>Example configuration for graphics applications:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#define SSE2NEON_PRECISE_MINMAX 1
+#define SSE2NEON_PRECISE_SQRT 1
+#include &quot;sse2neon.h&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#define SSE2NEON_PRECISE_MINMAX 1</span></span>
+<span class="line"><span style="color:#6A737D">#define SSE2NEON_PRECISE_SQRT 1</span></span>
+<span class="line"><span style="color:#6A737D">#include "sse2neon.h"</span></span></code></pre>
+<h3>Memory Allocation</h3>
+<p>Memory from <code>_mm_malloc()</code> must be freed with <code>_mm_free()</code>, not <code>free()</code>. Mixing allocators causes heap corruption on Windows.</p>
+<h3>MONITOR/MWAIT Policy</h3>
+<p>ARM has no userspace equivalent for x86 address-range monitoring.
+<code>_mm_monitor</code> is a no-op; <code>_mm_mwait</code> behavior is controlled by <code>SSE2NEON_MWAIT_POLICY</code>:</p>
+<table>
+<thead>
+<tr>
+<th>Value</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>0</code> (default)</td>
+<td><code>yield</code> - Safe everywhere, never blocks</td>
+</tr>
+<tr>
+<td><code>1</code></td>
+<td><code>wfe</code> - Event wait, may trap in EL0</td>
+</tr>
+<tr>
+<td><code>2</code></td>
+<td><code>wfi</code> - Interrupt wait, may trap in EL0</td>
+</tr>
+</tbody></table>
+<p>Policies 1/2 do not provide "wake on store" semantics and may trap on Linux/iOS/macOS.
+See <code>sse2neon.h</code> for detailed usage guidance.</p>
+<h2>Run Built-in Test Suite</h2>
+<p>Test cases are in the <code>tests</code> directory with runtime-specified input data.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Basic test run
+make check
+
+# Enable crypto and CRC features
+make FEATURE=crypto+crc check
+
+# Target specific CPU
+make ARCH_CFLAGS=&quot;-mcpu=cortex-a53 -mfpu=neon-vfpv4&quot; check" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Basic test run</span></span>
+<span class="line"><span style="color:#24292E">make check</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Enable crypto and CRC features</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">FEATURE</span><span style="color:#D73A49">=</span><span style="color:#24292E">crypto</span><span style="color:#D73A49">+</span><span style="color:#24292E">crc check</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Target specific CPU</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">ARCH_CFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-mcpu=cortex-a53 -mfpu=neon-vfpv4"</span><span style="color:#24292E"> check</span></span></code></pre>
+<h3>Cross-compilation Testing</h3>
+<p>Requires <a href="https://www.qemu.org/">QEMU</a> for non-Arm hosts.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# ARMv8-A AArch64
+make CROSS_COMPILE=aarch64-linux-gnu- check
+
+# ARMv7-A
+make CROSS_COMPILE=arm-linux-gnueabihf- check
+
+# ARMv8-A AArch32
+make CROSS_COMPILE=arm-linux-gnueabihf- \
+     ARCH_CFLAGS=&quot;-mcpu=cortex-a32 -mfpu=neon-fp-armv8&quot; check" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># ARMv8-A AArch64</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">CROSS_COMPILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span><span style="color:#D73A49">-</span><span style="color:#24292E"> check</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ARMv7-A</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">CROSS_COMPILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnueabihf</span><span style="color:#D73A49">-</span><span style="color:#24292E"> check</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ARMv8-A AArch32</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#005CC5">CROSS_COMPILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnueabihf</span><span style="color:#D73A49">-</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#005CC5">     ARCH_CFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-mcpu=cortex-a32 -mfpu=neon-fp-armv8"</span><span style="color:#24292E"> check</span></span></code></pre>
+<p>See <a href="tests/README.md">tests/README.md</a> for details.</p>
+<h3>Optimization Caveats</h3>
+<p>Compiler optimizations (<code>-O1</code>, <code>-O2</code>, etc.) may cause unexpected behavior with frequent rounding mode changes or repeated <code>_MM_SET_DENORMALS_ZERO_MODE()</code> calls.
+The project prioritizes performance over these edge cases—developers should handle them explicitly when needed.</p>
+<h2>Adoptions</h2>
+<p>Open source projects using <code>sse2neon</code> for Arm/Aarch64 support (partial list):</p>
+<ul>
+<li><a href="https://www.aaru.app/">Aaru Data Preservation Suite</a> is a fully-featured software package to preserve all storage media from the very old to the cutting edge, as well as to give detailed information about any supported image file (whether from Aaru or not) and to extract the files from those images.</li>
+<li><a href="https://github.com/johnhues/aether-game-utils">aether-game-utils</a> is a collection of cross platform utilities for quickly creating small game prototypes in C++.</li>
+<li><a href="https://github.com/sc932/ALE">ALE</a>, aka Assembly Likelihood Evaluation, is a tool for evaluating accuracy of assemblies without the need of a reference genome.</li>
+<li><a href="https://github.com/baoxingsong/AnchorWave">AnchorWave</a>, Anchored Wavefront Alignment, identifies collinear regions via conserved anchors (full-length CDS and full-length exon have been implemented currently) and breaks collinear regions into shorter fragments, i.e., anchor and inter-anchor intervals.</li>
+<li><a href="https://github.com/deptofdefense/AndroidTacticalAssaultKit-CIV">ATAK-CIV</a>, Android Tactical Assault Kit for Civilian Use, is the official geospatial-temporal and situational awareness tool used by the US Government.</li>
+<li><a href="https://doris.apache.org/">Apache Doris</a> is a Massively Parallel Processing (MPP) based interactive SQL data warehousing for reporting and analysis.</li>
+<li><a href="https://impala.apache.org/">Apache Impala</a> is a lightning-fast, distributed SQL queries for petabytes of data stored in Apache Hadoop clusters.</li>
+<li><a href="https://kudu.apache.org/">Apache Kudu</a> completes Hadoop's storage layer to enable fast analytics on fast data.</li>
+<li><a href="https://github.com/ApolloAuto/apollo">apollo</a> is a high performance, flexible architecture which accelerates the development of Autonomous Vehicles.</li>
+<li><a href="https://github.com/ares-emulator/ares">ares</a> is a cross-platform, open source, multi-system emulator, focusing on accuracy and preservation.</li>
+<li><a href="https://github.com/dinosaure/art">ART</a> is an implementation in OCaml of <a href="https://db.in.tum.de/~leis/papers/ART.pdf">Adaptive Radix Tree</a> (ART).</li>
+<li><a href="https://github.com/romange/async">Async</a> is a set of c++ primitives that allows efficient and rapid development in C++17 on GNU/Linux systems.</li>
+<li><a href="https://github.com/unevens/avec">avec</a> is a little library for using SIMD instructions on both x86 and Arm.</li>
+<li><a href="https://github.com/tjizep/barch">BARCH</a> is a low-memory, dynamically configurable, constant access time ordered cache similar to Valkey and Redis.</li>
+<li><a href="https://github.com/beagle-dev/beagle-lib">BEAGLE</a> is a high-performance library that can perform the core calculations at the heart of most Bayesian and Maximum Likelihood phylogenetics packages.</li>
+<li><a href="https://github.com/tlk00/BitMagic">BitMagic</a> implements compressed bit-vectors and containers (vectors) based on ideas of bit-slicing transform and Rank-Select compression, offering sets of method to architect your applications to use HPC techniques to save memory (thus be able to fit more data in one compute unit) and improve storage and traffic patterns when storing data vectors and models in files or object stores.</li>
+<li><a href="https://github.com/soedinglab/bipartite_motif_finder">bipartite_motif_finder</a> as known as BMF (Bipartite Motif Finder) is an open source tool for finding co-occurences of sequence motifs in genomic sequences.</li>
+<li><a href="https://www.blender.org/">Blender</a> is the free and open source 3D creation suite, supporting the entirety of the 3D pipeline.</li>
+<li><a href="https://github.com/AxioDL/boo">Boo</a> is a cross-platform windowing and event manager similar to SDL or SFML, with additional 3D rendering functionality.</li>
+<li><a href="https://github.com/sdangelo/brickworks">Brickworks</a> is a music DSP toolkit that supplies with the fundamental building blocks for creating and enhancing audio engines on any platform.</li>
+<li><a href="https://github.com/CARTAvis/carta-backend">CARTA</a> is a new visualization tool designed for viewing radio astronomy images in CASA, FITS, MIRIAD, and HDF5 formats (using the IDIA custom schema for HDF5).</li>
+<li><a href="https://github.com/i-evi/catcoon">Catcoon</a> is a <a href="https://en.wikipedia.org/wiki/Feedforward_neural_network">feedforward neural network</a> implementation in C.</li>
+<li><a href="https://github.com/intel/compute-runtime">compute-runtime</a>, the Intel Graphics Compute Runtime for oneAPI Level Zero and OpenCL Driver, provides compute API support (Level Zero, OpenCL) for Intel graphics hardware architectures (HD Graphics, Xe).</li>
+<li><a href="https://github.com/contour-terminal/contour">contour</a> is a modern and actually fast virtual terminal emulator.</li>
+<li><a href="https://github.com/losnoco/Cog">Cog</a> is a free and open source audio player for macOS.</li>
+<li><a href="https://github.com/JvanKatwijk/dab-cmdline">dab-cmdline</a> provides entries for the functionality to handle Digital audio broadcasting (DAB)/DAB+ through some simple calls.</li>
+<li><a href="https://distrho.sourceforge.io/">DISTRHO</a> is an open-source project for Cross-Platform Audio Plugins.</li>
+<li><a href="https://github.com/dragonflydb/dragonfly">Dragonfly</a> is a modern in-memory datastore, fully compatible with Redis and Memcached APIs.</li>
+<li><a href="https://github.com/3dfxdev/EDGE">EDGE</a> is an advanced OpenGL source port spawned from the DOOM engine, with focus on easy development and expansion for modders and end-users.</li>
+<li><a href="https://github.com/embree/embree">Embree</a> is a collection of high-performance ray tracing kernels. Its target users are graphics application engineers who want to improve the performance of their photo-realistic rendering application by leveraging Embree's performance-optimized ray tracing kernels.</li>
+<li><a href="https://github.com/emp-toolkit/emp-tool">emp-tool</a> aims to provide a benchmark for secure computation and allowing other researchers to experiment and extend.</li>
+<li><a href="https://github.com/jgerstmayr/EXUDYN">Exudyn</a> is a C++ based Python library for efficient simulation of flexible multibody dynamics systems.</li>
+<li><a href="https://www.foundationdb.org">FoundationDB</a> is a distributed database designed to handle large volumes of structured data across clusters of commodity servers.</li>
+<li><a href="https://github.com/elsamuko/fsrc">fsrc</a> is capable of searching large codebases for text snippets.</li>
+<li><a href="https://gdal.org">GDAL</a> is a translator library for raster and vector geospatial data formats that comes with a variety of useful command line utilities for data translation and processing.</li>
+<li><a href="https://github.com/intel/gmmlib">gmmlib</a> is the Intel Graphics Memory Management Library that provides device specific and buffer management for the Intel Graphics Compute Runtime for OpenCL and the Intel Media Driver for VAAPI.</li>
+<li><a href="https://github.com/gopher64/gopher64">gopher64</a> is an N64 emulator written in Rust.</li>
+<li><a href="https://github.com/hashcat/hashcat">hashcat</a> is the world's fastest and most advanced password recovery utility.</li>
+<li><a href="https://github.com/christophhart/HISE">HISE</a> is a cross-platform open source audio application for building virtual instruments, emphasizing on sampling, but includes some basic synthesis features for making hybrid instruments as well as audio effects.</li>
+<li><a href="https://github.com/iqtree/iqtree2">iqtree2</a> is an efficient and versatile stochastic implementation to infer phylogenetic trees by maximum likelihood.</li>
+<li><a href="https://github.com/stjude/indelPost">indelPost</a> is a Python library for indel processing via realignment and read-based phasing to resolve alignment ambiguities.</li>
+<li><a href="https://github.com/iresearch-toolkit/iresearch">IResearch</a> is a cross-platform, high-performance document oriented search engine library written entirely in C++ with the focus on a pluggability of different ranking/similarity models.</li>
+<li><a href="https://github.com/open-goal/jak-project">jak</a> aims to port the original Jak and Daxter and Jak II to PC.</li>
+<li><a href="https://github.com/Wabi-Studios/Kraken">Kraken</a> is a 3D animation platform redefining animation composition, collaborative workflows, simulation engines, skeletal rigging systems, and look development from storyboard to final render.</li>
+<li><a href="https://github.com/alecazam/kram">kram</a> is a wrapper to several popular encoders to and from PNG/<a href="https://www.khronos.org/opengles/sdk/tools/KTX/file_format_spec/">KTX</a> files with <a href="https://developer.arm.com/solutions/graphics-and-gaming/developer-guides/learn-the-basics/adaptive-scalable-texture-compression/single-page">LDR/HDR and BC/ASTC/ETC2</a>.</li>
+<li><a href="https://invent.kde.org/graphics/krita">Krita</a> is a cross-platform application that offers an end-to-end solution for creating digital art files from scratch built on the KDE and Qt frameworks.</li>
+<li><a href="https://github.com/belosthomas/libCML">libCML</a> is a SLAM library and scientific tool, which include a novel fast thread-safe graph map implementation.</li>
+<li><a href="https://github.com/ClickHouse/libhdfs3">libhdfs3</a> is implemented based on native Hadoop RPC protocol and Hadoop Distributed File System (HDFS), a highly fault-tolerant distributed fs, data transfer protocol.</li>
+<li><a href="https://github.com/xflouris/libpll-2">libpll-2</a> is a C library for Phylogenetic Likelihood.</li>
+<li><a href="https://github.com/openvenues/libpostal">libpostal</a> is a C library for parsing/normalizing street addresses around the world using statistical NLP and open data.</li>
+<li><a href="https://github.com/cryptobiu/libscapi">libscapi</a> stands for the "Secure Computation API", providing  reliable, efficient, and highly flexible cryptographic infrastructure.</li>
+<li><a href="https://github.com/wst24365888/libstreamvbyte">libstreamvbyte</a> is a C++ implementation of <a href="https://arxiv.org/abs/1709.08990">StreamVByte</a>.</li>
+<li><a href="https://github.com/matoya/libmatoya">libmatoya</a> is a cross-platform application development library, providing various features such as common cryptography tasks.</li>
+<li><a href="https://github.com/TheHolyDiver/Loosejaw">Loosejaw</a> provides deep hybrid CPU/GPU digital signal processing.</li>
+<li><a href="https://github.com/madronalabs/madronalib">Madronalib</a> enables efficient audio DSP on SIMD processors with readable and brief C++ code.</li>
+<li><a href="https://github.com/MrUnbelievable92/MaxMath">MaxMath</a> is an extensive SIMD math library available to Unity developers.</li>
+<li><a href="https://github.com/lh3/minimap2">minimap2</a> is a versatile sequence alignment program that aligns DNA or mRNA sequences against a large reference database.</li>
+<li><a href="https://github.com/tytrusty/mixed-fem">mixed-fem</a> is an open source reference implementation of Mixed Variational Finite Elements for Implicit Simulation of Deformables.</li>
+<li><a href="https://github.com/soedinglab/MMseqs2">MMseqs2</a> (Many-against-Many sequence searching) is a software suite to search and cluster huge protein and nucleotide sequence sets.</li>
+<li><a href="https://github.com/rordenlab/MRIcroGL">MRIcroGL</a> is a cross-platform tool for viewing NIfTI, DICOM, MGH, MHD, NRRD, AFNI format medical images.</li>
+<li><a href="https://github.com/oddconcepts/n2o">N2</a> is an approximate nearest neighborhoods algorithm library written in C++, providing a much faster search speed than other implementations when modeling large dataset.</li>
+<li><a href="https://github.com/sleepybishop/nanors">nanors</a> is a tiny, performant implementation of <a href="https://en.wikipedia.org/wiki/Reed%E2%80%93Solomon_error_correction">Reed-Solomon codes</a>, capable of reaching multi-gigabit speeds on a single core.</li>
+<li><a href="https://github.com/rordenlab/niimath">niimath</a> is a general image calculator with superior performance.</li>
+<li><a href="https://developer.nvidia.com/gameworks-source-github">NVIDIA GameWorks</a> has been already used in a lot of games. These repositories are public on GitHub.</li>
+<li><a href="https://github.com/NVIDIA-RTX/MathLib">NVIDIA MathLib</a> is a cross-platform header-only SSE/AVX/NEON-accelerated math library, designed for computer graphics.</li>
+<li><a href="https://github.com/networkoptix/nx_open">Nx Meta Platform Open Source Components</a> are used to build all Powered-by-Nx products including Nx Witness Video Management System (VMS).</li>
+<li><a href="https://github.com/leadedge/ofxNDI">ofxNDI</a> is an <a href="https://openframeworks.cc/">openFrameworks</a> addon to allow sending and receiving images over a network using the <a href="https://en.wikipedia.org/wiki/NewTek">NewTek</a> Network Device Protocol.</li>
+<li><a href="https://github.com/OGRECave/ogre">OGRE</a> is a scene-oriented, flexible 3D engine written in C++ designed to make it easier and more intuitive for developers to produce games and demos utilising 3D hardware.</li>
+<li><a href="https://github.com/olive-editor/olive">Olive</a> is a free non-linear video editor for Windows, macOS, and Linux.</li>
+<li><a href="https://github.com/AcademySoftwareFoundation/OpenColorIO">OpenColorIO</a> a complete color management solution geared towards motion picture production with an emphasis on visual effects and computer animation.</li>
+<li><a href="https://github.com/OpenXRay/xray-16">OpenXRay</a> is an improved version of the X-Ray engine, used in world famous S.T.A.L.K.E.R. game series by GSC Game World.</li>
+<li><a href="https://github.com/tweakoz/orkid">Orkid</a> is a C++ flexible media presentation engine.</li>
+<li><a href="https://github.com/libretro/parallel-n64">parallel-n64</a> is an optimized/rewritten Nintendo 64 emulator made specifically for <a href="https://www.libretro.com/">Libretro</a>.</li>
+<li><a href="https://github.com/floppyhammer/pathfinder-cpp">Pathfinder C++</a> is a fast, practical, GPU-based rasterizer for fonts and vector graphics using Vulkan and C++.</li>
+<li><a href="https://github.com/marton78/pffft">PFFFT</a> does 1D Fast Fourier Transforms, of single precision real and complex vectors.</li>
+<li><a href="https://github.com/stephaneguindon/phyml">PhyML</a> uses modern statistical approaches to analyse alignments of nucleotide or amino acid sequences in a phylogenetic framework.</li>
+<li><a href="https://github.com/oliverue/pixaccess">pixaccess</a> provides the abstractions for integer and float bitmaps, pixels, and aliased (nearest neighbor) and anti-aliased (bi-linearly interpolated) pixel access.</li>
+<li><a href="https://github.com/seanstone/plutosdr-fw">PlutoSDR Firmware</a> is the customized firmware for the <a href="https://wiki.analog.com/university/tools/pluto">PlutoSDR</a> that can be used to introduce fundamentals of Software Defined Radio (SDR) or Radio Frequency (RF) or Communications as advanced topics in electrical engineering in a self or instructor lead setting.</li>
+<li><a href="https://github.com/microsoft/PowerToys">PowerToys</a> is a set of utilities for power users to tune and streamline their Windows experience for greater productivity.</li>
+<li><a href="https://github.com/dmalhotra/pvfmm">PVFMM</a> is a library for solving certain types of elliptic partial differential equations.</li>
+<li><a href="https://www.pygame.org">Pygame</a> is cross-platform and designed to make it easy to write multimedia software, such as games, in Python.</li>
+<li><a href="https://cran.r-project.org/web/packages/RandomFieldsUtils">R:RandomFieldsUtils</a> provides various utilities might be used in spatial statistics and elsewhere. (CRAN)</li>
+<li><a href="https://github.com/stamatak/standard-RAxML">RAxML</a> is tool for Phylogenetic Analysis and Post-Analysis of Large Phylogenies.</li>
+<li><a href="https://github.com/reduce-algebra/reduce-algebra">REDUCE</a> is an interactive system for general algebraic computations, of interest to mathematicians, scientists, and engineers.</li>
+<li><a href="https://github.com/gennadykataev/rehlds">ReHLDS</a> is fully compatible with latest Half-Life Dedicated Server (HLDS) with a lot of defects and (potential) bugs fixed.</li>
+<li><a href="https://github.com/ospray/rkcommon">rkcommon</a> represents a common set of C++ infrastructure and CMake utilities used by various components of <a href="https://www.intel.com/content/www/us/en/developer/tools/oneapi/rendering-toolkit.html">Intel oneAPI Rendering Toolkit</a>.</li>
+<li><a href="https://github.com/RPCS3/rpcs3">RPCS3</a> is the world's first free and open-source PlayStation 3 emulator/debugger, written in C++.</li>
+<li><a href="https://github.com/JishinMaster/simd_utils">simd_utils</a> is a header-only library implementing common mathematical functions using SIMD intrinsics.</li>
+<li><a href="https://github.com/OpenBioSim/sire">Sire</a> is a molecular modelling framework that provides extensive functionality to manipulate representations of biomolecular systems.</li>
+<li><a href="https://github.com/rurban/smhasher">SMhasher</a> provides comprehensive Hash function quality and speed tests.</li>
+<li><a href="https://github.com/sortmerna/sortmerna">SortMeRNA</a> is a local sequence alignment tool for filtering, mapping and clustering.</li>
+<li><a href="https://github.com/ianmkim/snnpp">SNN++</a> implements a single layer non linear Spiking Neural Network for images classification and generation.</li>
+<li><a href="https://github.com/spack/spack">Spack</a> is a multi-platform package manager that builds and installs multiple versions and configurations of software.</li>
+<li><a href="https://github.com/ncbi/sra-tools">SRA</a> is a collection of tools and libraries for using data in the <a href="https://www.ncbi.nlm.nih.gov/sra/docs/">INSDC Sequence Read Archives</a>.</li>
+<li><a href="https://github.com/srsLTE/srsLTE">srsLTE</a> is an open source SDR LTE software suite.</li>
+<li><a href="https://github.com/mengyao/Complete-Striped-Smith-Waterman-Library">SSW</a> is a fast implementation of the <a href="https://en.wikipedia.org/wiki/Smith%E2%80%93Waterman_algorithm">Smith-Waterman algorithm</a>, which uses the SIMD instructions to parallelize the algorithm at the instruction level.</li>
+<li><a href="https://github.com/surge-synthesizer/surge">Surge</a> is an open source digital synthesizer.</li>
+<li><a href="https://github.com/ConfettiFX/The-Forge">The Forge</a> is a cross-platform rendering framework, providing building blocks to write your own game engine.</li>
+<li><a href="https://github.com/typesense/typesense">Typesense</a> is a fast, typo-tolerant search engine for building delightful search experiences.</li>
+<li><a href="https://github.com/microsoft/vcpkg">Vcpkg</a> is a C++ Library Manager for Windows, Linux, and macOS.</li>
+<li><a href="https://github.com/arangodb/velocypack">VelocyPack</a> is a fast and compact format for serialization and storage.</li>
+<li><a href="https://github.com/gnuradio/volk">VOLK</a>, Vector-Optimized Library of Kernel, is a sub-project of <a href="https://www.gnuradio.org/">GNU Radio</a>.</li>
+<li><a href="https://github.com/VowpalWabbit/vowpal_wabbit">Vowpal Wabbit</a> is a machine learning system which pushes the frontier of machine learning with techniques such as online, hashing, allreduce, reductions, learning2search, active, and interactive learning.</li>
+<li><a href="https://github.com/rosenthj/Winter">Winter</a> is the top rated chess engine from Switzerland and has competed at top invite only computer chess events.</li>
+<li><a href="https://github.com/mpeg5/xeve">XEVE</a> (eXtra-fast Essential Video Encoder) is an open sourced and fast MPEG-5 EVC encoder.</li>
+<li><a href="https://github.com/xmrig/xmrig">XMRig</a> is an open source CPU miner for <a href="https://web.getmonero.org/">Monero</a> cryptocurrency.</li>
+<li><a href="https://github.com/iczelia/xpar">xpar</a> is an error/erasure code system guarding data integrity.</li>
+<li><a href="https://github.com/xtensor-stack/xsimd">xsimd</a> provides a unified means for using SIMD intrinsics and parallelized, optimized mathematical functions.</li>
+<li><a href="https://github.com/secretflow/yasl">YACL</a> is a C++ library contains modules and utilities which <a href="https://github.com/secretflow">SecretFlow</a> code depends on.</li>
+</ul>
+<h2>Related Projects</h2>
+<ul>
+<li><a href="https://github.com/simd-everywhere/simde">SIMDe</a>: fast and portable implementations of SIMD
+intrinsics on hardware which doesn't natively support them, such as calling SSE functions on ARM.</li>
+<li><a href="https://github.com/catboost/catboost/blob/master/library/cpp/sse/sse2neon.h">CatBoost's sse2neon</a></li>
+<li><a href="https://github.com/intel/ARM_NEON_2_x86_SSE">ARM_NEON_2_x86_SSE</a></li>
+<li><a href="https://github.com/zchrissirhcz/neon_sim">neon_sim</a>: ARM NEON Intrinsics implementation in C</li>
+<li><a href="https://github.com/kunpengcompute/AvxToNeon">AvxToNeon</a></li>
+<li><a href="https://github.com/FeddrickAquino/sse2rvv">sse2rvv</a>: C header file that converts Intel SSE intrinsics to RISC-V Vector intrinsic.</li>
+<li><a href="https://github.com/i-evi/sse2msa">sse2msa</a>: A C/C++ header file that converts Intel SSE intrinsics to MIPS/MIPS64 MSA intrinsics.</li>
+<li><a href="https://github.com/aqrit/sse2zig">sse2zig</a>: Intel SSE intrinsics mapped to <a href="https://ziglang.org/">Zig</a> vector extensions.</li>
+<li><a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000">POWER/PowerPC support for GCC</a> contains a series of headers simplifying porting x86_64 code that makes explicit use of Intel intrinsics to powerpc64le (pure little-endian mode that has been introduced with the <a href="https://en.wikipedia.org/wiki/POWER8">POWER8</a>).<ul>
+<li>implementation: <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000/xmmintrin.h">xmmintrin.h</a>, <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000/emmintrin.h">emmintrin.h</a>, <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000/pmmintrin.h">pmmintrin.h</a>, <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000/tmmintrin.h">tmmintrin.h</a>, <a href="https://github.com/gcc-mirror/gcc/blob/master/gcc/config/rs6000/smmintrin.h">smmintrin.h</a></li>
+</ul>
+</li>
+</ul>
+<h2>Reference</h2>
+<ul>
+<li><a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html">Intel Intrinsics Guide</a></li>
+<li><a href="https://learn.microsoft.com/en-us/cpp/intrinsics/x86-intrinsics-list">Microsoft: x86 intrinsics list</a></li>
+<li><a href="https://developer.arm.com/architectures/instruction-sets/simd-isas/neon/intrinsics">Arm Neon Intrinsics Reference</a></li>
+<li><a href="https://developer.arm.com/architectures/instruction-sets/simd-isas/neon/neon-programmers-guide-for-armv8-a">Neon Programmer's Guide for Armv8-A</a></li>
+<li><a href="https://static.docs.arm.com/den0018/a/DEN0018A_neon_programmers_guide_en.pdf">NEON Programmer's Guide</a></li>
+<li><a href="https://github.com/qemu/qemu/blob/master/target/i386/ops_sse.h">qemu/target/i386/ops_sse.h</a>: Comprehensive SSE instruction emulation in C. Ideal for semantic checks.</li>
+<li><a href="https://blog.yiningkarlli.com/2021/05/porting-takua-to-arm-pt1.html">Porting Takua Renderer to 64-bit ARM- Part 1</a></li>
+<li><a href="https://blog.yiningkarlli.com/2021/07/porting-takua-to-arm-pt2.html">Porting Takua Renderer to 64-bit ARM- Part 2</a></li>
+<li><a href="https://blog.yiningkarlli.com/2021/09/neon-vs-sse.html">Comparing SIMD on x86-64 and arm64</a></li>
+<li><a href="https://developer.arm.com/documentation/102581/0200/Port-with-SSE2Neon-and-SIMDe">Port with SSE2Neon and SIMDe</a></li>
+<li><a href="https://community.arm.com/arm-community-blogs/b/high-performance-computing-blog/posts/optimizing-genomics-and-the-bwa-aligner-for-arm-servers">Genomics: Optimizing the BWA aligner for Arm Servers</a></li>
+<li><a href="https://community.arm.com/arm-community-blogs/b/infrastructure-solutions-blog/posts/porting-x86-vector-bitmask-optimizations-to-arm-neon">Bit twiddling with Arm Neon: beating SSE movemasks, counting bits and more</a></li>
+<li><a href="https://github.com/aws/aws-graviton-getting-started/blob/main/c-c%2B%2B.md">C/C++ on Graviton</a></li>
+<li><a href="https://nvidia.github.io/grace-cpu-benchmarking-guide/developer/languages/c-c++.html">C/C++ on NVIDIA Grace</a></li>
+<li><a href="https://developer.apple.com/games/pathway/">Tune graphics-intensive games for Apple silicon</a></li>
+<li><a href="https://ieeexplore.ieee.org/abstract/document/9843518">Benchmarking and Testing of Qualcomm Snapdragon System-on-Chip for JPL Space Applications and Missions</a></li>
+<li><a href="https://developer.nvidia.com/blog/spotlight-petrobras-accelerates-linear-solvers-for-reservoir-simulation-using-nvidia-grace-cpu/">Spotlight: Petrobras Speeds Up Linear Solvers for Reservoir Simulation Using NVIDIA Grace CPU</a></li>
+<li><a href="https://www.qualcomm.com/developer/blog/2024/10/applications-porting-windows-on-snapdragon-sse2neon-header-file-part-1">Application porting to Windows on Snapdragon, using the sse2neon header file</a></li>
+<li><a href="https://www.linaro.org/blog/so-you-want-to-port-your-c-c-project-to-windows-on-arm/">So, you want to port your C/C++ project to Windows on Arm?</a></li>
+</ul>
+<h2>Licensing</h2>
+<p><code>sse2neon</code> is freely redistributable under the MIT License.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">A translator from Intel SSE intrinsics to Arm/Aarch64 NEON implementation</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/DLTcollab/sse2neon" title="@DLTcollab"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@DLTcollab/sse2neon</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/DLTcollab.png" alt="@DLTcollab"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/DLTcollab/sse2neon"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1504</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, June 16, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 52.1%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 52.1%"> </span><span style="width: 34.9%; background-color: var(--lang-C-bg, #ccc)" title="C: 34.9%"> </span><span style="width: 11.6%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 11.6%"> </span><span style="width: 0.8%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.8%"> </span><span style="width: 0.5%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.5%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">52.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">34.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">11.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.5%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/daohu527@gmail.com" title="daohu527"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/daohu527" title="zero"><img class="avatar circle" width="48" height="48" src="https://github.com/daohu527.png" alt="@daohu527"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4896"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="add sse2neon (#4896)"><span class="text-mono">#4896</span> <span class="text-light">add sse2neon (#4896)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/DLTcollab/sse2neon/archive/refs/tags/v1.8.0.tar.gz" title="https://github.com/DLTcollab/sse2neon/archive/refs/tags/v1.8.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/DLTcollab/...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sse2neon/1.8.0/patches/add_build_file.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">add_build_file.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sse2neon/1.8.0/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.8.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.8.0"><span class="text-bold">1.8.0</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-06-16</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

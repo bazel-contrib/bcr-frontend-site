@@ -1,0 +1,1057 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">csv-parser</span> <span class="f2 d-inline-block">2.3.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.1y ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/vincentlaucsb/csv-parser" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/csv-parser/2.3.0/overview" data-name="overview" id=":h.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/csv-parser/2.3.0/docs" data-name="docs" id=":h.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/csv-parser/2.3.0/testing" data-name="testing" id=":h.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;csv-parser&quot;, version = &quot;2.3.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "csv-parser"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2.3.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Vince's CSV Parser</h1>
+<p><a href="https://github.com/vincentlaucsb/csv-parser/actions/workflows/cmake-multi-platform.yml"><img src="https://github.com/vincentlaucsb/csv-parser/actions/workflows/cmake-multi-platform.yml/badge.svg" alt="CMake on Windows"></a> <a href="https://github.com/vincentlaucsb/csv-parser/actions/workflows/sanitizers.yml"><img src="https://github.com/vincentlaucsb/csv-parser/actions/workflows/sanitizers.yml/badge.svg" alt="Memory and Thread Sanitizers"></a> <a href="https://codecov.io/gh/vincentlaucsb/csv-parser"><img src="https://codecov.io/gh/vincentlaucsb/csv-parser/graph/badge.svg?token=8gJtCOfP3d" alt="codecov"></a></p>
+<ul>
+<li><a href="#vinces-csv-parser">Vince's CSV Parser</a><ul>
+<li><a href="#motivation">Motivation</a><ul>
+<li><a href="#performance-and-memory-requirements">Performance and Memory Requirements</a><ul>
+<li><a href="#show-me-the-numbers">Show me the numbers</a></li>
+<li><a href="#compared-to-other-libraries">Compared to other libraries</a></li>
+<li><a href="#chunk-size-tuning">Chunk Size Tuning</a></li>
+</ul>
+</li>
+<li><a href="#fully-rfc-4180-compliant-and-beyond-parser">Fully RFC 4180-Compliant (and Beyond) Parser</a><ul>
+<li><a href="#encoding">Encoding</a></li>
+</ul>
+</li>
+<li><a href="#bug-reports">Bug Reports</a></li>
+</ul>
+</li>
+<li><a href="#documentation">Documentation</a></li>
+<li><a href="#sponsors">Sponsors</a></li>
+<li><a href="#integration">Integration</a><ul>
+<li><a href="#threading-modes">Threading Modes</a></li>
+<li><a href="#emscripten--webassembly">Emscripten / WebAssembly</a></li>
+<li><a href="#single-header">Single Header</a></li>
+<li><a href="#cmake-instructions">CMake Instructions</a><ul>
+<li><a href="#avoid-cloning-with-fetchcontent">Avoid cloning with FetchContent</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#features--examples">Features &amp; Examples</a><ul>
+<li><a href="#reading-an-arbitrarily-large-file-with-iterators">Reading an Arbitrarily Large File (with Iterators)</a></li>
+<li><a href="#memory-mapped-io-and-streams">Memory-Mapped I/O and Streams</a></li>
+<li><a href="#indexing-by-column-names">Indexing by Column Names</a></li>
+<li><a href="#numeric-boolean-and-timestamp-conversions">Numeric, Boolean, and Timestamp Conversions</a></li>
+<li><a href="#converting-to-json">Converting to JSON</a></li>
+<li><a href="#specifying-the-csv-format">Specifying the CSV Format</a><ul>
+<li><a href="#trimming-whitespace">Trimming Whitespace</a></li>
+<li><a href="#handling-variable-numbers-of-columns-and-empty-rows">Handling Variable Numbers of Columns and Empty Rows</a></li>
+<li><a href="#setting-column-names">Setting Column Names</a></li>
+</ul>
+</li>
+<li><a href="#parsing-an-in-memory-string">Parsing an In-Memory String</a></li>
+<li><a href="#dataframes-for-random-access-and-updates">DataFrames for Random Access and Updates</a></li>
+<li><a href="#high-performance-extract-transform-load-with-the-dataframe">High Performance Extract-Transform-Load with the DataFrame</a><ul>
+<li><a href="#chunk_parallel_apply"><code>chunk_parallel_apply()</code></a></li>
+<li><a href="#building-a-batch-scoped-dataframe-yourself">Building a batch-scoped <code>DataFrame</code> yourself</a></li>
+<li><a href="#writing-back-to-csv">Writing Back to CSV</a></li>
+</ul>
+</li>
+<li><a href="#writing-csv-files">Writing CSV Files</a><ul>
+<li><a href="#c20-ranges-efficient-writing-for-csvrow-dataframerow-and-stl-containers">C++20 Ranges: Efficient writing for <code>CSVRow</code>, <code>DataFrameRow</code>, and STL containers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>Motivation</h2>
+<p>I wanted a CSV library that was fast and reliable without forcing you into either:</p>
+<ul>
+<li>A 1990s C-style API</li>
+<li>A high-level wrapper that murders <code>malloc()</code> and your cache</li>
+</ul>
+<p>This library tries to be <strong>fast for developers</strong> and <strong>fast for your computer</strong>.</p>
+<h3>Performance and Memory Requirements</h3>
+<p>This library combines SIMD-accelerated parsing, memory-mapped I/O, careful memory layout, minimal allocation, and background parsing to process large CSV files quickly, even when they exceed available RAM.</p>
+<p><a href="https://github.com/vincentlaucsb/csv-parser/wiki/Microsoft-Visual-Studio-CPU-Profiling-Results">According to Visual Studio's profiler</a> this
+CSV parser <strong>spends almost 90% of its CPU cycles actually reading your data</strong> as opposed to getting hung up in hard disk I/O or pushing around memory.</p>
+<h4>Show me the numbers</h4>
+<p>On my computer (12th Gen Intel(R) Core(TM) i5-12400 @ 2.50 GHz; Samsung 990 EVO), this parser can read</p>
+<ul>
+<li>a <a href="https://www.kaggle.com/austinreese/craigslist-carstrucks-data/version/7">1.4 GB Craigslist Used Vehicles Dataset</a> in 1.18 seconds (1.2 GBps)</li>
+<li>a <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents">2.9GB Car Accidents Dataset</a> in 6.9 seconds (420 MBps)</li>
+</ul>
+<p>All benchmarks shown are warm cache runs to focus on parser/CPU performance rather than disk I/O variability.</p>
+<h4>Compared to other libraries</h4>
+<p>For broader comparison data, including ETL and round-trip workloads against
+<code>fast-cpp-csv-parser</code> and <code>rapidcsv</code>, see the
+<a href="benchmarks/README.md">benchmark results</a>. On those workloads, this is
+probably the fastest general-purpose C++ CSV ETL library available today.</p>
+<h4>Chunk Size Tuning</h4>
+<p>By default, the parser reads CSV data in 10MB chunks. 10MB was chosen after empirical testing to optimize throughput while minimizing memory and thread synchronization costs, but feel free to experiment with different numbers yourself.</p>
+<p>A custom <code>CSVFormat</code> with <code>chunk_size()</code> can be passed to:</p>
+<ul>
+<li>Shrink the chunk size (down to a minimum of 500KB)</li>
+<li>Expand the chunk size (necessary if you encounter very large rows)</li>
+</ul>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat fmt;
+fmt.chunk_size(100 * 1024 * 1024);  // 100MB chunks
+CSVReader reader(&quot;massive_rows.csv&quot;, fmt);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat fmt</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">fmt.chunk_size(</span><span style="color:#005CC5">100</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> 100MB</span><span style="color:#24292E"> chunks</span></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"massive_rows.csv"</span><span style="color:#24292E">, fmt)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Fully RFC 4180-Compliant (and Beyond) Parser</h3>
+<p>This CSV parser is a fully <a href="https://www.rfc-editor.org/rfc/rfc4180.txt">RFC 4180</a>-compliant parser out of the box. We do not disable embedded newline detection by default just so we can look better on benchmarks.</p>
+<p>Furthermore, this parser can:</p>
+<ul>
+<li>Infer dialect (column names and delimiter)</li>
+<li>Ignore comments in leading rows and elsewhere</li>
+<li>Handle rows of different lengths</li>
+<li>Handle Windows <code>\r\n</code>, Unix <code>\n</code>, and old Mac <code>\r</code> newlines seamlessly</li>
+</ul>
+<p>By default, rows of variable length are silently ignored, although you may elect to keep them or throw an error.</p>
+<h4>Encoding</h4>
+<p>This CSV parser assumes ANSI/UTF-8 encoding and automatically strips UTF-8 byte-order marks (BOM).</p>
+<h3>Bug Reports</h3>
+<p>This CSV parser has:</p>
+<ul>
+<li>An extensive Catch2 test suite</li>
+<li>Tests of various CMake and non-CMake builds across g++, clang, MSVC, and MinGW</li>
+<li>Address, thread safety, and undefined behavior checks with ASan, TSan, and Valgrind (see <a href="https://github.com/vincentlaucsb/csv-parser/actions">GitHub Actions</a>)</li>
+</ul>
+<p>With that being said, I welcome genuine bug reports brought in good faith. This includes:</p>
+<ul>
+<li>Crashes, memory leaks, data corruption, or race conditions</li>
+<li>Incorrect parsing of valid CSV files</li>
+<li>Performance regressions on real-world data</li>
+<li>API issues that affect practical use cases</li>
+</ul>
+<p>When reporting compiler or integration issues, please mention which form of the library you're using:</p>
+<ul>
+<li>Single-header</li>
+<li>Regular headers + your own build system</li>
+<li>CMake</li>
+</ul>
+<p><strong>Note:</strong> Please keep reports focused on real-world problems. 
+Questions about extremely edge-case behavior (e.g. "what should <code>,,,</code> return?") do not belong in the issue tracker.</p>
+<h2>Documentation</h2>
+<p>In addition to the <a href="#features--examples">Features &amp; Examples</a> below, an <a href="https://vincentlaucsb.github.io/csv-parser/">extensive documentation site</a> contains more examples, details, interesting features, and instructions for less common use cases.</p>
+<h2>Sponsors</h2>
+<p>If you use this library for work, please <a href="https://github.com/sponsors/vincentlaucsb">become a sponsor</a>. Your donation
+will fund continued maintenance and development of the project.</p>
+<p>Shameless plug: If you like this library, check out my side project
+<a href="https://github.com/vincentlaucsb/experiencer">experiencer</a> — a WYSIWYG resume editor with clean HTML/CSS output.</p>
+<h2>Integration</h2>
+<p>While C++20 is recommended, C++11 is the minimum version required. This library makes extensive use of string views, and uses
+<a href="https://github.com/martinmoene/string-view-lite">Martin Moene's string view library</a> if <code>std::string_view</code> is not available.</p>
+<p>This library requires C++ exceptions to be enabled (for example, do not compile with <code>-fno-exceptions</code>).</p>
+<p>SIMD acceleration is enabled by default when the build/compiler flags support it. If needed, you can force scalar-only parsing with <code>CSV_NO_SIMD=ON</code> in CMake or by defining <code>CSV_NO_SIMD 1</code> before including the library headers.</p>
+<h3>Threading Modes</h3>
+<p>By default, <code>csv-parser</code> uses a background thread to parse file-based input. If CMake cannot find a thread library, threading is disabled automatically.</p>
+<p>You can also disable it explicitly:</p>
+<p><strong>CMake</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="set(CSV_ENABLE_THREADS OFF)
+add_subdirectory(csv-parser)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CSV_ENABLE_THREADS</span><span style="color:#005CC5"> OFF</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser)</span></span></code></pre>
+<p><strong>Non-CMake (define the macro before any csv-parser header)</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#define CSV_ENABLE_THREADS 0
+#include &quot;csv.hpp&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#define CSV_ENABLE_THREADS 0</span></span>
+<span class="line"><span style="color:#6A737D">#include "csv.hpp"</span></span></code></pre>
+<p>Single-threaded mode is useful for embedded targets, environments where <code>std::thread</code> is unavailable, and WebAssembly builds without pthreads. The public API is unchanged; parsing simply runs synchronously on the caller's thread.</p>
+<h3>Emscripten / WebAssembly</h3>
+<p>On Emscripten, <code>CSV_ENABLE_THREADS</code> is forced off and memory-mapped parsing is replaced by the stream-based parser. The filename constructor (<code>CSVReader("file.csv")</code>) still works—it opens an <code>std::ifstream</code> internally instead of using mmap.</p>
+<p>Emscripten builds must keep C++ exceptions enabled. In practice, compile/link with exception support (for example, <code>-fexceptions</code>) and do not disable exception catching.</p>
+<h3>Single Header</h3>
+<p><strong><a href="https://vincentlaucsb.github.io/csv-parser/csv.hpp">📥 Download csv.hpp</a></strong> — Available on GitHub Pages</p>
+<p>Or copy the URL:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="https://vincentlaucsb.github.io/csv-parser/csv.hpp" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">vincentlaucsb.github.io</span><span style="color:#D73A49">/</span><span style="color:#24292E">csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser</span><span style="color:#D73A49">/</span><span style="color:#24292E">csv.hpp</span></span></code></pre>
+<ul>
+<li>The file is automatically generated and deployed on every commit to <code>master</code>, ensuring you always have the latest version</li>
+<li>If you need a pinned version, check the <strong>Releases</strong> page</li>
+</ul>
+<h3>CMake Instructions</h3>
+<p>If you're including this in another CMake project, you can simply clone this repo into your project directory, 
+and add the following to your CMakeLists.txt:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Optional: Defaults to C++ 17
+# set(CSV_CXX_STANDARD 11)
+
+# Optional: disable background parsing threads
+# set(CSV_ENABLE_THREADS OFF)
+
+add_subdirectory(csv-parser)
+
+# ...
+
+add_executable(&lt;your program&gt; ...)
+target_link_libraries(&lt;your program&gt; csv)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Optional: Defaults to C++ 17</span></span>
+<span class="line"><span style="color:#6A737D"># set(CSV_CXX_STANDARD 11)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Optional: disable background parsing threads</span></span>
+<span class="line"><span style="color:#6A737D"># set(CSV_ENABLE_THREADS OFF)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">your program</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> ...</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">your program</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> csv)</span></span></code></pre>
+<h4>Avoid cloning with FetchContent</h4>
+<p>Don't want to clone? No problem. There's also <a href="https://github.com/vincentlaucsb/csv-parser/wiki/Example:-Using-csv%E2%80%90parser-with-CMake-and-FetchContent">a simple example documenting how to use CMake's FetchContent module to integrate this library</a>.</p>
+<h2>Features &amp; Examples</h2>
+<h3>Reading an Arbitrarily Large File (with Iterators)</h3>
+<p>With this library, you can easily stream over a large file without reading its entirety into memory.</p>
+<p><strong>C++ Style</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+CSVReader reader(&quot;very_big_file.csv&quot;);
+
+for (CSVRow&amp; row: reader) { // Input iterator
+    for (CSVField&amp; field: row) {
+        // By default, get&lt;&gt;() produces a std::string.
+        // A more efficient get&lt;string_view&gt;() is also available, where the resulting
+        // string_view is valid as long as the parent CSVRow is alive
+        std::cout &lt;&lt; field.get&lt;&gt;() &lt;&lt; ...
+    }
+}
+
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (CSVRow</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) { </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Input iterator</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (CSVField</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> field: row) {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> By default, get</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">() produces a std::string.</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> A more efficient get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string_view</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">is</span><span style="color:#24292E"> also available, where the resulting</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> string_view </span><span style="color:#D73A49">is</span><span style="color:#24292E"> valid </span><span style="color:#D73A49">as</span><span style="color:#E36209"> long</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> the parent CSVRow </span><span style="color:#D73A49">is</span><span style="color:#24292E"> alive</span></span>
+<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> field.get</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> ...</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<p><strong>Old-Fashioned C Style Loop</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="...
+
+CSVReader reader(&quot;very_big_file.csv&quot;);
+CSVRow row;
+ 
+while (reader.read_row(row)) {
+    // Do stuff with row here
+}
+
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVRow row</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (reader.read_row(row)) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> row here</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<p><strong>⚠️ IMPORTANT - Iterator Type and Memory Safety</strong>:<br><code>CSVReader::iterator</code> is an <strong>input iterator</strong> (<code>std::input_iterator_tag</code>), NOT a forward iterator.
+This design enables streaming large CSV files (50+ GB) without loading them entirely into memory, but may fail with some standard algorithms that require forward iterators.</p>
+<p>If you need to get around this, I suggest either loading all rows into an STL container, e.g. <code>std::vector&lt;CSVRow&gt;</code>, or using the <code>DataFrame</code> class which supports row and column random access.</p>
+<h3>Memory-Mapped I/O and Streams</h3>
+<p>When passing in a file path to <code>CSVReader</code>, memory-mapped I/O is used as it is the most performant.</p>
+<p>However, most finite steams implementing <code>std::istream</code>, such as <code>std::stringstream</code> and <code>std::ifstream</code> are supported as well as non-seekable streams. <code>CSVReader</code> is capable of taking a stream by reference, although it is recommended to pass in an owning <code>std::unique_ptr&lt;std::istream&gt;</code> for memory safety.</p>
+<p>Both memory-mapped and <code>std::istream</code> paths benefit from having a background parsing thread, unless disabled.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat format;
+// custom formatting options go here
+
+CSVReader mmap(&quot;some_file.csv&quot;, format);
+
+auto infile_ptr = std::unique_ptr(std::ifstream(&quot;some_file.csv&quot;, std::ios::binary));
+CSVReader ifstream_reader(std::move(infile_ptr), format);
+
+std::stringstream my_csv;
+CSVReader sstream_reader(my_csv, format);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> custom formatting options go here</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader mmap(</span><span style="color:#032F62">"some_file.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto infile_ptr </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::unique_ptr(std::ifstream(</span><span style="color:#032F62">"some_file.csv"</span><span style="color:#24292E">, std::ios::binary))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVReader ifstream_reader(std::move(infile_ptr), </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::stringstream my_csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVReader sstream_reader(my_csv, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Indexing by Column Names</h3>
+<p>Retrieving values using a column name string is a cheap, constant time operation with <code>EXACT</code> matching; with <code>CASE_INSENSITIVE</code>, the key is normalized before lookup.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+// Optional: pass in a format to customize lookup behavior
+// Defaults to EXACT matching
+CSVFormat format;
+format.column_names_policy(ColumnNamePolicy::CASE_INSENSITIVE);
+
+CSVReader reader(&quot;very_big_file.csv&quot;, format);
+double sum = 0;
+
+for (auto&amp; row: reader) {
+    // Note: Can also use index of column with [] operator
+    sum += row[&quot;Total Salary&quot;].get&lt;double&gt;();
+}
+
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Optional: </span><span style="color:#D73A49">pass</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> a </span><span style="color:#005CC5">format</span><span style="color:#24292E"> to customize lookup behavior</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Defaults to </span><span style="color:#005CC5">EXACT</span><span style="color:#24292E"> matching</span></span>
+<span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.column_names_policy(ColumnNamePolicy::</span><span style="color:#005CC5">CASE_INSENSITIVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">double </span><span style="color:#005CC5">sum</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Note: Can also use index of column with [] operator</span></span>
+<span class="line"><span style="color:#005CC5">    sum</span><span style="color:#D73A49"> +</span><span style="color:#24292E">= row[</span><span style="color:#032F62">"Total Salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<h3>Numeric, Boolean, and Timestamp Conversions</h3>
+<p>CSV fields are heterogeneous, and this library provides several conversion APIs besides treating everything as a string.</p>
+<p>These conversions are powered by <a href="https://github.com/vincentlaucsb/classify_scalar">classify_scalar</a>, a separately maintained scalar classification library with its own test suite, configurable scalar grammars, and benchmarking notes. Use it directly if you want csv-parser's scalar behavior outside CSV parsing, or if you want to define a related classification policy for another data format.</p>
+<p>For the full conversion contract, see the <a href="https://vincentlaucsb.github.io/csv-parser/scalar_conversions.html">Scalar Conversion Reference</a>.</p>
+<p>Type checking is performed on conversions to prevent undefined behavior and integer overflow. Negative numbers cannot be blindly converted to unsigned integer types.</p>
+<table>
+<thead>
+<tr>
+<th>API</th>
+<th>Success behavior</th>
+<th>Failure behavior</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>get&lt;T&gt;()</code></td>
+<td>Returns <code>T</code></td>
+<td>Throws <code>std::runtime_error</code></td>
+<td>Supports integral, floating point, <code>bool</code>, and <code>std::chrono</code> targets.</td>
+</tr>
+<tr>
+<td><code>try_get&lt;T&gt;(out)</code></td>
+<td>Writes <code>out</code>, returns <code>true</code></td>
+<td>Returns <code>false</code></td>
+<td>Non-throwing equivalent to <code>get&lt;T&gt;()</code>.</td>
+</tr>
+<tr>
+<td><code>std::optional&lt;T&gt; value = field</code></td>
+<td>Returns populated optional</td>
+<td>Returns <code>std::nullopt</code></td>
+<td>C++17 and later; uses the same conversion rules as <code>try_get&lt;T&gt;()</code>.</td>
+</tr>
+<tr>
+<td><code>field.as&lt;T&gt;()</code></td>
+<td>Returns <code>std::expected&lt;T, CSVConversionError&gt;</code></td>
+<td>Returns <code>std::unexpected(CSVConversionError)</code></td>
+<td>C++23 and later when <code>std::expected</code> is available; use when callers need a structured conversion error such as not-a-number, overflow, float-to-int, or negative-to-unsigned.</td>
+</tr>
+<tr>
+<td><code>try_parse_hex&lt;T&gt;(out)</code></td>
+<td>Writes an integral <code>T</code>, returns <code>true</code></td>
+<td>Returns <code>false</code></td>
+<td>Allows hex with or without the <code>0x</code> prefix.</td>
+</tr>
+<tr>
+<td><code>try_parse_decimal(out, decimal_symbol)</code></td>
+<td>Writes <code>long double</code>, returns <code>true</code></td>
+<td>Returns <code>false</code></td>
+<td>Parses decimal numbers that use a non-<code>.</code> decimal separator.</td>
+</tr>
+<tr>
+<td><code>try_parse_timestamp&lt;T&gt;(out)</code></td>
+<td>Writes timestamp/duration target, returns <code>true</code></td>
+<td>Returns <code>false</code></td>
+<td><code>uint64_t</code> Unix timestamps and <code>std::chrono</code> targets work in all supported C++ versions.</td>
+</tr>
+</tbody></table>
+<p>Additional conversion details:</p>
+<table>
+<thead>
+<tr>
+<th>Target</th>
+<th>Supported input</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Integral types</td>
+<td>Decimal numbers, plus hex notation with <code>0x</code> when using <code>get&lt;T&gt;()</code>; unsigned targets reject negative values.</td>
+</tr>
+<tr>
+<td>Floating point types</td>
+<td>Decimal and scientific notation; precision loss is not currently checked.</td>
+</tr>
+<tr>
+<td><code>bool</code></td>
+<td><code>true</code> or <code>false</code>, case-insensitive.</td>
+</tr>
+<tr>
+<td><code>std::chrono::system_clock::time_point</code> / <code>std::chrono::duration</code></td>
+<td>ISO 8601 timestamps such as <code>2024-01-01T12:00:00Z</code>, plus compact forms such as <code>2024-01-01 12:00:00</code>.</td>
+</tr>
+</tbody></table>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+CSVReader reader(&quot;very_big_file.csv&quot;);
+
+for (auto&amp; row: reader) {
+    int timestamp = 0;
+    if (row[&quot;timestamp&quot;].try_get(timestamp)) {
+        // Non-throwing conversion
+        std::cout &lt;&lt; &quot;Timestamp: &quot; &lt;&lt; timestamp &lt;&lt; std::endl;
+    }
+
+    if (row[&quot;timestamp&quot;].is_int()) {
+        // Can use get&lt;&gt;() with any integer type, but negative
+        // numbers cannot be converted to unsigned types
+        row[&quot;timestamp&quot;].get&lt;int&gt;();
+        
+        // You can also attempt to parse hex values
+        long long value;
+        if (row[&quot;hexValue&quot;].try_parse_hex(value)) {
+            std::cout &lt;&lt; &quot;Hex value is &quot; &lt;&lt; value &lt;&lt; std::endl;
+        }
+
+        // Or specify a different integer type
+        int smallValue;
+        if (row[&quot;smallHex&quot;].try_parse_hex&lt;int&gt;(smallValue)) {
+            std::cout &lt;&lt; &quot;Small hex value is &quot; &lt;&lt; smallValue &lt;&lt; std::endl;
+        }
+
+        // Non-imperial decimal numbers can be handled this way
+        long double decimalValue;
+        if (row[&quot;decimalNumber&quot;].try_parse_decimal(decimalValue, ',')) {
+            std::cout &lt;&lt; &quot;Decimal value is &quot; &lt;&lt; decimalValue &lt;&lt; std::endl;
+        }
+
+        // ..
+    }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> timestamp = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"timestamp"</span><span style="color:#24292E">].try_get(timestamp)) {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Non</span><span style="color:#D73A49">-</span><span style="color:#24292E">throwing conversion</span></span>
+<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Timestamp: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> timestamp </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"timestamp"</span><span style="color:#24292E">].is_int()) {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Can use get</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">with</span><span style="color:#005CC5"> any</span><span style="color:#24292E"> integer </span><span style="color:#005CC5">type</span><span style="color:#24292E">, but negative</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> numbers cannot be converted to unsigned types</span></span>
+<span class="line"><span style="color:#24292E">        row[</span><span style="color:#032F62">"timestamp"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">        </span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> You can also attempt to parse </span><span style="color:#005CC5">hex</span><span style="color:#24292E"> values</span></span>
+<span class="line"><span style="color:#E36209">        long</span><span style="color:#E36209"> long</span><span style="color:#24292E"> value;</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"hexValue"</span><span style="color:#24292E">].try_parse_hex(value)) {</span></span>
+<span class="line"><span style="color:#24292E">            std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Hex value is "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> value </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Or specify a different integer </span><span style="color:#005CC5">type</span></span>
+<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> smallValue;</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"smallHex"</span><span style="color:#24292E">].try_parse_hex</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(smallValue)) {</span></span>
+<span class="line"><span style="color:#24292E">            std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Small hex value is "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> smallValue </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Non</span><span style="color:#D73A49">-</span><span style="color:#24292E">imperial decimal numbers can be handled this way</span></span>
+<span class="line"><span style="color:#E36209">        long</span><span style="color:#24292E"> double decimalValue;</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"decimalNumber"</span><span style="color:#24292E">].try_parse_decimal(decimalValue, </span><span style="color:#032F62">','</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#24292E">            std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Decimal value is "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> decimalValue </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> ..</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Converting to JSON</h3>
+<p>You can serialize individual rows as JSON objects keyed by column name, or as plain JSON arrays.</p>
+<p>All items are properly escaped, although it is up to you to construct larger JSON documents properly.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &lt;sstream&gt;
+# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+CSVReader reader(&quot;very_big_file.csv&quot;);
+std::stringstream my_json;
+
+for (auto&amp; row: reader) {
+    my_json &lt;&lt; row.to_json() &lt;&lt; std::endl;
+    my_json &lt;&lt; row.to_json_array() &lt;&lt; std::endl;
+
+    // You can pass in a vector of column names to
+    // slice or rearrange the outputted JSON
+    my_json &lt;&lt; row.to_json({ &quot;A&quot;, &quot;B&quot;, &quot;C&quot; }) &lt;&lt; std::endl;
+    my_json &lt;&lt; row.to_json_array({ &quot;C&quot;, &quot;B&quot;, &quot;A&quot; }) &lt;&lt; std::endl;
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include &lt;sstream&gt;</span></span>
+<span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">std::stringstream my_json</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#24292E">    my_json </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row.to_json() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">    my_json </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row.to_json_array() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> You can </span><span style="color:#D73A49">pass</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> a vector of column names to</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> slice</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> rearrange the outputted </span><span style="color:#005CC5">JSON</span></span>
+<span class="line"><span style="color:#24292E">    my_json </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row.to_json({ </span><span style="color:#032F62">"A"</span><span style="color:#24292E">, </span><span style="color:#032F62">"B"</span><span style="color:#24292E">, </span><span style="color:#032F62">"C"</span><span style="color:#24292E"> }) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">    my_json </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row.to_json_array({ </span><span style="color:#032F62">"C"</span><span style="color:#24292E">, </span><span style="color:#032F62">"B"</span><span style="color:#24292E">, </span><span style="color:#032F62">"A"</span><span style="color:#24292E"> }) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>Specifying the CSV Format</h3>
+<p>Although the CSV parser has a decent guessing mechanism, in some cases it is preferrable to specify the exact parameters of a file.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+# include ...
+
+using namespace csv;
+
+CSVFormat format;
+format.delimiter('\t')
+      .quote('~')
+      .header_row(2);   // Header is on 3rd row (zero-indexed)
+      // .no_header();  // Parse CSVs without a header row
+      // .quote(false); // Turn off quoting 
+
+// Alternatively, we can use format.delimiter({ '\t', ',', ... })
+// to tell the CSV guesser which delimiters to try out
+
+// Inference contract:
+// - Single delimiter: delimiter is fixed (no delimiter inference)
+// - Header row is still inferred unless you explicitly call header_row(...), no_header(),
+//   or provide column_names(...)
+// - Multiple delimiters: delimiter inference is enabled
+
+CSVReader reader(&quot;weird_csv_dialect.csv&quot;, format);
+
+for (auto&amp; row: reader) {
+    // Do stuff with rows here
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"><span style="color:#6A737D"># include ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.delimiter(</span><span style="color:#032F62">'</span><span style="color:#005CC5">\t</span><span style="color:#032F62">'</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">      .quote(</span><span style="color:#032F62">'~'</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">      .header_row(</span><span style="color:#005CC5">2</span><span style="color:#24292E">);   </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Header </span><span style="color:#D73A49">is</span><span style="color:#24292E"> on </span><span style="color:#B31D28;font-style:italic">3rd</span><span style="color:#24292E"> row (zero</span><span style="color:#D73A49">-</span><span style="color:#24292E">indexed)</span></span>
+<span class="line"><span style="color:#D73A49">      //</span><span style="color:#24292E"> .no_header();  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Parse CSVs without a header row</span></span>
+<span class="line"><span style="color:#D73A49">      //</span><span style="color:#24292E"> .quote(false); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Turn off quoting </span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Alternatively, we can use </span><span style="color:#005CC5">format</span><span style="color:#24292E">.delimiter({ </span><span style="color:#032F62">'</span><span style="color:#005CC5">\t</span><span style="color:#032F62">'</span><span style="color:#24292E">, </span><span style="color:#032F62">','</span><span style="color:#24292E">, </span><span style="color:#005CC5">...</span><span style="color:#24292E"> })</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> to tell the </span><span style="color:#005CC5">CSV</span><span style="color:#24292E"> guesser which delimiters to </span><span style="color:#D73A49">try</span><span style="color:#24292E"> out</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Inference contract:</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> Single delimiter: delimiter </span><span style="color:#D73A49">is</span><span style="color:#24292E"> fixed (no delimiter inference)</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> Header row </span><span style="color:#D73A49">is</span><span style="color:#24292E"> still inferred unless you explicitly call header_row(</span><span style="color:#005CC5">...</span><span style="color:#24292E">), no_header(),</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49">   or</span><span style="color:#24292E"> provide column_names(</span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> Multiple delimiters: delimiter inference </span><span style="color:#D73A49">is</span><span style="color:#24292E"> enabled</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"weird_csv_dialect.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> rows here</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h4>Trimming Whitespace</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Make sure you don't include your intended delimiter or newlines when calling trim()
+CSVFormat format;
+format.trim({ ' ', '\t'  });" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Make sure you don</span><span style="color:#032F62">'t include your intended delimiter or newlines when calling trim()</span></span>
+<span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.trim({ </span><span style="color:#032F62">' '</span><span style="color:#24292E">, </span><span style="color:#032F62">'</span><span style="color:#005CC5">\t</span><span style="color:#032F62">'</span><span style="color:#24292E">  })</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h4>Handling Variable Numbers of Columns and Empty Rows</h4>
+<p>Sometimes, the rows in a CSV are not all of the same length. Whether this was intentional or not,
+this library is built to handle all use cases.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat format;
+
+// Default: Silently ignoring rows with zero, missing or extraneous columns
+format.variable_columns(false); // Short-hand
+format.variable_columns(VariableColumnPolicy::IGNORE_ROW);
+
+// Case 2a: Keeping variable-length rows and empty rows
+format.variable_columns(true); // Short-hand
+format.variable_columns(VariableColumnPolicy::KEEP);
+
+// Case 2b: Keeping variable-length rows but dropping empty rows
+format.variable_columns(VariableColumnPolicy::KEEP_NON_EMPTY);
+
+// Case 3: Throwing an error if variable-length rows are encountered
+format.variable_columns(VariableColumnPolicy::THROW);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Default: Silently ignoring rows </span><span style="color:#D73A49">with</span><span style="color:#24292E"> zero, missing </span><span style="color:#D73A49">or</span><span style="color:#24292E"> extraneous columns</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(false); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Short</span><span style="color:#D73A49">-</span><span style="color:#24292E">hand</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(VariableColumnPolicy::</span><span style="color:#005CC5">IGNORE_ROW</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Case </span><span style="color:#B31D28;font-style:italic">2a</span><span style="color:#24292E">: Keeping variable</span><span style="color:#D73A49">-</span><span style="color:#24292E">length rows </span><span style="color:#D73A49">and</span><span style="color:#24292E"> empty rows</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(true); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Short</span><span style="color:#D73A49">-</span><span style="color:#24292E">hand</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(VariableColumnPolicy::</span><span style="color:#005CC5">KEEP</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Case </span><span style="color:#B31D28;font-style:italic">2b</span><span style="color:#24292E">: Keeping variable</span><span style="color:#D73A49">-</span><span style="color:#24292E">length rows but dropping empty rows</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(VariableColumnPolicy::</span><span style="color:#005CC5">KEEP_NON_EMPTY</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Case </span><span style="color:#005CC5">3</span><span style="color:#24292E">: Throwing an error </span><span style="color:#D73A49">if</span><span style="color:#24292E"> variable</span><span style="color:#D73A49">-</span><span style="color:#24292E">length rows are encountered</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.variable_columns(VariableColumnPolicy::</span><span style="color:#005CC5">THROW</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h4>Setting Column Names</h4>
+<p>If a CSV file does not have column names, you can specify your own:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="std::vector&lt;std::string&gt; col_names = { ... };
+CSVFormat format;
+format.column_names(col_names);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> col_names </span><span style="color:#D73A49">=</span><span style="color:#24292E"> { </span><span style="color:#005CC5">...</span><span style="color:#24292E"> }</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.column_names(col_names)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>Parsing an In-Memory String</h3>
+<p><code>parse()</code> and <code>parse_unsafe()</code> are the canonical shorthands for parsing large in-memory <code>std::string</code> or <code>std::string_view</code>.
+<code>parse_unsafe()</code> does <strong>not</strong> copy the string internally (unlike <code>parse()</code>), so make sure you materialize all the rows you need before your 
+source goes out of scope.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+// Method 1: Using parse()
+std::string csv_string = &quot;Actor,Character\r\n&quot;
+    &quot;Will Ferrell,Ricky Bobby\r\n&quot;
+    &quot;John C. Reilly,Cal Naughton Jr.\r\n&quot;
+    &quot;Sacha Baron Cohen,Jean Giard\r\n&quot;;
+
+auto rows = parse_unsafe(csv_string);
+for (auto&amp; r: rows) {
+    // Do stuff with row here (should be safe as long as csv_string does not go out of scope)
+}
+    
+// Method 2: Using _csv operator
+auto rows = &quot;Actor,Character\r\n&quot;
+    &quot;Will Ferrell,Ricky Bobby\r\n&quot;
+    &quot;John C. Reilly,Cal Naughton Jr.\r\n&quot;
+    &quot;Sacha Baron Cohen,Jean Giard\r\n&quot;_csv;
+
+for (auto&amp; r: rows) {
+    // Do stuff with row here
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Method </span><span style="color:#005CC5">1</span><span style="color:#24292E">: Using parse()</span></span>
+<span class="line"><span style="color:#24292E">std::string csv_string </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Actor,Character</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "Will Ferrell,Ricky Bobby</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "John C. Reilly,Cal Naughton Jr.</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "Sacha Baron Cohen,Jean Giard</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto rows </span><span style="color:#D73A49">=</span><span style="color:#24292E"> parse_unsafe(csv_string)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> r: rows) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> row here (should be safe </span><span style="color:#D73A49">as</span><span style="color:#E36209"> long</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> csv_string does </span><span style="color:#D73A49">not</span><span style="color:#24292E"> go out of scope)</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Method </span><span style="color:#005CC5">2</span><span style="color:#24292E">: Using _csv operator</span></span>
+<span class="line"><span style="color:#24292E">auto rows = </span><span style="color:#032F62">"Actor,Character</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "Will Ferrell,Ricky Bobby</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "John C. Reilly,Cal Naughton Jr.</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span></span>
+<span class="line"><span style="color:#032F62">    "Sacha Baron Cohen,Jean Giard</span><span style="color:#005CC5">\r\n</span><span style="color:#032F62">"</span><span style="color:#24292E">_csv;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> r: rows) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> row here</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>DataFrames for Random Access and Updates</h3>
+<p>For files that fit comfortably in memory, <code>DataFrame</code> provides fast and powerful keyed access, in-place updates, and grouping operations—all built on the same high-performance parser. It uses the same parsing pipeline as <code>CSVReader</code> but retains the results in memory for both row-wise and column-wise random access.</p>
+<p><strong>Creating a DataFrame with Keyed Access</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
+
+using namespace csv;
+
+...
+
+// Shortest form: pass a filename directly with DataFrameOptions
+DataFrame&lt;int&gt; df(&quot;employees.csv&quot;,
+    DataFrameOptions().set_key_column(&quot;employee_id&quot;));
+
+// Or construct from an existing CSVReader (e.g. when you need a custom format)
+CSVReader reader(&quot;employees.csv&quot;);
+DataFrame&lt;int&gt; df2(reader, &quot;employee_id&quot;);
+
+// O(1) lookups by key
+auto salary = df[12345][&quot;salary&quot;].get&lt;double&gt;();
+
+// Positional access: operator[](size_t) is disabled when KeyType is an integer
+// type to prevent ambiguity with operator[](const KeyType&amp;). Use at(size_t) instead.
+auto first_row = df.at(0);
+auto name = first_row[&quot;name&quot;].get&lt;std::string&gt;();
+
+// Check if a key exists
+if (df.contains(99999)) {
+    std::cout &lt;&lt; &quot;Employee exists&quot; &lt;&lt; std::endl;
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Shortest form: </span><span style="color:#D73A49">pass</span><span style="color:#24292E"> a filename directly </span><span style="color:#D73A49">with</span><span style="color:#24292E"> DataFrameOptions</span></span>
+<span class="line"><span style="color:#24292E">DataFrame</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> df(</span><span style="color:#032F62">"employees.csv"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    DataFrameOptions().set_key_column(</span><span style="color:#032F62">"employee_id"</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Or construct </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an existing CSVReader (e.g. when you need a custom </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"employees.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">DataFrame</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> df2(reader, </span><span style="color:#032F62">"employee_id"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> O(</span><span style="color:#005CC5">1</span><span style="color:#24292E">) lookups by key</span></span>
+<span class="line"><span style="color:#24292E">auto salary </span><span style="color:#D73A49">=</span><span style="color:#24292E"> df[</span><span style="color:#005CC5">12345</span><span style="color:#24292E">][</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Positional access: operator[](size_t) </span><span style="color:#D73A49">is</span><span style="color:#24292E"> disabled when KeyType </span><span style="color:#D73A49">is</span><span style="color:#24292E"> an integer</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> type</span><span style="color:#24292E"> to prevent ambiguity </span><span style="color:#D73A49">with</span><span style="color:#24292E"> operator[](const KeyType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">). Use at(size_t) instead.</span></span>
+<span class="line"><span style="color:#24292E">auto first_row </span><span style="color:#D73A49">=</span><span style="color:#24292E"> df.at(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto name </span><span style="color:#D73A49">=</span><span style="color:#24292E"> first_row[</span><span style="color:#032F62">"name"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Check </span><span style="color:#D73A49">if</span><span style="color:#24292E"> a key exists</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (df.contains(</span><span style="color:#005CC5">99999</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Employee exists"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p><strong>Using DataFrameOptions for Fine-Grained Control</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Configure key column, duplicate-key policy, and missing-key behaviour
+DataFrameOptions opts;
+opts.set_key_column(&quot;employee_id&quot;)
+    .set_duplicate_key_policy(
+        DataFrameOptions::DuplicateKeyPolicy::KEEP_FIRST)  // or OVERWRITE / THROW
+    .set_throw_on_missing_key(false);  // silently skip rows with no key value
+
+DataFrame&lt;int&gt; df(&quot;employees.csv&quot;, opts);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Configure key column, duplicate</span><span style="color:#D73A49">-</span><span style="color:#24292E">key policy, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> missing</span><span style="color:#D73A49">-</span><span style="color:#24292E">key behaviour</span></span>
+<span class="line"><span style="color:#24292E">DataFrameOptions opts</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">opts.set_key_column(</span><span style="color:#032F62">"employee_id"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    .set_duplicate_key_policy(</span></span>
+<span class="line"><span style="color:#24292E">        DataFrameOptions::DuplicateKeyPolicy::</span><span style="color:#005CC5">KEEP_FIRST</span><span style="color:#24292E">)  </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> or</span><span style="color:#005CC5"> OVERWRITE</span><span style="color:#D73A49"> /</span><span style="color:#005CC5"> THROW</span></span>
+<span class="line"><span style="color:#24292E">    .set_throw_on_missing_key(false);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> silently skip rows </span><span style="color:#D73A49">with</span><span style="color:#24292E"> no key value</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">DataFrame</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> df(</span><span style="color:#032F62">"employees.csv"</span><span style="color:#24292E">, opts)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><strong>Creating a DataFrame with a Custom Key Function</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVReader reader(&quot;employees.csv&quot;);
+
+// Build a composite key from two columns
+auto make_key = [](const CSVRow&amp; row) {
+    return row[&quot;first_name&quot;].get&lt;std::string&gt;() + &quot;_&quot; +
+           row[&quot;last_name&quot;].get&lt;std::string&gt;();
+};
+
+DataFrame&lt;std::string&gt; by_name(reader, make_key);
+
+// Lookups by composite key
+auto employee = by_name[&quot;Ada_Lovelace&quot;][&quot;department&quot;].get&lt;std::string&gt;();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"employees.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Build a composite key </span><span style="color:#D73A49">from</span><span style="color:#24292E"> two columns</span></span>
+<span class="line"><span style="color:#24292E">auto make_key </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [](const CSVRow</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row) {</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> row[</span><span style="color:#032F62">"first_name"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">+</span><span style="color:#032F62"> "_"</span><span style="color:#D73A49"> +</span></span>
+<span class="line"><span style="color:#24292E">           row[</span><span style="color:#032F62">"last_name"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">DataFrame</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> by_name(reader, make_key)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Lookups by composite key</span></span>
+<span class="line"><span style="color:#24292E">auto employee </span><span style="color:#D73A49">=</span><span style="color:#24292E"> by_name[</span><span style="color:#032F62">"Ada_Lovelace"</span><span style="color:#24292E">][</span><span style="color:#032F62">"department"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p><strong>Updating Values</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Updates are stored in an efficient overlay without copying the entire dataset
+df[12345][&quot;salary&quot;] = &quot;95000&quot;;
+df[67890][&quot;department&quot;] = &quot;Engineering&quot;;
+
+// Access methods return updated values transparently
+std::cout &lt;&lt; df[12345][&quot;salary&quot;].get&lt;std::string&gt;(); // &quot;95000&quot;
+
+// Iterate with edits visible
+for (auto&amp; row : df) {
+    std::cout &lt;&lt; row[&quot;salary&quot;].get&lt;std::string&gt;(); // Shows edited values
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Updates are stored </span><span style="color:#D73A49">in</span><span style="color:#24292E"> an efficient overlay without copying the entire dataset</span></span>
+<span class="line"><span style="color:#24292E">df[</span><span style="color:#005CC5">12345</span><span style="color:#24292E">][</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "95000"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">df[</span><span style="color:#005CC5">67890</span><span style="color:#24292E">][</span><span style="color:#032F62">"department"</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Engineering"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Access methods </span><span style="color:#D73A49">return</span><span style="color:#24292E"> updated values transparently</span></span>
+<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> df[</span><span style="color:#005CC5">12345</span><span style="color:#24292E">][</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(); </span><span style="color:#D73A49">//</span><span style="color:#032F62"> "95000"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Iterate </span><span style="color:#D73A49">with</span><span style="color:#24292E"> edits visible</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row : df) {</span></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row[</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Shows edited values</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p><strong>Grouping and Analysis</strong></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Group by department
+auto groups = df.group_by(&quot;department&quot;);
+for (auto&amp; [dept, row_indices] : groups) {
+    double total_salary = 0;
+    for (size_t i : row_indices) {
+        total_salary += df[i][&quot;salary&quot;].get&lt;double&gt;();
+    }
+    std::cout &lt;&lt; dept &lt;&lt; &quot; total: $&quot; &lt;&lt; total_salary &lt;&lt; std::endl;
+}
+
+// Group using a custom function
+auto by_salary_range = df.group_by([](auto row) {
+    double salary = row[&quot;salary&quot;].get&lt;double&gt;();
+    return salary &lt; 50000 ? &quot;junior&quot; : salary &lt; 100000 ? &quot;mid&quot; : &quot;senior&quot;;
+});
+
+// C++11 fallback if generic lambdas are unavailable:
+auto by_salary_range_cpp11 = df.group_by([](DataFrame&lt;&gt;::row_type row) {
+    double salary = row[&quot;salary&quot;].get&lt;double&gt;();
+    return salary &lt; 50000 ? &quot;junior&quot; : salary &lt; 100000 ? &quot;mid&quot; : &quot;senior&quot;;
+});" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Group by department</span></span>
+<span class="line"><span style="color:#24292E">auto groups </span><span style="color:#D73A49">=</span><span style="color:#24292E"> df.group_by(</span><span style="color:#032F62">"department"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> [dept, row_indices] : groups) {</span></span>
+<span class="line"><span style="color:#24292E">    double total_salary = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (size_t i : row_indices) {</span></span>
+<span class="line"><span style="color:#24292E">        total_salary </span><span style="color:#D73A49">+</span><span style="color:#24292E">= df[i][</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> dept </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " total: $"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> total_salary </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Group using a custom function</span></span>
+<span class="line"><span style="color:#24292E">auto by_salary_range = df.group_by([](auto row) {</span></span>
+<span class="line"><span style="color:#24292E">    double salary = row[</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> salary </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 50000</span><span style="color:#B31D28;font-style:italic"> ?</span><span style="color:#032F62"> "junior"</span><span style="color:#24292E"> : salary </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 100000</span><span style="color:#B31D28;font-style:italic"> ?</span><span style="color:#032F62"> "mid"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"senior"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">11</span><span style="color:#24292E"> fallback </span><span style="color:#D73A49">if</span><span style="color:#24292E"> generic lambdas are unavailable:</span></span>
+<span class="line"><span style="color:#24292E">auto by_salary_range_cpp11 = df.group_by([](DataFrame</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">::row_type row) {</span></span>
+<span class="line"><span style="color:#24292E">    double salary = row[</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> salary </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 50000</span><span style="color:#B31D28;font-style:italic"> ?</span><span style="color:#032F62"> "junior"</span><span style="color:#24292E"> : salary </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 100000</span><span style="color:#B31D28;font-style:italic"> ?</span><span style="color:#032F62"> "mid"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"senior"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">});</span></span></code></pre>
+<h3>High Performance Extract-Transform-Load with the DataFrame</h3>
+<p><code>DataFrame</code> is intentionally useful as a short-lived batch object, not just as a
+fully materialized table that lives for the rest of the program. That makes it
+a convenient bridge for ETL workflows, filtered row subsets, chunked analysis,
+and executor-driven column processing.</p>
+<p><em>See also: the <a href="https://vincentlaucsb.github.io/csv-parser/high_performance_etl.html">High Performance ETL Doxygen page</a>.</em></p>
+<h4><code>chunk_parallel_apply()</code></h4>
+<p>For large-file ETL work, <code>chunk_parallel_apply()</code> is the most concise way to
+combine <code>CSVReader</code>, <code>DataFrame</code>, and <code>DataFrameExecutor</code>. It reads the source in
+chunks, wraps each chunk in a batch-scoped <code>DataFrame</code>, and runs your per-column
+callback with parallel execution support.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="struct ColumnSummary {
+    size_t non_empty = 0;
+};
+
+CSVReader big_reader(&quot;employees.csv&quot;);
+std::vector&lt;ColumnSummary&gt; direct_summaries(big_reader.get_col_names().size());
+
+chunk_parallel_apply(big_reader, direct_summaries,
+    [](DataFrame&lt;&gt;::column_type column, ColumnSummary&amp; summary) {
+        summary.non_empty = 0;
+        for (size_t row_index = 0; row_index &lt; column.size(); ++row_index) {
+            if (!column[row_index].get&lt;std::string&gt;().empty()) {
+                summary.non_empty++;
+            }
+        }
+    }
+);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">struct ColumnSummary {</span></span>
+<span class="line"><span style="color:#24292E">    size_t non_empty = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader big_reader(</span><span style="color:#032F62">"employees.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ColumnSummary</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> direct_summaries(big_reader.get_col_names().size())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">chunk_parallel_apply(big_reader, direct_summaries,</span></span>
+<span class="line"><span style="color:#24292E">    [](DataFrame</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">::column_type column, ColumnSummary</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> summary) {</span></span>
+<span class="line"><span style="color:#24292E">        summary.non_empty = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#D73A49">        for</span><span style="color:#24292E"> (size_t row_index = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; row_index </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> column.size(); </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">row_index) {</span></span>
+<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">column[row_index].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">().empty()) {</span></span>
+<span class="line"><span style="color:#24292E">                summary.non_empty</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">            }</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">);</span></span></code></pre>
+<h4>Building a batch-scoped <code>DataFrame</code> yourself</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// DataFrame can wrap a custom subset of rows that you collected yourself.
+// This makes it a convenient bridge object for ETL workflows, filtered
+// batches, and executor-driven column analysis.
+std::vector&lt;CSVRow&gt; promoted_rows;
+
+for (auto&amp; row : reader) {
+    if (row[&quot;department&quot;] == &quot;Engineering&quot;) {
+        promoted_rows.push_back(row);
+    }
+}
+
+DataFrame&lt;&gt; engineering(std::move(promoted_rows));
+
+// Run grouping, edits, vectorization, or executor-driven analysis on just that subset.
+auto salaries = engineering.column&lt;double&gt;(&quot;salary&quot;);
+
+struct ColumnSummary {
+    size_t non_empty = 0;
+};
+
+std::vector&lt;ColumnSummary&gt; column_summaries(engineering.n_cols());
+DataFrameExecutor exec;
+
+engineering.column_parallel_apply(exec, column_summaries,
+    [](DataFrame&lt;&gt;::column_type column, ColumnSummary&amp; summary) {
+        summary.non_empty = 0;
+        for (size_t row_index = 0; row_index &lt; column.size(); ++row_index) {
+            if (!column[row_index].get&lt;std::string&gt;().empty()) {
+                summary.non_empty++;
+            }
+        }
+    }
+);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> DataFrame can wrap a custom subset of rows that you collected yourself.</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> This makes it a convenient bridge </span><span style="color:#005CC5">object</span><span style="color:#D73A49"> for</span><span style="color:#005CC5"> ETL</span><span style="color:#24292E"> workflows, filtered</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> batches, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> executor</span><span style="color:#D73A49">-</span><span style="color:#24292E">driven column analysis.</span></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">CSVRow</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> promoted_rows;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row : reader) {</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"department"</span><span style="color:#24292E">] </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "Engineering"</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">        promoted_rows.push_back(row);</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">DataFrame</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E"> engineering(std::move(promoted_rows));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Run grouping, edits, vectorization, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> executor</span><span style="color:#D73A49">-</span><span style="color:#24292E">driven analysis on just that subset.</span></span>
+<span class="line"><span style="color:#24292E">auto salaries = engineering.column</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"salary"</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">struct ColumnSummary {</span></span>
+<span class="line"><span style="color:#24292E">    size_t non_empty = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">};</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ColumnSummary</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> column_summaries(engineering.n_cols());</span></span>
+<span class="line"><span style="color:#24292E">DataFrameExecutor </span><span style="color:#005CC5">exec</span><span style="color:#24292E">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">engineering.column_parallel_apply(</span><span style="color:#005CC5">exec</span><span style="color:#24292E">, column_summaries,</span></span>
+<span class="line"><span style="color:#24292E">    [](DataFrame</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">::column_type column, ColumnSummary</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> summary) {</span></span>
+<span class="line"><span style="color:#24292E">        summary.non_empty = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#D73A49">        for</span><span style="color:#24292E"> (size_t row_index = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; row_index </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> column.size(); </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">row_index) {</span></span>
+<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">column[row_index].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">().empty()) {</span></span>
+<span class="line"><span style="color:#24292E">                summary.non_empty</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">            }</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">);</span></span></code></pre>
+<h4>Writing Back to CSV</h4>
+<p>Each <code>DataFrameRow</code> can be written directly with <code>CSVWriter</code>. Sparse overlay
+edits are reflected automatically, so you do not need to rebuild each row by
+hand before writing.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="std::ofstream out(&quot;edited_employees.csv&quot;);
+auto writer = make_csv_writer(out).set_auto_flush(false);
+
+// Emit the header row first.
+writer &lt;&lt; df.columns();
+
+// Then stream the edited rows back out.
+for (const auto&amp; row : df) {
+    writer &lt;&lt; row;
+}
+
+writer.flush();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">std::ofstream out(</span><span style="color:#032F62">"edited_employees.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto writer </span><span style="color:#D73A49">=</span><span style="color:#24292E"> make_csv_writer(out).set_auto_flush(false)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Emit the header row first.</span></span>
+<span class="line"><span style="color:#24292E">writer </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> df.columns()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Then stream the edited rows back out.</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (const auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row : df) {</span></span>
+<span class="line"><span style="color:#24292E">    writer </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> row;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">writer.flush();</span></span></code></pre>
+<h3>Writing CSV Files</h3>
+<p><em>For a more in-depth guide, check out the <a href="https://vincentlaucsb.github.io/csv-parser/csv_writing_guide.html">Doxygen page on CSV writing</a>.</em></p>
+<p>Writing CSVs is powered by the generic <code>DelimWriter</code>, with helpful factory functions like <code>make_csv_writer()</code> and <code>make_tsv_writer()</code> that cut down on boilerplate.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;csv.hpp&quot;
+#include ...
+
+using namespace csv;
+using namespace std;
+
+...
+
+stringstream ss; // Can also use ofstream, etc.
+
+auto writer = make_csv_writer(ss);
+// auto writer = make_tsv_writer(ss);               // For tab-separated files
+// DelimWriter&lt;stringstream, '|', '&quot;'&gt; writer(ss);  // Your own custom format
+// set_decimal_places(2);                           // How many places after the decimal will be written for floats
+// writer.set_auto_flush(false);                    // Buffer writes until flush()/destructor
+
+writer &lt;&lt; vector&lt;string&gt;({ &quot;A&quot;, &quot;B&quot;, &quot;C&quot; })
+    &lt;&lt; deque&lt;string&gt;({ &quot;I'm&quot;, &quot;too&quot;, &quot;tired&quot; })
+    &lt;&lt; list&lt;string&gt;({ &quot;to&quot;, &quot;write&quot;, &quot;documentation.&quot; });
+
+// Uses compile-time templates
+writer &lt;&lt; array&lt;string, 3&gt;({ &quot;The quick brown&quot;, &quot;fox&quot;, &quot;jumps over the lazy dog&quot; });
+writer &lt;&lt; make_tuple(1, 2.0, &quot;Three&quot;, &quot;Quatro&quot;);
+
+// write_row() does everything operator&lt;&lt; does and then some
+writer.write_row(67, &quot;six&quot;, &quot;seven&quot;, 6.7, &quot;mogged&quot;);
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "csv.hpp"</span></span>
+<span class="line"><span style="color:#6A737D">#include ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">using namespace std</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">stringstream ss; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Can also use ofstream, etc.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto writer </span><span style="color:#D73A49">=</span><span style="color:#24292E"> make_csv_writer(ss)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> auto writer </span><span style="color:#D73A49">=</span><span style="color:#24292E"> make_tsv_writer(ss);               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> For tab</span><span style="color:#D73A49">-</span><span style="color:#24292E">separated files</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> DelimWriter</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">stringstream, </span><span style="color:#032F62">'|'</span><span style="color:#24292E">, </span><span style="color:#032F62">'"'</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> writer(ss);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Your own custom </span><span style="color:#005CC5">format</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> set_decimal_places(</span><span style="color:#005CC5">2</span><span style="color:#24292E">);                           </span><span style="color:#D73A49">//</span><span style="color:#24292E"> How many places after the decimal will be written </span><span style="color:#D73A49">for</span><span style="color:#24292E"> floats</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> writer.set_auto_flush(false);                    </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Buffer writes until flush()</span><span style="color:#D73A49">/</span><span style="color:#24292E">destructor</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">writer </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">({ </span><span style="color:#032F62">"A"</span><span style="color:#24292E">, </span><span style="color:#032F62">"B"</span><span style="color:#24292E">, </span><span style="color:#032F62">"C"</span><span style="color:#24292E"> })</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;&lt;</span><span style="color:#24292E"> deque</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">({ </span><span style="color:#032F62">"I'm"</span><span style="color:#24292E">, </span><span style="color:#032F62">"too"</span><span style="color:#24292E">, </span><span style="color:#032F62">"tired"</span><span style="color:#24292E"> })</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;&lt;</span><span style="color:#005CC5"> list</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">({ </span><span style="color:#032F62">"to"</span><span style="color:#24292E">, </span><span style="color:#032F62">"write"</span><span style="color:#24292E">, </span><span style="color:#032F62">"documentation."</span><span style="color:#24292E"> });</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Uses </span><span style="color:#005CC5">compile</span><span style="color:#D73A49">-</span><span style="color:#24292E">time templates</span></span>
+<span class="line"><span style="color:#24292E">writer </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> array</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string, </span><span style="color:#005CC5">3</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">({ </span><span style="color:#032F62">"The quick brown"</span><span style="color:#24292E">, </span><span style="color:#032F62">"fox"</span><span style="color:#24292E">, </span><span style="color:#032F62">"jumps over the lazy dog"</span><span style="color:#24292E"> });</span></span>
+<span class="line"><span style="color:#24292E">writer </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> make_tuple(</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.0</span><span style="color:#24292E">, </span><span style="color:#032F62">"Three"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Quatro"</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> write_row() does everything operator</span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> does </span><span style="color:#D73A49">and</span><span style="color:#24292E"> then some</span></span>
+<span class="line"><span style="color:#24292E">writer.write_row(</span><span style="color:#005CC5">67</span><span style="color:#24292E">, </span><span style="color:#032F62">"six"</span><span style="color:#24292E">, </span><span style="color:#032F62">"seven"</span><span style="color:#24292E">, </span><span style="color:#005CC5">6.7</span><span style="color:#24292E">, </span><span style="color:#032F62">"mogged"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<p>You can pass in arbitrary types into <code>DelimWriter</code> by defining a conversion function for that type to <code>std::string</code>.</p>
+<h4>C++20 Ranges: Efficient writing for <code>CSVRow</code>, <code>DataFrameRow</code>, and STL containers</h4>
+<p>If compiling with C++20 or later, the <code>DelimWriter</code> uses efficient <code>std::ranges</code> over string views for zero-copy writing.</p>
+<p>You can still serialize <code>CSVRow</code> or <code>DataFrameRow</code> in older versions, but you will have to use the <code>std::vector&lt;std::string&gt;()</code> conversion operator.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">A modern C++ CSV parser and serializer that doesn't make you choose between ease of use or performance.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/vincentlaucsb/csv-parser" title="@vincentlaucsb"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@vincentlaucsb/csv-parser</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/vincentlaucsb.png" alt="@vincentlaucsb"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1083</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, March 17, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 88.9%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 88.9%"> </span><span style="width: 7.1%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 7.1%"> </span><span style="width: 2.5%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 2.5%"> </span><span style="width: 1.2%; background-color: var(--lang-PowerShell-bg, #ccc)" title="PowerShell: 1.2%"> </span><span style="width: 0.3%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">88.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">7.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">2.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-PowerShell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>PowerShell</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.3%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/phaedon" title="Phaedon (Fædon) Sinis"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/phaedon" title="Fædon"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4064"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add csv-parser to BCR (#4064)"><span class="text-mono">#4064</span> <span class="text-light">Add csv-parser to BCR (#4064)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz" title="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/vincentlau...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/csv-parser/2.3.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/csv-parser/2.3.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/csv-parser/2.3.0/overlay/single_include_test/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">single_include_test/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="2.3.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="2.3.0"><span class="text-bold">2.3.0</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-17</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

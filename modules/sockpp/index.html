@@ -1,0 +1,466 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">sockpp</span> <span class="f2 d-inline-block">1.0.0-20260101-b8e19c8<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.8mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/fpagliughi/sockpp" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/sockpp/1.0.0-20260101-b8e19c8/overview" data-name="overview" id=":ip.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/sockpp/1.0.0-20260101-b8e19c8/docs" data-name="docs" id=":ip.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/sockpp/1.0.0-20260101-b8e19c8/testing" data-name="testing" id=":ip.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;sockpp&quot;, version = &quot;1.0.0-20260101-b8e19c8&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sockpp"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.0.0-20260101-b8e19c8"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">4</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.9.0">bazel_skylib<span class="ml-1 text-light text-small">1.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.17">rules_cc<span class="ml-1 text-light text-small">0.2.17</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_license/1.0.0">rules_license<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>sockpp</h1>
+<p>Simple, modern, C++ network socket library.</p>
+<p><em>sockpp</em> is a fairly low-level C++ wrapper around the Berkeley sockets library using <code>socket</code>, <code>acceptor,</code> and <code>connector</code> classes that are familiar concepts from other languages.</p>
+<p>The base <code>socket</code> class wraps a system socket handle and maintains its lifetime using the familiar <a href="https://en.wikipedia.org/wiki/Resource_acquisition_is_initialization">RAII</a> pattern. When the C++ object goes out of scope, it closes the underlying socket handle. Socket C++ objects are generally <em>moveable</em> but not <em>copyable</em>. A socket can be transferred from one scope (or thread) to another using <code>std::move()</code>.</p>
+<p>The library currently supports: IPv4 and IPv6 on Linux, Mac, and Windows. Other *nix and POSIX systems should work with little or no modification.</p>
+<p>Unix-Domain Sockets are available on *nix systems that have an OS implementation for them. There's experimental support for them on recent versions of Windows, although only UNIX stream sockets are supported on that platform.</p>
+<p>Experimental support for secure sockets using either the OpenSSL or MbedTLS libraries was started with basic coverage. This will continue to be expanded in the near future.</p>
+<p>There is also some experimental support for CAN bus programming on Linux using the SocketCAN package. This gives CAN bus adapters a network interface, with limitations dictated by the CAN message protocol.</p>
+<p>All code in the library lives within the <code>sockpp</code> C++ namespace.</p>
+<p><strong>The 'master' branch is moving toward the v2.0 API, and is particularly unstable at the moment. You're advised to download the latest release for production use.</strong></p>
+<h2>Latest News</h2>
+<p>Work is proceeding toward Version 2.0 with the following goals:</p>
+<ul>
+<li>Move the library to C++17</li>
+<li>Do a major refactor of error handling, to allow apps to use the library without exceptions.</li>
+<li>Achieve better thread safety.</li>
+<li>Add a portable socket <code>poller</code> class</li>
+<li>MinGW-w64 support on Windows</li>
+<li>Fix a number of known bugs and build issues.</li>
+<li>Start some better documentation, particularly for new users.</li>
+<li>Start experimental support for:<ul>
+<li>Secure TLS sockets.</li>
+<li>SocketCAN (CANbus) on Linux</li>
+<li>[Optional] Start support for Bluetooth on Linux</li>
+</ul>
+</li>
+</ul>
+<p>The strategy for experimental features is to allow them to be optionally built into the library, but that they are not production-ready and will likely experience breaking changes within the major version as they evolve.</p>
+<h3>Get Updates</h3>
+<p>To keep up with the latest announcements for this project, follow me at:</p>
+<p><strong>Mastodon:</strong> <a href="https://fosstodon.org/@fpagliughi">@fpagliughi@fosstodon.org</a></p>
+<p>If you're using this library, send me a message and let me know how you're using it.  I'm always curious to see where it winds up!</p>
+<h2>Documentation</h2>
+<p>Documentation is live here in the form of an mdBook:</p>
+<p><a href="https://fpagliughi.github.io/sockpp/">https://fpagliughi.github.io/sockpp/</a></p>
+<p>It's still in its infancy, but may be helpful.</p>
+<h2>Building your app with CMake</h2>
+<p>The library, when installed can normally be discovered with <code>find_package(sockpp)</code>. It uses the namespace <code>Sockpp</code> and the library name <code>sockpp</code>.</p>
+<p>A simple <em>CMakeLists.txt</em> file might look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake_minimum_required(VERSION 3.15)
+project(mysock VERSION 1.0.0)
+
+find_package(sockpp REQUIRED)
+
+add_executable(mysock mysock.cpp)
+target_link_libraries(mysock Sockpp::sockpp)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.15</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">project(mysock </span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 1.0</span><span style="color:#24292E">.0)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">find_package(sockpp </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable(mysock mysock.cpp)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(mysock Sockpp::sockpp)</span></span></code></pre>
+<h2>Contributing</h2>
+<p>Contributions are accepted and appreciated. New and unstable work is done in the <code>develop</code> branch Please submit all pull requests against that branch, not <em>master</em>.</p>
+<p>For more information, refer to: <a href="https://github.com/fpagliughi/sockpp/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></p>
+<h2>Building the Library</h2>
+<p>CMake is the supported build system.</p>
+<h3>Requirements:</h3>
+<ul>
+<li>A conforming C++-17 compiler.<ul>
+<li><em>gcc</em> v8.0 or later (or) <em>clang</em> v5.0 or later.</li>
+<li><em>Visual Studio 2019</em>, or later on Windows.</li>
+</ul>
+</li>
+<li><em>CMake</em> v3.15 or newer.</li>
+<li><em>Doxygen</em> (optional) to generate API docs.</li>
+<li><em>Catch2</em> (optional) v2.x or v3.x to build and run unit tests.</li>
+</ul>
+<p>To build with default options:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cd sockpp
+$ cmake -Bbuild .
+$ cmake --build build/" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd sockpp</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">Bbuild .</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span></span></code></pre>
+<p>To install:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake --build build/ --target install" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">target install</span></span></code></pre>
+<h3>Build Options</h3>
+<p>The library has several build options via CMake to choose between creating a static or shared (dynamic) library - or both. It also allows you to build the example options, and if Doxygen is installed, it can be used to create documentation.</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOCKPP_BUILD_SHARED</td>
+<td>ON</td>
+<td>Whether to build the shared library</td>
+</tr>
+<tr>
+<td>SOCKPP_BUILD_STATIC</td>
+<td>OFF</td>
+<td>Whether to build the static library</td>
+</tr>
+<tr>
+<td>SOCKPP_BUILD_DOCUMENTATION</td>
+<td>OFF</td>
+<td>Create and install the HTML based API documentation (requires <em>Doxygen)</em></td>
+</tr>
+<tr>
+<td>SOCKPP_BUILD_EXAMPLES</td>
+<td>OFF</td>
+<td>Build example programs</td>
+</tr>
+<tr>
+<td>SOCKPP_BUILD_TESTS</td>
+<td>OFF</td>
+<td>Build the unit tests (requires <em>Catch2</em>)</td>
+</tr>
+<tr>
+<td>SOCKPP_WITH_UNIX_SOCKETS</td>
+<td>ON (*nix), OFF (Win)</td>
+<td>Include support for UNIX-domain sockets. Windows support it experimental.</td>
+</tr>
+</tbody></table>
+<p><strong>Experimental Features</strong></p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOCKPP_WITH_OPENSSL</td>
+<td>OFF</td>
+<td>TLS support with OpenSSL</td>
+</tr>
+<tr>
+<td>SOCKPP_WITH_MBEDTLS</td>
+<td>OFF</td>
+<td>TLS support with MbedTLS</td>
+</tr>
+<tr>
+<td>SOCKPP_WITH_CAN</td>
+<td>OFF</td>
+<td>Include SocketCAN support. (Linux only)</td>
+</tr>
+</tbody></table>
+<p>Set these using the '-D' switch in the CMake configuration command. For example, to build documentation and example apps:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cd sockpp
+$ cmake -Bbuild -DSOCKPP_BUILD_DOCUMENTATION=ON -DSOCKPP_BUILD_EXAMPLES=ON .
+$ cmake --build build/" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd sockpp</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">Bbuild </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DSOCKPP_BUILD_DOCUMENTATION</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DSOCKPP_BUILD_EXAMPLES</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E"> .</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span></span></code></pre>
+<h3>Error Handling</h3>
+<p>Version 2.0 substantially changed the way the errors are reported by the library.</p>
+<p>The initial versions, up to v1.0, stayed close to the original C-style of error reporting. Most class functions returned an integer value where 0 indicated success, and -1 indicated failure. Behind the scenes, the object grabbed the <em>errno</em> value for the failure and the application could query it by calling <code>socket::last_error()</code>. But having a cached error return made it difficult to share the socket across threads, and to reliably tie the error with the exact operation.</p>
+<p>The idea of having "stateless" I/O operations which was introduced in <a href="https://github.com/fpagliughi/sockpp/pull/17">PR #17</a>, but the PR was never fully merged. The idea was generalized and arrived in the 2.0 API with a <code>result&lt;T&gt;</code> class. The result is generic over the "success" type, but errors are always represented by a C++ <code>std::error_code</code>. This fixes the problem of the cached error state in socket objects, but also helps to significantly reduce platform issues for tracking and reporting errors, since the error codes are more portable.</p>
+<p>In addition, using a uniform result type removes the need for exceptions in most functions - except for constructors which can't return a result. In those cases where the constructor might throw, a comparable <code>noexcept</code> function is also provided which sets an error code parameter instead of throwing. So the library can be used without any exceptions if so desired by the application.</p>
+<p>For example, to create a <code>socket</code> object, you might see these two similar constructors:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="socket(int domain, int type);   // This might throw an error
+socket(int domain, int type, error_code&amp; ec) noexcept;  // This will never throw. 'ec' gets any error." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">socket(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> domain, </span><span style="color:#005CC5">int</span><span style="color:#005CC5"> type</span><span style="color:#24292E">);   </span><span style="color:#D73A49">//</span><span style="color:#24292E"> This might throw an error</span></span>
+<span class="line"><span style="color:#24292E">socket(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> domain, </span><span style="color:#005CC5">int</span><span style="color:#005CC5"> type</span><span style="color:#24292E">, error_code</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> ec) noexcept;  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> This will never throw. </span><span style="color:#032F62">'ec'</span><span style="color:#24292E"> gets </span><span style="color:#005CC5">any</span><span style="color:#24292E"> error.</span></span></code></pre>
+<p>Now, without the cached error value, the basic socket classes only wrap the socket handle, making them safer to share across threads in the same way a handle can be shared - typically with one thread for reading and another for writing.</p>
+<h2>TCP Sockets</h2>
+<p>TCP and other "streaming" network applications are usually set up as either servers or clients. An acceptor is used to create a TCP/streaming server. It binds an address and listens on a known port to accept incoming connections. When a connection is accepted, a new, streaming socket is created. That new socket can be handled directly or moved to a thread (or thread pool) for processing.</p>
+<p>Conversely, to create a TCP client, a connector object is created and connected to a server at a known address (typically host and port). When connected, the socket is a streaming one which can be used to read and write, directly.</p>
+<p>For IPv4 the <code>tcp_acceptor</code> and <code>tcp_connector</code> classes are used to create servers and clients, respectively. These use the <code>inet_address</code> class to specify endpoint addresses composed of a 32-bit host address and a 16-bit port number.</p>
+<h3>TCP Server: <code>tcp_acceptor</code></h3>
+<p>The <code>tcp_acceptor</code> is used to set up a server and listen for incoming connections.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="in_port_t port = 12345;
+error_code ec;
+sockpp::tcp_acceptor acc{port, ec};
+
+if (ec)
+    report_error(ec.message());
+
+// Accept a new client connection
+if (auto res = acc.accept(); !res)
+    report_error(res.error_message());
+else {
+    sockpp::tcp_socket sock = res.release();
+    // use sock...
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">in_port_t port </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 12345</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">error_code ec</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sockpp::tcp_acceptor acc{port, ec}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (ec)</span></span>
+<span class="line"><span style="color:#24292E">    report_error(ec.message())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Accept a new client connection</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = acc.accept(); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res)</span></span>
+<span class="line"><span style="color:#24292E">    report_error(res.error_message())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    sockpp::tcp_socket sock = res.release();</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> use sock</span><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>The acceptor normally sits in a loop accepting new connections, and passes them off to another process, thread, or thread pool to interact with the client. In standard C++, this could look like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="while (true) {
+    // Accept a new client connection
+    if (auto res = acc.accept(); !res) {
+        cerr &lt;&lt; &quot;Error accepting incoming connection: &quot;
+            &lt;&lt; res.error_message() &lt;&lt; endl;
+    }
+    else {
+        // Create a thread and transfer the new stream to it.
+        thread thr(run_echo, res.release());
+        thr.detach();
+    }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (true) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Accept a new client connection</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (auto res = acc.accept(); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res) {</span></span>
+<span class="line"><span style="color:#24292E">        cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Error accepting incoming connection: "</span></span>
+<span class="line"><span style="color:#D73A49">            &lt;&lt;</span><span style="color:#24292E"> res.error_message() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> endl;</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#D73A49">    else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Create a thread </span><span style="color:#D73A49">and</span><span style="color:#24292E"> transfer the new stream to it.</span></span>
+<span class="line"><span style="color:#24292E">        thread thr(run_echo, res.release());</span></span>
+<span class="line"><span style="color:#24292E">        thr.detach();</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>The hazards of a thread-per-connection design is well documented, but the same technique can be used to pass the socket into a thread pool, if one is available.</p>
+<p>See the <a href="https://github.com/fpagliughi/sockpp/blob/master/examples/tcp/tcpechosvr.cpp">tcpechosvr.cpp</a> example.</p>
+<h3>TCP Client: <code>tcp_connector</code></h3>
+<p>The TCP client is somewhat simpler in that a <code>tcp_connector</code> object is created and connected, then can be used to read and write data directly.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="in_port_t port = 12345;
+sockpp::tcp_connector conn;
+
+if (auto res = conn.connect(sockpp::inet_address(&quot;localhost&quot;, port)); !res)
+    report_error(res.error_message());
+
+conn.write_n(&quot;Hello&quot;, 5);
+
+char buf[16];
+if (auto res = conn.read(buf, sizeof(buf)); !res)
+    report_error(res.error_message());
+else {
+    size_t n = res.value();
+    // use buf[0..n-1]...
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">in_port_t port </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 12345</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sockpp::tcp_connector conn</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = conn.connect(sockpp::inet_address(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, port)); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res)</span></span>
+<span class="line"><span style="color:#24292E">    report_error(res.error_message())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">conn.write_n(</span><span style="color:#032F62">"Hello"</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">char buf[</span><span style="color:#005CC5">16</span><span style="color:#24292E">]</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = conn.read(buf, sizeof(buf)); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res)</span></span>
+<span class="line"><span style="color:#24292E">    report_error(res.error_message())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    size_t n = res.value();</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> use buf[</span><span style="color:#005CC5">0</span><span style="color:#24292E">..n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>See the <a href="https://github.com/fpagliughi/sockpp/blob/master/examples/tcp/tcpecho.cpp">tcpecho.cpp</a> example.</p>
+<h3>UDP Socket: <code>udp_socket</code></h3>
+<p>UDP sockets can be used for connectionless communications:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="sockpp::udp_socket sock;
+sockpp::inet_address addr(&quot;localhost&quot;, 12345);
+
+std::string msg(&quot;Hello there!&quot;);
+sock.send_to(msg, addr);
+
+sockpp::inet_address srcAddr;
+char buf[16];
+if (auto res = sock.recv_from(buf, sizeof(buf), &amp;srcAddr); !res)
+    report_error(res.error_message());
+else {
+    size_t n = res.value();
+    // use buf[0..n-1]...
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">sockpp::udp_socket sock</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sockpp::inet_address addr(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">12345</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::string msg(</span><span style="color:#032F62">"Hello there!"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sock.send_to(msg, addr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">sockpp::inet_address srcAddr</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">char buf[</span><span style="color:#005CC5">16</span><span style="color:#24292E">]</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = sock.recv_from(buf, sizeof(buf), </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">srcAddr); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res)</span></span>
+<span class="line"><span style="color:#24292E">    report_error(res.error_message())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    size_t n = res.value();</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> use buf[</span><span style="color:#005CC5">0</span><span style="color:#24292E">..n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">]</span><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>See the <a href="https://github.com/fpagliughi/sockpp/blob/master/examples/udp/udpecho.cpp">udpecho.cpp</a> and <a href="https://github.com/fpagliughi/sockpp/blob/master/examples/udp/udpechosvr.cpp">udpechosvr.cpp</a> examples.</p>
+<h3>IPv6</h3>
+<p>The same style of  connectors and acceptors can be used for TCP connections over IPv6 using the classes:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="inet6_address
+tcp6_connector
+tcp6_acceptor
+tcp6_socket
+udp6_socket" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">inet6_address</span></span>
+<span class="line"><span style="color:#24292E">tcp6_connector</span></span>
+<span class="line"><span style="color:#24292E">tcp6_acceptor</span></span>
+<span class="line"><span style="color:#24292E">tcp6_socket</span></span>
+<span class="line"><span style="color:#24292E">udp6_socket</span></span></code></pre>
+<p>Examples are in the <a href="https://github.com/fpagliughi/sockpp/tree/master/examples/tcp">examples/tcp</a> directory.</p>
+<h3>Unix Domain Sockets</h3>
+<p>The same is true for local connection on *nix systems that implement Unix Domain Sockets. For that use the classes:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="unix_address
+unix_connector
+unix_acceptor
+unix_socket
+unix_stream_socket
+unix_dgram_socket" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">unix_address</span></span>
+<span class="line"><span style="color:#24292E">unix_connector</span></span>
+<span class="line"><span style="color:#24292E">unix_acceptor</span></span>
+<span class="line"><span style="color:#24292E">unix_socket</span></span>
+<span class="line"><span style="color:#24292E">unix_stream_socket</span></span>
+<span class="line"><span style="color:#24292E">unix_dgram_socket</span></span></code></pre>
+<p>Examples are in the <a href="https://github.com/fpagliughi/sockpp/tree/master/examples/unix">examples/unix</a> directory.</p>
+<h4>UNIX Socket Support in Windows! [Very Experimental]</h4>
+<p>Later versions of Windows 10 (starting with April 2018 update from Insider Build 17063) and all versions of Windows 11 implement support for UNIX sockets. Initial support was added to this library as a CMake option (opt-in), but has not been thoroughly tested, so is still considered experimental in this library.</p>
+<p>More information can be found in these posts from Microsoft:</p>
+<p><a href="https://devblogs.microsoft.com/commandline/af_unix-comes-to-windows/">AF_UNIX comes to Windows</a>
+<a href="https://devblogs.microsoft.com/commandline/windowswsl-interop-with-af_unix/">Windows/WSL Interop with AF_UNIX</a></p>
+<p>Some key points for UNIX sockets on Win32/64:</p>
+<ul>
+<li>Only stream sockets are supported, not dgram.</li>
+<li>socketpair is not supported.</li>
+<li>Windows file and directory permissions determine who can create and connect to UNIX sockets (as expected).</li>
+<li>You can check if UNIX sockets are supported on a target by running the command <code>sc query afunix</code> from a Windows admin command prompt.</li>
+</ul>
+<h3>Secure Sockets [Experimental]</h3>
+<p>Support for secure sockets is being added using a number of possible TLS libraries, although support is incomplete and the API is still changing. The idea is that one (and <em>only</em> one) supported TLS library can be built into <em>sockpp</em> at a time.</p>
+<p>To build the library with secure socket support, a TLS library needs to be chosen to provide the encryption implementation. Currently <em>OpenSSL</em> v3.x or <em>MbedTLS</em> can be used. When one is chosen, a <code>tls_context</code> and <code>tls_socket</code> are included that wrap the functionality of the target library.</p>
+<p>Choose <em>one</em> of the following when configuring the build:</p>
+<table>
+<thead>
+<tr>
+<th>Variable</th>
+<th>Default Value</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>SOCKPP_WITH_OPENSSL</td>
+<td>OFF</td>
+<td>Secure Sockets with OpenSSL</td>
+</tr>
+<tr>
+<td>SOCKPP_WITH_MBEDTLS</td>
+<td>OFF</td>
+<td>Secure Sockets with MbedTLS</td>
+</tr>
+</tbody></table>
+<h4>OpenSSL</h4>
+<p>The <code>sockpp</code> OpenSSL wrapper is currently being built and tested with OpenSSL v3.x.</p>
+<h4>MbedTLS</h4>
+<p>The <code>sockpp</code> library currently supports MbedTLS v3.3. When building that library, the following configuration options should be defined in the config file, <em>include/mbedtls/mbedtls_config.h</em></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#define MBEDTLS_X509_TRUSTED_CERTIFICATE_CALLBACK" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#define MBEDTLS_X509_TRUSTED_CERTIFICATE_CALLBACK</span></span></code></pre>
+<p>To support threading:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#define MBEDTLS_THREADING_PTHREAD
+#define MBEDTLS_THREADING_C" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#define MBEDTLS_THREADING_PTHREAD</span></span>
+<span class="line"><span style="color:#6A737D">#define MBEDTLS_THREADING_C</span></span></code></pre>
+<p>and set the CMake build option:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="LINK_WITH_PTHREAD:BOOL=ON" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">LINK_WITH_PTHREAD</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
+<p>Note that the options in the config file should already be present in the file but commented out by default. Simply uncomment them, save, and build.</p>
+<h3>CANbus on Linux with SocketCAN [Experimental]</h3>
+<p>The Controller Area Network (CAN bus) is a relatively simple protocol typically used by microcontrollers to communicate inside an automobile or industrial machine over a twisted pair of wires. Linux has the <em>SocketCAN</em> package which allows processes to share access to a physical CAN bus interface using raw sockets in user space. See: <a href="https://www.kernel.org/doc/html/latest/networking/can.html">Linux SocketCAN</a></p>
+<p>At the lowest level, CAN devices write individual packets, called "frames", to a specific numeric ID (addresses) for each frame. There is no master on the bus; all nodes can read and write at will. In the event that multiple nodes transmit at the same time, the collision is won by the frame with the highest priority, determined as the one with the lowest ID. The other nodes back-off and can retry later.</p>
+<p>As an example, consider a device with a temperature sensor. The device might read the temperature periodically and write it to the bus as a raw 32-bit integer, like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="canbus_address addr(&quot;CAN0&quot;);
+canbus_socket sock(addr);
+
+// The agreed ID to broadcast temperature on the bus
+canid_t canID = 0x40;
+
+while (true) {
+    this_thread::sleep_for(1s);
+
+    // Write the temperature to the CAN bus as a 32-bit int
+    int32_t t = read_temperature();
+
+    canbus_frame frame { canID, &amp;t, sizeof(t) };
+    sock.send(frame);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">canbus_address addr(</span><span style="color:#032F62">"CAN0"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">canbus_socket sock(addr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> The agreed </span><span style="color:#005CC5">ID</span><span style="color:#24292E"> to broadcast temperature on the bus</span></span>
+<span class="line"><span style="color:#24292E">canid_t canID </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">40</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (true) {</span></span>
+<span class="line"><span style="color:#24292E">    this_thread::sleep_for(</span><span style="color:#B31D28;font-style:italic">1s</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Write the temperature to the </span><span style="color:#005CC5">CAN</span><span style="color:#24292E"> bus </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a </span><span style="color:#005CC5">32</span><span style="color:#D73A49">-</span><span style="color:#24292E">bit </span><span style="color:#005CC5">int</span></span>
+<span class="line"><span style="color:#24292E">    int32_t t = read_temperature();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    canbus_frame frame { canID, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">t, sizeof(t) };</span></span>
+<span class="line"><span style="color:#24292E">    sock.send(frame);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>A receiver to get a frame might look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="canbus_address addr(&quot;CAN0&quot;);
+canbus_socket sock(addr);
+
+canbus_frame frame;
+sock.recv(&amp;frame);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">canbus_address addr(</span><span style="color:#032F62">"CAN0"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">canbus_socket sock(addr)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">canbus_frame frame</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sock.recv(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">frame)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h2>Implementation Details</h2>
+<p>The socket class hierarchy is built upon a base <code>socket</code> class. Most simple applications will probably not use <code>socket</code> directly, but rather use derived classes defined for a specific address family like <code>tcp_connector</code> and <code>tcp_acceptor</code>.</p>
+<p>The socket objects keep a handle to an underlying OS socket handle which is typically an integer file descriptor, with values &gt;=0 for open sockets, and -1 for an unopened or invalid socket, with the exception of Win32 which uses a <code>HANDLE</code> object for the sockets. The value used for unopened sockets is defined as a constant, <code>INVALID_SOCKET</code>, which is true for all platforms, including Windows. That value doesn't need to be tested directly, as the object itself will evaluate to <em>false</em> if it's uninitialized or in an error state.</p>
+<p>The default constructors for each of the socket classes do nothing, and simply set the underlying handle to <code>INVALID_SOCKET</code>. They do not create a socket object. The call to actively connect a <code>connector</code> object or open an <code>acceptor</code> object will create an underlying OS socket and then perform the requested operation, reporting an appropriate error if either the socket could not be created or the operation failed.</p>
+<p>An application can generally perform most low-level operations with the library. Unconnected and unbound sockets can be created with the static <code>create()</code> function in most of the classes, and then manually bind and listen on those sockets.</p>
+<p>The <code>socket::handle()</code> method exposes the underlying OS handle which can be sent to any platform API calls that are not exposed by the library.</p>
+<h3>Thread Safety</h3>
+<p>A socket object is not thread-safe. Applications that want to have multiple threads reading from a socket or writing to a socket should use some form of serialization, such as a <code>std::mutex</code> to protect access. As of Version 2.0 of the library, nearly all of the socket objects only contain the socket handle in the object, and do not carry any other state than what the OS keeps behind the handle.</p>
+<p>It is a common pattern, especially in client applications, to have one thread to read from a socket and another thread to write to the same socket. In this case the underlying socket handle can be considered thread safe (one read thread and one write thread). But a socket object can not be copied as is common in C++ with an assignment or pass-by-value.</p>
+<p>The solution for this case is to use the <code>socket::clone()</code> method to make a copy of the socket. This will use the system's <code>dup()</code> function or similar to create another socket object with a duplicated copy of the socket handle. This has the added benefit that each copy of the socket can maintain an independent lifetime. The underlying socket will not be closed until both objects go out of scope. This work well with the library's RAII philosophy.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="sockpp::tcp_connector conn({host, port});
+
+if (auto res = conn.clone(); !res) {
+    report_error(res.error_message());
+}
+else {
+    auto conn_clone = res.release();
+    std::thread rdThr(read_thread_func, std::move(conn_clone));
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">sockpp::tcp_connector conn({host, port})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = conn.clone(); </span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">res) {</span></span>
+<span class="line"><span style="color:#24292E">    report_error(res.error_message());</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    auto conn_clone = res.release();</span></span>
+<span class="line"><span style="color:#24292E">    std::thread rdThr(read_thread_func, std::move(conn_clone));</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>When using a pair of cloned sockets like this, the <code>socket::shutdown()</code> method can be used to communicate the intent to close the socket from one of these objects to the other without needing a separate thread signaling mechanism.</p>
+<p>As stated, a <code>socket</code> can not be copied, but it can be <em>moved</em> from one thread to another safely. This is a common pattern for a server which uses one thread to accept incoming connections and then passes off the new socket to another thread or thread pool for handling. For example with an <code>acceptor</code> variable, <em>acc</em>, this can be done like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="if (auto res = acc.accept(); res) {
+    // Create a thread and transfer the new socket to it.
+    std::thread thr(handle_connection, std::move(res.release()));
+    thr.detach();
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (auto res = acc.accept(); res) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Create a thread </span><span style="color:#D73A49">and</span><span style="color:#24292E"> transfer the new socket to it.</span></span>
+<span class="line"><span style="color:#24292E">    std::thread thr(handle_connection, std::move(res.release()));</span></span>
+<span class="line"><span style="color:#24292E">    thr.detach();</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>In this case, <em>handle_connection</em> would be a function that takes a socket by value, like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="void handle_connection(sockpp::tcp_socket sock) { ... }" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">void handle_connection(sockpp::tcp_socket sock) { </span><span style="color:#005CC5">...</span><span style="color:#24292E"> }</span></span></code></pre>
+<p>Since a <code>socket</code> can not be copied, the only choice would be to move the socket to a function like this.</p>
+<p>See the <a href="https://github.com/fpagliughi/sockpp/blob/master/examples/tcp/tcpechomt.cpp">tcpechomt.cpp</a> example.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Modern C++ socket library.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/fpagliughi/sockpp" title="@fpagliughi"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@fpagliughi/sockpp</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/fpagliughi.png" alt="@fpagliughi"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://fpagliughi.github.io/sockpp/"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">898</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Thursday, March 12, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 94.1%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 94.1%"> </span><span style="width: 3.1%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 3.1%"> </span><span style="width: 2%; background-color: var(--lang-C-bg, #ccc)" title="C: 2%"> </span><span style="width: 0.4%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.4%"> </span><span style="width: 0.4%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.4%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">94.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">3.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.4%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/arjuna-fourgrowers" title="Arjuna Ariyaratne"><img class="avatar circle" width="48" height="48" src="https://github.com/arjuna-fourgrowers.png" alt="@arjuna-fourgrowers"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/spinningthelock" title="Arjuna Ariyaratne"><img class="avatar circle" width="48" height="48" src="https://github.com/spinningthelock.png" alt="@spinningthelock"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/7867"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add sockpp to BCR (#7867)"><span class="text-mono">#7867</span> <span class="text-light">Add sockpp to BCR (#7867)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/fpagliughi/sockpp/archive/b8e19c806ad908c7c5acf55a0c2d9c316711c8f1.tar.gz" title="https://github.com/fpagliughi/sockpp/archive/b8e19c806ad908c7c5acf55a0c2d9c316711c8f1.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/fpagliughi...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sockpp/1.0.0-20260101-b8e19c8/patches/fix-windows-socket-error.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">fix-windows-socket-error.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sockpp/1.0.0-20260101-b8e19c8/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sockpp/1.0.0-20260101-b8e19c8/overlay/tests/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">tests/BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/sockpp/1.0.0-20260101-b8e19c8/overlay/tests/unit/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">tests/unit/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="1.0.0-20260101-b8e19c8; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="1.0.0-20260101-b8e19c8"><span class="text-bold">1.0.0-20260101-...</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-12</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

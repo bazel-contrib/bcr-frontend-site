@@ -1,0 +1,1093 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">swiftlint</span> <span class="f2 d-inline-block">0.63.2<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 3.3mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/realm/SwiftLint" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/swiftlint/0.63.2/overview" data-name="overview" id=":nd.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/swiftlint/0.63.2/docs" data-name="docs" id=":nd.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/swiftlint/0.63.2/testing" data-name="testing" id=":nd.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;swiftlint&quot;, version = &quot;0.63.2&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "swiftlint"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.63.2"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">11</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/apple_support/2.2.0">apple_support<span class="ml-1 text-light text-small">2.2.0</span><span class="ml-1 text-light text-small">as <span class="text-semibold">build_bazel_apple_support</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/apple_support/2.5.4">2.5.4<span title="Version Distance"><sup style="padding-left: 3px">+7<span class="color-fg-attention"> (3.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.9.0">bazel_skylib<span class="ml-1 text-light text-small">1.9.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_apple/4.3.3">rules_apple<span class="ml-1 text-light text-small">4.3.3</span><span class="ml-1 text-light text-small">as <span class="text-semibold">build_bazel_rules_apple</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_apple/4.5.3">4.5.3<span title="Version Distance"><sup style="padding-left: 3px">+5<span class="color-fg-attention"> (4.0mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.16">rules_cc<span class="ml-1 text-light text-small">0.2.16</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (4.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_shell/0.6.1">rules_shell<span class="ml-1 text-light text-small">0.6.1</span><span class="ml-1 text-light text-small">as <span class="text-semibold">build_bazel_rules_shell</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_shell/0.8.0">0.8.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (7.2mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_swift/3.4.2">rules_swift<span class="ml-1 text-light text-small">3.4.2</span><span class="ml-1 text-light text-small">as <span class="text-semibold">build_bazel_rules_swift</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_swift/3.6.1">3.6.1<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (3.0mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/sourcekitten/0.37.2">sourcekitten<span class="ml-1 text-light text-small">0.37.2</span><span class="ml-1 text-light text-small">as <span class="text-semibold">SourceKittenFramework</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/sourcekitten/0.37.3">0.37.3<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (9.6mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/swift-filename-matcher/2.0.1">swift-filename-matcher<span class="ml-1 text-light text-small">2.0.1</span><span class="ml-1 text-light text-small">as <span class="text-semibold">FilenameMatcher</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/swift_argument_parser/1.7.0">swift_argument_parser<span class="ml-1 text-light text-small">1.7.0</span><span class="ml-1 text-light text-small">as <span class="text-semibold">SwiftArgumentParser</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/swift_argument_parser/1.7.1">1.7.1<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (4.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/yams/6.2.0">yams<span class="ml-1 text-light text-small">6.2.0</span><span class="ml-1 text-light text-small">as <span class="text-semibold">Yams</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/yams/6.2.1">6.2.1<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (4.7mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>SwiftLint</h1>
+<p>A tool to enforce Swift style and conventions, loosely based on the now
+archived <a href="https://github.com/github/swift-style-guide">GitHub Swift Style Guide</a>.
+SwiftLint enforces the style guide rules that are generally accepted by the
+Swift community. These rules are well described in popular style guides like
+<a href="https://github.com/kodecocodes/swift-style-guide">Kodeco's Swift Style Guide</a>.</p>
+<p>SwiftLint rules are predominantly based on <a href="https://github.com/swiftlang/swift-syntax">SwiftSyntax</a>.
+Some rules still hook into <a href="http://clang.llvm.org">Clang</a> and
+<a href="http://www.jpsim.com/uncovering-sourcekit">SourceKit</a> to access type information.</p>
+<p><a href="https://swiftpackageindex.com/realm/SwiftLint"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frealm%2FSwiftLint%2Fbadge%3Ftype%3Dswift-versions" alt="Supported Swift Versions"></a>
+<a href="https://swiftpackageindex.com/realm/SwiftLint"><img src="https://img.shields.io/endpoint?url=https%3A%2F%2Fswiftpackageindex.com%2Fapi%2Fpackages%2Frealm%2FSwiftLint%2Fbadge%3Ftype%3Dplatforms" alt="Supported Platforms"></a>
+<a href="https://buildkite.com/swiftlint/swiftlint"><img src="https://badge.buildkite.com/e2a5bc32c347e76e2793e4c5764a5f42bcd42bbe32f79c3a53.svg?branch=main" alt="Buildkite Build Status"></a></p>
+<p><img src="https://raw.githubusercontent.com/realm/SwiftLint/main/assets/screenshot.png" alt="SwiftLint violations highlighted in the Xcode editor"></p>
+<p>This project adheres to the
+<a href="https://realm.io/conduct">Contributor Covenant Code of Conduct</a>.
+By participating, you are expected to uphold this code.</p>
+<blockquote>
+<p>Switch Language:
+<a href="https://github.com/realm/SwiftLint/blob/main/README_CN.md">中文</a>,
+<a href="https://github.com/realm/SwiftLint/blob/main/README_KR.md">한국어</a></p>
+</blockquote>
+<h2>Video Introduction</h2>
+<p>To get a high-level overview of SwiftLint, we encourage you to watch this
+presentation recorded January 9th, 2017 by JP Simard (transcript provided):</p>
+<p><a href="https://youtu.be/9Z1nTMTejqU"><img src="https://raw.githubusercontent.com/realm/SwiftLint/main/assets/presentation.svg" alt="Presentation"></a></p>
+<h2>Installation</h2>
+<h3><a href="https://github.com/apple/swift-package-manager">Swift Package Manager</a></h3>
+<p>SwiftLint can be used as a <a href="#swift-package-command-plugin">command plugin</a>
+or a <a href="#build-tool-plugins">build tool plugin</a>.</p>
+<p>Add</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy=".package(url: &quot;https://github.com/SimplyDanny/SwiftLintPlugins&quot;, from: &quot;&lt;version&gt;&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/SimplyDanny/SwiftLintPlugins"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>to your <code>Package.swift</code> file to consume the latest release of SwiftLint
+automatically or pin the dependency to a specific version:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy=".package(url: &quot;https://github.com/SimplyDanny/SwiftLintPlugins&quot;, exact: &quot;&lt;version&gt;&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/SimplyDanny/SwiftLintPlugins"</span><span style="color:#24292E">, exact: </span><span style="color:#032F62">"&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>Therein, replace <code>&lt;version&gt;</code> with the desired minimum or exact version.</p>
+<blockquote>
+<p>[!NOTE]
+Consuming the plugins directly from the SwiftLint repository comes
+with several drawbacks. To avoid them and reduce the overhead imposed, it's
+highly recommended to consume the plugins from the dedicated
+<a href="https://github.com/SimplyDanny/SwiftLintPlugins">SwiftLintPlugins repository</a>,
+even though plugins from the SwiftLint repository are also absolutely
+functional. If the plugins from SwiftLint are preferred, just use the URL
+<code>https://github.com/realm/SwiftLint</code> in the package declarations above.</p>
+<p>However, <a href="https://github.com/SimplyDanny/SwiftLintPlugins">SwiftLintPlugins</a>
+facilitates plugin adoption massively. It lists some of the reasons that
+drive the plugins as provided by SwiftLint itself very troublesome. Since
+the plugin code and the releases are kept in sync, there is no difference
+in functionality between the two, but you spare yourself a lot of time and
+trouble using the dedicated plugins repository.</p>
+<p>This document assumes you're relying on SwiftLintPlugins.</p>
+</blockquote>
+<h3><a href="https://developer.apple.com/documentation/xcode/adding-package-dependencies-to-your-app">Xcode Package Dependency</a></h3>
+<p>Use the following link to add SwiftLint as a Package Dependency to an Xcode
+project:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="https://github.com/SimplyDanny/SwiftLintPlugins" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">SimplyDanny</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLintPlugins</span></span></code></pre>
+<h3><a href="http://brew.sh">Homebrew</a></h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="brew install swiftlint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">brew install swiftlint</span></span></code></pre>
+<h3><a href="https://cocoapods.org">CocoaPods</a></h3>
+<p>Add the following to your <code>Podfile</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="pod 'SwiftLint'" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">pod </span><span style="color:#032F62">'SwiftLint'</span></span></code></pre>
+<p>This will download the SwiftLint binaries and dependencies in <code>Pods/</code> during
+your next <code>pod install</code> execution and will allow you to invoke it via
+<code>${PODS_ROOT}/SwiftLint/swiftlint</code> in your Script Build Phases.</p>
+<p>Installing via Cocoapods also enables pinning to a specific version of
+SwiftLint rather than simply the latest (which is the case with
+<a href="#homebrew">Homebrew</a>).</p>
+<p>Note that this will add the SwiftLint binaries, its dependencies' binaries, and
+the Swift binary library distribution to the <code>Pods/</code> directory, so checking in
+this directory to SCM such as Git is discouraged.</p>
+<h3><a href="https://github.com/yonaskolb/mint">Mint</a></h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="mint install realm/SwiftLint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">mint install realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLint</span></span></code></pre>
+<h3><a href="https://bazel.build">Bazel</a></h3>
+<p>Put this in your <code>MODULE.bazel</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;swiftlint&quot;, version = &quot;0.52.4&quot;, repo_name = &quot;SwiftLint&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "swiftlint"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.52.4"</span><span style="color:#24292E">, </span><span style="color:#E36209">repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SwiftLint"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>Or put this in your <code>WORKSPACE</code>:</p>
+<details>
+
+<summary>WORKSPACE</summary>
+
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_tools//tools/build_defs/repo:http.bzl&quot;, &quot;http_archive&quot;)
+
+http_archive(
+    name = &quot;build_bazel_rules_apple&quot;,
+    sha256 = &quot;390841dd5f8a85fc25776684f4793d56e21b098dfd7243cd145b9831e6ef8be6&quot;,
+    url = &quot;https://github.com/bazelbuild/rules_apple/releases/download/2.4.1/rules_apple.2.4.1.tar.gz&quot;,
+)
+
+load(
+    &quot;@build_bazel_rules_apple//apple:repositories.bzl&quot;,
+    &quot;apple_rules_dependencies&quot;,
+)
+
+apple_rules_dependencies()
+
+load(
+    &quot;@build_bazel_rules_swift//swift:repositories.bzl&quot;,
+    &quot;swift_rules_dependencies&quot;,
+)
+
+swift_rules_dependencies()
+
+load(
+    &quot;@build_bazel_rules_swift//swift:extras.bzl&quot;,
+    &quot;swift_rules_extra_dependencies&quot;,
+)
+
+swift_rules_extra_dependencies()
+
+http_archive(
+    name = &quot;SwiftLint&quot;,
+    sha256 = &quot;c6ea58b9c72082cdc1ada4a2d48273ecc355896ed72204cedcc586b6ccb8aca6&quot;,
+    url = &quot;https://github.com/realm/SwiftLint/releases/download/0.52.4/bazel.tar.gz&quot;,
+)
+
+load(&quot;@SwiftLint//bazel:repos.bzl&quot;, &quot;swiftlint_repos&quot;)
+
+swiftlint_repos()
+
+load(&quot;@SwiftLint//bazel:deps.bzl&quot;, &quot;swiftlint_deps&quot;)
+
+swiftlint_deps()" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "build_bazel_rules_apple"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "390841dd5f8a85fc25776684f4793d56e21b098dfd7243cd145b9831e6ef8be6"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/bazelbuild/rules_apple/releases/download/2.4.1/rules_apple.2.4.1.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_apple//apple:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "apple_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">apple_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_swift//swift:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "swift_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swift_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_swift//swift:extras.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "swift_rules_extra_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swift_rules_extra_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SwiftLint"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "c6ea58b9c72082cdc1ada4a2d48273ecc355896ed72204cedcc586b6ccb8aca6"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/realm/SwiftLint/releases/download/0.52.4/bazel.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@SwiftLint//bazel:repos.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swiftlint_repos"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swiftlint_repos()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@SwiftLint//bazel:deps.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swiftlint_deps"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swiftlint_deps()</span></span></code></pre>
+</details>
+
+<p>Then you can run SwiftLint in the current directory with this command:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel run -c opt @SwiftLint//:swiftlint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt </span><span style="color:#D73A49">@</span><span style="color:#24292E">SwiftLint</span><span style="color:#D73A49">//</span><span style="color:#24292E">:swiftlint</span></span></code></pre>
+<h3>Pre-Built Package</h3>
+<p>Download <code>SwiftLint.pkg</code> from the
+<a href="https://github.com/realm/SwiftLint/releases/latest">latest GitHub release</a> and
+run it.</p>
+<h3>From Source</h3>
+<p>Make sure the build tool <a href="https://bazel.build">Bazel</a> and a
+recent <a href="https://www.swift.org/download/">Swift toolchain</a> are
+installed and all tools are discoverable in your <code>PATH</code>.</p>
+<p>To build SwiftLint, clone this repository and run <code>make install</code>.</p>
+<h2>Setup</h2>
+<blockquote>
+<p>[!IMPORTANT]
+While it may seem intuitive to run SwiftLint before compiling Swift source
+files to exit a build early when there are lint violations, it is important
+to understand that SwiftLint is designed to analyze valid source code that
+is compilable. Non-compiling code can very easily lead to unexpected and
+confusing results, especially when executing with <code>--fix</code>/<code>--autocorrect</code>
+command line arguments.</p>
+</blockquote>
+<h3>Build Tool Plugins</h3>
+<p>SwiftLint can be used as a build tool plugin for both
+<a href="#swift-package-projects">Swift Package projects</a>
+and <a href="#xcode-projects">Xcode projects</a>.</p>
+<p>The build tool plugin determines the SwiftLint working directory by locating
+the topmost config file within the package/project directory. If a config file
+is not found therein, the package/project directory is used as the working
+directory.</p>
+<p>The plugin throws an error when it is unable to resolve the SwiftLint working
+directory. For example, this will occur in Xcode projects where the target's
+Swift files are not located within the project directory.</p>
+<p>To maximize compatibility with the plugin, avoid project structures that require
+the use of the <code>--config</code> option.</p>
+<h3>Swift Package Projects</h3>
+<blockquote>
+<p>[!NOTE]
+Requires installing via <a href="#swift-package-manager">Swift Package Manager</a>.</p>
+</blockquote>
+<p>Build tool plugins run when building each target. When a project has multiple
+targets, the plugin must be added to the desired targets individually.</p>
+<p>To do this, add the plugin to the target(s) to be linted as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy=".target(
+    ...
+    plugins: [.plugin(name: &quot;SwiftLintBuildToolPlugin&quot;, package: &quot;SwiftLintPlugins&quot;)]
+)," style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.target(</span></span>
+<span class="line"><span style="color:#005CC5">    ...</span></span>
+<span class="line"><span style="color:#24292E">    plugins: [.plugin(name: </span><span style="color:#032F62">"SwiftLintBuildToolPlugin"</span><span style="color:#24292E">, package: </span><span style="color:#032F62">"SwiftLintPlugins"</span><span style="color:#24292E">)]</span></span>
+<span class="line"><span style="color:#24292E">),</span></span></code></pre>
+<h3>Swift Package Command Plugin</h3>
+<blockquote>
+<p>[!NOTE]
+Requires installing via <a href="#swift-package-manager">Swift Package Manager</a>.</p>
+</blockquote>
+<p>The command plugin enables running SwiftLint from the command line as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="swift package plugin swiftlint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">swift package plugin swiftlint</span></span></code></pre>
+<h3>Xcode Projects</h3>
+<blockquote>
+<p>[!NOTE]
+Requires installing via <a href="#xcode-package-dependency">Xcode Package Dependency</a>.</p>
+</blockquote>
+<p>Build tool plugins run as a build phase of each target. When a project has
+multiple targets, the plugin must be added to the desired targets individually.</p>
+<p>To do this, add the <code>SwiftLintBuildToolPlugin</code> to the <code>Run Build Tool Plug-ins</code>
+phase of the <code>Build Phases</code> for the target(s) to be linted.</p>
+<blockquote>
+<p>[!TIP]
+When using the plugin for the first time, be sure to trust and enable
+it when prompted. If a macros build warning exists, select it to trust
+and enable the macros as well.</p>
+</blockquote>
+<p>For unattended use (e.g. on CI), package plugin and macro
+validations can be disabled with either of the following:</p>
+<ul>
+<li><p>Using <code>xcodebuild</code> options:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="-skipPackagePluginValidation
+-skipMacroValidation" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">skipPackagePluginValidation</span></span>
+<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">skipMacroValidation</span></span></code></pre>
+</li>
+<li><p>Setting Xcode defaults:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation -bool YES
+defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation -bool YES" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">defaults write com.apple.dt.Xcode IDESkipPackagePluginFingerprintValidatation </span><span style="color:#D73A49">-</span><span style="color:#005CC5">bool</span><span style="color:#005CC5"> YES</span></span>
+<span class="line"><span style="color:#24292E">defaults write com.apple.dt.Xcode IDESkipMacroFingerprintValidation </span><span style="color:#D73A49">-</span><span style="color:#005CC5">bool</span><span style="color:#005CC5"> YES</span></span></code></pre>
+</li>
+</ul>
+<blockquote>
+<p>[!IMPORTANT]
+The unattended use options bypass Xcode's validation dialogs
+and implicitly trust all plugins and macros, which has security implications.</p>
+</blockquote>
+<h4>Unexpected Xcode Project Structures</h4>
+<p>Project structures where SwiftLint's configuration file is located
+outside of the package/project directory are not directly supported
+by the build tool plugin. This is because it isn't possible to pass
+arguments to build tool plugins (e.g., passing the config file path).</p>
+<p>If your project structure doesn't work directly with the build tool
+plugin, please consider one of the following options:</p>
+<ul>
+<li>To use a config file located outside the package/project directory, a config
+file may be added to that directory specifying a parent config path to the
+other config file, e.g., <code>parent_config: path/to/.swiftlint.yml</code>.</li>
+<li>You can also consider the use of a
+<a href="#xcode-run-script-build-phase">Run Script Build Phase</a> in place of the build
+tool plugin.</li>
+</ul>
+<h3>Xcode Run Script Build Phase</h3>
+<blockquote>
+<p>[!NOTE]
+Based upon the installation method used, the shell command syntax in the
+Run Script Build Phase may be different or additional configuration could
+be required. Refer to the <a href="#installation">installation</a> instructions for
+more information.</p>
+</blockquote>
+<p>If the build tool plugin does not work for your project setup or when
+additional custom setup is required, SwiftLint can be added as a Run Script
+Build Phase. This is useful when a project setup relies on the <code>--config</code>
+SwiftLint option; or to lint all targets together in a single <code>swiftlint</code>
+invocation. File inclusions and exclusions can be configured in the
+<a href="#configuration"><code>.swiftlint.yml</code> configuration</a>.</p>
+<p>To do this, add a custom script to a <code>Run Script</code> phase of the <code>Build Phases</code>
+of the primary app target, after the <code>Compile Sources</code> phase. Use the
+following script implementation:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="if command -v swiftlint &gt;/dev/null 2&gt;&amp;1
+then
+    swiftlint
+else
+    echo &quot;warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.&quot;
+fi" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> command </span><span style="color:#D73A49">-</span><span style="color:#24292E">v swiftlint </span><span style="color:#D73A49">&gt;/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#24292E">null </span><span style="color:#005CC5">2</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#005CC5">1</span></span>
+<span class="line"><span style="color:#24292E">then</span></span>
+<span class="line"><span style="color:#24292E">    swiftlint</span></span>
+<span class="line"><span style="color:#D73A49">else</span></span>
+<span class="line"><span style="color:#24292E">    echo </span><span style="color:#032F62">"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions."</span></span>
+<span class="line"><span style="color:#24292E">fi</span></span></code></pre>
+<p>If you're using the SwiftLintPlugin in a Swift package,
+you may refer to the <code>swiftlint</code> executable in the
+following way:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="SWIFT_PACKAGE_DIR=&quot;${BUILD_DIR%Build/*}SourcePackages/artifacts&quot;
+SWIFTLINT_CMD=&quot;$SWIFT_PACKAGE_DIR/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/macos/swiftlint&quot;
+
+if test -f &quot;$SWIFTLINT_CMD&quot; 2&gt;&amp;1
+then
+    &quot;$SWIFTLINT_CMD&quot;
+else
+    echo &quot;warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#xcode-run-script-build-phase for installation instructions.&quot;
+fi" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">SWIFT_PACKAGE_DIR</span><span style="color:#D73A49">=</span><span style="color:#032F62">"${BUILD_DIR%Build/*}SourcePackages/artifacts"</span></span>
+<span class="line"><span style="color:#005CC5">SWIFTLINT_CMD</span><span style="color:#D73A49">=</span><span style="color:#032F62">"$SWIFT_PACKAGE_DIR/swiftlintplugins/SwiftLintBinary/SwiftLintBinary.artifactbundle/macos/swiftlint"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> test </span><span style="color:#D73A49">-</span><span style="color:#24292E">f </span><span style="color:#032F62">"$SWIFTLINT_CMD"</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#005CC5">1</span></span>
+<span class="line"><span style="color:#24292E">then</span></span>
+<span class="line"><span style="color:#032F62">    "$SWIFTLINT_CMD"</span></span>
+<span class="line"><span style="color:#D73A49">else</span></span>
+<span class="line"><span style="color:#24292E">    echo </span><span style="color:#032F62">"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#xcode-run-script-build-phase for installation instructions."</span></span>
+<span class="line"><span style="color:#24292E">fi</span></span></code></pre>
+<blockquote>
+<p>[!NOTE]
+The <code>SWIFTLINT_CMD</code> path uses the default Xcode configuration and has been
+tested on Xcode 15/16. In case of another configuration (e.g. a custom
+Swift package path), please adapt the values accordingly.</p>
+</blockquote>
+
+<blockquote>
+<p>[!TIP]
+Uncheck <code>Based on dependency analysis</code> to run <code>swiftlint</code> on all incremental
+builds, suppressing the unspecified outputs warning.</p>
+</blockquote>
+<h4>Consideration for Xcode 15.0</h4>
+<p>Xcode 15 made a significant change by setting the default value of the
+<code>ENABLE_USER_SCRIPT_SANDBOXING</code> build setting from <code>NO</code> to <code>YES</code>.
+As a result, SwiftLint encounters an error related to missing file permissions,
+which typically manifests as
+<code>error: Sandbox: swiftlint(19427) deny(1) file-read-data.</code></p>
+<p>To resolve this issue, it is necessary to manually set the
+<code>ENABLE_USER_SCRIPT_SANDBOXING</code> setting to <code>NO</code> for the specific target that
+SwiftLint is being configured for.</p>
+<h4>Consideration for Apple Silicon</h4>
+<p>If you installed SwiftLint via Homebrew on Apple Silicon, you might experience
+this warning:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">warning: SwiftLint </span><span style="color:#D73A49">not</span><span style="color:#24292E"> installed, download </span><span style="color:#D73A49">from</span><span style="color:#24292E"> https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLint</span></span></code></pre>
+<p>That is because Homebrew on Apple Silicon installs the binaries into the
+<code>/opt/homebrew/bin</code> folder by default. To instruct Xcode where to find
+SwiftLint, you can either add <code>/opt/homebrew/bin</code> to the <code>PATH</code> environment
+variable in your build phase:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="if [[ &quot;$(uname -m)&quot; == arm64 ]]
+then
+    export PATH=&quot;/opt/homebrew/bin:$PATH&quot;
+fi
+
+if command -v swiftlint &gt;/dev/null 2&gt;&amp;1
+then
+    swiftlint
+else
+    echo &quot;warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions.&quot;
+fi" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> [[ </span><span style="color:#032F62">"$(uname -m)"</span><span style="color:#D73A49"> ==</span><span style="color:#24292E"> arm64 ]]</span></span>
+<span class="line"><span style="color:#24292E">then</span></span>
+<span class="line"><span style="color:#24292E">    export </span><span style="color:#005CC5">PATH</span><span style="color:#D73A49">=</span><span style="color:#032F62">"/opt/homebrew/bin:$PATH"</span></span>
+<span class="line"><span style="color:#24292E">fi</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> command </span><span style="color:#D73A49">-</span><span style="color:#24292E">v swiftlint </span><span style="color:#D73A49">&gt;/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#24292E">null </span><span style="color:#005CC5">2</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#005CC5">1</span></span>
+<span class="line"><span style="color:#24292E">then</span></span>
+<span class="line"><span style="color:#24292E">    swiftlint</span></span>
+<span class="line"><span style="color:#D73A49">else</span></span>
+<span class="line"><span style="color:#24292E">    echo </span><span style="color:#032F62">"warning: `swiftlint` command not found - See https://github.com/realm/SwiftLint#installation for installation instructions."</span></span>
+<span class="line"><span style="color:#24292E">fi</span></span></code></pre>
+<p>or you can create a symbolic link in <code>/usr/local/bin</code> pointing to the actual
+binary:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ln -s /opt/homebrew/bin/swiftlint /usr/local/bin/swiftlint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ln </span><span style="color:#D73A49">-</span><span style="color:#24292E">s </span><span style="color:#D73A49">/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">homebrew</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">swiftlint </span><span style="color:#D73A49">/</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">local</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">swiftlint</span></span></code></pre>
+<h4>Additional Considerations</h4>
+<p>If you wish to fix violations as well, your script could run
+<code>swiftlint --fix &amp;&amp; swiftlint</code> instead of just <code>swiftlint</code>. This will mean
+that all correctable violations are fixed while ensuring warnings show up in
+your project for remaining violations.</p>
+<p>If you've installed SwiftLint via CocoaPods the script should look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="&quot;${PODS_ROOT}/SwiftLint/swiftlint&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#032F62">"${PODS_ROOT}/SwiftLint/swiftlint"</span></span></code></pre>
+<h3>Visual Studio Code</h3>
+<p>To integrate SwiftLint with <a href="https://code.visualstudio.com">Visual Studio Code</a>, install the
+<a href="https://marketplace.visualstudio.com/items?itemName=vknabel.vscode-swiftlint"><code>vscode-swiftlint</code></a>
+extension from the marketplace.</p>
+<h3>Fastlane</h3>
+<p>You can use the official
+<a href="https://docs.fastlane.tools/actions/swiftlint"><code>swiftlint</code> fastlane action</a>
+to run SwiftLint as part of your fastlane process.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="swiftlint(
+    mode: :lint,                            # SwiftLint mode: :lint (default) or :autocorrect
+    executable: &quot;Pods/SwiftLint/swiftlint&quot;, # The SwiftLint binary path (optional). Important if you've installed it via CocoaPods
+    path: &quot;/path/to/lint&quot;,                  # Specify path to lint (optional)
+    output_file: &quot;swiftlint.result.json&quot;,   # The path of the output file (optional)
+    reporter: &quot;json&quot;,                       # The custom reporter to use (optional)
+    config_file: &quot;.swiftlint-ci.yml&quot;,       # The path of the configuration file (optional)
+    files: [                                # List of files to process (optional)
+        &quot;AppDelegate.swift&quot;,
+        &quot;path/to/project/Model.swift&quot;
+    ],
+    ignore_exit_status: true,               # Allow fastlane to continue even if SwiftLint returns a non-zero exit status (Default: false)
+    quiet: true,                            # Don't print status logs like 'Linting ' &amp; 'Done linting' (Default: false)
+    strict: true                            # Fail on warnings? (Default: false)
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">swiftlint(</span></span>
+<span class="line"><span style="color:#24292E">    mode: :lint,                            </span><span style="color:#6A737D"># SwiftLint mode: :lint (default) or :autocorrect</span></span>
+<span class="line"><span style="color:#24292E">    executable: </span><span style="color:#032F62">"Pods/SwiftLint/swiftlint"</span><span style="color:#24292E">, </span><span style="color:#6A737D"># The SwiftLint binary path (optional). Important if you've installed it via CocoaPods</span></span>
+<span class="line"><span style="color:#24292E">    path: </span><span style="color:#032F62">"/path/to/lint"</span><span style="color:#24292E">,                  </span><span style="color:#6A737D"># Specify path to lint (optional)</span></span>
+<span class="line"><span style="color:#24292E">    output_file: </span><span style="color:#032F62">"swiftlint.result.json"</span><span style="color:#24292E">,   </span><span style="color:#6A737D"># The path of the output file (optional)</span></span>
+<span class="line"><span style="color:#24292E">    reporter: </span><span style="color:#032F62">"json"</span><span style="color:#24292E">,                       </span><span style="color:#6A737D"># The custom reporter to use (optional)</span></span>
+<span class="line"><span style="color:#24292E">    config_file: </span><span style="color:#032F62">".swiftlint-ci.yml"</span><span style="color:#24292E">,       </span><span style="color:#6A737D"># The path of the configuration file (optional)</span></span>
+<span class="line"><span style="color:#24292E">    files: [                                </span><span style="color:#6A737D"># List of files to process (optional)</span></span>
+<span class="line"><span style="color:#032F62">        "AppDelegate.swift"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "path/to/project/Model.swift"</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">    ignore_exit_status: true,               </span><span style="color:#6A737D"># Allow fastlane to continue even if SwiftLint returns a non-zero exit status (Default: false)</span></span>
+<span class="line"><span style="color:#24292E">    quiet: true,                            </span><span style="color:#6A737D"># Don't print status logs like 'Linting ' &amp; 'Done linting' (Default: false)</span></span>
+<span class="line"><span style="color:#24292E">    strict: true                            </span><span style="color:#6A737D"># Fail on warnings? (Default: false)</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>Docker</h3>
+<p>SwiftLint is also available as a <a href="https://www.docker.com/">Docker</a> image using
+<code>Ubuntu</code>. So just the first time you need to pull the docker image using the
+next command:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="docker pull ghcr.io/realm/swiftlint:latest" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">docker pull ghcr.io</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">swiftlint:latest</span></span></code></pre>
+<p>Then following times, you just run <code>swiftlint</code> inside of the docker like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="docker run -it -v `pwd`:`pwd` -w `pwd` ghcr.io/realm/swiftlint:latest" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">docker run </span><span style="color:#D73A49">-</span><span style="color:#24292E">it </span><span style="color:#D73A49">-</span><span style="color:#24292E">v </span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#D73A49"> -</span><span style="color:#24292E">w </span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#24292E"> ghcr.io</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">swiftlint:latest</span></span></code></pre>
+<p>This will execute <code>swiftlint</code> in the folder where you are right now (<code>pwd</code>),
+showing an output like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ docker run -it -v `pwd`:`pwd` -w `pwd` ghcr.io/realm/swiftlint:latest
+Linting Swift files in current working directory
+Linting 'RuleDocumentation.swift' (1/490)
+...
+Linting 'YamlSwiftLintTests.swift' (490/490)
+Done linting! Found 0 violations, 0 serious in 490 files." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> docker run </span><span style="color:#D73A49">-</span><span style="color:#24292E">it </span><span style="color:#D73A49">-</span><span style="color:#24292E">v </span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#D73A49"> -</span><span style="color:#24292E">w </span><span style="color:#B31D28;font-style:italic">`pwd`</span><span style="color:#24292E"> ghcr.io</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">swiftlint:latest</span></span>
+<span class="line"><span style="color:#24292E">Linting Swift files </span><span style="color:#D73A49">in</span><span style="color:#24292E"> current working directory</span></span>
+<span class="line"><span style="color:#24292E">Linting </span><span style="color:#032F62">'RuleDocumentation.swift'</span><span style="color:#24292E"> (</span><span style="color:#005CC5">1</span><span style="color:#D73A49">/</span><span style="color:#005CC5">490</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">Linting </span><span style="color:#032F62">'YamlSwiftLintTests.swift'</span><span style="color:#24292E"> (</span><span style="color:#005CC5">490</span><span style="color:#D73A49">/</span><span style="color:#005CC5">490</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">Done linting! Found </span><span style="color:#005CC5">0</span><span style="color:#24292E"> violations, </span><span style="color:#005CC5">0</span><span style="color:#24292E"> serious </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 490</span><span style="color:#24292E"> files.</span></span></code></pre>
+<p>Here you have more documentation about the usage of
+<a href="https://docs.docker.com/">Docker Images</a>.</p>
+<h2>Command Line Usage</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ swiftlint help
+OVERVIEW: A tool to enforce Swift style and conventions.
+
+USAGE: swiftlint &lt;subcommand&gt;
+
+OPTIONS:
+  --version               Show the version.
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  analyze                 Run analysis rules
+  docs                    Open SwiftLint documentation website in the default web browser
+  generate-docs           Generates markdown documentation for selected group of rules
+  lint (default)          Print lint warnings and errors
+  baseline                Operations on existing baselines
+  reporters               Display the list of reporters and their identifiers
+  rules                   Display the list of rules and their identifiers
+  version                 Display the current version of SwiftLint
+
+  See 'swiftlint help &lt;subcommand&gt;' for detailed help." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> swiftlint </span><span style="color:#005CC5">help</span></span>
+<span class="line"><span style="color:#005CC5">OVERVIEW</span><span style="color:#24292E">: A tool to enforce Swift style </span><span style="color:#D73A49">and</span><span style="color:#24292E"> conventions.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">USAGE</span><span style="color:#24292E">: swiftlint </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">subcommand</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">version               Show the version.</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">              Show </span><span style="color:#005CC5">help</span><span style="color:#24292E"> information.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">SUBCOMMANDS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">  analyze                 Run analysis rules</span></span>
+<span class="line"><span style="color:#24292E">  docs                    Open SwiftLint documentation website </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the default web browser</span></span>
+<span class="line"><span style="color:#24292E">  generate</span><span style="color:#D73A49">-</span><span style="color:#24292E">docs           Generates markdown documentation </span><span style="color:#D73A49">for</span><span style="color:#24292E"> selected group of rules</span></span>
+<span class="line"><span style="color:#24292E">  lint (default)          Print lint warnings </span><span style="color:#D73A49">and</span><span style="color:#24292E"> errors</span></span>
+<span class="line"><span style="color:#24292E">  baseline                Operations on existing baselines</span></span>
+<span class="line"><span style="color:#24292E">  reporters               Display the </span><span style="color:#005CC5">list</span><span style="color:#24292E"> of reporters </span><span style="color:#D73A49">and</span><span style="color:#24292E"> their identifiers</span></span>
+<span class="line"><span style="color:#24292E">  rules                   Display the </span><span style="color:#005CC5">list</span><span style="color:#24292E"> of rules </span><span style="color:#D73A49">and</span><span style="color:#24292E"> their identifiers</span></span>
+<span class="line"><span style="color:#24292E">  version                 Display the current version of SwiftLint</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  See </span><span style="color:#032F62">'swiftlint help &lt;subcommand&gt;'</span><span style="color:#D73A49"> for</span><span style="color:#24292E"> detailed </span><span style="color:#005CC5">help</span><span style="color:#24292E">.</span></span></code></pre>
+<p>Run <code>swiftlint</code> in the directory containing the Swift files to lint. Directories
+will be searched recursively.</p>
+<p>To specify a list of files when using <code>lint</code> or <code>analyze</code>
+(like the list of files modified by Xcode specified by the
+<a href="https://github.com/norio-nomura/ExtraBuildPhase"><code>ExtraBuildPhase</code></a> Xcode
+plugin, or modified files in the working tree based on <code>git ls-files -m</code>), you
+can do so by passing the option <code>--use-script-input-files</code> and setting the
+following instance variables: <code>SCRIPT_INPUT_FILE_COUNT</code>
+and <code>SCRIPT_INPUT_FILE_0</code>, <code>SCRIPT_INPUT_FILE_1</code>, ...,
+<code>SCRIPT_INPUT_FILE_{SCRIPT_INPUT_FILE_COUNT - 1}</code>.
+Similarly, files can be read from file lists by passing
+the option <code>--use-script-input-file-lists</code> and setting the
+following instance variables: <code>SCRIPT_INPUT_FILE_LIST_COUNT</code>
+and <code>SCRIPT_INPUT_FILE_LIST_0</code>, <code>SCRIPT_INPUT_FILE_LIST_1</code>, ...,
+<code>SCRIPT_INPUT_FILE_LIST_{SCRIPT_INPUT_FILE_LIST_COUNT - 1}</code>.</p>
+<p>These are same environment variables set for input files to
+<a href="http://indiestack.com/2014/12/speeding-up-custom-script-phases/">custom Xcode script phases</a>.</p>
+<h2>Working With Multiple Swift Versions</h2>
+<p>SwiftLint hooks into SourceKit so it continues working even as Swift evolves!</p>
+<p>This also keeps SwiftLint lean, as it doesn't need to ship with a full Swift
+compiler, it just communicates with the official one you already have installed
+on your machine.</p>
+<p>You should always run SwiftLint with the same toolchain you use to compile your
+code.</p>
+<p>You may want to override SwiftLint's default Swift toolchain if you have
+multiple toolchains or Xcodes installed.</p>
+<p>Here's the order in which SwiftLint determines which Swift toolchain to use:</p>
+<ul>
+<li><code>$XCODE_DEFAULT_TOOLCHAIN_OVERRIDE</code></li>
+<li><code>$TOOLCHAIN_DIR</code> or <code>$TOOLCHAINS</code></li>
+<li><code>xcrun -find swift</code></li>
+<li><code>/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain</code></li>
+<li><code>/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain</code></li>
+<li><code>~/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain</code></li>
+<li><code>~/Applications/Xcode-beta.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain</code></li>
+</ul>
+<p><code>sourcekitd.framework</code> is expected to be found in the <code>usr/lib/</code> subdirectory of
+the value passed in the paths above.</p>
+<p>You may also set the <code>TOOLCHAINS</code> environment variable to the reverse-DNS
+notation that identifies a Swift toolchain version:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="TOOLCHAINS=com.apple.dt.toolchain.Swift_2_3 swiftlint --fix" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">TOOLCHAINS</span><span style="color:#D73A49">=</span><span style="color:#24292E">com.apple.dt.toolchain.Swift_2_3 swiftlint </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">fix</span></span></code></pre>
+<p>On Linux, SourceKit is expected to be located in
+<code>/usr/lib/libsourcekitdInProc.so</code> or specified by the <code>LINUX_SOURCEKIT_LIB_PATH</code>
+environment variable.</p>
+<h2>Git <code>pre-commit</code> Hook</h2>
+<p>SwiftLint can be run as a <a href="https://pre-commit.com/">pre-commit</a> hook.
+Once <a href="https://pre-commit.com/#install">installed</a>, add this to the
+<code>.pre-commit-config.yaml</code> in the root of your repository:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="repos:
+  - repo: https://github.com/realm/SwiftLint
+    rev: 0.57.1
+    hooks:
+      - id: swiftlint" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">repos:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> repo: https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLint</span></span>
+<span class="line"><span style="color:#24292E">    rev: </span><span style="color:#005CC5">0.57</span><span style="color:#24292E">.1</span></span>
+<span class="line"><span style="color:#24292E">    hooks:</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5"> id</span><span style="color:#24292E">: swiftlint</span></span></code></pre>
+<p>Adjust <code>rev</code> to the SwiftLint version of your choice.  <code>pre-commit autoupdate</code>
+can be used to update to the current version.</p>
+<p>SwiftLint can be configured using <code>entry</code> to apply fixes and fail on errors:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="- repo: https://github.com/realm/SwiftLint
+  rev: 0.57.1
+  hooks:
+    - id: swiftlint
+      entry: swiftlint --fix --strict" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E"> repo: https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLint</span></span>
+<span class="line"><span style="color:#24292E">  rev: </span><span style="color:#005CC5">0.57</span><span style="color:#24292E">.1</span></span>
+<span class="line"><span style="color:#24292E">  hooks:</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5"> id</span><span style="color:#24292E">: swiftlint</span></span>
+<span class="line"><span style="color:#24292E">      entry: swiftlint </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">fix </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">strict</span></span></code></pre>
+<h2>Rules</h2>
+<p>Over 200 rules are included in SwiftLint and the Swift community (that's you!)
+continues to contribute more over time.
+<a href="https://github.com/realm/SwiftLint/blob/main/CONTRIBUTING.md">Pull requests</a>
+are encouraged.</p>
+<p>You can find an updated list of rules and more information about them in the
+<a href="https://realm.github.io/SwiftLint/rule-directory.html">Rule Directory</a>.</p>
+<p>You can also check the
+<a href="https://github.com/realm/SwiftLint/tree/main/Source/SwiftLintBuiltInRules/Rules">Source/SwiftLintBuiltInRules/Rules</a>
+directory to see their implementation.</p>
+<h3>Opt-In Rules</h3>
+<p><code>opt_in_rules</code> are disabled by default (i.e., you have to explicitly enable them
+in your configuration file).</p>
+<p>Guidelines on when to mark a rule as opt-in:</p>
+<ul>
+<li>A rule that can have many false positives (e.g. <code>empty_count</code>)</li>
+<li>A rule that is too slow</li>
+<li>A rule that is not general consensus or is only useful in some cases
+(e.g. <code>force_unwrapping</code>)</li>
+</ul>
+<h3>Disable rules in code</h3>
+<p>Rules can be disabled with a comment inside a source file with the following
+format:</p>
+<p><code>// swiftlint:disable &lt;rule1&gt; [&lt;rule2&gt; &lt;rule3&gt;...]</code></p>
+<p>The rules will be disabled until the end of the file or until the linter sees a
+matching enable comment:</p>
+<p><code>// swiftlint:enable &lt;rule1&gt; [&lt;rule2&gt; &lt;rule3&gt;...]</code></p>
+<p>For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// swiftlint:disable colon
+let noWarning :String = &quot;&quot; // No warning about colons immediately after variable names.
+// swiftlint:enable colon
+let hasWarning :String = &quot;&quot; // Warning generated about colons immediately after variable names." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:disable colon</span></span>
+<span class="line"><span style="color:#24292E">let noWarning :String </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#24292E"> No warning about colons immediately after variable names.</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:enable colon</span></span>
+<span class="line"><span style="color:#24292E">let hasWarning :String </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#005CC5"> Warning</span><span style="color:#24292E"> generated about colons immediately after variable names.</span></span></code></pre>
+<p>Including the <code>all</code> keyword will disable all rules until the linter sees a
+matching enable comment:</p>
+<p><code>// swiftlint:disable all</code>
+<code>// swiftlint:enable all</code></p>
+<p>For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// swiftlint:disable all
+let noWarning :String = &quot;&quot; // No warning about colons immediately after variable names.
+let i = &quot;&quot; // Also no warning about short identifier names.
+// swiftlint:enable all
+let hasWarning :String = &quot;&quot; // Warning generated about colons immediately after variable names.
+let y = &quot;&quot; // Warning generated about short identifier names." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:disable </span><span style="color:#005CC5">all</span></span>
+<span class="line"><span style="color:#24292E">let noWarning :String </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#24292E"> No warning about colons immediately after variable names.</span></span>
+<span class="line"><span style="color:#24292E">let i </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#24292E"> Also no warning about short identifier names.</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:enable </span><span style="color:#005CC5">all</span></span>
+<span class="line"><span style="color:#24292E">let hasWarning :String </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#005CC5"> Warning</span><span style="color:#24292E"> generated about colons immediately after variable names.</span></span>
+<span class="line"><span style="color:#24292E">let y </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#D73A49"> //</span><span style="color:#005CC5"> Warning</span><span style="color:#24292E"> generated about short identifier names.</span></span></code></pre>
+<p>It's also possible to modify a <code>disable</code> or <code>enable</code> command by appending
+<code>:previous</code>, <code>:this</code> or <code>:next</code> for only applying the command to the previous,
+this (current) or next line respectively.</p>
+<p>For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// swiftlint:disable:next force_cast
+let noWarning = NSNumber() as! Int
+let hasWarning = NSNumber() as! Int
+let noWarning2 = NSNumber() as! Int // swiftlint:disable:this force_cast
+let noWarning3 = NSNumber() as! Int
+// swiftlint:disable:previous force_cast" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:disable:</span><span style="color:#005CC5">next</span><span style="color:#24292E"> force_cast</span></span>
+<span class="line"><span style="color:#24292E">let noWarning </span><span style="color:#D73A49">=</span><span style="color:#24292E"> NSNumber() </span><span style="color:#D73A49">as</span><span style="color:#24292E">! Int</span></span>
+<span class="line"><span style="color:#24292E">let hasWarning </span><span style="color:#D73A49">=</span><span style="color:#24292E"> NSNumber() </span><span style="color:#D73A49">as</span><span style="color:#24292E">! Int</span></span>
+<span class="line"><span style="color:#24292E">let noWarning2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> NSNumber() </span><span style="color:#D73A49">as</span><span style="color:#24292E">! Int </span><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:disable:this force_cast</span></span>
+<span class="line"><span style="color:#24292E">let noWarning3 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> NSNumber() </span><span style="color:#D73A49">as</span><span style="color:#24292E">! Int</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> swiftlint:disable:previous force_cast</span></span></code></pre>
+<p>Run <code>swiftlint rules</code> to print a list of all available rules and their
+identifiers.</p>
+<h3>Configuration</h3>
+<p>Configure SwiftLint by adding a <code>.swiftlint.yml</code> file from the directory you'll
+run SwiftLint from. The following parameters can be configured:</p>
+<p>Rule inclusion:</p>
+<ul>
+<li><code>disabled_rules</code>: Disable rules from the default enabled set.</li>
+<li><code>opt_in_rules</code>: Enable rules that are not part of the default set. The
+ special <code>all</code> identifier will enable all opt in linter rules, except the ones
+ listed in <code>disabled_rules</code>.</li>
+<li><code>only_rules</code>: Only the rules specified in this list will be enabled.
+ Cannot be specified alongside <code>disabled_rules</code> or <code>opt_in_rules</code>.</li>
+<li><code>analyzer_rules</code>: This is an entirely separate list of rules that are only
+run by the <code>analyze</code> command. All analyzer rules are opt-in, so this is the
+only configurable rule list, there are no equivalents for <code>disabled_rules</code>
+and <code>only_rules</code>. The special <code>all</code> identifier can also be used here to enable
+all analyzer rules, except the ones listed in <code>disabled_rules</code>.</li>
+</ul>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# By default, SwiftLint uses a set of sensible default rules you can adjust. Find all the available rules
+# by running `swiftlint rules` or visiting https://realm.github.io/SwiftLint/rule-directory.html.
+
+# Rules turned on by default can be disabled.
+disabled_rules:
+  - colon
+  - comma
+  - control_statement
+  
+# Rules turned off by default can be enabled.
+opt_in_rules:
+  - empty_count
+
+# Alternatively, specify all rules explicitly by uncommenting this option and removing the above two.
+# only_rules:
+#   - empty_parameters
+#   - vertical_whitespace
+
+# Rules only run by `swiftlint analyze`. These are all opt-in.
+analyzer_rules:
+  - explicit_self
+
+# Case-sensitive paths to include during linting. Directory paths supplied on the
+# command line will be ignored. Wildcards are supported.
+included: 
+  - Sources
+
+# Case-sensitive paths to ignore during linting. Takes precedence over `included`. Wildcards
+# are supported.
+excluded: 
+  - Carthage
+  - Pods
+  - Sources/ExcludedFolder
+  - Sources/ExcludedFile.swift
+  - Sources/*/ExcludedFile.swift
+
+# If true, SwiftLint will not fail if no lintable files are found.
+allow_zero_lintable_files: false
+
+# If true, SwiftLint will treat all warnings as errors.
+strict: false
+
+# If true, SwiftLint will treat all errors as warnings.
+lenient: false
+
+# The path to a baseline file, which will be used to filter out detected violations.
+baseline: Baseline.json
+
+# The path to save detected violations to as a new baseline.
+write_baseline: Baseline.json
+
+# If true, SwiftLint will check for updates after linting or analyzing.
+check_for_updates: true
+
+# Configurable rules can be customized. All rules support setting their severity level.
+force_cast: warning # implicitly
+force_try:
+  severity: warning # explicitly
+  
+# Rules that have both warning and error levels can set just the warning level implicitly.
+line_length: 110
+
+# To set both levels implicitly, use an array.
+type_body_length:
+  - 300 # warning
+  - 400 # error
+
+# To set both levels explicitly, use a dictionary.
+file_length:
+  warning: 500
+  error: 1200
+  
+# Naming rules can set warnings/errors for `min_length` and `max_length`. Additionally, they can
+# set excluded names and allowed symbols.
+type_name:
+  min_length: 4 # warning
+  max_length: # warning and error
+    warning: 40
+    error: 50
+  excluded: i(Phone|Pad|Pod) # regex pattern
+  allowed_symbols: [&quot;_&quot;]
+identifier_name:
+  min_length:
+    error: 4 # only error
+  excluded: # excluded via string array
+    - id
+    - URL
+    - GlobalAPIKey
+    
+# The default reporter (SwiftLint's output format) can be configured as `checkstyle`, `codeclimate`, `csv`,
+# `emoji`, `github-actions-logging`, `gitlab`, `html`, `json`, `junit`, `markdown`, `relative-path`, `sarif`,
+# `sonarqube`, `summary`, or `xcode` (default).
+reporter: &quot;xcode&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># By default, SwiftLint uses a set of sensible default rules you can adjust. Find all the available rules</span></span>
+<span class="line"><span style="color:#6A737D"># by running `swiftlint rules` or visiting https://realm.github.io/SwiftLint/rule-directory.html.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Rules turned on by default can be disabled.</span></span>
+<span class="line"><span style="color:#24292E">disabled_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> colon</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> comma</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> control_statement</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D"># Rules turned off by default can be enabled.</span></span>
+<span class="line"><span style="color:#24292E">opt_in_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> empty_count</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Alternatively, specify all rules explicitly by uncommenting this option and removing the above two.</span></span>
+<span class="line"><span style="color:#6A737D"># only_rules:</span></span>
+<span class="line"><span style="color:#6A737D">#   - empty_parameters</span></span>
+<span class="line"><span style="color:#6A737D">#   - vertical_whitespace</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Rules only run by `swiftlint analyze`. These are all opt-in.</span></span>
+<span class="line"><span style="color:#24292E">analyzer_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> explicit_self</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Case-sensitive paths to include during linting. Directory paths supplied on the</span></span>
+<span class="line"><span style="color:#6A737D"># command line will be ignored. Wildcards are supported.</span></span>
+<span class="line"><span style="color:#24292E">included: </span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Sources</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Case-sensitive paths to ignore during linting. Takes precedence over `included`. Wildcards</span></span>
+<span class="line"><span style="color:#6A737D"># are supported.</span></span>
+<span class="line"><span style="color:#24292E">excluded: </span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Carthage</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Pods</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Sources</span><span style="color:#D73A49">/</span><span style="color:#24292E">ExcludedFolder</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Sources</span><span style="color:#D73A49">/</span><span style="color:#24292E">ExcludedFile.swift</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> Sources</span><span style="color:#D73A49">/*/</span><span style="color:#24292E">ExcludedFile.swift</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># If true, SwiftLint will not fail if no lintable files are found.</span></span>
+<span class="line"><span style="color:#24292E">allow_zero_lintable_files: false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># If true, SwiftLint will treat all warnings as errors.</span></span>
+<span class="line"><span style="color:#24292E">strict: false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># If true, SwiftLint will treat all errors as warnings.</span></span>
+<span class="line"><span style="color:#24292E">lenient: false</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># The path to a baseline file, which will be used to filter out detected violations.</span></span>
+<span class="line"><span style="color:#24292E">baseline: Baseline.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># The path to save detected violations to as a new baseline.</span></span>
+<span class="line"><span style="color:#24292E">write_baseline: Baseline.json</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># If true, SwiftLint will check for updates after linting or analyzing.</span></span>
+<span class="line"><span style="color:#24292E">check_for_updates: true</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Configurable rules can be customized. All rules support setting their severity level.</span></span>
+<span class="line"><span style="color:#24292E">force_cast: warning </span><span style="color:#6A737D"># implicitly</span></span>
+<span class="line"><span style="color:#24292E">force_try:</span></span>
+<span class="line"><span style="color:#24292E">  severity: warning </span><span style="color:#6A737D"># explicitly</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D"># Rules that have both warning and error levels can set just the warning level implicitly.</span></span>
+<span class="line"><span style="color:#24292E">line_length: </span><span style="color:#005CC5">110</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># To set both levels implicitly, use an array.</span></span>
+<span class="line"><span style="color:#24292E">type_body_length:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#005CC5"> 300</span><span style="color:#6A737D"> # warning</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#005CC5"> 400</span><span style="color:#6A737D"> # error</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># To set both levels explicitly, use a dictionary.</span></span>
+<span class="line"><span style="color:#24292E">file_length:</span></span>
+<span class="line"><span style="color:#24292E">  warning: </span><span style="color:#005CC5">500</span></span>
+<span class="line"><span style="color:#24292E">  error: </span><span style="color:#005CC5">1200</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#6A737D"># Naming rules can set warnings/errors for `min_length` and `max_length`. Additionally, they can</span></span>
+<span class="line"><span style="color:#6A737D"># set excluded names and allowed symbols.</span></span>
+<span class="line"><span style="color:#24292E">type_name:</span></span>
+<span class="line"><span style="color:#24292E">  min_length: </span><span style="color:#005CC5">4</span><span style="color:#6A737D"> # warning</span></span>
+<span class="line"><span style="color:#24292E">  max_length: </span><span style="color:#6A737D"># warning and error</span></span>
+<span class="line"><span style="color:#24292E">    warning: </span><span style="color:#005CC5">40</span></span>
+<span class="line"><span style="color:#24292E">    error: </span><span style="color:#005CC5">50</span></span>
+<span class="line"><span style="color:#24292E">  excluded: i(Phone</span><span style="color:#D73A49">|</span><span style="color:#24292E">Pad</span><span style="color:#D73A49">|</span><span style="color:#24292E">Pod) </span><span style="color:#6A737D"># regex pattern</span></span>
+<span class="line"><span style="color:#24292E">  allowed_symbols: [</span><span style="color:#032F62">"_"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">identifier_name:</span></span>
+<span class="line"><span style="color:#24292E">  min_length:</span></span>
+<span class="line"><span style="color:#24292E">    error: </span><span style="color:#005CC5">4</span><span style="color:#6A737D"> # only error</span></span>
+<span class="line"><span style="color:#24292E">  excluded: </span><span style="color:#6A737D"># excluded via string array</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5"> id</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5"> URL</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E"> GlobalAPIKey</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#6A737D"># The default reporter (SwiftLint's output format) can be configured as `checkstyle`, `codeclimate`, `csv`,</span></span>
+<span class="line"><span style="color:#6A737D"># `emoji`, `github-actions-logging`, `gitlab`, `html`, `json`, `junit`, `markdown`, `relative-path`, `sarif`,</span></span>
+<span class="line"><span style="color:#6A737D"># `sonarqube`, `summary`, or `xcode` (default).</span></span>
+<span class="line"><span style="color:#24292E">reporter: </span><span style="color:#032F62">"xcode"</span></span></code></pre>
+<p>You can also use environment variables in your configuration file,
+by using <code>${SOME_VARIABLE}</code> in a string.</p>
+<h3>Defining Custom Rules</h3>
+<p>In addition to the rules that the main SwiftLint project ships with, SwiftLint
+can also run two types of custom rules that you can define yourself in your own
+projects:</p>
+<h4>1. Swift Custom Rules</h4>
+<p>These rules are written the same way as the Swift-based rules that ship with
+SwiftLint so they're fast, accurate, can leverage SwiftSyntax, can be unit
+tested, and more.</p>
+<p>Using these requires building SwiftLint with Bazel as described in
+<a href="https://vimeo.com/820572803">this video</a> or its associated code in
+<a href="https://github.com/jpsim/swiftlint-bazel-example">github.com/jpsim/swiftlint-bazel-example</a>.</p>
+<h4>2. Regex Custom Rules</h4>
+<p>You can define custom regex-based rules in your configuration file using the
+following syntax:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="custom_rules:
+  # Rule identifier.
+  pirates_beat_ninjas:
+    # Optional regex that defines paths to include during linting.
+    included:
+      - &quot;.*\\.swift&quot;
+    # Optional regex that defines paths to exclude during linting.
+    excluded:
+      - &quot;.*Test\\.swift&quot;
+    # Optional rule name.
+    name: &quot;Pirates Beat Ninjas&quot;
+    # Matching pattern.
+    regex: &quot;([nN]inja)&quot;
+    # Number of regex capture group to highlight the rule violation at. Optional, defaults to 0 (the whole match).
+    capture_group: 0
+    # SyntaxKinds to match. optional.
+    match_kinds:
+      - comment
+      - identifier
+    # Optional violation message.
+    message: &quot;Pirates are better than ninjas.&quot;
+    # Optional violation severity.
+    severity: error
+  no_hiding_in_strings:
+    regex: &quot;([nN]inja)&quot;
+    # Syntax kinds to match. optional.
+    match_kinds: string" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">custom_rules:</span></span>
+<span class="line"><span style="color:#6A737D">  # Rule identifier.</span></span>
+<span class="line"><span style="color:#24292E">  pirates_beat_ninjas:</span></span>
+<span class="line"><span style="color:#6A737D">    # Optional regex that defines paths to include during linting.</span></span>
+<span class="line"><span style="color:#24292E">    included:</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#032F62"> ".*</span><span style="color:#005CC5">\\</span><span style="color:#032F62">.swift"</span></span>
+<span class="line"><span style="color:#6A737D">    # Optional regex that defines paths to exclude during linting.</span></span>
+<span class="line"><span style="color:#24292E">    excluded:</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#032F62"> ".*Test</span><span style="color:#005CC5">\\</span><span style="color:#032F62">.swift"</span></span>
+<span class="line"><span style="color:#6A737D">    # Optional rule name.</span></span>
+<span class="line"><span style="color:#24292E">    name: </span><span style="color:#032F62">"Pirates Beat Ninjas"</span></span>
+<span class="line"><span style="color:#6A737D">    # Matching pattern.</span></span>
+<span class="line"><span style="color:#24292E">    regex: </span><span style="color:#032F62">"([nN]inja)"</span></span>
+<span class="line"><span style="color:#6A737D">    # Number of regex capture group to highlight the rule violation at. Optional, defaults to 0 (the whole match).</span></span>
+<span class="line"><span style="color:#24292E">    capture_group: </span><span style="color:#005CC5">0</span></span>
+<span class="line"><span style="color:#6A737D">    # SyntaxKinds to match. optional.</span></span>
+<span class="line"><span style="color:#24292E">    match_kinds:</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E"> comment</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E"> identifier</span></span>
+<span class="line"><span style="color:#6A737D">    # Optional violation message.</span></span>
+<span class="line"><span style="color:#24292E">    message: </span><span style="color:#032F62">"Pirates are better than ninjas."</span></span>
+<span class="line"><span style="color:#6A737D">    # Optional violation severity.</span></span>
+<span class="line"><span style="color:#24292E">    severity: error</span></span>
+<span class="line"><span style="color:#24292E">  no_hiding_in_strings:</span></span>
+<span class="line"><span style="color:#24292E">    regex: </span><span style="color:#032F62">"([nN]inja)"</span></span>
+<span class="line"><span style="color:#6A737D">    # Syntax kinds to match. optional.</span></span>
+<span class="line"><span style="color:#24292E">    match_kinds: string</span></span></code></pre>
+<p>This is what the output would look like:</p>
+<p><img src="https://raw.githubusercontent.com/realm/SwiftLint/main/assets/custom-rule.png" alt="Custom violations highlighted in the Xcode editor"></p>
+<p>It is important to note that the regular expression pattern is used with the
+flags <code>s</code> and <code>m</code> enabled, that is <code>.</code>
+<a href="https://developer.apple.com/documentation/foundation/nsregularexpression/options/1412529-dotmatcheslineseparators">matches newlines</a>
+and <code>^</code>/<code>$</code>
+<a href="https://developer.apple.com/documentation/foundation/nsregularexpression/options/1408263-anchorsmatchlines">match the start and end of lines</a>,
+respectively. If you do not want to have <code>.</code> match newlines, for example, the
+regex can be prepended by <code>(?-s)</code>.</p>
+<p>You can filter the matches by providing one or more <code>match_kinds</code>, which will
+reject matches that include syntax kinds that are not present in this list. Here
+are all the possible syntax kinds:</p>
+<ul>
+<li><code>argument</code></li>
+<li><code>attribute.builtin</code></li>
+<li><code>attribute.id</code></li>
+<li><code>buildconfig.id</code></li>
+<li><code>buildconfig.keyword</code></li>
+<li><code>comment</code></li>
+<li><code>comment.mark</code></li>
+<li><code>comment.url</code></li>
+<li><code>doccomment</code></li>
+<li><code>doccomment.field</code></li>
+<li><code>identifier</code></li>
+<li><code>keyword</code></li>
+<li><code>number</code></li>
+<li><code>objectliteral</code></li>
+<li><code>parameter</code></li>
+<li><code>placeholder</code></li>
+<li><code>string</code></li>
+<li><code>string_interpolation_anchor</code></li>
+<li><code>typeidentifier</code></li>
+</ul>
+<p>All syntax kinds used in a snippet of Swift code can be extracted asking
+<a href="https://github.com/jpsim/SourceKitten">SourceKitten</a>. For example,
+<code>sourcekitten syntax --text "struct S {}"</code> delivers</p>
+<ul>
+<li><code>source.lang.swift.syntaxtype.keyword</code> for the <code>struct</code> keyword and</li>
+<li><code>source.lang.swift.syntaxtype.identifier</code> for its name <code>S</code></li>
+</ul>
+<p>which match to <code>keyword</code> and <code>identifier</code> in the above list.</p>
+<p>If using custom rules in combination with <code>only_rules</code>, you must include the
+literal string <code>custom_rules</code> in the <code>only_rules</code> list:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="only_rules:
+  - custom_rules
+
+custom_rules:
+  no_hiding_in_strings:
+    regex: &quot;([nN]inja)&quot;
+    match_kinds: string" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">only_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> custom_rules</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">custom_rules:</span></span>
+<span class="line"><span style="color:#24292E">  no_hiding_in_strings:</span></span>
+<span class="line"><span style="color:#24292E">    regex: </span><span style="color:#032F62">"([nN]inja)"</span></span>
+<span class="line"><span style="color:#24292E">    match_kinds: string</span></span></code></pre>
+<p>Unlike Swift custom rules, you can use official SwiftLint builds
+(e.g. from Homebrew) to run regex custom rules.</p>
+<h3>Auto-correct</h3>
+<p>SwiftLint can automatically correct certain violations. Files on disk are
+overwritten with a corrected version.</p>
+<p>Please make sure to have backups of these files before running
+<code>swiftlint --fix</code>, otherwise important data may be lost.</p>
+<p>Standard linting is disabled while correcting because of the high likelihood of
+violations (or their offsets) being incorrect after modifying a file while
+applying corrections.</p>
+<h3>Analyze</h3>
+<p>The <code>swiftlint analyze</code> command can lint Swift files using the
+full type-checked AST. The compiler log path containing the clean <code>swiftc</code> build
+command invocation (incremental builds will fail) must be passed to <code>analyze</code>
+via the <code>--compiler-log-path</code> flag.
+e.g. <code>--compiler-log-path /path/to/xcodebuild.log</code></p>
+<p>This can be obtained by</p>
+<ol>
+<li>Cleaning DerivedData (incremental builds won't work with analyze)</li>
+<li>Running <code>xcodebuild -workspace {WORKSPACE}.xcworkspace -scheme {SCHEME} &gt; xcodebuild.log</code></li>
+<li>Running <code>swiftlint analyze --compiler-log-path xcodebuild.log</code></li>
+</ol>
+<p>Analyzer rules tend to be considerably slower than lint rules.</p>
+<h2>Using Multiple Configuration Files</h2>
+<p>SwiftLint offers a variety of ways to include multiple configuration files.
+Multiple configuration files get merged into one single configuration that is
+then applied just as a single configuration file would get applied.</p>
+<p>There are quite a lot of use cases where using multiple configuration files
+could be helpful:</p>
+<p>For instance, one could use a team-wide shared SwiftLint configuration while
+allowing overrides in each project via a child configuration file.</p>
+<p>Team-Wide Configuration:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="disabled_rules:
+  - force_cast" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">disabled_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> force_cast</span></span></code></pre>
+<p>Project-Specific Configuration:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="opt_in_rules:
+  - force_cast" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">opt_in_rules:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> force_cast</span></span></code></pre>
+<h3>Child/Parent Configs (Locally)</h3>
+<p>You can specify a <code>child_config</code> and/or a <code>parent_config</code> reference within a
+configuration file. These references should be local paths relative to the
+folder of the configuration file they are specified in. This even works
+recursively, as long as there are no cycles and no ambiguities.</p>
+<p><strong>A child config is treated as a refinement and thus has a higher priority</strong>,
+while a parent config is considered a base with lower priority in case of
+conflicts.</p>
+<p>Here's an example, assuming you have the following file structure:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ProjectRoot
+    |_ .swiftlint.yml
+    |_ .swiftlint_refinement.yml
+    |_ Base
+        |_ .swiftlint_base.yml" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ProjectRoot</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#24292E">_ .swiftlint.yml</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#24292E">_ .swiftlint_refinement.yml</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#24292E">_ Base</span></span>
+<span class="line"><span style="color:#D73A49">        |</span><span style="color:#24292E">_ .swiftlint_base.yml</span></span></code></pre>
+<p>To include both the refinement and the base file, your <code>.swiftlint.yml</code> should
+look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="child_config: .swiftlint_refinement.yml
+parent_config: Base/.swiftlint_base.yml" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">child_config: .swiftlint_refinement.yml</span></span>
+<span class="line"><span style="color:#24292E">parent_config: Base</span><span style="color:#D73A49">/</span><span style="color:#24292E">.swiftlint_base.yml</span></span></code></pre>
+<p>When merging parent and child configs, <code>included</code> and <code>excluded</code> configurations
+are processed carefully to account for differences in the directory location
+of the containing configuration files.</p>
+<h3>Child/Parent Configs (Remote)</h3>
+<p>Just as you can provide local <code>child_config</code>/<code>parent_config</code> references,
+instead of referencing local paths, you can just put urls that lead to
+configuration files. In order for SwiftLint to detect these remote references,
+they must start with <code>http://</code> or <code>https://</code>.</p>
+<p>The referenced remote configuration files may even recursively reference other
+remote configuration files, but aren't allowed to include local references.</p>
+<p>Using a remote reference, your <code>.swiftlint.yml</code> could look like this:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="parent_config: https://myteamserver.com/our-base-swiftlint-config.yml" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">parent_config: https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">myteamserver.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">our</span><span style="color:#D73A49">-</span><span style="color:#24292E">base</span><span style="color:#D73A49">-</span><span style="color:#24292E">swiftlint</span><span style="color:#D73A49">-</span><span style="color:#24292E">config.yml</span></span></code></pre>
+<p>Every time you run SwiftLint and have an Internet connection, SwiftLint tries
+to get a new version of every remote configuration that is referenced. If this
+request times out, a cached version is used if available. If there is no cached
+version available, SwiftLint fails – but no worries, a cached version should be
+there once SwiftLint has run successfully at least once.</p>
+<p>If needed, the timeouts for the remote configuration fetching can be specified
+manually via the configuration file(s) using the
+<code>remote_timeout</code>/<code>remote_timeout_if_cached</code> specifiers. These values default
+to 2 seconds or 1 second, respectively.</p>
+<h3>Command Line</h3>
+<p>Instead of just providing one configuration file when running SwiftLint via the
+command line, you can also pass a hierarchy, where the first configuration is
+treated as a parent, while the last one is treated as the highest-priority
+child.</p>
+<p>A simple example including just two configuration files looks like this:</p>
+<p><code>swiftlint --config .swiftlint.yml --config .swiftlint_child.yml</code></p>
+<h3>Nested Configurations</h3>
+<p>In addition to a main configuration (the <code>.swiftlint.yml</code> file in the root
+folder), you can put other configuration files named <code>.swiftlint.yml</code> into the
+directory structure that then get merged as a child config, but only with an
+effect for those files that are within the same directory as the config or in a
+deeper directory where there isn't another configuration file. In other words:
+Nested configurations don't work recursively – there's a maximum number of one
+nested configuration per file that may be applied in addition to the main
+configuration.</p>
+<p><code>.swiftlint.yml</code> files are only considered as a nested configuration if they
+have not been used to build the main configuration already (e. g. by having
+been referenced via something like <code>child_config: Folder/.swiftlint.yml</code>).
+Also, <code>parent_config</code>/<code>child_config</code> specifications of nested configurations
+are getting ignored because there's no sense to that.</p>
+<p>If one (or more) SwiftLint file(s) are explicitly specified via the <code>--config</code>
+parameter, that configuration will be treated as an override, no matter whether
+there exist other <code>.swiftlint.yml</code> files somewhere within the directory.
+<strong>So if you want to use nested configurations, you can't use the <code>--config</code>
+parameter.</strong></p>
+<h2>License</h2>
+<p><a href="https://github.com/realm/SwiftLint/blob/main/LICENSE">MIT licensed.</a></p>
+<h2>About</h2>
+<p>SwiftLint is utterly maintained by volunteers contributing to its success
+entirely in their free time. As such, SwiftLint isn't a commercial product
+in any way.</p>
+<p>Be kind to the people maintaining SwiftLint as a hobby and accept that their
+time is limited. Support them by contributing to the project, reporting issues,
+and helping others in the community.</p>
+<p>Special thanks go to <a href="https://www.macstadium.com">MacStadium</a> for providing
+physical Mac mini machines to run our performance tests.</p>
+<p><img src="https://raw.githubusercontent.com/realm/SwiftLint/main/assets/macstadium.png" alt="MacStadium"></p>
+<p>We also thank Realm (now MongoDB) for their initial contributions and setup of
+the project.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">A tool to enforce Swift style and conventions.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/realm/SwiftLint" title="@realm"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@realm/SwiftLint</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/realm.png" alt="@realm"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/realm/SwiftLint"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">19554</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, January 26, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 98%; background-color: var(--lang-Swift-bg, #ccc)" title="Swift: 98%"> </span><span style="width: 0.7%; background-color: var(--lang-Ruby-bg, #ccc)" title="Ruby: 0.7%"> </span><span style="width: 0.7%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.7%"> </span><span style="width: 0.2%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.2%"> </span><span style="width: 0.2%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.2%"> </span><span style="width: 0.1%; background-color: var(--lang-Dockerfile-bg, #ccc)" title="Dockerfile: 0.1%"> </span><span style="width: 0.1%; background-color: var(--lang-HTML-bg, #ccc)" title="HTML: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Swift-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/Swift">Swift</a><span class="ml-2 color-fg-muted">98%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Ruby-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Ruby</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Dockerfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Dockerfile</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/jpsim" title="JP Simard"><img class="avatar circle" width="48" height="48" src="https://github.com/jpsim.png" alt="@jpsim"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/SimplyDanny" title="Danny Mösch"><img class="avatar circle" width="48" height="48" src="https://github.com/SimplyDanny.png" alt="@SimplyDanny"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/SimplyDanny" title="Danny Mösch"><img class="avatar circle" width="48" height="48" src="https://github.com/SimplyDanny.png" alt="@SimplyDanny"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/7326"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="swiftlint@0.63.2 (#7326)"><span class="text-mono">#7326</span> <span class="text-light">swiftlint@0.63.2 (#7326)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/realm/SwiftLint/releases/download/0.63.2/bazel.tar.gz" title="https://github.com/realm/SwiftLint/releases/download/0.63.2/bazel.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/realm/Swif...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/swiftlint/0.63.2/patches/no-warnings-as-errors.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">no-warnings-as-errors.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">22</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.63.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.63.2"><span class="text-bold">0.63.2</span><sup class="color-fg-attention"> +11d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-26</span></div></td></tr><tr class=""><td title="0.63.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.63.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.63.1">0.63.1</a><sup class="color-fg-attention"> +12d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-15</span></div></td></tr><tr class=""><td title="0.63.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.63.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.63.0">0.63.0</a><sup class="color-fg-attention"> +2.2mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-03</span></div></td></tr><tr class=""><td title="0.62.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.62.2"><a class="Box-row-link" href="/#/modules/swiftlint/0.62.2">0.62.2</a><sup class="color-fg-attention"> +8d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-10-28</span></div></td></tr><tr class=""><td title="0.62.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.62.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.62.1">0.62.1</a><sup class="color-fg-attention"> +1.4mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-10-20</span></div></td></tr><tr class=""><td title="0.61.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.61.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.61.0">0.61.0</a><sup class="color-fg-attention"> +7d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-09-06</span></div></td></tr><tr class=""><td title="0.60.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.60.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.60.0">0.60.0</a><sup class="color-fg-attention"> +4.5mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-08-30</span></div></td></tr><tr class=""><td title="0.59.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.59.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.59.1">0.59.1</a><sup class="color-fg-attention"> +8d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-04-15</span></div></td></tr><tr class=""><td title="0.59.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.59.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.59.0">0.59.0</a><sup class="color-fg-attention"> +2.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-04-06</span></div></td></tr><tr class=""><td title="0.58.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.58.2"><a class="Box-row-link" href="/#/modules/swiftlint/0.58.2">0.58.2</a><sup class="color-fg-attention"> +10d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-01-17</span></div></td></tr><tr class=""><td title="0.57.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.57.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.57.1">0.57.1</a><sup class="color-fg-attention"> +3.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-01-06</span></div></td></tr><tr class=""><td title="0.57.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.57.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.57.0">0.57.0</a><sup class="color-fg-attention"> +18d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-12</span></div></td></tr><tr class=""><td title="0.56.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.56.2"><a class="Box-row-link" href="/#/modules/swiftlint/0.56.2">0.56.2</a><sup class="color-fg-attention"> +16d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-24</span></div></td></tr><tr class=""><td title="0.55.1.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.55.1.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.55.1.1">0.55.1.1</a><sup class="color-fg-attention"> +1.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-07</span></div></td></tr><tr class=""><td title="0.55.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.55.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.55.1">0.55.1</a><sup class="color-fg-attention"> +7.0mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-12</span></div></td></tr><tr class=""><td title="0.54.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.54.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.54.0">0.54.0</a><sup class="color-fg-attention"> +1.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-11-13</span></div></td></tr><tr class=""><td title="0.53.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 100%, transparent 100%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.53.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.53.0">0.53.0</a><sup class="color-fg-attention"> +2.9mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">100%<sup> 3</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-10-05</span></div></td></tr><tr class=""><td title="0.52.4; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.52.4"><a class="Box-row-link" href="/#/modules/swiftlint/0.52.4">0.52.4</a><sup class="color-fg-attention"> +16d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-07-09</span></div></td></tr><tr class=""><td title="0.52.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.52.3"><a class="Box-row-link" href="/#/modules/swiftlint/0.52.3">0.52.3</a><sup class="color-fg-attention"> +1.3mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-06-22</span></div></td></tr><tr class=""><td title="0.52.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.52.2"><a class="Box-row-link" href="/#/modules/swiftlint/0.52.2">0.52.2</a><sup class="color-fg-attention"> +19h</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-05-12</span></div></td></tr><tr class=""><td title="0.52.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.52.1"><a class="Box-row-link" href="/#/modules/swiftlint/0.52.1">0.52.1</a><sup class="color-fg-attention"> +1.4mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-05-11</span></div></td></tr><tr class=""><td title="0.51.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.51.0"><a class="Box-row-link" href="/#/modules/swiftlint/0.51.0">0.51.0</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-03-30</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

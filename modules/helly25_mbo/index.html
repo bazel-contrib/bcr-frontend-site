@@ -1,0 +1,458 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">helly25_mbo</span> <span class="f2 d-inline-block">0.10.0<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 5.7mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/helly25/mbo" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/helly25_mbo/0.10.0/overview" data-name="overview" id=":ln.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/helly25_mbo/0.10.0/docs" data-name="docs" id=":ln.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/helly25_mbo/0.10.0/testing" data-name="testing" id=":ln.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;helly25_mbo&quot;, version = &quot;0.10.0&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "helly25_mbo"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.10.0"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">9</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/abseil-cpp/20250814.1">abseil-cpp<span class="ml-1 text-light text-small">20250814.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/abseil-cpp/20260107.1">20260107.1<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (4.7mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/bazel_skylib/1.8.2">bazel_skylib<span class="ml-1 text-light text-small">1.8.2</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/bazel_skylib/1.9.0">1.9.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (2.7mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/google_benchmark/1.9.4">google_benchmark<span class="ml-1 text-light text-small">1.9.4</span><span class="ml-1 text-light text-small">as <span class="text-semibold">com_github_google_benchmark</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/google_benchmark/1.9.5">1.9.5<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (8.0mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/googletest/1.17.0">googletest<span class="ml-1 text-light text-small">1.17.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/googletest/1.17.0.bcr.2">1.17.0.bcr.2<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (6.2mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/helly25_bashtest/0.1.0">helly25_bashtest<span class="ml-1 text-light text-small">0.1.0</span><span class="ml-1 text-light text-small">as <span class="text-semibold">com_helly25_bashtest</span></span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/helly25_bashtest/0.2.0">0.2.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (9d)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/re2/2025-11-05">re2<span class="ml-1 text-light text-small">2025-11-05</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/re2/2025-11-05.bcr.1">2025-11-05.bcr.1<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (21d)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.14">rules_cc<span class="ml-1 text-light text-small">0.2.14</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+4<span class="color-fg-attention"> (5.6mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_shell/0.6.1">rules_shell<span class="ml-1 text-light text-small">0.6.1</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_shell/0.8.0">0.8.0<span title="Version Distance"><sup style="padding-left: 3px">+2<span class="color-fg-attention"> (7.2mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>MBO, a C++20 library</h1>
+<p>This C++20 library provides some general useful building blocks and integrates
+with <a href="https://abseil.io/">Google's Abseil library</a>.</p>
+<p>The library is tested with Clang (16+) and GCC (12+) on Ubuntu and MacOS (arm) using continuous integration: <a href="https://github.com/helly25/mbo/actions/workflows/main.yml"><img src="https://github.com/helly25/mbo/actions/workflows/main.yml/badge.svg" alt="Test"></a>.</p>
+<h2>The C++ library is organized in functional groups each residing in their own directory.</h2>
+<ul>
+<li>Config<ul>
+<li><code>namespace mbo::config</code></li>
+<li>mbo/config:config_cc, mbo/config/config.h<ul>
+<li>Custom Bazel flag <code>--//mbo/config:limited_ordered_max_unroll_capacity</code> which controls the maximum unroll size for <code>LimitedOrdered</code> and thus <code>LimitedMap</code> and <code>LimitedSet</code>.</li>
+<li>Custom Bazel flag <code>--//mbo/config:require_throws</code> which controls whether <code>MBO_CONFIG_REQUIRE</code> throw exceptions or use crash logging (the default <code>False</code> or <code>0</code>). This mostly affects containers.</li>
+</ul>
+</li>
+<li>mbo/config:require_cc, mbo/config/require.h<ul>
+<li>Marcos <code>MBO_CONFIG_REQUIRE(condition, message)</code> which allows to check a <code>condition</code> and either throw an exception or crash with Abseil FATAL logging. The behavior is controlled by <code>--//mbo/config:require_throws</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Container<ul>
+<li><code>namespace mbo::container</code></li>
+<li>mbo/container:any_scan_cc, mbo/container/any_scan.h<ul>
+<li>class <code>AnyScan</code>: A container type independent iteration view - or scan over the container.</li>
+<li>class <code>ConstScan</code>: A container type independent iteration view for const value_types.</li>
+<li>class <code>ConvertingScan</code>: A container scanner that allows for conversions.</li>
+<li>function <code>MakeAnyScan</code>: Helper function to create <code>AnyScan</code> instances.</li>
+<li>function <code>MakeConstScan</code>: Helper function to create <code>ConstScan</code> instances.</li>
+<li>function <code>MakeConvertingScan</code>: Helper function to create <code>ConvertingScan</code> instances.</li>
+</ul>
+</li>
+<li>mbo/container:convert_container_cc, mbo/container/convert_container.h<ul>
+<li>conversion struct <code>ConvertContainer</code> simplifies copying containers to value convertible containers.</li>
+</ul>
+</li>
+<li>mbo/container:limited_map_cc, mbo/container/limited_map.h<ul>
+<li>class <code>LimitedMap</code>: A space limited, constexpr compliant <code>map</code>.</li>
+</ul>
+</li>
+<li>mbo/container:limited_options_cc, mbo/container/limited_options.h<ul>
+<li>class <code>LimitedOptions</code>: A compile time configuration option for <code>LimitedSet</code> and <code>LimitedMap</code>.</li>
+</ul>
+</li>
+<li>mbo/container:limited_set_cc, mbo/container/limited_set.h<ul>
+<li>class <code>LimitedSet</code>: A space limited, constexpr compliant <code>set</code>.</li>
+</ul>
+</li>
+<li>mbo/container:limited_vector_cc, mbo/container/limited_vector.h<ul>
+<li>class <code>LimitedVector</code>: A space limited, constexpr compliant <code>vector</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Diff<ul>
+<li><code>namespace mbo::diff</code></li>
+<li>mbo/diff:dff_cc, mbo/diff/diff.h<ul>
+<li>class <code>Diff</code>: A class that implements unified-diffing.</li>
+</ul>
+</li>
+<li>mbo/diff<ul>
+<li>binary <code>unfied_diff</code>: A binary that performs a unified-diff on two files.</li>
+</ul>
+</li>
+<li>mbo/diff:diff_bzl, mbo/diff/diff.bzl<ul>
+<li>bzl-macro <code>difftest</code>: A test rule that compares an output versus a golden file.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Files<ul>
+<li><code>namespace mbo::files</code></li>
+<li>mbo/file:artefact_cc, mbo/file/artefact.h<ul>
+<li>struct <code>Artefact</code>: Holds information about a file (its data content, name, and modified time).</li>
+</ul>
+</li>
+<li>mbo/file:file_cc, mbo/file/file.h<ul>
+<li>function <code>GetContents</code>: Reads a file and returns its contents or an absl::Status error.</li>
+<li>function <code>GetMTime</code>: Returns the last update/modified time of a file or an absl::Status error.</li>
+<li>function <code>GetMaxLines</code>: Reads at most given number of text lines from a file or returns absl::Status error.</li>
+<li>function <code>IsAbsolutePath</code>: Returns whether a given path is absolute.</li>
+<li>function <code>JoinPaths</code>: Join multiple path elements.</li>
+<li>function <code>JoinPathsRespectAbsolute</code>: Join multiple path elements respecting absolute path elements.</li>
+<li>function <code>NormalizePath</code>: Normalizes a path.</li>
+<li>function <code>Readable</code>: Returns whether a file is readable or an absl::Status error.</li>
+<li>function <code>SetContents</code>: Writes contents to a file.</li>
+</ul>
+</li>
+<li>mbo/file:glob_cc, mbo/file/glob.h<ul>
+<li>struct <code>Glob2Re2Options</code>: Control conversion of a <a href="https://man7.org/linux/man-pages/man7/glob.7.html">glob pattern</a> into a <a href="https://github.com/google/re2/wiki/Syntax">RE2 pattern</a>.</li>
+<li>struct <code>GlobEntry</code>: Stores data for a single globbed entry (file, dir, etc.).</li>
+<li>struct <code>GlobOptions</code>: Options for functions <code>Glob2Re2</code> and <code>Glob2Re2Expression</code>.</li>
+<li>enum <code>GlobEntryAction</code>: Allows GlobEntryFunc to control further glob progression.</li>
+<li>type <code>GlobEntryFunc</code>: Callback for acceptable glob entries.</li>
+<li>function <code>GlobRe2</code>: Performs recursive glob functionality using a RE2 pattern.</li>
+<li>function <code>Glob</code>: Performs recursive glob functionality using a <code>fnmatch</code> style pattern.</li>
+<li>function <code>GlobSplit</code>: Splits a pattern into root and pattern parts.</li>
+<li>program <code>glob</code>: A recursive glob, see <code>glob --help</code>.</li>
+</ul>
+</li>
+<li>mbo/file/ini:ini_file_cc, mbo/file/ini/ini_file.h<ul>
+<li>class <code>IniFile</code>: A simple INI file reader.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Hash<ul>
+<li><code>namespace mbo::hash</code></li>
+<li>mbo/hash:hash_cc, mbo/hash/hash.h<ul>
+<li>function <code>simple::GetHash(std::string_view)</code>: A constexpr capable hash function.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Log<ul>
+<li><code>namespace mbo::log</code></li>
+<li>mbo/log:demangle_cc, mbo/log/demangle.h<ul>
+<li>functions <code>Demangle</code> to log de-mangled typeid names.</li>
+</ul>
+</li>
+<li>mbo/log:log_timing_cc, mbo/log/log_timing.h<ul>
+<li>functoin <code>LogTiming([args])</code> a simple timing logger.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Mope<ul>
+<li><code>namespace mbo::mope</code></li>
+<li>The <code>MOPE</code> templating engine. Run <code>bazel run //mbo/mope -- --help</code> for detailed documentation.</li>
+<li>mbo/mope<ul>
+<li>binary <code>mope</code>.</li>
+</ul>
+</li>
+<li>mbo/mope:mope_cc, mbo/mope/mope.h<ul>
+<li>class <code>Template</code>: The mope template engine and data holder.</li>
+</ul>
+</li>
+<li>mbo/mope:ini_cc, mbo/mope/ini.h<ul>
+<li>function <code>ReadIniToTemplate</code>: Helper to initialize a mope Template from an INI file.</li>
+</ul>
+</li>
+<li>mbo/mope:mope_bzl, mbo/mope/mope.bzl<ul>
+<li>bzl-rule <code>mope</code>: A rule that expands a mope template file.</li>
+<li>bzl-macro <code>mope_test</code>: A test rule that compares mope template expansion against golden files. This
+supports <code>clang-format</code> and thus can be used for source-code generation and verification.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Status<ul>
+<li><code>namespace mbo::status</code></li>
+<li>mbo/status:status_builder_cc, mbo/status/status_builder.h<ul>
+<li>class <code>StatusBuilder</code> which allows to extend the message of an <code>absl::Status</code>.</li>
+</ul>
+</li>
+<li>mbo/status:status_cc, mbo/status/status.h<ul>
+<li>function <code>GetStatus</code> allows to convert types to an <code>absl::Status</code>.</li>
+</ul>
+</li>
+<li>mbo/status:status_macros_cc, mbo/status/status_macros.h<ul>
+<li>macro <code>MBO_ASSIGN_OR_RETURN</code>: Macro that simplifies handling functions returning <code>absl::StatusOr&lt;T&gt;</code>.</li>
+<li>macro <code>MBO_MOVE_TO_OR_RETURN</code>: Macro that simplifies handling functions returning <code>absl::StatusOr&lt;T&gt;</code> where the result requires commas, in particular structured bindings.</li>
+<li>macro <code>MBO_RETURN_IF_ERROR</code>: Macro that simplifies handling functions returning <code>absl::Status</code> or <code>absl::StausOr&lt;T&gt;</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Strings<ul>
+<li><code>namespace mbo::strings</code></li>
+<li>mbo/strings:indent_cc, mbo/strings/indent.h<ul>
+<li>function <code>DropIndent</code>: Converts a raw-string text block as if it had no indent.</li>
+<li>function <code>DropIndentAndSplit</code>: Variant of <code>DropIndent</code> that returns the result as lines.</li>
+</ul>
+</li>
+<li>mbo/strings:numbers_cc, mbo/strings/numbers.h<ul>
+<li>function <code>BigNumber</code>: Convert integral number to string with thousands separator.</li>
+<li>function <code>BigNumberLen</code>: Calculate required string length for <code>BigNumer</code>.</li>
+</ul>
+</li>
+<li>mbo/strings:parse_cc, mbo/strings/parse.h<ul>
+<li>function <code>ParseString</code>: Parses strings respecting C++ and custom escapes as well as quotes (all configurable).</li>
+<li>function <code>ParseStringList</code>: Parses and splits strings respecting C++ and custom escapes as well as quotes (all configurable).</li>
+</ul>
+</li>
+<li>mbo/strings:split_cc, mbo/strings/split.h<ul>
+<li>struct <code>AtLast</code>: Allows `absl::StrSplit' to split on the last occurrence of a separator.</li>
+</ul>
+</li>
+<li>mbo/strings:strip_cc, mbo/strings/strip.h<ul>
+<li>function <code>ConsumePrefix</code>: Removes a prefix from a <code>std::string</code> (like <code>absl::ConsumePrefix</code>).</li>
+<li>function <code>ConsumeSuffix</code>: Removes a suffix from a <code>std::string</code> (like <code>absl::ConsumeSuffix</code>).</li>
+<li>function <code>StripPrefix</code>: Removes a prefix from a <code>std::string&amp;&amp;</code> (like <code>absl::StripPrefix</code>).</li>
+<li>function <code>StripSuffix</code>: Removes a suffix from a <code>std::string&amp;&amp;</code> (like <code>absl::StripSuffix</code>).</li>
+<li>struct <code>StripCommentsArgs</code>: Arguments for <code>StripComments</code> and <code>StripLineComments</code>.</li>
+<li>function <code>StripComments</code>: Strips comments from lines.</li>
+<li>function <code>StripLineComments</code>: Strips comments from a single line.</li>
+<li>struct <code>StripParsedCommentsArgs</code>: Arguments for <code>StripParsedComments</code> and <code>StripParsedLineComments</code>.</li>
+<li>function <code>StripParsedComments</code>: Strips comments from parsed lines.</li>
+<li>function <code>StripLineParsedComments</code>: Strips comments from a single parsed line.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Testing<ul>
+<li>mbo/testing:matchers_cc, mbo/testing/matchers.h<ul>
+<li>gmock-matcher <code>CapacityIs</code> which checks the capacity of a container.</li>
+<li>gmock-matcher <code>EqualsText</code> which compares text using line by line unified text diff.</li>
+<li>gmock-matcher <code>IsNullopt</code> which compares its argument agains <code>std::nullopt</code>.</li>
+<li>gmock-matcher <code>WhenTransformedBy</code> which allows to compare containers after transforming them. This sometimes allows for much more concise comparisons where a golden expectation is already available that only differs in a simple transformation.</li>
+<li>gmock-matcher-modifier <code>WithDropIndent</code> which modifies <code>EqualsText</code> so that <code>DropIndent</code> will be applied to the expected text.</li>
+</ul>
+</li>
+<li>mbo/testing:status_cc, mbo/testing/status.h<ul>
+<li>gmock-matcher <code>IsOk</code>: Tests whether an <code>absl::Status</code> or <code>absl::StatusOr</code> is <code>absl::OkStatus</code>.</li>
+<li>gmock-matcher <code>IsOkAndHolds</code>: Tests an <code>absl::StatusOr</code> for <code>absl::OkStatus</code> and contents.</li>
+<li>gmock-matcher <code>StatusIs</code>: Tests an <code>absl::Status</code> or <code>absl::StatusOr</code> against a specific status code and message.</li>
+<li>gmock-matcher <code>StatusHasPayload</code>: Tests whether an <code>absl::Status</code> or <code>absl::StatusOr</code> payload map has any payload, a specific payload url, or a payload url with specific content.</li>
+<li>gmock-matcher <code>StatusPayloads</code> Tests whether an <code>absl::Status</code> or <code>absl::StatusOr</code> payload map matches.</li>
+<li>macro <code>MBO_ASSERT_OK_AND_ASSIGN</code>: Simplifies testing with functions that return <code>absl::StatusOr&lt;T&gt;</code>.</li>
+<li>macro <code>MBO_ASSERT_OK_AND_MOVE_TO</code>: Simplifies testing with functions that return <code>absl::StatusOr&lt;T&gt;</code> where the result requires commas, in particular structured bindings.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Types<ul>
+<li><code>namespace mbo::types</code></li>
+<li>mbo/types:cases_cc, mbo/types/cases.h<ul>
+<li>meta-type <code>Cases</code>: Allows to switch types based on conditions.</li>
+<li>meta-type <code>CaseIndex</code>: Evaluates the first non zero case (1-based, 0 if all zero).</li>
+<li>meta-type <code>IfThen</code>: Helper type to generate if-then <code>Cases</code> types.</li>
+<li>meta-type <code>IfElse</code>: Helper type to generate else <code>Cases</code> which are always true and must go last.</li>
+<li>meta-type <code>IfFalseThenVoid</code>: Helper type that can be used to skip a case.</li>
+<li>meta-type <code>IfTrueThenVoid</code>: Helper type to inject default cases and to ensure the required type expansion is always possible.</li>
+</ul>
+</li>
+<li>mbo/types:compare_cc, mbo/types/compare.h<ul>
+<li>function <code>CompareArithmetic</code> which cmpares two values that are scalar-numbers (including foat/double, excluding pointers and references).</li>
+<li>function <code>CompareFloat</code> which can compare two <code>float</code>, <code>double</code> or <code>long double</code> values returning <code>std::strong_ordering</code>.</li>
+<li>function <code>CompareIntegral</code> which compares two values that are integral-numbers (no float/double, no pointers, no references).</li>
+<li>comparator <code>CompareLess</code> which is compatible to std::Less but allows container optimizations.</li>
+<li>function <code>CompareScalar</code> which compares two values that are scalar-numbers (including float/double and pointers, excluding references).</li>
+<li>concept <code>ThreeWayComparableTo</code> which is similar to <code>std::three_way_comparable_with</code> but we only verify that <code>L &lt;=&gt; R</code> can be interpreted as <code>Cat</code> in the presented argument order.</li>
+<li>function <code>WeakToStrong</code> which converts a <code>std::weak_ordering</code> to a <code>std::strong_ordering</code>.</li>
+</ul>
+</li>
+<li>mbo/types:container_proxy_cc, mbo/types/container_proxy.h<ul>
+<li>struct <code>ContainerProxy</code> which allows to add container access to other types including smart pointers of containers.</li>
+</ul>
+</li>
+<li>mbo/types:extend_cc, mbo/types/extend.h<ul>
+<li>crtp-struct <code>Extend</code>: Enables extending of struct/class types with basic functionality.</li>
+<li>crtp-struct <code>ExtendNoDefault</code> Like <code>Extend</code> but without default extender functionality.</li>
+<li>crtp-struct <code>ExtendNoPrint</code> Like <code>Extend</code> but without <code>Printable</code> and <code>Streamable</code> extender functionality.</li>
+<li><code>namespace extender</code><ul>
+<li>extender-struct <code>AbslStringify</code>: Extender that injects functionality to make an <code>Extend</code>ed type work with abseil format/print functions. See <code>Stringify</code> for various API extension points.</li>
+<li>extender-struct <code>AbslHashable</code>: Extender that injects functionality to make an <code>Extend</code>ed type work with abseil hashing (and also <code>std::hash</code>).</li>
+<li>extender-struct <code>Comparable</code>: Extender that injects functionality to make an <code>Extend</code>ed type comparable. All comparators will be injected: <code>&lt;=&gt;</code>, <code>==</code>, <code>!=</code>, <code>&lt;</code>, <code>&lt;=</code>, <code>&gt;</code>, <code>&gt;=</code>.</li>
+<li>extender-struct <code>Printable</code>:<ul>
+<li>Extender that injects functionality to make an <code>Extend</code>ed type get a <code>std::string ToString() const</code> function which can be used to convert a type into a <code>std::string</code>.</li>
+<li>The output is a comma separated list of field values, e.g. <code>{ 25, 42 }</code>.</li>
+<li>If available (Clang 16+) this function prints field names <code>{ .first = 25, .second = 42 }</code>.</li>
+</ul>
+</li>
+<li>extender-struct <code>Streamable</code>: Extender that injects functionality to make an <code>Extend</code>ed type streamable. This allows the type to be used directly with <code>std::ostream</code>s.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>mbo/types:no_destruct_cc, mbo/types/no_destruct.h<ul>
+<li>struct <code>NoDestruct&lt;T&gt;</code>: Implements a type that allows to use any type as a static constant.</li>
+<li>Mainly, this prevents calling the destructor and thus prevents termination issues (initialization order fiasco).</li>
+</ul>
+</li>
+<li>mbo/types:opaque_cc, mbo/types/opaque.h<ul>
+<li>struct <code>OpaquePtr</code> an opaque alternative to <code>std::unique_ptr</code> which works with forward declared types.</li>
+<li>struct <code>OpaqueValue</code> an <code>OpaquePtr</code> with direct access, comparison and hashing which will not allow a nullptr.</li>
+<li>struct <code>OpaqueContainer</code> an <code>OpaqueValue</code> with direct container access.</li>
+</ul>
+</li>
+<li>mbo/types:optional_ref_cc, mbo/types/optional_data_or_ref.h<ul>
+<li>concept <code>IsOptionalDataOrRef</code> which determines whether a type is a <code>OptionalDataOrRef</code>.</li>
+<li>struct <code>OptionalDataOrRef</code> similar to <code>std::optional</code> but can hold <code>std::nullopt</code>, a type <code>T</code> or a reference <code>T&amp;</code>/<code>const T&amp;</code>.</li>
+<li>struct <code>OptionalDataOrConstRef</code> similar to <code>std::optional</code> but can hold <code>std::nullopt</code>, a type <code>T</code> or a const reference <code>const T&amp;</code>.</li>
+</ul>
+</li>
+<li>mbo/types:optional_ref_cc, mbo/types/optional_ref.h<ul>
+<li>concept <code>IsOptionalRef</code> which determines whether a type is a <code>OptionalRef</code>.</li>
+<li>struct <code>OptionalRef</code> similar to <code>std::optional</code> but can hold <code>std::nullopt</code> or a reference <code>T&amp;</code>/<code>const T&amp;</code>.</li>
+</ul>
+</li>
+<li>mbo/types:ref_wrap_cc, mbo/types/ref_wrap.h<ul>
+<li>template-type <code>RefWrap&lt;T&gt;</code>: similar to <code>std::reference_wrapper</code> but supports operators <code>-&gt;</code> and <code>*</code>.</li>
+</ul>
+</li>
+<li>mbo/types:required_cc, mbo/types/required.h<ul>
+<li>template-type <code>Required&lt;T&gt;</code>: similar to <code>RefWrap</code> but stores the actual type (and unlike <code>std::optional</code> cannot be reset).</li>
+</ul>
+</li>
+<li>mbo/types:stringify_cc, mbo/types/stringify.h<ul>
+<li>class <code>Stringify</code> a utility to convert structs into strings.</li>
+<li>function <code>StringifyWithFieldNames</code> a format control adapter for <code>Stringify</code>.</li>
+<li>struct <code>StringifyFieldOptions</code> which controls outer and inner options (both a <code>const StringifyOptions&amp;</code>).</li>
+<li>struct <code>StringifyOptions</code> which can be used to control <code>Stringify</code> formatting.</li>
+<li>struct <code>StringifyRootOptions</code> which can be used to control outer/root options for streaming/printing structs.</li>
+<li>API extension point type <code>MboTypesStringifySupport</code> which enables <code>Stringify</code> support even if not otherwise enabled (disables Abseil stringify support in <code>Stringify</code>).</li>
+<li>API extension point function <code>MboTypesStringifyConvert(I, T, V)</code> allows to control conversion based on field types via a static call to the owning type, receiving the field index, the object and the field value.</li>
+<li>API extension point type <code>MboTypesStringifyDisable</code> which disables <code>Stringify</code> support. This allows to prevent
+  complex classes (and more importantly fields of complex types) from being printed/streamed using <code>Stringify</code></li>
+<li>API extension point type <code>MboTypesStringifyDoNotPrintFieldNames</code> which if present disables field names in <code>Stringify</code>.</li>
+<li>API extension point function <code>MboTypesStringifyFieldNames</code> which adds field names to <code>Stringify</code>.</li>
+<li>API extension point function <code>MboTypesStringifyOptions</code> which adds full format control to <code>Stringify</code>.</li>
+<li>API extension point functoin <code>MboTypesStringifyValueAccess</code> which allows to replace a struct with a single value in <code>Stringify</code> processing.</li>
+</ul>
+</li>
+<li>mbo/types:stringify_ostream_cc, mbo/types/stringify_ostream.h<ul>
+<li>operator <code>std::ostream&amp; operator&lt;&lt;(std::ostream&amp;, const MboTypesStringifySupport auto&amp; v)</code> - conditioanl automatic ostream support for structs using <code>Stringify</code>.</li>
+<li>function <code>SetStringifyOstreamOutputMode</code> which sets global Stringify stream options by mode.</li>
+<li>function <code>SetStringifyOstreamOptions</code> which sets global Stringify stream options.</li>
+</ul>
+</li>
+<li>mbo/types:traits_cc, mbo/types/traits.h<ul>
+<li>concept <code>ConstructibleFrom</code> implements a variant of <code>std::constructible_from</code> that works around its limitations to deal with array args.</li>
+<li>concept <code>ConstructibleInto</code> determines whether one type can be constructed from another. Similar to <code>std::convertible_to</code> but with the argument order of <code>std::constructible_from</code>.</li>
+<li>type alias <code>ContainerConstIteratorValueType</code> returned the value-type of the const_iterator of a container.</li>
+<li>concept <code>ContainerIsForwardIteratable</code> determines whether a types can be used in forward iteration.</li>
+<li>concept <code>ContainerHasEmplace</code> determines whether a container has <code>emplace</code>.</li>
+<li>concept <code>ContainerHasEmplaceBack</code> determines whether a container has <code>emplace_back</code>.</li>
+<li>concept <code>ContainerHasInsert</code> determines whether a container has <code>insert</code>.</li>
+<li>concept <code>ContainerHasPushBack</code> determines whether a container has <code>push_back</code>.</li>
+<li>concept <code>ContainerHasForwardIterator</code> determines whether a container has <code>begin</code>, <code>end</code> and <code>std::forward_iterator</code> compliant iterators.</li>
+<li>concept <code>ContainerHasInputIterator</code> determines whether a container has <code>begin</code>, <code>end</code> and <code>std::input_iterator</code> compliant iterators.</li>
+<li>type alias <code>GetDifferenceType</code> is either set to the type's <code>difference_type</code> or <code>std::ptrdiff_t</code>.</li>
+<li>concept <code>HasDifferenceType</code> determines whether a type has a <code>difference_type</code>.</li>
+<li>concept <code>IsAggregate</code> determines whether a type is an aggregate.</li>
+<li>concept <code>IsArithmetic</code> uses <code>std::is_arithmetic_v&lt;T&gt;</code>.</li>
+<li>concept <code>IsBracesConstructibleV</code> determines whether a type can be constructed from given argument types.</li>
+<li>concept <code>IsCharArray</code> determines whether a type is a <code>char*</code> or <code>char[]</code> related type.</li>
+<li>concept <code>IsDecomposable</code> determines whether a type can be used in static-bindings.</li>
+<li>concept <code>IsEmptyType</code> determines whether a type is empty (calls <code>std::is_empty_v</code>).</li>
+<li>concept <code>IsFloatingPoint</code> determines whether a type is a floating point type (uses <code>std::floating_point</code>).</li>
+<li>concept <code>IsInitializerList</code> determines whether a type is `std::initializer</li>
+<li>concept <code>IsScalar</code> uses <code>std::is_scalar_v&lt;T&gt;</code>.</li>
+<li>concept <code>IsOptional</code> determines whether a type is a <code>std::optional</code> type.</li>
+<li>concept <code>IsPair</code> determines whether a type is a <code>std::pair</code> type.</li>
+<li>concept <code>IsReferenceWrapper</code> determines whether a type is a <code>std::reference_wrapper</code>.</li>
+<li>concept <code>IsSameAsAnyOf</code> which determines whether a type is the same as one of a list of types. Similar to <code>IsSameAsAnyOfRaw</code> but using exact types. The inversion is available as <code>NotSameAsAnyOf</code>.</li>
+<li>concept <code>IsSameAsAnyOfRaw</code> which determines whether a type is one of a list of types. Similar to <code>IsSameAsAnyOf</code> but applies <code>std::remove_cvref_t</code> on all types. The inversion is available as <code>NotSameAsAnyOfRaw</code>.</li>
+<li>concept <code>IsScalar</code> uses <code>std::is_scalar_v&lt;T&gt;</code>.</li>
+<li>concept <code>IsSet</code> determines whether a type is a <code>std::set</code> type.</li>
+<li>concept <code>IsSmartPtr</code> determines whether a type is a <code>std::shared_ptr</code>, <code>std::unique_ptr</code> or <code>std::weak_ptr</code>.<ul>
+<li>Can be extended with other smart pointers through <code>IsSmartPtrImpl</code>.</li>
+</ul>
+</li>
+<li>concept <code>IsStringKeyedContainer</code> which determines whether a type is a container whose elements are pairs and whose keys are convertible to a std::string_view.</li>
+<li>concept <code>IsTuple</code> determines whether a type is a <code>std::tuple</code> type.</li>
+<li>concept <code>IsVector</code> determines whether a type is a <code>std::vector</code> type.</li>
+</ul>
+</li>
+<li>mbo/types:template_search_cc, mbo/types/template_search.h:<ul>
+<li>template struct <code>BinarySearch</code> implements templated binary search algorithm.</li>
+<li>template struct <code>LinearSearch</code> implements templated linear search algorithm.</li>
+<li>template struct <code>ReverseSearch</code> implements templated reverse linear search algorithm.</li>
+<li>template struct <code>MaxSearch</code> implements templated linear search for last match algorithm.</li>
+</ul>
+</li>
+<li>mbo/types:tstring_cc, mbo/types/tstring.h<ul>
+<li>struct <code>tstring</code>: Implements type <code>tstring</code> a compile time string-literal type.</li>
+<li>operator <code>operator"" _ts</code>: String literal support for Clang, GCC and derived compilers.</li>
+</ul>
+</li>
+<li>mbo/types:tuple_cc, mbo/types/tuple.h<ul>
+<li>template struct <code>TupleCat</code> which concatenates tuple types.</li>
+</ul>
+</li>
+<li>mbo/types:typed_view_cc, mbo/types/typed_view.h<ul>
+<li>template struct <code>TypedView</code> a wrapper for STL views that provides type definitions, most importantly <code>value_type</code>. That allows such views to be used with GoogleTest container matchers.</li>
+</ul>
+</li>
+<li>mbo/types:variant_cc, mbo/types/variant.h<ul>
+<li>concept <code>IsVariant</code> determines whether a type is a <code>std::variant</code> type.</li>
+<li>concept <code>IsVariantMemberType</code> determine whether a <code>Type</code> is any of the types in a <code>Variant</code>.</li>
+<li>struct <code>Overloaded</code> which implements an Overload handler for <code>std::visit(std::variant&lt;...&gt;)</code> and <code>std::variant::visit</code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2>In addition some Bazel macros are implemented that are not direct part of the library:</h2>
+<ul>
+<li>bzl:archive.bzl<ul>
+<li><code>http_archive</code>: Simple wrapper that tests whether the archive was already loaded.</li>
+<li><code>github_archive</code>: Specialized archive wrapper that supports github that supports <code>tagged</code> releases or commits.</li>
+</ul>
+</li>
+</ul>
+<h2>Installation and requirements</h2>
+<p>This repository requires a C++20 compiler (in case of MacOS XCode 15 is needed). This is done so that newer features like <code>std::source_location</code> can be used.</p>
+<p>The project only comes with a Bazel BUILD.bazel file and can be added to other Bazel projects.</p>
+<p>The project is formatted with specific clang-format settings which require clang 16+ (in case of MacOs LLVM 16+ can be installed using brew). For simplicity in dev mode the project pulls the appropriate clang tools and can be compiled with those tools using <code>bazel [build|test] --config=clang ...</code>.</p>
+<h3>WORKSPACE</h3>
+<p>Checkout <a href="https://github.com/helly25/mbo/releases">Releases</a> or use head ref as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@bazel_tools//tools/build_defs/repo:http.bzl&quot;, &quot;http_archive&quot;)
+
+http_archive(
+  name = &quot;com_helly25_mbo&quot;,
+  url = &quot;https://github.com/helly25/mbo/archive/refs/heads/main.tar.gz&quot;,
+  # See https://github.com/helly25/mbo/releases for releases.
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com_helly25_mbo"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/helly25/mbo/archive/refs/heads/main.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">  # See https://github.com/helly25/mbo/releases for releases.</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h3>MODULES.bazel</h3>
+<p>Check <a href="https://github.com/helly25/mbo/releases">Releases</a> for details. All that is needed is a <code>bazel_dep</code> instruction with the correct version.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;helly25_mbo&quot;, version = &quot;0.0.0&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "helly25_mbo"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<p>Unlike the <code>WORKSPACE</code> installation the <code>MODULES.bazel</code> installation from source checkout, the above <a href="https://registry.bazel.build/modules/helly25_mbo">Bazel-Central-Registry</a> installation does not provide the LLVM tools and thus does not come with its own compiler. This is due to a restriction in Bazel's ability to handle toolchains when Bazel uses MODULES (<code>--enable_bzlmod</code> as opposed to <code>--enable_workspace</code>). Nonetheless all versions, all versions can be compiled with GCC 11+, Clang 17+ on Ubuntu and MacOs as enforced by CI. Other platforms and compilers are likely to work as well. However, Windows lacks some of the necessary tools and the library as well as its build system mostly assume Unix-style file and path names. That unfortunately means that on Windows some code cannot even be built.</p>
+<h2>Presentations</h2>
+<h3>Practical Production-proven Constexpr API Elements</h3>
+<p>Presented at <a href="https://cpponsea.uk/2024/session/practical-production-proven-constexpr-api-elements">C++ On Sea 2024</a>, this presentation covers the theory behind:</p>
+<ul>
+<li><code>mbo::hash::simple::GetHash</code>,</li>
+<li><code>mbo::container::LimitedVector</code>,</li>
+<li><code>mbo::container::LimitedMap</code>, and</li>
+<li><code>mbo::container::LimitedSet</code>.</li>
+</ul>
+<p>Slides are available at:
+<br>
+<br>
+<a href="https://helly25.com/practical-production-proven-constexpr-api-elements/"><img src="https://helly25.com/wp-content/uploads/2024/07/Practical-Production-proven-Constexpr-API-Elements_TitleCard-copy-980x551.png"></a></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">MBO, a C++20 library: This C++20 library provides some general useful building blocks and integrates with Google's Abseil library.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/helly25/mbo" title="@helly25"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@helly25/mbo</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/helly25.png" alt="@helly25"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/helly25/mbo"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">8</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Saturday, November 15, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 90.5%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 90.5%"> </span><span style="width: 7.9%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 7.9%"> </span><span style="width: 1.3%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.3%"> </span><span style="width: 0.2%; background-color: var(--lang-C-bg, #ccc)" title="C: 0.2%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">90.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">7.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0.2%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/helly25" title="helly25"><img class="avatar circle" width="48" height="48" src="https://github.com/helly25.png" alt="@helly25"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/publish-to-bcr-bot[bot]" title="@publish-to-bcr-bot[bot]"><img class="avatar circle" width="48" height="48" src="https://github.com/publish-to-bcr-bot[bot].png" alt="@publish-to-bcr-bot[bot]"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/6548"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="helly25_mbo@0.10.0 (#6548)"><span class="text-mono">#6548</span> <span class="text-light">helly25_mbo@0.10.0 (#6548)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/helly25/mbo/releases/download/0.10.0/mbo-0.10.0.tar.gz" title="https://github.com/helly25/mbo/releases/download/0.10.0/mbo-0.10.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/helly25/mb...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/helly25_mbo/0.10.0/patches/bazelmod.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">bazelmod.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">11</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.10.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.10.0"><span class="text-bold">0.10.0</span><sup class="color-fg-attention"> +5.5mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-15</span></div></td></tr><tr class=""><td title="0.9.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.9.0"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.9.0">0.9.0</a><sup class="color-fg-attention"> +28d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-06-04</span></div></td></tr><tr class=""><td title="0.8.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.8.0"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.8.0">0.8.0</a><sup class="color-fg-attention"> +4d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-05-06</span></div></td></tr><tr class=""><td title="0.7.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.7.0"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.7.0">0.7.0</a><sup class="color-fg-attention"> +1.1mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-05-02</span></div></td></tr><tr class=""><td title="0.6.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.6.0"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.6.0">0.6.0</a><sup class="color-fg-attention"> +5d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-29</span></div></td></tr><tr class=""><td title="0.5.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.5.0"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.5.0">0.5.0</a><sup class="color-fg-attention"> +12d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-23</span></div></td></tr><tr class=""><td title="0.4.4; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.4"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.4.4">0.4.4</a><sup class="color-fg-attention"> +5d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-10</span></div></td></tr><tr class=""><td title="0.4.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.3"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.4.3">0.4.3</a><sup class="color-fg-attention"> +19h</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-05</span></div></td></tr><tr class=""><td title="0.4.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.2"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.4.2">0.4.2</a><sup class="color-fg-attention"> +20h</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-04</span></div></td></tr><tr class=""><td title="0.4.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.1"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.4.1">0.4.1</a><sup class="color-fg-attention"> +7d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-03</span></div></td></tr><tr class=""><td title="0.4.0-rc.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.0-rc.1"><a class="Box-row-link" href="/#/modules/helly25_mbo/0.4.0-rc.1">0.4.0-rc.1</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-02-24</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

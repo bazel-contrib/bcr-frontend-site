@@ -1,0 +1,516 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">simde</span> <span class="f2 d-inline-block">0.8.2<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.5y ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/simd-everywhere/simde" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/simde/0.8.2/overview" data-name="overview" id=":hr.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/simde/0.8.2/docs" data-name="docs" id=":hr.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/simde/0.8.2/testing" data-name="testing" id=":hr.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;simde&quot;, version = &quot;0.8.2&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "simde"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.2"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>SIMD Everywhere</h1>
+
+<p><a href="#contributors-"><img src="https://img.shields.io/badge/all_contributors-78-orange.svg?style=flat-square" alt="All Contributors"></a></p>
+
+<p><a href="https://matrix.to/#/#simd-everywhere_community:gitter.im"><img src="https://badges.gitter.im/gitterHQ/gitter.png" alt="Chat"></a>
+<a href="https://codecov.io/gh/simd-everywhere/simde"><img src="https://codecov.io/gh/simd-everywhere/simde/branch/master/graph/badge.svg?token=jcMBoRk0ui" alt="codecov"></a></p>
+<p>The SIMDe header-only library provides fast, portable implementations of
+<a href="https://en.wikipedia.org/wiki/SIMD">SIMD intrinsics</a> on hardware which
+doesn't natively support them, such as calling <a href="https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</a>
+functions on ARM.  There is no performance penalty if the hardware
+supports the native implementation (<em>e.g.</em>, SSE/<a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX</a>
+runs at full speed on <a href="https://en.wikipedia.org/wiki/X86">x86</a>,
+<a href="https://en.wikipedia.org/wiki/ARM_architecture#Advanced_SIMD_(Neon)">NEON</a> on <a href="https://en.wikipedia.org/wiki/ARM_architecture">ARM</a>,
+<em>etc.</em>).</p>
+<p>This makes porting code to other architectures much easier in a few
+key ways:</p>
+<p>First, instead of forcing you to rewrite everything for each
+architecture, SIMDe lets you get a port up and running almost
+effortlessly.  You can then start working on switching the most
+performance-critical sections to native intrinsics, improving
+performance gradually.  SIMDe lets (for example) SSE/AVX and NEON code
+exist side-by-side, in the same implementation.</p>
+<p>Second, SIMDe makes it easier to write code targeting <a href="https://en.wikipedia.org/wiki/Instruction_set_architecture">ISA</a>
+extensions you don't have convenient access to.  You can run NEON code on your
+x86 machine <em>without an emulator</em>.  Obviously you'll eventually want
+to test on the actual hardware you're targeting, but for most
+development, SIMDe can provide a much easier path.</p>
+<p>SIMDe takes a very different approach from most other SIMD abstraction
+layers in that it aims to expose the entire functionality of the
+underlying instruction set.  Instead of limiting functionality to the
+lowest common denominator, SIMDe tries to minimize the amount of
+effort required to port while still allowing you the space to optimize
+as needed.</p>
+<p>The current focus is on writing complete portable implementations,
+though a large number of functions already have accelerated
+implementations using one (or more) of the following:</p>
+<ul>
+<li>SIMD intrinsics from other ISA extensions (e.g., using NEON to
+implement SSE).</li>
+<li>Compiler-specific vector extensions and built-ins such as
+<a href="http://clang.llvm.org/docs/LanguageExtensions.html#langext-builtin-shufflevector"><code>__builtin_shufflevector</code></a>
+and
+<a href="http://clang.llvm.org/docs/LanguageExtensions.html#langext-builtin-convertvector"><code>__builtin_convertvector</code></a></li>
+<li>Compiler auto-vectorization hints, using:<ul>
+<li><a href="http://www.openmp.org/">OpenMP 4 SIMD</a></li>
+<li><a href="https://www.cilkplus.org/">Cilk Plus</a></li>
+<li><a href="https://gcc.gnu.org/onlinedocs/gcc/Loop-Specific-Pragmas.html">GCC loop-specific pragmas</a></li>
+<li><a href="http://llvm.org/docs/Vectorizers.html#pragma-loop-hint-directives">clang pragma loop hint directives</a></li>
+</ul>
+</li>
+</ul>
+<p>You can <a href="https://simde.netlify.app/godbolt/demo">try SIMDe online</a>
+using Compiler Explorer and an amalgamated SIMDe header.</p>
+<p>If you have any questions, please feel free to use the
+<a href="https://github.com/simd-everywhere/simde/issues">issue tracker</a> or the
+<a href="https://groups.google.com/forum/#!forum/simde">mailing list</a>.</p>
+<h2>Current Status</h2>
+<p>There are currently complete implementations of the following instruction
+set extensions:</p>
+<ul>
+<li>ARM<ul>
+<li><a href="https://en.wikipedia.org/wiki/ARM_architecture_family#Advanced_SIMD_(Neon)">NEON</a> <a href="https://developer.arm.com/architectures/instruction-sets/intrinsics/#f:@navigationhierarchiessimdisa=%5BNeon%5D">List</a></li>
+</ul>
+</li>
+<li>x86 / x86_64<ul>
+<li><a href="https://en.wikipedia.org/wiki/MMX_(instruction_set)">MMX</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#techs=MMX">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Streaming_SIMD_Extensions">SSE</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ssetechs=SSE">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SSE2">SSE2</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ssetechs=SSE2">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SSE3">SSE3</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ssetechs=SSE3">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SSSE3">SSSE3</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ssetechs=SSSE3">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/SSE4#SSE4.1">SSE4.1</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ssetechs=SSE4_1">List</a></li>
+<li><a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;othertechs=CRC32">CRC32</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions">AVX</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#avxnewtechs=AVX">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Advanced_Vector_Extensions#Advanced_Vector_Extensions_2">AVX2</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#avxnewtechs=AVX2">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/F16C">F16C</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#avxnewtechs=F16C">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/FMA_instruction_set">FMA</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#avxnewtechs=FMA">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#GFNI">GFNI</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#othertechs=GFNI">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/XOP_instruction_set">XOP</a></li>
+<li><a href="https://software.intel.com/content/www/us/en/develop/documentation/cpp-compiler-developer-guide-and-reference/top/compiler-reference/intrinsics/intrinsics-for-intel-advanced-vector-extensions-512-intel-avx-512-instructions/intrinsics-for-arithmetic-operations-1/intrinsics-for-short-vector-math-library-svml-operations.html">SVML</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=770&amp;techs=SVML">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#VPOPCNTDQ_and_BITALG">AVX512VPOPCNTDQ</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;avx512techs=AVX512VPOPCNTDQ">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#VPOPCNTDQ_and_BITALG">AVX512_BITALG</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;avx512techs=AVX512_BITALG">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#Permute">AVX512_VBMI</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;avx512techs=AVX512_VBMI">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#VNNI">AVX512_VNNI</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;avx512techs=AVX512_VNNI">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#VP2INTERSECT">AVX512_VP2INTERSECT</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#ig_expand=7131&amp;avx512techs=AVX512_VP2INTERSECT">List</a></li>
+<li><a href="https://en.wikipedia.org/wiki/AVX-512#VPCLMULQDQ">VPCLMULQDQ</a> <a href="https://www.intel.com/content/www/us/en/docs/intrinsics-guide/index.html#othertechs=VPCLMULQDQ">List</a></li>
+</ul>
+</li>
+<li>WebAssembly<ul>
+<li><a href="https://github.com/WebAssembly/simd">SIMD128</a></li>
+</ul>
+</li>
+</ul>
+<p>As well as partial support for many others, including AES-ni, <a href="https://en.wikipedia.org/wiki/CLMUL_instruction_set">CLMUL</a>, SSE4.2, SVE, <a href="https://en.wikipedia.org/wiki/MIPS_architecture#Application-specific_extensions">MSA</a> in
+addition to several AVX-512 extensions.  See the
+<a href="https://github.com/simd-everywhere/simde/issues?q=is%3Aissue+is%3Aopen+label%3Ainstruction-set-support+sort%3Aupdated-desc">instruction-set-support</a>
+label in the issue tracker for details on progress.  If you'd like to
+be notified when an instruction set is available you may subscribe to
+the relevant issue.</p>
+<p>If you have a project you're interested in using with SIMDe but we
+don't yet support all the functions you need, please file an issue
+with a list of what's missing so we know what to prioritize.</p>
+<p>The default branch is protected so commits never reach it unless
+they have passed extensive CI checks.  Status badges don't really
+make sense since they will always be green, but here are the links:</p>
+<ul>
+<li><a href="https://github.com/simd-everywhere/simde/actions">GitHub Actions</a></li>
+<li><a href="https://cirrus-ci.com/github/simd-everywhere/simde">Cirrus CI</a></li>
+<li><a href="https://nemequ.semaphoreci.com/projects/simde">Semaphore CI</a></li>
+<li><a href="https://app.circleci.com/pipelines/github/simd-everywhere/simde">Circle CI</a></li>
+<li><a href="https://ci.appveyor.com/project/nemequ/simde">AppVeyor</a></li>
+<li><a href="https://dev.azure.com/simd-everywhere/SIMDe/_build">Azure Pipelines</a></li>
+<li><a href="https://cloud.drone.io/simd-everywhere/simde/">Drone CI</a></li>
+<li><a href="https://app.travis-ci.com/github/simd-everywhere/simde/">Travis CI</a></li>
+<li><a href="https://dashboard.packit.dev/projects/github.com/simd-everywhere/simde">Packit CI</a></li>
+</ul>
+<p>If you're adding a new build I suggest Cirrus CI, which is where we
+currently have the most room given the number of builds currently on
+the platform and the quotas for free/open-source usage.  Alternately,
+feel free to set up another provider (such as
+<a href="https://codefresh.io/">Codefresh</a>,
+<a href="https://www.shippable.com/">Shippable</a>,
+<a href="https://www.bitrise.io/">Bitrise</a>,
+<a href="https://app.wercker.com/">Werkaer</a>, etc.).</p>
+<p><em>Notice</em>: we plan on changing the name of the default branch from
+"master" to something else soon; we are just trying to wait to see what
+name git settles on so we can be consistent.</p>
+<h2>Contributing</h2>
+<p>First off, if you're reading this: thank you! Even considering
+contributing to SIMDe is very much appreciated!</p>
+<p>SIMDe is a fairly large undertaking; there are a <em>lot</em> of functions to
+get through and a lot of opportunities for optimization on different
+platforms, so we're very happy for any help you can provide.</p>
+<p>Programmers of all skill levels are welcome, there are lots of tasks
+which are pretty straightforward and don't require any special
+expertise.</p>
+<p>If you're not sure how you'd like to contribute, please consider taking
+a look at <a href="https://github.com/simd-everywhere/simde/issues">the issue tracker</a>.
+There is a <a href="https://github.com/simd-everywhere/simde/issues?q=is%3Aissue+is%3Aopen+label%3A%22good+first+issue%22">good first issue</a>
+tag if you want to ease into a your first contributions, but if you're
+interested in something else please get in touch via the issue tracker;
+we're happy to help you get a handle on whatever you are interested in.</p>
+<p>If you're interested in implementing currently unimplemented functions,
+there is <a href="https://github.com/simd-everywhere/simde/wiki/Implementing-a-New-Function">a
+guide</a>
+explaining how to add new functions and how to quickly and easily get
+a test case in place.  It's a bit rough right now, but if anything is
+unclear please feel free to use the issue tracker to ask about
+anything you're not clear on.</p>
+<h2>Usage</h2>
+<p>First, it is important to note that <em>you do not need two separate
+versions</em> (one using SIMDe, the other native).  If the native functions
+are available SIMDe will use them, and compilers easily optimize away
+any overhead from SIMDe; all they have to do is some basic inlining.
+<code>-O2</code> should be enough, but we strongly recommend <code>-O3</code> (or whatever
+flag instructs your compiler to aggressizely optimize) since many of
+the portable fallbacks are substantially faster with aggressive
+auto-vectorization that isn't enabled at lower optimization levels.</p>
+<p>Each instruction set has a separate file; <code>x86/mmx.h</code> for MMX,
+<code>x86/sse.h</code> for SSE, <code>x86/sse2.h</code> for SSE2, and so on.  Just include
+the header for whichever instruction set(s) you want <em>instead of the
+native version</em> (if you include the native version after SIMDe it will
+result in compile-time errors if native aliases are enabled).  SIMDe
+will provide the fastest implementation it can given which extensions
+you've enabled in your compiler (i.e., if you want to use NEON to
+implement SSE, you may need to pass something like <code>-mfpu=neon</code>
+or <code>-march=armv8-a+simd</code>.  See
+<a href="https://gcc.gnu.org/onlinedocs/gcc/ARM-Options.html">GCC ARM-Options</a>
+for more information).</p>
+<p>If you define <code>SIMDE_ENABLE_NATIVE_ALIASES</code> before including SIMDe
+you can use the same names as the native functions.  Unfortunately,
+this is somewhat error-prone due to portability issues in the APIs, so
+it's recommended to only do this for testing.  When
+<code>SIMDE_ENABLE_NATIVE_ALIASES</code> is undefined only the versions prefixed
+with <code>simde_</code> will be available; for example, the MMX <code>_mm_add_pi8</code>
+intrinsic becomes <code>simde_mm_add_pi8</code>, and <code>__m64</code> becomes <code>simde__m64</code>.</p>
+<p>Since SIMDe is meant to be portable, many functions which assume types
+are of a specific size have been altered to use fixed-width types
+instead.  For example, Intel's APIs use <code>char</code> for signed 8-bit
+integers, but <code>char</code> on ARM is generally unsigned.  SIMDe uses <code>int8_t</code>
+to make the API portable, but that means your code may require some
+minor changes (such as using <code>int8_t</code> instead of <code>char</code>) to work on
+other platforms.</p>
+<p>That said, the changes are usually quite minor.  It's often enough to
+just use search and replace, manual changes are required pretty
+infrequently.</p>
+<h3>OpenMP 4 SIMD</h3>
+<p>SIMDe makes extensive use of annotations to help the compiler vectorize
+code.  By far the best annotations use the SIMD support built in to
+OpenMP 4, so if your compiler supports these annotations we strongly
+recommend you enable them.</p>
+<p>If you are already using OpenMP, SIMDe will automatically detect it
+using the <code>_OPENMP</code> macro and no further action is required.</p>
+<p>Some compilers allow you to enable OpenMP SIMD <em>without</em> enabling the
+full OpenMP.  In such cases there is no runtime dependency on OpenMP
+and no runtime overhead; SIMDe will just be faster.  Unfortunately,
+SIMDe has no way to detect such situations (the <code>_OPENMP</code> macro is not
+defined), so after enabling it in your compiler you'll need to define
+<code>SIMDE_ENABLE_OPENMP</code> (e.g., by passing <code>-DSIMDE_ENABLE_OPENMP</code>) to get
+SIMDe to output the relevant pragmas.</p>
+<p>Enabling OpenMP SIMD support varies by compiler:</p>
+<ul>
+<li>GCC 4.9+ and clang 6+ support a <code>-fopenmp-simd</code> command line flag.</li>
+<li>ICC supports a <code>-qopenmp-simd</code> command line flag.</li>
+<li>MCST's LCC enables OpenMP SIMD by default, so no flags are needed
+(technically you don't even need to pass <code>-DSIMDE_ENABLE_OPENMP</code>).</li>
+</ul>
+<p>We are not currently aware of any other compilers which allow you to
+enable OpenMP SIMD support without enabling full OpenMP (if you are
+please file an issue to let us know).  You should determine whether you
+wish to enable full OpenMP support on a case-by-case basis, but it is
+likely that the overhead of linking to (but not using) the OpenMP
+runtime library will be dwarfed by the performance improvements from
+using the OpenMP SIMD annotations in SIMDe.</p>
+<p>If you choose not to use OpenMP SIMD, SIMDe also supports
+using <a href="https://www.cilkplus.org/">Cilk Plus</a>, <a href="https://gcc.gnu.org/onlinedocs/gcc/Loop-Specific-Pragmas.html">GCC loop-specific
+pragmas</a>,
+or <a href="http://llvm.org/docs/Vectorizers.html#pragma-loop-hint-directives">clang pragma loop hint
+directives</a>,
+though these are not nearly as effective as OpenMP SIMD and depending
+on them will likely result in less efficient code.  All of these are
+detected automatically by SIMDe, so if they are enabled in your
+compiler nothing more is required.</p>
+<p>If for some reason you do not wish to enable OpenMP 4 SIMD support even
+though SIMDe detects it, you should define <code>SIMDE_DISABLE_OPENMP</code> prior
+to including SIMDe.</p>
+<h2>Portability</h2>
+<h3>Compilers</h3>
+<p>SIMDe does depend on some C99 features, though the subset supported by
+MSVC also works.  While we do our best to make sure we provide optimized
+implementations where they are supported, SIMDe does contain portable
+fallbacks which are designed to work on any C99 compiler.</p>
+<p>Every commit is tested in CI on multiple compilers, platforms, and
+configurations, and our test coverage is extremely extensive.
+Currently tested compilers include:</p>
+<ul>
+<li>GCC versions back to 4.8</li>
+<li>Clang versions back to 3.8</li>
+<li>Microsoft Visual Studio back to 12 (2013)</li>
+<li>IBM XL C/C++</li>
+<li>Intel C/C++ Compiler (ICC)</li>
+</ul>
+<p>I'm generally willing to accept patches to add support for other
+compilers, as long as they're not too disruptive, <em>especially</em> if we
+can get CI support going.  If using one of our existing CI providers
+isn't an option then other CI platforms can be added.</p>
+<h3>Hardware</h3>
+<p>The following architectures are tested in CI for every commit:</p>
+<ul>
+<li>x86_64/amd64</li>
+<li>x86</li>
+<li>AArch64</li>
+<li>ARMv8</li>
+<li>ARMv7 with VFPv3-D16 floating point</li>
+<li>ARMv5 EABI</li>
+<li>PPC64</li>
+<li>z/Architecture (with "-mzvector")</li>
+<li>MIPS Loongson 64</li>
+<li>RISC-V 64</li>
+<li>emscripten 32- &amp; 64-bit; regular and relaxed</li>
+<li>LoongArch64</li>
+</ul>
+<p>We would love to add more, so patches are extremely welcome!</p>
+<h2>Related Projects</h2>
+<ul>
+<li>The "builtins" module in
+<a href="https://github.com/nemequ/portable-snippets">portable-snippets</a>
+does much the same thing, but for compiler-specific intrinsics
+(think <code>__builtin_clz</code> and <code>_BitScanForward</code>), <strong>not</strong> SIMD
+intrinsics.</li>
+<li>Intel offers an emulator, the <a href="https://software.intel.com/en-us/articles/intel-software-development-emulator/">Intel® Software Development
+Emulator</a>
+which can be used to develop software which uses Intel intrinsics
+without having to own hardware which supports them, though it
+doesn't help for deployment.</li>
+<li><a href="https://github.com/AlexYaruki/iris">Iris</a> is the only other project
+I'm aware of which is attempting to create portable implementations
+like SIMDe.  SIMDe is much further along on the Intel side, but Iris
+looks to be in better shape on ARM.  C++-only, Apache 2.0 license.
+AFAICT there are no accelerated fallbacks, nor is there a good way to
+add them since it relies extensively on templates.</li>
+<li>There are a few projects trying to implement one set with another:<ul>
+<li><a href="https://github.com/intel/ARM_NEON_2_x86_SSE">ARM_NEON_2_x86_SSE</a>
+— implementing NEON using SSE.  Quite extensive, Apache 2.0
+license.</li>
+<li><a href="https://github.com/jratcliff63367/sse2neon">sse2neon</a> —
+implementing SSE using NEON.  This code has already been merged
+into SIMDe.</li>
+<li><a href="https://github.com/IvantheDugtrio/veclib">veclib</a> — implementing
+SSE2 using AltiVec/VMX, using a non-free IBM library called
+<a href="https://www.ibm.com/developerworks/community/groups/community/powerveclib/">powerveclib</a></li>
+<li><a href="https://github.com/otim/SSE-to-NEON">SSE-to-NEON</a> — implementing
+SSE with NEON.  Non-free, C++.</li>
+<li><a href="https://github.com/kunpengcompute/AvxToNeon">AvxToNeon</a> — Popular
+ AVX+ intrinsincs implemented in NEON. C, Apache 2.0 license.</li>
+<li><a href="https://github.com/howjmay/neon2rvv">neon2rvv</a> - A C/C++ header file that converts Arm/Aarch64 NEON intrinsics to RISC-V Vector (RVV) Extension, MIT license</li>
+<li><a href="https://github.com/pattonkan/sse2rvv">sse2rvv</a> - A C/C++ header file that converts Intel SSE intrinsics to RISCV-V Extension intrinsics, MIT license.</li>
+</ul>
+</li>
+<li><a href="https://github.com/christophe-lyon/arm-neon-tests">arm-neon-tests</a>
+contains tests to verify NEON implementations.</li>
+</ul>
+<p>If you know of any other related projects, please <a href="https://github.com/simd-everywhere/simde/issues/new">let us
+know</a>!</p>
+<h2>Caveats</h2>
+<p>Sometime features can't be emulated.  If SIMDe is operating in native
+mode the functions will work as expected, but if there is no native
+support some caveats apply:</p>
+<ul>
+<li>Many functions require &lt;math.h&gt; and/or &lt;fenv.h&gt;.  SIMDe will still
+work without those headers, but the results of those functions are
+undefined.</li>
+<li>x86 / x86_64<ul>
+<li>SSE<ul>
+<li><code>SIMDE_MM_SET_ROUNDING_MODE()</code> will use <code>fesetround()</code>, altering
+the global rounding mode.</li>
+<li><code>simde_mm_getcsr</code> and <code>simde_mm_setcsr</code> only implement bits 13
+and 14 (rounding mode).</li>
+</ul>
+</li>
+<li>AVX<ul>
+<li><code>simde_mm256_test*</code> do not set the CF/ZF registers as there is
+no portable way to implement that functionality.</li>
+<li><code>simde_mm256_zeroall</code> and <code>simde_mm256_zeroupper</code> are not
+implemented as there is no portable way to implement that
+functionality.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p>Additionally, there are some known limitations which apply when using
+native aliases (<code>SIMDE_ENABLE_NATIVE_ALIASES</code>):</p>
+<ul>
+<li>On Windows x86 (but not x86_64), some MMX functions and SSE/SSE2
+functions which use MMX types (__m64) other than for pointers may
+return incorrect results.</li>
+</ul>
+<p>Also, as mentioned earlier, while some APIs make assumptions about
+basic types (<em>e.g.</em>, <code>int</code> is 32 bits), SIMDe does not, so many types
+have been altered to use portable fixed-width versions such as
+<code>int32_t</code>.</p>
+<p>If you find any other differences, please file an issue so we can either fix
+it or add it to the list above.</p>
+<h2>Benefactors</h2>
+<p>SIMDe uses resources provided for free by a number of organizations.
+While this shouldn't be taken to imply endorsement of SIMDe, we're
+tremendously grateful for their support:</p>
+<ul>
+<li><a href="https://integricloud.com/">IntegriCloud</a> — provides access to a very
+fast POWER9 server for developing AltiVec/VMX support.</li>
+<li><a href="https://gcc.gnu.org/wiki/CompileFarm">GCC Compile Farm</a> — provides
+access to a wide range of machines with different architectures for
+developing support for various ISA extensions.</li>
+<li><a href="https://codecov.io/">CodeCov.io</a> — provides code coverage analysis
+for our test cases.</li>
+<li><a href="https://www.google.com/">Google</a> ­— financing
+<a href="https://summerofcode.withgoogle.com/">Summer of Code</a>, substantial
+amounts of code (Sean Maher's contributions), and an <a href="https://opensource.google/docs/growing/peer-bonus/">Open Source Peer
+Bonus</a>.</li>
+</ul>
+<p>Without such organizations donating resources, SIMDe wouldn't be nearly
+as useful or usable as it is today.</p>
+<p>We would also like to thank anyone who has helped develop the myriad
+of software on which SIMDe relies, including compilers and analysis
+tools.</p>
+<p>Finally, a special thank you to
+<a href="https://github.com/simd-everywhere/simde/graphs/contributors">anyone who has contributed</a>
+to SIMDe, filed bugs, provided suggestions, or helped with SIMDe
+development in any way.</p>
+<h2>License</h2>
+<p>SIMDe is distributed under an MIT-style license; see COPYING for
+details.</p>
+<h2>Contributors ✨</h2>
+<p>Thanks goes to these wonderful people (<a href="https://allcontributors.org/docs/en/emoji-key">emoji key</a>):</p>
+
+
+
+<table>
+  <tbody><tr>
+    <td align="center"><a href="https://nemequ.github.io/"><img src="https://avatars0.githubusercontent.com/u/1151?v=4" width="100px;" alt=""><br><sub><b>Evan Nemerson</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=nemequ" title="Code">💻</a> <a href="#content-nemequ" title="Content">🖋</a> <a href="https://github.com/nemequ/simde/commits?author=nemequ" title="Documentation">📖</a> <a href="#example-nemequ" title="Examples">💡</a> <a href="#ideas-nemequ" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="#question-nemequ" title="Answering Questions">💬</a> <a href="https://github.com/nemequ/simde/pulls?q=is%3Apr+reviewed-by%3Anemequ" title="Reviewed Pull Requests">👀</a> <a href="https://github.com/nemequ/simde/commits?author=nemequ" title="Tests">⚠️</a> <a href="#tutorial-nemequ" title="Tutorials">✅</a> <a href="#talk-nemequ" title="Talks">📢</a> <a href="https://github.com/nemequ/simde/issues?q=author%3Anemequ" title="Bug reports">🐛</a> <a href="#infra-nemequ" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-nemequ" title="Maintenance">🚧</a> <a href="#projectManagement-nemequ" title="Project Management">📆</a></td>
+    <td align="center"><a href="https://orcid.org/0000-0002-2961-9670"><img src="https://avatars3.githubusercontent.com/u/1330696?v=4" width="100px;" alt=""><br><sub><b>Michael R. Crusoe</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Amr-c" title="Bug reports">🐛</a> <a href="https://github.com/nemequ/simde/commits?author=mr-c" title="Code">💻</a> <a href="#eventOrganizing-mr-c" title="Event Organizing">📋</a> <a href="#fundingFinding-mr-c" title="Funding Finding">🔍</a> <a href="#ideas-mr-c" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="#infra-mr-c" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#platform-mr-c" title="Packaging/porting to new platform">📦</a> <a href="https://github.com/nemequ/simde/commits?author=mr-c" title="Tests">⚠️</a> <a href="#maintenance-mr-c" title="Maintenance">🚧</a> <a href="#projectManagement-mr-c" title="Project Management">📆</a> <a href="https://github.com/nemequ/simde/pulls?q=is%3Apr+reviewed-by%3Amr-c" title="Reviewed Pull Requests">👀</a></td>
+    <td align="center"><a href="https://github.com/himanshi18037"><img src="https://avatars1.githubusercontent.com/u/43923076?v=4" width="100px;" alt=""><br><sub><b>HIMANSHI MATHUR</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=himanshi18037" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=himanshi18037" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/masterchef2209"><img src="https://avatars0.githubusercontent.com/u/27916352?v=4" width="100px;" alt=""><br><sub><b>Hidayat Khan</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=masterchef2209" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=masterchef2209" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/rosbif"><img src="https://avatars1.githubusercontent.com/u/553899?v=4" width="100px;" alt=""><br><sub><b>rosbif</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=rosbif" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=rosbif" title="Tests">⚠️</a> <a href="https://github.com/nemequ/simde/issues?q=author%3Arosbif" title="Bug reports">🐛</a> <a href="#ideas-rosbif" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="https://github.com/nemequ/simde/commits?author=rosbif" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://junaruga.hatenablog.com/"><img src="https://avatars2.githubusercontent.com/u/121989?v=4" width="100px;" alt=""><br><sub><b>Jun Aruga</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=junaruga" title="Code">💻</a> <a href="#ideas-junaruga" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="#platform-junaruga" title="Packaging/porting to new platform">📦</a> <a href="#infra-junaruga" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a> <a href="#maintenance-junaruga" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=junaruga" title="Tests">⚠️</a> <a href="https://github.com/nemequ/simde/issues?q=author%3Ajunaruga" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/marmeladema"><img src="https://avatars2.githubusercontent.com/u/1629419?v=4" width="100px;" alt=""><br><sub><b>Élie ROUDNINSKI</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=marmeladema" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=marmeladema" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="http://www.bache.name"><img src="https://avatars3.githubusercontent.com/u/7937081?v=4" width="100px;" alt=""><br><sub><b>Jesper Storm Bache</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=jsbache" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/jeffdaily"><img src="https://avatars1.githubusercontent.com/u/904248?v=4" width="100px;" alt=""><br><sub><b>Jeff Daily</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=jeffdaily" title="Code">💻</a> <a href="#infra-jeffdaily" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://github.com/yekm"><img src="https://avatars2.githubusercontent.com/u/205196?v=4" width="100px;" alt=""><br><sub><b>Pavel</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=yekm" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/sabarishbollapragada"><img src="https://avatars3.githubusercontent.com/u/36379720?v=4" width="100px;" alt=""><br><sub><b>Sabarish Bollapragada</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=sabarishbollapragada" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.thegavinli.com/"><img src="https://avatars2.githubusercontent.com/u/371529?v=4" width="100px;" alt=""><br><sub><b>Gavin Li</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=gh2o" title="Code">💻</a></td>
+    <td align="center"><a href="http://www.yiningkarlli.com"><img src="https://avatars0.githubusercontent.com/u/1057198?v=4" width="100px;" alt=""><br><sub><b>Yining Karl Li</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=betajippity" title="Code">💻</a></td>
+    <td align="center"><a href="https://www.facebook.com/anirbandey303"><img src="https://avatars1.githubusercontent.com/u/29774651?v=4" width="100px;" alt=""><br><sub><b>Anirban Dey</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=anirbandey303" title="Documentation">📖</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Un1Gfn"><img src="https://avatars3.githubusercontent.com/u/28521292?v=4" width="100px;" alt=""><br><sub><b>Darren Ng</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Un1Gfn" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/FaresSalem"><img src="https://avatars0.githubusercontent.com/u/7736245?v=4" width="100px;" alt=""><br><sub><b>FaresSalem</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=FaresSalem" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/GorePradnyesh"><img src="https://avatars0.githubusercontent.com/u/843197?v=4" width="100px;" alt=""><br><sub><b>Pradnyesh Gore</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=GorePradnyesh" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/seanptmaher"><img src="https://avatars0.githubusercontent.com/u/39571964?v=4" width="100px;" alt=""><br><sub><b>Sean Maher</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=seanptmaher" title="Code">💻</a></td>
+    <td align="center"><a href="https://zh.wikipedia.org/wiki/User:Artoria2e5"><img src="https://avatars.githubusercontent.com/u/6459309?v=4" width="100px;" alt=""><br><sub><b>Mingye Wang</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Artoria2e5" title="Documentation">📖</a></td>
+    <td align="center"><a href="http://www.ngzhian.com"><img src="https://avatars.githubusercontent.com/u/1749303?v=4" width="100px;" alt=""><br><sub><b>Ng Zhi An</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=ngzhian" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=ngzhian" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/Glitch18"><img src="https://avatars.githubusercontent.com/u/30515829?v=4" width="100px;" alt=""><br><sub><b>Atharva Nimbalkar</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Glitch18" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=Glitch18" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/simba611"><img src="https://avatars.githubusercontent.com/u/59763921?v=4" width="100px;" alt=""><br><sub><b>simba611</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=simba611" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=simba611" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://ashnewmanjones.com"><img src="https://avatars.githubusercontent.com/u/29983014?v=4" width="100px;" alt=""><br><sub><b>Ashleigh Newman-Jones</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=ashnewmanjones" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=ashnewmanjones" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://alum.mit.edu/www/wrv/"><img src="https://avatars.githubusercontent.com/u/5039686?v=4" width="100px;" alt=""><br><sub><b>Willy R. Vasquez</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=wrv" title="Code">💻</a> <a href="#maintenance-wrv" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=wrv" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://cs.stanford.edu/~keithw"><img src="https://avatars.githubusercontent.com/u/208955?v=4" width="100px;" alt=""><br><sub><b>Keith Winstein</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=keithw" title="Code">💻</a> <a href="#maintenance-keithw" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=keithw" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/SoapGentoo"><img src="https://avatars.githubusercontent.com/u/16636962?v=4" width="100px;" alt=""><br><sub><b>David Seifert</b></sub></a><br><a href="#maintenance-SoapGentoo" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://mirdita.de"><img src="https://avatars.githubusercontent.com/u/63657?v=4" width="100px;" alt=""><br><sub><b>Milot Mirdita</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=milot-mirdita" title="Code">💻</a> <a href="#maintenance-milot-mirdita" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=milot-mirdita" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://bitpatch.com"><img src="https://avatars.githubusercontent.com/u/4021602?v=4" width="100px;" alt=""><br><sub><b>aqrit</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=aqrit" title="Code">💻</a> <a href="#maintenance-aqrit" title="Maintenance">🚧</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/dgazzoni"><img src="https://avatars.githubusercontent.com/u/17934171?v=4" width="100px;" alt=""><br><sub><b>Décio Luiz Gazzoni Filho</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=dgazzoni" title="Code">💻</a> <a href="#maintenance-dgazzoni" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=dgazzoni" title="Tests">⚠️</a></td>
+    <td align="center"><a href="http://vk.com/muzzdiez"><img src="https://avatars.githubusercontent.com/u/16463967?v=4" width="100px;" alt=""><br><sub><b>Igor Molchanov</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=makise-homura" title="Code">💻</a> <a href="#maintenance-makise-homura" title="Maintenance">🚧</a> <a href="#platform-makise-homura" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="https://github.com/anrodrig"><img src="https://avatars.githubusercontent.com/u/35815808?v=4" width="100px;" alt=""><br><sub><b>Andrew Rodriguez</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=anrodrig" title="Code">💻</a> <a href="#maintenance-anrodrig" title="Maintenance">🚧</a> <a href="https://github.com/nemequ/simde/commits?author=anrodrig" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Changqing-JING"><img src="https://avatars.githubusercontent.com/u/59640930?v=4" width="100px;" alt=""><br><sub><b>Changqing  Jing</b></sub></a><br><a href="#maintenance-Changqing-JING" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://jpcima.sdf1.org/"><img src="https://avatars.githubusercontent.com/u/17614485?v=4" width="100px;" alt=""><br><sub><b>JP Cimalando</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=jpcima" title="Code">💻</a> <a href="#infra-jpcima" title="Infrastructure (Hosting, Build-Tools, etc)">🚇</a></td>
+    <td align="center"><a href="https://flygoat.com/"><img src="https://avatars.githubusercontent.com/u/5955297?v=4" width="100px;" alt=""><br><sub><b>Jiaxun Yang</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=FlyGoat" title="Code">💻</a> <a href="#platform-FlyGoat" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="https://github.com/ktgw0316"><img src="https://avatars.githubusercontent.com/u/3116763?v=4" width="100px;" alt=""><br><sub><b>Masahiro Kitagawa</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=ktgw0316" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=ktgw0316" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/operasfantom"><img src="https://avatars.githubusercontent.com/u/31903947?v=4" width="100px;" alt=""><br><sub><b>Pavel Iatchenii</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=operasfantom" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=operasfantom" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://tommyvct.tk"><img src="https://avatars.githubusercontent.com/u/7903172?v=4" width="100px;" alt=""><br><sub><b>Tommy Vercetti</b></sub></a><br><a href="#maintenance-tommyvct" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/rscohn2"><img src="https://avatars.githubusercontent.com/u/1936730?v=4" width="100px;" alt=""><br><sub><b>Robert Cohn</b></sub></a><br><a href="#maintenance-rscohn2" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/adamnovak"><img src="https://avatars.githubusercontent.com/u/5062495?v=4" width="100px;" alt=""><br><sub><b>Adam Novak</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=adamnovak" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/boris-kuz"><img src="https://avatars.githubusercontent.com/u/18011434?v=4" width="100px;" alt=""><br><sub><b>boris-kuz</b></sub></a><br><a href="#maintenance-boris-kuz" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/Epixu"><img src="https://avatars.githubusercontent.com/u/1529601?v=4" width="100px;" alt=""><br><sub><b>Dimo Markov</b></sub></a><br><a href="#maintenance-Epixu" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://dhbloo.github.io/"><img src="https://avatars.githubusercontent.com/u/32353216?v=4" width="100px;" alt=""><br><sub><b>dblue</b></sub></a><br><a href="#maintenance-dhbloo" title="Maintenance">🚧</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/zekehul"><img src="https://avatars.githubusercontent.com/u/8780526?v=4" width="100px;" alt=""><br><sub><b>zekehul</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=zekehul" title="Code">💻</a> <a href="#maintenance-zekehul" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://open-cells.com"><img src="https://avatars.githubusercontent.com/u/40661368?v=4" width="100px;" alt=""><br><sub><b>Laurent Thomas</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=LaurentThomas" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/maxbachmann"><img src="https://avatars.githubusercontent.com/u/44199644?v=4" width="100px;" alt=""><br><sub><b>Max Bachmann</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=maxbachmann" title="Documentation">📖</a></td>
+    <td align="center"><a href="https://github.com/psaab"><img src="https://avatars.githubusercontent.com/u/196946?v=4" width="100px;" alt=""><br><sub><b>psaab</b></sub></a><br><a href="#maintenance-psaab" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://superduper.net/"><img src="https://avatars.githubusercontent.com/u/515813?v=4" width="100px;" alt=""><br><sub><b>Sam Clegg</b></sub></a><br><a href="#maintenance-sbc100" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://twitter.com/tlively52"><img src="https://avatars.githubusercontent.com/u/7121787?v=4" width="100px;" alt=""><br><sub><b>Thomas Lively</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Atlively" title="Bug reports">🐛</a> <a href="#ideas-tlively" title="Ideas, Planning, &amp; Feedback">🤔</a> <a href="#maintenance-tlively" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="http://blog.coderzh.com/"><img src="https://avatars.githubusercontent.com/u/329164?v=4" width="100px;" alt=""><br><sub><b>coderzh</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=coderzh" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=coderzh" title="Tests">⚠️</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/k-dominik"><img src="https://avatars.githubusercontent.com/u/24434157?v=4" width="100px;" alt=""><br><sub><b>Dominik Kutra</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=k-dominik" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=k-dominik" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Lithrein"><img src="https://avatars.githubusercontent.com/u/207981?v=4" width="100px;" alt=""><br><sub><b>Lithrein</b></sub></a><br><a href="#maintenance-Lithrein" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/quyykk"><img src="https://avatars.githubusercontent.com/u/85879619?v=4" width="100px;" alt=""><br><sub><b>Nick</b></sub></a><br><a href="#maintenance-quyykk" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/thomasdwu"><img src="https://avatars.githubusercontent.com/u/6819659?v=4" width="100px;" alt=""><br><sub><b>thomasdwu</b></sub></a><br><a href="#maintenance-thomasdwu" title="Maintenance">🚧</a></td>
+    <td align="center"><a href="https://github.com/Remnant44"><img src="https://avatars.githubusercontent.com/u/54461740?v=4" width="100px;" alt=""><br><sub><b>Stephen</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3ARemnant44" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/johnplatts"><img src="https://avatars.githubusercontent.com/u/28941113?v=4" width="100px;" alt=""><br><sub><b>John Platts</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Ajohnplatts" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/tycho"><img src="https://avatars.githubusercontent.com/u/29616?v=4" width="100px;" alt=""><br><sub><b>Steven Noonan</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Atycho" title="Bug reports">🐛</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/p0nce"><img src="https://avatars.githubusercontent.com/u/1067485?v=4" width="100px;" alt=""><br><sub><b>p0nce </b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Ap0nce" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://bonedaddy.net/pabs3/"><img src="https://avatars.githubusercontent.com/u/328602?v=4" width="100px;" alt=""><br><sub><b>Paul Wise</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Apabs3" title="Bug reports">🐛</a></td>
+    <td align="center"><a href="https://github.com/easyaspi314"><img src="https://avatars.githubusercontent.com/u/6258309?v=4" width="100px;" alt=""><br><sub><b>easyaspi314 (Devin)</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Aeasyaspi314" title="Bug reports">🐛</a> <a href="https://github.com/nemequ/simde/commits?author=easyaspi314" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/JonLiu1993"><img src="https://avatars.githubusercontent.com/u/63675417?v=4" width="100px;" alt=""><br><sub><b>JonLiu1993</b></sub></a><br><a href="#platform-JonLiu1993" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="https://github.com/Cheney-W"><img src="https://avatars.githubusercontent.com/u/38240633?v=4" width="100px;" alt=""><br><sub><b>Cheney Wang</b></sub></a><br><a href="#platform-Cheney-W" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="http://myd7349.github.io/"><img src="https://avatars.githubusercontent.com/u/5435649?v=4" width="100px;" alt=""><br><sub><b>myd7349 </b></sub></a><br><a href="#platform-myd7349" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="https://github.com/chausner"><img src="https://avatars.githubusercontent.com/u/15180557?v=4" width="100px;" alt=""><br><sub><b>chausner</b></sub></a><br><a href="#platform-chausner" title="Packaging/porting to new platform">📦</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/yyctw"><img src="https://avatars.githubusercontent.com/u/45251297?v=4" width="100px;" alt=""><br><sub><b>Yi-Yen Chung</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=yyctw" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=yyctw" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/wewe5215"><img src="https://avatars.githubusercontent.com/u/76145143?v=4" width="100px;" alt=""><br><sub><b>Chi-Wei Chu</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=wewe5215" title="Code">💻</a> <a href="https://github.com/nemequ/simde/commits?author=wewe5215" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/M-HT"><img src="https://avatars.githubusercontent.com/u/12173952?v=4" width="100px;" alt=""><br><sub><b>M-HT</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=M-HT" title="Code">💻</a></td>
+    <td align="center"><a href="https://gottliebtfreitag.de"><img src="https://avatars.githubusercontent.com/u/456045?v=4" width="100px;" alt=""><br><sub><b>Simon Gene Gottlieb</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=SGSSGene" title="Code">💻</a></td>
+    <td align="center"><a href="http://bsc.fu-berlin.de"><img src="https://avatars.githubusercontent.com/u/6008722?v=4" width="100px;" alt=""><br><sub><b>Chris Bielow</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=cbielow" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/XiWeiGu"><img src="https://avatars.githubusercontent.com/u/41367273?v=4" width="100px;" alt=""><br><sub><b>gu xiwei</b></sub></a><br><a href="#platform-XiWeiGu" title="Packaging/porting to new platform">📦</a> <a href="https://github.com/nemequ/simde/commits?author=XiWeiGu" title="Tests">⚠️</a></td>
+    <td align="center"><a href="https://github.com/Vineg"><img src="https://avatars.githubusercontent.com/u/1757455?v=4" width="100px;" alt=""><br><sub><b>George Vinokhodov</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Vineg" title="Code">💻</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/Coeur"><img src="https://avatars.githubusercontent.com/u/839992?v=4" width="100px;" alt=""><br><sub><b>Cœur</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Coeur" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/Proudsalsa"><img src="https://avatars.githubusercontent.com/u/103449548?v=4" width="100px;" alt=""><br><sub><b>Florian @Proudsalsa</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=Proudsalsa" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/thomas-schlichter"><img src="https://avatars.githubusercontent.com/u/106664923?v=4" width="100px;" alt=""><br><sub><b>Thomas Schlichter</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3Athomas-schlichter" title="Bug reports">🐛</a> <a href="https://github.com/nemequ/simde/commits?author=thomas-schlichter" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/AymenQ"><img src="https://avatars.githubusercontent.com/u/3706283?v=4" width="100px;" alt=""><br><sub><b>Aymen Qader</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=AymenQ" title="Code">💻</a></td>
+    <td align="center"><a href="https://github.com/eric900115"><img src="https://avatars.githubusercontent.com/u/77781328?v=4" width="100px;" alt=""><br><sub><b>Eric Su</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=eric900115" title="Code">💻</a> <a href="#platform-eric900115" title="Packaging/porting to new platform">📦</a></td>
+    <td align="center"><a href="https://github.com/Torinde"><img src="https://avatars.githubusercontent.com/u/97228894?v=4" width="100px;" alt=""><br><sub><b>Torinde</b></sub></a><br><a href="https://github.com/nemequ/simde/issues?q=author%3ATorinde" title="Bug reports">🐛</a> <a href="https://github.com/nemequ/simde/commits?author=Torinde" title="Documentation">📖</a> <a href="#ideas-Torinde" title="Ideas, Planning, &amp; Feedback">🤔</a></td>
+    <td align="center"><a href="https://www.linkedin.com/in/yanghauyuan/"><img src="https://avatars.githubusercontent.com/u/13924801?v=4" width="100px;" alt=""><br><sub><b>Yang Hau</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=howjmay" title="Code">💻</a> <a href="#ideas-howjmay" title="Ideas, Planning, &amp; Feedback">🤔</a></td>
+  </tr>
+  <tr>
+    <td align="center"><a href="https://github.com/zengdage"><img src="https://avatars.githubusercontent.com/u/16076103?v=4" width="100px;" alt=""><br><sub><b>Zhijin Zeng</b></sub></a><br><a href="https://github.com/nemequ/simde/commits?author=zengdage" title="Code">💻</a></td>
+  </tr>
+</tbody></table>
+
+
+
+
+
+<p>This project follows the <a href="https://github.com/all-contributors/all-contributors">all-contributors</a> specification. Contributions of any kind are welcome!</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">Implementations of SIMD instruction sets for systems which don't natively support them.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/simd-everywhere/simde" title="@simd-everywhere"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@simd-everywhere/simde</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/simd-everywhere.png" alt="@simd-everywhere"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://simd-everywhere.github.io/blog/"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">3006</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Saturday, November 9, 2024</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 99.5%; background-color: var(--lang-C-bg, #ccc)" title="C: 99.5%"> </span><span style="width: 0.4%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 0.4%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C">C</a><span class="ml-2 color-fg-muted">99.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C++</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Dockerfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Dockerfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/c8ef@outlook.com" title="c8ef"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/c8ef" title="Connector Switch"><img class="avatar circle" width="48" height="48" src="https://github.com/c8ef.png" alt="@c8ef"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/3144"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="simde@0.8.2 (#3144)"><span class="text-mono">#3144</span> <span class="text-light">simde@0.8.2 (#3144)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/simd-everywhere/simde/releases/download/v0.8.2/simde-amalgamated-0.8.2.tar.xz" title="https://github.com/simd-everywhere/simde/releases/download/v0.8.2/simde-amalgamated-0.8.2.tar.xz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/simd-every...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/simde/0.8.2/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/simde/0.8.2/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.8.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.8.2"><span class="text-bold">0.8.2</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-09</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

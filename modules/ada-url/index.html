@@ -1,0 +1,488 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">ada-url</span> <span class="f2 d-inline-block">3.4.4<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.4mo ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/ada-url/ada" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/ada-url/3.4.4/overview" data-name="overview" id=":i.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/ada-url/3.4.4/docs" data-name="docs" id=":i.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/ada-url/3.4.4/testing" data-name="testing" id=":i.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;ada-url&quot;, version = &quot;3.4.4&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ada-url"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.4.4"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Ada</h1>
+<p><a href="https://securityscorecards.dev/viewer/?uri=github.com/ada-url/ada"><img src="https://api.securityscorecards.dev/projects/github.com/ada-url/ada/badge" alt="OpenSSF Scorecard"></a>
+<a href="https://bestpractices.coreinfrastructure.org/projects/7085"><img src="https://bestpractices.coreinfrastructure.org/projects/7085/badge" alt="OpenSSF Best Practices"></a>
+<a href="https://github.com/ada-url/ada/actions/workflows/ubuntu.yml"><img src="https://github.com/ada-url/ada/actions/workflows/ubuntu.yml/badge.svg" alt="Ubuntu 22.04"></a>
+<a href="https://github.com/ada-url/ada/actions/workflows/windows.yml"><img src="https://github.com/ada-url/ada/actions/workflows/windows.yml/badge.svg" alt="VS17"></a></p>
+<p>Ada is a fast and spec-compliant URL parser written in C++.
+Specification for URL parser can be found from the
+<a href="https://url.spec.whatwg.org/#url-parsing">WHATWG</a> website.</p>
+<p>Ada library also includes a <a href="https://url.spec.whatwg.org/#urlpattern">URLPattern</a> implementation
+that is compatible with the <a href="https://github.com/web-platform-tests/wpt/tree/master/urlpattern">web-platform tests</a>.</p>
+<p>The Ada library passes the full range of tests from the specification,
+across a wide range of platforms (e.g., Windows, Linux, macOS). It fully
+supports the relevant <a href="https://www.unicode.org/reports/tr46/#ToUnicode">Unicode Technical Standard</a>.</p>
+<p>A common use of a URL parser is to take a URL string and normalize it.
+The WHATWG URL specification has been adopted by most browsers.  Other tools, such as curl and many
+standard libraries, follow the RFC 3986. The following table illustrates possible differences in practice
+(encoding of the host, encoding of the path):</p>
+<table>
+<thead>
+<tr>
+<th align="left">string source</th>
+<th align="left">string value</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">input string</td>
+<td align="left"><a href="https://www.7%E2%80%91Eleven.com/Home/Privacy/Montr%C3%A9al">https://www.7‑Eleven.com/Home/Privacy/Montréal</a></td>
+</tr>
+<tr>
+<td align="left">ada's normalized string</td>
+<td align="left"><a href="https://www.xn--7eleven-506c.com/Home/Privacy/Montr%C3%A9al">https://www.xn--7eleven-506c.com/Home/Privacy/Montr%C3%A9al</a></td>
+</tr>
+<tr>
+<td align="left">curl 7.87</td>
+<td align="left">(returns the original unchanged)</td>
+</tr>
+</tbody></table>
+<h2>Ada is fast.</h2>
+<p>On a benchmark where we need to validate and normalize <a href="https://github.com/ada-url/url-various-datasets/tree/main/top100">thousands URLs found
+on popular websites</a>,
+we find that ada can be several times faster than popular competitors (system: Apple MacBook 2022
+with LLVM 14).</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ada ▏  188 ns/URL ███▏
+servo url ▏  664 ns/URL ███████████▎
+     CURL ▏ 1471 ns/URL █████████████████████████" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ada ▏  </span><span style="color:#005CC5">188</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> ███▏</span></span>
+<span class="line"><span style="color:#24292E">servo url ▏  </span><span style="color:#005CC5">664</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> ███████████▎</span></span>
+<span class="line"><span style="color:#005CC5">     CURL</span><span style="color:#24292E"> ▏ </span><span style="color:#005CC5">1471</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> █████████████████████████</span></span></code></pre>
+<p>Ada has improved the performance of the popular JavaScript environment Node.js:</p>
+<blockquote>
+<p>Since Node.js 18, a new URL parser dependency was added to Node.js — Ada. This addition bumped the Node.js performance when parsing URLs to a new level. Some results could reach up to an improvement of <strong>400%</strong>. (<a href="https://blog.rafaelgss.dev/state-of-nodejs-performance-2023">State of Node.js Performance 2023</a>)</p>
+</blockquote>
+<p>The Ada library is used by important systems besides Node.js such as Redpanda, Kong, Telegram, DataDog, and Cloudflare Workers.</p>
+<p><a href="https://www.youtube.com/watch?v=tQ-6OWRDsZg"><img src="http://img.youtube.com/vi/tQ-6OWRDsZg/0.jpg" alt="the ada library"></a><br></p>
+<h3>Requirements</h3>
+<p>The project is otherwise self-contained and it has no dependency.
+A recent C++ compiler supporting C++20. We test GCC 12 or better, LLVM 14 or better and Microsoft Visual Studio 2022.</p>
+<h2>Installation</h2>
+<p>Binary packages for the following systems are currently available:</p>
+<p><a href="https://repology.org/project/ada/versions"><img src="https://repology.org/badge/vertical-allrepos/ada.svg" alt="Packaging status"></a></p>
+<h2>Quick Start</h2>
+<p>Linux or macOS users might follow the following instructions if they have a recent C++ compiler installed and a standard utility (<code>wget</code>)</p>
+<ol>
+<li><p>Pull the library in a directory</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="wget https://github.com/ada-url/ada/releases/download/v3.0.0/ada.cpp
+wget https://github.com/ada-url/ada/releases/download/v3.0.0/ada.h" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">-</span><span style="color:#24292E">url</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.0.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada.cpp</span></span>
+<span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">-</span><span style="color:#24292E">url</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.0.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada.h</span></span></code></pre>
+</li>
+<li><p>Create a new file named <code>demo.cpp</code> with this content:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;ada.cpp&quot;
+ #include &quot;ada.h&quot;
+ #include &lt;iostream&gt;
+
+ int main(int, char *[]) {
+   auto url = ada::parse(&quot;https://www.google.com&quot;);
+   if (!url) {
+     std::cout &lt;&lt; &quot;failure&quot; &lt;&lt; std::endl;
+     return EXIT_FAILURE;
+   }
+   url-&gt;set_protocol(&quot;http&quot;);
+   std::cout &lt;&lt; url-&gt;get_protocol() &lt;&lt; std::endl;
+   std::cout &lt;&lt; url-&gt;get_host() &lt;&lt; std::endl;
+   return EXIT_SUCCESS;
+ }" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "ada.cpp"</span></span>
+<span class="line"><span style="color:#6A737D"> #include "ada.h"</span></span>
+<span class="line"><span style="color:#6A737D"> #include &lt;iostream&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5"> int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E">, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">[]) {</span></span>
+<span class="line"><span style="color:#24292E">   auto url = ada::parse(</span><span style="color:#032F62">"https://www.google.com"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">   if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">url) {</span></span>
+<span class="line"><span style="color:#24292E">     std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "failure"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#D73A49">     return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">   }</span></span>
+<span class="line"><span style="color:#24292E">   url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_protocol(</span><span style="color:#032F62">"http"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_protocol() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_host() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#D73A49">   return</span><span style="color:#005CC5"> EXIT_SUCCESS</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E"> }</span></span></code></pre>
+</li>
+<li><p>Compile</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="c++ -std=c++20 -o demo demo.cpp" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#24292E">std</span><span style="color:#D73A49">=</span><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">20</span><span style="color:#D73A49"> -</span><span style="color:#24292E">o demo demo.cpp</span></span></code></pre>
+</li>
+<li><p><code>./demo</code></p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="http:
+www.google.com" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">http:</span></span>
+<span class="line"><span style="color:#24292E">www.google.com</span></span></code></pre>
+</li>
+</ol>
+<h2>Bindings of Ada</h2>
+<p>The following libraries are maintained by the Ada team and available under <a href="https://github.com/ada-url">Ada GitHub organization</a>.</p>
+<ul>
+<li><a href="https://github.com/ada-url/rust">Rust</a>: Rust bindings for Ada</li>
+<li><a href="https://github.com/ada-url/goada">Go</a>: Go bindings for Ada</li>
+<li><a href="https://github.com/ada-url/python">Python</a>: Python bindings for Ada</li>
+<li><a href="https://github.com/ada-url/kotlin">Kotlin</a>: Kotlin bindings for Ada</li>
+</ul>
+<h3>Community maintained</h3>
+<ul>
+<li><a href="https://github.com/schochastics/adaR">R</a>: R wrapper for Ada</li>
+<li><a href="https://github.com/lnear-dev/ada-url">PHP</a>: PHP Wrapper for Ada URL</li>
+<li><a href="https://github.com/bungle/lua-resty-ada">LuaJIT</a>: LuaJIT FFI bindings for Ada</li>
+<li><a href="https://github.com/braheezy/ada-zig">Zig</a>: Unofficial Zig bindings for Ada</li>
+<li><a href="https://github.com/TkTech/can_ada">Python</a>: Python bindings for Ada</li>
+<li><a href="https://github.com/KusStar/react-native-fast-url">React Native</a>: A Fast URL and URLSearchParams polyfill for React Native.</li>
+<li><a href="https://github.com/kassane/ada-d">D</a>: D bindings for Ada, <code>@nogc</code>, <code>nothrow</code> and <code>@safe</code> compat.</li>
+<li><a href="https://github.com/ferus-web/nim-ada">Nim</a>: High-level Nim abstraction over Ada, uses ORC move semantics to safely and efficiently handle memory.</li>
+</ul>
+<h2>Usage</h2>
+<p>Ada supports two types of URL instances, <code>ada::url</code> and <code>ada::url_aggregator</code>. The usage is
+the same in either case: we have an parsing function template <code>ada::parse</code> which can return
+either a result of type <code>ada::result&lt;ada::url&gt;</code> or of type <code>ada::result&lt;ada::url_aggregator&gt;</code>
+depending on your needs. The <code>ada::url_aggregator</code> class is smaller and it is backed by a precomputed
+serialized URL string. The <code>ada::url</code> class is made of several separate strings for the various
+components (path, host, and so forth).</p>
+<h3>Parsing &amp; Validation</h3>
+<ul>
+<li>Parse and validate a URL from an ASCII or a valid UTF-8 string.</li>
+</ul>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto url = ada::parse&lt;ada::url_aggregator&gt;(&quot;https://www.google.com&quot;);
+if (url) { /* URL is valid */ }" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto url </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ada::url_aggregator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"https://www.google.com"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (url) { </span><span style="color:#D73A49">/*</span><span style="color:#005CC5"> URL</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> valid </span><span style="color:#D73A49">*/</span><span style="color:#24292E"> }</span></span></code></pre>
+<p>After calling 'parse', you <em>must</em> check that the result is valid before
+accessing it when you are not sure that it will succeed. The following
+code is unsafe:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto&gt; url = ada::parse&lt;ada::url_aggregator&gt;(&quot;some bad url&quot;);
+url-&gt;get_href();" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> url </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ada::url_aggregator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"some bad url"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_href()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>For simplicity, in the examples below, we skip the check because
+we know that parsing succeeds. All strings are assumed to be valid
+UTF-8 strings.</p>
+<h2>Examples</h2>
+<h2>URL Parser</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto url = ada::parse&lt;ada::url_aggregator&gt;(&quot;https://www.google.com&quot;);
+
+url-&gt;set_username(&quot;username&quot;); // Update credentials
+url-&gt;set_password(&quot;password&quot;);
+// ada-&gt;get_href() will return &quot;https://username:password@www.google.com/&quot;
+
+url-&gt;set_protocol(&quot;wss&quot;); // Update protocol
+// url-&gt;get_protocol() will return &quot;wss:&quot;
+
+url-&gt;set_host(&quot;github.com&quot;); // Update host
+// url-&gt;get_host() will return &quot;github.com&quot;
+
+url-&gt;set_port(&quot;8080&quot;); // Update port
+// url-&gt;get_port() will return &quot;8080&quot;
+
+url-&gt;set_pathname(&quot;/my-super-long-path&quot;); // Update pathname
+// url-&gt;get_pathname() will return &quot;/my-super-long-path&quot;
+
+url-&gt;set_search(&quot;target=self&quot;); // Update search
+// url-&gt;get_search() will return &quot;?target=self&quot;
+
+url-&gt;set_hash(&quot;is-this-the-real-life&quot;); // Update hash/fragment
+// url-&gt;get_hash() will return &quot;#is-this-the-real-life&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto url </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ada::url_aggregator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"https://www.google.com"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_username(</span><span style="color:#032F62">"username"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update credentials</span></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_password(</span><span style="color:#032F62">"password"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> ada</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_href() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "https://username:password@www.google.com/"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_protocol(</span><span style="color:#032F62">"wss"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update protocol</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_protocol() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "wss:"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_host(</span><span style="color:#032F62">"github.com"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update host</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_host() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "github.com"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_port(</span><span style="color:#032F62">"8080"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update port</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_port() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "8080"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_pathname(</span><span style="color:#032F62">"/my-super-long-path"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update pathname</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_pathname() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "/my-super-long-path"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_search(</span><span style="color:#032F62">"target=self"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update search</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_search() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "?target=self"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_hash(</span><span style="color:#032F62">"is-this-the-real-life"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Update </span><span style="color:#005CC5">hash</span><span style="color:#D73A49">/</span><span style="color:#24292E">fragment</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_hash() will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "#is-this-the-real-life"</span></span></code></pre>
+<h3>URL Size Limit</h3>
+<p>By default, ada allows URLs up to about 4 GB. You can set a lower limit to
+reject any URL whose serialized form (the href) would exceed a given number
+of bytes. The limit is enforced during parsing and across all setters.
+Setters that return <code>bool</code> return <code>false</code> when the limit would be exceeded;
+<code>void</code> setters (<code>set_search</code>, <code>set_hash</code>) silently leave the URL unchanged.
+In all cases the URL is never modified when a limit violation is detected.
+Percent-encoding expansion is accounted for: a short input that encodes into
+a long result is still rejected.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Set a 2 KB limit (any uint32_t value works).
+ada::set_max_input_length(2048);
+
+// Parsing a URL whose normalized form exceeds 2 KB fails.
+auto url = ada::parse(&quot;http://example.com/&quot; + std::string(2048, 'a'));
+assert(!url);  // too long
+
+// Setters that would push the URL over the limit are rejected.
+auto u = ada::parse&lt;ada::url_aggregator&gt;(&quot;http://example.com/&quot;);
+assert(u);
+bool ok = u-&gt;set_pathname(std::string(2048, 'x'));
+assert(!ok);  // pathname too long; URL unchanged
+
+// Read the current limit.
+uint32_t limit = ada::get_max_input_length();
+
+// Reset to the default (no practical limit).
+ada::set_max_input_length(UINT32_MAX);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Set a </span><span style="color:#005CC5">2</span><span style="color:#005CC5"> KB</span><span style="color:#24292E"> limit (</span><span style="color:#005CC5">any</span><span style="color:#24292E"> uint32_t value works).</span></span>
+<span class="line"><span style="color:#24292E">ada::set_max_input_length(</span><span style="color:#005CC5">2048</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Parsing a </span><span style="color:#005CC5">URL</span><span style="color:#24292E"> whose normalized form exceeds </span><span style="color:#005CC5">2</span><span style="color:#005CC5"> KB</span><span style="color:#24292E"> fails.</span></span>
+<span class="line"><span style="color:#24292E">auto url </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse(</span><span style="color:#032F62">"http://example.com/"</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> std::string(</span><span style="color:#005CC5">2048</span><span style="color:#24292E">, </span><span style="color:#032F62">'a'</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">url);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> too </span><span style="color:#E36209">long</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Setters that would push the </span><span style="color:#005CC5">URL</span><span style="color:#24292E"> over the limit are rejected.</span></span>
+<span class="line"><span style="color:#24292E">auto u </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ada::url_aggregator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"http://example.com/"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(u)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">bool</span><span style="color:#24292E"> ok </span><span style="color:#D73A49">=</span><span style="color:#24292E"> u</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_pathname(std::string(</span><span style="color:#005CC5">2048</span><span style="color:#24292E">, </span><span style="color:#032F62">'x'</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">ok);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> pathname too </span><span style="color:#E36209">long</span><span style="color:#24292E">; </span><span style="color:#005CC5">URL</span><span style="color:#24292E"> unchanged</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Read the current limit.</span></span>
+<span class="line"><span style="color:#24292E">uint32_t limit </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::get_max_input_length()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Reset to the default (no practical limit).</span></span>
+<span class="line"><span style="color:#24292E">ada::set_max_input_length(</span><span style="color:#005CC5">UINT32_MAX</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>You can query the byte length of a URL without allocating a string via <code>get_href_size()</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="auto url = ada::parse&lt;ada::url_aggregator&gt;(&quot;https://example.com/path&quot;);
+assert(url);
+size_t len = url-&gt;get_href_size();  // no allocation
+assert(len == url-&gt;get_href().size());" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">auto url </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ada::url_aggregator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"https://example.com/path"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(url)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">size_t </span><span style="color:#005CC5">len</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_href_size();  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> no allocation</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(</span><span style="color:#005CC5">len</span><span style="color:#D73A49"> ==</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_href().size())</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>URL Search Params</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ada::url_search_params search_params(&quot;a=b&amp;c=d&amp;e=f&quot;);
+search_params.append(&quot;g=h&quot;);
+
+search_params.get(&quot;g&quot;);  // will return &quot;h&quot;
+
+auto keys = search_params.get_keys();
+while (keys.has_next()) {
+  auto key = keys.next();  // &quot;a&quot;, &quot;c&quot;, &quot;e&quot;, &quot;g&quot;
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ada::url_search_params search_params(</span><span style="color:#032F62">"a=b&amp;c=d&amp;e=f"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">search_params.append(</span><span style="color:#032F62">"g=h"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">search_params.get(</span><span style="color:#032F62">"g"</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> will </span><span style="color:#D73A49">return</span><span style="color:#032F62"> "h"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto keys </span><span style="color:#D73A49">=</span><span style="color:#24292E"> search_params.get_keys()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (keys.has_next()) {</span></span>
+<span class="line"><span style="color:#24292E">  auto key = keys.next();  </span><span style="color:#D73A49">//</span><span style="color:#032F62"> "a"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c"</span><span style="color:#24292E">, </span><span style="color:#032F62">"e"</span><span style="color:#24292E">, </span><span style="color:#032F62">"g"</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h3>URLPattern</h3>
+<p>Our implementation doesn't provide a regex engine and leaves the decision of choosing the right engine to the user.
+This is done as a security measure since the default std::regex engine is not safe and open to DDOS attacks.
+Runtimes like Node.js and Cloudflare Workers use the V8 regex engine, which is safe and performant.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="// Define a regex engine that conforms to the following interface
+// For example we will use v8 regex engine
+
+class v8_regex_provider {
+ public:
+  v8_regex_provider() = default;
+  using regex_type = v8::Global&lt;v8::RegExp&gt;;
+  static std::optional&lt;regex_type&gt; create_instance(std::string_view pattern,
+                                                   bool ignore_case);
+  static std::optional&lt;std::vector&lt;std::optional&lt;std::string&gt;&gt;&gt; regex_search(
+      std::string_view input, const regex_type&amp; pattern);
+  static bool regex_match(std::string_view input, const regex_type&amp; pattern);
+};
+
+// Define a URLPattern
+auto pattern = ada::parse_url_pattern&lt;v8_regex_provider&gt;(&quot;/books/:id(\\d+)&quot;, &quot;https://example.com&quot;);
+
+// Check validity
+if (!pattern) { return EXIT_FAILURE; }
+
+// Match a URL
+auto match = pattern-&gt;match(&quot;https://example.com/books/123&quot;);
+
+// Test a URL
+auto matched = pattern-&gt;test(&quot;https://example.com/books/123&quot;);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Define a regex engine that conforms to the following interface</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> For example we will use v8 regex engine</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> v8_regex_provider {</span></span>
+<span class="line"><span style="color:#24292E"> public:</span></span>
+<span class="line"><span style="color:#24292E">  v8_regex_provider() = default;</span></span>
+<span class="line"><span style="color:#24292E">  using regex_type = v8::Global</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">v8::RegExp</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  static std::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">regex_type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> create_instance(std::string_view pattern,</span></span>
+<span class="line"><span style="color:#005CC5">                                                   bool</span><span style="color:#24292E"> ignore_case);</span></span>
+<span class="line"><span style="color:#24292E">  static std::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#24292E"> regex_search(</span></span>
+<span class="line"><span style="color:#24292E">      std::string_view </span><span style="color:#005CC5">input</span><span style="color:#24292E">, const regex_type</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> pattern);</span></span>
+<span class="line"><span style="color:#24292E">  static </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> regex_match(std::string_view </span><span style="color:#005CC5">input</span><span style="color:#24292E">, const regex_type</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> pattern);</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Define a URLPattern</span></span>
+<span class="line"><span style="color:#24292E">auto pattern </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ada::parse_url_pattern</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">v8_regex_provider</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"/books/:id(</span><span style="color:#005CC5">\\</span><span style="color:#032F62">d+)"</span><span style="color:#24292E">, </span><span style="color:#032F62">"https://example.com"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Check validity</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">pattern) { </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">; }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Match a </span><span style="color:#005CC5">URL</span></span>
+<span class="line"><span style="color:#24292E">auto match </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pattern</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">match(</span><span style="color:#032F62">"https://example.com/books/123"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Test a </span><span style="color:#005CC5">URL</span></span>
+<span class="line"><span style="color:#24292E">auto matched </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pattern</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">test(</span><span style="color:#032F62">"https://example.com/books/123"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<h3>C wrapper</h3>
+<p>See the file <code>include/ada_c.h</code> for our C interface. We expect ASCII or UTF-8 strings.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &quot;ada_c.h&quot;
+#include &lt;stdio.h&gt;
+#include &lt;stdlib.h&gt;
+#include &lt;stdbool.h&gt;
+#include &lt;string.h&gt;
+
+static void ada_print(ada_string string) {
+  printf(&quot;%.*s\n&quot;, (int)string.length, string.data);
+}
+
+int main(int c, char *arg[] ) {
+  const char* input =
+      &quot;https://username:password@www.google.com:8080/&quot;
+      &quot;pathname?query=true#hash-exists&quot;;
+  ada_url url = ada_parse(input, strlen(input));
+  if(!ada_is_valid(url)) { puts(&quot;failure&quot;); return EXIT_FAILURE; }
+  ada_print(ada_get_href(url)); // prints https://username:password@host:8080/pathname?query=true#hash-exists
+  ada_print(ada_get_protocol(url)); // prints https:
+  ada_print(ada_get_username(url)); // prints username
+  ada_set_href(url, &quot;https://www.yagiz.co&quot;, strlen(&quot;https://www.yagiz.co&quot;));  
+  if(!ada_is_valid(url)) { puts(&quot;failure&quot;); return EXIT_FAILURE; }
+  ada_set_hash(url, &quot;new-hash&quot;, strlen(&quot;new-hash&quot;));
+  ada_set_hostname(url, &quot;new-host&quot;, strlen(&quot;new-host&quot;));
+  ada_set_host(url, &quot;changed-host:9090&quot;, strlen(&quot;changed-host:9090&quot;));
+  ada_set_pathname(url, &quot;new-pathname&quot;, strlen(&quot;new-pathname&quot;));
+  ada_set_search(url, &quot;new-search&quot;, strlen(&quot;new-search&quot;));
+  ada_set_protocol(url, &quot;wss&quot;, 3);  
+  ada_print(ada_get_href(url)); // will print wss://changed-host:9090/new-pathname?new-search#new-hash
+
+  // Manipulating search params
+  ada_string search = ada_get_search(url);
+  ada_url_search_params search_params =
+      ada_parse_search_params(search.data, search.length);
+  ada_search_params_append(search_params, &quot;a&quot;, 1, &quot;b&quot;, 1);
+  ada_owned_string result = ada_search_params_to_string(search_params);
+  ada_set_search(url, result.data, result.length);
+  ada_free_owned_string(result);
+  ada_free_search_params(search_params);
+
+  ada_free(url);
+  return EXIT_SUCCESS;
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include "ada_c.h"</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;stdio.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;stdlib.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;stdbool.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;string.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">static void ada_print(ada_string string) {</span></span>
+<span class="line"><span style="color:#24292E">  printf(</span><span style="color:#032F62">"</span><span style="color:#005CC5">%.*s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, (</span><span style="color:#005CC5">int</span><span style="color:#24292E">)string.length, string.data);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> c, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">arg[] ) {</span></span>
+<span class="line"><span style="color:#24292E">  const char</span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E"> =</span></span>
+<span class="line"><span style="color:#032F62">      "https://username:password@www.google.com:8080/"</span></span>
+<span class="line"><span style="color:#032F62">      "pathname?query=true#hash-exists"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  ada_url url = ada_parse(</span><span style="color:#005CC5">input</span><span style="color:#24292E">, strlen(</span><span style="color:#005CC5">input</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E">(</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">ada_is_valid(url)) { puts(</span><span style="color:#032F62">"failure"</span><span style="color:#24292E">); </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">  ada_print(ada_get_href(url)); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> prints https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">username:password</span><span style="color:#D73A49">@</span><span style="color:#24292E">host:</span><span style="color:#005CC5">8080</span><span style="color:#D73A49">/</span><span style="color:#24292E">pathname</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">query=true</span><span style="color:#6A737D">#hash-exists</span></span>
+<span class="line"><span style="color:#24292E">  ada_print(ada_get_protocol(url)); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> prints https:</span></span>
+<span class="line"><span style="color:#24292E">  ada_print(ada_get_username(url)); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> prints username</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_href(url, </span><span style="color:#032F62">"https://www.yagiz.co"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"https://www.yagiz.co"</span><span style="color:#24292E">));  </span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E">(</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">ada_is_valid(url)) { puts(</span><span style="color:#032F62">"failure"</span><span style="color:#24292E">); </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">; }</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_hash(url, </span><span style="color:#032F62">"new-hash"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"new-hash"</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_hostname(url, </span><span style="color:#032F62">"new-host"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"new-host"</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_host(url, </span><span style="color:#032F62">"changed-host:9090"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"changed-host:9090"</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_pathname(url, </span><span style="color:#032F62">"new-pathname"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"new-pathname"</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_search(url, </span><span style="color:#032F62">"new-search"</span><span style="color:#24292E">, strlen(</span><span style="color:#032F62">"new-search"</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_protocol(url, </span><span style="color:#032F62">"wss"</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">);  </span></span>
+<span class="line"><span style="color:#24292E">  ada_print(ada_get_href(url)); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> will </span><span style="color:#005CC5">print</span><span style="color:#24292E"> wss:</span><span style="color:#D73A49">//</span><span style="color:#24292E">changed</span><span style="color:#D73A49">-</span><span style="color:#24292E">host:</span><span style="color:#005CC5">9090</span><span style="color:#D73A49">/</span><span style="color:#24292E">new</span><span style="color:#D73A49">-</span><span style="color:#24292E">pathname</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">new</span><span style="color:#D73A49">-</span><span style="color:#24292E">search</span><span style="color:#6A737D">#new-hash</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Manipulating search params</span></span>
+<span class="line"><span style="color:#24292E">  ada_string search = ada_get_search(url);</span></span>
+<span class="line"><span style="color:#24292E">  ada_url_search_params search_params =</span></span>
+<span class="line"><span style="color:#24292E">      ada_parse_search_params(search.data, search.length);</span></span>
+<span class="line"><span style="color:#24292E">  ada_search_params_append(search_params, </span><span style="color:#032F62">"a"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#032F62">"b"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">  ada_owned_string result = ada_search_params_to_string(search_params);</span></span>
+<span class="line"><span style="color:#24292E">  ada_set_search(url, result.data, result.length);</span></span>
+<span class="line"><span style="color:#24292E">  ada_free_owned_string(result);</span></span>
+<span class="line"><span style="color:#24292E">  ada_free_search_params(search_params);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  ada_free(url);</span></span>
+<span class="line"><span style="color:#D73A49">  return</span><span style="color:#005CC5"> EXIT_SUCCESS</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>When linking against the ada library from C++, be minding that ada requires access to the standard
+C++ library. E.g., you may link with the C++ compiler.</p>
+<p>E.g., if you grab our single-header C++ files (<code>ada.cpp</code> and <code>ada.h</code>), as well as the C header (<code>ada_c.h</code>),
+you can often compile a C program (<code>demo.c</code>) as follows under Linux/macOS systems:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="c++ -c ada.cpp -std=c++20
+cc -c demo.c
+c++ demo.o ada.o -o cdemo
+./cdemo" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#24292E">c ada.cpp </span><span style="color:#D73A49">-</span><span style="color:#24292E">std</span><span style="color:#D73A49">=</span><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#005CC5">20</span></span>
+<span class="line"><span style="color:#24292E">cc </span><span style="color:#D73A49">-</span><span style="color:#24292E">c demo.c</span></span>
+<span class="line"><span style="color:#24292E">c</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> demo.o ada.o </span><span style="color:#D73A49">-</span><span style="color:#24292E">o cdemo</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">cdemo</span></span></code></pre>
+<h3>Command-line interface</h3>
+<p>For more information about command-line options, please refer to the <a href="docs/cli.md">CLI documentation</a>.</p>
+<h3>CMake dependency</h3>
+<p>See the file <code>tests/installation/CMakeLists.txt</code> for an example of how you might use ada from your own
+CMake project, after having installed ada on your system.</p>
+<h2>Contributing</h2>
+<p>Contributors are encouraged to read our <a href="AI_USAGE_POLICY.md">AI Tool Policy</a>.</p>
+<h3>Building</h3>
+<p>Ada uses cmake as a build system, but also supports Bazel. It's recommended you to run the following 
+commands to build it locally.</p>
+<p>Without tests:</p>
+<ul>
+<li><strong>Build</strong>: <code>cmake -B build &amp;&amp; cmake --build build</code></li>
+</ul>
+<p>With tests (requires git):</p>
+<ul>
+<li><strong>Build</strong>: <code>cmake -B build -DADA_TESTING=ON &amp;&amp; cmake --build build</code></li>
+<li><strong>Test</strong>: <code>ctest --output-on-failure --test-dir build</code></li>
+</ul>
+<p>With tests (requires available local packages):</p>
+<ul>
+<li><strong>Build</strong>: <code>cmake -B build -DADA_TESTING=ON -D CPM_USE_LOCAL_PACKAGES=ON &amp;&amp; cmake --build build</code></li>
+<li><strong>Test</strong>: <code>ctest --output-on-failure --test-dir build</code></li>
+</ul>
+<h3>Build options</h3>
+<p>Ada provides several CMake options to customize the build:</p>
+<ul>
+<li><code>ADA_USE_SIMDUTF</code>: Enables SIMD-accelerated Unicode processing via simdutf (default: OFF)</li>
+</ul>
+<p>Windows users need additional flags to specify the build configuration, e.g. <code>--config Release</code>.</p>
+<p>The project can also be built via docker using default docker file of repository with following commands.</p>
+<p><code>docker build -t ada-builder . &amp;&amp; docker run --rm -it -v ${PWD}:/repo ada-builder</code></p>
+<h3>Amalgamation</h3>
+<p>You may amalgamate all source files into only two files (<code>ada.h</code> and <code>ada.cpp</code>) by typing executing the Python
+3 script <code>singleheader/amalgamate.py</code>. By default, the files are created in the <code>singleheader</code> directory.</p>
+<h3>License</h3>
+<p>This code is made available under the Apache License 2.0 as well as the MIT license.</p>
+<p>Our tests include third-party code and data. The benchmarking code includes third-party code: it is provided for research purposes only and not part of the library.</p>
+<h3>Further reading</h3>
+<ul>
+<li>Yagiz Nizipli, Daniel Lemire, <a href="https://doi.org/10.1002/spe.3296">Parsing Millions of URLs per Second</a>, Software: Practice and Experience 54(5) May 2024.</li>
+</ul>
+<h2>Stars</h2>
+<p><a href="https://www.star-history.com/#ada-url/ada&amp;Date"><img src="https://api.star-history.com/svg?repos=ada-url/ada&amp;type=Date" alt="Star History Chart"></a></p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">WHATWG-compliant and fast URL parser written in modern C++, part of Internet Archive, Node.js, Clickhouse, Redpanda, Kong, Telegram, Adguard, Datadog and Cloudflare Workers.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/ada-url/ada" title="@ada-url"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@ada-url/ada</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/ada-url.png" alt="@ada-url"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://www.ada-url.com/"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1725</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, March 24, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 91.6%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 91.6%"> </span><span style="width: 5.8%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 5.8%"> </span><span style="width: 1.3%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 1.3%"> </span><span style="width: 0.6%; background-color: var(--lang-C-bg, #ccc)" title="C: 0.6%"> </span><span style="width: 0.6%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.6%"> </span><span style="width: 0.1%; background-color: var(--lang-Rust-bg, #ccc)" title="Rust: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">91.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">5.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">1.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Rust-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Rust</span><span class="ml-2 color-fg-muted">0.1%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/c8ef@outlook.com" title="c8ef"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/anonrig" title="@anonrig"><img class="avatar circle" width="48" height="48" src="https://github.com/anonrig.png" alt="@anonrig"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/anonrig" title="Yagiz Nizipli"><img class="avatar circle" width="48" height="48" src="https://github.com/anonrig.png" alt="@anonrig"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8101"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="update ada-url to v3.4.4 (#8101)"><span class="text-mono">#8101</span> <span class="text-light">update ada-url to v3.4.4 (#8101)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/ada-url/ada/releases/download/v3.4.4/singleheader.zip" title="https://github.com/ada-url/ada/releases/download/v3.4.4/singleheader.zip"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/ada-url/ad...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/ada-url/3.4.4/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/ada-url/3.4.4/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h2><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">5</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.4.4; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.4.4"><span class="text-bold">3.4.4</span><sup class="color-fg-attention"> +1.8mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-24</span></div></td></tr><tr class=""><td title="3.4.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.4.2"><a class="Box-row-link" href="/#/modules/ada-url/3.4.2">3.4.2</a><sup class="color-fg-attention"> +22d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-30</span></div></td></tr><tr class=""><td title="3.4.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.4.1"><a class="Box-row-link" href="/#/modules/ada-url/3.4.1">3.4.1</a><sup class="color-fg-attention"> +2.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-01-08</span></div></td></tr><tr class=""><td title="3.3.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.3.0"><a class="Box-row-link" href="/#/modules/ada-url/3.3.0">3.3.0</a><sup class="color-fg-attention"> +11.7mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-10-21</span></div></td></tr><tr class=""><td title="2.9.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="2.9.2"><a class="Box-row-link" href="/#/modules/ada-url/2.9.2">2.9.2</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-04</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

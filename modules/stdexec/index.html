@@ -1,0 +1,337 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">stdexec</span> <span class="f2 d-inline-block">73559e8963dab7a4ece32ede22f6472c9a815032</span></div><a class="btn btn-sm btn-invisible" href="https://github.com/NVIDIA/stdexec" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032/overview" data-name="overview" id=":l6.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032/docs" data-name="docs" id=":l6.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032/testing" data-name="testing" id=":l6.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;stdexec&quot;, version = &quot;73559e8963dab7a4ece32ede22f6472c9a815032&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "stdexec"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "73559e8963dab7a4ece32ede22f6472c9a815032"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">1</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-l" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="content"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_cc/0.2.3">rules_cc<span class="ml-1 text-light text-small">0.2.3</span></a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_cc/0.2.18">0.2.18<span title="Version Distance"><sup style="padding-left: 3px">+20<span class="color-fg-attention"> (7.7mo)</span></sup></span></a></span></div></div></div><div class="l-content"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><h1>Senders - A Standard Model for Asynchronous Execution in C++</h1>
+<p><code>stdexec</code> is an experimental reference implementation of the <em>Senders</em> model of
+asynchronous programming proposed by <a href="http://wg21.link/p2300"><strong>P2300 -
+<code>std::execution</code></strong></a> and accepted into the C++26 Standard.</p>
+<p><strong>Purpose of this Repository:</strong></p>
+<ol>
+<li><p>Provide a reference implementation for the C++26 additions to <code>std::execution</code>.</p>
+</li>
+<li><p>Get usage experience with the C++26 <code>std::execution</code> additions, as well as with
+not-yet-proposed extensions to <code>std::execution</code>.</p>
+</li>
+<li><p>Provide NVIDIA-specific extensions for running code on NVIDIA GPUs using standard C++.</p>
+</li>
+<li><p>Collaborate with those interested in extending <code>std::execution</code> for C++29.</p>
+</li>
+</ol>
+<h2>Disclaimer</h2>
+<p><code>stdexec</code> is experimental in nature and subject to change without warning.
+The authors and NVIDIA do not guarantee that this code is fit for any purpose whatsoever.</p>
+<p><a href="https://github.com/NVIDIA/stdexec/actions/workflows/ci.cpu.yml"><img src="https://github.com/NVIDIA/stdexec/actions/workflows/ci.cpu.yml/badge.svg" alt="CI (CPU)"></a>
+<a href="https://github.com/NVIDIA/stdexec/actions/workflows/ci.gpu.yml"><img src="https://github.com/NVIDIA/stdexec/actions/workflows/ci.gpu.yml/badge.svg" alt="CI (GPU)"></a></p>
+<h2>Example</h2>
+<p>Below is a simple program that executes three senders concurrently on a thread pool.
+Try it live on <a href="https://godbolt.org/z/8MqaKEEfT">godbolt!</a>.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="#include &lt;stdexec/execution.hpp&gt;
+#include &lt;exec/static_thread_pool.hpp&gt;
+
+int main()
+{
+    // Declare a pool of 3 worker threads:
+    exec::static_thread_pool pool(3);
+
+    // Get a handle to the thread pool:
+    auto sched = pool.get_scheduler();
+
+    // Describe some work:
+    // Creates 3 sender pipelines that are executed concurrently by passing to `when_all`
+    // Each sender is scheduled on `sched` using `on` and starts with `just(n)` that creates a
+    // Sender that just forwards `n` to the next sender.
+    // After `just(n)`, we chain `then(fun)` which invokes `fun` using the value provided from `just()`
+    // Note: No work actually happens here. Everything is lazy and `work` is just an object that statically
+    // represents the work to later be executed
+    auto fun = [](int i) { return i*i; };
+    auto work = stdexec::when_all(
+        stdexec::starts_on(sched, stdexec::just(0) | stdexec::then(fun)),
+        stdexec::starts_on(sched, stdexec::just(1) | stdexec::then(fun)),
+        stdexec::starts_on(sched, stdexec::just(2) | stdexec::then(fun))
+    );
+
+    // Launch the work and wait for the result
+    auto [i, j, k] = stdexec::sync_wait(std::move(work)).value();
+
+    // Prints &quot;0 1 4&quot;:
+    std::printf(&quot;%d %d %d\n&quot;, i, j, k);
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D">#include &lt;stdexec/execution.hpp&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;exec/static_thread_pool.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Declare a pool of </span><span style="color:#005CC5">3</span><span style="color:#24292E"> worker threads:</span></span>
+<span class="line"><span style="color:#005CC5">    exec</span><span style="color:#24292E">::static_thread_pool pool(</span><span style="color:#005CC5">3</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get a handle to the thread pool:</span></span>
+<span class="line"><span style="color:#24292E">    auto sched = pool.get_scheduler();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Describe some work:</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Creates </span><span style="color:#005CC5">3</span><span style="color:#24292E"> sender pipelines that are executed concurrently by passing to </span><span style="color:#B31D28;font-style:italic">`when_all`</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Each sender </span><span style="color:#D73A49">is</span><span style="color:#24292E"> scheduled on </span><span style="color:#B31D28;font-style:italic">`sched`</span><span style="color:#24292E"> using </span><span style="color:#B31D28;font-style:italic">`on`</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> starts </span><span style="color:#D73A49">with</span><span style="color:#B31D28;font-style:italic"> `just(n)`</span><span style="color:#24292E"> that creates a</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Sender that just forwards </span><span style="color:#B31D28;font-style:italic">`n`</span><span style="color:#24292E"> to the </span><span style="color:#005CC5">next</span><span style="color:#24292E"> sender.</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> After </span><span style="color:#B31D28;font-style:italic">`just(n)`</span><span style="color:#24292E">, we chain </span><span style="color:#B31D28;font-style:italic">`then(fun)`</span><span style="color:#24292E"> which invokes </span><span style="color:#B31D28;font-style:italic">`fun`</span><span style="color:#24292E"> using the value provided </span><span style="color:#D73A49">from</span><span style="color:#B31D28;font-style:italic"> `just()`</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Note: No work actually happens here. Everything </span><span style="color:#D73A49">is</span><span style="color:#24292E"> lazy </span><span style="color:#D73A49">and</span><span style="color:#B31D28;font-style:italic"> `work`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> just an </span><span style="color:#005CC5">object</span><span style="color:#24292E"> that statically</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> represents the work to later be executed</span></span>
+<span class="line"><span style="color:#24292E">    auto fun = [](</span><span style="color:#005CC5">int</span><span style="color:#24292E"> i) { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> i</span><span style="color:#D73A49">*</span><span style="color:#24292E">i; };</span></span>
+<span class="line"><span style="color:#24292E">    auto work = stdexec::when_all(</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun)),</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">1</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun)),</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">2</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun))</span></span>
+<span class="line"><span style="color:#24292E">    );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Launch the work </span><span style="color:#D73A49">and</span><span style="color:#24292E"> wait </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the result</span></span>
+<span class="line"><span style="color:#24292E">    auto [i, j, k] = stdexec::sync_wait(std::move(work)).value();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Prints </span><span style="color:#032F62">"0 1 4"</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    std::printf(</span><span style="color:#032F62">"</span><span style="color:#005CC5">%d</span><span style="color:#005CC5"> %d</span><span style="color:#005CC5"> %d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, i, j, k);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<h2>Structure</h2>
+<p>This library is header-only, so all the source code can be found in the <code>include/</code> directory. The physical and logical structure of the code can be summarized by the following table:</p>
+<table>
+<thead>
+<tr>
+<th>Kind</th>
+<th>Path</th>
+<th>Namespace</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Things approved for the C++ standard</td>
+<td><code>&lt;stdexec/...&gt;</code></td>
+<td><code>::stdexec</code></td>
+</tr>
+<tr>
+<td>Generic additions and extensions</td>
+<td><code>&lt;exec/...&gt;</code></td>
+<td><code>::exec</code></td>
+</tr>
+<tr>
+<td>NVIDIA-specific extensions and customizations</td>
+<td><code>&lt;nvexec/...&gt;</code></td>
+<td><code>::nvexec</code></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2>How to get <code>stdexec</code></h2>
+<p>There are a few ways to get <code>stdexec</code>:</p>
+<ol>
+<li><p>Clone from GitHub</p>
+<ul>
+<li><code>git clone https://github.com/NVIDIA/stdexec.git</code></li>
+</ul>
+</li>
+<li><p>Download the <a href="https://developer.nvidia.com/nvidia-hpc-sdk-releases">NVIDIA HPC SDK starting with
+22.11</a></p>
+</li>
+<li><p>(Recommended) Use <a href="https://github.com/cpm-cmake/CPM.cmake">CMake Package Manager (CPM)</a>
+to automatically pull <code>stdexec</code> as part of your CMake project. <a href="#cmake-package-manager-cpm">See
+below</a> for more information.</p>
+</li>
+</ol>
+<p>You can also try it directly on <a href="https://godbolt.org/z/acaE93xq3">godbolt.org</a> where it is
+available as a C++ library or via the nvc++ compiler starting with version 22.11 (<a href="#nvhpc-sdk">see
+below</a> for more details).</p>
+<h2>Using <code>stdexec</code></h2>
+<h3>Requirements</h3>
+<p><code>stdexec</code> requires compiling with C++20 (<code>-std=c++20</code>) but otherwise does not have any
+dependencies and only requires a sufficiently new compiler:</p>
+<ul>
+<li>gcc 12+</li>
+<li>clang 16+</li>
+<li>MSVC 14.43+</li>
+<li>XCode 16+</li>
+<li><a href="https://developer.nvidia.com/nvidia-hpc-sdk-releases">nvc++ 25.9+</a> (required for <a href="#gpu-support">GPU
+support</a>).</li>
+</ul>
+<blockquote>
+<p>[!NOTE]
+<code>stdexec</code> does not yet work with NVIDIA's nvcc compiler.</p>
+</blockquote>
+<p>How you configure your environment to use <code>stdexec</code> depends on how you got <code>stdexec</code>.</p>
+<h3>NVHPC SDK</h3>
+<p>Starting with the 22.11 release of the <a href="https://developer.nvidia.com/nvidia-hpc-sdk-releases">NVHPC
+SDK</a>, <code>stdexec</code> is available as an
+experimental, opt-in feature. Specifying the <code>--experimental-stdpar</code> flag to <code>nvc++</code> makes
+the <code>stdexec</code> headers available on the include path. You can then include any <code>stdexec</code>
+header as normal: <code>#include &lt;stdexec/...&gt;</code>, <code>#include &lt;nvexec/...&gt;</code>.  See <a href="https://godbolt.org/z/qc1h3sqEv">godbolt
+example</a>.</p>
+<p>GPU features additionally require specifying <code>-stdpar=gpu</code>. For more details, see <a href="#gpu-support">GPU
+Support</a>.</p>
+<h3>GitHub</h3>
+<p>As a (mostly) header-only C++ library, technically all one needs to do is add the
+<code>stdexec</code> <code>include/</code> directory to your include path as <code>-I&lt;stdexec root&gt;/include</code> in
+addition to specifying any necessary compile options.</p>
+<p>For simplicity, we recommend using the <a href="#cmake">CMake targets</a> that <code>stdexec</code> provides as
+they encapsulate the necessary configuration.</p>
+<h4>cmake</h4>
+<p>If your project uses CMake, then after cloning <code>stdexec</code> simply add the following to your
+<code>CMakeLists.txt</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="add_subdirectory(&lt;stdexec root&gt;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">add_subdirectory(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">stdexec root</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">)</span></span></code></pre>
+<p>This will make the <code>STDEXEC::stdexec</code> target available to link with your project:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="target_link_libraries(my_project PRIVATE STDEXEC::stdexec)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">target_link_libraries(my_project </span><span style="color:#005CC5">PRIVATE</span><span style="color:#005CC5"> STDEXEC</span><span style="color:#24292E">::stdexec)</span></span></code></pre>
+<p>This target encapsulates all of the necessary configuration and compiler flags for using
+<code>stdexec</code>.</p>
+<h4>CMake Package Manager (CPM)</h4>
+<p>To further simplify obtaining and including <code>stdexec</code> in your CMake project, we recommend
+using <a href="https://github.com/cpm-cmake/CPM.cmake">CMake Package Manager (CPM)</a> to fetch and
+configure <code>stdexec</code>.</p>
+<p>Complete example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake_minimum_required(VERSION 3.25.0 FATAL_ERROR)
+
+project(stdexecExample)
+
+# Get CPM. For more information on how to add CPM to your project, see:
+# https://github.com/cpm-cmake/CPM.cmake#adding-cpm
+include(CPM.cmake)
+
+CPMAddPackage(
+  NAME stdexec
+  GITHUB_REPOSITORY NVIDIA/stdexec
+  GIT_TAG main # This will always pull the latest code from the `main` branch.
+               # You may also use a specific release version or tag.
+)
+
+add_executable(main example.cpp)
+
+target_link_libraries(main STDEXEC::stdexec)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.25</span><span style="color:#24292E">.0 </span><span style="color:#005CC5">FATAL_ERROR</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">project(stdexecExample)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Get CPM. For more information on how to add CPM to your project, see:</span></span>
+<span class="line"><span style="color:#6A737D"># https://github.com/cpm-cmake/CPM.cmake#adding-cpm</span></span>
+<span class="line"><span style="color:#24292E">include(</span><span style="color:#005CC5">CPM</span><span style="color:#24292E">.cmake)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CPMAddPackage(</span></span>
+<span class="line"><span style="color:#005CC5">  NAME</span><span style="color:#24292E"> stdexec</span></span>
+<span class="line"><span style="color:#005CC5">  GITHUB_REPOSITORY</span><span style="color:#005CC5"> NVIDIA</span><span style="color:#D73A49">/</span><span style="color:#24292E">stdexec</span></span>
+<span class="line"><span style="color:#005CC5">  GIT_TAG</span><span style="color:#24292E"> main </span><span style="color:#6A737D"># This will always pull the latest code from the `main` branch.</span></span>
+<span class="line"><span style="color:#6A737D">               # You may also use a specific release version or tag.</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable(main example.cpp)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(main </span><span style="color:#005CC5">STDEXEC</span><span style="color:#24292E">::stdexec)</span></span></code></pre>
+<h3>GPU Support</h3>
+<p><code>stdexec</code> provides schedulers that enable execution on NVIDIA GPUs:</p>
+<ul>
+<li><p><code>nvexec::stream_scheduler</code></p>
+<ul>
+<li>Single GPU scheduler that executes on the first available GPU (device 0)</li>
+<li>Defined in
+<a href="https://github.com/NVIDIA/stdexec/blob/main/include/nvexec/stream_context.cuh"><code>&lt;nvexec/stream_context.cuh&gt;</code></a></li>
+</ul>
+</li>
+<li><p><code>nvexec::multi_gpu_stream_scheduler</code></p>
+<ul>
+<li>Executes on all visible GPUs</li>
+<li>Defined in
+<a href="https://github.com/NVIDIA/stdexec/blob/main/include/nvexec/multi_gpu_context.cuh"><code>&lt;nvexec/multi_gpu_context.cuh&gt;</code></a></li>
+</ul>
+</li>
+</ul>
+<p>These schedulers are only supported when using the <code>nvc++</code> compiler with <code>-stdpar=gpu</code>.</p>
+<p>Example: <a href="https://godbolt.org/z/h7rh5qGhj">https://godbolt.org/z/h7rh5qGhj</a></p>
+<h2>Building</h2>
+<p><code>stdexec</code> is a header-only library and does not require building anything.</p>
+<p>This section is only relevant if you wish to build the <code>stdexec</code> tests or examples.</p>
+<p>The following tools are needed:</p>
+<ul>
+<li><a href="https://cmake.org/"><code>CMake</code></a></li>
+<li>One of the following supported C++ compilers:<ul>
+<li>GCC 11+</li>
+<li>clang 12+</li>
+<li>nvc++ 25.9</li>
+</ul>
+</li>
+</ul>
+<p>Perform the following actions:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Configure the project
+cmake -S . -B build -G&lt;gen&gt;
+# Build the project
+cmake --build build" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Configure the project</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#24292E">G</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">gen</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#6A737D"># Build the project</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span></span></code></pre>
+<p>Here, <code>&lt;gen&gt;</code> can be <code>Ninja</code>, <code>"Unix Makefiles"</code>, <code>XCode</code>, <code>"Visual Studio 15 Win64"</code>, etc.</p>
+<h3>Specifying the compiler</h3>
+<p>You can set the C++ compiler via <code>-D CMAKE_CXX_COMPILER</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Use GCC:
+cmake -S . -B build/g++ -DCMAKE_CXX_COMPILER=$(which g++)
+cmake --build build/g++
+
+# Or clang:
+cmake -S . -B build/clang++ -DCMAKE_CXX_COMPILER=$(which clang++)
+cmake --build build/clang++" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Use GCC:</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">/</span><span style="color:#24292E">g</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(which g</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span><span style="color:#24292E">g</span><span style="color:#B31D28;font-style:italic">++</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Or clang:</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">/</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(which clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span></span></code></pre>
+<h3>Specifying the stdlib</h3>
+<p>If you want to use <code>libc++</code> with clang instead of <code>libstdc++</code>, you can specify the standard library as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Do the actual build
+cmake -S . -B build/clang++ -G&lt;gen&gt; \
+    -DCMAKE_CXX_FLAGS=-stdlib=libc++ \
+    -DCMAKE_CXX_COMPILER=$(which clang++)
+
+cmake --build build/clang++" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Do the actual build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">/</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#24292E">G</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">gen</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DCMAKE_CXX_FLAGS</span><span style="color:#D73A49">=-</span><span style="color:#24292E">stdlib</span><span style="color:#D73A49">=</span><span style="color:#24292E">libc</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(which clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">/</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span></span></code></pre>
+<h2>Resources</h2>
+<ul>
+<li><a href="https://www.youtube.com/watch?v=xLboNIf7BTg">Working with Asynchrony Generically: A Tour of Executors: Part 1</a> (<a href="https://www.youtube.com/watch?v=6a0zzUBUNW4">Part 2</a>) (Video): A comprehensive introduction to Senders and structured concurrency</li>
+<li><a href="https://ericniebler.com/2024/02/04/what-are-senders-good-for-anyway/">What are Senders Good For, Anyway?</a> (Blog): Demonstrates the value of a standard async programming model by wrapping a C-style async API in a sender</li>
+<li><a href="https://www.youtube.com/watch?v=xiaqNvqRB2E">From Zero to Sender/Receiver in ~60 Minutes</a> (Video): Live-coding a toy sender/receiver implementation from scratch</li>
+<li><a href="https://www.youtube.com/watch?v=h-ExnuD6jms">A Unifying Abstraction for Async in C++</a> (Video): A simple introduction to the concepts behind P2300</li>
+<li><a href="https://cor3ntin.github.io/posts/executors/">A Universal Async Abstraction for C++</a> (Blog): An introduction to Senders</li>
+<li><a href="https://cor3ntin.github.io/posts/iouring/">A Universal I/O Abstraction for C++</a> (Blog): A look at how the Senders concepts interact with <code>io_uring</code> on Linux</li>
+<li><a href="https://www.youtube.com/watch?v=1Wy5sq3s2rg">Structured Concurrency</a> (Video): An explanation of structured concurrency in C++ and its benefits</li>
+<li><a href="https://accu.org/journals/overload/29/165/teodorescu/">Executors: a Change of Perspective</a> (Article): An article about the computational completeness of Senders</li>
+<li><a href="https://accu.org/journals/overload/30/168/teodorescu/">Structured Concurrency in C++</a> (Article): An article about how Senders manifest the principles of structured concurrency</li>
+<li><a href="https://www.youtube.com/watch?v=XaNajUp-sGY">Structured Networking in C++</a> (Video): A look at what a P2300-style networking library could look like</li>
+<li><a href="https://www.hpcwire.com/2022/12/05/new-c-sender-library-enables-portable-asynchrony/">HPCWire Article</a>: Provides a high-level overview of the Sender model and its benefits</li>
+<li><a href="https://docs.nvidia.com/hpc-sdk/index.html">NVIDIA HPC SDK Documentation</a>: Documentation for the NVIDIA HPC SDK</li>
+<li><a href="https://wg21.link/p2300">P2300 - <code>std::execution</code></a>: Senders proposal to C++ Standard</li>
+</ul>
+<h3>Tooling</h3>
+<p>For users of <strong>VSCode</strong>, stdexec provides a
+<a href="https://marketplace.visualstudio.com/items?itemName=ericniebler.erics-build-output-colorizer">VSCode extension</a>
+that colorizes compiler output. The highlighter recognizes the diagnostics
+generated by the stdexec library, styling them to make them easier to pick
+out. Details about how to configure the extension can be found
+<a href="https://github.com/ericniebler/buildoutputcolorizer">here</a>.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">`std::execution`, the proposed C++ framework for asynchronous and parallel programming.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/NVIDIA/stdexec" title="@NVIDIA"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@NVIDIA/stdexec</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/NVIDIA.png" alt="@NVIDIA"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/NVIDIA/stdexec"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">2328</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, April 13, 2026</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 90.2%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 90.2%"> </span><span style="width: 7.9%; background-color: var(--lang-Cuda-bg, #ccc)" title="Cuda: 7.9%"> </span><span style="width: 1.8%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1.8%"> </span><span style="width: 0.1%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">90.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cuda-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Cuda</span><span class="ml-2 color-fg-muted">7.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1.8%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/lixin-wei" title="Lixin Wei"><img class="avatar circle" width="48" height="48" src="https://github.com/lixin-wei.png" alt="@lixin-wei"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/lixin-wei" title="Lixin Wei"><img class="avatar circle" width="48" height="48" src="https://github.com/lixin-wei.png" alt="@lixin-wei"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8389"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="stdexec@73559e8963dab7a4ece32ede22f6472c9a815032 (#8389)"><span class="text-mono">#8389</span> <span class="text-light">stdexec@73559e8963dab7a4ece32...</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/NVIDIA/stdexec/archive/73559e8963dab7a4ece32ede22f6472c9a815032.tar.gz" title="https://github.com/NVIDIA/stdexec/archive/73559e8963dab7a4ece32ede22f6472c9a815032.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/NVIDIA/std...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032/patches/add_build_file.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">add_build_file.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">4</label></span></h2><table class="width-full"><tbody><tr class=""><td title="0.0.0-20260427-35670665; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.0-20260427-35670665"><a class="Box-row-link" href="/#/modules/stdexec/0.0.0-20260427-35670665">0.0.0-20260427-...</a><sup class="color-fg-attention"> +14d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-28</span></div></td></tr><tr class="Box-row-link"><td title="73559e8963dab7a4ece32ede22f6472c9a815032; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="73559e8963dab7a4ece32ede22f6472c9a815032"><span class="text-bold">73559e8963dab7a...</span><sup class="color-fg-attention"> +13d</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-13</span></div></td></tr><tr class=""><td title="5473e9daf50cb8829cfe12fb6b64f5f74a08bcf7; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="5473e9daf50cb8829cfe12fb6b64f5f74a08bcf7"><a class="Box-row-link" href="/#/modules/stdexec/5473e9daf50cb8829cfe12fb6b64f5f74a08bcf7">5473e9daf50cb88...</a><sup class="color-fg-attention"> +4.6mo</sup></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-03-31</span></div></td></tr><tr class=""><td title="5d9f3bfb032e9d71b2292b7add7d90cbf9d037a9; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="5d9f3bfb032e9d71b2292b7add7d90cbf9d037a9"><a class="Box-row-link" href="/#/modules/stdexec/5d9f3bfb032e9d71b2292b7add7d90cbf9d037a9">5d9f3bfb032e9d7...</a></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-12</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

@@ -1,0 +1,888 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.2702bfd2.css" type="text/css" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+		<script src="/bcr.9d9d0c1f.js" defer=""></script>
+		<script src="/registry.69a0bfda.pb.gz.b64.js" defer=""></script>
+	</head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="a-main"><div class="container-xl" style="position: relative"><a href="/#/settings" class="btn-octicon color-fg-muted" title="Settings" style="position: absolute; right: 12px; top: 12px; z-index: 100;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 0a8.2 8.2 0 0 1 .701.031C9.444.095 9.99.645 10.16 1.29l.288 1.107c.018.066.079.158.212.224.231.114.454.243.668.386.123.082.233.09.299.071l1.103-.303c.644-.176 1.392.021 1.82.63.27.385.506.792.704 1.218.315.675.111 1.422-.364 1.891l-.814.806c-.049.048-.098.147-.088.294.016.257.016.515 0 .772-.01.147.038.246.088.294l.814.806c.475.469.679 1.216.364 1.891a7.977 7.977 0 0 1-.704 1.217c-.428.61-1.176.807-1.82.63l-1.102-.302c-.067-.019-.177-.011-.3.071a5.909 5.909 0 0 1-.668.386c-.133.066-.194.158-.211.224l-.29 1.106c-.168.646-.715 1.196-1.458 1.26a8.006 8.006 0 0 1-1.402 0c-.743-.064-1.289-.614-1.458-1.26l-.289-1.106c-.018-.066-.079-.158-.212-.224a5.738 5.738 0 0 1-.668-.386c-.123-.082-.233-.09-.299-.071l-1.103.303c-.644.176-1.392-.021-1.82-.63a8.12 8.12 0 0 1-.704-1.218c-.315-.675-.111-1.422.363-1.891l.815-.806c.05-.048.098-.147.088-.294a6.214 6.214 0 0 1 0-.772c.01-.147-.038-.246-.088-.294l-.815-.806C.635 6.045.431 5.298.746 4.623a7.92 7.92 0 0 1 .704-1.217c.428-.61 1.176-.807 1.82-.63l1.102.302c.067.019.177.011.3-.071.214-.143.437-.272.668-.386.133-.066.194-.158.211-.224l.29-1.106C6.009.645 6.556.095 7.299.03 7.53.01 7.764 0 8 0Zm-.571 1.525c-.036.003-.108.036-.137.146l-.289 1.105c-.147.561-.549.967-.998 1.189-.173.086-.34.183-.5.29-.417.278-.97.423-1.529.27l-1.103-.303c-.109-.03-.175.016-.195.045-.22.312-.412.644-.573.99-.014.031-.021.11.059.19l.815.806c.411.406.562.957.53 1.456a4.709 4.709 0 0 0 0 .582c.032.499-.119 1.05-.53 1.456l-.815.806c-.081.08-.073.159-.059.19.162.346.353.677.573.989.02.03.085.076.195.046l1.102-.303c.56-.153 1.113-.008 1.53.27.161.107.328.204.501.29.447.222.85.629.997 1.189l.289 1.105c.029.109.101.143.137.146a6.6 6.6 0 0 0 1.142 0c.036-.003.108-.036.137-.146l.289-1.105c.147-.561.549-.967.998-1.189.173-.086.34-.183.5-.29.417-.278.97-.423 1.529-.27l1.103.303c.109.029.175-.016.195-.045.22-.313.411-.644.573-.99.014-.031.021-.11-.059-.19l-.815-.806c-.411-.406-.562-.957-.53-1.456a4.709 4.709 0 0 0 0-.582c-.032-.499.119-1.05.53-1.456l.815-.806c.081-.08.073-.159.059-.19a6.464 6.464 0 0 0-.573-.989c-.02-.03-.085-.076-.195-.046l-1.102.303c-.56.153-1.113.008-1.53-.27a4.44 4.44 0 0 0-.501-.29c-.447-.222-.85-.629-.997-1.189l-.289-1.105c-.029-.11-.101-.143-.137-.146a6.6 6.6 0 0 0-1.142 0ZM11 8a3 3 0 1 1-6 0 3 3 0 0 1 6 0ZM9.5 8a1.5 1.5 0 1 0-3.001.001A1.5 1.5 0 0 0 9.5 8Z"></path></g></svg></a><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="a-c"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" fit="" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><div class="width-full" style="position: relative"><form class="FormControl col-12" style="margin-block-end: 0"><input class="form-control col-12 input-hide-webkit-autofill border width-full" type="text" placeholder="Search 1111 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form><div class="" style="position: absolute; top: 100%; right: 0; z-index: 1;"><div class="BtnGroup d-inline-flex markdown-body" style="margin-top: 0px; background: transparent;"><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-docs" type="button" data-searchprovider="symbols"><span class="f6 text-light hide-sm">Symbol Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Symbols</span> <kbd>.</kbd></button><button class="BtnGroup-item btn btn-sm btn-octicon search-scope-modules" type="button" data-searchprovider="modules"><span class="f6 text-light hide-sm">Module Search</span> <span class="f6 text-light hide-md hide-lg hide-xl">Modules</span> <kbd>/</kbd></button></div></div></div></div><div class="Header-item"><div class="BtnGroup"><a href="/#/modules/bazel_tools" class="BtnGroup-item btn btn-sm" data-label="Bazel"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M.527 9.237a1.75 1.75 0 0 1 0-2.474L6.777.512a1.75 1.75 0 0 1 2.475 0l6.251 6.25a1.75 1.75 0 0 1 0 2.475l-6.25 6.251a1.75 1.75 0 0 1-2.475 0L.527 9.238Zm1.06-1.414a.25.25 0 0 0 0 .354l6.251 6.25a.25.25 0 0 0 .354 0l6.25-6.25a.25.25 0 0 0 0-.354l-6.25-6.25a.25.25 0 0 0-.354 0l-6.25 6.25Z"></path></g></svg></span><span class="ml-2 hide-sm">Bazel</span></a><a href="/#/modules" class="BtnGroup-item btn btn-sm" data-label="Modules"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="m8.878.392 5.25 3.045c.54.314.872.89.872 1.514v6.098a1.75 1.75 0 0 1-.872 1.514l-5.25 3.045a1.75 1.75 0 0 1-1.756 0l-5.25-3.045A1.75 1.75 0 0 1 1 11.049V4.951c0-.624.332-1.201.872-1.514L7.122.392a1.75 1.75 0 0 1 1.756 0ZM7.875 1.69l-4.63 2.685L8 7.133l4.755-2.758-4.63-2.685a.248.248 0 0 0-.25 0ZM2.5 5.677v5.372c0 .09.047.171.125.216l4.625 2.683V8.432Zm6.25 8.271 4.625-2.683a.25.25 0 0 0 .125-.216V5.677L8.75 8.432Z"></path></g></svg></span><span class="ml-2 hide-sm">Modules</span></a><a href="/#/maintainers" class="BtnGroup-item btn btn-sm" data-label="Maintainers"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 16A8 8 0 1 1 8 0a8 8 0 0 1 0 16Zm.847-8.145a2.502 2.502 0 1 0-1.694 0C5.471 8.261 4 9.775 4 11c0 .395.145.995 1 .995h6c.855 0 1-.6 1-.995 0-1.224-1.47-2.74-3.153-3.145Z"></path></g></svg></span><span class="ml-2 hide-sm">Maintainers</span></a><a href="/#/docs" class="BtnGroup-item btn btn-sm" data-label="Documentation"><span class="color-fg-subtle"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8.5.75a.75.75 0 0 0-1.5 0v5.19L4.391 3.33a.75.75 0 1 0-1.06 1.061L5.939 7H.75a.75.75 0 0 0 0 1.5h5.19l-2.61 2.609a.75.75 0 1 0 1.061 1.06L7 9.561v5.189a.75.75 0 0 0 1.5 0V9.56l2.609 2.61a.75.75 0 1 0 1.06-1.061L9.561 8.5h5.189a.75.75 0 0 0 0-1.5H9.56l2.61-2.609a.75.75 0 0 0-1.061-1.06L8.5 5.939V.75Z"></path></g></svg></span><span class="ml-2 hide-sm">Documentation</span></a></div></div></div><div class="content PageLayout-content"><div style=""><div class="content"><div style=""><div class="content"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">cutlass</span> <span class="f2 d-inline-block">3.5.1<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published 1.4y ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/NVIDIA/cutlass" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/cutlass/3.5.1/overview" data-name="overview" id=":1f.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/cutlass/3.5.1/docs" data-name="docs" id=":1f.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/cutlass/3.5.1/testing" data-name="testing" id=":1f.testing">Testing</a></div></nav><div class="content mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;cutlass&quot;, version = &quot;3.5.1&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cutlass"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.5.1"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="j markdown-body" data-formatted="markdown"><p><img src="./media/images/gemm-hierarchy-with-epilogue-no-labels.png" alt="ALT" title="Complete CUDA GEMM decomposition"></p>
+<h1>Overview</h1>
+<h1>CUTLASS 4.5.0</h1>
+<p><em>CUTLASS 4.5.0 - May 2026</em></p>
+<p>CUTLASS is a collection of abstractions for implementing high-performance matrix-matrix multiplication (GEMM)
+and related computations at all levels and scales within CUDA. It incorporates strategies for
+hierarchical decomposition and data movement. CUTLASS decomposes these "moving parts" into reusable, modular
+software components and abstractions.</p>
+<p>Primitives for different levels of a conceptual parallelization hierarchy can be specialized and tuned
+via custom tiling sizes, data types, and other algorithmic policy. The resulting flexibility simplifies
+their use as building blocks within custom kernels and applications.</p>
+<p>CUTLASS has been providing CUDA C++ template abstractions for high-performance linear algebra since 2017 and
+these abstractions provide extensive support for a wide range of computations including
+mixed-precision computations, specialized data-movement (async copy) and
+multiply-accumulate abstractions for FP64, FP32, TF32, FP16, BF16,
+<a href="https://github.com/NVIDIA/cutlass/tree/main/examples/27_ampere_3xtf32_fast_accurate_tensorop_gemm">FP32 emulation via tensor core instruction</a>,
+ 8b floating point types (e5m2 and e4m3),
+ block scaled data types (NVIDIA NVFP4 and OCP standard MXFP4, MXFP6, MXFP8),
+ narrow integer types (4 and 8b signed and unsigned integers),
+ and binary 1b data types (where architectures allow for the
+native support of such data types) across NVIDIA's Volta, Turing, Ampere, Ada, Hopper, and Blackwell architectures.</p>
+<p>To this rich ecosystem of C++ based kernel programming abstractions, CUTLASS 4 adds CUTLASS DSLs. These are Python native interfaces for writing high-performance CUDA kernels based on core CUTLASS and CuTe concepts without any performance compromises. This allows for a much smoother learning curve, orders of magnitude faster compile times, native integration with DL frameworks without writing glue code, and much more intuitive metaprogramming that does not require deep C++ expertise.</p>
+<p>Overall we envision CUTLASS DSLs as a family of domain-specific languages (DSLs). With the release of 4.0, we are releasing the first of these in CuTe DSL. This is a low level programming model that is fully consistent with CuTe C++ abstractions — exposing core concepts such as layouts, tensors, hardware atoms, and full control over the hardware thread and data hierarchy.</p>
+<p>CuTe DSL demonstrates optimal matrix multiply and other linear algebra operations
+targeting the programmable, high-throughput <em>Tensor Cores</em> implemented by
+NVIDIA's Ampere, Hopper, and Blackwell architectures.</p>
+<p>We believe it will become an indispensable tool for students, researchers, and performance
+engineers alike — flattening the learning curve of GPU programming, rapidly prototyping kernel
+designs, and bringing optimized solutions into production.</p>
+<p>CuTe DSL is currently in public beta and will graduate out of beta by end of summer 2025.</p>
+<p>To get started quickly - please refer :</p>
+<ul>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html">CUTLASS C++ Quick Start Guide</a>.</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/pythonDSL/quick_start.html">CuTe DSL Quick Start Guide</a>.</li>
+</ul>
+<h1>What's New in CUTLASS 4.5</h1>
+<h2>CuTe DSL</h2>
+<ul>
+<li><p>New features</p>
+<ul>
+<li>New Block API <code>block_copy()</code> to simplify TMA and S2T copy. Users can ignore detail about multicast and 2CTA partition for TMA by <code>block_copy()</code> and need not to invoke <code>tma_partition()</code>. And users can remove bulk of S2T initialization to simplify S2T copy.</li>
+<li>MXF8F6F4 mixed precision supoort<ul>
+<li>BlockScaled MMA now supports MXF8<em>MXF4 or MXF8</em>MXF6</li>
+</ul>
+</li>
+<li>Block Scaled MMA for SM120 now works on Spark</li>
+<li>EFC broadcast semantics support<ul>
+<li>EFC epilogue functions can now broadcast and remap tensor modes via <code>C.remap_modes[:, 0, 1]</code> subscript syntax (where <code>:</code> marks a broadcast dimension and integers select source mode indices). Covers scalar broadcast, row/column broadcast, and arbitrary mode permutations (e.g. transpose). The PyTorch reference evaluator mirrors the same transformations.</li>
+</ul>
+</li>
+<li>Initial linter support: Improved type hints on CuTe DSL APIs to support static type checkers like MyPy</li>
+<li>dataclasses.dataclass is now supported for JIT compilaton and cute.compile for both plain and tvm-ffi path</li>
+<li>cute.copy now supports user specified loop unrolling</li>
+</ul>
+</li>
+<li><p>Bug fixing and improvements</p>
+<ul>
+<li>Improved source code correlation for profiling/debugging</li>
+<li>Fixed an aarch64 segfault issue with tvm-ffi</li>
+<li>Re-organization for CuTe DSL examples/tutorials for better discoverability</li>
+</ul>
+</li>
+<li><p>More examples of authorizing peak-performance kernels</p>
+<ul>
+<li>MOE examles<ul>
+<li>A new style of grouped-gemm that aligns to torch's grouped_mm and scaled_groued_mm interface.</li>
+<li>Expert-wise tensormap descriptor setup by a cheap helper kernel (~2us) to avoid long latency in tile switching, kernel structure is much more closer to a normal GEMM.</li>
+<li>Compared to torch_210_cu13, very few problem has worse perf in B200.<ul>
+<li>mxfp8_2dx3d: avg 1.29 speedup;</li>
+<li>mxfp8_2dx2d: avg 1.41 speedup;<ul>
+<li>nvfp4_2dx3d: avg 1.11 speedup;</li>
+</ul>
+</li>
+<li>nvfp4_2dx2d: avg 1.12 speedup (worst case 0.98)</li>
+<li>bf16_2dx3d: avg 1.15 speedup (worst case 0.98)</li>
+<li>bf16_2dx2d: avg 1.17 speedup (worst case 0.96)</li>
+<li>Note: The perf is measured from torch profiler, this impl includes the helper kernel + main kernel, while torch's includes its setup kernel and cutlass_cpp main kernel.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>API changes</p>
+<ul>
+<li>ab_dtype is deprecated in make_trivial_tiled_mma and make_blockscaled_trivial_tiled_mma from blackwell_helpers.py. Please specify a_dtype and b_dtype separately instead.</li>
+</ul>
+</li>
+</ul>
+<h2>CUTLASS C++</h2>
+<ul>
+<li>Add 2SM MMA instruction support to mixed TMA+CpAsync SM100 vanilla GEMM kernels.<ul>
+<li>Mixed TMA+CpAsync can now accept static, but non trivial cluster shapes.</li>
+<li>Uses TMA multicast for A tile when using non-trivial cluster size along N mode.</li>
+<li>Uses an additional barrier (mma_trampoline_barrier) to track cp.async arrivals in both CTAs.</li>
+<li>Changes included in <a href="https://github.com/NVIDIA/cutlass/tree/main/examples/92_blackwell_moe_gemm">example 92</a>.</li>
+</ul>
+</li>
+<li>Add support for 128x32xK and 128x64xK tile sizes for SM120 blockscaled MMA collective builders, yielding up to 30% performance improvement on Blackwell SM121 related kernels.</li>
+<li>Add static load to tensor memory support, included in <a href="https://github.com/NVIDIA/cutlass/tree/main/examples/77_blackwell_fmha/">example 77</a>.</li>
+<li>Use 64-bit adds for SM100 MMA descriptor offsets and reduce move instructions for improved code generation.</li>
+<li>Add <a href="https://github.com/NVIDIA/cutlass/tree/main/examples/95_blackwell_gemm_green_context">example 95</a> to support green context SM partition<ul>
+<li>Enables launching GEMM on stream with partial SM allocation.</li>
+</ul>
+</li>
+<li>Fix some kernel issues:<ul>
+<li>Fix l2_capacity=0 handling in Blackwell SM100/SM120 kernel templates</li>
+<li>Fix CUTLASS clang build issues</li>
+<li>Fix atomicCAS read-modify-write loop in <code>ConstSubbyteReference</code></li>
+<li>Replace <code>__nv_atomic_load_n</code> with <code>volatile</code> for CUDA 11.4 compatibility in subbyte reference</li>
+<li>Remove <code>PipelineStorage</code> shadowing in SM100 complex epilogue</li>
+<li>Fix build issue in SM90 epilogue fusion visitor TMA warpspecialized</li>
+</ul>
+</li>
+<li>Fix some profiler issues:<ul>
+<li>Add missing reference kernels for blockwise GEMM profiler</li>
+</ul>
+</li>
+<li>Various improvements and fixes from the community and CUTLASS team. Thanks to everyone who submitted PRs!</li>
+<li>Optimal code generation with CUDA toolkit versions 13.2.</li>
+</ul>
+<p>Note: CUTLASS 4.x builds are known to be down on Windows platforms for all CUDA toolkits.
+CUTLASS team is working on a fix.</p>
+<p><strong>See the <a href="https://docs.nvidia.com/cutlass/latest/CHANGELOG.html">CHANGELOG</a> for details of all past releases and updates.</strong></p>
+<h1>Performance</h1>
+<p>CUTLASS primitives are very efficient.  When used to construct device-wide GEMM kernels,
+they exhibit nearly optimal utilization of peak theoretical throughput. The figure below
+shows CUTLASS 3.8's performance as a % of theoretical peak utilization
+on various input and output data types when run on NVIDIA Blackwell SM100 architecture GPU.</p>
+<p><img src="media/images/cutlass-3.8-blackwell-gemm-peak-performance.svg" alt="ALT"></p>
+<p>The two figures below show the continual CUTLASS performance improvements
+on an <a href="https://www.nvidia.com/en-us/data-center/h100/">NVIDIA H100</a> (NVIDIA Hopper architecture) since
+CUTLASS 3.1.
+CUTLASS 3.5.1 was compiled with the <a href="https://developer.nvidia.com/cuda-downloads">CUDA 12.5u1 Toolkit</a>.
+Tensor Core operations are implemented using CUDA's
+<a href="https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#warp-level-matrix-instructions-mma">mma</a> and
+<a href="https://docs.nvidia.com/cuda/parallel-thread-execution/index.html#asynchronous-warpgroup-level-matrix-instructions">wgmma</a> instructions.</p>
+<p><img src="media/images/cutlass-3.5.1-gemm-peak-performance.png" alt="ALT">
+<img src="media/images/cutlass-3.5.1-gemm-peak-performance-fp8.png" alt="ALT"></p>
+<h1>CuTe</h1>
+<p>CUTLASS 3.0 introduced a new core library, CuTe, to describe and manipulate tensors of threads and data.
+CuTe is a collection of C++ CUDA template abstractions for
+defining and operating on hierarchically multidimensional layouts of threads and data.
+CuTe provides <code>Layout</code> and <code>Tensor</code> objects that compactly package the type,
+shape, memory space, and layout of data, while performing the complicated indexing for the user.
+This lets programmers focus on the logical descriptions of their algorithms while
+CuTe does the mechanical bookkeeping for them. With these tools, we can quickly design,
+implement, and modify all dense linear algebra operations.</p>
+<p>The core abstractions of CuTe are hierarchically multidimensional layouts
+which can be composed with data arrays to represent tensors.
+The representation of layouts is powerful enough to represent nearly
+everything we need to implement efficient dense linear algebra.
+Layouts can also be combined and manipulated via functional composition, on which we build a large set of common operations such as tiling and partitioning.</p>
+<p>CUTLASS 3.0 and beyond adopts CuTe throughout the GEMM hierarchy in its templates.
+This greatly simplifies the design and improves code composability and readability.
+More documentation specific to CuTe can be found in its
+<a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/cute/00_quickstart.html">dedicated documentation directory</a>.</p>
+<h1>Compatibility</h1>
+<p>Minimum requirements:</p>
+<ul>
+<li>Architecture: Volta (compute capability 7.0)</li>
+<li>Compiler: Must support at least C++17</li>
+<li>CUDA Toolkit version: 11.4</li>
+</ul>
+<p>CUTLASS requires a C++17 host compiler and
+performs best when built with the <a href="https://developer.nvidia.com/cuda-downloads"><strong>CUDA 12.8 Toolkit</strong></a>.
+It is also compatible with CUDA 11.4, CUDA 11.5, CUDA 11.6, CUDA 11.7, CUDA 11.8, and all other CUDA 12.x versions.</p>
+<h2>Operating Systems</h2>
+<p>We have tested the following environments.</p>
+<table>
+<thead>
+<tr>
+<th><strong>Operating System</strong></th>
+<th><strong>Compiler</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Ubuntu 18.04</td>
+<td>GCC 7.5.0</td>
+</tr>
+<tr>
+<td>Ubuntu 20.04</td>
+<td>GCC 10.3.0</td>
+</tr>
+<tr>
+<td>Ubuntu 22.04</td>
+<td>GCC 11.2.0</td>
+</tr>
+</tbody></table>
+<p>Note: GCC 8.5.0 has known regressions regarding fold expressions and overloaded operators. Using GCC 7.5.0 or (preferred) GCC &gt;= 9 is recommended.</p>
+<p>Note: CUTLASS 3.x builds are known to be down on Windows platforms for all CUDA toolkits.
+CUTLASS team is working on a fix.</p>
+<h2>Hardware</h2>
+<p>CUTLASS runs successfully on the following NVIDIA GPUs, and it is expected to be efficient on Volta, Turing, Ampere, Ada, and Hopper architecture based NVIDIA GPUs.</p>
+<table>
+<thead>
+<tr>
+<th><strong>GPU</strong></th>
+<th><strong>CUDA Compute Capability</strong></th>
+<th><strong>Minimum CUDA Toolkit Required by CUTLASS-3</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>NVIDIA V100 Tensor Core GPU</td>
+<td>7.0</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA TitanV</td>
+<td>7.0</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 20x0 series</td>
+<td>7.5</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA T4</td>
+<td>7.5</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA A100 Tensor Core GPU</td>
+<td>8.0</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA A10</td>
+<td>8.6</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 30x0 series</td>
+<td>8.6</td>
+<td>11.4</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 40x0 series</td>
+<td>8.9</td>
+<td>11.8</td>
+</tr>
+<tr>
+<td>NVIDIA L40</td>
+<td>8.9</td>
+<td>11.8</td>
+</tr>
+<tr>
+<td>NVIDIA H100 Tensor Core GPU</td>
+<td>9.0</td>
+<td>11.8</td>
+</tr>
+<tr>
+<td>NVIDIA H200 Tensor Core GPU</td>
+<td>9.0</td>
+<td>11.8</td>
+</tr>
+<tr>
+<td>NVIDIA B200 Tensor Core GPU</td>
+<td>10.0</td>
+<td>12.8</td>
+</tr>
+<tr>
+<td>NVIDIA B300 Tensor Core GPU</td>
+<td>10.3</td>
+<td>13.0</td>
+</tr>
+<tr>
+<td>NVIDIA DRIVE Thor</td>
+<td>11.0</td>
+<td>13.0</td>
+</tr>
+<tr>
+<td>NVIDIA GeForce RTX 50x0 series</td>
+<td>12.0</td>
+<td>12.8</td>
+</tr>
+<tr>
+<td>NVIDIA DGX Spark</td>
+<td>12.1</td>
+<td>13.0</td>
+</tr>
+</tbody></table>
+<h2>Target Architecture</h2>
+<p>In general, PTX code generated for one target architecture can be run on future architectures
+(i.e., it is forward compatible).
+However, CUDA 12.0 introduced the concept of "architecture-accelerated features" whose
+PTX does not have forward compatibility guarantees.
+Several Hopper and Blackwell PTX instructions fall under this category of
+architecture-accelerated features, and thus require a <code>sm_90a</code> or <code>sm100a</code> target architecture
+(note the "a" appended). For more details on this and other architecture-accelerated instructions,
+please refer to the <a href="https://docs.nvidia.com/cuda/cuda-c-programming-guide/index.html#feature-availability">CUDA Documentation</a>.</p>
+<p>The target architecture information is passed on to CUTLASS via the cmake flag
+<code>CUTLASS_NVCC_ARCHS</code>. In order to maximize performance on Hopper GH100,
+users are required to build CUTLASS with <code>90a</code> as the target architecture.
+If a user accidentally builds a kernel which uses SM90a features
+(e.g. Hopper Tensor Core Instructions), using the SM90 target
+(note the lack of "a"), with either CUDA Toolkit 12 or 11.8,
+the kernel is expected to fail with a runtime error.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake .. -DCUTLASS_NVCC_ARCHS=&quot;90a&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"90a"</span></span></code></pre>
+<p>Or</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="cmake .. -DCUTLASS_NVCC_ARCHS=&quot;100a&quot;" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"100a"</span></span></code></pre>
+<p>Note: The NVIDIA Blackwell SM100 architecture used in the datacenter
+products has a different compute capability than the one underpinning
+NVIDIA Blackwell GeForce RTX 50 series GPUs (SM120). As a result, kernels
+compiled for Blackwell SM100 architecture with arch conditional features
+(using <code>sm100a</code>) are not compatible with RTX 50 series GPUs.</p>
+<p>Please refer to the <a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/functionality.html">functionality documentation</a>
+for details on which kernels require which target architectures.</p>
+<h1>Documentation</h1>
+<p>CUTLASS is described in the following documents and the accompanying
+<a href="https://nvidia.github.io/cutlass">Doxygen documentation</a>.</p>
+<ul>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html">Quick Start Guide</a> - basics of building and running CUTLASS</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/functionality.html">Functionality</a> - summarizes functionality available in CUTLASS</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/efficient_gemm.html">Efficient GEMM in CUDA</a> - describes how GEMM kernels may be implemented efficiently in CUDA</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/cutlass_3x_design.html">CUTLASS 3.x Design</a> - describes the CUTLASS 3.x design, its benefits, and how CuTe enables us to write much more composable components</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/gemm_api_3x.html">GEMM API 3.x</a> - describes the CUTLASS 3.x GEMM model and C++ template concepts</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/gemm_api.html">GEMM API 2.x</a> - describes the CUTLASS 2.x GEMM model and C++ template concepts</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/implicit_gemm_convolution.html">Implicit GEMM Convolution</a> - describes 2-D and 3-D convolution in CUTLASS</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/code_organization.html">Code Organization</a> - describes the organization and contents of the CUTLASS project</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/terminology.html">Terminology</a> - describes terms used in the code</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/programming_guidelines.html">Programming Guidelines</a> - guidelines for writing efficient modern CUDA C++</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/fundamental_types.html">Fundamental types</a> - describes basic C++ classes used in CUTLASS to represent numeric quantities and arrays</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/layout.html">Layouts</a> - describes layouts of matrices and tensors in memory</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/tile_iterator_concept.html">Tile Iterators</a> - describes C++ concepts for iterating over tiles of matrices in memory</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/profiler.html">CUTLASS Profiler</a> - command-line driven profiling application</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/utilities.html">CUTLASS Utilities</a> - additional templates used to facilitate rapid development</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/dependent_kernel_launch.html">Dependent kernel launch</a> - describes a new feature in Hopper which allows overlapping dependent
+kernels in the same stream, and how it is used in CUTLASS.</li>
+</ul>
+<h1>Resources</h1>
+<p>We have also described the structure of an efficient GEMM in our talk at the
+<a href="http://on-demand.gputechconf.com/gtc/2018/presentation/s8854-cutlass-software-primitives-for-dense-linear-algebra-at-all-levels-and-scales-within-cuda.pdf">GPU Technology Conference 2018</a>.</p>
+<ul>
+<li><a href="https://www.nvidia.com/en-us/on-demand/session/gtcsiliconvalley2018-s8854/">CUTLASS: Software Primitives for Dense Linear Algebra at All Levels and Scales within CUDA</a></li>
+<li><a href="https://www.nvidia.com/en-us/on-demand/session/gtcsj20-s21745/">Developing CUDA Kernels to Push Tensor Cores to the Absolute Limit on NVIDIA A100</a></li>
+<li><a href="https://www.nvidia.com/en-us/on-demand/session/gtcspring21-s31883/">Accelerating Convolution with Tensor Cores in CUTLASS</a></li>
+<li><a href="https://www.nvidia.com/en-us/on-demand/session/gtcspring22-s41996/">Accelerating Backward Data Gradient by Increasing Tensor Core Utilization in CUTLASS</a></li>
+<li><a href="https://www.nvidia.com/en-us/on-demand/session/gtcfall22-a41131/">CUTLASS: Python API, Enhancements, and NVIDIA Hopper</a></li>
+</ul>
+<h1>Building CUTLASS</h1>
+<p>CUTLASS is a header-only template library and does not need to be built to be used by other
+projects. Client applications should target CUTLASS's <code>include/</code> directory in their include
+paths.</p>
+<p>CUTLASS unit tests, examples, and utilities can be build with CMake.
+The minimum version of CMake is given in the <a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html">Quickstart guide</a>.
+Make sure the <code>CUDACXX</code> environment  variable points to NVCC in the CUDA Toolkit installed
+on your system.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ export CUDACXX=${CUDA_INSTALL_PATH}/bin/nvcc" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> export </span><span style="color:#005CC5">CUDACXX</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{</span><span style="color:#005CC5">CUDA_INSTALL_PATH</span><span style="color:#24292E">}</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">nvcc</span></span></code></pre>
+<p>Create a build directory within the CUTLASS project, then run CMake. By default CUTLASS will build kernels
+for CUDA architecture versions 5.0, 6.0, 6.1, 7.0, 7.5, 8.0, 8.6, 8.9, and 9.0.
+To reduce compile time you can specify
+the architectures to build CUTLASS for by changing the CMake configuration setting
+<code>CUTLASS_NVCC_ARCHS</code>.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ mkdir build &amp;&amp; cd build
+
+$ cmake .. -DCUTLASS_NVCC_ARCHS=80               # compiles for NVIDIA's Ampere Architecture" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">80</span><span style="color:#6A737D">               # compiles for NVIDIA's Ampere Architecture</span></span></code></pre>
+<p>From the <code>build/</code> directory, compile and run the CUTLASS unit tests by building the target <code>test_unit</code> with make.</p>
+<p>The unit tests are organized as several binaries mirroring the top-level namespaces of CUTLASS,
+and they may be executed in parallel via make's <code>-j</code> command line argument.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ make test_unit -j
+...
+...
+...
+[----------] Global test environment tear-down
+[==========] 946 tests from 57 test cases ran. (10812 ms total)
+[  PASSED  ] 946 tests." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make test_unit </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">[</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#24292E">] Global test environment tear</span><span style="color:#D73A49">-</span><span style="color:#24292E">down</span></span>
+<span class="line"><span style="color:#24292E">[</span><span style="color:#D73A49">==========</span><span style="color:#24292E">] </span><span style="color:#005CC5">946</span><span style="color:#24292E"> tests </span><span style="color:#D73A49">from</span><span style="color:#005CC5"> 57</span><span style="color:#24292E"> test cases ran. (</span><span style="color:#005CC5">10812</span><span style="color:#24292E"> ms total)</span></span>
+<span class="line"><span style="color:#24292E">[  </span><span style="color:#005CC5">PASSED</span><span style="color:#24292E">  ] </span><span style="color:#005CC5">946</span><span style="color:#24292E"> tests.</span></span></code></pre>
+<p>All tests should pass on supported platforms, though the exact number of tests may vary over time.</p>
+<h1>Project Structure</h1>
+<p>CUTLASS is arranged as a header-only library along with Utilities, Tools, Examples, and unit tests.
+<a href="https://nvidia.github.io/cutlass">Doxygen documentation</a> provides a complete list of files, classes,
+and template concepts defined in the CUTLASS project.</p>
+<p>A detailed explanation of the source code organization may be found in the
+<a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/code_organization.html">CUTLASS documentation</a>, but several main components are summarized below.</p>
+<h2>CUTLASS Template Library</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="include/                     # client applications should target this directory in their build's include paths
+
+  cutlass/                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only
+
+    arch/                    # direct exposure of architecture features (including instruction-level GEMMs)
+
+    conv/                    # code specialized for convolution
+
+    epilogue/                # code specialized for the epilogue of gemm/convolution
+
+    gemm/                    # code specialized for general matrix product computations
+
+    layout/                  # layout definitions for matrices, tensors, and other mathematical objects in memory
+
+    platform/                # CUDA-capable Standard Library components
+
+    reduction/               # bandwidth-limited reduction kernels that do not fit the &quot;gemm&quot; model
+
+    thread/                  # simt code that can be performed within a CUDA thread
+
+    transform/               # code specialized for layout, type, and domain transformations
+
+    *                        # core vocabulary types, containers, and basic numeric operations
+
+  cute/                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy
+
+    algorithm/               # Definitions of core operations such as copy, gemm, and operations on cute::tuples
+
+    arch/                    # Bare bones PTX wrapper structs for copy and math instructions
+
+    atom/                    # Meta-information either link to or built from arch/ operators
+
+      mma_atom.hpp           # cute::Mma_Atom and cute::TiledMma
+
+      copy_atom.hpp          # cute::Copy_Atom and cute::TiledCopy
+
+      *sm*.hpp               # Arch specific meta-information for copy and math operations
+
+    *                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                     # client applications should target this directory in their build's include paths</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # direct exposure of architecture features (including instruction-level GEMMs)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    conv</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for convolution</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    epilogue</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # code specialized for the epilogue of gemm/convolution</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    gemm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for general matrix product computations</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    layout</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # layout definitions for matrices, tensors, and other mathematical objects in memory</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    platform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # CUDA-capable Standard Library components</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    reduction</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # bandwidth-limited reduction kernels that do not fit the "gemm" model</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    thread</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # simt code that can be performed within a CUDA thread</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    transform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # code specialized for layout, type, and domain transformations</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # core vocabulary types, containers, and basic numeric operations</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  cute</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    algorithm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # Definitions of core operations such as copy, gemm, and operations on cute::tuples</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Bare bones PTX wrapper structs for copy and math instructions</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    atom</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Meta-information either link to or built from arch/ operators</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">      mma_atom.hpp           </span><span style="color:#6A737D"># cute::Mma_Atom and cute::TiledMma</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">      copy_atom.hpp          </span><span style="color:#6A737D"># cute::Copy_Atom and cute::TiledCopy</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">      *</span><span style="color:#24292E">sm</span><span style="color:#D73A49">*</span><span style="color:#24292E">.hpp               </span><span style="color:#6A737D"># Arch specific meta-information for copy and math operations</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations</span></span></code></pre>
+<h3>CUTLASS SDK Examples</h3>
+<p><a href="https://github.com/NVIDIA/cutlass/tree/main/examples">CUTLASS SDK examples</a> apply CUTLASS templates to implement basic computations.</p>
+<h3>Tools</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="tools/
+  library/                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates
+    include/
+      cutlass/
+        library/
+
+  profiler/                  # CUTLASS Profiler         - command-line utility for executing operations in the
+                             #                            CUTLASS Library
+
+  util/                      # CUTLASS Utilities        - contains numerous helper classes for
+    include/                 #                            managing tensors in device memory, reference
+      cutlass/               #                            implementations for GEMM, random initialization
+        util/                #                            of tensors, and I/O." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">  library</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates</span></span>
+<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">        library</span><span style="color:#D73A49">/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  profiler</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # CUTLASS Profiler         - command-line utility for executing operations in the</span></span>
+<span class="line"><span style="color:#6A737D">                             #                            CUTLASS Library</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CUTLASS Utilities        - contains numerous helper classes for</span></span>
+<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                 #                            managing tensors in device memory, reference</span></span>
+<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               #                            implementations for GEMM, random initialization</span></span>
+<span class="line"><span style="color:#24292E">        util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                #                            of tensors, and I/O.</span></span></code></pre>
+<h3>Test</h3>
+<p>The <code>test/unit/</code> directory consist of unit tests implemented with Google Test that demonstrate
+basic usage of Core API components and complete tests of the CUTLASS GEMM computations.</p>
+<p>Instructions for building and running the Unit tests are described in the <a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html">Quickstart guide</a>.</p>
+<h1>Performance Profiling</h1>
+<p>The <code>tools/profiler/</code> directory contains a command-line utility for launching each of the GEMM kernels.
+It can be built as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<h2>Building all GEMM and Convolution kernels (<em>long</em> build times)</h2>
+<p>By default, only one tile size is instantiated for each data type, math instruction, and layout.
+To instantiate all, set the following environment variable when running CMake from an empty <code>build/</code> directory.
+Beware, this results in <em>tens of thousands</em> of kernels and long build times.
+This would also result in a large binary size and on some platforms linker to fail on building the library.
+Therefore, it's highly recommended to generate only a subset of kernels as demonstrated in the sub-section below.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake .. -DCUTLASS_NVCC_ARCHS=90a -DCUTLASS_LIBRARY_KERNELS=all
+...
+$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">90a</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">all</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<h2>Building a subset of GEMM and Convolution kernels (<em>reduced</em> build times)</h2>
+<p>To compile strictly one kernel or a small set of kernels, a comma-delimited list of kernel names with
+wildcard characters may be used to reduce the set of kernels. The following examples show building exactly one
+or a subset of kernels for NVIDIA Ampere and Turing architecture:</p>
+<h3>Building a subset Tensor Core GEMM kernels</h3>
+<p>To compile a subset of Tensor Core GEMM kernels with FP32 accumulation and FP16 input targeting NVIDIA Ampere and Turing architecture,
+use the below cmake command line:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_tensorop_s*gemm_f16_*_nt_align8
+...
+$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">gemm_f16_</span><span style="color:#D73A49">*</span><span style="color:#24292E">_nt_align8</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<p>Example command line for profiling a subset of Tensor Core GEMM kernels is as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="./tools/profiler/cutlass_profiler --kernels=cutlass_tensorop_s*gemm_f16_*_nt_align8 --m=3456 --n=4096 --k=4096
+
+...
+=============================
+  Problem ID: 1
+
+        Provider: CUTLASS
+   OperationKind: gemm
+       Operation: cutlass_tensorop_s1688gemm_f16_256x128_32x2_nt_align8
+
+          Status: Success
+    Verification: ON
+     Disposition: Passed
+
+reference_device: Passed
+          cuBLAS: Passed
+
+       Arguments: --gemm_kind=universal --m=3456 --n=4096 --k=4096 --A=f16:column --B=f16:row --C=f32:column --alpha=1  \
+                  --beta=0 --split_k_slices=1 --batch_count=1 --op_class=tensorop --accum=f32 --cta_m=256 --cta_n=128  \
+                  --cta_k=32 --stages=2 --warps_m=4 --warps_n=2 --warps_k=1 --inst_m=16 --inst_n=8 --inst_k=8 --min_cc=75  \
+                  --max_cc=1024
+
+           Bytes: 118489088  bytes
+           FLOPs: 115992428544  flops
+
+         Runtime: 1.55948  ms
+          Memory: 70.7616 GiB/s
+
+            Math: 74378.8 GFLOP/s
+
+
+
+=============================
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">profiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">cutlass_profiler </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">kernels</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">gemm_f16_</span><span style="color:#D73A49">*</span><span style="color:#24292E">_nt_align8 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#24292E">  Problem </span><span style="color:#005CC5">ID</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">        Provider: </span><span style="color:#005CC5">CUTLASS</span></span>
+<span class="line"><span style="color:#24292E">   OperationKind: gemm</span></span>
+<span class="line"><span style="color:#24292E">       Operation: cutlass_tensorop_s1688gemm_f16_256x128_32x2_nt_align8</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          Status: Success</span></span>
+<span class="line"><span style="color:#24292E">    Verification: </span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#24292E">     Disposition: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">reference_device: Passed</span></span>
+<span class="line"><span style="color:#24292E">          cuBLAS: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">       Arguments: </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">gemm_kind</span><span style="color:#D73A49">=</span><span style="color:#24292E">universal </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">A</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">B</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:row </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">C</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">alpha</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">beta</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">split_k_slices</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">batch_count</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">op_class</span><span style="color:#D73A49">=</span><span style="color:#24292E">tensorop </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">accum</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cta_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">256</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">cta_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">32</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stages</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">16</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">min_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">75</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">max_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1024</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">           Bytes: </span><span style="color:#005CC5">118489088</span><span style="color:#005CC5">  bytes</span></span>
+<span class="line"><span style="color:#24292E">           FLOPs: </span><span style="color:#005CC5">115992428544</span><span style="color:#24292E">  flops</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">         Runtime: </span><span style="color:#005CC5">1.55948</span><span style="color:#24292E">  ms</span></span>
+<span class="line"><span style="color:#24292E">          Memory: </span><span style="color:#005CC5">70.7616</span><span style="color:#24292E"> GiB</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">            Math: </span><span style="color:#005CC5">74378.8</span><span style="color:#005CC5"> GFLOP</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<h3>Building one CUDA Core GEMM kernel</h3>
+<p>To compile one SGEMM kernel targeting NVIDIA Ampere and Turing architecture, use the below cmake command line:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_simt_sgemm_128x128_8x2_nn_align1
+...
+$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_simt_sgemm_128x128_8x2_nn_align1</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<p>Example command line for profiling single SGEMM CUDA kernel is as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ ./tools/profiler/cutlass_profiler --kernels=sgemm --m=3456 --n=4096 --k=4096
+
+=============================
+  Problem ID: 1
+
+        Provider: CUTLASS
+   OperationKind: gemm
+       Operation: cutlass_simt_sgemm_128x128_8x2_nn_align1
+
+          Status: Success
+    Verification: ON
+     Disposition: Passed
+
+          cuBLAS: Passed
+
+       Arguments: --m=3456 --n=4096 --k=4096 --A=f32:column --B=f32:column --C=f32:column --alpha=1 --beta=0 --split_k_slices=1  \
+                  --batch_count=1 --op_class=simt --accum=f32 --cta_m=128 --cta_n=128 --cta_k=8 --stages=2 --warps_m=4  \
+                  --warps_n=2 --warps_k=1 --inst_m=1 --inst_n=1 --inst_k=1 --min_cc=50 --max_cc=1024
+
+           Bytes: 180355072  bytes
+           FLOPs: 115992428544  flops
+
+         Runtime: 6.73655  ms
+          Memory: 24.934 GiB/s
+
+            Math: 17218.4 GFLOP/s
+
+=============================" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">profiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">cutlass_profiler </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">kernels</span><span style="color:#D73A49">=</span><span style="color:#24292E">sgemm </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#24292E">  Problem </span><span style="color:#005CC5">ID</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">        Provider: </span><span style="color:#005CC5">CUTLASS</span></span>
+<span class="line"><span style="color:#24292E">   OperationKind: gemm</span></span>
+<span class="line"><span style="color:#24292E">       Operation: cutlass_simt_sgemm_128x128_8x2_nn_align1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          Status: Success</span></span>
+<span class="line"><span style="color:#24292E">    Verification: </span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#24292E">     Disposition: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          cuBLAS: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">       Arguments: </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">A</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">B</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">C</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">alpha</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">beta</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">split_k_slices</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">batch_count</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">op_class</span><span style="color:#D73A49">=</span><span style="color:#24292E">simt </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">accum</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cta_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stages</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">warps_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">min_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">50</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">max_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1024</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">           Bytes: </span><span style="color:#005CC5">180355072</span><span style="color:#005CC5">  bytes</span></span>
+<span class="line"><span style="color:#24292E">           FLOPs: </span><span style="color:#005CC5">115992428544</span><span style="color:#24292E">  flops</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">         Runtime: </span><span style="color:#005CC5">6.73655</span><span style="color:#24292E">  ms</span></span>
+<span class="line"><span style="color:#24292E">          Memory: </span><span style="color:#005CC5">24.934</span><span style="color:#24292E"> GiB</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">            Math: </span><span style="color:#005CC5">17218.4</span><span style="color:#005CC5"> GFLOP</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span></code></pre>
+<h3>Building a subset of Tensor Core Convolution kernels</h3>
+<p>To compile a subset of Tensor core convolution kernels implementing forward propagation (fprop) with FP32 accumulation
+and FP16 input targeting NVIDIA Ampere and Turing architecture, use the below cmake command line:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_tensorop_s*fprop_optimized_f16
+...
+$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">fprop_optimized_f16</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<p>Example command line for profiling a subset of Tensor Core convolution kernels is as follows:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ ./tools/profiler/cutlass_profiler --kernels=cutlass_tensorop_s*fprop_optimized_f16 --n=8 --h=224 --w=224 --c=128 --k=128 --r=3 --s=3
+
+...
+=============================
+  Problem ID: 1
+
+        Provider: CUTLASS
+   OperationKind: conv2d
+       Operation: cutlass_tensorop_s16816fprop_optimized_f16_128x128_32x5_nhwc
+
+          Status: Success
+    Verification: ON
+     Disposition: Passed
+
+reference_device: Passed
+
+       Arguments: --conv_kind=fprop --n=8 --h=224 --w=224 --c=128 --k=128 --r=3 --s=3 --p=224 --q=224 --pad_h=1 --pad_w=1  \
+                  --stride_h=1 --stride_w=1 --dilation_h=1 --dilation_w=1 --Activation=f16:nhwc --Filter=f16:nhwc --Output=f32:nhwc  \
+                  --conv_mode=cross --iterator_algorithm=optimized --alpha=1 --beta=0 --split_k_mode=serial --split_k_slices=1  \
+                  --eq_gemm_provider=none --op_class=tensorop --accum=f32 --cta_m=128 --cta_n=128 --cta_k=32 --stages=5  \
+                  --warps_m=2 --warps_n=2 --warps_k=1 --inst_m=16 --inst_n=8 --inst_k=16 --min_cc=80 --max_cc=1024
+
+           Bytes: 1130659840  bytes
+           FLOPs: 118482796544  flops
+
+         Runtime: 0.711496  ms
+          Memory: 1479.99 GiB/s
+
+            Math: 166526 GFLOP/s
+
+=============================
+..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">profiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">cutlass_profiler </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">kernels</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">fprop_optimized_f16 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">c</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">r</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#24292E">  Problem </span><span style="color:#005CC5">ID</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">        Provider: </span><span style="color:#005CC5">CUTLASS</span></span>
+<span class="line"><span style="color:#24292E">   OperationKind: conv2d</span></span>
+<span class="line"><span style="color:#24292E">       Operation: cutlass_tensorop_s16816fprop_optimized_f16_128x128_32x5_nhwc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          Status: Success</span></span>
+<span class="line"><span style="color:#24292E">    Verification: </span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#24292E">     Disposition: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">reference_device: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">       Arguments: </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">conv_kind</span><span style="color:#D73A49">=</span><span style="color:#24292E">fprop </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">c</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">r</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">p</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">q</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">pad_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">pad_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">stride_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stride_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">dilation_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">dilation_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">Activation</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:nhwc </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">Filter</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:nhwc </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">Output</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:nhwc  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">conv_mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">cross </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">iterator_algorithm</span><span style="color:#D73A49">=</span><span style="color:#24292E">optimized </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">alpha</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">beta</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">split_k_mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">serial </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">split_k_slices</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">eq_gemm_provider</span><span style="color:#D73A49">=</span><span style="color:#24292E">none </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">op_class</span><span style="color:#D73A49">=</span><span style="color:#24292E">tensorop </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">accum</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cta_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">32</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stages</span><span style="color:#D73A49">=</span><span style="color:#005CC5">5</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">warps_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">16</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">16</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">min_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">80</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">max_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1024</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">           Bytes: </span><span style="color:#005CC5">1130659840</span><span style="color:#005CC5">  bytes</span></span>
+<span class="line"><span style="color:#24292E">           FLOPs: </span><span style="color:#005CC5">118482796544</span><span style="color:#24292E">  flops</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">         Runtime: </span><span style="color:#005CC5">0.711496</span><span style="color:#24292E">  ms</span></span>
+<span class="line"><span style="color:#24292E">          Memory: </span><span style="color:#005CC5">1479.99</span><span style="color:#24292E"> GiB</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">            Math: </span><span style="color:#005CC5">166526</span><span style="color:#005CC5"> GFLOP</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<h3>Building one Convolution CUDA kernel</h3>
+<p>To compile and run one CUDA Core convolution kernel implementing forward propagation (fprop) with F32 accumulation
+and FP32 input targeting NVIDIA Ampere and Turing architecture, use the below cmake command line:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_simt_sfprop_optimized_128x128_8x2_nhwc
+...
+$ make cutlass_profiler -j16" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_simt_sfprop_optimized_128x128_8x2_nhwc</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<p>Example command line for profiling one CUDA Core convolution kernel:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="$ ./tools/profiler/cutlass_profiler --kernels=cutlass_simt_sfprop_optimized_128x128_8x2_nhwc --n=8 --h=224 --w=224 --c=128 --k=128 --r=3 --s=3
+
+
+=============================
+  Problem ID: 1
+
+        Provider: CUTLASS
+   OperationKind: conv2d
+       Operation: cutlass_simt_sfprop_optimized_128x128_8x2_nhwc
+
+          Status: Success
+    Verification: ON
+     Disposition: Passed
+
+reference_device: Passed
+
+       Arguments: --conv_kind=fprop --n=8 --h=224 --w=224 --c=128 --k=128 --r=3 --s=3 --p=224 --q=224 --pad_h=1 --pad_w=1  \
+                  --stride_h=1 --stride_w=1 --dilation_h=1 --dilation_w=1 --Activation=f32:nhwc --Filter=f32:nhwc --Output=f32:nhwc  \
+                  --conv_mode=cross --iterator_algorithm=optimized --alpha=1 --beta=0 --split_k_mode=serial --split_k_slices=1  \
+                  --eq_gemm_provider=none --op_class=simt --accum=f32 --cta_m=128 --cta_n=128 --cta_k=8 --stages=2 --warps_m=4  \
+                  --warps_n=2 --warps_k=1 --inst_m=1 --inst_n=1 --inst_k=1 --min_cc=50 --max_cc=1024
+
+           Bytes: 2055798784  bytes
+           FLOPs: 118482796544  flops
+
+         Runtime: 7.34266  ms
+          Memory: 260.752 GiB/s
+
+            Math: 16136.2 GFLOP/s
+
+
+=============================" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">profiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">cutlass_profiler </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">kernels</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_simt_sfprop_optimized_128x128_8x2_nhwc </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">c</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">r</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span>
+<span class="line"><span style="color:#24292E">  Problem </span><span style="color:#005CC5">ID</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">        Provider: </span><span style="color:#005CC5">CUTLASS</span></span>
+<span class="line"><span style="color:#24292E">   OperationKind: conv2d</span></span>
+<span class="line"><span style="color:#24292E">       Operation: cutlass_simt_sfprop_optimized_128x128_8x2_nhwc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          Status: Success</span></span>
+<span class="line"><span style="color:#24292E">    Verification: </span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#24292E">     Disposition: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">reference_device: Passed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">       Arguments: </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">conv_kind</span><span style="color:#D73A49">=</span><span style="color:#24292E">fprop </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">c</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">r</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">p</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">q</span><span style="color:#D73A49">=</span><span style="color:#005CC5">224</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">pad_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">pad_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">stride_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stride_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">dilation_h</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">dilation_w</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">Activation</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:nhwc </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">Filter</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:nhwc </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">Output</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:nhwc  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">conv_mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">cross </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">iterator_algorithm</span><span style="color:#D73A49">=</span><span style="color:#24292E">optimized </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">alpha</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">beta</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">split_k_mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">serial </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">split_k_slices</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">eq_gemm_provider</span><span style="color:#D73A49">=</span><span style="color:#24292E">none </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">op_class</span><span style="color:#D73A49">=</span><span style="color:#24292E">simt </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">accum</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cta_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stages</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4</span><span style="color:#24292E">  \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">warps_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">min_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">50</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">max_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1024</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">           Bytes: </span><span style="color:#005CC5">2055798784</span><span style="color:#005CC5">  bytes</span></span>
+<span class="line"><span style="color:#24292E">           FLOPs: </span><span style="color:#005CC5">118482796544</span><span style="color:#24292E">  flops</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">         Runtime: </span><span style="color:#005CC5">7.34266</span><span style="color:#24292E">  ms</span></span>
+<span class="line"><span style="color:#24292E">          Memory: </span><span style="color:#005CC5">260.752</span><span style="color:#24292E"> GiB</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">            Math: </span><span style="color:#005CC5">16136.2</span><span style="color:#005CC5"> GFLOP</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">=============================</span></span></code></pre>
+<h2>More Details on Compiling CUTLASS Kernels and CUTLASS Profiler</h2>
+<ul>
+<li>Please follow the links for more CMake examples on selectively compiling CUTLASS kernels:<ul>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html#gemm-cmake-examples">GEMM CMake Examples</a></li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/quickstart.html#convolution-cmake-examples">Implicit GEMM convolution CMake Examples</a></li>
+</ul>
+</li>
+<li><a href="https://docs.nvidia.com/cutlass/latest/media/docs/cpp/profiler.html">Further details about the CUTLASS Profiler are described here.</a></li>
+</ul>
+<h1>About</h1>
+<p>CUTLASS is released by NVIDIA Corporation as Open Source software under the
+<a href="LICENSE.txt">3-clause "New" BSD license</a>.</p>
+<h1>Contributors</h1>
+<p>The official list of CUTLASS developers and contributors is available here: <a href="CONTRIBUTORS.md">CONTRIBUTORS</a>.</p>
+<h1>Copyright</h1>
+<p>Copyright (c) 2017 - 2026 NVIDIA CORPORATION &amp; AFFILIATES. All rights reserved.
+SPDX-License-Identifier: BSD-3-Clause</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions are met:
+
+  1. Redistributions of source code must retain the above copyright notice, this
+  list of conditions and the following disclaimer.
+
+  2. Redistributions in binary form must reproduce the above copyright notice,
+  this list of conditions and the following disclaimer in the documentation
+  and/or other materials provided with the distribution.
+
+  3. Neither the name of the copyright holder nor the names of its
+  contributors may be used to endorse or promote products derived from
+  this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS &quot;AS IS&quot;
+  AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+  DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE
+  FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL
+  DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR
+  SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER
+  CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+  OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">Redistribution </span><span style="color:#D73A49">and</span><span style="color:#24292E"> use </span><span style="color:#D73A49">in</span><span style="color:#24292E"> source </span><span style="color:#D73A49">and</span><span style="color:#24292E"> binary forms, </span><span style="color:#D73A49">with</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> without</span></span>
+<span class="line"><span style="color:#24292E">  modification, are permitted provided that the following conditions are met:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">  1</span><span style="color:#24292E">. Redistributions of source code must retain the above </span><span style="color:#005CC5">copyright</span><span style="color:#24292E"> notice, this</span></span>
+<span class="line"><span style="color:#005CC5">  list</span><span style="color:#24292E"> of conditions </span><span style="color:#D73A49">and</span><span style="color:#24292E"> the following disclaimer.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">  2</span><span style="color:#24292E">. Redistributions </span><span style="color:#D73A49">in</span><span style="color:#24292E"> binary form must reproduce the above </span><span style="color:#005CC5">copyright</span><span style="color:#24292E"> notice,</span></span>
+<span class="line"><span style="color:#24292E">  this </span><span style="color:#005CC5">list</span><span style="color:#24292E"> of conditions </span><span style="color:#D73A49">and</span><span style="color:#24292E"> the following disclaimer </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the documentation</span></span>
+<span class="line"><span style="color:#D73A49">  and/or</span><span style="color:#24292E"> other materials provided </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the distribution.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">  3</span><span style="color:#24292E">. Neither the name of the </span><span style="color:#005CC5">copyright</span><span style="color:#24292E"> holder nor the names of its</span></span>
+<span class="line"><span style="color:#24292E">  contributors may be used to endorse </span><span style="color:#D73A49">or</span><span style="color:#24292E"> promote products derived </span><span style="color:#D73A49">from</span></span>
+<span class="line"><span style="color:#24292E">  this software without specific prior written permission.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">  THIS</span><span style="color:#005CC5"> SOFTWARE</span><span style="color:#005CC5"> IS</span><span style="color:#005CC5"> PROVIDED</span><span style="color:#005CC5"> BY</span><span style="color:#005CC5"> THE</span><span style="color:#005CC5"> COPYRIGHT</span><span style="color:#005CC5"> HOLDERS</span><span style="color:#005CC5"> AND</span><span style="color:#005CC5"> CONTRIBUTORS</span><span style="color:#032F62"> "AS IS"</span></span>
+<span class="line"><span style="color:#005CC5">  AND</span><span style="color:#005CC5"> ANY</span><span style="color:#005CC5"> EXPRESS</span><span style="color:#005CC5"> OR</span><span style="color:#005CC5"> IMPLIED</span><span style="color:#005CC5"> WARRANTIES</span><span style="color:#24292E">, </span><span style="color:#005CC5">INCLUDING</span><span style="color:#24292E">, </span><span style="color:#005CC5">BUT</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> LIMITED</span><span style="color:#005CC5"> TO</span><span style="color:#24292E">, </span><span style="color:#005CC5">THE</span></span>
+<span class="line"><span style="color:#005CC5">  IMPLIED</span><span style="color:#005CC5"> WARRANTIES</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> MERCHANTABILITY</span><span style="color:#005CC5"> AND</span><span style="color:#005CC5"> FITNESS</span><span style="color:#005CC5"> FOR</span><span style="color:#24292E"> A </span><span style="color:#005CC5">PARTICULAR</span><span style="color:#005CC5"> PURPOSE</span><span style="color:#005CC5"> ARE</span></span>
+<span class="line"><span style="color:#005CC5">  DISCLAIMED</span><span style="color:#24292E">. </span><span style="color:#005CC5">IN</span><span style="color:#005CC5"> NO</span><span style="color:#005CC5"> EVENT</span><span style="color:#005CC5"> SHALL</span><span style="color:#005CC5"> THE</span><span style="color:#005CC5"> COPYRIGHT</span><span style="color:#005CC5"> HOLDER</span><span style="color:#005CC5"> OR</span><span style="color:#005CC5"> CONTRIBUTORS</span><span style="color:#005CC5"> BE</span><span style="color:#005CC5"> LIABLE</span></span>
+<span class="line"><span style="color:#005CC5">  FOR</span><span style="color:#005CC5"> ANY</span><span style="color:#005CC5"> DIRECT</span><span style="color:#24292E">, </span><span style="color:#005CC5">INDIRECT</span><span style="color:#24292E">, </span><span style="color:#005CC5">INCIDENTAL</span><span style="color:#24292E">, </span><span style="color:#005CC5">SPECIAL</span><span style="color:#24292E">, </span><span style="color:#005CC5">EXEMPLARY</span><span style="color:#24292E">, </span><span style="color:#005CC5">OR</span><span style="color:#005CC5"> CONSEQUENTIAL</span></span>
+<span class="line"><span style="color:#24292E">  DAMAGES (</span><span style="color:#005CC5">INCLUDING</span><span style="color:#24292E">, </span><span style="color:#005CC5">BUT</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> LIMITED</span><span style="color:#005CC5"> TO</span><span style="color:#24292E">, </span><span style="color:#005CC5">PROCUREMENT</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> SUBSTITUTE</span><span style="color:#005CC5"> GOODS</span><span style="color:#005CC5"> OR</span></span>
+<span class="line"><span style="color:#005CC5">  SERVICES</span><span style="color:#24292E">; </span><span style="color:#005CC5">LOSS</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> USE</span><span style="color:#24292E">, </span><span style="color:#005CC5">DATA</span><span style="color:#24292E">, </span><span style="color:#005CC5">OR</span><span style="color:#005CC5"> PROFITS</span><span style="color:#24292E">; </span><span style="color:#005CC5">OR</span><span style="color:#005CC5"> BUSINESS</span><span style="color:#005CC5"> INTERRUPTION</span><span style="color:#24292E">) </span><span style="color:#005CC5">HOWEVER</span></span>
+<span class="line"><span style="color:#005CC5">  CAUSED</span><span style="color:#005CC5"> AND</span><span style="color:#005CC5"> ON</span><span style="color:#005CC5"> ANY</span><span style="color:#005CC5"> THEORY</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> LIABILITY</span><span style="color:#24292E">, </span><span style="color:#005CC5">WHETHER</span><span style="color:#005CC5"> IN</span><span style="color:#005CC5"> CONTRACT</span><span style="color:#24292E">, </span><span style="color:#005CC5">STRICT</span><span style="color:#005CC5"> LIABILITY</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5">  OR</span><span style="color:#24292E"> TORT (</span><span style="color:#005CC5">INCLUDING</span><span style="color:#005CC5"> NEGLIGENCE</span><span style="color:#005CC5"> OR</span><span style="color:#005CC5"> OTHERWISE</span><span style="color:#24292E">) </span><span style="color:#005CC5">ARISING</span><span style="color:#005CC5"> IN</span><span style="color:#005CC5"> ANY</span><span style="color:#005CC5"> WAY</span><span style="color:#005CC5"> OUT</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> THE</span><span style="color:#005CC5"> USE</span></span>
+<span class="line"><span style="color:#005CC5">  OF</span><span style="color:#005CC5"> THIS</span><span style="color:#005CC5"> SOFTWARE</span><span style="color:#24292E">, </span><span style="color:#005CC5">EVEN</span><span style="color:#005CC5"> IF</span><span style="color:#005CC5"> ADVISED</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> THE</span><span style="color:#005CC5"> POSSIBILITY</span><span style="color:#005CC5"> OF</span><span style="color:#005CC5"> SUCH</span><span style="color:#005CC5"> DAMAGE</span><span style="color:#24292E">.</span></span></code></pre>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h2><p class="f4 mb-3 color-fg-muted">CUDA Templates and Python DSLs for High-Performance Linear Algebra</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/NVIDIA/cutlass" title="@NVIDIA"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@NVIDIA/cutlass</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/NVIDIA.png" alt="@NVIDIA"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/NVIDIA/cutlass"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">9668</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Thursday, November 28, 2024</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h2><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 59.7%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 59.7%"> </span><span style="width: 28.2%; background-color: var(--lang-Cuda-bg, #ccc)" title="Cuda: 28.2%"> </span><span style="width: 9.7%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 9.7%"> </span><span style="width: 1.7%; background-color: var(--lang-HTML-bg, #ccc)" title="HTML: 1.7%"> </span><span style="width: 0.6%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 0.6%"> </span><span style="width: 0.1%; background-color: var(--lang-C-bg, #ccc)" title="C: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">59.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cuda-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Cuda</span><span class="ml-2 color-fg-muted">28.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">9.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">1.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Batchfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Batchfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/bcr-maintainers@bazel.build" title="No Maintainer Specified"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h2><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/tongke6" title="@tongke6"><img class="avatar circle" width="48" height="48" src="https://github.com/tongke6.png" alt="@tongke6"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/3226"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="add cutlass@3.5.1 (#3226)"><span class="text-mono">#3226</span> <span class="text-light">add cutlass@3.5.1 (#3226)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/NVIDIA/cutlass/archive/refs/tags/v3.5.1.tar.gz" title="https://github.com/NVIDIA/cutlass/archive/refs/tags/v3.5.1.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/NVIDIA/cut...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/cutlass/3.5.1/patches/add_build_file.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">add_build_file.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/97a967c887a11b06574e19486d440cdec6f974d1/modules/cutlass/3.5.1/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h2 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h2><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.5.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.5.1"><span class="text-bold">3.5.1</span></span><span style="flex: 1; border-bottom: 1px dotted var(--color-border-muted); margin: 0 0.5em;"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-11-28</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

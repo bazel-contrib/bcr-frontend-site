@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.45077a9f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.888f8d02.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1041,54 +1041,54 @@ unknown arguments will not make a parser <code>true</code>.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main fex</span></span>
 <span class="line"><span style="color:#24292E">Invalid argument </span><span style="color:#032F62">"fex"</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> allowed options: {foo, bar, baz}</span></span></code></pre>
 <p>Using choices also works with integer types, e.g.,</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .choices(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> input</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#005CC5">6</span></span>
-<span class="line"><span style="color:#24292E">Invalid argument </span><span style="color:#032F62">"6"</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> allowed options: {</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">argparse::ArgumentParser program("test");
+
+program.add_argument("input")
+  .default_value(0)
+  .choices(0, 1, 2, 3, 4, 5);
+
+try {
+  program.parse_args(argc, argv);
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+auto input = program.get("input");
+std::cout &lt;&lt; input &lt;&lt; std::endl;</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main 6
+Invalid argument "6" - allowed options: {0, 1, 2, 3, 4, 5}</code></pre>
 <h3>Using <code>option=value</code> syntax</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "argparse.hpp"</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;cassert&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">).implicit_value(true).default_value(false);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "--foo: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::boolalpha </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "--bar: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }  </span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">test </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">bar</span><span style="color:#D73A49">=</span><span style="color:#005CC5">BAR</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">foo</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">foo: true</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">bar: </span><span style="color:#005CC5">BAR</span></span></code></pre>
+<pre><code>#include "argparse.hpp"
+#include &lt;cassert&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("test");
+  program.add_argument("--foo").implicit_value(true).default_value(false);
+  program.add_argument("--bar");
+
+  try {
+    program.parse_args(argc, argv);
+  }
+  catch (const std::exception&amp; err) {
+    std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+    std::cerr &lt;&lt; program;
+    return 1;
+  }
+
+  if (program.is_used("--foo")) {
+    std::cout &lt;&lt; "--foo: " &lt;&lt; std::boolalpha &lt;&lt; program.get&lt;bool&gt;("--foo") &lt;&lt; "\n";
+  }
+
+  if (program.is_used("--bar")) {
+    std::cout &lt;&lt; "--bar: " &lt;&lt; program.get("--bar") &lt;&lt; "\n";
+  }  
+}</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./test --bar=BAR --foo
+--foo: true
+--bar: BAR</code></pre>
 <h3>Advanced usage formatting</h3>
 <p>By default usage is reported on a single line.</p>
 <p>The <code>ArgumentParser::set_usage_max_line_width(width)</code> method can be used
@@ -1098,62 +1098,62 @@ to ask grouped mutually exclusive arguments to be displayed on a separate line.<
 <p><code>ArgumentParser::add_usage_newline()</code> can also be used to force the next
 argument to be displayed on a new line in the usage output.</p>
 <p>The following snippet</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"program"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.set_usage_max_line_width(</span><span style="color:#005CC5">80</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.set_usage_break_on_mutex()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"--quite-long-option-name"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    auto </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">group </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.add_mutually_exclusive_group()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    group.add_argument(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    group.add_argument(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"-c"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"--another-one"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"-d"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"--yet-another-long-one"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"--will-go-on-new-line"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_usage_newline()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"--new-line"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program.usage() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("program");
+    program.set_usage_max_line_width(80);
+    program.set_usage_break_on_mutex();
+    program.add_argument("--quite-long-option-name").flag();
+    auto &amp;group = program.add_mutually_exclusive_group();
+    group.add_argument("-a").flag();
+    group.add_argument("-b").flag();
+    program.add_argument("-c").flag();
+    program.add_argument("--another-one").flag();
+    program.add_argument("-d").flag();
+    program.add_argument("--yet-another-long-one").flag();
+    program.add_argument("--will-go-on-new-line").flag();
+    program.add_usage_newline();
+    program.add_argument("--new-line").flag();
+    std::cout &lt;&lt; program.usage() &lt;&lt; std::endl;</code></pre>
 <p>will display:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Usage: program [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">quite</span><span style="color:#D73A49">-</span><span style="color:#E36209">long</span><span style="color:#D73A49">-</span><span style="color:#24292E">option</span><span style="color:#D73A49">-</span><span style="color:#24292E">name]</span></span>
-<span class="line"><span style="color:#24292E">               [[</span><span style="color:#D73A49">-</span><span style="color:#24292E">a]</span><span style="color:#D73A49">|</span><span style="color:#24292E">[</span><span style="color:#D73A49">-</span><span style="color:#24292E">b]]</span></span>
-<span class="line"><span style="color:#24292E">               [</span><span style="color:#D73A49">-</span><span style="color:#24292E">c] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">another</span><span style="color:#D73A49">-</span><span style="color:#24292E">one] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">d] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">yet</span><span style="color:#D73A49">-</span><span style="color:#24292E">another</span><span style="color:#D73A49">-</span><span style="color:#E36209">long</span><span style="color:#D73A49">-</span><span style="color:#24292E">one]</span></span>
-<span class="line"><span style="color:#24292E">               [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">will</span><span style="color:#D73A49">-</span><span style="color:#24292E">go</span><span style="color:#D73A49">-</span><span style="color:#24292E">on</span><span style="color:#D73A49">-</span><span style="color:#24292E">new</span><span style="color:#D73A49">-</span><span style="color:#24292E">line]</span></span>
-<span class="line"><span style="color:#24292E">               [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">new</span><span style="color:#D73A49">-</span><span style="color:#24292E">line]</span></span></code></pre>
+<pre><code>Usage: program [--help] [--version] [--quite-long-option-name]
+               [[-a]|[-b]]
+               [-c] [--another-one] [-d] [--yet-another-long-one]
+               [--will-go-on-new-line]
+               [--new-line]</code></pre>
 <p>Furthermore arguments can be separated into several groups by calling
 <code>ArgumentParser::add_group(group_name)</code>. Only optional arguments should
 be specified after the first call to add_group().</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"program"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.set_usage_max_line_width(</span><span style="color:#005CC5">80</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">).flag().help(</span><span style="color:#032F62">"help_a"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_group(</span><span style="color:#032F62">"Advanced options"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">    program.add_argument(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">).flag().help(</span><span style="color:#032F62">"help_b"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("program");
+    program.set_usage_max_line_width(80);
+    program.add_argument("-a").flag().help("help_a");
+    program.add_group("Advanced options");
+    program.add_argument("-b").flag().help("help_b");</code></pre>
 <p>will display:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Usage: program [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">a]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Advanced options:</span></span>
-<span class="line"><span style="color:#24292E">               [</span><span style="color:#D73A49">-</span><span style="color:#24292E">b]</span></span></code></pre>
+<pre><code>Usage: program [--help] [--version] [-a]
+
+Advanced options:
+               [-b]</code></pre>
 <h2>Developer Notes</h2>
 <h3>Copying and Moving</h3>
 <p><code>argparse::ArgumentParser</code> is intended to be used in a single function - setup everything and parse arguments in one place. Attempting to move or copy invalidates internal references (issue #260). Thus, starting with v3.0, <code>argparse::ArgumentParser</code> copy and move constructors are marked as <code>delete</code>.</p>
 <h2>CMake Integration</h2>
 <p>Use the latest argparse in your CMake project without copying any content.  </p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.14</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">PROJECT(myproject)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># fetch latest argparse</span></span>
-<span class="line"><span style="color:#24292E">include(FetchContent)</span></span>
-<span class="line"><span style="color:#24292E">FetchContent_Declare(</span></span>
-<span class="line"><span style="color:#24292E">    argparse</span></span>
-<span class="line"><span style="color:#005CC5">    GIT_REPOSITORY</span><span style="color:#24292E"> https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">p</span><span style="color:#D73A49">-</span><span style="color:#24292E">ranav</span><span style="color:#D73A49">/</span><span style="color:#24292E">argparse.git</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">FetchContent_MakeAvailable(argparse)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">add_executable(myproject main.cpp)</span></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(myproject argparse)</span></span></code></pre>
+<pre><code>cmake_minimum_required(VERSION 3.14)
+
+PROJECT(myproject)
+
+# fetch latest argparse
+include(FetchContent)
+FetchContent_Declare(
+    argparse
+    GIT_REPOSITORY https://github.com/p-ranav/argparse.git
+)
+FetchContent_MakeAvailable(argparse)
+
+add_executable(myproject main.cpp)
+target_link_libraries(myproject argparse)</code></pre>
 <h2>Bazel Integration</h2>
 <p>Add an <code>http_archive</code> in WORKSPACE.bazel, for example</p>
-<pre><code lang="py">http_archive(
+<pre><code>http_archive(
     name = "argparse",
     sha256 = "674e724c2702f0bfef1619161815257a407e1babce30d908327729fba6ce4124",
     strip_prefix = "argparse-3.1",

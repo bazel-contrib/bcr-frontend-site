@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.ee84cd05.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.578795ce.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -49,7 +49,7 @@
 <li><a href="#performance-and-memory-requirements">Performance and Memory Requirements</a><ul>
 <li><a href="#show-me-the-numbers">Show me the numbers</a></li>
 <li><a href="#compared-to-other-libraries">Compared to other libraries</a></li>
-<li><a href="#chunk-size-tuning">Chunk Size Tuning</a></li>
+<li><a href="#chunk-size-and-thread-count-tuning">Chunk Size and Thread Count Tuning</a></li>
 </ul>
 </li>
 <li><a href="#fully-rfc-4180-compliant-and-beyond-parser">Fully RFC 4180-Compliant (and Beyond) Parser</a><ul>
@@ -69,6 +69,8 @@
 <li><a href="#avoid-cloning-with-fetchcontent">Avoid cloning with FetchContent</a></li>
 </ul>
 </li>
+<li><a href="#bazel-instructions">Bazel Instructions</a></li>
+<li><a href="#python-bindings">Python Bindings</a></li>
 </ul>
 </li>
 <li><a href="#features--examples">Features &amp; Examples</a><ul>
@@ -84,7 +86,7 @@
 </ul>
 </li>
 <li><a href="#parsing-an-in-memory-string">Parsing an In-Memory String</a></li>
-<li><a href="#dataframes-for-random-access-and-updates">DataFrames for Random Access and Updates</a></li>
+<li><a href="#dataframes-for-random-access-and-editing">DataFrames for Random Access and Editing</a></li>
 <li><a href="#high-performance-extract-transform-load-with-the-dataframe">High Performance Extract-Transform-Load with the DataFrame</a><ul>
 <li><a href="#chunk_parallel_apply"><code>chunk_parallel_apply()</code></a></li>
 <li><a href="#building-a-batch-scoped-dataframe-yourself">Building a batch-scoped <code>DataFrame</code> yourself</a></li>
@@ -108,22 +110,28 @@
 </ul>
 <p>This library tries to be <strong>fast for developers</strong> and <strong>fast for your computer</strong>.</p>
 <h3>Performance and Memory Requirements</h3>
-<p>This library combines SIMD-accelerated parsing, memory-mapped I/O, careful memory layout, minimal allocation, and background parsing to process large CSV files quickly, even when they exceed available RAM.</p>
-<p><a href="https://github.com/vincentlaucsb/csv-parser/wiki/Microsoft-Visual-Studio-CPU-Profiling-Results">According to Visual Studio's profiler</a> this
-CSV parser <strong>spends almost 90% of its CPU cycles actually reading your data</strong> as opposed to getting hung up in hard disk I/O or pushing around memory.</p>
+<p>This library combines SIMD-accelerated parsing, memory-mapped I/O, careful memory layout, minimal allocation, and parallel parsing to process large CSV files quickly, even when they exceed available RAM.</p>
+<p>Specifically, this library implements a speculative parallel parsing algorithm based on the approach described by Ge, Li,
+Eilebrecht, Chandramouli, and Kossmann in "Speculative Distributed CSV Data
+Parsing for Big Data Analytics," SIGMOD '19, pp. 883-899,
+<a href="https://doi.org/10.1145/3299869.3319898">doi:10.1145/3299869.3319898</a>.</p>
 <h4>Show me the numbers</h4>
-<p>On my computer (12th Gen Intel(R) Core(TM) i5-12400 @ 2.50 GHz; Samsung 990 EVO), this parser can read</p>
+<p>On my computer (12th Gen Intel(R) Core(TM) i5-12400 @ 2.50 GHz), this parser can read</p>
 <ul>
-<li>a <a href="https://www.kaggle.com/austinreese/craigslist-carstrucks-data/version/7">1.4 GB Craigslist Used Vehicles Dataset</a> in 1.18 seconds (1.2 GBps)</li>
-<li>a <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents">2.9GB Car Accidents Dataset</a> in 6.9 seconds (420 MBps)</li>
+<li>a <a href="https://www.kaggle.com/austinreese/craigslist-carstrucks-data/version/7">1.4 GB Craigslist Used Vehicles Dataset</a> in 0.48 seconds</li>
+<li>a <a href="https://www.kaggle.com/sobhanmoosavi/us-accidents">2.9 GB Car Accidents Dataset</a> in 2.2 seconds</li>
+<li>an 11.3 GB tab-delimited metadata file in 12.36 seconds</li>
 </ul>
 <p>All benchmarks shown are warm cache runs to focus on parser/CPU performance rather than disk I/O variability.</p>
 <h4>Compared to other libraries</h4>
 <p>For broader comparison data, including ETL and round-trip workloads against
 <code>fast-cpp-csv-parser</code> and <code>rapidcsv</code>, see the
-<a href="benchmarks/README.md">benchmark results</a>. On those workloads, this is
-probably the fastest general-purpose C++ CSV ETL library available today.</p>
-<h4>Chunk Size Tuning</h4>
+<a href="benchmarks/README.md">benchmark results</a>. On modern desktop and laptop CPUs,
+this is likely one of the fastest general-purpose C++ CSV ETL libraries for
+realistic workloads. For "read once and discard" workflows, the speculative parallel
+memory-mapped IO path overtakes <code>fast-cpp-csv-parser</code> with 2-4 threads, and
+the DataFrame benchmarks beat <code>rapidcsv</code> on edit and save workflows.</p>
+<h4>Chunk Size and Thread Count Tuning</h4>
 <p>By default, the parser reads CSV data in 10MB chunks. 10MB was chosen after empirical testing to optimize throughput while minimizing memory and thread synchronization costs, but feel free to experiment with different numbers yourself.</p>
 <p>A custom <code>CSVFormat</code> with <code>chunk_size()</code> can be passed to:</p>
 <ul>
@@ -135,6 +143,19 @@ fmt.chunk_size(100 * 1024 * 1024);  // 100MB chunks
 CSVReader reader(&quot;massive_rows.csv&quot;, fmt);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat fmt</span><span style="color:#B31D28;font-style:italic">;</span></span>
 <span class="line"><span style="color:#24292E">fmt.chunk_size(</span><span style="color:#005CC5">100</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> 100MB</span><span style="color:#24292E"> chunks</span></span>
 <span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"massive_rows.csv"</span><span style="color:#24292E">, fmt)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>When speculative parsing is enabled, the parser may read a window of
+<code>chunk_size * worker_count</code> bytes at a time.</p>
+<p>Speculative parallel parsing starts at 50MB by default when runtime threading is
+enabled. You can adjust both the source-size threshold and worker count:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat fmt;
+fmt.speculative_parallel_min_bytes(50 * 1024 * 1024)
+   .speculative_parallel_threads(4);
+CSVReader reader(&quot;large.csv&quot;, fmt);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat fmt</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">fmt.speculative_parallel_min_bytes(</span><span style="color:#005CC5">50</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">   .speculative_parallel_threads(</span><span style="color:#005CC5">4</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"large.csv"</span><span style="color:#24292E">, fmt)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>For workload-specific tuning, build and run <code>csv_tuning</code>; see the
+<a href="https://vincentlaucsb.github.io/csv-parser/csv_tuning.html">CSV Tuning Doxygen page</a>.</p>
 <h3>Fully RFC 4180-Compliant (and Beyond) Parser</h3>
 <p>This CSV parser is a fully <a href="https://www.rfc-editor.org/rfc/rfc4180.txt">RFC 4180</a>-compliant parser out of the box. We do not disable embedded newline detection by default just so we can look better on benchmarks.</p>
 <p>Furthermore, this parser can:</p>
@@ -182,7 +203,41 @@ will fund continued maintenance and development of the project.</p>
 <p>This library requires C++ exceptions to be enabled (for example, do not compile with <code>-fno-exceptions</code>).</p>
 <p>SIMD acceleration is enabled by default when the build/compiler flags support it. If needed, you can force scalar-only parsing with <code>CSV_NO_SIMD=ON</code> in CMake or by defining <code>CSV_NO_SIMD 1</code> before including the library headers.</p>
 <h3>Threading Modes</h3>
-<p>By default, <code>csv-parser</code> uses a background thread to parse file-based input. If CMake cannot find a thread library, threading is disabled automatically.</p>
+<p>By default, <code>csv-parser</code> uses threads. If CMake cannot find a thread library, threading is disabled
+automatically. Threading has two layers:</p>
+<ul>
+<li><strong>Reader threading:</strong> a background producer thread keeps <code>CSVReader</code> fed while
+your code consumes rows.</li>
+<li><strong>Speculative parallel parsing:</strong> automatic multi-worker parsing for large,
+filename-backed inputs when runtime threading is enabled.</li>
+</ul>
+<p>For programs that parse many small CSVs, you can keep thread support compiled
+in but disable parser threading for a specific reader:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat format;
+format.threading(false);
+
+CSVReader reader(&quot;small.csv&quot;, format); // parses synchronously on the caller thread" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.threading(false)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"small.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> parses synchronously on the caller thread</span></span></code></pre>
+<p>This runtime switch also disables speculative parallel parsing for that reader.</p>
+<p>For large files, speculative parallel parsing is automatic. You can tune the
+worker count and size threshold:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="CSVFormat format;
+format.speculative_parallel_threads(0);     // 0 = auto
+format.speculative_parallel_min_bytes(50 * 1024 * 1024);
+
+CSVReader reader(&quot;large.csv&quot;, format);" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.speculative_parallel_threads(</span><span style="color:#005CC5">0</span><span style="color:#24292E">);     </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 0</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> auto</span></span>
+<span class="line"><span style="color:#005CC5">format</span><span style="color:#24292E">.speculative_parallel_min_bytes(</span><span style="color:#005CC5">50</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"large.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<p>Use <code>format.threading(false)</code> if you want to force synchronous parsing and turn
+off speculative parsing for a reader.</p>
+<p><code>CSVReader::parse_worker_count()</code> reports the active parser worker count, and
+<code>CSVReader::speculative_diagnostics()</code> reports chunk/repair counters. Stream
+readers still benefit from reader threading, but speculative parsing is primarily
+intended for large file-backed inputs.</p>
 <p>You can also disable it explicitly:</p>
 <p><strong>CMake</strong></p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="set(CSV_ENABLE_THREADS OFF)
@@ -207,10 +262,7 @@ add_subdirectory(csv-parser)" style="position: absolute; right: 4px; top: 4px;">
 <h3>CMake Instructions</h3>
 <p>If you're including this in another CMake project, you can simply clone this repo into your project directory, 
 and add the following to your CMakeLists.txt:</p>
-<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Optional: Defaults to C++ 17
-# set(CSV_CXX_STANDARD 11)
-
-# Optional: disable background parsing threads
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Optional: disable background parsing threads
 # set(CSV_ENABLE_THREADS OFF)
 
 add_subdirectory(csv-parser)
@@ -218,10 +270,7 @@ add_subdirectory(csv-parser)
 # ...
 
 add_executable(&lt;your program&gt; ...)
-target_link_libraries(&lt;your program&gt; csv)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Optional: Defaults to C++ 17</span></span>
-<span class="line"><span style="color:#6A737D"># set(CSV_CXX_STANDARD 11)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Optional: disable background parsing threads</span></span>
+target_link_libraries(&lt;your program&gt; csv)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Optional: disable background parsing threads</span></span>
 <span class="line"><span style="color:#6A737D"># set(CSV_ENABLE_THREADS OFF)</span></span>
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">add_subdirectory(csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser)</span></span>
@@ -230,8 +279,37 @@ target_link_libraries(&lt;your program&gt; csv)" style="position: absolute; righ
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">add_executable(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">your program</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> ...</span><span style="color:#24292E">)</span></span>
 <span class="line"><span style="color:#24292E">target_link_libraries(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">your program</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> csv)</span></span></code></pre>
+<p><code>csv-parser</code> respects the normal CMake <code>CMAKE_CXX_STANDARD</code> variable. If no
+standard is provided, it defaults to C++20. The project-specific
+<code>CSV_CXX_STANDARD</code> option is also supported as an explicit override:</p>
+<ol>
+<li><code>CSV_CXX_STANDARD</code>, when set</li>
+<li><code>CMAKE_CXX_STANDARD</code>, when set</li>
+<li>C++20 by default</li>
+</ol>
+<p>For example:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="set(CMAKE_CXX_STANDARD 17)
+add_subdirectory(csv-parser)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CMAKE_CXX_STANDARD</span><span style="color:#005CC5"> 17</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser)</span></span></code></pre>
+<p>or, if you want the csv-parser subtree to use a specific standard regardless of
+the parent project default:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="set(CSV_CXX_STANDARD 11)
+add_subdirectory(csv-parser)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E">(</span><span style="color:#005CC5">CSV_CXX_STANDARD</span><span style="color:#005CC5"> 11</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">add_subdirectory(csv</span><span style="color:#D73A49">-</span><span style="color:#24292E">parser)</span></span></code></pre>
 <h4>Avoid cloning with FetchContent</h4>
 <p>Don't want to clone? No problem. There's also <a href="https://github.com/vincentlaucsb/csv-parser/wiki/Example:-Using-csv%E2%80%90parser-with-CMake-and-FetchContent">a simple example documenting how to use CMake's FetchContent module to integrate this library</a>.</p>
+<h3>Bazel Instructions</h3>
+<p>This library is available on the Bazel Central Registry. To use it:</p>
+<ul>
+<li>Add the desired version from the <a href="https://registry.bazel.build/modules/csv-parser">Bazel Central Registry</a> to your project's <code>MODULE.bazel</code>:<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;csv-parser&quot;, version = &quot;1.2.3&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "csv-parser"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.2.3"</span><span style="color:#24292E">)</span></span></code></pre>
+</li>
+<li>Add <code>"@csv-parser"</code> to the <code>deps = []</code> section of your <code>cc_library</code> or <code>cc_binary</code> build rule.</li>
+<li>Include the <code>csv.hpp</code> header in your project.</li>
+</ul>
+<h3>Python Bindings</h3>
+<p>Experimental Python bindings live under <a href="python/"><code>python/</code></a>. See
+<a href="python/README.md"><code>python/README.md</code></a> for build instructions, API notes, and
+benchmarks.</p>
 <h2>Features &amp; Examples</h2>
 <h3>Reading an Arbitrarily Large File (with Iterators)</h3>
 <p>With this library, you can easily stream over a large file without reading its entirety into memory.</p>
@@ -367,51 +445,43 @@ for (auto&amp; row: reader) {
 <thead>
 <tr>
 <th>API</th>
-<th>Success behavior</th>
-<th>Failure behavior</th>
+<th>Behavior</th>
 <th>Notes</th>
 </tr>
 </thead>
 <tbody><tr>
 <td><code>get&lt;T&gt;()</code></td>
-<td>Returns <code>T</code></td>
-<td>Throws <code>std::runtime_error</code></td>
+<td>On success, returns <code>T</code>. On failure, throws <code>std::runtime_error</code>.</td>
 <td>Supports integral, floating point, <code>bool</code>, and <code>std::chrono</code> targets.</td>
 </tr>
 <tr>
 <td><code>try_get&lt;T&gt;(out)</code></td>
-<td>Writes <code>out</code>, returns <code>true</code></td>
-<td>Returns <code>false</code></td>
+<td>On success, writes <code>out</code> and returns <code>true</code>. On failure, returns <code>false</code>.</td>
 <td>Non-throwing equivalent to <code>get&lt;T&gt;()</code>.</td>
 </tr>
 <tr>
 <td><code>std::optional&lt;T&gt; value = field</code></td>
-<td>Returns populated optional</td>
-<td>Returns <code>std::nullopt</code></td>
+<td>On success, returns a populated optional. On failure, returns <code>std::nullopt</code>.</td>
 <td>C++17 and later; uses the same conversion rules as <code>try_get&lt;T&gt;()</code>.</td>
 </tr>
 <tr>
 <td><code>field.as&lt;T&gt;()</code></td>
-<td>Returns <code>std::expected&lt;T, CSVConversionError&gt;</code></td>
-<td>Returns <code>std::unexpected(CSVConversionError)</code></td>
+<td>On success, returns <code>std::expected&lt;T, CSVConversionError&gt;</code>. On failure, returns <code>std::unexpected(CSVConversionError)</code>.</td>
 <td>C++23 and later when <code>std::expected</code> is available; use when callers need a structured conversion error such as not-a-number, overflow, float-to-int, or negative-to-unsigned.</td>
 </tr>
 <tr>
 <td><code>try_parse_hex&lt;T&gt;(out)</code></td>
-<td>Writes an integral <code>T</code>, returns <code>true</code></td>
-<td>Returns <code>false</code></td>
+<td>On success, writes an integral <code>T</code> and returns <code>true</code>. On failure, returns <code>false</code>.</td>
 <td>Allows hex with or without the <code>0x</code> prefix.</td>
 </tr>
 <tr>
 <td><code>try_parse_decimal(out, decimal_symbol)</code></td>
-<td>Writes <code>long double</code>, returns <code>true</code></td>
-<td>Returns <code>false</code></td>
+<td>On success, writes <code>long double</code> and returns <code>true</code>. On failure, returns <code>false</code>.</td>
 <td>Parses decimal numbers that use a non-<code>.</code> decimal separator.</td>
 </tr>
 <tr>
 <td><code>try_parse_timestamp&lt;T&gt;(out)</code></td>
-<td>Writes timestamp/duration target, returns <code>true</code></td>
-<td>Returns <code>false</code></td>
+<td>On success, writes a timestamp/duration target and returns <code>true</code>. On failure, returns <code>false</code>.</td>
 <td><code>uint64_t</code> Unix timestamps and <code>std::chrono</code> targets work in all supported C++ versions.</td>
 </tr>
 </tbody></table>
@@ -714,7 +784,7 @@ for (auto&amp; r: rows) {
 <span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> r: rows) {</span></span>
 <span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> row here</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<h3>DataFrames for Random Access and Updates</h3>
+<h3>DataFrames for Random Access and Editing</h3>
 <p>For files that fit comfortably in memory, <code>DataFrame</code> provides fast and powerful keyed access, in-place updates, and grouping operations—all built on the same high-performance parser. It uses the same parsing pipeline as <code>CSVReader</code> but retains the results in memory for both row-wise and column-wise random access.</p>
 <p><strong>Creating a DataFrame with Keyed Access</strong></p>
 <pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# include &quot;csv.hpp&quot;
@@ -1069,4 +1139,4 @@ writer.write_row(67, &quot;six&quot;, &quot;seven&quot;, 6.7, &quot;mogged&quot;
 <h4>C++20 Ranges: Efficient writing for <code>CSVRow</code>, <code>DataFrameRow</code>, and STL containers</h4>
 <p>If compiling with C++20 or later, the <code>DelimWriter</code> uses efficient <code>std::ranges</code> over string views for zero-copy writing.</p>
 <p>You can still serialize <code>CSVRow</code> or <code>DataFrameRow</code> in older versions, but you will have to use the <code>std::vector&lt;std::string&gt;()</code> conversion operator.</p>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A modern C++ CSV parser and serializer that doesn't make you choose between ease of use or performance.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/vincentlaucsb/csv-parser" title="@vincentlaucsb"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@vincentlaucsb/csv-parser</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/vincentlaucsb.png" alt="@vincentlaucsb"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1081</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, March 17, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 88.9%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 88.9%"> </span><span style="width: 7.1%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 7.1%"> </span><span style="width: 2.5%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 2.5%"> </span><span style="width: 1.2%; background-color: var(--lang-PowerShell-bg, #ccc)" title="PowerShell: 1.2%"> </span><span style="width: 0.3%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">88.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">7.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">2.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-PowerShell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>PowerShell</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.3%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/phaedon" title="Phaedon (Fædon) Sinis"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/phaedon" title="Fædon"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4064"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add csv-parser to BCR (#4064)"><span class="text-mono">#4064</span> <span class="text-light">Add csv-parser to BCR (#4064)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz" title="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/vincentlau...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/b8611931a9dd42d8cf9b25c8a70bffda41e78055/modules/csv-parser/2.3.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/b8611931a9dd42d8cf9b25c8a70bffda41e78055/modules/csv-parser/2.3.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/b8611931a9dd42d8cf9b25c8a70bffda41e78055/modules/csv-parser/2.3.0/overlay/single_include_test/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">single_include_test/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="2.3.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="2.3.0"><span class="text-bold">2.3.0</span></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-17</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A modern C++ CSV parser and serializer that doesn't make you choose between ease of use or performance.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/vincentlaucsb/csv-parser" title="@vincentlaucsb"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@vincentlaucsb/csv-parser</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/vincentlaucsb.png" alt="@vincentlaucsb"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">1081</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, March 17, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 88.5%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 88.5%"> </span><span style="width: 6.7%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 6.7%"> </span><span style="width: 3.7%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 3.7%"> </span><span style="width: 1.1%; background-color: var(--lang-PowerShell-bg, #ccc)" title="PowerShell: 1.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">88.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">6.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">3.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-PowerShell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>PowerShell</span><span class="ml-2 color-fg-muted">1.1%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/phaedon" title="Phaedon (Fædon) Sinis"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/phaedon" title="Fædon"><img class="avatar circle" width="48" height="48" src="https://github.com/phaedon.png" alt="@phaedon"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4064"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add csv-parser to BCR (#4064)"><span class="text-mono">#4064</span> <span class="text-light">Add csv-parser to BCR (#4064)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz" title="https://github.com/vincentlaucsb/csv-parser/archive/refs/tags/2.3.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/vincentlau...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/4d1946a58c35bb3a6dfa2f3dc0114817c07a77ad/modules/csv-parser/2.3.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/4d1946a58c35bb3a6dfa2f3dc0114817c07a77ad/modules/csv-parser/2.3.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/4d1946a58c35bb3a6dfa2f3dc0114817c07a77ad/modules/csv-parser/2.3.0/overlay/single_include_test/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">single_include_test/BUILD.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="2.3.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="2.3.0"><span class="text-bold">2.3.0</span></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-03-17</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

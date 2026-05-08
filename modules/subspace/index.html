@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.ee84cd05.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.578795ce.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -112,52 +112,52 @@ might need to tell bazel what compiler to use.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo xcode</span><span style="color:#D73A49">-</span><span style="color:#24292E">select </span><span style="color:#D73A49">-</span><span style="color:#24292E">s </span><span style="color:#D73A49">/</span><span style="color:#24292E">Applications</span><span style="color:#D73A49">/</span><span style="color:#24292E">Xcode.app</span><span style="color:#D73A49">/</span><span style="color:#24292E">Contents</span><span style="color:#D73A49">/</span><span style="color:#24292E">Developer</span></span></code></pre>
 </li>
 <li><p>Or install/repair <strong>Command Line Tools</strong> so <code>xcrun</code> exists under that path:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">xcode</span><span style="color:#D73A49">-</span><span style="color:#24292E">select </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install</span></span></code></pre>
+<pre><code lang="py">xcode-select --install</code></pre>
 </li>
 <li><p>If you export <code>DEVELOPER_DIR</code> yourself (e.g. in <code>~/.zshrc</code>), remove it or set it to match <code>xcode-select -p</code>.</p>
 </li>
 <li><p>Optional: after (1), you can force Bazel actions to use Xcode with a <strong>user</strong> <code>.bazelrc</code> line:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">action_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">DEVELOPER_DIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">Applications</span><span style="color:#D73A49">/</span><span style="color:#24292E">Xcode.app</span><span style="color:#D73A49">/</span><span style="color:#24292E">Contents</span><span style="color:#D73A49">/</span><span style="color:#24292E">Developer</span></span></code></pre>
+<pre><code>build --action_env=DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer</code></pre>
 <p>Adjust the path if Xcode is installed elsewhere.</p>
 </li>
 </ol>
 <p><strong>Note:</strong> All tests automatically start a subspace server in a separate thread, so you don't need to run the server separately. The tests handle server lifecycle management internally.</p>
 <h4>client_test</h4>
 <p>The <code>client_test</code> is a comprehensive test suite that validates the core client functionality including publishers, subscribers, reliable/unreliable channels, message reading modes, and more.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the test</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:client_test</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Or run as a test (better for CI)</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:client_test</span></span></code></pre>
+<pre><code># Run the test
+bazel run //client:client_test
+
+# Or run as a test (better for CI)
+bazel test //client:client_test</code></pre>
 <h4>latency_test</h4>
 <p>The <code>latency_test</code> measures message transmission latency between publishers and subscribers. This is useful for benchmarking performance.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the latency test</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:latency_test</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Run with custom options (if supported)</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:latency_test </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#005CC5">help</span></span></code></pre>
+<pre><code># Run the latency test
+bazel run //client:latency_test
+
+# Run with custom options (if supported)
+bazel run //client:latency_test -- --help</code></pre>
 <h4>stress_test</h4>
 <p>The <code>stress_test</code> performs stress testing with high message rates and multiple publishers/subscribers to verify system stability under load.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the stress test (may take a while)</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:stress_test</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Or run as a test</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:stress_test</span></span></code></pre>
+<pre><code># Run the stress test (may take a while)
+bazel run //client:stress_test
+
+# Or run as a test
+bazel test //client:stress_test</code></pre>
 <h4>Rust Client Tests</h4>
 <p>The Rust client tests exercise the full Rust client API against a real C++ server
 (started in-process via FFI), including cross-language interoperability tests
 that verify C++ publishers can talk to Rust subscribers and vice versa with
 checksums and metadata.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">rust_client:client_test</span></span></code></pre>
+<pre><code>bazel test //rust_client:client_test</code></pre>
 <h4>Running All Tests</h4>
 <p>To run all tests at once:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run all tests</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Run all tests in a specific directory</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">client</span><span style="color:#D73A49">/</span><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">common</span><span style="color:#D73A49">/</span><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">rust_client</span><span style="color:#D73A49">/</span><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code># Run all tests
+bazel test //...
+
+# Run all tests in a specific directory
+bazel test //client/...
+bazel test //common/...
+bazel test //rust_client/...</code></pre>
 <h2>Building with CMake</h2>
 <p>Subspace also supports building with CMake (version 3.15 or later). CMake uses FetchContent to automatically download and build all dependencies including Abseil, Protobuf, Googletest, cpp_toolbelt, and co.</p>
 <h3>Prerequisites</h3>
@@ -167,56 +167,56 @@ checksums and metadata.</p>
 <li>Git (for fetching dependencies)</li>
 </ul>
 <h3>Basic Build</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
-<span class="line"><span style="color:#24292E">cd build</span></span>
-<span class="line"><span style="color:#24292E">cmake ..</span></span>
-<span class="line"><span style="color:#24292E">make</span></span></code></pre>
+<pre><code>mkdir build
+cd build
+cmake ..
+make</code></pre>
 <h3>Build Options</h3>
 <p>You can customize the build with CMake options:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release ..</span></span>
-<span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(nproc)</span></span></code></pre>
+<pre><code>cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j$(nproc)</code></pre>
 <h3>Running Tests</h3>
 <p>After building, you can run the tests:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd build</span></span>
-<span class="line"><span style="color:#24292E">ctest</span></span></code></pre>
+<pre><code>cd build
+ctest</code></pre>
 <p>Or run individual tests:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">client</span><span style="color:#D73A49">/</span><span style="color:#24292E">client_test</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">common</span><span style="color:#D73A49">/</span><span style="color:#24292E">common_test</span></span></code></pre>
+<pre><code>./client/client_test
+./common/common_test</code></pre>
 <h3>Example: Building and Running</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Configure and build</span></span>
-<span class="line"><span style="color:#24292E">mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release ..</span></span>
-<span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(nproc)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Run the server in one terminal</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">server</span><span style="color:#D73A49">/</span><span style="color:#24292E">subspace_server</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Run publisher/subscriber examples in other terminals</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">client</span><span style="color:#D73A49">/</span><span style="color:#24292E">latency_test</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">client</span><span style="color:#D73A49">/</span><span style="color:#24292E">stress_test</span></span></code></pre>
+<pre><code># Configure and build
+mkdir build &amp;&amp; cd build
+cmake -DCMAKE_BUILD_TYPE=Release ..
+make -j$(nproc)
+
+# Run the server in one terminal
+./server/subspace_server
+
+# Run publisher/subscriber examples in other terminals
+./client/latency_test
+./client/stress_test</code></pre>
 <h3>CMake Integration in Your Project</h3>
 <p>To use Subspace in your CMake project, you can add it as a subdirectory:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># In your CMakeLists.txt</span></span>
-<span class="line"><span style="color:#24292E">add_subdirectory(subspace)</span></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(your_target</span></span>
-<span class="line"><span style="color:#24292E">    subspace_client</span></span>
-<span class="line"><span style="color:#24292E">    subspace_common</span></span>
-<span class="line"><span style="color:#24292E">    subspace_proto</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code># In your CMakeLists.txt
+add_subdirectory(subspace)
+target_link_libraries(your_target
+    subspace_client
+    subspace_common
+    subspace_proto
+)</code></pre>
 <p>Or use FetchContent:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">include(FetchContent)</span></span>
-<span class="line"><span style="color:#24292E">FetchContent_Declare(</span></span>
-<span class="line"><span style="color:#24292E">    subspace</span></span>
-<span class="line"><span style="color:#005CC5">    GIT_REPOSITORY</span><span style="color:#24292E"> https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">dallison</span><span style="color:#D73A49">/</span><span style="color:#24292E">subspace.git</span></span>
-<span class="line"><span style="color:#005CC5">    GIT_TAG</span><span style="color:#24292E"> main  </span><span style="color:#6A737D"># or specific tag/commit</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">FetchContent_MakeAvailable(subspace)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(your_target</span></span>
-<span class="line"><span style="color:#24292E">    subspace_client</span></span>
-<span class="line"><span style="color:#24292E">    subspace_common</span></span>
-<span class="line"><span style="color:#24292E">    subspace_proto</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>include(FetchContent)
+FetchContent_Declare(
+    subspace
+    GIT_REPOSITORY https://github.com/dallison/subspace.git
+    GIT_TAG main  # or specific tag/commit
+)
+FetchContent_MakeAvailable(subspace)
+
+target_link_libraries(your_target
+    subspace_client
+    subspace_common
+    subspace_proto
+)</code></pre>
 <h3>CMake Build Targets</h3>
 <p>The CMake build provides the following targets:</p>
 <ul>
@@ -236,11 +236,11 @@ checksums and metadata.</p>
 </ul>
 <h1>Bazel WORKSPACE</h1>
 <p>Add this to your Bazel WORKSPACE file to get access to this library without downloading it manually.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "subspace"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">  urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/dallison/subspace/archive/refs/tags/A.B.C.tar.gz"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">  strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "subspace-A.B.C"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>http_archive(
+  name = "subspace",
+  urls = ["https://github.com/dallison/subspace/archive/refs/tags/A.B.C.tar.gz"],
+  strip_prefix = "subspace-A.B.C",
+)</code></pre>
 <p>You can also add a sha256 field to ensure a canonical build if you like.  Bazel
 will tell you what to put in for the hash when you first build it.</p>
 <h1>Using Subspace</h1>
@@ -250,21 +250,21 @@ will tell you what to put in for the hash when you first build it.</p>
 <h3>Creating a Client</h3>
 <p>The <code>Client</code> class is the main entry point for using Subspace. You can create a client in two ways:</p>
 <p><strong>Method 1: Using <code>Create()</code> (recommended)</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "client/client.h"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto client_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> subspace::Client::Create(</span><span style="color:#032F62">"/tmp/subspace"</span><span style="color:#24292E">, </span><span style="color:#032F62">"my_client"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">client_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto client </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include "client/client.h"
+
+auto client_or = subspace::Client::Create("/tmp/subspace", "my_client");
+if (!client_or.ok()) {
+    // Handle error
+    return;
+}
+auto client = client_or.value();</code></pre>
 <p><strong>Method 2: Constructor + Init()</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">subspace::Client client</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto status </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client.Init(</span><span style="color:#032F62">"/tmp/subspace"</span><span style="color:#24292E">, </span><span style="color:#032F62">"my_client"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">status.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>subspace::Client client;
+auto status = client.Init("/tmp/subspace", "my_client");
+if (!status.ok()) {
+    // Handle error
+    return;
+}</code></pre>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>server_socket</code> (default: <code>"/tmp/subspace"</code>): Path to the Unix domain socket where the Subspace server is listening</li>
@@ -272,65 +272,65 @@ will tell you what to put in for the hash when you first build it.</p>
 <li><code>c</code> (optional): Pointer to a coroutine if using coroutine-aware mode</li>
 </ul>
 <h3>Client Methods</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> Client {</span></span>
-<span class="line"><span style="color:#24292E">public:</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Initialize the client by connecting to the server</span></span>
-<span class="line"><span style="color:#24292E">    absl::Status Init(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#E36209">server_socket</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "/tmp/subspace"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">                      const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#E36209">client_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ""</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Create a publisher </span><span style="color:#D73A49">for</span><span style="color:#24292E"> a channel</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Publisher</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    CreatePublisher(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channel_name, </span></span>
-<span class="line"><span style="color:#005CC5">                    int</span><span style="color:#24292E"> slot_size, </span></span>
-<span class="line"><span style="color:#005CC5">                    int</span><span style="color:#24292E"> num_slots,</span></span>
-<span class="line"><span style="color:#24292E">                    const PublisherOptions </span><span style="color:#D73A49">&amp;</span><span style="color:#E36209">opts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> PublisherOptions());</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Create a publisher </span><span style="color:#D73A49">with</span><span style="color:#24292E"> options specifying slot size </span><span style="color:#D73A49">and</span><span style="color:#24292E"> count</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Publisher</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    CreatePublisher(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channel_name,</span></span>
-<span class="line"><span style="color:#24292E">                    const PublisherOptions </span><span style="color:#D73A49">&amp;</span><span style="color:#E36209">opts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> PublisherOptions());</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Create a subscriber </span><span style="color:#D73A49">for</span><span style="color:#24292E"> a channel</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Subscriber</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    CreateSubscriber(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channel_name,</span></span>
-<span class="line"><span style="color:#24292E">                     const SubscriberOptions </span><span style="color:#D73A49">&amp;</span><span style="color:#E36209">opts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> SubscriberOptions());</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get information about channels</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const ChannelInfo</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> GetChannelInfo(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channelName);</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ChannelInfo</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> GetChannelInfo();</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const ChannelStats</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> GetChannelStats(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channelName);</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> ChannelExists(const std::string </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">channelName);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Enable</span><span style="color:#D73A49">/</span><span style="color:#24292E">disable debug output</span></span>
-<span class="line"><span style="color:#24292E">    void SetDebug(</span><span style="color:#005CC5">bool</span><span style="color:#24292E"> v);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Enable</span><span style="color:#D73A49">/</span><span style="color:#24292E">disable thread</span><span style="color:#D73A49">-</span><span style="color:#24292E">safe mode</span></span>
-<span class="line"><span style="color:#24292E">    void SetThreadSafe(</span><span style="color:#005CC5">bool</span><span style="color:#24292E"> v);</span></span>
-<span class="line"><span style="color:#24292E">};</span></span></code></pre>
+<pre><code>class Client {
+public:
+    // Initialize the client by connecting to the server
+    absl::Status Init(const std::string &amp;server_socket = "/tmp/subspace",
+                      const std::string &amp;client_name = "");
+
+    // Create a publisher for a channel
+    absl::StatusOr&lt;Publisher&gt;
+    CreatePublisher(const std::string &amp;channel_name, 
+                    int slot_size, 
+                    int num_slots,
+                    const PublisherOptions &amp;opts = PublisherOptions());
+
+    // Create a publisher with options specifying slot size and count
+    absl::StatusOr&lt;Publisher&gt;
+    CreatePublisher(const std::string &amp;channel_name,
+                    const PublisherOptions &amp;opts = PublisherOptions());
+
+    // Create a subscriber for a channel
+    absl::StatusOr&lt;Subscriber&gt;
+    CreateSubscriber(const std::string &amp;channel_name,
+                     const SubscriberOptions &amp;opts = SubscriberOptions());
+
+    // Get information about channels
+    absl::StatusOr&lt;const ChannelInfo&gt; GetChannelInfo(const std::string &amp;channelName);
+    absl::StatusOr&lt;const std::vector&lt;ChannelInfo&gt;&gt; GetChannelInfo();
+    
+    absl::StatusOr&lt;const ChannelStats&gt; GetChannelStats(const std::string &amp;channelName);
+    absl::StatusOr&lt;bool&gt; ChannelExists(const std::string &amp;channelName);
+
+    // Enable/disable debug output
+    void SetDebug(bool v);
+    
+    // Enable/disable thread-safe mode
+    void SetThreadSafe(bool v);
+};</code></pre>
 <h3>Convenience Free Functions</h3>
 <p>For simple use cases where you don't need to reuse a client, Subspace provides
 free functions that create a temporary client, perform the operation, and return
 a standalone <code>Publisher</code> or <code>Subscriber</code>. The returned object keeps the
 underlying client alive for its lifetime.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "client/client.h"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Create a publisher without managing a Client </span><span style="color:#005CC5">object</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#24292E">auto pub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> subspace::CreatePublisher(</span><span style="color:#032F62">"my_channel"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    subspace::PublisherOptions{.slot_size = </span><span style="color:#005CC5">1024</span><span style="color:#24292E">, .num_slots = </span><span style="color:#005CC5">10</span><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">pub_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto pub </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::move(</span><span style="color:#D73A49">*</span><span style="color:#24292E">pub_or)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Create a subscriber without managing a Client </span><span style="color:#005CC5">object</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#24292E">auto sub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> subspace::CreateSubscriber(</span><span style="color:#032F62">"my_channel"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">sub_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto sub </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::move(</span><span style="color:#D73A49">*</span><span style="color:#24292E">sub_or)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include "client/client.h"
+
+// Create a publisher without managing a Client object.
+auto pub_or = subspace::CreatePublisher("my_channel",
+    subspace::PublisherOptions{.slot_size = 1024, .num_slots = 10});
+if (!pub_or.ok()) {
+    // Handle error
+    return;
+}
+auto pub = std::move(*pub_or);
+
+// Create a subscriber without managing a Client object.
+auto sub_or = subspace::CreateSubscriber("my_channel");
+if (!sub_or.ok()) {
+    // Handle error
+    return;
+}
+auto sub = std::move(*sub_or);</code></pre>
 <p><strong>Parameters:</strong></p>
 <ul>
 <li><code>channel_name</code>: Name of the channel</li>
@@ -343,171 +343,171 @@ underlying client alive for its lifetime.</p>
 <h3>Creating a Publisher</h3>
 <p>Publishers send messages to channels. You can create a publisher in two ways:</p>
 <p><strong>Method 1: Explicit slot size and count</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto pub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">CreatePublisher(</span><span style="color:#032F62">"my_channel"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1024</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">pub_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto pub </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pub_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto pub_or = client-&gt;CreatePublisher("my_channel", 1024, 10);
+if (!pub_or.ok()) {
+    // Handle error
+    return;
+}
+auto pub = pub_or.value();</code></pre>
 <p><strong>Method 2: Using PublisherOptions</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto pub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">CreatePublisher(</span><span style="color:#032F62">"my_channel"</span><span style="color:#24292E">, </span></span>
-<span class="line"><span style="color:#24292E">    subspace::PublisherOptions()</span></span>
-<span class="line"><span style="color:#24292E">        .SetSlotSize(</span><span style="color:#005CC5">1024</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .SetNumSlots(</span><span style="color:#005CC5">10</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        .SetReliable(true))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto pub_or = client-&gt;CreatePublisher("my_channel", 
+    subspace::PublisherOptions()
+        .SetSlotSize(1024)
+        .SetNumSlots(10)
+        .SetReliable(true));</code></pre>
 <h3>Publishing Messages</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Get a message buffer</span></span>
-<span class="line"><span style="color:#24292E">auto buffer_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pub.GetMessageBuffer(</span><span style="color:#005CC5">1024</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">buffer_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error (e.g., no free slots </span><span style="color:#D73A49">for</span><span style="color:#24292E"> reliable publisher)</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> buffer </span><span style="color:#D73A49">=</span><span style="color:#24292E"> buffer_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Fill </span><span style="color:#D73A49">in</span><span style="color:#24292E"> your message data</span></span>
-<span class="line"><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">*</span><span style="color:#24292E"> msg </span><span style="color:#D73A49">=</span><span style="color:#24292E"> reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(buffer)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">msg</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">field1 </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 42</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">msg</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">field2 </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "hello"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Publish the message</span></span>
-<span class="line"><span style="color:#24292E">auto msg_info_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pub.PublishMessage(sizeof(MyMessageType))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">msg_info_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto msg_info </span><span style="color:#D73A49">=</span><span style="color:#24292E"> msg_info_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg_info.ordinal contains the message sequence number</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg_info.timestamp contains the publish timestamp</span></span></code></pre>
+<pre><code>// Get a message buffer
+auto buffer_or = pub.GetMessageBuffer(1024);
+if (!buffer_or.ok()) {
+    // Handle error (e.g., no free slots for reliable publisher)
+    return;
+}
+void* buffer = buffer_or.value();
+
+// Fill in your message data
+MyMessageType* msg = reinterpret_cast&lt;MyMessageType*&gt;(buffer);
+msg-&gt;field1 = 42;
+msg-&gt;field2 = "hello";
+
+// Publish the message
+auto msg_info_or = pub.PublishMessage(sizeof(MyMessageType));
+if (!msg_info_or.ok()) {
+    // Handle error
+    return;
+}
+auto msg_info = msg_info_or.value();
+// msg_info.ordinal contains the message sequence number
+// msg_info.timestamp contains the publish timestamp</code></pre>
 <p><strong>Using GetMessageBufferSpan (C++17 style):</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto span_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pub.GetMessageBufferSpan(</span><span style="color:#005CC5">1024</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">span_or.ok() </span><span style="color:#B31D28;font-style:italic">||</span><span style="color:#24292E"> span_or.value().empty()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto span </span><span style="color:#D73A49">=</span><span style="color:#24292E"> span_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> span </span><span style="color:#D73A49">is</span><span style="color:#24292E"> an absl::Span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::byte</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">*</span><span style="color:#24292E"> msg </span><span style="color:#D73A49">=</span><span style="color:#24292E"> reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(span.data())</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> ...</span><span style="color:#24292E"> fill message </span><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">pub.PublishMessage(sizeof(MyMessageType))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto span_or = pub.GetMessageBufferSpan(1024);
+if (!span_or.ok() || span_or.value().empty()) {
+    // Handle error
+    return;
+}
+auto span = span_or.value();
+// span is an absl::Span&lt;std::byte&gt;
+MyMessageType* msg = reinterpret_cast&lt;MyMessageType*&gt;(span.data());
+// ... fill message ...
+pub.PublishMessage(sizeof(MyMessageType));</code></pre>
 <h3>Publisher Methods</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> Publisher {</span></span>
-<span class="line"><span style="color:#24292E">public:</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get a message buffer </span><span style="color:#D73A49">for</span><span style="color:#24292E"> writing</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E"> GetMessageBuffer(int32_t </span><span style="color:#E36209">max_size</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">bool</span><span style="color:#E36209"> lock</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> true);</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">absl::Span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::byte</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> GetMessageBufferSpan(int32_t </span><span style="color:#E36209">max_size</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">bool</span><span style="color:#E36209"> lock</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> true);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Publish a message</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const Message</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> PublishMessage(int64_t message_size);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Cancel a publish (releases lock </span><span style="color:#D73A49">in</span><span style="color:#24292E"> thread</span><span style="color:#D73A49">-</span><span style="color:#24292E">safe mode)</span></span>
-<span class="line"><span style="color:#24292E">    void CancelPublish();</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Wait </span><span style="color:#D73A49">for</span><span style="color:#24292E"> a reliable publisher to have a free slot</span></span>
-<span class="line"><span style="color:#24292E">    absl::Status Wait(const co::Coroutine </span><span style="color:#D73A49">*</span><span style="color:#E36209">c</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> nullptr);</span></span>
-<span class="line"><span style="color:#24292E">    absl::Status Wait(std::chrono::nanoseconds timeout, const co::Coroutine </span><span style="color:#D73A49">*</span><span style="color:#E36209">c</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> nullptr);</span></span>
-<span class="line"><span style="color:#24292E">    absl::StatusOr</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Wait(const toolbelt::FileDescriptor </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">fd, const co::Coroutine </span><span style="color:#D73A49">*</span><span style="color:#E36209">c</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> nullptr);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get </span><span style="color:#E36209">file</span><span style="color:#24292E"> descriptor </span><span style="color:#D73A49">for</span><span style="color:#24292E"> polling</span></span>
-<span class="line"><span style="color:#24292E">    struct pollfd GetPollFd() const;</span></span>
-<span class="line"><span style="color:#24292E">    toolbelt::FileDescriptor GetFileDescriptor() const;</span></span>
-<span class="line"><span style="color:#24292E">    const toolbelt::FileDescriptor</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> GetRetirementFd() const;</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Channel information</span></span>
-<span class="line"><span style="color:#24292E">    std::string Name() const;</span></span>
-<span class="line"><span style="color:#24292E">    std::string Type() const;</span></span>
-<span class="line"><span style="color:#005CC5">    bool</span><span style="color:#24292E"> IsReliable() const;</span></span>
-<span class="line"><span style="color:#005CC5">    bool</span><span style="color:#24292E"> IsLocal() const;</span></span>
-<span class="line"><span style="color:#005CC5">    bool</span><span style="color:#24292E"> IsFixedSize() const;</span></span>
-<span class="line"><span style="color:#24292E">    int32_t SlotSize() const;</span></span>
-<span class="line"><span style="color:#24292E">    int32_t NumSlots() const;</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Statistics</span></span>
-<span class="line"><span style="color:#24292E">    void GetStatsCounters(uint64_t </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">total_bytes, uint64_t </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">total_messages,</span></span>
-<span class="line"><span style="color:#24292E">                          uint32_t </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">max_message_size, uint32_t </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">total_drops);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Resize callback registration</span></span>
-<span class="line"><span style="color:#24292E">    absl::Status RegisterResizeCallback(</span></span>
-<span class="line"><span style="color:#24292E">        std::function</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">absl::Status(Publisher</span><span style="color:#D73A49">*</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#24292E">)</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> callback);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Prefix area </span><span style="color:#D73A49">and</span><span style="color:#24292E"> checksum</span><span style="color:#D73A49">/</span><span style="color:#24292E">metadata sizes</span></span>
-<span class="line"><span style="color:#24292E">    int32_t PrefixSize() const;     </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Total prefix </span><span style="color:#005CC5">bytes</span><span style="color:#24292E"> (multiple of </span><span style="color:#005CC5">64</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    int32_t ChecksumSize() const;   </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Bytes reserved </span><span style="color:#D73A49">for</span><span style="color:#24292E"> checksum</span></span>
-<span class="line"><span style="color:#24292E">    int32_t MetadataSize() const;   </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Bytes of user metadata</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Writable span over the user metadata area </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the current slot</span><span style="color:#032F62">'s prefix.</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Call between GetMessageBuffer() </span><span style="color:#D73A49">and</span><span style="color:#24292E"> PublishMessage().</span></span>
-<span class="line"><span style="color:#24292E">    absl::Span</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::byte</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> GetMetadata();</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Custom checksum support</span></span>
-<span class="line"><span style="color:#24292E">    void SetChecksumCallback(ChecksumCallback cb);</span></span>
-<span class="line"><span style="color:#24292E">    void ResetChecksumCallback();</span></span>
-<span class="line"><span style="color:#24292E">};</span></span></code></pre>
+<pre><code>class Publisher {
+public:
+    // Get a message buffer for writing
+    absl::StatusOr&lt;void*&gt; GetMessageBuffer(int32_t max_size = -1, bool lock = true);
+    absl::StatusOr&lt;absl::Span&lt;std::byte&gt;&gt; GetMessageBufferSpan(int32_t max_size = -1, bool lock = true);
+    
+    // Publish a message
+    absl::StatusOr&lt;const Message&gt; PublishMessage(int64_t message_size);
+    
+    // Cancel a publish (releases lock in thread-safe mode)
+    void CancelPublish();
+    
+    // Wait for a reliable publisher to have a free slot
+    absl::Status Wait(const co::Coroutine *c = nullptr);
+    absl::Status Wait(std::chrono::nanoseconds timeout, const co::Coroutine *c = nullptr);
+    absl::StatusOr&lt;int&gt; Wait(const toolbelt::FileDescriptor &amp;fd, const co::Coroutine *c = nullptr);
+    
+    // Get file descriptor for polling
+    struct pollfd GetPollFd() const;
+    toolbelt::FileDescriptor GetFileDescriptor() const;
+    const toolbelt::FileDescriptor&amp; GetRetirementFd() const;
+    
+    // Channel information
+    std::string Name() const;
+    std::string Type() const;
+    bool IsReliable() const;
+    bool IsLocal() const;
+    bool IsFixedSize() const;
+    int32_t SlotSize() const;
+    int32_t NumSlots() const;
+    
+    // Statistics
+    void GetStatsCounters(uint64_t &amp;total_bytes, uint64_t &amp;total_messages,
+                          uint32_t &amp;max_message_size, uint32_t &amp;total_drops);
+    
+    // Resize callback registration
+    absl::Status RegisterResizeCallback(
+        std::function&lt;absl::Status(Publisher*, int, int)&gt; callback);
+
+    // Prefix area and checksum/metadata sizes
+    int32_t PrefixSize() const;     // Total prefix bytes (multiple of 64)
+    int32_t ChecksumSize() const;   // Bytes reserved for checksum
+    int32_t MetadataSize() const;   // Bytes of user metadata
+
+    // Writable span over the user metadata area in the current slot's prefix.
+    // Call between GetMessageBuffer() and PublishMessage().
+    absl::Span&lt;std::byte&gt; GetMetadata();
+
+    // Custom checksum support
+    void SetChecksumCallback(ChecksumCallback cb);
+    void ResetChecksumCallback();
+};</code></pre>
 <h3>Reliable Publisher Example</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Create a reliable publisher</span></span>
-<span class="line"><span style="color:#24292E">auto pub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">CreatePublisher(</span><span style="color:#032F62">"reliable_channel"</span><span style="color:#24292E">, </span><span style="color:#005CC5">256</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    subspace::PublisherOptions().SetReliable(true))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto pub </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pub_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (true) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Wait </span><span style="color:#D73A49">for</span><span style="color:#24292E"> a free slot (blocks until available)</span></span>
-<span class="line"><span style="color:#24292E">    auto status = pub.Wait();</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">status.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get message buffer</span></span>
-<span class="line"><span style="color:#24292E">    auto buffer_or = pub.GetMessageBuffer(</span><span style="color:#005CC5">256</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">buffer_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">        continue</span><span style="color:#24292E">; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Should </span><span style="color:#D73A49">not</span><span style="color:#24292E"> happen after Wait()</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Fill </span><span style="color:#D73A49">and</span><span style="color:#24292E"> publish</span></span>
-<span class="line"><span style="color:#24292E">    MyMessage</span><span style="color:#D73A49">*</span><span style="color:#24292E"> msg = reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyMessage</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(buffer_or.value());</span></span>
-<span class="line"><span style="color:#24292E">    msg</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">data = compute_data();</span></span>
-<span class="line"><span style="color:#24292E">    pub.PublishMessage(sizeof(MyMessage));</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>// Create a reliable publisher
+auto pub_or = client-&gt;CreatePublisher("reliable_channel", 256, 5,
+    subspace::PublisherOptions().SetReliable(true));
+
+auto pub = pub_or.value();
+
+while (true) {
+    // Wait for a free slot (blocks until available)
+    auto status = pub.Wait();
+    if (!status.ok()) {
+        // Handle error
+        break;
+    }
+    
+    // Get message buffer
+    auto buffer_or = pub.GetMessageBuffer(256);
+    if (!buffer_or.ok()) {
+        continue; // Should not happen after Wait()
+    }
+    
+    // Fill and publish
+    MyMessage* msg = reinterpret_cast&lt;MyMessage*&gt;(buffer_or.value());
+    msg-&gt;data = compute_data();
+    pub.PublishMessage(sizeof(MyMessage));
+}</code></pre>
 <h2>Subscriber API</h2>
 <h3>Creating a Subscriber</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto sub_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> client</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">CreateSubscriber(</span><span style="color:#032F62">"my_channel"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">sub_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto sub </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sub_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto sub_or = client-&gt;CreateSubscriber("my_channel");
+if (!sub_or.ok()) {
+    // Handle error
+    return;
+}
+auto sub = sub_or.value();</code></pre>
 <h3>Reading Messages</h3>
 <p><strong>Method 1: Read next message</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto msg_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sub.ReadMessage(subspace::ReadMode::kReadNext)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">msg_or.ok()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Handle error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto msg </span><span style="color:#D73A49">=</span><span style="color:#24292E"> msg_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (msg.length </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> No message available</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg.buffer points to the message data</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg.length </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the message size </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> bytes</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg.ordinal </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the sequence number</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg.timestamp </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the publish timestamp</span></span>
-<span class="line"><span style="color:#24292E">const MyMessageType</span><span style="color:#D73A49">*</span><span style="color:#24292E"> data </span><span style="color:#D73A49">=</span><span style="color:#24292E"> reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const MyMessageType</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(msg.buffer)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto msg_or = sub.ReadMessage(subspace::ReadMode::kReadNext);
+if (!msg_or.ok()) {
+    // Handle error
+    return;
+}
+auto msg = msg_or.value();
+if (msg.length == 0) {
+    // No message available
+    return;
+}
+// msg.buffer points to the message data
+// msg.length is the message size in bytes
+// msg.ordinal is the sequence number
+// msg.timestamp is the publish timestamp
+const MyMessageType* data = reinterpret_cast&lt;const MyMessageType*&gt;(msg.buffer);</code></pre>
 <p><strong>Method 2: Read newest message</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto msg_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sub.ReadMessage(subspace::ReadMode::kReadNewest)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> This skips to the most recent message, discarding older ones</span></span></code></pre>
+<pre><code>auto msg_or = sub.ReadMessage(subspace::ReadMode::kReadNewest);
+// This skips to the most recent message, discarding older ones</code></pre>
 <p><strong>Method 3: Typed read (returns shared_ptr)</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto msg_ptr_or </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sub.ReadMessage</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">msg_ptr_or.ok() </span><span style="color:#B31D28;font-style:italic">||</span><span style="color:#B31D28;font-style:italic"> !</span><span style="color:#24292E">msg_ptr_or.value()) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> No message </span><span style="color:#D73A49">or</span><span style="color:#24292E"> error</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto msg_ptr </span><span style="color:#D73A49">=</span><span style="color:#24292E"> msg_ptr_or.value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> msg_ptr </span><span style="color:#D73A49">is</span><span style="color:#24292E"> a subspace::shared_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyMessageType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Access data: msg_ptr</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">field1, (</span><span style="color:#D73A49">*</span><span style="color:#24292E">msg_ptr).field2</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Message </span><span style="color:#D73A49">is</span><span style="color:#24292E"> automatically released when msg_ptr goes out of scope</span></span></code></pre>
+<pre><code>auto msg_ptr_or = sub.ReadMessage&lt;MyMessageType&gt;();
+if (!msg_ptr_or.ok() || !msg_ptr_or.value()) {
+    // No message or error
+    return;
+}
+auto msg_ptr = msg_ptr_or.value();
+// msg_ptr is a subspace::shared_ptr&lt;MyMessageType&gt;
+// Access data: msg_ptr-&gt;field1, (*msg_ptr).field2
+// Message is automatically released when msg_ptr goes out of scope</code></pre>
 <h3>Waiting for Messages</h3>
-<pre><code lang="py">// Wait indefinitely
+<pre><code>// Wait indefinitely
 auto status = sub.Wait();
 if (!status.ok()) {
     // Handle error

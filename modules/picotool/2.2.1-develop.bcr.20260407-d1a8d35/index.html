@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.3c501c90.js" defer=""></script>
-		<script src="/registry.e6dc2bad.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ed6a5a94.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1028,35 +1028,35 @@ Therefore, caution should be used when using these commands, as they risk bricki
 <h3>white-label</h3>
 <p>This command allows for OTP white-labelling, which sets the USB configuration used by the device in BOOTSEL mode.
 This can be configured from a JSON file, an example of which is in <a href="https://github.com/raspberrypi/picotool/blob/d1a8d35da3f622cf228c0a17e9b7a4295d5282d0/json/sample-wl.json" target="_blank" rel="noopener noreferrer">sample-wl.json</a>. The schema for this JSON file is <a href="https://github.com/raspberrypi/picotool/blob/d1a8d35da3f622cf228c0a17e9b7a4295d5282d0/json/schemas/whitelabel-schema.json" target="_blank" rel="noopener noreferrer">here</a></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool </span><span style="color:#005CC5">help</span><span style="color:#24292E"> otp white</span><span style="color:#D73A49">-</span><span style="color:#24292E">label</span></span>
-<span class="line"><span style="color:#005CC5">OTP</span><span style="color:#005CC5"> WHITE</span><span style="color:#D73A49">-</span><span style="color:#005CC5">LABEL</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    Set the white labelling values </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> OTP</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">SYNOPSIS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">    picotool otp white</span><span style="color:#D73A49">-</span><span style="color:#24292E">label </span><span style="color:#D73A49">-</span><span style="color:#24292E">s </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">row</span><span style="color:#D73A49">&gt;</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">filename</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> [device</span><span style="color:#D73A49">-</span><span style="color:#24292E">selection]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">filename</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#005CC5">            JSON</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> with</span><span style="color:#24292E"> white labelling values</span></span>
-<span class="line"><span style="color:#24292E">    Target device selection</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">bus </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">bus</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">            Filter devices by </span><span style="color:#005CC5">USB</span><span style="color:#24292E"> bus number</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">address </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">addr</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">            Filter devices by </span><span style="color:#005CC5">USB</span><span style="color:#24292E"> device address</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">vid </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">vid</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">            Filter by vendor </span><span style="color:#005CC5">id</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">pid </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">pid</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">            Filter by product </span><span style="color:#005CC5">id</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">        --</span><span style="color:#24292E">ser </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ser</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">            Filter by serial number</span></span>
-<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">f, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">force</span></span>
-<span class="line"><span style="color:#24292E">            Force a device </span><span style="color:#D73A49">not</span><span style="color:#D73A49"> in</span><span style="color:#005CC5"> BOOTSEL</span><span style="color:#24292E"> mode but running compatible code to reset so the command can be executed. After executing the</span></span>
-<span class="line"><span style="color:#24292E">            command (unless the command itself </span><span style="color:#D73A49">is</span><span style="color:#24292E"> a </span><span style="color:#032F62">'reboot'</span><span style="color:#24292E">) the device will be rebooted back to application mode</span></span>
-<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">F, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">force</span><span style="color:#D73A49">-</span><span style="color:#24292E">no</span><span style="color:#D73A49">-</span><span style="color:#24292E">reboot</span></span>
-<span class="line"><span style="color:#24292E">            Force a device </span><span style="color:#D73A49">not</span><span style="color:#D73A49"> in</span><span style="color:#005CC5"> BOOTSEL</span><span style="color:#24292E"> mode but running compatible code to reset so the command can be executed. After executing the</span></span>
-<span class="line"><span style="color:#24292E">            command (unless the command itself </span><span style="color:#D73A49">is</span><span style="color:#24292E"> a </span><span style="color:#032F62">'reboot'</span><span style="color:#24292E">) the device will be left connected </span><span style="color:#D73A49">and</span><span style="color:#24292E"> accessible to picotool, but without the</span></span>
-<span class="line"><span style="color:#005CC5">            USB</span><span style="color:#24292E"> drive mounted</span></span></code></pre>
-<pre><code lang="py">$ picotool otp white-label -s 0x100 sample-wl.json 
+<pre><code lang="py">$ picotool help otp white-label
+OTP WHITE-LABEL:
+    Set the white labelling values in OTP
+
+SYNOPSIS:
+    picotool otp white-label -s &lt;row&gt; &lt;filename&gt; [device-selection]
+
+OPTIONS:
+        &lt;filename&gt;
+            JSON file with white labelling values
+    Target device selection
+        --bus &lt;bus&gt;
+            Filter devices by USB bus number
+        --address &lt;addr&gt;
+            Filter devices by USB device address
+        --vid &lt;vid&gt;
+            Filter by vendor id
+        --pid &lt;pid&gt;
+            Filter by product id
+        --ser &lt;ser&gt;
+            Filter by serial number
+        -f, --force
+            Force a device not in BOOTSEL mode but running compatible code to reset so the command can be executed. After executing the
+            command (unless the command itself is a 'reboot') the device will be rebooted back to application mode
+        -F, --force-no-reboot
+            Force a device not in BOOTSEL mode but running compatible code to reset so the command can be executed. After executing the
+            command (unless the command itself is a 'reboot') the device will be left connected and accessible to picotool, but without the
+            USB drive mounted</code></pre>
+<pre><code>$ picotool otp white-label -s 0x100 sample-wl.json 
 Setting attributes 20e0
 0x2e8b, 0x000e, 0x0215, 0x0c09, 0x1090, 0x200c, 0x2615, 0x20e0, 0x310b, 0x3706, 0x3a04, 0x3c04, 0x3e21, 0x4f15, 0x5a0a, 0x5f0a, 0x007a, 0x00df, 0x6c34, 0xd83c, 0xdf4c, 0x0020, 0x0054, 0x0065, 0x0073, 0x0074, 0x0027, 0x0073,
 0x0020, 0x0050, 0x0069, 0x0073, 0x6554, 0x7473, 0x5220, 0x3250, 0x3533, 0x3f30, 0x6f6e, 0x6e74, 0x6365, 0x7365, 0x6173, 0x6972, 0x796c, 0x6e61, 0x6d75, 0x6562, 0x0072, 0x6554, 0x7473, 0x6950, 0x4220, 0x6f6f, 0x0074, 0x6554,

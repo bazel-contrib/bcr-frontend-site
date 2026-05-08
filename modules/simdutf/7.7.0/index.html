@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.c092d6f0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9568dfea.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1454,63 +1454,63 @@ trimming the end of your input so you do not encounter an error.</p>
 <span class="line"><span style="color:#24292E">simdutf_warn_unused size_t trim_partial_utf16(const char16_t</span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>You may use these <code>trim_</code> functions to decode inputs piece by piece, as in the following
 examples. First a case where you want to decode a UTF-8 strings in two steps:</p>
-<pre><code lang="py">const char unicode[] = "\xc3\xa9\x63ole d'\xc3\xa9t\xc3\xa9";
-  // suppose you want to decode only the start of this string.
-  size_t length = 10;
-  // Picking 10 bytes is problematic because we might end up in the middle of a
-  // code point. But we can rewind to the previous code point.
-  length = simdutf::trim_partial_utf8(unicode, length);
-  // Now we can transcode safely
-  size_t budget_utf16 = simdutf::utf16_length_from_utf8(unicode, length);
-  std::unique_ptr&lt;char16_t[]&gt; utf16{new char16_t[budget_utf16]};
-  size_t utf16words =
-      simdutf::convert_utf8_to_utf16le(unicode, length, utf16.get());
-  // We can then transcode the next batch
-  const char * next = unicode + length;
-  size_t next_length = sizeof(unicode) - length;
-  size_t next_budget_utf16 = simdutf::utf16_length_from_utf8(next, next_length);
-  std::unique_ptr&lt;char16_t[]&gt; next_utf16{new char16_t[next_budget_utf16]};
-  size_t next_utf16words =
-      simdutf::convert_utf8_to_utf16le(next, next_length, next_utf16.get());</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">const char </span><span style="color:#E36209">unicode</span><span style="color:#24292E">[] </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\xc3\xa9\x63</span><span style="color:#032F62">ole d'</span><span style="color:#005CC5">\xc3\xa9</span><span style="color:#032F62">t</span><span style="color:#005CC5">\xc3\xa9</span><span style="color:#032F62">"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> suppose you want to decode only the start of this string.</span></span>
+<span class="line"><span style="color:#24292E">  size_t length </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 10</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Picking </span><span style="color:#005CC5">10</span><span style="color:#005CC5"> bytes</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> problematic because we might end up </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the middle of a</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> code point. But we can rewind to the previous code point.</span></span>
+<span class="line"><span style="color:#24292E">  length </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::trim_partial_utf8(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Now we can transcode safely</span></span>
+<span class="line"><span style="color:#24292E">  size_t budget_utf16 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::utf16_length_from_utf8(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">char16_t[]</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> utf16{new char16_t[budget_utf16]}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t utf16words </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">      simdutf::convert_utf8_to_utf16le(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length, utf16.get())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> We can then transcode the </span><span style="color:#005CC5">next</span><span style="color:#24292E"> batch</span></span>
+<span class="line"><span style="color:#24292E">  const char </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> next</span><span style="color:#D73A49"> =</span><span style="color:#E36209"> unicode</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> length</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_length </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sizeof(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">) </span><span style="color:#D73A49">-</span><span style="color:#24292E"> length</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_budget_utf16 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::utf16_length_from_utf8(</span><span style="color:#005CC5">next</span><span style="color:#24292E">, next_length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">char16_t[]</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> next_utf16{new char16_t[next_budget_utf16]}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_utf16words </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">      simdutf::convert_utf8_to_utf16le(</span><span style="color:#005CC5">next</span><span style="color:#24292E">, next_length, next_utf16.get())</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>You can use the same approach with UTF-16:</p>
-<pre><code>const char16_t unicode[] = u"\x3cd8\x10df\x3cd8\x10df\x3cd8\x10df";
-  // suppose you want to decode only the start of this string.
-  size_t length = 3;
-  // Picking 3 units is problematic because we might end up in the middle of a
-  // surrogate pair. But we can rewind to the previous code point.
-  length = simdutf::trim_partial_utf16(unicode, length);
-  // Now we can transcode safely
-  size_t budget_utf8 = simdutf::utf8_length_from_utf16(unicode, length);
-  std::unique_ptr&lt;char[]&gt; utf8{new char[budget_utf8]};
-  size_t utf8words =
-      simdutf::convert_utf16_to_utf8(unicode, length, utf8.get());
-  // We can then transcode the next batch
-  const char16_t * next = unicode + length;
-  size_t next_length = 6 - length;
-  size_t next_budget_utf8 = simdutf::utf8_length_from_utf16(next, next_length);
-  std::unique_ptr&lt;char[]&gt; next_utf8{new char[next_budget_utf8]};
-  size_t next_utf8words =
-      simdutf::convert_utf16_to_utf8(next, next_length, next_utf8.get());</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">const char16_t </span><span style="color:#E36209">unicode</span><span style="color:#24292E">[] </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> u</span><span style="color:#032F62">"</span><span style="color:#005CC5">\x3c</span><span style="color:#032F62">d8</span><span style="color:#005CC5">\x10</span><span style="color:#032F62">df</span><span style="color:#005CC5">\x3c</span><span style="color:#032F62">d8</span><span style="color:#005CC5">\x10</span><span style="color:#032F62">df</span><span style="color:#005CC5">\x3c</span><span style="color:#032F62">d8</span><span style="color:#005CC5">\x10</span><span style="color:#032F62">df"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> suppose you want to decode only the start of this string.</span></span>
+<span class="line"><span style="color:#24292E">  size_t length </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 3</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Picking </span><span style="color:#005CC5">3</span><span style="color:#24292E"> units </span><span style="color:#D73A49">is</span><span style="color:#24292E"> problematic because we might end up </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the middle of a</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> surrogate pair. But we can rewind to the previous code point.</span></span>
+<span class="line"><span style="color:#24292E">  length </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::trim_partial_utf16(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Now we can transcode safely</span></span>
+<span class="line"><span style="color:#24292E">  size_t budget_utf8 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::utf8_length_from_utf16(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">char[]</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> utf8{new char[budget_utf8]}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t utf8words </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">      simdutf::convert_utf16_to_utf8(</span><span style="color:#E36209">unicode</span><span style="color:#24292E">, length, utf8.get())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> We can then transcode the </span><span style="color:#005CC5">next</span><span style="color:#24292E"> batch</span></span>
+<span class="line"><span style="color:#24292E">  const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> next</span><span style="color:#D73A49"> =</span><span style="color:#E36209"> unicode</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> length</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_length </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 6</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> length</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_budget_utf8 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::utf8_length_from_utf16(</span><span style="color:#005CC5">next</span><span style="color:#24292E">, next_length)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">char[]</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> next_utf8{new char[next_budget_utf8]}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t next_utf8words </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">      simdutf::convert_utf16_to_utf8(</span><span style="color:#005CC5">next</span><span style="color:#24292E">, next_length, next_utf8.get())</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>We have more advanced conversion functions which output a <code>simdutf::result</code> structure with
 an indication of the error type and a <code>count</code> entry (e.g., <code>convert_utf8_to_utf16le_with_errors</code>).
 They are well suited when you expect that there might be errors in the input that require
 further investigation. The <code>count</code> field contains the location of the error in the input in code units,
 if there is an error, or otherwise the number of code units written. You may use these functions as follows:</p>
-<pre><code>// this UTF-8 string has a bad byte at index 5
-  std::string bad_utf8 = "\xc3\xa9\xc3\xa9\x20\xff\xc3\xa9";
-  size_t budget_utf16 = simdutf::utf16_length_from_utf8(bad_utf8.data(), bad_utf8.size());
-  std::unique_ptr&lt;char16_t[]&gt; utf16{new char16_t[budget_utf16]};
-  simdutf::result res = simdutf::convert_utf8_to_utf16_with_errors(bad_utf8.data(), bad_utf8.size(), utf16.get());
-  if(res.error != simdutf::error_code::SUCCESS) {
-    std::cerr &lt;&lt; "error at index " &lt;&lt; res.count &lt;&lt; std::endl;
-  }
-  // the following will be successful
-  res = simdutf::convert_utf8_to_utf16_with_errors(bad_utf8.data(), res.count, utf16.get());
-  if(res.error == simdutf::error_code::SUCCESS) {
-    std::cerr &lt;&lt; "we have transcoded " &lt;&lt; res.count &lt;&lt; " characters" &lt;&lt; std::endl;
-  }</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> this </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">8</span><span style="color:#24292E"> string has a bad byte at index </span><span style="color:#005CC5">5</span></span>
+<span class="line"><span style="color:#24292E">  std::string bad_utf8 </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\xc3\xa9\xc3\xa9\x20\xff\xc3\xa9</span><span style="color:#032F62">"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  size_t budget_utf16 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::utf16_length_from_utf8(bad_utf8.data(), bad_utf8.size())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">char16_t[]</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> utf16{new char16_t[budget_utf16]}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">  simdutf::result res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::convert_utf8_to_utf16_with_errors(bad_utf8.data(), bad_utf8.size(), utf16.get())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E">(res.error </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> simdutf::error_code::</span><span style="color:#005CC5">SUCCESS</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "error at index "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> res.count </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> the following will be successful</span></span>
+<span class="line"><span style="color:#24292E">  res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> simdutf::convert_utf8_to_utf16_with_errors(bad_utf8.data(), res.count, utf16.get())</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E">(res.error </span><span style="color:#D73A49">==</span><span style="color:#24292E"> simdutf::error_code::</span><span style="color:#005CC5">SUCCESS</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "we have transcoded "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> res.count </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " characters"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span></code></pre>
 <p>We have several transcoding functions returning <code>simdutf::error</code> results:</p>
-<pre><code>/**
+<pre><code lang="py">/**
  * Convert possibly broken UTF-8 string into Latin1 string with errors.
  * If the string cannot be represented as Latin1, an error
  * code is returned.

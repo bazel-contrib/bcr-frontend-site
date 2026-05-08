@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.e5718e09.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f01772ab.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -1197,41 +1197,41 @@ is in <a href="https://github.com/raspberrypi/picotool/blob/d1a8d35da3f622cf228c
 <span class="line"><span style="color:#24292E">            Specify </span><span style="color:#E36209">file</span><span style="color:#005CC5"> type</span><span style="color:#24292E"> (json) explicitly, ignoring </span><span style="color:#E36209">file</span><span style="color:#24292E"> extension</span></span></code></pre>
 <h3>list</h3>
 <p>This command will list all the defined OTP rows &amp; fields. You can list specific rows/fields using the selector</p>
-<pre><code lang="py">$ picotool help otp list
-OTP LIST:
-    List matching known registers/fields
-
-SYNOPSIS:
-    picotool otp list [-p] [-n] [-f] [-i &lt;filename&gt;] [&lt;selector&gt;..]
-
-OPTIONS:
-    Row/Field Selection
-        -p, --pages
-            Show page number/page row number
-        -n, --no-descriptions
-            Don't show descriptions
-        -f, --field-descriptions
-            Show all field descriptions
-        -i &lt;filename&gt;
-            Include extra otp definition
-        &lt;selector&gt;
-            The row/field selector, each of which can select a whole row:
-
-            ROW_NAME to select a whole row by name.
-            ROW_NUMBER to select a whole row by number.
-            PAGE:PAGE_ROW_NUMBER to select a whole row by page and number within page.
-
-            ... or can select a single field/subset of a row (where ROW_SEL is one of the above row selectors):
-
-            ROW_SEL.FIELD_NAME to select a field within a row by name.
-            ROW_SEL.n-m to select a range of bits within a row.
-            ROW_SEL.n to select a single bit within a row.
-            .FIELD_NAME to select any row's field by name.
-
-            .. or can select multiple rows by using blank or '*' for PAGE or PAGE_ROW_NUMBER</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> picotool </span><span style="color:#005CC5">help</span><span style="color:#24292E"> otp </span><span style="color:#005CC5">list</span></span>
+<span class="line"><span style="color:#005CC5">OTP</span><span style="color:#005CC5"> LIST</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    List matching known registers</span><span style="color:#D73A49">/</span><span style="color:#24292E">fields</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">SYNOPSIS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    picotool otp list [</span><span style="color:#D73A49">-</span><span style="color:#24292E">p] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">n] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">f] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">filename</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] [</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">selector</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">..]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    Row</span><span style="color:#D73A49">/</span><span style="color:#24292E">Field Selection</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">p, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">pages</span></span>
+<span class="line"><span style="color:#24292E">            Show page number</span><span style="color:#D73A49">/</span><span style="color:#24292E">page row number</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">n, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">no</span><span style="color:#D73A49">-</span><span style="color:#24292E">descriptions</span></span>
+<span class="line"><span style="color:#24292E">            Don</span><span style="color:#032F62">'t show descriptions</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">f, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">field</span><span style="color:#D73A49">-</span><span style="color:#24292E">descriptions</span></span>
+<span class="line"><span style="color:#24292E">            Show </span><span style="color:#005CC5">all</span><span style="color:#24292E"> field descriptions</span></span>
+<span class="line"><span style="color:#D73A49">        -</span><span style="color:#24292E">i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">filename</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            Include extra otp definition</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">selector</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">            The row</span><span style="color:#D73A49">/</span><span style="color:#24292E">field selector, each of which can select a whole row:</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">            ROW_NAME</span><span style="color:#24292E"> to select a whole row by name.</span></span>
+<span class="line"><span style="color:#005CC5">            ROW_NUMBER</span><span style="color:#24292E"> to select a whole row by number.</span></span>
+<span class="line"><span style="color:#005CC5">            PAGE</span><span style="color:#24292E">:</span><span style="color:#005CC5">PAGE_ROW_NUMBER</span><span style="color:#24292E"> to select a whole row by page </span><span style="color:#D73A49">and</span><span style="color:#24292E"> number within page.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">            ...</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> can select a single field</span><span style="color:#D73A49">/</span><span style="color:#24292E">subset of a row (where </span><span style="color:#005CC5">ROW_SEL</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> one of the above row selectors):</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">            ROW_SEL</span><span style="color:#24292E">.</span><span style="color:#005CC5">FIELD_NAME</span><span style="color:#24292E"> to select a field within a row by name.</span></span>
+<span class="line"><span style="color:#005CC5">            ROW_SEL</span><span style="color:#24292E">.n</span><span style="color:#D73A49">-</span><span style="color:#24292E">m to select a </span><span style="color:#005CC5">range</span><span style="color:#24292E"> of bits within a row.</span></span>
+<span class="line"><span style="color:#005CC5">            ROW_SEL</span><span style="color:#24292E">.n to select a single bit within a row.</span></span>
+<span class="line"><span style="color:#24292E">            .</span><span style="color:#005CC5">FIELD_NAME</span><span style="color:#24292E"> to select </span><span style="color:#005CC5">any</span><span style="color:#24292E"> row</span><span style="color:#032F62">'s field by name.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">            .. </span><span style="color:#D73A49">or</span><span style="color:#24292E"> can select multiple rows by using blank </span><span style="color:#D73A49">or</span><span style="color:#032F62"> '*'</span><span style="color:#D73A49"> for</span><span style="color:#005CC5"> PAGE</span><span style="color:#D73A49"> or</span><span style="color:#005CC5"> PAGE_ROW_NUMBER</span></span></code></pre>
 <h2>coprodis</h2>
 <p>This command is used by the SDK to post-process dissassembly files, to replace the coprocessor instructions (mcr, mrc, etc.) with more human readable ones (eg rcp_bvalid, gpioc_hi_put, etc.).</p>
-<pre><code>$ picotool help coprodis
+<pre><code lang="py">$ picotool help coprodis
 COPRODIS:
     Post-process coprocessor instructions in disassembly files.
 

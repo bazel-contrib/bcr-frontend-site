@@ -21,7 +21,7 @@
 		<link href="/bcr.fe653611.css" type="text/css" rel="stylesheet">
 		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/21.1.1/primer.css" integrity="sha512-DQRZcDaNuIkb4JiH6PHalnncWllAK5txkJVocLdyfglJSavW/HxQaJRJeRw5eEPnp+kD1QImSxCwUiOsRrCMEw==" crossorigin="anonymous" referrerpolicy="no-referrer">
 		<script src="/bcr.51a7a491.js" defer=""></script>
-		<script src="/registry.578795ce.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8a2ea2af.pb.gz.b64.js" defer=""></script>
 	</head>
 
 	<body style="margin: 0 auto">
@@ -616,113 +616,113 @@ value. That is, <code>json j = "{ \"happy\": true, \"pi\": 3.141 }"</code> would
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> ]</span></span></code></pre>
 <h3>JSON Merge Patch</h3>
 <p>The library supports <strong>JSON Merge Patch</strong> (<a href="https://tools.ietf.org/html/rfc7386">RFC 7386</a>) as a patch format. Instead of using JSON Pointer (see above) to specify values to be manipulated, it describes the changes using a syntax that closely mimics the document being modified.</p>
-<pre><code lang="py">// a JSON value
-json j_document = R"({
-  "a": "b",
-  "c": {
-    "d": "e",
-    "f": "g"
-  }
-})"_json;
-
-// a patch
-json j_patch = R"({
-  "a":"z",
-  "c": {
-    "f": null
-  }
-})"_json;
-
-// apply the patch
-j_document.merge_patch(j_patch);
-// {
-//  "a": "z",
-//  "c": {
-//    "d": "e"
-//  }
-// }</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> a </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value</span></span>
+<span class="line"><span style="color:#24292E">json j_document </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> R</span><span style="color:#032F62">"({</span></span>
+<span class="line"><span style="color:#032F62">  "a"</span><span style="color:#24292E">: </span><span style="color:#032F62">"b"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "c"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">    "d"</span><span style="color:#24292E">: </span><span style="color:#032F62">"e"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "f"</span><span style="color:#24292E">: </span><span style="color:#032F62">"g"</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">})</span><span style="color:#032F62">"_json;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> a patch</span></span>
+<span class="line"><span style="color:#24292E">json j_patch </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> R</span><span style="color:#032F62">"({</span></span>
+<span class="line"><span style="color:#032F62">  "a"</span><span style="color:#24292E">:</span><span style="color:#032F62">"z"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "c"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">    "f"</span><span style="color:#24292E">: null</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">})</span><span style="color:#032F62">"_json;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> apply the patch</span></span>
+<span class="line"><span style="color:#24292E">j_document.merge_patch(j_patch)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#032F62">  "a"</span><span style="color:#24292E">: </span><span style="color:#032F62">"z"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#032F62">  "c"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#032F62">    "d"</span><span style="color:#24292E">: </span><span style="color:#032F62">"e"</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> }</span></span></code></pre>
 <h3>Implicit conversions</h3>
 <p>Supported types can be implicitly converted to JSON values.</p>
 <p>It is recommended to <strong>NOT USE</strong> implicit conversions <strong>FROM</strong> a JSON value.
 You can find more details about this recommendation <a href="https://www.github.com/nlohmann/json/issues/958">here</a>.
 You can switch off implicit conversions by defining <code>JSON_USE_IMPLICIT_CONVERSIONS</code> to <code>0</code> before including the <code>json.hpp</code> header. When using CMake, you can also achieve this by setting the option <code>JSON_ImplicitConversions</code> to <code>OFF</code>.</p>
-<pre><code>// strings
-std::string s1 = "Hello, world!";
-json js = s1;
-auto s2 = js.get&lt;std::string&gt;();
-// NOT RECOMMENDED
-std::string s3 = js;
-std::string s4;
-s4 = js;
-
-// Booleans
-bool b1 = true;
-json jb = b1;
-auto b2 = jb.get&lt;bool&gt;();
-// NOT RECOMMENDED
-bool b3 = jb;
-bool b4;
-b4 = jb;
-
-// numbers
-int i = 42;
-json jn = i;
-auto f = jn.get&lt;double&gt;();
-// NOT RECOMMENDED
-double f2 = jb;
-double f3;
-f3 = jb;
-
-// etc.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> strings</span></span>
+<span class="line"><span style="color:#24292E">std::string s1 </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Hello, world!"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">json js </span><span style="color:#D73A49">=</span><span style="color:#24292E"> s1</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto s2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> js.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> RECOMMENDED</span></span>
+<span class="line"><span style="color:#24292E">std::string s3 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> js</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">std::string s4</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">s4 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> js</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Booleans</span></span>
+<span class="line"><span style="color:#005CC5">bool</span><span style="color:#24292E"> b1 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> true</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">json jb </span><span style="color:#D73A49">=</span><span style="color:#24292E"> b1</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto b2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jb.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> RECOMMENDED</span></span>
+<span class="line"><span style="color:#005CC5">bool</span><span style="color:#24292E"> b3 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jb</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">bool</span><span style="color:#24292E"> b4</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">b4 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jb</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> numbers</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> i </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 42</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">json jn </span><span style="color:#D73A49">=</span><span style="color:#24292E"> i</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto f </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jn.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> NOT</span><span style="color:#005CC5"> RECOMMENDED</span></span>
+<span class="line"><span style="color:#24292E">double f2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jb</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">double f3</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">f3 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> jb</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> etc.</span></span></code></pre>
 <p>Note that <code>char</code> types are not automatically converted to JSON strings, but to integer numbers. A conversion to a string must be specified explicitly:</p>
-<pre><code>char ch = 'A';                       // ASCII value 65
-json j_default = ch;                 // stores integer number 65
-json j_string = std::string(1, ch);  // stores string "A"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">char ch </span><span style="color:#D73A49">=</span><span style="color:#032F62"> 'A'</span><span style="color:#24292E">;                       </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> ASCII</span><span style="color:#24292E"> value </span><span style="color:#005CC5">65</span></span>
+<span class="line"><span style="color:#24292E">json j_default </span><span style="color:#D73A49">=</span><span style="color:#24292E"> ch;                 </span><span style="color:#D73A49">//</span><span style="color:#24292E"> stores integer number </span><span style="color:#005CC5">65</span></span>
+<span class="line"><span style="color:#24292E">json j_string </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::string(</span><span style="color:#005CC5">1</span><span style="color:#24292E">, ch);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> stores string </span><span style="color:#032F62">"A"</span></span></code></pre>
 <h3>Arbitrary types conversions</h3>
 <p>Every type can be serialized in JSON, not just STL containers and scalar types. Usually, you would do something along those lines:</p>
-<pre><code>namespace ns {
-    // a simple struct to model a person
-    struct person {
-        std::string name;
-        std::string address;
-        int age;
-    };
-}
-
-ns::person p = {"Ned Flanders", "744 Evergreen Terrace", 60};
-
-// convert to JSON: copy each value into the JSON object
-json j;
-j["name"] = p.name;
-j["address"] = p.address;
-j["age"] = p.age;
-
-// ...
-
-// convert from JSON: copy each value from the JSON object
-ns::person p {
-    j["name"].get&lt;std::string&gt;(),
-    j["address"].get&lt;std::string&gt;(),
-    j["age"].get&lt;int&gt;()
-};</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">namespace ns {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> a simple struct to model a person</span></span>
+<span class="line"><span style="color:#24292E">    struct person {</span></span>
+<span class="line"><span style="color:#24292E">        std::string name;</span></span>
+<span class="line"><span style="color:#24292E">        std::string address;</span></span>
+<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> age;</span></span>
+<span class="line"><span style="color:#24292E">    };</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ns::person p </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">, </span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">, </span><span style="color:#005CC5">60</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> convert to </span><span style="color:#005CC5">JSON</span><span style="color:#24292E">: copy each value into the </span><span style="color:#005CC5">JSON</span><span style="color:#005CC5"> object</span></span>
+<span class="line"><span style="color:#24292E">json j</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">j[</span><span style="color:#032F62">"name"</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p.name</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">j[</span><span style="color:#032F62">"address"</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p.address</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">j[</span><span style="color:#032F62">"age"</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p.age</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> convert </span><span style="color:#D73A49">from</span><span style="color:#005CC5"> JSON</span><span style="color:#24292E">: copy each value </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the </span><span style="color:#005CC5">JSON</span><span style="color:#005CC5"> object</span></span>
+<span class="line"><span style="color:#24292E">ns::person p {</span></span>
+<span class="line"><span style="color:#24292E">    j[</span><span style="color:#032F62">"name"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(),</span></span>
+<span class="line"><span style="color:#24292E">    j[</span><span style="color:#032F62">"address"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(),</span></span>
+<span class="line"><span style="color:#24292E">    j[</span><span style="color:#032F62">"age"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>It works, but that's quite a lot of boilerplate... Fortunately, there's a better way:</p>
-<pre><code>// create a person
-ns::person p {"Ned Flanders", "744 Evergreen Terrace", 60};
-
-// conversion: person -&gt; json
-json j = p;
-
-std::cout &lt;&lt; j &lt;&lt; std::endl;
-// {"address":"744 Evergreen Terrace","age":60,"name":"Ned Flanders"}
-
-// conversion: json -&gt; person
-auto p2 = j.get&lt;ns::person&gt;();
-
-// that's it
-assert(p == p2);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a person</span></span>
+<span class="line"><span style="color:#24292E">ns::person p {</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">, </span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">, </span><span style="color:#005CC5">60</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: person </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> json</span></span>
+<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> j </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"address"</span><span style="color:#24292E">:</span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">,</span><span style="color:#032F62">"age"</span><span style="color:#24292E">:</span><span style="color:#005CC5">60</span><span style="color:#24292E">,</span><span style="color:#032F62">"name"</span><span style="color:#24292E">:</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: json </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> person</span></span>
+<span class="line"><span style="color:#24292E">auto p2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ns::person</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> that</span><span style="color:#032F62">'s it</span></span>
+<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(p </span><span style="color:#D73A49">==</span><span style="color:#24292E"> p2)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>Basic usage</h4>
 <p>To make this work with one of your types, you only need to provide two functions:</p>
-<pre><code>using json = nlohmann::json;
+<pre><code lang="py">using json = nlohmann::json;
 
 namespace ns {
     void to_json(json&amp; j, const person&amp; p) {

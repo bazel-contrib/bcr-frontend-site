@@ -35,10 +35,10 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e9e04e3c.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d6fbb962.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ae469f1d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.113e17b5.js" defer=""></script>
-		<script src="/registry.bf8d2076.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dd5b1a88.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/embree/4.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -357,10 +357,10 @@ into your path.</p>
 section.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre><code lang="py">cmake -B build \
-      -DCMAKE_CXX_COMPILER=clang++ \
-      -DCMAKE_C_COMPILER=clang \
-      -DEMBREE_SYCL_SUPPORT=ON</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DEMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
 <p>This will create a directory <code>build</code> to use as the CMake build directory,
 configure the usage of the oneAPI DPC++ Compiler, and turn on SYCL support
 through <code>EMBREE_SYCL_SUPPORT=ON</code>.</p>
@@ -370,20 +370,20 @@ through <code>EMBREE_SYCL_SUPPORT=ON</code>.</p>
 </ul>
 <p>After installation, you can set up the compiler by sourcing the
 <code>vars.sh</code> script in the <code>env</code> directory of the compiler install directory, for example,</p>
-<pre><code>source /opt/intel/oneAPI/compiler/latest/env/vars.sh</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">source </span><span style="color:#D73A49">/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">intel</span><span style="color:#D73A49">/</span><span style="color:#24292E">oneAPI</span><span style="color:#D73A49">/</span><span style="color:#24292E">compiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">latest</span><span style="color:#D73A49">/</span><span style="color:#24292E">env</span><span style="color:#D73A49">/</span><span style="color:#005CC5">vars</span><span style="color:#24292E">.sh</span></span></code></pre>
 <p>This script will put the <code>icpx</code> and <code>icx</code> compiler executables from the
 Intel(R) oneAPI DPC++/C++ Compiler in your path.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre><code>cmake -B build \
-      -DCMAKE_CXX_COMPILER=icpx \
-      -DCMAKE_C_COMPILER=icx \
-      -DEMBREE_SYCL_SUPPORT=ON</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icpx \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icx \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DEMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
 <p>More information about setting up the Intel(R) oneAPI DPC++/C++ compiler can be
 found in the <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup.html">Development Reference Guide</a>. Please note, that the Intel(R) oneAPI DPC++/C++ compiler
 requires <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup/use-the-command-line/use-cmake-with-the-compiler.html">at least CMake version 3.20.5 on Linux</a>.</p>
 <p>Independent of the DPC++ compiler choice, you can now build Embree using</p>
-<pre><code>cmake --build build -j 8</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#D73A49">-</span><span style="color:#24292E">j </span><span style="color:#005CC5">8</span></span></code></pre>
 <p>The executables will be generated inside the build folder. The
 executable names of the SYCL versions of the tutorials end with
 <code>_sycl</code>.</p>
@@ -395,7 +395,7 @@ the driver installation instructions for your graphics card and
 operating system.</p>
 <p>After installing the drivers you have to install an additional package
 manually using</p>
-<pre><code>sudo apt install intel-level-zero-gpu-raytracing</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo apt install intel</span><span style="color:#D73A49">-</span><span style="color:#24292E">level</span><span style="color:#D73A49">-</span><span style="color:#24292E">zero</span><span style="color:#D73A49">-</span><span style="color:#24292E">gpu</span><span style="color:#D73A49">-</span><span style="color:#24292E">raytracing</span></span></code></pre>
 <h2>Windows</h2>
 <p>Embree is tested using the following compilers under Windows:</p>
 <ul>
@@ -467,22 +467,22 @@ extensions for the "Microsoft Visual C++" editor.</p>
 <h3>Using the Command Line</h3>
 <p>Embree can also be configured and built without the IDE using the Visual
 Studio command prompt:</p>
-<pre><code>cd path\to\embree
-mkdir build
-cd build
-cmake -G "Visual Studio 16 2019" ..
-cmake --build . --config Release</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd path\</span><span style="color:#B31D28;font-style:italic">to\embree</span></span>
+<span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">G </span><span style="color:#032F62">"Visual Studio 16 2019"</span><span style="color:#24292E"> ..</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config Release</span></span></code></pre>
 <p>You can also build only some projects with the <code>--target</code> switch.
 Additional parameters after "<code>--</code>" will be passed to <code>msbuild</code>. For
 example, to build the Embree library in parallel use</p>
-<pre><code>cmake --build . --config Release --target embree -- /m</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config Release </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target embree </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> /</span><span style="color:#24292E">m</span></span></code></pre>
 <h3>Building Embree - Using vcpkg</h3>
 <p>You can download and install Embree using the <a href="https://github.com/Microsoft/vcpkg">vcpkg</a> dependency manager:</p>
-<pre><code>git clone https://github.com/Microsoft/vcpkg.git
-cd vcpkg
-./bootstrap-vcpkg.sh
-./vcpkg integrate install
-./vcpkg install embree3</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">Microsoft</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg.git</span></span>
+<span class="line"><span style="color:#24292E">cd vcpkg</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">bootstrap</span><span style="color:#D73A49">-</span><span style="color:#24292E">vcpkg.sh</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg integrate install</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg install embree3</span></span></code></pre>
 <p>The Embree port in vcpkg is kept up to date by Microsoft team members
 and community contributors. If the version is out of date, please
 <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a>
@@ -502,23 +502,23 @@ DPC++ compiler is</p>
 <p>Download and unpack the archive and open the "x64 Native Tools Command Prompt"
 of Visual Studio and execute the following lines to properly configure the
 environment to use the oneAPI DPC++ compiler:</p>
-<pre><code>set "DPCPP_DIR=path_to_dpcpp_compiler"
-set "PATH=%DPCPP_DIR%\bin;%PATH%"
-set "PATH=%DPCPP_DIR%\lib;%PATH%"
-set "CPATH=%DPCPP_DIR%\include;%CPATH%"
-set "INCLUDE=%DPCPP_DIR%\include;%INCLUDE%"
-set "LIB=%DPCPP_DIR%\lib;%LIB%"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "DPCPP_DIR=path_to_dpcpp_compiler"</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "PATH=%DPCPP_DIR%</span><span style="color:#005CC5">\b</span><span style="color:#032F62">in;%PATH%"</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "PATH=%DPCPP_DIR%\lib;%PATH%"</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "CPATH=%DPCPP_DIR%\include;%CPATH%"</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "INCLUDE=%DPCPP_DIR%\include;%INCLUDE%"</span></span>
+<span class="line"><span style="color:#005CC5">set</span><span style="color:#032F62"> "LIB=%DPCPP_DIR%\lib;%LIB%"</span></span></code></pre>
 <p>The <code>path_to_dpcpp_compiler</code> should point to the unpacked oneAPI DPC++
 compiler.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre><code>cmake -B build
-      -G Ninja
-      -D CMAKE_BUILD_TYPE=Release
-      -D CMAKE_CXX_COMPILER=clang++
-      -D CMAKE_C_COMPILER=clang
-      -D EMBREE_SYCL_SUPPORT=ON
-      -D TBB_ROOT=path_to_tbb\lib\cmake\tbb</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">G Ninja</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">EMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">TBB_ROOT</span><span style="color:#D73A49">=</span><span style="color:#24292E">path_to_tbb\</span><span style="color:#B31D28;font-style:italic">lib\cmake\tbb</span></span></code></pre>
 <p>This will create a directory <code>build</code> to use as the CMake build directory, and
 configure a release build that uses <code>clang++</code> and <code>clang</code> from the oneAPI DPC++
 compiler.</p>
@@ -533,29 +533,29 @@ option.</p>
 <p>After installation, you can either open a regular <code>Command Prompt</code> and execute
 the <code>vars.bat</code> script in the <code>env</code> directory of the compiler install directory,
 for example</p>
-<pre><code>C:\Program Files (x86)\Intel\oneAPI\compiler\latest\env\vars.bat</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">C:\</span><span style="color:#B31D28;font-style:italic">Program Files (x86)\Intel\oneAPI\compiler\latest\env\vars.bat</span></span></code></pre>
 <p>or simply open the installed "Intel oneAPI command prompt for Intel 64 for Visual Studio".</p>
 <p>Both ways will put the <code>icx</code> compiler executable from the
 Intel(R) oneAPI DPC++/C++ compiler in your path.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre><code>cmake -B build
-      -G Ninja
-      -D CMAKE_BUILD_TYPE=Release
-      -D CMAKE_CXX_COMPILER=icx
-      -D CMAKE_C_COMPILER=icx
-      -D EMBREE_SYCL_SUPPORT=ON
-      -D TBB_ROOT=path_to_tbb\lib\cmake\tbb</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">G Ninja</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icx</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icx</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">EMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">TBB_ROOT</span><span style="color:#D73A49">=</span><span style="color:#24292E">path_to_tbb\</span><span style="color:#B31D28;font-style:italic">lib\cmake\tbb</span></span></code></pre>
 <p>More information about setting up the Intel(R) oneAPI DPC++/C++ compiler can be
 found in the <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup.html">Development Reference Guide</a>. Please note, that the Intel(R) oneAPI DPC++/C++ compiler
 requires <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup/use-the-command-line/use-cmake-with-the-compiler.html">at least CMake version 3.23 on Windows</a>.</p>
 <p>Independent of the DPC++ compiler choice, you can now build Embree using</p>
-<pre><code>cmake --build build</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span></span></code></pre>
 <p>If you have problems with Ninja re-running CMake in an infinite loop,
 then first remove the "Re-run CMake if any of its inputs changed."
 section from the <code>build.ninja</code> file and run the above command again.</p>
 <p>You can also create an Embree package using the following command:</p>
-<pre><code>cmake --build build --target package</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target package</span></span></code></pre>
 <p>Please see the [Building Embree SYCL Applications] section on how to build
 your application with such an Embree package.</p>
 <h3>Windows Graphics Driver Installation</h3>
@@ -963,18 +963,18 @@ user geometries, filter callbacks, multi-level instancing, and motion
 blur.</p>
 <p>To enable SYCL support you have to include the <code>sycl.hpp</code> file before
 the Embree API headers:</p>
-<pre><code>#include &lt;sycl/sycl.hpp&gt;
-#include &lt;embree4/rtcore.h&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;sycl/sycl.hpp&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span></code></pre>
 <p>Next you need to initializes an Embree SYCL device using the
 <code>rtcNewSYCLDevice</code> API function by providing a SYCL context.</p>
 <p>Embree provides the <code>rtcIsSYCLDeviceSupported</code> API function to check if
 some SYCL device is supported by Embree. You can also use the
 <code>rtcSYCLDeviceSelector</code> to conveniently select the first SYCL device
 that is supported by Embree, e.g.:</p>
-<pre><code>sycl::device device(rtcSYCLDeviceSelector);
-sycl::queue queue(device, exception_handler);
-sycl::context context(device);
-RTCDevice device = rtcNewSYCLDevice(context,"");</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sycl::device device(rtcSYCLDeviceSelector)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sycl::queue queue(device, exception_handler)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sycl::context context(device)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">RTCDevice device </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rtcNewSYCLDevice(context,</span><span style="color:#032F62">""</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>Scenes created with an Embree SYCL device can only get used to trace
 rays using SYCL on the GPU, it is not possible to trace rays on the CPU
 with such a device. To render on the CPU and GPU in parallel, the user
@@ -1010,51 +1010,51 @@ index buffers) is to allocate the data as USM shared memory, using the
 <code>sycl::malloc</code> or <code>sycl::aligned_alloc</code> calls with
 <code>sycl::usm::alloc::shared</code> property, or the sycl::aligned_alloc_shared
 call, e.g:</p>
-<pre><code>void* ptr = sycl::aligned_alloc(16, bytes, queue, sycl::usm::alloc::shared);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> ptr </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sycl::aligned_alloc(</span><span style="color:#005CC5">16</span><span style="color:#24292E">, </span><span style="color:#005CC5">bytes</span><span style="color:#24292E">, queue, sycl::usm::alloc::shared)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>These shared allocations have to be valid during rendering, as Embree
 may access contained data when tracing rays.</p>
 <p>Device side rendering can get invoked by submitting a SYCL
 <code>parallel_for</code> to the SYCL queue:</p>
-<pre><code>const sycl::specialization_id&lt;RTCFeatureFlags&gt; feature_mask;
-
-RTCFeatureFlags required_features = RTC_FEATURE_FLAG_TRIANGLE;
-
-RTCTraversable traversable = rtcGetSceneTraversable(scene);
-
-queue.submit([=](sycl::handler&amp; cgh)
-{
-  cgh.set_specialization_constant&lt;feature_mask&gt;(required_features);
-  
-  cgh.parallel_for(sycl::range&lt;1&gt;(1),[=](sycl::id&lt;1&gt; item, sycl::kernel_handler kh)
-  {
-    RTCIntersectArguments args;
-    rtcInitIntersectArguments(&amp;args);
-
-    const RTCFeatureFlags features = kh.get_specialization_constant&lt;feature_mask&gt;();
-    args.feature_mask = features;
-
-    struct RTCRayHit rayhit;
-    rayhit.ray.org_x = ox;
-    rayhit.ray.org_y = oy;
-    rayhit.ray.org_z = oz;
-    rayhit.ray.dir_x = dx;
-    rayhit.ray.dir_y = dy;
-    rayhit.ray.dir_z = dz;
-    rayhit.ray.tnear = 0;
-    rayhit.ray.tfar = std::numeric_limits&lt;float&gt;::infinity();
-    rayhit.ray.mask = -1;
-    rayhit.ray.flags = 0;
-    rayhit.hit.geomID = RTC_INVALID_GEOMETRY_ID;
-    rayhit.hit.instID[0] = RTC_INVALID_GEOMETRY_ID;
-
-    rtcTraversableIntersect1(traversable, &amp;rayhit, &amp;args);
-
-    result-&gt;geomID = rayhit.hit.geomID;
-    result-&gt;primID = rayhit.hit.primID;
-    result-&gt;tfar = rayhit.ray.tfar;
-  });
-});
-queue.wait_and_throw();</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">const sycl::specialization_id</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">RTCFeatureFlags</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> feature_mask</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCFeatureFlags required_features </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> RTC_FEATURE_FLAG_TRIANGLE</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCTraversable traversable </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rtcGetSceneTraversable(scene)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">queue.submit([=](sycl::handler</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> cgh)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  cgh.set_specialization_constant</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">feature_mask</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(required_features);</span></span>
+<span class="line"><span style="color:#24292E">  </span></span>
+<span class="line"><span style="color:#24292E">  cgh.parallel_for(sycl::</span><span style="color:#005CC5">range</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">),[=](sycl::</span><span style="color:#005CC5">id</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> item, sycl::kernel_handler kh)</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#24292E">    RTCIntersectArguments args;</span></span>
+<span class="line"><span style="color:#24292E">    rtcInitIntersectArguments(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">args);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    const RTCFeatureFlags features = kh.get_specialization_constant</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">feature_mask</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">    args.feature_mask = features;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    struct RTCRayHit rayhit;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.org_x = ox;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.org_y = oy;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.org_z = oz;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.dir_x = dx;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.dir_y = dy;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.dir_z = dz;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.tnear = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.tfar = std::numeric_limits</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">float</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::infinity();</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.mask = </span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.ray.flags = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.hit.geomID = </span><span style="color:#005CC5">RTC_INVALID_GEOMETRY_ID</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">    rayhit.hit.instID[</span><span style="color:#005CC5">0</span><span style="color:#24292E">] = </span><span style="color:#005CC5">RTC_INVALID_GEOMETRY_ID</span><span style="color:#24292E">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    rtcTraversableIntersect1(traversable, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">rayhit, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">args);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    result</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">geomID = rayhit.hit.geomID;</span></span>
+<span class="line"><span style="color:#24292E">    result</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">primID = rayhit.hit.primID;</span></span>
+<span class="line"><span style="color:#24292E">    result</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">tfar = rayhit.ray.tfar;</span></span>
+<span class="line"><span style="color:#24292E">  });</span></span>
+<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">queue.wait_and_throw()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>This example passes a feature mask using a specialization constant to
 the <code>rtcTraversableIntersect1</code> function, which is recommended for GPU
 rendering. For best performance, this feature mask should get used to
@@ -1080,11 +1080,11 @@ compilation caching inside your application, by setting the
 <code>SYCL_CACHE_DIR</code> environment variable to some proper directory where
 the JIT cache should get stored. These environment variables have to
 get set before the SYCL device is created, e.g:</p>
-<pre><code>setenv("SYCL_CACHE_PERSISTENT","1",1);
-setenv("SYCL_CACHE_DIR","cache_dir",1);
-
-sycl::device device(rtcSYCLDeviceSelector);
-...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">setenv(</span><span style="color:#032F62">"SYCL_CACHE_PERSISTENT"</span><span style="color:#24292E">,</span><span style="color:#032F62">"1"</span><span style="color:#24292E">,</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">setenv(</span><span style="color:#032F62">"SYCL_CACHE_DIR"</span><span style="color:#24292E">,</span><span style="color:#032F62">"cache_dir"</span><span style="color:#24292E">,</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">sycl::device device(rtcSYCLDeviceSelector)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
 <h2>SYCL Memory Pooling</h2>
 <p>Memory Pooling is a mechanism where small USM memory allocations are
 packed into larger allocation blocks. This mode is required when your
@@ -1094,8 +1094,8 @@ will be low.</p>
 <p>Memory pooling is supported for USM allocations that are read-only by
 the device. The following example allocated device read-only memory
 with memory pooling support:</p>
-<pre><code>sycl::aligned_alloc_shared(align, bytes, queue,
-  sycl::ext::oneapi::property::usm::device_read_only());</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sycl::aligned_alloc_shared(align, </span><span style="color:#005CC5">bytes</span><span style="color:#24292E">, queue,</span></span>
+<span class="line"><span style="color:#24292E">  sycl::ext::oneapi::</span><span style="color:#005CC5">property</span><span style="color:#24292E">::usm::device_read_only())</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h2>Embree SYCL Limitations</h2>
 <p>Embree only supports Xe HPC and HPG GPUs as SYCL devices, thus in
 particular the CPU and other GPUs cannot get used as a SYCL device. To
@@ -1267,15 +1267,15 @@ application.</p>
 callbacks.</p>
 </li>
 </ul>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h1>Embree API Reference</h1>
 <h2>rtcNewDevice</h2>
 <h4>NAME</h4>
-<pre><code>rtcNewDevice - creates a new device</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new device</span></span></code></pre>
 <h4>SYNOPSIS</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCDevice rtcNewDevice(const char* config);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCDevice rtcNewDevice(const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> config)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION</h4>
 <p>This function creates a new device to be used for CPU ray tracing and
 returns a handle to this device. The device object is reference counted
@@ -1353,21 +1353,21 @@ CPU has no significant down clocking.</p>
 </li>
 </ul>
 <p>Different configuration options should be separated by commas, e.g.:</p>
-<pre><code>rtcNewDevice("threads=1,isa=avx");</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewDevice(</span><span style="color:#032F62">"threads=1,isa=avx"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>EXIT STATUS</h4>
 <p>On success returns a handle of the created device. On failure returns
 <code>NULL</code> as device and sets a per-thread error code that can be queried
 using <code>rtcGetDeviceError(NULL)</code>.</p>
 <h4>SEE ALSO</h4>
 <p>[rtcRetainDevice], [rtcReleaseDevice], [rtcNewSYCLDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcNewSYCLDevice</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcNewSYCLDevice - creates a new device to be used with SYCL</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewSYCLDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new device to be used </span><span style="color:#D73A49">with</span><span style="color:#005CC5"> SYCL</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCDevice rtcNewSYCLDevice(sycl::context context, const char* config);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCDevice rtcNewSYCLDevice(sycl::context context, const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> config)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function creates a new device to be used with SYCL for GPU
 rendering and returns a handle to this device. The device object is
@@ -1393,14 +1393,14 @@ argument) please see the [rtcNewDevice] function description.</p>
 using <code>rtcGetDeviceError(NULL)</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcRetainDevice], [rtcReleaseDevice], [rtcNewDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcIsSYCLDeviceSupported</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcIsSYCLDeviceSupported - checks if some SYCL device is supported by Embree</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcIsSYCLDeviceSupported </span><span style="color:#D73A49">-</span><span style="color:#24292E"> checks </span><span style="color:#D73A49">if</span><span style="color:#24292E"> some </span><span style="color:#005CC5">SYCL</span><span style="color:#24292E"> device </span><span style="color:#D73A49">is</span><span style="color:#24292E"> supported by Embree</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-bool rtcIsSYCLDeviceSupported(const sycl::device sycl_device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">bool</span><span style="color:#24292E"> rtcIsSYCLDeviceSupported(const sycl::device sycl_device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function can be used to check if some SYCL device (<code>sycl_device</code>
 argument) is supported by Embree.</p>
@@ -1410,15 +1410,15 @@ false otherwise. On failure an error code is set that can get queried
 using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSYCLDeviceSelector]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSYCLDeviceSelector</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSYCLDeviceSelector - SYCL device selector function to select
-  devices supported by Embree</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSYCLDeviceSelector </span><span style="color:#D73A49">-</span><span style="color:#005CC5"> SYCL</span><span style="color:#24292E"> device selector function to select</span></span>
+<span class="line"><span style="color:#24292E">  devices supported by Embree</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-int rtcSYCLDeviceSelector(const sycl::device sycl_device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> rtcSYCLDeviceSelector(const sycl::device sycl_device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function checks if the passed SYCL device (<code>sycl_device</code>
 arguments) is supported by Embree or not. This function can be used
@@ -1426,24 +1426,24 @@ directly to select some supported SYCL device by using it as SYCL
 device selector function. For instance, the following code sequence
 selects an Embree supported SYCL device and creates an Embree device
 from it:</p>
-<pre><code>sycl::device sycl_device(rtcSYCLDeviceSelector);
-sycl::queue sycl_queue(sycl_device);
-sycl::context(sycl_device);
-RTCDevice device = rtcNewSYCLDevice(sycl_context,nullptr);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sycl::device sycl_device(rtcSYCLDeviceSelector)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sycl::queue sycl_queue(sycl_device)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">sycl::context(sycl_device)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">RTCDevice device </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rtcNewSYCLDevice(sycl_context,nullptr)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>EXIT STATUS {#exit-status}</h4>
 <p>The function returns -1 if the SYCL device is supported by Embree and 1
 otherwise. On failure an error code is set that can get queried using
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcIsSYCLDeviceSupported]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetDeviceSYCLDevice</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetDeviceSYCLDevice - sets the SYCL device to be used for memory allocations</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetDeviceSYCLDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the </span><span style="color:#005CC5">SYCL</span><span style="color:#24292E"> device to be used </span><span style="color:#D73A49">for</span><span style="color:#24292E"> memory allocations</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetDeviceSYCLDevice(RTCDevice device, const sycl::device sycl_device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetDeviceSYCLDevice(RTCDevice device, const sycl::device sycl_device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function sets the SYCL device (<code>sycl_device</code> argument) to be used
 to allocate GPU memory when using the specified Embree device (<code>device</code>
@@ -1454,14 +1454,14 @@ inside the SYCL context used to create the Embree device.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewSYCLDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcRetainDevice</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcRetainDevice - increments the device reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcRetainDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> increments the device reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcRetainDevice(RTCDevice device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcRetainDevice(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Device objects are reference counted. The <code>rtcRetainDevice</code> function
 increments the reference count of the passed device object (<code>device</code>
@@ -1473,14 +1473,14 @@ ownership of the object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice], [rtcReleaseDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcReleaseDevice</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcReleaseDevice - decrements the device reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcReleaseDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> decrements the device reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcReleaseDevice(RTCDevice device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcReleaseDevice(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Device objects are reference counted. The <code>rtcReleaseDevice</code> function
 decrements the reference count of the passed device object (<code>device</code>
@@ -1494,17 +1494,17 @@ unless these objects are destroyed first.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice], [rtcRetainDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetDeviceProperty</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetDeviceProperty - queries properties of the device</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceProperty </span><span style="color:#D73A49">-</span><span style="color:#24292E"> queries properties of the device</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-ssize_t rtcGetDeviceProperty(
-  RTCDevice device,
-  enum RTCDeviceProperty prop
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ssize_t rtcGetDeviceProperty(</span></span>
+<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCDeviceProperty prop</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetDeviceProperty</code> function can be used to query properties
 (<code>prop</code> argument) of a device object (<code>device</code> argument). The returned
@@ -1622,14 +1622,14 @@ returning a boolean value, the return value 0 denotes <code>false</code> and 1
 denotes <code>true</code>.</p>
 <p>On failure zero is returned and an error code is set that can be
 queried using <code>rtcGetDeviceError</code>.</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetDeviceError</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetDeviceError - returns the error code of the device</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceError </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the error code of the device</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCError rtcGetDeviceError(RTCDevice device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCError rtcGetDeviceError(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Each thread has its own error code per device. If an error occurs when
 calling an API function, this error code is set to the occurred error
@@ -1682,15 +1682,15 @@ of a given <code>RTCError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetDeviceErrorFunction], [rtcGetDeviceLastErrorMessage],
 [rtcGetErrorString]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetDeviceLastErrorMessage</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetDeviceLastErrorMessage - returns a message corresponding
-  to the last error code</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceLastErrorMessage </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns a message corresponding</span></span>
+<span class="line"><span style="color:#24292E">  to the last error code</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-const char* rtcGetDeviceLastErrorMessage(RTCDevice device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> rtcGetDeviceLastErrorMessage(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function can be used to get a message corresponding to the last
 error code (returned by <code>rtcGetDeviceError</code>) which often provides
@@ -1708,15 +1708,15 @@ specified.</p>
 <p>Returns a message corresponding to the last error code.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError], [rtcSetDeviceErrorFunction]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetErrorString</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetErrorString - returns a string representation
-  of a given RTCError</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetErrorString </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns a string representation</span></span>
+<span class="line"><span style="color:#24292E">  of a given RTCError</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-const char* rtcGetErrorString(RTCError code);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> rtcGetErrorString(RTCError code)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Returns a string representation for a <code>RTCError</code> error code. For
 example, for the <code>RTCError</code> RTC_ERROR_UNKNOWN this function will return
@@ -1730,24 +1730,24 @@ should be used.</p>
 <p>Returns a string representation of a given <code>RTCError</code> error code.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetDeviceErrorFunction</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetDeviceErrorFunction - sets an error callback function for the device</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetDeviceErrorFunction </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets an error callback function </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the device</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-typedef void (*RTCErrorFunction)(
-  void* userPtr,
-  RTCError code,
-  const char* str
-);
-
-void rtcSetDeviceErrorFunction(
-  RTCDevice device,
-  RTCErrorFunction error,
-  void* userPtr
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">typedef void (</span><span style="color:#D73A49">*</span><span style="color:#24292E">RTCErrorFunction)(</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr,</span></span>
+<span class="line"><span style="color:#24292E">  RTCError code,</span></span>
+<span class="line"><span style="color:#24292E">  const char</span><span style="color:#D73A49">*</span><span style="color:#005CC5"> str</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetDeviceErrorFunction(</span></span>
+<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
+<span class="line"><span style="color:#24292E">  RTCErrorFunction error,</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Using the <code>rtcSetDeviceErrorFunction</code> call, it is possible to set a
 callback function (<code>error</code> argument) with payload (<code>userPtr</code> argument),
@@ -1767,25 +1767,25 @@ as a string (<code>str</code> argument) that further describes the error.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetDeviceMemoryMonitorFunction</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetDeviceMemoryMonitorFunction - registers a callback function
-  to track memory consumption</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetDeviceMemoryMonitorFunction </span><span style="color:#D73A49">-</span><span style="color:#24292E"> registers a callback function</span></span>
+<span class="line"><span style="color:#24292E">  to track memory consumption</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-typedef bool (*RTCMemoryMonitorFunction)(
-  void* userPtr,
-  ssize_t bytes,
-  bool post
-);
-
-void rtcSetDeviceMemoryMonitorFunction(
-  RTCDevice device,
-  RTCMemoryMonitorFunction memoryMonitor,
-  void* userPtr
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">typedef </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> (</span><span style="color:#D73A49">*</span><span style="color:#24292E">RTCMemoryMonitorFunction)(</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr,</span></span>
+<span class="line"><span style="color:#24292E">  ssize_t </span><span style="color:#005CC5">bytes</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5">  bool</span><span style="color:#24292E"> post</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetDeviceMemoryMonitorFunction(</span></span>
+<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
+<span class="line"><span style="color:#24292E">  RTCMemoryMonitorFunction memoryMonitor,</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Using the <code>rtcSetDeviceMemoryMonitorFunction</code> call, it is possible to
 register a callback function (<code>memoryMonitor</code> argument) with payload
@@ -1827,14 +1827,14 @@ happened and a deallocation will later free that data block.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcNewScene</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcNewScene - creates a new scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCScene rtcNewScene(RTCDevice device);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCScene rtcNewScene(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function creates a new scene bound to the specified device
 (<code>device</code> argument), and returns a handle to this scene. The scene
@@ -1845,14 +1845,14 @@ scene handle can be released using the <code>rtcReleaseScene</code> API call.</p
 and an error code is set that can be queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcRetainScene], [rtcReleaseScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetSceneDevice</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetSceneDevice - returns the device the scene got created in</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the device the scene got created </span><span style="color:#D73A49">in</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCDevice rtcGetSceneDevice(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCDevice rtcGetSceneDevice(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function returns the device object the scene got created in. The
 returned handle own one additional reference to the device object, thus
@@ -1863,14 +1863,14 @@ no longer required.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcReleaseDevice]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcRetainScene</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcRetainScene - increments the scene reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcRetainScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> increments the scene reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcRetainScene(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcRetainScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Scene objects are reference counted. The <code>rtcRetainScene</code> function
 increments the reference count of the passed scene object (<code>scene</code>
@@ -1882,14 +1882,14 @@ ownership of the object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewScene], [rtcReleaseScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcReleaseScene</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcReleaseScene - decrements the scene reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcReleaseScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> decrements the scene reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcReleaseScene(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcReleaseScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Scene objects are reference counted. The <code>rtcReleaseScene</code> function
 decrements the reference count of the passed scene object (<code>scene</code>
@@ -1903,17 +1903,17 @@ count decremented.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewScene], [rtcRetainScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcAttachGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcAttachGeometry - attaches a geometry to the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcAttachGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> attaches a geometry to the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-unsigned int rtcAttachGeometry(
-  RTCScene scene,
-  RTCGeometry geometry
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> rtcAttachGeometry(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcAttachGeometry</code> function attaches a geometry (<code>geometry</code>
 argument) to a scene (<code>scene</code> argument) and assigns a geometry ID to
@@ -1938,19 +1938,19 @@ map to its geometry representation. See <code>rtcSetGeometryUserData</code> and
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetGeometryUserData], [rtcGetGeometryUserData]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcAttachGeometryByID</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcAttachGeometryByID - attaches a geometry to the scene
-  using a specified geometry ID</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcAttachGeometryByID </span><span style="color:#D73A49">-</span><span style="color:#24292E"> attaches a geometry to the scene</span></span>
+<span class="line"><span style="color:#24292E">  using a specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcAttachGeometryByID(
-  RTCScene scene,
-  RTCGeometry geometry,
-  unsigned int geomID
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcAttachGeometryByID(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcAttachGeometryByID</code> function attaches a geometry (<code>geometry</code>
 argument) to a scene (<code>scene</code> argument) and assigns a user provided
@@ -1973,14 +1973,14 @@ consumption and performance overhead.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcDetachGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcDetachGeometry - detaches a geometry from the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcDetachGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> detaches a geometry </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcDetachGeometry(RTCScene scene, unsigned int geomID);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcDetachGeometry(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function detaches a geometry identified by its geometry ID
 (<code>geomID</code> argument) from a scene (<code>scene</code> argument). When detached, the
@@ -1992,15 +1992,15 @@ geometries from a scene at the same time.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetGeometry - returns the geometry bound to
-  the specified geometry ID</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the geometry bound to</span></span>
+<span class="line"><span style="color:#24292E">  the specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry rtcGetGeometry(RTCScene scene, unsigned int geomID);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry rtcGetGeometry(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetGeometry</code> function returns the geometry that is bound to the
 specified geometry ID (<code>geomID</code> argument) for the specified scene
@@ -2019,15 +2019,15 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID],
 [rtcGetGeometryThreadSafe]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetGeometryThreadSafe</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetGeometryThreadSafe - returns the geometry bound to
-  the specified geometry ID</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetGeometryThreadSafe </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the geometry bound to</span></span>
+<span class="line"><span style="color:#24292E">  the specified geometry </span><span style="color:#005CC5">ID</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry rtcGetGeometryThreadSafe(RTCScene scene, unsigned int geomID);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry rtcGetGeometryThreadSafe(RTCScene scene, unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> geomID)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetGeometryThreadSafe</code> function returns the geometry that is
 bound to the specified geometry ID (<code>geomID</code> argument) for the
@@ -2043,14 +2043,14 @@ the [rtcGetGeometry] function.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcAttachGeometry], [rtcAttachGeometryByID], [rtcGetGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcCommitScene</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcCommitScene - commits scene changes</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcCommitScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits scene changes</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcCommitScene(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcCommitScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcCommitScene</code> function commits all changes for the specified
 scene (<code>scene</code> argument). This internally triggers building of a
@@ -2097,17 +2097,17 @@ every scene commit.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcCommitSceneWithQueue], [rtcJoinCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcCommitSceneWithQueue</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcCommitSceneWithQueue - commits scene changes using a given
-  SYCL queue for host-to-device memory transfers</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcCommitSceneWithQueue </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits scene changes using a given</span></span>
+<span class="line"><span style="color:#005CC5">  SYCL</span><span style="color:#24292E"> queue </span><span style="color:#D73A49">for</span><span style="color:#24292E"> host</span><span style="color:#D73A49">-</span><span style="color:#24292E">to</span><span style="color:#D73A49">-</span><span style="color:#24292E">device memory transfers</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcCommitScene(RTCScene scene,
-  sycl::queue queue,
-  sycl::event* event);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcCommitScene(RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  sycl::queue queue,</span></span>
+<span class="line"><span style="color:#24292E">  sycl::event</span><span style="color:#D73A49">*</span><span style="color:#24292E"> event)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcCommitSceneWithQueue</code> function commits all changes for the
 specified scene (<code>scene</code> argument). This internally triggers building
@@ -2137,14 +2137,14 @@ the RTCDevice associated with the <code>scene</code> is not a SYCL device,
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcJoinCommitScene</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcJoinCommitScene - commits the scene from multiple threads</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcJoinCommitScene </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits the scene </span><span style="color:#D73A49">from</span><span style="color:#24292E"> multiple threads</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcJoinCommitScene(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcJoinCommitScene(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcJoinCommitScene</code> function commits all changes for the specified
 scene (<code>scene</code> argument). The scene commit internally triggers building
@@ -2195,24 +2195,24 @@ result in an error.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcCommitScene], [rtcGetDeviceProperty]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetSceneProgressMonitorFunction</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetSceneProgressMonitorFunction - registers a callback
-  to track build progress</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetSceneProgressMonitorFunction </span><span style="color:#D73A49">-</span><span style="color:#24292E"> registers a callback</span></span>
+<span class="line"><span style="color:#24292E">  to track build progress</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-typedef bool (*RTCProgressMonitorFunction)(
-  void* ptr,
-  double n
-);
-
-void rtcSetSceneProgressMonitorFunction(
-  RTCScene scene,
-  RTCProgressMonitorFunction progress,
-  void* userPtr
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">typedef </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> (</span><span style="color:#D73A49">*</span><span style="color:#24292E">RTCProgressMonitorFunction)(</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> ptr,</span></span>
+<span class="line"><span style="color:#24292E">  double n</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetSceneProgressMonitorFunction(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  RTCProgressMonitorFunction progress,</span></span>
+<span class="line"><span style="color:#24292E">  void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> userPtr</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Embree supports a progress monitor callback mechanism that can be used
 to report progress of hierarchy build operations and to cancel build
@@ -2240,18 +2240,18 @@ allowed.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetSceneBuildQuality</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetSceneBuildQuality - sets the build quality for
-  the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetSceneBuildQuality </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the build quality </span><span style="color:#D73A49">for</span></span>
+<span class="line"><span style="color:#24292E">  the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetSceneBuildQuality(
-  RTCScene scene,
-  enum RTCBuildQuality quality
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetSceneBuildQuality(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCBuildQuality quality</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetSceneBuildQuality</code> function sets the build quality
 (<code>quality</code> argument) for the specified scene (<code>scene</code> argument).
@@ -2280,23 +2280,23 @@ for a scene is <code>RTC_BUILD_QUALITY_MEDIUM</code>.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetGeometryBuildQuality]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetSceneFlags</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetSceneFlags - sets the flags for the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetSceneFlags </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the flags </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-enum RTCSceneFlags
-{
-  RTC_SCENE_FLAG_NONE                    = 0,
-  RTC_SCENE_FLAG_DYNAMIC                 = (1 &lt;&lt; 0),
-  RTC_SCENE_FLAG_COMPACT                 = (1 &lt;&lt; 1),
-  RTC_SCENE_FLAG_ROBUST                  = (1 &lt;&lt; 2),
-  RTC_SCENE_FLAG_FILTER_FUNCTION_IN_ARGUMENTS = (1 &lt;&lt; 3)
-};
-
-void rtcSetSceneFlags(RTCScene scene, enum RTCSceneFlags flags);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">enum RTCSceneFlags</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_SCENE_FLAG_NONE</span><span style="color:#24292E">                    = </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_SCENE_FLAG_DYNAMIC</span><span style="color:#24292E">                 = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_SCENE_FLAG_COMPACT</span><span style="color:#24292E">                 = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_SCENE_FLAG_ROBUST</span><span style="color:#24292E">                  = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 2</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_SCENE_FLAG_FILTER_FUNCTION_IN_ARGUMENTS</span><span style="color:#24292E"> = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 3</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetSceneFlags(RTCScene scene, enum RTCSceneFlags flags)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetSceneFlags</code> function sets the scene flags (<code>flags</code> argument)
 for the specified scene (<code>scene</code> argument). Possible scene flags are:</p>
@@ -2328,42 +2328,42 @@ e.g.&nbsp;<code>RTC_SCENE_FLAG_COMPACT | RTC_SCENE_FLAG_ROBUST</code>.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetSceneFlags]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetSceneFlags</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetSceneFlags - returns the flags of the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneFlags </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the flags of the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-enum RTCSceneFlags rtcGetSceneFlags(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">enum RTCSceneFlags rtcGetSceneFlags(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Queries the flags of a scene. This function can be useful when setting
 individual flags, e.g.&nbsp;to just set the robust mode without changing
 other flags the following way:</p>
-<pre><code>RTCSceneFlags flags = rtcGetSceneFlags(scene);
-rtcSetSceneFlags(scene, RTC_SCENE_FLAG_ROBUST | flags);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">RTCSceneFlags flags </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rtcGetSceneFlags(scene)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetSceneFlags(scene, </span><span style="color:#005CC5">RTC_SCENE_FLAG_ROBUST</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> flags)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>EXIT STATUS {#exit-status}</h4>
 <p>On failure <code>RTC_SCENE_FLAG_NONE</code> is returned and an error code is set
 that can be queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetSceneFlags]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetSceneBounds</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetSceneBounds - returns the axis-aligned bounding box of the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneBounds </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the axis</span><span style="color:#D73A49">-</span><span style="color:#24292E">aligned bounding box of the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-struct RTCORE_ALIGN(16) RTCBounds
-{
-  float lower_x, lower_y, lower_z, align0;
-  float upper_x, upper_y, upper_z, align1;
-};
-
-void rtcGetSceneBounds(
-  RTCScene scene,
-  struct RTCBounds* bounds_o
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">struct RTCORE_ALIGN(</span><span style="color:#005CC5">16</span><span style="color:#24292E">) RTCBounds</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#005CC5">  float</span><span style="color:#24292E"> lower_x, lower_y, lower_z, align0;</span></span>
+<span class="line"><span style="color:#005CC5">  float</span><span style="color:#24292E"> upper_x, upper_y, upper_z, align1;</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcGetSceneBounds(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  struct RTCBounds</span><span style="color:#D73A49">*</span><span style="color:#24292E"> bounds_o</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetSceneBounds</code> function queries the axis-aligned bounding box
 of the specified scene (<code>scene</code> argument) and stores that bounding box
@@ -2378,23 +2378,23 @@ result is undefined.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetSceneLinearBounds], [rtcCommitScene], [rtcJoinCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetSceneLinearBounds</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetSceneLinearBounds - returns the linear bounds of the scene</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneLinearBounds </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the linear bounds of the scene</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-struct RTCORE_ALIGN(16) RTCLinearBounds
-{
-  RTCBounds bounds0;
-  RTCBounds bounds1;
-};
-
-void rtcGetSceneLinearBounds(
-  RTCScene scene,
-  struct RTCLinearBounds* bounds_o
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">struct RTCORE_ALIGN(</span><span style="color:#005CC5">16</span><span style="color:#24292E">) RTCLinearBounds</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  RTCBounds bounds0;</span></span>
+<span class="line"><span style="color:#24292E">  RTCBounds bounds1;</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcGetSceneLinearBounds(</span></span>
+<span class="line"><span style="color:#24292E">  RTCScene scene,</span></span>
+<span class="line"><span style="color:#24292E">  struct RTCLinearBounds</span><span style="color:#D73A49">*</span><span style="color:#24292E"> bounds_o</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetSceneLinearBounds</code> function queries the linear bounds of the
 specified scene (<code>scene</code> argument) and stores them to the provided
@@ -2411,15 +2411,15 @@ result is undefined.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetSceneBounds], [rtcCommitScene], [rtcJoinCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcGetSceneTraversable</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcGetSceneTraversable - gets a read-only hand to a RTCScene object
-  that is also valid on a SYCL device and can be used for ray queries.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetSceneTraversable </span><span style="color:#D73A49">-</span><span style="color:#24292E"> gets a read</span><span style="color:#D73A49">-</span><span style="color:#24292E">only hand to a RTCScene </span><span style="color:#005CC5">object</span></span>
+<span class="line"><span style="color:#24292E">  that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> also valid on a </span><span style="color:#005CC5">SYCL</span><span style="color:#24292E"> device </span><span style="color:#D73A49">and</span><span style="color:#24292E"> can be used </span><span style="color:#D73A49">for</span><span style="color:#24292E"> ray queries.</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCTraversable rtcGetSceneTraversable(RTCScene scene);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCTraversable rtcGetSceneTraversable(RTCScene scene)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetSceneTraversable</code> function returns a read-only handle to a
 RTCScene object (<code>scene</code> argument). Traversable objects are used for
@@ -2432,46 +2432,46 @@ write portable code compatible with CPU and SYCL device execution.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcTraversableIntersect1]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcNewGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcNewGeometry - creates a new geometry object</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcNewGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> creates a new geometry </span><span style="color:#005CC5">object</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-enum RTCGeometryType
-{
- RTC_GEOMETRY_TYPE_TRIANGLE,
- RTC_GEOMETRY_TYPE_QUAD,
- RTC_GEOMETRY_TYPE_SUBDIVISION,
- RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE,
- RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE,
- RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE,
- RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE,
- RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE,
- RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE,
- RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE,
- RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE,
- RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE,
- RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE,
- RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE,
- RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE,
- RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE,
- RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE,
- RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE,
- RTC_GEOMETRY_TYPE_GRID,
- RTC_GEOMETRY_TYPE_SPHERE_POINT,
- RTC_GEOMETRY_TYPE_DISC_POINT,
- RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT,
- RTC_GEOMETRY_TYPE_USER,
- RTC_GEOMETRY_TYPE_INSTANCE,
- RTC_GEOMETRY_TYPE_INSTANCE_ARRAY,
-};
-
-RTCGeometry rtcNewGeometry(
-  RTCDevice device,
-  enum RTCGeometryType type
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">enum RTCGeometryType</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_TRIANGLE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_QUAD</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_GRID</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_SPHERE_POINT</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_DISC_POINT</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_USER</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_INSTANCE</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5"> RTC_GEOMETRY_TYPE_INSTANCE_ARRAY</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry rtcNewGeometry(</span></span>
+<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCGeometryType </span><span style="color:#005CC5">type</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Geometries are objects that represent an array of primitives of the
 same type. The <code>rtcNewGeometry</code> function creates a new geometry of
@@ -2551,15 +2551,15 @@ queried using <code>rtcGetDeviceError</code>.</p>
 [RTC_GEOMETRY_TYPE_GRID], [RTC_GEOMETRY_TYPE_POINT],
 [RTC_GEOMETRY_TYPE_USER], [RTC_GEOMETRY_TYPE_INSTANCE],
 [RTC_GEOMETRY_TYPE_INSTANCE_ARRAY]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_TRIANGLE</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_TRIANGLE - triangle geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_TRIANGLE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> triangle geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_TRIANGLE);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_TRIANGLE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Triangle meshes are created by passing <code>RTC_GEOMETRY_TYPE_TRIANGLE</code> to
 the <code>rtcNewGeometry</code> function call. The triangle indices can be
@@ -2578,8 +2578,8 @@ large.</p>
 point, the vector <code>p1 - p0</code> as u-direction and the vector <code>p2 - p0</code> as
 v-direction. Thus vertex attributes <code>t0,t1,t2</code> can be linearly
 interpolated over the triangle the following way:</p>
-<pre><code>t_uv = (1-u-v)*t0 + u*t1 + v*t2
-     = t0 + u*(t1-t0) + v*(t2-t0)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">t_uv </span><span style="color:#D73A49">=</span><span style="color:#24292E"> (</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">u</span><span style="color:#D73A49">-</span><span style="color:#24292E">v)</span><span style="color:#D73A49">*</span><span style="color:#24292E">t0 </span><span style="color:#D73A49">+</span><span style="color:#24292E"> u</span><span style="color:#D73A49">*</span><span style="color:#24292E">t1 </span><span style="color:#D73A49">+</span><span style="color:#24292E"> v</span><span style="color:#D73A49">*</span><span style="color:#24292E">t2</span></span>
+<span class="line"><span style="color:#D73A49">     =</span><span style="color:#24292E"> t0 </span><span style="color:#D73A49">+</span><span style="color:#24292E"> u</span><span style="color:#D73A49">*</span><span style="color:#24292E">(t1</span><span style="color:#D73A49">-</span><span style="color:#24292E">t0) </span><span style="color:#D73A49">+</span><span style="color:#24292E"> v</span><span style="color:#D73A49">*</span><span style="color:#24292E">(t2</span><span style="color:#D73A49">-</span><span style="color:#24292E">t0)</span></span></code></pre>
 <p>A triangle whose vertices are laid out counter-clockwise has its
 geometry normal pointing upwards outside the front face, like
 illustrated in the following picture:</p>
@@ -2595,15 +2595,15 @@ triangle meshes.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_QUAD</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_QUAD - quad geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_QUAD</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> quad geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_QUAD);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_QUAD</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Quad meshes are created by passing <code>RTC_GEOMETRY_TYPE_QUAD</code> to the
 <code>rtcNewGeometry</code> function call. The quad indices can be specified by
@@ -2625,7 +2625,7 @@ parametrization of a quad uses the first vertex <code>p0</code> as base point, a
 the vector <code>p1 - p0</code> as <code>u</code>-direction, and <code>p3 - p0</code> as v-direction.
 Thus vertex attributes <code>t0,t1,t2,t3</code> can be bilinearly interpolated
 over the quadrilateral the following way:</p>
-<pre><code>t_uv = (1-v)((1-u)*t0 + u*t1) + v*((1-u)*t3 + u*t2)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">t_uv </span><span style="color:#D73A49">=</span><span style="color:#24292E"> (</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">v)((</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">u)</span><span style="color:#D73A49">*</span><span style="color:#24292E">t0 </span><span style="color:#D73A49">+</span><span style="color:#24292E"> u</span><span style="color:#D73A49">*</span><span style="color:#24292E">t1) </span><span style="color:#D73A49">+</span><span style="color:#24292E"> v</span><span style="color:#D73A49">*</span><span style="color:#24292E">((</span><span style="color:#005CC5">1</span><span style="color:#D73A49">-</span><span style="color:#24292E">u)</span><span style="color:#D73A49">*</span><span style="color:#24292E">t3 </span><span style="color:#D73A49">+</span><span style="color:#24292E"> u</span><span style="color:#D73A49">*</span><span style="color:#24292E">t2)</span></span></code></pre>
 <p>Mixed triangle/quad meshes are supported by encoding a triangle as a
 quad, which can be achieved by replicating the last triangle vertex
 (<code>v0,v1,v2</code> -&gt; <code>v0,v1,v2,v2</code>). This way the second triangle is a line
@@ -2644,15 +2644,15 @@ all these buffers must have the same stride and size.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_GRID</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_GRID - grid geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_GRID</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> grid geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_GRID);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_GRID</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Grid meshes are created by passing <code>RTC_GEOMETRY_TYPE_GRID</code> to the
 <code>rtcNewGeometry</code> function call, and contain an array of grid
@@ -2667,12 +2667,12 @@ size of the grid buffer.</p>
 floating point coordinates (<code>RTC_FORMAT_FLOAT3</code> format), and the number
 of vertices is inferred from the size of that buffer.</p>
 <p>Each grid in the grid buffer is of the type <code>RTCGrid</code>:</p>
-<pre><code>struct RTCGrid
-{
-  unsigned int startVertexID;
-  unsigned int stride;
-  unsigned short width,height; 
-};</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct RTCGrid</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> startVertexID;</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> stride;</span></span>
+<span class="line"><span style="color:#24292E">  unsigned short width,height; </span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The <code>RTCGrid</code> structure describes a 2D grid of vertices (with respect
 to the vertex buffer of the grid mesh). The <code>width</code> and <code>height</code>
 members specify the number of vertices in u and v direction,
@@ -2696,15 +2696,15 @@ all these buffers must have the same stride and size.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_SUBDIVISION</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_SUBDIVISION - subdivision geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> subdivision geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_SUBDIVISION);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SUBDIVISION</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Catmull-Clark subdivision meshes are supported, including support for
 edge creases, vertex creases, holes, non-manifold geometry, and
@@ -2802,11 +2802,11 @@ not equal 4), have a special parametrization where the subpatch ID <code>n</code
 subdivision step) and the local hit location inside this quadrilateral
 are encoded in the UV coordinates. The following code extracts the
 sub-patch ID <code>i</code> and local UVs of this subpatch:</p>
-<pre><code>unsigned int l = floorf(0.5f*U);
-unsigned int h = floorf(0.5f*V);
-unsigned int i = 4*h+l;
-float u = 2.0f*fracf(0.5f*U)-0.5f;
-float v = 2.0f*fracf(0.5f*V)-0.5f;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> l </span><span style="color:#D73A49">=</span><span style="color:#24292E"> floorf(</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f</span><span style="color:#D73A49">*</span><span style="color:#24292E">U)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> h </span><span style="color:#D73A49">=</span><span style="color:#24292E"> floorf(</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f</span><span style="color:#D73A49">*</span><span style="color:#24292E">V)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> i </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49">*</span><span style="color:#24292E">h</span><span style="color:#D73A49">+</span><span style="color:#24292E">l</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#005CC5">float</span><span style="color:#24292E"> u </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 2.</span><span style="color:#B31D28;font-style:italic">0f</span><span style="color:#D73A49">*</span><span style="color:#24292E">fracf(</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f</span><span style="color:#D73A49">*</span><span style="color:#24292E">U)</span><span style="color:#D73A49">-</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f;</span></span>
+<span class="line"><span style="color:#005CC5">float</span><span style="color:#24292E"> v </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 2.</span><span style="color:#B31D28;font-style:italic">0f</span><span style="color:#D73A49">*</span><span style="color:#24292E">fracf(</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f</span><span style="color:#D73A49">*</span><span style="color:#24292E">V)</span><span style="color:#D73A49">-</span><span style="color:#005CC5">0.</span><span style="color:#B31D28;font-style:italic">5f;</span></span></code></pre>
 <p>This encoding allows local subpatch UVs to be in the range <code>[-0.5,1.5[</code>
 thus negative subpatch UVs can be passed to <code>rtcInterpolate</code> to sample
 subpatches slightly out of bounds. This can be useful to calculate
@@ -2839,71 +2839,71 @@ However, the indices of the topologies themselves may be different.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_CURVE</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE -
-  flat curve geometry with linear basis
-
-RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE -
-  flat curve geometry with cubic Bézier basis
-
-RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE - 
-  flat curve geometry with cubic B-spline basis
-
-RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE - 
-  flat curve geometry with cubic Hermite basis
-
-RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE - 
-  flat curve geometry with Catmull-Rom basis
-
-RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE -
-  flat normal oriented curve geometry with cubic Bézier basis
-
-RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE - 
-  flat normal oriented curve geometry with cubic B-spline basis
-
-RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE - 
-  flat normal oriented curve geometry with cubic Hermite basis
-
-RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE - 
-  flat normal oriented curve geometry with Catmull-Rom basis
-
-RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE -
-  capped cone curve geometry with linear basis - discontinuous at edge boundaries
-
-RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE -
-  capped cone curve geometry with linear basis and spherical ending
-
-RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE -
-  swept surface curve geometry with cubic Bézier basis
-
-RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE -
-  swept surface curve geometry with cubic B-spline basis
-
-RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE -
-  swept surface curve geometry with cubic Hermite basis
-
-RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE -
-  swept surface curve geometry with Catmull-Rom basis</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  flat curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> linear basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  flat curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Bézier basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic B</span><span style="color:#D73A49">-</span><span style="color:#24292E">spline basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Hermite basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> Catmull</span><span style="color:#D73A49">-</span><span style="color:#24292E">Rom basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  flat normal oriented curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Bézier basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat normal oriented curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic B</span><span style="color:#D73A49">-</span><span style="color:#24292E">spline basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat normal oriented curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Hermite basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> </span></span>
+<span class="line"><span style="color:#24292E">  flat normal oriented curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> Catmull</span><span style="color:#D73A49">-</span><span style="color:#24292E">Rom basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  capped cone curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> linear basis </span><span style="color:#D73A49">-</span><span style="color:#24292E"> discontinuous at edge boundaries</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  capped cone curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> linear basis </span><span style="color:#D73A49">and</span><span style="color:#24292E"> spherical ending</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  swept surface curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Bézier basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  swept surface curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic B</span><span style="color:#D73A49">-</span><span style="color:#24292E">spline basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  swept surface curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> cubic Hermite basis</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  swept surface curve geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> Catmull</span><span style="color:#D73A49">-</span><span style="color:#24292E">Rom basis</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_LINEAR_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_BEZIER_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_BSPLINE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_HERMITE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_FLAT_CATMULL_ROM_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BEZIER_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_BSPLINE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_HERMITE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_NORMAL_ORIENTED_CATMULL_ROM_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_CONE_LINEAR_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_LINEAR_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_BEZIER_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_BSPLINE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_HERMITE_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ROUND_CATMULL_ROM_CURVE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Curves with per vertex radii are supported with linear, cubic Bézier,
 cubic B-spline, and cubic Hermite bases. Such curve geometries are
@@ -3074,23 +3074,23 @@ create and use curve geometries.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [RTCCurveFlags]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_POINT</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_SPHERE_POINT -
-  point geometry spheres
-
-RTC_GEOMETRY_TYPE_DISC_POINT -
-  point geometry with ray-oriented discs
-
-RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT -
-  point geometry with normal-oriented discs</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SPHERE_POINT</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  point geometry spheres</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_DISC_POINT</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  point geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> ray</span><span style="color:#D73A49">-</span><span style="color:#24292E">oriented discs</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT</span><span style="color:#D73A49"> -</span></span>
+<span class="line"><span style="color:#24292E">  point geometry </span><span style="color:#D73A49">with</span><span style="color:#24292E"> normal</span><span style="color:#D73A49">-</span><span style="color:#24292E">oriented discs</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_SPHERE_POINT);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_DISC_POINT);
-rtcNewGeometry(device, RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_SPHERE_POINT</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_DISC_POINT</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_ORIENTED_DISC_POINT</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Points with per vertex radii are supported with sphere, ray-oriented
 discs, and normal-oriented discs geometric representations. Such point
@@ -3130,15 +3130,15 @@ point geometries.</p>
 queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_USER</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_USER - user geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_USER</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> user geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-  rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">  rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_USER</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>User-defined geometries contain a number of user-defined primitives,
 just like triangle meshes contain multiple triangles. The shape of the
@@ -3158,12 +3158,12 @@ called to intersect the primitive with a ray. The user data pointer is
 passed to each callback invocation and can be used to point to the
 application's representation of the user geometry.</p>
 <p>The creation of a user geometry typically looks the following:</p>
-<pre><code>RTCGeometry geometry = rtcNewGeometry(device, RTC_GEOMETRY_TYPE_USER);
-rtcSetGeometryUserPrimitiveCount(geometry, numPrimitives);
-rtcSetGeometryUserData(geometry, userGeometryRepresentation);
-rtcSetGeometryBoundsFunction(geometry, boundsFunction);
-rtcSetGeometryIntersectFunction(geometry, intersectFunction);
-rtcSetGeometryOccludedFunction(geometry, occludedFunction);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_USER</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetGeometryUserPrimitiveCount(geometry, numPrimitives)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetGeometryUserData(geometry, userGeometryRepresentation)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetGeometryBoundsFunction(geometry, boundsFunction)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetGeometryIntersectFunction(geometry, intersectFunction)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">rtcSetGeometryOccludedFunction(geometry, occludedFunction)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>Please have a look at the <code>rtcSetGeometryBoundsFunction</code>,
 <code>rtcSetGeometryIntersectFunction</code>, and <code>rtcSetGeometryOccludedFunction</code>
 functions on the implementation of the callback functions.</p>
@@ -3179,15 +3179,15 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <p>[rtcNewGeometry], [rtcSetGeometryUserPrimitiveCount],
 [rtcSetGeometryUserData], [rtcSetGeometryBoundsFunction],
 [rtcSetGeometryIntersectFunction], [rtcSetGeometryOccludedFunction]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_INSTANCE</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_INSTANCE - instance geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_INSTANCE</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> instance geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-   rtcNewGeometry(device, RTC_GEOMETRY_TYPE_INSTANCE);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">   rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_INSTANCE</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Embree supports instancing of scenes using affine transformations (3×3
 matrix plus translation). As the instanced scene is stored only a
@@ -3230,15 +3230,15 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcSetGeometryInstancedScene],
 [rtcSetGeometryTransform]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTC_GEOMETRY_TYPE_INSTANCE_ARRAY</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTC_GEOMETRY_TYPE_INSTANCE_ARRAY - instance array geometry type</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">RTC_GEOMETRY_TYPE_INSTANCE_ARRAY</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> instance array geometry </span><span style="color:#005CC5">type</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-RTCGeometry geometry =
-   rtcNewGeometry(device, RTC_GEOMETRY_TYPE_INSTANCE_ARRAY);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">RTCGeometry geometry </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">   rtcNewGeometry(device, </span><span style="color:#005CC5">RTC_GEOMETRY_TYPE_INSTANCE_ARRAY</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Embree supports instance arrays, which is a more memory efficient way
 to represent large amounts of instances of the same or a small set of
@@ -3301,18 +3301,18 @@ queried using <code>rtcGetDeviceError</code>.</p>
 <p>[rtcNewGeometry], [rtcSetGeometryInstancedScene],
 [rtcSetGeometryInstancedScenes], [rtcSetNewGeometryBuffer],
 [rtcSetSharedGeometryBuffer], [rtcGetGeometryTransformEx]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>RTCCurveFlags</h2>
 <h4>NAME {#name}</h4>
-<pre><code>RTCCurveFlags - per segment flags for curve geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">RTCCurveFlags </span><span style="color:#D73A49">-</span><span style="color:#24292E"> per segment flags </span><span style="color:#D73A49">for</span><span style="color:#24292E"> curve geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-enum RTCCurveFlags
-{
-  RTC_CURVE_FLAG_NEIGHBOR_LEFT  = (1 &lt;&lt; 0), 
-  RTC_CURVE_FLAG_NEIGHBOR_RIGHT = (1 &lt;&lt; 1) 
-};</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">enum RTCCurveFlags</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#005CC5">  RTC_CURVE_FLAG_NEIGHBOR_LEFT</span><span style="color:#24292E">  = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">), </span></span>
+<span class="line"><span style="color:#005CC5">  RTC_CURVE_FLAG_NEIGHBOR_RIGHT</span><span style="color:#24292E"> = (</span><span style="color:#005CC5">1</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">) </span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The RTCCurveFlags type is used for linear curves to determine if the
 left and/or right neighbor segment exist. Therefore one attaches a
@@ -3332,14 +3332,14 @@ particular when round linear curves are viewed from the inside.</p>
 <h4>EXIT STATUS {#exit-status}</h4>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[RTC_GEOMETRY_TYPE_CURVE]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcRetainGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcRetainGeometry - increments the geometry reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcRetainGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> increments the geometry reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcRetainGeometry(RTCGeometry geometry);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcRetainGeometry(RTCGeometry geometry)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Geometry objects are reference counted. The <code>rtcRetainGeometry</code>
 function increments the reference count of the passed geometry object
@@ -3351,14 +3351,14 @@ handle the ownership of the object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcReleaseGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcReleaseGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcReleaseGeometry - decrements the geometry reference count</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcReleaseGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> decrements the geometry reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcReleaseGeometry(RTCGeometry geometry);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcReleaseGeometry(RTCGeometry geometry)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Geometry objects are reference counted. The <code>rtcReleaseGeometry</code>
 function decrements the reference count of the passed geometry object
@@ -3369,14 +3369,14 @@ geometry gets destroyed.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcRetainGeometry]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcCommitGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcCommitGeometry - commits geometry changes</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcCommitGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> commits geometry changes</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcCommitGeometry(RTCGeometry geometry);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcCommitGeometry(RTCGeometry geometry)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcCommitGeometry</code> function is used to commit all geometry changes
 performed to a geometry (<code>geometry</code> parameter). After a geometry gets
@@ -3388,14 +3388,14 @@ or to commit a scene containing the geometry using <code>rtcCommitScene</code>.<
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcInterpolate], [rtcCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcEnableGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcEnableGeometry - enables the geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcEnableGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> enables the geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcEnableGeometry(RTCGeometry geometry);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcEnableGeometry(RTCGeometry geometry)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcEnableGeometry</code> function enables the specified geometry
 (<code>geometry</code> argument). Only enabled geometries are rendered. Each
@@ -3407,14 +3407,14 @@ committed using <code>rtcCommitScene</code> for the change to have effect.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcDisableGeometry], [rtcCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcDisableGeometry</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcDisableGeometry - disables the geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcDisableGeometry </span><span style="color:#D73A49">-</span><span style="color:#24292E"> disables the geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcDisableGeometry(RTCGeometry geometry);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcDisableGeometry(RTCGeometry geometry)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcDisableGeometry</code> function disables the specified geometry
 (<code>geometry</code> argument). A disabled geometry is not rendered. Each
@@ -3426,18 +3426,18 @@ committed using <code>rtcCommitScene</code> for the change to have effect.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcEnableGeometry], [rtcCommitScene]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryTimeStepCount</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryTimeStepCount - sets the number of time steps of the
-  geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryTimeStepCount </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the number of time steps of the</span></span>
+<span class="line"><span style="color:#24292E">  geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryTimeStepCount(
-  RTCGeometry geometry,
-  unsigned int timeStepCount
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryTimeStepCount(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> timeStepCount</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryTimeStepCount</code> function sets the number of time
 steps for multi-segment motion blur (<code>timeStepCount</code> parameter) of the
@@ -3462,18 +3462,18 @@ the motion-blurred geometry at the ray time.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [rtcSetGeometryTimeRange]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryTimeRange</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryTimeRange - sets the time range for a motion blur geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryTimeRange </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the time </span><span style="color:#005CC5">range</span><span style="color:#D73A49"> for</span><span style="color:#24292E"> a motion blur geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryTimeRange(
-  RTCGeometry geometry,
-  float startTime,
-  float endTime
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryTimeRange(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#005CC5">  float</span><span style="color:#24292E"> startTime,</span></span>
+<span class="line"><span style="color:#005CC5">  float</span><span style="color:#24292E"> endTime</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryTimeRange</code> function sets a time range which defines
 the start (and end time) of the first (and last) time step of a motion
@@ -3501,18 +3501,18 @@ to see how to define the time steps for the specified time range.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetGeometryTimeStepCount]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryVertexAttributeCount</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryVertexAttributeCount - sets the number of vertex
-  attributes of the geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryVertexAttributeCount </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the number of vertex</span></span>
+<span class="line"><span style="color:#24292E">  attributes of the geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryVertexAttributeCount(
-  RTCGeometry geometry,
-  unsigned int vertexAttributeCount
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryVertexAttributeCount(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> vertexAttributeCount</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryVertexAttributeCount</code> function sets the number of
 slots (<code>vertexAttributeCount</code> parameter) for vertex attribute buffers
@@ -3527,17 +3527,17 @@ and subdivision geometries (<code>RTC_GEOMETRY_TYPE_SUBDIVISION</code>).</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewGeometry], [RTCBufferType]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryMask</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryMask - sets the geometry mask</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryMask </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the geometry mask</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryMask(
-  RTCGeometry geometry,
-  unsigned int mask
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryMask(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> mask</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryMask</code> function sets a 32-bit geometry mask (<code>mask</code>
 argument) for the specified geometry (<code>geometry</code> argument).</p>
@@ -3552,17 +3552,17 @@ for certain geometries.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[RTCRay], [rtcGetDeviceProperty]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryBuildQuality</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryBuildQuality - sets the build quality for the geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryBuildQuality </span><span style="color:#D73A49">-</span><span style="color:#24292E"> sets the build quality </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryBuildQuality(
-  RTCGeometry geometry,
-  enum RTCBuildQuality quality
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryBuildQuality(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCBuildQuality quality</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryBuildQuality</code> function sets the build quality
 (<code>quality</code> argument) for the specified geometry (<code>geometry</code> argument).
@@ -3592,14 +3592,14 @@ changing only the vertex buffer.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetSceneBuildQuality]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryMaxRadiusScale</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryMaxRadiusScale - assigns a maximal curve radius scale factor for min-width feature</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryMaxRadiusScale </span><span style="color:#D73A49">-</span><span style="color:#24292E"> assigns a maximal curve radius scale factor </span><span style="color:#D73A49">for</span><span style="color:#005CC5"> min</span><span style="color:#D73A49">-</span><span style="color:#24292E">width feature</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryMaxRadiusScale(RTCGeometry geometry, float maxRadiusScale);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryMaxRadiusScale(RTCGeometry geometry, </span><span style="color:#005CC5">float</span><span style="color:#24292E"> maxRadiusScale)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetMaxGeometryScale</code> function specifies a maximal scaling
 factor for curve radii used by the min-width feature.</p>
@@ -3618,13 +3618,13 @@ radius size of a curve or point at some distance away of the ray
 origin.</p>
 <p>For each control point p with radius r of a curve or point primitive,
 the primitive intersectors first calculate a target radius r' as:</p>
-<pre><code>r' = length(p-ray_org) * minWidthDistanceFactor</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">r</span><span style="color:#032F62">' = length(p-ray_org) * minWidthDistanceFactor</span></span></code></pre>
 <p>Typically the minWidthDistanceFactor is set by the application such
 that the target radius projects to the width of half a pixel (thus
 primitive diameter is pixel sized).</p>
 <p>The target radius r' is then clamped against the minimal bound r and
 maximal bound maxRadiusScale*r to obtain the final radius r'':</p>
-<pre><code>r'' = max(r, min(r', maxRadiusScale*r))</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">r</span><span style="color:#032F62">''</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> max</span><span style="color:#24292E">(r, </span><span style="color:#005CC5">min</span><span style="color:#24292E">(</span><span style="color:#D73A49">r</span><span style="color:#032F62">', maxRadiusScale</span><span style="color:#D73A49">*</span><span style="color:#032F62">r))</span></span></code></pre>
 <p>Thus curves or points close to the camera are rendered with a normal
 radii r, and curves or points far from the camera are not enlarged too
 much, as this would be very expensive to render.</p>
@@ -3637,23 +3637,23 @@ modified by the min-width feature.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcInitRayQueryContext]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetGeometryBuffer</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetGeometryBuffer - assigns a view of a buffer to the geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetGeometryBuffer </span><span style="color:#D73A49">-</span><span style="color:#24292E"> assigns a view of a buffer to the geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetGeometryBuffer(
-  RTCGeometry geometry,
-  enum RTCBufferType type,
-  unsigned int slot,
-  enum RTCFormat format,
-  RTCBuffer buffer,
-  size_t byteOffset,
-  size_t byteStride,
-  size_t itemCount
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetGeometryBuffer(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCBufferType </span><span style="color:#005CC5">type</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> slot,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCFormat </span><span style="color:#005CC5">format</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  RTCBuffer buffer,</span></span>
+<span class="line"><span style="color:#24292E">  size_t byteOffset,</span></span>
+<span class="line"><span style="color:#24292E">  size_t byteStride,</span></span>
+<span class="line"><span style="color:#24292E">  size_t itemCount</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetGeometryBuffer</code> function binds a view of a buffer object
 (<code>buffer</code> argument) to a geometry buffer type and slot (<code>type</code> and
@@ -3672,24 +3672,24 @@ reference to the buffer object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetSharedGeometryBuffer], [rtcSetNewGeometryBuffer]</p>
-<pre><code></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
 <h2>rtcSetSharedGeometryBuffer</h2>
 <h4>NAME {#name}</h4>
-<pre><code>rtcSetSharedGeometryBuffer - assigns a view of a shared data buffer
-  to a geometry</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcSetSharedGeometryBuffer </span><span style="color:#D73A49">-</span><span style="color:#24292E"> assigns a view of a shared data buffer</span></span>
+<span class="line"><span style="color:#24292E">  to a geometry</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre><code>#include &lt;embree4/rtcore.h&gt;
-
-void rtcSetSharedGeometryBuffer(
-  RTCGeometry geometry,
-  enum RTCBufferType type,
-  unsigned int slot,
-  enum RTCFormat format,
-  const void* ptr,
-  size_t byteOffset,
-  size_t byteStride,
-  size_t itemCount
-);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void rtcSetSharedGeometryBuffer(</span></span>
+<span class="line"><span style="color:#24292E">  RTCGeometry geometry,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCBufferType </span><span style="color:#005CC5">type</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  unsigned </span><span style="color:#005CC5">int</span><span style="color:#24292E"> slot,</span></span>
+<span class="line"><span style="color:#24292E">  enum RTCFormat </span><span style="color:#005CC5">format</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">  const void</span><span style="color:#D73A49">*</span><span style="color:#24292E"> ptr,</span></span>
+<span class="line"><span style="color:#24292E">  size_t byteOffset,</span></span>
+<span class="line"><span style="color:#24292E">  size_t byteStride,</span></span>
+<span class="line"><span style="color:#24292E">  size_t itemCount</span></span>
+<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcSetSharedGeometryBuffer</code> function binds a view of a shared
 user-managed data buffer (<code>ptr</code> argument) to a geometry buffer type and
@@ -3725,7 +3725,7 @@ into the vertex buffer, resulting in even higher memory savings.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetSharedGeometryBufferHostDevice], [rtcSetGeometryBuffer],
 [rtcSetNewGeometryBuffer]</p>
-<pre><code></code></pre>
+<pre><code lang="py"></code></pre>
 <h2>rtcSetSharedGeometryBufferHostDevice</h2>
 <h4>NAME {#name}</h4>
 <pre><code>rtcSetSharedGeometryBufferHostDevice - assigns views of shared data buffers

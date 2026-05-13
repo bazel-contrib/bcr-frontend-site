@@ -1,0 +1,828 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+		// Apply persisted color-mode / display-mode to <html> before any
+		// stylesheets paint, so themes set on the Settings page are honored
+		// on the first render of every page.
+		(function () {
+			try {
+				var ls = window.localStorage;
+				if (!ls) return;
+				var cm = ls.getItem("color-mode");
+				if (cm) document.documentElement.setAttribute("data-color-mode", cm);
+				var dm = ls.getItem("display-mode");
+				if (dm) document.documentElement.setAttribute("data-display-mode", dm);
+			} catch (e) {}
+		})();
+		// If this HTML is a prerendered snapshot whose path doesn't match the
+		// URL we're loading at, the body contains stale content (the SPA
+		// fallback served us index.html for a non-prerendered route). Mark
+		// <html> so CSS can hide the route-specific .content panel until
+		// main.js mounts the SPA and the router renders the correct page.
+		(function () {
+			var meta = document.querySelector('meta[name="bcr:prerendered-path"]');
+			if (!meta) return;
+			var snapshot =
+				(meta.getAttribute("content") || "").replace(/\/+$/, "") || "/";
+			var current = window.location.pathname.replace(/\/+$/, "") || "/";
+			if (current !== snapshot) {
+				document.documentElement.classList.add("bcr-booting");
+			}
+		})();
+		</script>
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.e9e04e3c.css" type="text/css" rel="stylesheet">
+		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
+		<meta name="bcr:symbols-url" content="/symbols.d6fbb962.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
+		<script src="/bcr.113e17b5.js" defer=""></script>
+		<script src="/registry.bf8d2076.pb.gz.b64.js" defer=""></script>
+	<meta name="bcr:prerendered-path" content="/modules/gazelle_ts/0.4.14"></head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+<div class="e-main"><div class="container-xl"><div class="PageLayout px-3"><div class="Header" style="background-color: unset"><div class="Header-item" style="max-width: 54px"><a href="/#/home"><div class="e-g"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 86.5 86.5" style="enable-background:new 0 0 317.8 86.5; transform: rotate(0deg)" xml:space="preserve" preserveAspectRatio="xMidYMid meet" focusable="false"><g><rect class="anim" x="39" y="2.8" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 69.033 94.234)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="2.8" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 79.234 32.8198)" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="39" y="23.6" transform="matrix(-0.7071 -0.7071 0.7071 -0.7071 54.3112 129.7757)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><rect class="anim" x="17.8" y="23.6" transform="matrix(-0.7071 0.7071 -0.7071 -0.7071 93.9558 68.3614)" style="fill:none;opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" width="30" height="60"></rect><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="1,22.2 1,43 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 43.4,85.5 22.2,64.2 22.2,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="85.9,22.2 85.9,43 64.6,64.2 64.6,43.4 "></polygon><polygon class="anim" style="fill:none;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" points="43.4,64.6 64.6,43.4 64.6,64.2 43.4,85.5 "></polygon><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="22.2" y1="1" x2="22.2" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="64.6" y1="1" x2="64.6" y2="21.8"></line><line style="opacity:0.2;stroke:#31bc4e;stroke-width:2;stroke-linejoin:round;stroke-miterlimit:10;" x1="43.4" y1="22.1" x2="43.4" y2="43.1"></line></g></svg></div></a></div><div class="Header-item Header-item--full"><form class="FormControl col-12 width-full" style="margin-block-end: 0"><input class="form-control input-hide-webkit-autofill border" type="text" placeholder="Search 1129 modules in registry..." style="background-color: var(--button-default-bgColor-rest, var(--color-btn-bg));" role="combobox" aria-autocomplete="list"></form></div></div><div class="c PageLayout-content"><div style=""><div class="c"><div style=""><div class="c"><div style=""><div class="f2-light d-flex flex-justify-between flex-items-center"><div><span class="f1 text-semibold">gazelle_ts</span> <span class="f2 d-inline-block">0.4.14<span class="Label Label--success ml-2" style="transform: translateY(-3px)">Latest <svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span><span class="text-small color-fg-muted ml-2">published &lt;1h ago</span></span></div><a class="btn btn-sm btn-invisible" href="https://github.com/hermeticbuild/gazelle_ts" target="_blank" rel="noopener" title="View on GitHub"><svg height="24" viewBox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M12 1C5.923 1 1 5.923 1 12c0 4.867 3.149 8.979 7.521 10.436.55.096.756-.233.756-.522 0-.262-.013-1.128-.013-2.049-2.764.509-3.479-.674-3.699-1.292-.124-.317-.66-1.293-1.127-1.554-.385-.207-.936-.715-.014-.729.866-.014 1.485.797 1.691 1.128.99 1.663 2.571 1.196 3.204.907.096-.715.385-1.196.701-1.471-2.448-.275-5.005-1.224-5.005-5.432 0-1.196.426-2.186 1.128-2.956-.111-.275-.496-1.402.11-2.915 0 0 .921-.288 3.024 1.128a10.193 10.193 0 0 1 2.75-.371c.936 0 1.871.123 2.75.371 2.104-1.43 3.025-1.128 3.025-1.128.605 1.513.221 2.64.111 2.915.701.77 1.127 1.747 1.127 2.956 0 4.222-2.571 5.157-5.019 5.432.399.344.743 1.004.743 2.035 0 1.471-.014 2.654-.014 3.025 0 .289.206.632.756.522C19.851 20.979 23 16.854 23 12c0-6.077-4.922-11-11-11Z"></path></g></svg></a></div><nav class="UnderlineNav"><div class="UnderlineNav-body nav"><a class="UnderlineNav-item selected" title="Module Version Overview" href="/#/modules/gazelle_ts/0.4.14/overview" data-name="overview" id=":6c.overview">Overview</a><a class="UnderlineNav-item" title="Generated Stardoc Documentation" href="/#/modules/gazelle_ts/0.4.14/docs" data-name="docs" id=":6c.docs">Documentation</a><a class="UnderlineNav-item" title="Test Configuration" href="/#/modules/gazelle_ts/0.4.14/testing" data-name="testing" id=":6c.testing">Testing</a></div></nav><div class="c mt-3"><div class="PageLayout PageLayout--panePos-end PageLayout--hasPaneDivider PageLayout--responsive-stackRegions" style=""><div class="PageLayout-columns"><div class="PageLayout-content"><div class="Box Box--condensed hide-sm"><div class="Box-header"><div class="Box-title d-flex flex-items-center flex-justify-between"><div class="text-mono">MODULE.bazel</div><button class="btn btn-octicon" aria-label="Copy to clipboard" data-clippy="bazel_dep(name = &quot;gazelle_ts&quot;, version = &quot;0.4.14&quot;)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body p-3"><pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle_ts"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.14"</span><span style="color:#24292E">)</span></span></code></pre></div></div><div class="deps"><div class="Box Box--condensed mt-3"><div class="Box-header d-flex flex-items-center flex-justify-between"><span class="Box-title">Dependencies <label class="Counter ml-1">8</label></span><div class="BtnGroup"><button class="BtnGroup-item selected btn btn-sm btn-list" title="View direct dependencies"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M5.75 2.5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5Zm0 5h8.5a.75.75 0 0 1 0 1.5h-8.5a.75.75 0 0 1 0-1.5ZM2 14a1 1 0 1 1 0-2 1 1 0 0 1 0 2Zm1-6a1 1 0 1 1-2 0 1 1 0 0 1 2 0ZM2 4a1 1 0 1 1 0-2 1 1 0 0 1 0 2Z"></path></g></svg></button><button class="BtnGroup-item btn btn-sm btn-p" title="View transitive dependencies with minimum version selection (MVS)"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75C0 .784.784 0 1.75 0h3.5C6.216 0 7 .784 7 1.75v3.5A1.75 1.75 0 0 1 5.25 7H4v4a1 1 0 0 0 1 1h4v-1.25C9 9.784 9.784 9 10.75 9h3.5c.966 0 1.75.784 1.75 1.75v3.5A1.75 1.75 0 0 1 14.25 16h-3.5A1.75 1.75 0 0 1 9 14.25v-.75H5A2.5 2.5 0 0 1 2.5 11V7h-.75A1.75 1.75 0 0 1 0 5.25Zm1.75-.25a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Zm9 9a.25.25 0 0 0-.25.25v3.5c0 .138.112.25.25.25h3.5a.25.25 0 0 0 .25-.25v-3.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button></div></div><div class="Box-body width-full"><div class="c"><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/gazelle/0.50.0">gazelle<span class="ml-1 text-light text-small">0.50.0</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/gazelle/0.51.0">0.51.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (1.0mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/llvm/0.7.6">llvm<span class="ml-1 text-light text-small">0.7.6</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/llvm/0.8.1">0.8.1<span title="Version Distance"><sup style="padding-left: 3px">+5<span class="color-fg-attention"> (13d)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/platforms/1.0.0">platforms<span class="ml-1 text-light text-small">1.0.0</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/platforms/1.1.0">1.1.0<span title="Version Distance"><sup style="padding-left: 3px">+1<span class="color-fg-attention"> (11.3mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/protobuf/34.0.bcr.1">protobuf<span class="ml-1 text-light text-small">34.0.bcr.1</span><span class="ml-1 text-light text-small">as <span class="text-semibold">com_google_protobuf</span></span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/protobuf/35.0-rc2">35.0-rc2<span title="Version Distance"><sup style="padding-left: 3px">+3<span class="color-fg-attention"> (2.1mo)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_go/0.60.0">rules_go<span class="ml-1 text-light text-small">0.60.0</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_proto/7.1.0">rules_proto<span class="ml-1 text-light text-small">7.1.0</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/rules_rs/0.0.73">rules_rs<span class="ml-1 text-light text-small">0.0.73</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><a class="Box-row-link text-light text-small" href="/#/modules/rules_rs/0.0.79">0.0.79<span title="Version Distance"><sup style="padding-left: 3px">+4<span class="color-fg-attention"> (9d)</span></sup></span></a></span></div></div><div class="mx-1 my-2"><div style="display: flex; align-items: center;"><span style="padding-right: 0.5em;"><a class="Box-row-link" href="/#/modules/with_cfg.bzl/0.14.6">with_cfg.bzl<span class="ml-1 text-light text-small">0.14.6</span></a></span><span class="dotted-leader"></span><span style="padding-left: 0.5em;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon Label--success"><g><path d="M13.78 4.22a.75.75 0 0 1 0 1.06l-7.25 7.25a.75.75 0 0 1-1.06 0L2.22 9.28a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L6 10.94l6.72-6.72a.75.75 0 0 1 1.06 0Z"></path></g></svg></span></div></div></div><div class="p-c"></div></div></div></div><div class="dev-deps"></div><div class="readme mt-3"><div style="min-width: 0"><div class="Box Box--condensed"><div class="Box-header"><div class="Box-title">README</div></div><div class="Box-row"><div class="n markdown-body" data-formatted="markdown"><h1>gazelle_ts</h1>
+<p>Bazel build setup, a Gazelle TypeScript language extension, and the Rust import-extractor that powers it through cgo.</p>
+<p>Built on <strong>Bazel 8.5+ (bzlmod)</strong> with <a href="https://github.com/dzbarsky/rules_rs"><code>rules_rs</code></a> for the Rust side and <code>aspect_rules_ts</code> / <code>aspect_rules_js</code> for the TypeScript examples. Tested in CI against Bazel 8.5.1 and 9.0.0.</p>
+<ul>
+<li><a href="#layout">Layout</a></li>
+<li><a href="#what-this-repo-gives-you">What this repo gives you</a></li>
+<li><a href="#consumer-setup">Consumer setup</a></li>
+<li><a href="#typescript-language-reference">TypeScript language reference</a></li>
+<li><a href="#build">Build</a></li>
+</ul>
+<h2>Layout</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="crates/
+└── import_extractor/         # Rust staticlib: TS import extraction (oxc).
+                              # Linked into the gazelle plugin via cgo.
+ts/                           # Go-based Gazelle language extension that emits
+                              # abstract ts_library / ts_test / ts_binary rules.
+examples/                     # self-contained Bazel workspaces:
+├── basic/                    #   one TS package, npm deps, .ts + .tsx + smoke test
+├── bundler-config/           #   separate config targets for vite/vitest/tailwind
+├── composite/                #   multi-package with #packages/* cross-refs
+├── graphql/                  #   @graphql-codegen -&gt; npm_package -&gt; composite app
+└── advanced/                 #   composite + Bazel-built synthetic npm_package" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">crates</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">└── import_extractor</span><span style="color:#D73A49">/</span><span style="color:#6A737D">         # Rust staticlib: TS import extraction (oxc).</span></span>
+<span class="line"><span style="color:#6A737D">                              # Linked into the gazelle plugin via cgo.</span></span>
+<span class="line"><span style="color:#24292E">ts</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                           # Go-based Gazelle language extension that emits</span></span>
+<span class="line"><span style="color:#6A737D">                              # abstract ts_library / ts_test / ts_binary rules.</span></span>
+<span class="line"><span style="color:#24292E">examples</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                     # self-contained Bazel workspaces:</span></span>
+<span class="line"><span style="color:#24292E">├── basic</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    #   one TS package, npm deps, .ts + .tsx + smoke test</span></span>
+<span class="line"><span style="color:#24292E">├── bundler</span><span style="color:#D73A49">-</span><span style="color:#24292E">config</span><span style="color:#D73A49">/</span><span style="color:#6A737D">           #   separate config targets for vite/vitest/tailwind</span></span>
+<span class="line"><span style="color:#24292E">├── composite</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                #   multi-package with #packages/* cross-refs</span></span>
+<span class="line"><span style="color:#24292E">├── graphql</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  #   @graphql-codegen -&gt; npm_package -&gt; composite app</span></span>
+<span class="line"><span style="color:#24292E">└── advanced</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                 #   composite + Bazel-built synthetic npm_package</span></span></code></pre>
+<h2>What this repo gives you</h2>
+<ul>
+<li><strong><code>ts</code></strong>: a Gazelle TypeScript language extension. It generates and maintains <code>BUILD.bazel</code> files for TypeScript packages, emits abstract <code>ts_library</code>, <code>ts_test</code>, <code>ts_binary</code>, and <code>ts_bundler_config</code> kinds, and lets consumers map those kinds to project-specific macros with <code># gazelle:map_kind</code>. It reads <code>package.json</code> <code>imports</code> for subpath resolution. Consume it by composing your own <code>gazelle_binary(languages = ["@gazelle_ts//ts"])</code>.</li>
+<li><strong><code>crates/import_extractor</code></strong>: a Rust staticlib that parses TypeScript imports via <code>oxc</code>. It exposes a plugin-namespaced C ABI (<code>gazelle_ts_ie_dispatch</code> / <code>gazelle_ts_ie_free</code>); the gazelle plugin links it through cgo and dispatches in-process. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/crates/import_extractor/README.md" target="_blank" rel="noopener noreferrer">crates/import_extractor/README.md</a>.</li>
+<li><strong><code>examples/</code></strong>: escalating example workspaces, each with its own <code>MODULE.bazel</code>, <code>pnpm-lock.yaml</code>, and <code>tsconfig.json</code>. They <code>local_path_override</code> the parent module so plugin changes apply on the next <code>bazel run //:gazelle</code>. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/examples/README.md" target="_blank" rel="noopener noreferrer">examples/README.md</a>.</li>
+</ul>
+<h2>Consumer Setup</h2>
+<p>Add the module and compose your own <code>gazelle_binary</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# MODULE.bazel
+bazel_dep(name = &quot;gazelle&quot;, version = &quot;0.50.0&quot;)
+bazel_dep(name = &quot;gazelle_ts&quot;, version = &quot;&lt;latest&gt;&quot;)
+
+# Required so the consumer .bazelrc below can reference @llvm directly.
+# bzlmod doesn't transitively expose deps' repos.
+bazel_dep(name = &quot;llvm&quot;, version = &quot;0.7.6&quot;)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.50.0"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle_ts"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;latest&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Required so the consumer .bazelrc below can reference @llvm directly.</span></span>
+<span class="line"><span style="color:#6A737D"># bzlmod doesn't transitively expose deps' repos.</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "llvm"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.7.6"</span><span style="color:#24292E">)</span></span></code></pre>
+<blockquote>
+<p>[!NOTE]
+<code>gazelle_ts</code> registers a hermetic <code>@llvm</code> cc toolchain so the rules_rs Rust toolchain does not trip Bazel's Xcode autodetect on macOS. To use it from a consumer workspace, mirror these flags in your own <code>.bazelrc</code>; Bazel only reads the consumer's rc, not a dependency's:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="common --enable_platform_specific_config
+
+# Linux/Windows: pin host_platform so rules_rs's Rust toolchains match the
+# gnu.2.28 libc / msvc constraints they tag via target_compatible_with.
+common:linux --host_platform=@gazelle_ts//platforms:local_gnu
+common:windows --host_platform=@gazelle_ts//platforms:local_windows_msvc
+
+# Suppress Bazel's autodetected cc toolchain so @llvm wins resolution
+# cleanly. NO_APPLE specifically avoids the XcodeLocalEnvProvider
+# duplicate-SDKROOT crash on macOS.
+common --repo_env=BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN=1
+common --repo_env=BAZEL_NO_APPLE_CPP_TOOLCHAIN=1
+
+# rust stdlib's link spec hardcodes -lgcc_s; @llvm's clang does not
+# ship it, so we inject an empty stub.
+common --@llvm//config:experimental_stub_libgcc_s=True
+
+# rules_go cgo external link via clang+lld cannot produce PIE. Drop
+# when Go 1.27 (Aug 2026) lands PIE-compatible objects.
+build:linux --linkopt=-no-pie" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_platform_specific_config</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Linux/Windows: pin host_platform so rules_rs's Rust toolchains match the</span></span>
+<span class="line"><span style="color:#6A737D"># gnu.2.28 libc / msvc constraints they tag via target_compatible_with.</span></span>
+<span class="line"><span style="color:#24292E">common:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_platform</span><span style="color:#D73A49">=@</span><span style="color:#24292E">gazelle_ts</span><span style="color:#D73A49">//</span><span style="color:#24292E">platforms:local_gnu</span></span>
+<span class="line"><span style="color:#24292E">common:windows </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_platform</span><span style="color:#D73A49">=@</span><span style="color:#24292E">gazelle_ts</span><span style="color:#D73A49">//</span><span style="color:#24292E">platforms:local_windows_msvc</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Suppress Bazel's autodetected cc toolchain so @llvm wins resolution</span></span>
+<span class="line"><span style="color:#6A737D"># cleanly. NO_APPLE specifically avoids the XcodeLocalEnvProvider</span></span>
+<span class="line"><span style="color:#6A737D"># duplicate-SDKROOT crash on macOS.</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">BAZEL_DO_NOT_DETECT_CPP_TOOLCHAIN</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">BAZEL_NO_APPLE_CPP_TOOLCHAIN</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># rust stdlib's link spec hardcodes -lgcc_s; @llvm's clang does not</span></span>
+<span class="line"><span style="color:#6A737D"># ship it, so we inject an empty stub.</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">llvm</span><span style="color:#D73A49">//</span><span style="color:#24292E">config:experimental_stub_libgcc_s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">True</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># rules_go cgo external link via clang+lld cannot produce PIE. Drop</span></span>
+<span class="line"><span style="color:#6A737D"># when Go 1.27 (Aug 2026) lands PIE-compatible objects.</span></span>
+<span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">linkopt</span><span style="color:#D73A49">=-</span><span style="color:#24292E">no</span><span style="color:#D73A49">-</span><span style="color:#24292E">pie</span></span></code></pre>
+<p>See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/examples/basic/.bazelrc" target="_blank" rel="noopener noreferrer">examples/basic/.bazelrc</a> for a working setup.</p>
+</blockquote>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# BUILD.bazel
+load(&quot;@gazelle//:def.bzl&quot;, &quot;gazelle&quot;, &quot;gazelle_binary&quot;)
+
+# gazelle:ts_npm_link_pattern //:node_modules/{pkg}
+
+gazelle_binary(
+    name = &quot;gazelle_bin&quot;,
+    languages = [&quot;@gazelle_ts//ts&quot;],
+)
+
+gazelle(
+    name = &quot;gazelle&quot;,
+    gazelle = &quot;:gazelle_bin&quot;,
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># BUILD.bazel</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@gazelle//:def.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gazelle"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gazelle_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># gazelle:ts_npm_link_pattern //:node_modules/{pkg}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">gazelle_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle_bin"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    languages</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@gazelle_ts//ts"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">gazelle(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    gazelle</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":gazelle_bin"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>Then run <code>bazel run //:gazelle</code>.</p>
+<p><code>@gazelle_ts//ts</code> is a Gazelle language; you compose your own <code>gazelle_binary</code> so it can be combined with other languages (<code>go</code>, <code>python</code>, <code>proto</code>, etc.) into a single binary.</p>
+<p>The plugin emits four abstract kinds, all loaded from <code>@gazelle_ts//ts:defs.bzl</code>:</p>
+<ul>
+<li><code>ts_library</code> for libraries.</li>
+<li><code>ts_test</code> for tests. It assumes a multi-entry runner such as vitest, jest, or mocha; no <code>entry_point</code> is set.</li>
+<li><code>ts_binary</code> for hand-written binary entry points. Gazelle never generates these, but auto-manages the rule's <code>data</code> from <code>entry_point</code> / <code>srcs</code> imports, matching the stock <code>js_binary</code> lifecycle.</li>
+<li><code>ts_bundler_config</code> for files matched by <code>ts_bundler_config_pattern</code>.</li>
+</ul>
+<p>Consumers should <code># gazelle:map_kind</code> each abstract kind to a project-specific macro, typically a small wrapper over <code>ts_project</code>, <code>vitest_test</code>, <code>js_binary</code>, or equivalent rules. The plugin deliberately does not take a transitive <code>aspect_rules_ts</code> or <code>aspect_rules_js</code> dependency, and project-specific macros own defaults such as transpilers, tsconfig, project-reference flags, entry point picking, <code>NODE_OPTIONS</code>, and launcher scripts.</p>
+<p><code>js_binary</code> is recognized too as a legacy or concrete alternative. It has the same <code>data</code>-management lifecycle as <code>ts_binary</code>, without abstract-kind wrapping.</p>
+<h2>TypeScript Language Reference</h2>
+<h3>Architecture</h3>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="flowchart LR
+    A[&quot;BUILD.bazel&lt;br/&gt;(directives)&quot;] --&gt; CFG[&quot;Configure&lt;br/&gt;(per directory)&quot;]
+    F[&quot;*.ts / *.tsx files&quot;] --&gt; GEN[&quot;GenerateRules&quot;]
+    CFG --&gt; GEN
+    SUB[&quot;import_extractor&lt;br/&gt;(Rust staticlib, cgo)&quot;] -. parses TS .-&gt; GEN
+    GEN --&gt; RULES[&quot;abstract TS rules&lt;br/&gt;+ ImportData&quot;]
+    GEN --&gt; IDX[&quot;RuleIndex&quot;]
+    RULES --&gt; RES[&quot;Resolve&quot;]
+    IDX --&gt; RES
+    PKG[&quot;package.json&lt;br/&gt;(deps + imports)&quot;] --&gt; RES
+    RES --&gt; OUT[&quot;BUILD.bazel&lt;br/&gt;(generated)&quot;]" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">flowchart </span><span style="color:#005CC5">LR</span></span>
+<span class="line"><span style="color:#24292E">    A[</span><span style="color:#032F62">"BUILD.bazel&lt;br/&gt;(directives)"</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> CFG</span><span style="color:#24292E">[</span><span style="color:#032F62">"Configure&lt;br/&gt;(per directory)"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">    F[</span><span style="color:#032F62">"*.ts / *.tsx files"</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> GEN</span><span style="color:#24292E">[</span><span style="color:#032F62">"GenerateRules"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#005CC5">    CFG</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> GEN</span></span>
+<span class="line"><span style="color:#005CC5">    SUB</span><span style="color:#24292E">[</span><span style="color:#032F62">"import_extractor&lt;br/&gt;(Rust staticlib, cgo)"</span><span style="color:#24292E">] </span><span style="color:#D73A49">-</span><span style="color:#24292E">. parses </span><span style="color:#005CC5">TS</span><span style="color:#24292E"> .</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#005CC5"> GEN</span></span>
+<span class="line"><span style="color:#005CC5">    GEN</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> RULES</span><span style="color:#24292E">[</span><span style="color:#032F62">"abstract TS rules&lt;br/&gt;+ ImportData"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#005CC5">    GEN</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> IDX</span><span style="color:#24292E">[</span><span style="color:#032F62">"RuleIndex"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#005CC5">    RULES</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> RES</span><span style="color:#24292E">[</span><span style="color:#032F62">"Resolve"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#005CC5">    IDX</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> RES</span></span>
+<span class="line"><span style="color:#005CC5">    PKG</span><span style="color:#24292E">[</span><span style="color:#032F62">"package.json&lt;br/&gt;(deps + imports)"</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> RES</span></span>
+<span class="line"><span style="color:#005CC5">    RES</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> OUT</span><span style="color:#24292E">[</span><span style="color:#032F62">"BUILD.bazel&lt;br/&gt;(generated)"</span><span style="color:#24292E">]</span></span></code></pre>
+<p>The plugin runs in three phases per Gazelle's lifecycle:</p>
+<ol>
+<li><strong>Configure</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/ts/configure.go" target="_blank" rel="noopener noreferrer">ts/configure.go</a>): walks the directory tree, applying each directory's BUILD-file directives on top of inherited config.</li>
+<li><strong>GenerateRules</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/ts/generate.go" target="_blank" rel="noopener noreferrer">ts/generate.go</a>): partitions files into source, test, and bundler-config buckets; calls into the Rust staticlib via cgo to extract imports; and emits generated rules.</li>
+<li><strong>Resolve</strong> (<a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/ts/resolve.go" target="_blank" rel="noopener noreferrer">ts/resolve.go</a>): converts parsed import statements into Bazel deps using the RuleIndex for cross-package refs and <code>package.json</code> for npm packages.</li>
+</ol>
+<p>The Rust crate at <a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/crates/import_extractor" target="_blank" rel="noopener noreferrer">crates/import_extractor</a> is built as a <code>rust_static_library</code> and linked into the Go library via <code>cdeps</code>. Calls into it go through cgo, with protobuf via <code>prost</code> as the in-process wire format.</p>
+<p>The plugin's separation of <code>Imports</code> (provider side) from <code>Resolve</code> (consumer side) is what makes cross-directory references work: <code>Imports()</code> registers each library at its package path in the RuleIndex, and <code>Resolve()</code> queries that index to convert <code>#packages/foo/bar.ts</code> style paths into <code>//packages/foo</code> labels.</p>
+<h3>Supported Import Patterns</h3>
+<p>The Rust parser handles every TypeScript import form; the resolver categorizes each one. Listed in roughly the order the resolver checks them:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Example</th>
+<th>Resolves to</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Relative</strong></td>
+<td><code>./util</code>, <code>../shared/types</code></td>
+<td><em>no dep added</em>; covered by the package's own srcs</td>
+</tr>
+<tr>
+<td><strong>Generated package override</strong></td>
+<td><code>@myrepo_generated/foo</code> when configured via <code>gazelle:resolve_regexp</code></td>
+<td>The configured Bazel label, with regexp captures substituted</td>
+</tr>
+<tr>
+<td><strong>Subpath import</strong></td>
+<td><code>#packages/foo/bar.ts</code> when <code>package.json</code> has <code>"#packages/*": "./packages/*"</code></td>
+<td>An internal <code>//packages/foo</code> label looked up via the RuleIndex</td>
+</tr>
+<tr>
+<td><strong>Generated subpath import</strong></td>
+<td><code>#generated/typespec/rest/users/index.js</code> when <code>package.json</code> maps <code>"#generated/typespec/rest/*/index.js"</code></td>
+<td>The generated package label looked up via the RuleIndex, e.g. <code>//typespec/rest/users:users.web</code></td>
+</tr>
+<tr>
+<td><strong>Node.js builtin</strong></td>
+<td><code>fs</code>, <code>path</code>, <code>node:crypto</code></td>
+<td><code>//:node_modules/@types/node</code>, configurable via <code>ts_npm_link_pattern</code></td>
+</tr>
+<tr>
+<td><strong>Bare npm package</strong></td>
+<td><code>react</code>, <code>lodash</code></td>
+<td><code>//:node_modules/react</code>, plus <code>//:node_modules/@types/react</code> if present</td>
+</tr>
+<tr>
+<td><strong>Scoped npm package</strong></td>
+<td><code>@mui/material</code>, <code>@tanstack/react-query</code></td>
+<td><code>//:node_modules/@mui/material</code></td>
+</tr>
+<tr>
+<td><strong>npm subpath</strong></td>
+<td><code>lodash/debounce</code>, <code>@tanstack/react-query/devtools</code></td>
+<td><code>//:node_modules/lodash</code>, the package rather than the subpath</td>
+</tr>
+<tr>
+<td><strong>Type-only <code>import type</code></strong></td>
+<td><code>import type { Foo } from 'react'</code></td>
+<td>Same as the runtime import; TypeScript needs the dep at type-check time</td>
+</tr>
+<tr>
+<td><strong>Inline import type</strong></td>
+<td><code>import('postcss').Root</code></td>
+<td>Same as a regular <code>import 'postcss'</code></td>
+</tr>
+<tr>
+<td><strong>Dynamic import</strong></td>
+<td><code>await import('lazy-mod')</code></td>
+<td>Same as <code>import 'lazy-mod'</code></td>
+</tr>
+<tr>
+<td><strong>Side-effect import</strong></td>
+<td><code>import 'reflect-metadata'</code>, <code>import './styles.css'</code></td>
+<td>Same as a regular import</td>
+</tr>
+<tr>
+<td><strong>Re-export from</strong></td>
+<td><code>export * from 'foo'</code>, <code>export { x } from 'foo'</code></td>
+<td>Same as <code>import 'foo'</code></td>
+</tr>
+</tbody></table>
+<p>A few cases are intentionally not resolved:</p>
+<ul>
+<li><strong>CSS / asset imports</strong> such as <code>import './styles.css'</code> are returned as raw strings; the resolver skips them as relative imports. If your build needs them as <code>data</code> deps, add them via <code># keep</code> lines or a <code>ts_test_data</code> directive.</li>
+<li><strong>TypeScript path mapping</strong> from <code>tsconfig.json</code>'s <code>paths</code> field is not honored. Use Gazelle's native <code>resolve</code> / <code>resolve_regexp</code> directives for explicit overrides, or rely on <code>package.json</code> <code>imports</code>; both are stricter than <code>paths</code> and play well with the Bazel sandbox.</li>
+<li><strong><code>require(...)</code> calls</strong> are not parsed. The plugin is TypeScript-first; CommonJS in <code>.ts</code> files is rare in practice.</li>
+</ul>
+<h3><code>package.json</code> <code>imports</code></h3>
+<p><code>gazelle_ts</code> reads the root <code>package.json</code> <code>imports</code> map and uses it for TS dependency resolution. This is the preferred way to describe internal <code>#...</code> subpath imports because the same mapping is visible to Node.js, TypeScript's bundler resolution, and Gazelle.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="{
+  &quot;imports&quot;: {
+    &quot;#packages/*&quot;: &quot;./packages/*&quot;,
+    &quot;#generated/typespec/rest/*/index.js&quot;: &quot;./typespec/rest/*&quot;,
+    &quot;#generated/protobuf/*&quot;: [
+      &quot;./bazel-bin/generated/protobuf/*&quot;,
+      &quot;./generated/protobuf/*&quot;
+    ]
+  }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">  "imports"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">    "#packages/*"</span><span style="color:#24292E">: </span><span style="color:#032F62">"./packages/*"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "#generated/typespec/rest/*/index.js"</span><span style="color:#24292E">: </span><span style="color:#032F62">"./typespec/rest/*"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "#generated/protobuf/*"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">      "./bazel-bin/generated/protobuf/*"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "./generated/protobuf/*"</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>For path targets such as <code>./typespec/rest/*</code>, Gazelle substitutes the single <code>*</code> capture and asks its RuleIndex for the longest matching TS package. If <code>//typespec/rest/users</code> contains a generated or hand-written <code>ts_library(name = "users.web")</code>, then <code>import "#generated/typespec/rest/users/index.js"</code> resolves to <code>//typespec/rest/users:users.web</code>.</p>
+<p>Targets that start with <code>//</code> or <code>@</code> are treated as Bazel label templates instead:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="{
+  &quot;imports&quot;: {
+    &quot;#generated/npm/*/index.js&quot;: &quot;//generated/npm/*:*.web&quot;
+  }
+}" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">  "imports"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">    "#generated/npm/*/index.js"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//generated/npm/*:*.web"</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<p>Gazelle resolves <code>imports</code> targets to a single dependency, matching Node's ordered resolution model rather than adding every possible environment target:</p>
+<ol>
+<li>Native <code>gazelle:resolve ts ...</code> and <code>gazelle:resolve_regexp ts ...</code> overrides win before <code>package.json</code> <code>imports</code>.</li>
+<li>Matching <code>imports</code> entries are checked by longest key first.</li>
+<li>A string target is used directly.</li>
+<li>An array target is treated as ordered fallback: Gazelle tries each entry and uses the first target that resolves to a valid Bazel label or RuleIndex package.</li>
+<li>A conditional object is evaluated in declaration order: Gazelle takes the first supported condition whose target resolves. Nested condition objects follow the same rule.</li>
+<li>A <code>null</code> target means no mapping for that branch.</li>
+<li>If no target resolves, Gazelle treats the import as unresolved and continues with the normal builtin/npm fallback logic.</li>
+</ol>
+<p>Supported target value shapes match Node's package target forms:</p>
+<table>
+<thead>
+<tr>
+<th>Value shape</th>
+<th>Example</th>
+<th>Gazelle behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>String</td>
+<td><code>"#foo": "./foo/index.js"</code></td>
+<td>Resolve the string target.</td>
+</tr>
+<tr>
+<td>Array fallback</td>
+<td><code>"#foo": ["./bazel-bin/foo.js", "./foo.js"]</code></td>
+<td>Try each supported target in order.</td>
+</tr>
+<tr>
+<td>Conditional object</td>
+<td><code>"#foo": {"node": "./foo-node.js", "default": "./foo.js"}</code></td>
+<td>Evaluate supported conditions in declaration order; nested condition objects are supported.</td>
+</tr>
+<tr>
+<td><code>null</code></td>
+<td><code>"#foo/private/*": null</code></td>
+<td>Treat as no mapping.</td>
+</tr>
+</tbody></table>
+<p>The resolver recognizes the <code>types</code>, <code>node-addons</code>, <code>node</code>, <code>import</code>, <code>module-sync</code>, and <code>default</code> conditions. Other conditions are ignored unless a later supported condition provides a target.</p>
+<h3>Recommendations</h3>
+<ul>
+<li><strong>Wire concrete macros via <code># gazelle:map_kind</code>.</strong> The plugin emits abstract kinds. Consumers wrap them in small macros that forward to their chosen implementation and set project-specific defaults. Without <code>map_kind</code>, the fallback in <code>@gazelle_ts//ts:defs.bzl</code> collects srcs/deps/data into a <code>filegroup</code> so the BUILD still loads, but nothing typechecks.</li>
+<li><strong>Use <code>package.json</code> <code>imports</code> for internal cross-package references and generated subpaths.</strong> Configuring <code>"#packages/*": "./packages/*"</code> or <code>"#generated/foo/*/index.js": "./generated/foo/*"</code> lets source, TypeScript, Node.js, bundlers, and Gazelle agree on resolution. The plugin reads the same map and resolves to internal Bazel labels.</li>
+<li><strong>In monorepos, set TypeScript project references in your wrapper macro.</strong> Set <code>composite = True</code>, <code>declaration = True</code>, and <code>source_map = True</code> inside the macro behind <code>ts_library</code>; the wrapper runs once and applies to every emitted library.</li>
+<li><strong>Pin one npm linker layout via <code>ts_npm_link_pattern</code>.</strong> rules_js pnpm projects often use <code>//&lt;dir&gt;:node_modules/{pkg}</code>; the default <code>//:node_modules/{pkg}</code> is right for the simplest setup.</li>
+<li><strong>Do not fight the merge engine.</strong> Attrs the plugin sets are listed below. Attrs it does not set are preserved across runs, so manual overrides such as custom <code>transpiler</code>, extra <code>args</code>, or opt-in <code>declaration_dir</code> survive.</li>
+<li><strong>Annotate generated files with <code># keep</code>.</strong> If a file would be excluded by the test pattern but you want it in <code>srcs</code>, such as a checked-in <code>*.generated.ts</code> fixture, add <code>"foo.generated.ts",  # keep</code> to the <code>srcs</code> list.</li>
+</ul>
+<h3>Directives</h3>
+<p>All directives are placed in <code>BUILD.bazel</code> as <code># gazelle:&lt;key&gt; &lt;value&gt;</code> and inherit into subdirectories.</p>
+<table>
+<thead>
+<tr>
+<th>Directive</th>
+<th>Default</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>ts_enabled</code></td>
+<td><code>true</code></td>
+<td>Disable per-tree to skip directories owned by another tool.</td>
+</tr>
+<tr>
+<td><code>ts_library_name</code></td>
+<td>package basename, e.g. <code>web</code> for <code>//apps/web</code></td>
+<td>Name of the generated library rule.</td>
+</tr>
+<tr>
+<td><code>ts_test_name</code></td>
+<td>package basename + <code>_test</code>, e.g. <code>web_test</code></td>
+<td>Name of the generated test rule.</td>
+</tr>
+<tr>
+<td><code>ts_visibility</code></td>
+<td><code>//visibility:public</code></td>
+<td>Repeatable / space-separated list.</td>
+</tr>
+<tr>
+<td><code>ts_test_pattern</code></td>
+<td><code>*.test.ts</code>, <code>*.test.tsx</code>, <code>tests/**</code>, <code>test/**</code></td>
+<td>Repeatable; appended.</td>
+</tr>
+<tr>
+<td><code>ts_extension</code></td>
+<td><code>.ts</code>, <code>.tsx</code></td>
+<td>Repeatable; appended.</td>
+</tr>
+<tr>
+<td><code>ts_npm_link_pattern</code></td>
+<td><code>//:node_modules/{pkg}</code></td>
+<td>Template; <code>{pkg}</code> is replaced with the resolved package name.</td>
+</tr>
+<tr>
+<td><code>ts_test_data</code></td>
+<td>empty</td>
+<td>Repeatable; appended to every test rule's <code>data</code>.</td>
+</tr>
+<tr>
+<td><code>ts_tsconfig_types</code></td>
+<td><code>node</code></td>
+<td>Repeatable / space-separated allowlist of ambient type package names. When a matching <code>@types/*</code> dep is resolved, the unprefixed name is emitted in <code>tsconfig_types</code>.</td>
+</tr>
+<tr>
+<td><code>ts_bundler_config_pattern</code></td>
+<td>empty</td>
+<td>Repeatable <code>&lt;glob&gt; &lt;name&gt;</code> entries. Files matching the glob are excluded from the library and emitted as a separate <code>ts_bundler_config</code> target named <code>&lt;name&gt;</code>. Use for vite/vitest/tailwind/storybook configs whose deps should not enter the lib's compilation closure.</td>
+</tr>
+</tbody></table>
+<h4>Non-Production TypeScript Sources</h4>
+<p><code>gazelle_ts</code> already separates files matching <code>ts_test_pattern</code> from the generated <code>ts_library</code>. Use this for test-adjacent sources that are not named <code>*.test.ts(x)</code> but should live with the test target:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# gazelle:ts_test_pattern __tests__/**/*.ts
+# gazelle:ts_test_pattern __tests__/**/*.tsx" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># gazelle:ts_test_pattern __tests__/**/*.ts</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:ts_test_pattern __tests__/**/*.tsx</span></span></code></pre>
+<p>Use Gazelle's built-in <code>exclude</code> directive for files owned by another package or app shape, such as Storybook config:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# gazelle:exclude .storybook/**
+# gazelle:exclude vitest.storybook.config.ts" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># gazelle:exclude .storybook/**</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:exclude vitest.storybook.config.ts</span></span></code></pre>
+<h4>Generated Package Overrides</h4>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# Map @myrepo_generated/* directly to Bazel linker labels.
+# gazelle:resolve_regexp ts ^@myrepo_generated/(.*)$ //:node_modules/@myrepo_generated/$1" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># Map @myrepo_generated/* directly to Bazel linker labels.</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:resolve_regexp ts ^@myrepo_generated/(.*)$ //:node_modules/@myrepo_generated/$1</span></span></code></pre>
+<p>Use <code>package.json</code> <code>imports</code> for workspace path aliases such as <code>#packages/*</code>: the plugin reads that map and walks the RuleIndex to find the longest matching package.</p>
+<h4>Local Ambient Type Packages</h4>
+<p>For a local <code>.d.ts</code>-only package that declares globals and is never imported, keep both the local dep and the <code>tsconfig_types</code> entry on the consuming rule:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# gazelle:ts_tsconfig_types custom-ambient
+
+ts_library(
+    name = &quot;lib&quot;,
+    deps = [
+        &quot;//vendor/@types/custom-ambient&quot;,  # keep
+    ],
+    tsconfig_types = [
+        &quot;custom-ambient&quot;,  # keep
+    ],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># gazelle:ts_tsconfig_types custom-ambient</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ts_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "//vendor/@types/custom-ambient"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># keep</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    tsconfig_types</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "custom-ambient"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># keep</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>The local type package itself can be a normal generated <code>.d.ts</code>-only target:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ts_library(
+    name = &quot;custom-ambient&quot;,
+    srcs = [&quot;index.d.ts&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ts_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "custom-ambient"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"index.d.ts"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<h4><code>ts_bundler_config_pattern</code> Examples</h4>
+<p>Bundler/tooling config files such as vite, vitest, tailwind, and storybook configs typically live alongside library sources but pull in build-time-only deps (<code>vite</code>, <code>@vitejs/plugin-react</code>, <code>vitest</code>) that should not enter the library's runtime closure. <code>ts_bundler_config_pattern</code> peels each matched file into a separate <code>ts_bundler_config</code> target so it typechecks as its own compilation unit.</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# gazelle:ts_bundler_config_pattern vite.config.* vite_config
+# gazelle:ts_bundler_config_pattern vitest.config.* vitest_config
+# gazelle:ts_bundler_config_pattern tailwind.config.ts tailwind_config
+# gazelle:ts_bundler_config_pattern .storybook/main.ts storybook_config" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># gazelle:ts_bundler_config_pattern vite.config.* vite_config</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:ts_bundler_config_pattern vitest.config.* vitest_config</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:ts_bundler_config_pattern tailwind.config.ts tailwind_config</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:ts_bundler_config_pattern .storybook/main.ts storybook_config</span></span></code></pre>
+<p>For a package laid out like:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="app/
+├── BUILD.bazel
+├── index.ts                # imports react, ./helpers
+├── helpers.ts              # imports lodash
+├── vite.config.ts          # imports vite, @vitejs/plugin-react, ./viteHelpers
+├── viteHelpers.ts          # imports node:path
+└── index.test.ts           # imports vitest, ./index" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">app</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">├── </span><span style="color:#005CC5">BUILD</span><span style="color:#24292E">.bazel</span></span>
+<span class="line"><span style="color:#24292E">├── index.ts                </span><span style="color:#6A737D"># imports react, ./helpers</span></span>
+<span class="line"><span style="color:#24292E">├── helpers.ts              </span><span style="color:#6A737D"># imports lodash</span></span>
+<span class="line"><span style="color:#24292E">├── vite.config.ts          </span><span style="color:#6A737D"># imports vite, @vitejs/plugin-react, ./viteHelpers</span></span>
+<span class="line"><span style="color:#24292E">├── viteHelpers.ts          </span><span style="color:#6A737D"># imports node:path</span></span>
+<span class="line"><span style="color:#24292E">└── index.test.ts           </span><span style="color:#6A737D"># imports vitest, ./index</span></span></code></pre>
+<p>the plugin emits, before <code>map_kind</code> rewrite:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="ts_library(
+    name = &quot;app&quot;,
+    srcs = [&quot;helpers.ts&quot;, &quot;index.ts&quot;, &quot;viteHelpers.ts&quot;],
+    deps = [
+        &quot;//:node_modules/@types/node&quot;,
+        &quot;//:node_modules/lodash&quot;,
+        &quot;//:node_modules/react&quot;,
+    ],
+    tsconfig_types = [&quot;node&quot;],
+)
+
+ts_bundler_config(
+    name = &quot;vite_config&quot;,
+    srcs = [&quot;vite.config.ts&quot;],
+    deps = [
+        &quot;//:node_modules/@vitejs/plugin-react&quot;,
+        &quot;//:node_modules/vite&quot;,
+        &quot;:app&quot;,  # vite.config.ts imports ./viteHelpers, which lives in :app
+    ],
+)
+
+ts_test(
+    name = &quot;app_test&quot;,
+    srcs = [&quot;index.test.ts&quot;],
+    deps = [&quot;:app&quot;, &quot;//:node_modules/vitest&quot;],
+)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">ts_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"helpers.ts"</span><span style="color:#24292E">, </span><span style="color:#032F62">"index.ts"</span><span style="color:#24292E">, </span><span style="color:#032F62">"viteHelpers.ts"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/@types/node"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/lodash"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/react"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    tsconfig_types</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"node"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ts_bundler_config(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "vite_config"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"vite.config.ts"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/@vitejs/plugin-react"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/vite"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        ":app"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># vite.config.ts imports ./viteHelpers, which lives in :app</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ts_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app_test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"index.test.ts"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":app"</span><span style="color:#24292E">, </span><span style="color:#032F62">"//:node_modules/vitest"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<p>Key behaviors:</p>
+<ul>
+<li><strong>Glob syntax</strong> is full doublestar: <code>*</code> is a single-segment wildcard and <code>**</code> spans directories.</li>
+<li><strong>Longest pattern wins</strong> when multiple specs match the same file.</li>
+<li><strong>Bundler-config classification overrides the test split</strong>: a file matching both <code>*.test.ts</code> and a bundler-config pattern goes to the bundler-config target.</li>
+<li><strong>Multiple specs may share a name</strong>: pointing several patterns at one target merges their files into a single rule.</li>
+<li><strong>Helpers stay in lib.</strong> If <code>vite.config.ts</code> and <code>lib.ts</code> both import <code>./shared.ts</code>, <code>shared.ts</code> lands in the library and the bundler-config target adds <code>:lib</code> to its deps. The closure leaks bundler to lib, but never lib to bundler.</li>
+<li><strong><code>lib.ts</code> importing a bundler-config file is a build error.</strong> The resolver does not route the import to the bundler-config target; the import goes unresolved and typecheck fails.</li>
+</ul>
+<p><code>ts_bundler_config</code>, like <code>ts_library</code>, is an abstract kind requiring <code>map_kind</code>. The distinct kind name lets <code>map_kind ts_bundler_config &lt;macro&gt;</code> rewrite bundler-config emissions independently of <code>ts_library</code>. See <a href="https://github.com/hermeticbuild/gazelle_ts/blob/5a632013e05d41a3b39bb10eeaf83e26da1d2481/examples/bundler-config" target="_blank" rel="noopener noreferrer">examples/bundler-config</a> for a complete walkthrough.</p>
+<h3>Generated Attrs</h3>
+<h4><code>ts_library</code> (abstract)</h4>
+<table>
+<thead>
+<tr>
+<th>Attr</th>
+<th>Set by</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>name</code></td>
+<td>generate</td>
+<td>non-empty required</td>
+</tr>
+<tr>
+<td><code>srcs</code></td>
+<td>generate</td>
+<td>mergeable, preserves <code># keep</code> lines</td>
+</tr>
+<tr>
+<td><code>visibility</code></td>
+<td>generate</td>
+<td>overwritten each run</td>
+</tr>
+<tr>
+<td><code>deps</code></td>
+<td>resolve</td>
+<td>replaced each run</td>
+</tr>
+<tr>
+<td><code>tsconfig_types</code></td>
+<td>resolve</td>
+<td>mergeable; inferred from resolved <code>@types/*</code> deps allowlisted by <code>ts_tsconfig_types</code>, e.g. <code>@types/node</code> -&gt; <code>node</code></td>
+</tr>
+<tr>
+<td>anything else</td>
+<td><em>untouched</em></td>
+<td>manual overrides survive across runs</td>
+</tr>
+</tbody></table>
+<p><code>composite</code>, <code>declaration</code>, <code>source_map</code>, <code>transpiler</code>, <code>tsconfig</code>, and similar compile-shape attrs are not emitted by the plugin; they belong to the macro you map_kind <code>ts_library</code> to. <code>tsconfig_types</code> is the exception because it is derived from resolved ambient <code>@types/*</code> deps.</p>
+<h4><code>ts_test</code> (abstract)</h4>
+<table>
+<thead>
+<tr>
+<th>Attr</th>
+<th>Set by</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>name</code></td>
+<td>generate</td>
+<td>non-empty required</td>
+</tr>
+<tr>
+<td><code>srcs</code></td>
+<td>generate</td>
+<td>mergeable; test entrypoints only</td>
+</tr>
+<tr>
+<td><code>deps</code></td>
+<td>generate + resolve</td>
+<td>mergeable; sibling library label plus imports from test files</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>generate</td>
+<td>mergeable; runtime-only fixtures from <code>ts_test_data</code> or <code># keep</code></td>
+</tr>
+<tr>
+<td><code>tsconfig_types</code></td>
+<td>resolve</td>
+<td>mergeable; inferred from resolved test-only <code>@types/*</code> deps allowlisted by <code>ts_tsconfig_types</code></td>
+</tr>
+<tr>
+<td>anything else</td>
+<td><em>untouched</em></td>
+<td>manual overrides survive across runs</td>
+</tr>
+</tbody></table>
+<p>No <code>entry_point</code> is emitted. <code>ts_test</code> assumes a multi-entry runner such as vitest, jest, or mocha. Wrappers mapped to single-entry runners such as stock <code>js_test</code> need to pick one from <code>srcs</code> themselves.</p>
+<h4><code>ts_binary</code> / <code>js_binary</code> (hand-written, data-managed)</h4>
+<table>
+<thead>
+<tr>
+<th>Attr</th>
+<th>Set by</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>name</code></td>
+<td>user</td>
+<td>hand-written</td>
+</tr>
+<tr>
+<td><code>entry_point</code> / <code>srcs</code></td>
+<td>user</td>
+<td>hand-written; gazelle scans these for imports</td>
+</tr>
+<tr>
+<td><code>data</code></td>
+<td>resolve</td>
+<td>replaced each run with resolved deps from imports</td>
+</tr>
+<tr>
+<td>anything else</td>
+<td><em>untouched</em></td>
+<td>manual overrides survive across runs</td>
+</tr>
+</tbody></table>
+<p>Gazelle never generates either kind. It piggybacks on the user's existing rule, scans <code>entry_point</code> / <code>srcs</code> for TS imports, and fills in <code>data</code>. Use <code>ts_binary</code> when you want <code># gazelle:map_kind</code> to swap implementations without touching gazelle config; use <code>js_binary</code> when stock rules_js works as-is.</p>
+<h4><code>ts_bundler_config</code> (abstract)</h4>
+<table>
+<thead>
+<tr>
+<th>Attr</th>
+<th>Set by</th>
+<th>Behavior</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>name</code></td>
+<td>generate</td>
+<td>from the directive's <code>&lt;name&gt;</code> argument</td>
+</tr>
+<tr>
+<td><code>srcs</code></td>
+<td>generate</td>
+<td>mergeable; one entry per matched file</td>
+</tr>
+<tr>
+<td><code>visibility</code></td>
+<td>generate</td>
+<td>overwritten each run</td>
+</tr>
+<tr>
+<td><code>deps</code></td>
+<td>resolve</td>
+<td>replaced each run; includes sibling lib label when the config has any relative imports</td>
+</tr>
+<tr>
+<td><code>tsconfig_types</code></td>
+<td>resolve</td>
+<td>mergeable; inferred from resolved <code>@types/*</code> deps allowlisted by <code>ts_tsconfig_types</code></td>
+</tr>
+<tr>
+<td>anything else</td>
+<td><em>untouched</em></td>
+<td>manual overrides survive across runs</td>
+</tr>
+</tbody></table>
+<h3>How Import Resolution Works</h3>
+<ol>
+<li><code>package.json</code> is read once at the repo root for <code>dependencies</code>, <code>devDependencies</code>, <code>optionalDependencies</code>, and <code>imports</code>.</li>
+<li>Per import:<ul>
+<li><strong>Relative</strong> (<code>./foo</code>, <code>../bar</code>): no dep added.</li>
+<li><strong>Override</strong>: <code>gazelle:resolve ts ...</code> and <code>gazelle:resolve_regexp ts ...</code> win over all TS-specific resolution.</li>
+<li><strong>Subpath import</strong>: matches a key in the <code>package.json</code> <code>imports</code> map. <code>*</code> may appear anywhere in the <code>imports</code> key and target, so patterns like <code>"#generated/foo/*/index.js": "./generated/foo/*"</code> resolve through the RuleIndex to the generated package's actual label. Array fallback targets are tried in order.</li>
+<li><strong>Node.js builtin</strong>: resolves to <code>@types/node</code> and adds <code>node</code> to <code>tsconfig_types</code> because <code>node</code> is in the default <code>ts_tsconfig_types</code> allowlist.</li>
+<li><strong>npm package</strong>: resolves to <code>{npmLinkPattern}</code> with <code>{pkg}</code> replaced and auto-pairs <code>@types/&lt;pkg&gt;</code> if present in deps. The paired type package only adds to <code>tsconfig_types</code> when its unprefixed name is allowlisted by <code>ts_tsconfig_types</code>.</li>
+</ul>
+</li>
+<li>Library, test, and bundler-config rules collect resolved labels into <code>deps</code> and inferred type names into <code>tsconfig_types</code>.</li>
+<li><code>Imports()</code> registers each library's package path in the RuleIndex so other directories can look it up via <code>FindRulesByImportWithConfig</code>.</li>
+</ol>
+<h3>Running With A Custom Macro (<code>map_kind</code>)</h3>
+<p>Wire each generated abstract kind to a concrete macro at your root BUILD:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="# gazelle:map_kind ts_library         myrepo_ts_library     //tools:ts.bzl
+# gazelle:map_kind ts_test            myrepo_ts_test        //tools:ts.bzl
+# gazelle:map_kind ts_binary          myrepo_ts_binary      //tools:ts.bzl
+# gazelle:map_kind ts_bundler_config  myrepo_bundler_config //tools:ts.bzl" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#6A737D"># gazelle:map_kind ts_library         myrepo_ts_library     //tools:ts.bzl</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:map_kind ts_test            myrepo_ts_test        //tools:ts.bzl</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:map_kind ts_binary          myrepo_ts_binary      //tools:ts.bzl</span></span>
+<span class="line"><span style="color:#6A737D"># gazelle:map_kind ts_bundler_config  myrepo_bundler_config //tools:ts.bzl</span></span></code></pre>
+<p>A typical <code>tools/ts.bzl</code>:</p>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="load(&quot;@aspect_rules_ts//ts:defs.bzl&quot;, &quot;ts_project&quot;)
+load(&quot;@aspect_rules_js//js:defs.bzl&quot;, &quot;js_binary&quot;, &quot;js_test&quot;)
+
+def myrepo_ts_library(name, srcs, **kwargs):
+    ts_project(
+        name = name,
+        srcs = srcs,
+        composite = True,
+        declaration = True,
+        declaration_map = True,
+        source_map = True,
+        # transpiler, default tsconfig, etc. baked in here.
+        **kwargs
+    )
+
+def myrepo_ts_test(name, srcs, deps = [], data = [], **kwargs):
+    # Stock js_test needs one entry_point; generated ts_test srcs are already
+    # the test entrypoints. Multi-entry runners can forward srcs/deps/data in
+    # the shape they expect.
+    js_test(name = name, data = srcs + deps + data, entry_point = srcs[0], **kwargs)
+
+def myrepo_ts_binary(name, **kwargs):
+    # Gazelle keeps `data` in sync from the rule's entry_point/srcs imports;
+    # the wrapper bakes in launcher / NODE_OPTIONS / chdir defaults.
+    js_binary(name = name, **kwargs)
+
+def myrepo_bundler_config(name, srcs, **kwargs):
+    ts_project(name = name, srcs = srcs, **kwargs)" style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@aspect_rules_ts//ts:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ts_project"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@aspect_rules_js//js:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"js_binary"</span><span style="color:#24292E">, </span><span style="color:#032F62">"js_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> myrepo_ts_library</span><span style="color:#24292E">(name, srcs, </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs):</span></span>
+<span class="line"><span style="color:#24292E">    ts_project(</span></span>
+<span class="line"><span style="color:#E36209">        name</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> name,</span></span>
+<span class="line"><span style="color:#E36209">        srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> srcs,</span></span>
+<span class="line"><span style="color:#E36209">        composite</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">        declaration</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">        declaration_map</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">        source_map</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">        # transpiler, default tsconfig, etc. baked in here.</span></span>
+<span class="line"><span style="color:#D73A49">        **</span><span style="color:#24292E">kwargs</span></span>
+<span class="line"><span style="color:#24292E">    )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> myrepo_ts_test</span><span style="color:#24292E">(name, srcs, deps </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [], data </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [], </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs):</span></span>
+<span class="line"><span style="color:#6A737D">    # Stock js_test needs one entry_point; generated ts_test srcs are already</span></span>
+<span class="line"><span style="color:#6A737D">    # the test entrypoints. Multi-entry runners can forward srcs/deps/data in</span></span>
+<span class="line"><span style="color:#6A737D">    # the shape they expect.</span></span>
+<span class="line"><span style="color:#24292E">    js_test(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> name, </span><span style="color:#E36209">data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> srcs </span><span style="color:#D73A49">+</span><span style="color:#24292E"> deps </span><span style="color:#D73A49">+</span><span style="color:#24292E"> data, </span><span style="color:#E36209">entry_point</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> srcs[</span><span style="color:#005CC5">0</span><span style="color:#24292E">], </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> myrepo_ts_binary</span><span style="color:#24292E">(name, </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs):</span></span>
+<span class="line"><span style="color:#6A737D">    # Gazelle keeps `data` in sync from the rule's entry_point/srcs imports;</span></span>
+<span class="line"><span style="color:#6A737D">    # the wrapper bakes in launcher / NODE_OPTIONS / chdir defaults.</span></span>
+<span class="line"><span style="color:#24292E">    js_binary(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> name, </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> myrepo_bundler_config</span><span style="color:#24292E">(name, srcs, </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs):</span></span>
+<span class="line"><span style="color:#24292E">    ts_project(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> name, </span><span style="color:#E36209">srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> srcs, </span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs)</span></span></code></pre>
+<p>If you skip <code>map_kind</code>, the fallback in <code>@gazelle_ts//ts:defs.bzl</code> collects srcs/deps/data into a <code>filegroup</code> so the BUILD still loads, but it does not typecheck or run tests.</p>
+<h3>Migrating From Older Direct Emission</h3>
+<p>If you are updating from a version that emitted <code>ts_project</code> / <code>js_test</code> directly:</p>
+<ol>
+<li>Add <code># gazelle:map_kind</code> directives for <code>ts_library</code>, <code>ts_test</code>, and, if used, <code>ts_bundler_config</code> at your root BUILD.</li>
+<li>Move project-reference compile flags (<code>composite</code>, <code>declaration</code>, <code>source_map</code>, <code>declaration_map</code>), <code>transpiler</code>, and <code>tsconfig</code> into your wrapper macro; the plugin no longer emits them.</li>
+<li>Move <code>entry_point</code> handling into your <code>ts_test</code> wrapper, or use a multi-entry runner.</li>
+<li>Drop directives that are now no-ops: <code>ts_project_references</code>, <code>ts_library_kind</code>, <code>ts_test_kind</code>, <code>ts_tsconfig</code>, <code>ts_transpiler</code>, <code>ts_test_entry_point</code>, <code>ts_test_entry_point_auto</code>.</li>
+<li>Re-run gazelle. Old <code>ts_project</code> / <code>js_test</code> rules will be replaced by your wrapper kinds.</li>
+</ol>
+<h2>Build</h2>
+<pre class="shiki github-light border color-bg-subtle" style="background-color: rgb(255, 255, 255); color: rgb(36, 41, 46); position: relative;" tabindex="0"><button class="btn btn-octicon float-right" aria-label="Copy to clipboard" data-clippy="bazel test //..." style="position: absolute; right: 4px; top: 4px;"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"></path><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"></path></g></svg></button><code><span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<p>Tests in <code>crates/</code> and <code>ts/</code> run on linux-x86_64 and macos-arm64 in CI; the example workspaces run on linux-x86_64 only. BUILD-generation coverage does not need cross-platform execution.</p>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">Bazel build setup, a Gazelle TypeScript language extension, and the Rust import-extractor that powers it (linked in via cgo).</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/hermeticbuild/gazelle_ts" title="@hermeticbuild"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@hermeticbuild/gazelle_ts</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/hermeticbuild.png" alt="@hermeticbuild"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/gazelle_ts"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">2</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>7:24 PM (3 minutes ago)</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 69%; background-color: var(--lang-Go-bg, #ccc)" title="Go: 69%"> </span><span style="width: 18.5%; background-color: var(--lang-Rust-bg, #ccc)" title="Rust: 18.5%"> </span><span style="width: 12.5%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 12.5%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Go-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/Go">Go</a><span class="ml-2 color-fg-muted">69%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Rust-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Rust</span><span class="ml-2 color-fg-muted">18.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">12.5%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/longlho" title="Long Ho"><img class="avatar circle" width="48" height="48" src="https://github.com/longlho.png" alt="@longlho"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/dzbarsky" title="David Zbarsky"><img class="avatar circle" width="48" height="48" src="https://github.com/dzbarsky.png" alt="@dzbarsky"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Attestations</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">3</label></span></h3><div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/gazelle_ts/releases/download/v0.4.14/MODULE.bazel.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">MODULE.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/gazelle_ts/releases/download/v0.4.14/gazelle_ts-v0.4.14.tar.gz.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">gazelle_ts-v0.4.14.tar.gz</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/hermeticbuild/gazelle_ts/releases/download/v0.4.14/source.json.intoto.jsonl"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-ansi-magenta-bright)"><path d="m9.585.52.929.68c.153.112.331.186.518.215l1.138.175a2.678 2.678 0 0 1 2.24 2.24l.174 1.139c.029.187.103.365.215.518l.68.928a2.677 2.677 0 0 1 0 3.17l-.68.928a1.174 1.174 0 0 0-.215.518l-.175 1.138a2.678 2.678 0 0 1-2.241 2.241l-1.138.175a1.17 1.17 0 0 0-.518.215l-.928.68a2.677 2.677 0 0 1-3.17 0l-.928-.68a1.174 1.174 0 0 0-.518-.215L3.83 14.41a2.678 2.678 0 0 1-2.24-2.24l-.175-1.138a1.17 1.17 0 0 0-.215-.518l-.68-.928a2.677 2.677 0 0 1 0-3.17l.68-.928c.112-.153.186-.331.215-.518l.175-1.14a2.678 2.678 0 0 1 2.24-2.24l1.139-.175c.187-.029.365-.103.518-.215l.928-.68a2.677 2.677 0 0 1 3.17 0ZM7.303 1.728l-.927.68a2.67 2.67 0 0 1-1.18.489l-1.137.174a1.179 1.179 0 0 0-.987.987l-.174 1.136a2.677 2.677 0 0 1-.489 1.18l-.68.928a1.18 1.18 0 0 0 0 1.394l.68.927c.256.348.424.753.489 1.18l.174 1.137c.078.509.478.909.987.987l1.136.174a2.67 2.67 0 0 1 1.18.489l.928.68c.414.305.979.305 1.394 0l.927-.68a2.67 2.67 0 0 1 1.18-.489l1.137-.174a1.18 1.18 0 0 0 .987-.987l.174-1.136a2.67 2.67 0 0 1 .489-1.18l.68-.928a1.176 1.176 0 0 0 0-1.394l-.68-.927a2.686 2.686 0 0 1-.489-1.18l-.174-1.137a1.179 1.179 0 0 0-.987-.987l-1.136-.174a2.677 2.677 0 0 1-1.18-.489l-.928-.68a1.176 1.176 0 0 0-1.394 0ZM11.28 6.78l-3.75 3.75a.75.75 0 0 1-1.06 0L4.72 8.78a.751.751 0 0 1 .018-1.042.751.751 0 0 1 1.042-.018L7 8.94l3.22-3.22a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"></path></g></svg></span><span class="text-bold mr-1">source.json</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/hermeticbuild-bot" title="@hermeticbuild-bot"><img class="avatar circle" width="48" height="48" src="https://github.com/hermeticbuild-bot.png" alt="@hermeticbuild-bot"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/8874"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="gazelle_ts@0.4.14 (#8874)"><span class="text-mono">#8874</span> <span class="text-light">gazelle_ts@0.4.14 (#8874)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/gazelle_ts/releases/download/v0.4.14/gazelle_ts-v0.4.14.tar.gz" title="https://github.com/hermeticbuild/gazelle_ts/releases/download/v0.4.14/gazelle_ts-v0.4.14.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/hermeticbu...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/10a51f4526513b847569181bd97a3fed20d817c2/modules/gazelle_ts/0.4.14/patches/module_dot_bazel_version.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel_version.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h3><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=8.5.0</label></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">10</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.4.14; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.14"><span class="text-bold">0.4.14</span><sup class="color-fg-attention"> +3h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-13</span></div></td></tr><tr class=""><td title="0.4.13; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.13"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.13">0.4.13</a><sup class="color-fg-attention"> +2d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-13</span></div></td></tr><tr class=""><td title="0.4.12; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.12"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.12">0.4.12</a><sup class="color-fg-attention"> +3d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-11</span></div></td></tr><tr class=""><td title="0.4.11; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.11"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.11">0.4.11</a><sup class="color-fg-attention"> +2d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-07</span></div></td></tr><tr class=""><td title="0.4.10; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.10"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.10">0.4.10</a><sup class="color-fg-attention"> +16h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-04</span></div></td></tr><tr class=""><td title="0.4.9; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.9"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.9">0.4.9</a><sup class="color-fg-attention"> +2d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-04</span></div></td></tr><tr class=""><td title="0.4.5; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.5"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.5">0.4.5</a><sup class="color-fg-attention"> +14h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-01</span></div></td></tr><tr class=""><td title="0.4.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.3"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.3">0.4.3</a><sup class="color-fg-attention"> +15h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-05-01</span></div></td></tr><tr class=""><td title="0.4.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.4.0"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.4.0">0.4.0</a><sup class="color-fg-attention"> +1d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-30</span></div></td></tr><tr class=""><td title="0.3.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.3.3"><a class="Box-row-link" href="/#/modules/gazelle_ts/0.3.3">0.3.3</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-04-29</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

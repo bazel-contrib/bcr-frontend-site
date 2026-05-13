@@ -35,10 +35,10 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e9e04e3c.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.856ce20a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b6944da1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.113e17b5.js" defer=""></script>
-		<script src="/registry.8e7556fe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4f7cf8df.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/argparse/3.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -652,245 +652,245 @@ Below are some examples.</p>
 <span class="line"><span style="color:#24292E">bar.txt</span></span>
 <span class="line"><span style="color:#24292E">baz.txt</span></span></code></pre>
 <p>The process of gathering remaining arguments plays nicely with optional arguments too:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"compiler"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_arguments(</span><span style="color:#032F62">"-o"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(std::string(</span><span style="color:#032F62">"a.out"</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"files"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .remaining()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto output_filename </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-o"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Output filename: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> output_filename </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  auto files = program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"files"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> files.size() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " files provided"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">  for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#E36209"> file</span><span style="color:#24292E"> : files)</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">} catch (std::logic_error</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> e) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "No files provided"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">compiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">o main foo.cpp bar.cpp baz.cpp</span></span>
-<span class="line"><span style="color:#24292E">Output filename: main</span></span>
-<span class="line"><span style="color:#005CC5">3</span><span style="color:#24292E"> files provided</span></span>
-<span class="line"><span style="color:#24292E">foo.cpp</span></span>
-<span class="line"><span style="color:#24292E">bar.cpp</span></span>
-<span class="line"><span style="color:#24292E">baz.cpp</span></span></code></pre>
+<pre><code lang="py">argparse::ArgumentParser program("compiler");
+
+program.add_arguments("-o")
+  .default_value(std::string("a.out"));
+
+program.add_argument("files")
+  .remaining();
+
+try {
+  program.parse_args(argc, argv);
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+auto output_filename = program.get&lt;std::string&gt;("-o");
+std::cout &lt;&lt; "Output filename: " &lt;&lt; output_filename &lt;&lt; std::endl;
+
+try {
+  auto files = program.get&lt;std::vector&lt;std::string&gt;&gt;("files");
+  std::cout &lt;&lt; files.size() &lt;&lt; " files provided" &lt;&lt; std::endl;
+  for (auto&amp; file : files)
+    std::cout &lt;&lt; file &lt;&lt; std::endl;
+} catch (std::logic_error&amp; e) {
+  std::cout &lt;&lt; "No files provided" &lt;&lt; std::endl;
+}</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./compiler -o main foo.cpp bar.cpp baz.cpp
+Output filename: main
+3 files provided
+foo.cpp
+bar.cpp
+baz.cpp</code></pre>
 <p><em><strong>NOTE</strong></em>: Remember to place all optional arguments BEFORE the remaining argument. If the optional argument is placed after the remaining arguments, it too will be deemed remaining:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">compiler foo.cpp bar.cpp baz.cpp </span><span style="color:#D73A49">-</span><span style="color:#24292E">o main</span></span>
-<span class="line"><span style="color:#005CC5">5</span><span style="color:#24292E"> arguments provided</span></span>
-<span class="line"><span style="color:#24292E">foo.cpp</span></span>
-<span class="line"><span style="color:#24292E">bar.cpp</span></span>
-<span class="line"><span style="color:#24292E">baz.cpp</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">o</span></span>
-<span class="line"><span style="color:#24292E">main</span></span></code></pre>
+<pre><code>foo@bar:/home/dev/$ ./compiler foo.cpp bar.cpp baz.cpp -o main
+5 arguments provided
+foo.cpp
+bar.cpp
+baz.cpp
+-o
+main</code></pre>
 <h3>Parent Parsers</h3>
 <p>A parser may use arguments that could be used by other parsers.</p>
 <p>These shared arguments can be added to a parser which is then used as a "parent" for parsers which also need those arguments. One or more parent parsers may be added to a parser with <code>.add_parents</code>. The positional and optional arguments in each parent is added to the child parser.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser surface_parser(</span><span style="color:#032F62">"surface"</span><span style="color:#24292E">, </span><span style="color:#032F62">"1.0"</span><span style="color:#24292E">, argparse::default_arguments::none)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">surface_parser.add_argument(</span><span style="color:#032F62">"--area"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'i'</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">argparse::ArgumentParser floor_parser(</span><span style="color:#032F62">"floor"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">floor_parser.add_argument(</span><span style="color:#032F62">"tile_size"</span><span style="color:#24292E">).scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'i'</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">floor_parser.add_parents(surface_parser)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">floor_parser.parse_args({ </span><span style="color:#032F62">"./main"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--area"</span><span style="color:#24292E">, </span><span style="color:#032F62">"200"</span><span style="color:#24292E">, </span><span style="color:#032F62">"12"</span><span style="color:#24292E"> });  </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">area </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 200</span><span style="color:#24292E">, tile_size </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 12</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">argparse::ArgumentParser ceiling_parser(</span><span style="color:#032F62">"ceiling"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">ceiling_parser.add_argument(</span><span style="color:#032F62">"--color"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">ceiling_parser.add_parents(surface_parser)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">ceiling_parser.parse_args({ </span><span style="color:#032F62">"./main"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--color"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gray"</span><span style="color:#24292E"> });  </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">area </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">color </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "gray"</span></span></code></pre>
+<pre><code>argparse::ArgumentParser surface_parser("surface", "1.0", argparse::default_arguments::none);
+surface_parser.add_argument("--area")
+  .default_value(0)
+  .scan&lt;'i', int&gt;();
+
+argparse::ArgumentParser floor_parser("floor");
+floor_parser.add_argument("tile_size").scan&lt;'i', int&gt;();
+floor_parser.add_parents(surface_parser);
+floor_parser.parse_args({ "./main", "--area", "200", "12" });  // --area = 200, tile_size = 12
+
+argparse::ArgumentParser ceiling_parser("ceiling");
+ceiling_parser.add_argument("--color");
+ceiling_parser.add_parents(surface_parser);
+ceiling_parser.parse_args({ "./main", "--color", "gray" });  // --area = 0, --color = "gray"</code></pre>
 <p>Changes made to parents after they are added to a parser are not reflected in any child parsers. Completely initialize parent parsers before adding them to a parser.</p>
 <p>Each parser will have the standard set of default arguments. Disable the default arguments in parent parsers to avoid duplicate help output.</p>
 <h3>Subcommands</h3>
 <p>Many programs split up their functionality into a number of sub-commands, for example, the <code>git</code> program can invoke sub-commands like <code>git checkout</code>, <code>git add</code>, and <code>git commit</code>. Splitting up functionality this way can be a particularly good idea when a program performs several different functions which require different kinds of command-line arguments. <code>ArgumentParser</code> supports the creation of such sub-commands with the <code>add_subparser()</code> member function.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"git"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> git add subparser</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser add_command(</span><span style="color:#032F62">"add"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  add_command.add_description(</span><span style="color:#032F62">"Add file contents to the index"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  add_command.add_argument(</span><span style="color:#032F62">"files"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"Files to add content from. Fileglobs (e.g.  *.c) can be given to add all matching files."</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .remaining();</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> git commit subparser</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser commit_command(</span><span style="color:#032F62">"commit"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  commit_command.add_description(</span><span style="color:#032F62">"Record changes to the repository"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  commit_command.add_argument(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--all"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"Tell the command to automatically stage files that have been modified and deleted."</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .default_value(false)</span></span>
-<span class="line"><span style="color:#24292E">    .implicit_value(true);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  commit_command.add_argument(</span><span style="color:#032F62">"-m"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--message"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"Use the given &lt;msg&gt; as the commit message."</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> git cat</span><span style="color:#D73A49">-</span><span style="color:#E36209">file</span><span style="color:#24292E"> subparser</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser catfile_command(</span><span style="color:#032F62">"cat-file"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  catfile_command.add_description(</span><span style="color:#032F62">"Provide content or type and size information for repository objects"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  catfile_command.add_argument(</span><span style="color:#032F62">"-t"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"Instead of the content, show the object type identified by &lt;object&gt;."</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  catfile_command.add_argument(</span><span style="color:#032F62">"-p"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"Pretty-print the contents of &lt;object&gt; based on its type."</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> git submodule subparser</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser submodule_command(</span><span style="color:#032F62">"submodule"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  submodule_command.add_description(</span><span style="color:#032F62">"Initialize, update or inspect submodules"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser submodule_update_command(</span><span style="color:#032F62">"update"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  submodule_update_command.add_description(</span><span style="color:#032F62">"Update the registered submodules to match what the superproject expects"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  submodule_update_command.add_argument(</span><span style="color:#032F62">"--init"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .default_value(false)</span></span>
-<span class="line"><span style="color:#24292E">    .implicit_value(true);</span></span>
-<span class="line"><span style="color:#24292E">  submodule_update_command.add_argument(</span><span style="color:#032F62">"--recursive"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .default_value(false)</span></span>
-<span class="line"><span style="color:#24292E">    .implicit_value(true);</span></span>
-<span class="line"><span style="color:#24292E">  submodule_command.add_subparser(submodule_update_command);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  program.add_subparser(add_command);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_subparser(commit_command);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_subparser(catfile_command);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_subparser(submodule_command);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Use arguments</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">git </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"><span style="color:#24292E">Usage: git [</span><span style="color:#D73A49">-</span><span style="color:#24292E">h] {add,cat</span><span style="color:#D73A49">-</span><span style="color:#E36209">file</span><span style="color:#24292E">,commit,submodule}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">   	shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version	prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Subcommands:</span></span>
-<span class="line"><span style="color:#24292E">  add           Add </span><span style="color:#E36209">file</span><span style="color:#24292E"> contents to the index</span></span>
-<span class="line"><span style="color:#24292E">  cat</span><span style="color:#D73A49">-</span><span style="color:#E36209">file</span><span style="color:#24292E">      Provide content </span><span style="color:#D73A49">or</span><span style="color:#005CC5"> type</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> size information </span><span style="color:#D73A49">for</span><span style="color:#24292E"> repository objects</span></span>
-<span class="line"><span style="color:#24292E">  commit        Record changes to the repository</span></span>
-<span class="line"><span style="color:#24292E">  submodule     Initialize, update </span><span style="color:#D73A49">or</span><span style="color:#24292E"> inspect submodules</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">git add </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"><span style="color:#24292E">Usage: add [</span><span style="color:#D73A49">-</span><span style="color:#24292E">h] files</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Add </span><span style="color:#E36209">file</span><span style="color:#24292E"> contents to the index</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Positional arguments:</span></span>
-<span class="line"><span style="color:#24292E">  files        	Files to add content </span><span style="color:#D73A49">from</span><span style="color:#24292E">. Fileglobs (e.g.  </span><span style="color:#D73A49">*</span><span style="color:#24292E">.c) can be given to add </span><span style="color:#005CC5">all</span><span style="color:#24292E"> matching files.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">   	shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version	prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">git commit </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"><span style="color:#24292E">Usage: commit [</span><span style="color:#D73A49">-</span><span style="color:#24292E">h] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">all</span><span style="color:#24292E">] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">message </span><span style="color:#005CC5">VAR</span><span style="color:#24292E">]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Record changes to the repository</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">   	shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version	prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">a, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">all</span><span style="color:#24292E">    	Tell the command to automatically stage files that have been modified </span><span style="color:#D73A49">and</span><span style="color:#24292E"> deleted.</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">m, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">message	Use the given </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">msg</span><span style="color:#D73A49">&gt;</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> the commit message.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">git submodule </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"><span style="color:#24292E">Usage: submodule [</span><span style="color:#D73A49">-</span><span style="color:#24292E">h] {update}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Initialize, update </span><span style="color:#D73A49">or</span><span style="color:#24292E"> inspect submodules</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">   	shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version	prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Subcommands:</span></span>
-<span class="line"><span style="color:#24292E">  update        Update the registered submodules to match what the superproject expects</span></span></code></pre>
+<pre><code>#include &lt;argparse/argparse.hpp&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("git");
+
+  // git add subparser
+  argparse::ArgumentParser add_command("add");
+  add_command.add_description("Add file contents to the index");
+  add_command.add_argument("files")
+    .help("Files to add content from. Fileglobs (e.g.  *.c) can be given to add all matching files.")
+    .remaining();
+
+  // git commit subparser
+  argparse::ArgumentParser commit_command("commit");
+  commit_command.add_description("Record changes to the repository");
+  commit_command.add_argument("-a", "--all")
+    .help("Tell the command to automatically stage files that have been modified and deleted.")
+    .default_value(false)
+    .implicit_value(true);
+
+  commit_command.add_argument("-m", "--message")
+    .help("Use the given &lt;msg&gt; as the commit message.");
+
+  // git cat-file subparser
+  argparse::ArgumentParser catfile_command("cat-file");
+  catfile_command.add_description("Provide content or type and size information for repository objects");
+  catfile_command.add_argument("-t")
+    .help("Instead of the content, show the object type identified by &lt;object&gt;.");
+
+  catfile_command.add_argument("-p")
+    .help("Pretty-print the contents of &lt;object&gt; based on its type.");
+
+  // git submodule subparser
+  argparse::ArgumentParser submodule_command("submodule");
+  submodule_command.add_description("Initialize, update or inspect submodules");
+  argparse::ArgumentParser submodule_update_command("update");
+  submodule_update_command.add_description("Update the registered submodules to match what the superproject expects");
+  submodule_update_command.add_argument("--init")
+    .default_value(false)
+    .implicit_value(true);
+  submodule_update_command.add_argument("--recursive")
+    .default_value(false)
+    .implicit_value(true);
+  submodule_command.add_subparser(submodule_update_command);
+
+  program.add_subparser(add_command);
+  program.add_subparser(commit_command);
+  program.add_subparser(catfile_command);
+  program.add_subparser(submodule_command);
+
+  try {
+    program.parse_args(argc, argv);
+  }
+  catch (const std::exception&amp; err) {
+    std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+    std::cerr &lt;&lt; program;
+    return 1;
+  }
+
+  // Use arguments
+}</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./git --help
+Usage: git [-h] {add,cat-file,commit,submodule}
+
+Optional arguments:
+  -h, --help   	shows help message and exits
+  -v, --version	prints version information and exits
+
+Subcommands:
+  add           Add file contents to the index
+  cat-file      Provide content or type and size information for repository objects
+  commit        Record changes to the repository
+  submodule     Initialize, update or inspect submodules
+
+foo@bar:/home/dev/$ ./git add --help
+Usage: add [-h] files
+
+Add file contents to the index
+
+Positional arguments:
+  files        	Files to add content from. Fileglobs (e.g.  *.c) can be given to add all matching files.
+
+Optional arguments:
+  -h, --help   	shows help message and exits
+  -v, --version	prints version information and exits
+
+foo@bar:/home/dev/$ ./git commit --help
+Usage: commit [-h] [--all] [--message VAR]
+
+Record changes to the repository
+
+Optional arguments:
+  -h, --help   	shows help message and exits
+  -v, --version	prints version information and exits
+  -a, --all    	Tell the command to automatically stage files that have been modified and deleted.
+  -m, --message	Use the given &lt;msg&gt; as the commit message.
+
+foo@bar:/home/dev/$ ./git submodule --help
+Usage: submodule [-h] {update}
+
+Initialize, update or inspect submodules
+
+Optional arguments:
+  -h, --help   	shows help message and exits
+  -v, --version	prints version information and exits
+
+Subcommands:
+  update        Update the registered submodules to match what the superproject expects</code></pre>
 <p>When a help message is requested from a subparser, only the help for that particular parser will be printed. The help message will not include parent parser or sibling parser messages.</p>
 <p>Additionally, every parser has the <code>.is_subcommand_used("&lt;command_name&gt;")</code> and <code>.is_subcommand_used(subparser)</code> member functions to check if a subcommand was used. </p>
 <p>Sometimes there may be a need to hide part of the subcommands from the user
 by suppressing information about them in an help message. To do this,
 <code>ArgumentParser</code> contains the method <code>.set_suppress(bool suppress)</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">argparse::ArgumentParser hidden_cmd(</span><span style="color:#032F62">"hidden"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">hidden_cmd.add_argument(</span><span style="color:#032F62">"files"</span><span style="color:#24292E">).remaining()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">hidden_cmd.set_suppress(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_subparser(hidden_cmd)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#D73A49">-</span><span style="color:#24292E">h</span></span>
-<span class="line"><span style="color:#24292E">Usage: test [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version] {}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">    shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main hidden </span><span style="color:#D73A49">-</span><span style="color:#24292E">h</span></span>
-<span class="line"><span style="color:#24292E">Usage: hidden [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">] [</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version] files</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Positional arguments:</span></span>
-<span class="line"><span style="color:#24292E">  files         [nargs: </span><span style="color:#005CC5">0</span><span style="color:#D73A49"> or</span><span style="color:#24292E"> more]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">    shows </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">v, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">version prints version information </span><span style="color:#D73A49">and</span><span style="color:#24292E"> exits</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+argparse::ArgumentParser hidden_cmd("hidden");
+hidden_cmd.add_argument("files").remaining();
+hidden_cmd.set_suppress(true);
+
+program.add_subparser(hidden_cmd);</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main -h
+Usage: test [--help] [--version] {}
+
+Optional arguments:
+  -h, --help    shows help message and exits
+  -v, --version prints version information and exits
+
+foo@bar:/home/dev/$ ./main hidden -h
+Usage: hidden [--help] [--version] files
+
+Positional arguments:
+  files         [nargs: 0 or more]
+
+Optional arguments:
+  -h, --help    shows help message and exits
+  -v, --version prints version information and exits</code></pre>
 <h3>Getting Argument and Subparser Instances</h3>
 <p><code>Argument</code> and <code>ArgumentParser</code> instances added to an <code>ArgumentParser</code> can be retrieved with <code>.at&lt;T&gt;()</code>. The default return type is <code>Argument</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"--dir"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">program.at(</span><span style="color:#032F62">"--dir"</span><span style="color:#24292E">).default_value(std::string(</span><span style="color:#032F62">"/home/user"</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_subparser(argparse::ArgumentParser{</span><span style="color:#032F62">"walk"</span><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">program.at</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">argparse::ArgumentParser</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"walk"</span><span style="color:#24292E">).add_argument(</span><span style="color:#032F62">"depth"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+program.add_argument("--dir");
+program.at("--dir").default_value(std::string("/home/user"));
+
+program.add_subparser(argparse::ArgumentParser{"walk"});
+program.at&lt;argparse::ArgumentParser&gt;("walk").add_argument("depth");</code></pre>
 <h3>Parse Known Args</h3>
 <p>Sometimes a program may only parse a few of the command-line arguments, passing the remaining arguments on to another script or program. In these cases, the <code>parse_known_args()</code> function can be useful. It works much like <code>parse_args()</code> except that it does not produce an error when extra arguments are present. Instead, it returns a list of remaining argument strings.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;cassert&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">).implicit_value(true).default_value(false);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"bar"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  auto unknown_args =</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_known_args({</span><span style="color:#032F62">"test"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--badger"</span><span style="color:#24292E">, </span><span style="color:#032F62">"BAR"</span><span style="color:#24292E">, </span><span style="color:#032F62">"spam"</span><span style="color:#24292E">});</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  assert</span><span style="color:#24292E">(program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#24292E"> true);</span></span>
-<span class="line"><span style="color:#D73A49">  assert</span><span style="color:#24292E">(program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"bar"</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#24292E"> std::string{</span><span style="color:#032F62">"BAR"</span><span style="color:#24292E">});</span></span>
-<span class="line"><span style="color:#D73A49">  assert</span><span style="color:#24292E">((unknown_args </span><span style="color:#D73A49">==</span><span style="color:#24292E"> std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">{</span><span style="color:#032F62">"--badger"</span><span style="color:#24292E">, </span><span style="color:#032F62">"spam"</span><span style="color:#24292E">}));</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>#include &lt;argparse/argparse.hpp&gt;
+#include &lt;cassert&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("test");
+  program.add_argument("--foo").implicit_value(true).default_value(false);
+  program.add_argument("bar");
+
+  auto unknown_args =
+    program.parse_known_args({"test", "--foo", "--badger", "BAR", "spam"});
+
+  assert(program.get&lt;bool&gt;("--foo") == true);
+  assert(program.get&lt;std::string&gt;("bar") == std::string{"BAR"});
+  assert((unknown_args == std::vector&lt;std::string&gt;{"--badger", "spam"}));
+}</code></pre>
 <h3>Hidden argument and alias</h3>
 <p>It is sometimes desirable to offer an alias for an argument, but without it
 appearing it in the usage. For example, to phase out a deprecated wording of
 an argument while not breaking backwards compatible. This can be done with
 the ``ArgumentParser::add_hidden_alias_for()` method.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">arg </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.add_argument(</span><span style="color:#032F62">"--suppress"</span><span style="color:#24292E">).flag()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">program.add_hidden_alias_for(arg, </span><span style="color:#032F62">"--supress"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> old misspelled alias</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+auto &amp;arg = program.add_argument("--suppress").flag();
+program.add_hidden_alias_for(arg, "--supress"); // old misspelled alias</code></pre>
 <p>The <code>Argument::hidden()</code> method can also be used to prevent a (generally
 optional) argument from appearing in the usage or help.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"--non-documented"</span><span style="color:#24292E">).flag().hidden()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+program.add_argument("--non-documented").flag().hidden();</code></pre>
 <p>This can also be used on positional arguments, but in that later case it only
 makes sense in practice for the last ones.</p>
 <h3>ArgumentParser in bool Context</h3>
@@ -900,185 +900,185 @@ unknown arguments will not make a parser <code>true</code>.</p>
 <h3>Custom Prefix Characters</h3>
 <p>Most command-line options will use <code>-</code> as the prefix, e.g. <code>-f/--foo</code>. Parsers that need to support different or additional prefix characters, e.g. for options like <code>+f</code> or <code>/foo</code>, may specify them using the <code>set_prefix_chars()</code>.</p>
 <p>The default prefix character is <code>-</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;cassert&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.set_prefix_chars(</span><span style="color:#032F62">"-+/"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"+f"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"/foo"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"+f"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "+f    : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"+f"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "--bar : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"--bar"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"/foo"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "/foo  : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"/foo"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }  </span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#D73A49">+</span><span style="color:#24292E">f </span><span style="color:#005CC5">5</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">bar </span><span style="color:#005CC5">3.</span><span style="color:#B31D28;font-style:italic">14f</span><span style="color:#D73A49"> /</span><span style="color:#24292E">foo </span><span style="color:#032F62">"Hello"</span></span>
-<span class="line"><span style="color:#D73A49">+</span><span style="color:#24292E">f    : </span><span style="color:#005CC5">5</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">bar : </span><span style="color:#005CC5">3.</span><span style="color:#B31D28;font-style:italic">14f</span></span>
-<span class="line"><span style="color:#D73A49">/</span><span style="color:#24292E">foo  : Hello</span></span></code></pre>
+<pre><code>#include &lt;argparse/argparse.hpp&gt;
+#include &lt;cassert&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("test");
+  program.set_prefix_chars("-+/");
+
+  program.add_argument("+f");
+  program.add_argument("--bar");
+  program.add_argument("/foo");
+
+  try {
+    program.parse_args(argc, argv);
+  }
+  catch (const std::exception&amp; err) {
+    std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+    std::cerr &lt;&lt; program;
+    return 1;
+  }
+
+  if (program.is_used("+f")) {
+    std::cout &lt;&lt; "+f    : " &lt;&lt; program.get("+f") &lt;&lt; "\n";
+  }
+
+  if (program.is_used("--bar")) {
+    std::cout &lt;&lt; "--bar : " &lt;&lt; program.get("--bar") &lt;&lt; "\n";
+  }
+
+  if (program.is_used("/foo")) {
+    std::cout &lt;&lt; "/foo  : " &lt;&lt; program.get("/foo") &lt;&lt; "\n";
+  }  
+}</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main +f 5 --bar 3.14f /foo "Hello"
++f    : 5
+--bar : 3.14f
+/foo  : Hello</code></pre>
 <h3>Custom Assignment Characters</h3>
 <p>In addition to prefix characters, custom 'assign' characters can be set. This setting is used to allow invocations like <code>./test --foo=Foo /B:Bar</code>.</p>
 <p>The default assign character is <code>=</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;cassert&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.set_prefix_chars(</span><span style="color:#032F62">"-+/"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.set_assign_chars(</span><span style="color:#032F62">"=:"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"/B"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "--foo : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"--foo"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (program.is_used(</span><span style="color:#032F62">"/B"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "/B    : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"/B"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">foo</span><span style="color:#D73A49">=</span><span style="color:#24292E">Foo </span><span style="color:#D73A49">/</span><span style="color:#24292E">B:Bar</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">foo : Foo</span></span>
-<span class="line"><span style="color:#D73A49">/</span><span style="color:#24292E">B    : Bar</span></span></code></pre>
+<pre><code>#include &lt;argparse/argparse.hpp&gt;
+#include &lt;cassert&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("test");
+  program.set_prefix_chars("-+/");
+  program.set_assign_chars("=:");
+
+  program.add_argument("--foo");
+  program.add_argument("/B");
+
+  try {
+    program.parse_args(argc, argv);
+  }
+  catch (const std::exception&amp; err) {
+    std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+    std::cerr &lt;&lt; program;
+    return 1;
+  }
+
+  if (program.is_used("--foo")) {
+    std::cout &lt;&lt; "--foo : " &lt;&lt; program.get("--foo") &lt;&lt; "\n";
+  }
+
+  if (program.is_used("/B")) {
+    std::cout &lt;&lt; "/B    : " &lt;&lt; program.get("/B") &lt;&lt; "\n";
+  }
+}</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main --foo=Foo /B:Bar
+--foo : Foo
+/B    : Bar</code></pre>
 <h2>Further Examples</h2>
 <h3>Construct a JSON object from a filename argument</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"json_test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"config"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .action([](const std::string</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> read a </span><span style="color:#005CC5">JSON</span><span style="color:#E36209"> file</span></span>
-<span class="line"><span style="color:#24292E">    std::ifstream stream(value);</span></span>
-<span class="line"><span style="color:#24292E">    nlohmann::json config_json;</span></span>
-<span class="line"><span style="color:#24292E">    stream </span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> config_json;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> config_json;</span></span>
-<span class="line"><span style="color:#24292E">  })</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args({</span><span style="color:#032F62">"./test"</span><span style="color:#24292E">, </span><span style="color:#032F62">"config.json"</span><span style="color:#24292E">});</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">nlohmann::json config </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">nlohmann::json</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"config"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("json_test");
+
+program.add_argument("config")
+  .action([](const std::string&amp; value) {
+    // read a JSON file
+    std::ifstream stream(value);
+    nlohmann::json config_json;
+    stream &gt;&gt; config_json;
+    return config_json;
+  });
+
+try {
+  program.parse_args({"./test", "config.json"});
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+nlohmann::json config = program.get&lt;nlohmann::json&gt;("config");</code></pre>
 <h3>Positional Arguments with Compound Toggle Arguments</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"numbers"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">3</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'i'</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(false)</span></span>
-<span class="line"><span style="color:#24292E">  .implicit_value(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(false)</span></span>
-<span class="line"><span style="color:#24292E">  .implicit_value(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-c"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'g'</span><span style="color:#24292E">, </span><span style="color:#005CC5">float</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"--files"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">3</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto numbers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"numbers"</span><span style="color:#24292E">);        </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto a </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">);                               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
-<span class="line"><span style="color:#24292E">auto b </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">);                               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
-<span class="line"><span style="color:#24292E">auto c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">float</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-c"</span><span style="color:#24292E">);                 </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#005CC5">3.</span><span style="color:#B31D28;font-style:italic">14f</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.</span><span style="color:#B31D28;font-style:italic">718f</span><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">auto files </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"--files"</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"a.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"b.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c.txt"</span><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">///</span><span style="color:#24292E"> Some code that prints parsed arguments</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#005CC5">1</span><span style="color:#005CC5"> 2</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> -</span><span style="color:#24292E">abc </span><span style="color:#005CC5">3.14</span><span style="color:#005CC5"> 2.718</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">files a.txt b.txt c.txt</span></span>
-<span class="line"><span style="color:#24292E">numbers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">a </span><span style="color:#D73A49">=</span><span style="color:#24292E"> true</span></span>
-<span class="line"><span style="color:#24292E">b </span><span style="color:#D73A49">=</span><span style="color:#24292E"> true</span></span>
-<span class="line"><span style="color:#24292E">c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">3.14</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.718</span><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">files </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#032F62">"a.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"b.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c.txt"</span><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+program.add_argument("numbers")
+  .nargs(3)
+  .scan&lt;'i', int&gt;();
+
+program.add_argument("-a")
+  .default_value(false)
+  .implicit_value(true);
+
+program.add_argument("-b")
+  .default_value(false)
+  .implicit_value(true);
+
+program.add_argument("-c")
+  .nargs(2)
+  .scan&lt;'g', float&gt;();
+
+program.add_argument("--files")
+  .nargs(3);
+
+try {
+  program.parse_args(argc, argv);
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+auto numbers = program.get&lt;std::vector&lt;int&gt;&gt;("numbers");        // {1, 2, 3}
+auto a = program.get&lt;bool&gt;("-a");                               // true
+auto b = program.get&lt;bool&gt;("-b");                               // true
+auto c = program.get&lt;std::vector&lt;float&gt;&gt;("-c");                 // {3.14f, 2.718f}
+auto files = program.get&lt;std::vector&lt;std::string&gt;&gt;("--files");  // {"a.txt", "b.txt", "c.txt"}
+
+/// Some code that prints parsed arguments</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main 1 2 3 -abc 3.14 2.718 --files a.txt b.txt c.txt
+numbers = {1, 2, 3}
+a = true
+b = true
+c = {3.14, 2.718}
+files = {"a.txt", "b.txt", "c.txt"}</code></pre>
 <h3>Restricting the set of values for an argument</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(std::string{</span><span style="color:#032F62">"baz"</span><span style="color:#24292E">})</span></span>
-<span class="line"><span style="color:#24292E">  .choices(</span><span style="color:#032F62">"foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"bar"</span><span style="color:#24292E">, </span><span style="color:#032F62">"baz"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> input</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main fex</span></span>
-<span class="line"><span style="color:#24292E">Invalid argument </span><span style="color:#032F62">"fex"</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> allowed options: {foo, bar, baz}</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+program.add_argument("input")
+  .default_value(std::string{"baz"})
+  .choices("foo", "bar", "baz");
+
+try {
+  program.parse_args(argc, argv);
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+auto input = program.get("input");
+std::cout &lt;&lt; input &lt;&lt; std::endl;</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main fex
+Invalid argument "fex" - allowed options: {foo, bar, baz}</code></pre>
 <p>Using choices also works with integer types, e.g.,</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .default_value(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  .choices(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> input</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#005CC5">6</span></span>
-<span class="line"><span style="color:#24292E">Invalid argument </span><span style="color:#032F62">"6"</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> allowed options: {</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">, </span><span style="color:#005CC5">5</span><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>argparse::ArgumentParser program("test");
+
+program.add_argument("input")
+  .default_value(0)
+  .choices(0, 1, 2, 3, 4, 5);
+
+try {
+  program.parse_args(argc, argv);
+}
+catch (const std::exception&amp; err) {
+  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+  std::cerr &lt;&lt; program;
+  std::exit(1);
+}
+
+auto input = program.get("input");
+std::cout &lt;&lt; input &lt;&lt; std::endl;</code></pre>
+<pre><code>foo@bar:/home/dev/$ ./main 6
+Invalid argument "6" - allowed options: {0, 1, 2, 3, 4, 5}</code></pre>
 <h3>Using <code>option=value</code> syntax</h3>
-<pre><code lang="py">#include "argparse.hpp"
+<pre><code>#include "argparse.hpp"
 #include &lt;cassert&gt;
 
 int main(int argc, char *argv[]) {
@@ -1221,4 +1221,4 @@ sudo make install</code></pre>
 <p>Contributions are welcome, have a look at the <a href="https://github.com/p-ranav/argparse/blob/3eda91b2e1ce7d569f84ba295507c4cd8fd96910/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">CONTRIBUTING.md</a> document for more information.</p>
 <h2>License</h2>
 <p>The project is available under the <a href="https://opensource.org/licenses/MIT">MIT</a> license.</p>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">Argument Parser for Modern C++</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/p-ranav/argparse" title="@p-ranav"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@p-ranav/argparse</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/p-ranav.png" alt="@p-ranav"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/p-ranav/argparse"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">3458</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, May 20, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 98.4%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 98.4%"> </span><span style="width: 1%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1%"> </span><span style="width: 0.4%; background-color: var(--lang-Lua-bg, #ccc)" title="Lua: 0.4%"> </span><span style="width: 0.1%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">98.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Lua-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Lua</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Batchfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Batchfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/TendTo" title="Ernesto Casablanca"><img class="avatar circle" width="48" height="48" src="https://github.com/TendTo.png" alt="@TendTo"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/kyledayton" title="@kyledayton"><img class="avatar circle" width="48" height="48" src="https://github.com/kyledayton.png" alt="@kyledayton"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4621"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add argparse-3.2.0 (#4621)"><span class="text-mono">#4621</span> <span class="text-light">Add argparse-3.2.0 (#4621)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/p-ranav/argparse/archive/refs/tags/v3.2.tar.gz" title="https://github.com/p-ranav/argparse/archive/refs/tags/v3.2.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/p-ranav/ar...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/f94257276859dca02cb8bda43f50fae900280e00/modules/argparse/3.2.0/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.2.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.2.0"><span class="text-bold">3.2.0</span><sup class="color-fg-attention"> +1.1y</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-05-20</span></div></td></tr><tr class=""><td title="3.0.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.0.0"><a class="Box-row-link" href="/#/modules/argparse/3.0.0">3.0.0</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-04-11</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">Argument Parser for Modern C++</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/p-ranav/argparse" title="@p-ranav"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@p-ranav/argparse</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/p-ranav.png" alt="@p-ranav"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/p-ranav/argparse"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">3458</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, May 20, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 98.4%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 98.4%"> </span><span style="width: 1%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1%"> </span><span style="width: 0.4%; background-color: var(--lang-Lua-bg, #ccc)" title="Lua: 0.4%"> </span><span style="width: 0.1%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">98.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Lua-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Lua</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Batchfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Batchfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/TendTo" title="Ernesto Casablanca"><img class="avatar circle" width="48" height="48" src="https://github.com/TendTo.png" alt="@TendTo"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/kyledayton" title="@kyledayton"><img class="avatar circle" width="48" height="48" src="https://github.com/kyledayton.png" alt="@kyledayton"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/4621"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add argparse-3.2.0 (#4621)"><span class="text-mono">#4621</span> <span class="text-light">Add argparse-3.2.0 (#4621)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/p-ranav/argparse/archive/refs/tags/v3.2.tar.gz" title="https://github.com/p-ranav/argparse/archive/refs/tags/v3.2.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/p-ranav/ar...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/e2a6ad798171a234cadcb8fbacb81b819bab6a09/modules/argparse/3.2.0/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.2.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.2.0"><span class="text-bold">3.2.0</span><sup class="color-fg-attention"> +1.1y</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-05-20</span></div></td></tr><tr class=""><td title="3.0.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.0.0"><a class="Box-row-link" href="/#/modules/argparse/3.0.0">3.0.0</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-04-11</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

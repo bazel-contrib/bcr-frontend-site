@@ -35,10 +35,10 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e9e04e3c.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.35cc2dae.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4c3ccd69.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.113e17b5.js" defer=""></script>
-		<script src="/registry.05cbe209.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bc653b48.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/simdutf/7.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -1800,19 +1800,19 @@ if there is an error, or otherwise the number of code units written. You may use
 <span class="line"><span style="color:#D73A49"> */</span></span>
 <span class="line"><span style="color:#24292E">simdutf_warn_unused result convert_utf16be_to_utf32_with_errors(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char32_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> utf32_buffer) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>If you have a UTF-16 input, you may change its endianness with a fast function.</p>
-<pre><code lang="py">/**
- * Change the endianness of the input. Can be used to go from UTF-16LE to UTF-16BE or
- * from UTF-16BE to UTF-16LE.
- *
- * This function does not validate the input.
- *
- * This function is not BOM-aware.
- *
- * @param input         the UTF-16 string to process
- * @param length        the length of the string in 2-byte code units (char16_t)
- * @param output        the pointer to a buffer that can hold the conversion result
- */
-void change_endianness_utf16(const char16_t * input, size_t length, char16_t * output) noexcept;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">/**</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> Change the endianness of the </span><span style="color:#005CC5">input</span><span style="color:#24292E">. Can be used to go </span><span style="color:#D73A49">from</span><span style="color:#005CC5"> UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E"> to </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#D73A49"> or</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> from</span><span style="color:#005CC5"> UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16BE</span><span style="color:#24292E"> to </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#B31D28;font-style:italic">16LE</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#D73A49"> *</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function does </span><span style="color:#D73A49">not</span><span style="color:#24292E"> validate the </span><span style="color:#005CC5">input</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#D73A49"> *</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#24292E"> This function </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> BOM</span><span style="color:#D73A49">-</span><span style="color:#24292E">aware.</span></span>
+<span class="line"><span style="color:#D73A49"> *</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param </span><span style="color:#005CC5">input</span><span style="color:#24292E">         the </span><span style="color:#005CC5">UTF</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#24292E"> string to process</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param length        the length of the string </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49">-</span><span style="color:#24292E">byte code units (char16_t)</span></span>
+<span class="line"><span style="color:#D73A49"> *</span><span style="color:#D73A49"> @</span><span style="color:#24292E">param output        the pointer to a buffer that can hold the conversion result</span></span>
+<span class="line"><span style="color:#D73A49"> */</span></span>
+<span class="line"><span style="color:#24292E">void change_endianness_utf16(const char16_t </span><span style="color:#D73A49">*</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, size_t length, char16_t </span><span style="color:#D73A49">*</span><span style="color:#24292E"> output) noexcept</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h2>Base64</h2>
 <p>The WHATWG (Web Hypertext Application Technology Working Group) defines a "forgiving" base64 decoding algorithm in its Infra Standard, which is used in web contexts like the JavaScript atob() function. This algorithm is more lenient than strict RFC 4648 base64, primarily to handle common web data variations. It ignores all ASCII whitespace (spaces, tabs, newlines, etc.), allows omitting padding characters (=), and decodes inputs as long as they meet certain length and character validity rules. However, it still rejects inputs that could lead to ambiguous or incomplete byte formation.</p>
 <p>We also converting from <a href="https://infra.spec.whatwg.org/#forgiving-base64-decode">WHATWG forgiving-base64</a> to binary, and back. In particular, you can convert base64 inputs which contain ASCII spaces (' ', '\t', '\n', '\r', '\f') to binary. We also support the base64 URL encoding alternative. These functions are part of the Node.js JavaScript runtime: in particular <code>atob</code> in Node.js relies on simdutf.</p>
@@ -1827,7 +1827,7 @@ void change_endianness_utf16(const char16_t * input, size_t length, char16_t * o
 <p>This forgiving approach makes base64 decoding robust for web use, but it enforces rules to avoid data corruption.</p>
 <p>The conversion of binary data to base64 always succeeds and is relatively simple. Suppose
 that you have an original input of binary data <code>source</code> (e.g., <code>std::vector&lt;char&gt;</code>).</p>
-<pre><code>std::vector&lt;char&gt; buffer(simdutf::base64_length_from_binary(source.size()));
+<pre><code lang="py">std::vector&lt;char&gt; buffer(simdutf::base64_length_from_binary(source.size()));
 simdutf::binary_to_base64(source.data(), source.size(), buffer.data());</code></pre>
 <p>Decoding base64 requires validation and, thus, error handling. Furthermore, because
 we prune ASCII spaces, we may need to adjust the result size afterward.</p>

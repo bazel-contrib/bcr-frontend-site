@@ -35,10 +35,10 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.86f8d7e9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4bc87a8d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.113e17b5.js" defer=""></script>
-		<script src="/registry.951d5816.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.799c3453.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/nlohmann_json/3.12.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -723,35 +723,35 @@ You can switch off implicit conversions by defining <code>JSON_USE_IMPLICIT_CONV
 <span class="line"><span style="color:#24292E">    j[</span><span style="color:#032F62">"age"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
 <span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>It works, but that's quite a lot of boilerplate... Fortunately, there's a better way:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a person</span></span>
-<span class="line"><span style="color:#24292E">ns::person p {</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">, </span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">, </span><span style="color:#005CC5">60</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: person </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> json</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> j </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"address"</span><span style="color:#24292E">:</span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">,</span><span style="color:#032F62">"age"</span><span style="color:#24292E">:</span><span style="color:#005CC5">60</span><span style="color:#24292E">,</span><span style="color:#032F62">"name"</span><span style="color:#24292E">:</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: json </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> person</span></span>
-<span class="line"><span style="color:#24292E">auto p2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ns::person</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> that</span><span style="color:#032F62">'s it</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(p </span><span style="color:#D73A49">==</span><span style="color:#24292E"> p2)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">// create a person
+ns::person p {"Ned Flanders", "744 Evergreen Terrace", 60};
+
+// conversion: person -&gt; json
+json j = p;
+
+std::cout &lt;&lt; j &lt;&lt; std::endl;
+// {"address":"744 Evergreen Terrace","age":60,"name":"Ned Flanders"}
+
+// conversion: json -&gt; person
+auto p2 = j.get&lt;ns::person&gt;();
+
+// that's it
+assert(p == p2);</code></pre>
 <h4>Basic usage</h4>
 <p>To make this work with one of your types, you only need to provide two functions:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">using json </span><span style="color:#D73A49">=</span><span style="color:#24292E"> nlohmann::json</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#24292E">    void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const person</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> p) {</span></span>
-<span class="line"><span style="color:#24292E">        j = json{{</span><span style="color:#032F62">"name"</span><span style="color:#24292E">, p.name}, {</span><span style="color:#032F62">"address"</span><span style="color:#24292E">, p.address}, {</span><span style="color:#032F62">"age"</span><span style="color:#24292E">, p.age}};</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, person</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> p) {</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"name"</span><span style="color:#24292E">).get_to(p.name);</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"address"</span><span style="color:#24292E">).get_to(p.address);</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"age"</span><span style="color:#24292E">).get_to(p.age);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">} </span><span style="color:#D73A49">//</span><span style="color:#24292E"> namespace ns</span></span></code></pre>
+<pre><code>using json = nlohmann::json;
+
+namespace ns {
+    void to_json(json&amp; j, const person&amp; p) {
+        j = json{{"name", p.name}, {"address", p.address}, {"age", p.age}};
+    }
+
+    void from_json(const json&amp; j, person&amp; p) {
+        j.at("name").get_to(p.name);
+        j.at("address").get_to(p.address);
+        j.at("age").get_to(p.age);
+    }
+} // namespace ns</code></pre>
 <p>That's all! When calling the <code>json</code> constructor with your type, your custom <code>to_json</code> method will be automatically called.
 Likewise, when calling <code>get&lt;your_type&gt;()</code> or <code>get_to(your_type&amp;)</code>, the <code>from_json</code> method will be called.</p>
 <p>Some important things:</p>
@@ -767,89 +767,89 @@ Likewise, when calling <code>get&lt;your_type&gt;()</code> or <code>get_to(your_
 <p>Which macro to choose depends on whether private member variables need to be accessed, a deserialization is needed, missing values should yield an error or should be replaced by default values, and if derived classes are used. See <a href="https://json.nlohmann.me/api/macros/#serializationdeserialization-macros">this overview to choose the right one for your use case</a>.</p>
 <h5>Example usage of macros</h5>
 <p>The <code>to_json</code>/<code>from_json</code> functions for the <code>person</code> struct above can be created with <a href="https://json.nlohmann.me/api/macros/nlohmann_define_type_non_intrusive/"><code>NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE</code></a>. In all macros, the first parameter is the name of the class/struct, and all remaining parameters name the members.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#24292E">    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(person, name, address, age)</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>namespace ns {
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(person, name, address, age)
+}</code></pre>
 <p>Here is another example with private members, where <a href="https://json.nlohmann.me/api/macros/nlohmann_define_type_intrusive/"><code>NLOHMANN_DEFINE_TYPE_INTRUSIVE</code></a> is needed:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#D73A49">    class</span><span style="color:#24292E"> address {</span></span>
-<span class="line"><span style="color:#24292E">      private:</span></span>
-<span class="line"><span style="color:#24292E">        std::string street;</span></span>
-<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> housenumber;</span></span>
-<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> postcode;</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#24292E">      public:</span></span>
-<span class="line"><span style="color:#24292E">        NLOHMANN_DEFINE_TYPE_INTRUSIVE(address, street, housenumber, postcode)</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>namespace ns {
+    class address {
+      private:
+        std::string street;
+        int housenumber;
+        int postcode;
+  
+      public:
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(address, street, housenumber, postcode)
+    };
+}</code></pre>
 <h4>How do I convert third-party types?</h4>
 <p>This requires a bit more advanced technique. But first, let's see how this conversion mechanism works:</p>
 <p>The library uses <strong>JSON Serializers</strong> to convert types to JSON.
 The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_serializer</code> (ADL means <a href="https://en.cppreference.com/w/cpp/language/adl">Argument-Dependent Lookup</a>).</p>
 <p>It is implemented like this (simplified):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">struct adl_serializer {</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> calls the </span><span style="color:#032F62">"to_json"</span><span style="color:#24292E"> method </span><span style="color:#D73A49">in</span><span style="color:#24292E"> T</span><span style="color:#032F62">'s namespace</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    static void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> same thing, but </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the </span><span style="color:#032F62">"from_json"</span><span style="color:#24292E"> method</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>template &lt;typename T&gt;
+struct adl_serializer {
+    static void to_json(json&amp; j, const T&amp; value) {
+        // calls the "to_json" method in T's namespace
+    }
+
+    static void from_json(const json&amp; j, T&amp; value) {
+        // same thing, but with the "from_json" method
+    }
+};</code></pre>
 <p>This serializer works fine when you have control over the type's namespace. However, what about <code>boost::optional</code> or <code>std::filesystem::path</code> (C++17)? Hijacking the <code>boost</code> namespace is pretty bad, and it's illegal to add something other than template specializations to <code>std</code>...</p>
 <p>To solve this, you need to add a specialization of <code>adl_serializer</code> to the <code>nlohmann</code> namespace, here's an example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> partial specialization (full specialization works too)</span></span>
-<span class="line"><span style="color:#24292E">namespace nlohmann {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    struct adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">        static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> opt) {</span></span>
-<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (opt </span><span style="color:#D73A49">==</span><span style="color:#24292E"> boost::none) {</span></span>
-<span class="line"><span style="color:#24292E">                j = nullptr;</span></span>
-<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">              j = </span><span style="color:#D73A49">*</span><span style="color:#24292E">opt; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> this will call adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::to_json which will</span></span>
-<span class="line"><span style="color:#D73A49">                        //</span><span style="color:#24292E"> find the free function to_json </span><span style="color:#D73A49">in</span><span style="color:#24292E"> T</span><span style="color:#032F62">'s namespace!</span></span>
-<span class="line"><span style="color:#24292E">            }</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">        static void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> opt) {</span></span>
-<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (j.is_null()) {</span></span>
-<span class="line"><span style="color:#24292E">                opt = boost::none;</span></span>
-<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">                opt = j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> same </span><span style="color:#D73A49">as</span><span style="color:#24292E"> above, but </span><span style="color:#D73A49">with</span></span>
-<span class="line"><span style="color:#D73A49">                                  //</span><span style="color:#24292E"> adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::from_json</span></span>
-<span class="line"><span style="color:#24292E">            }</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>// partial specialization (full specialization works too)
+namespace nlohmann {
+    template &lt;typename T&gt;
+    struct adl_serializer&lt;boost::optional&lt;T&gt;&gt; {
+        static void to_json(json&amp; j, const boost::optional&lt;T&gt;&amp; opt) {
+            if (opt == boost::none) {
+                j = nullptr;
+            } else {
+              j = *opt; // this will call adl_serializer&lt;T&gt;::to_json which will
+                        // find the free function to_json in T's namespace!
+            }
+        }
+
+        static void from_json(const json&amp; j, boost::optional&lt;T&gt;&amp; opt) {
+            if (j.is_null()) {
+                opt = boost::none;
+            } else {
+                opt = j.get&lt;T&gt;(); // same as above, but with
+                                  // adl_serializer&lt;T&gt;::from_json
+            }
+        }
+    };
+}</code></pre>
 <h4>How can I use <code>get()</code> for non-default constructible/non-copyable types?</h4>
 <p>There is a way if your type is <a href="https://en.cppreference.com/w/cpp/named_req/MoveConstructible">MoveConstructible</a>. You will need to specialize the <code>adl_serializer</code> as well, but with a special <code>from_json</code> overload:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct move_only_type {</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type() = delete;</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> ii): i(ii) {}</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(const move_only_type</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">) = delete;</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(move_only_type</span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E">) = default;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> i;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">namespace nlohmann {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;&gt;</span></span>
-<span class="line"><span style="color:#24292E">    struct adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">move_only_type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> note: the </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> type</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> no longer </span><span style="color:#032F62">'void'</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> the method only takes</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> one argument</span></span>
-<span class="line"><span style="color:#24292E">        static move_only_type from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j) {</span></span>
-<span class="line"><span style="color:#D73A49">            return</span><span style="color:#24292E"> {j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()};</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Here</span><span style="color:#032F62">'s the catch! You must provide a to_json method! Otherwise, you</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> will </span><span style="color:#D73A49">not</span><span style="color:#24292E"> be able to convert move_only_type to json, since you fully</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> specialized adl_serializer on that </span><span style="color:#005CC5">type</span></span>
-<span class="line"><span style="color:#24292E">        static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, move_only_type t) {</span></span>
-<span class="line"><span style="color:#24292E">            j = t.i;</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>struct move_only_type {
+    move_only_type() = delete;
+    move_only_type(int ii): i(ii) {}
+    move_only_type(const move_only_type&amp;) = delete;
+    move_only_type(move_only_type&amp;&amp;) = default;
+
+    int i;
+};
+
+namespace nlohmann {
+    template &lt;&gt;
+    struct adl_serializer&lt;move_only_type&gt; {
+        // note: the return type is no longer 'void', and the method only takes
+        // one argument
+        static move_only_type from_json(const json&amp; j) {
+            return {j.get&lt;int&gt;()};
+        }
+
+        // Here's the catch! You must provide a to_json method! Otherwise, you
+        // will not be able to convert move_only_type to json, since you fully
+        // specialized adl_serializer on that type
+        static void to_json(json&amp; j, move_only_type t) {
+            j = t.i;
+        }
+    };
+}</code></pre>
 <h4>Can I write my own serializer? (Advanced use)</h4>
 <p>Yes. You might want to take a look at <a href="https://github.com/nlohmann/json/blob/develop/tests/src/unit-udt.cpp"><code>unit-udt.cpp</code></a> in the test suite, to see a few examples.</p>
 <p>If you write your own serializer, you'll need to do a few things:</p>
@@ -859,74 +859,74 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 <li>use <code>nlohmann::to_json</code> and <code>nlohmann::from_json</code> when you need ADL</li>
 </ul>
 <p>Here is an example, without simplifications, that only accepts types with a size &lt;= 32, and uses ADL.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> You should use void </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a second template argument</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you don</span><span style="color:#032F62">'t need compile-time checks on T</span></span>
-<span class="line"><span style="color:#24292E">template</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T, typename </span><span style="color:#005CC5">SFINAE</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> typename std::enable_if</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">sizeof(T) </span><span style="color:#D73A49">&lt;=</span><span style="color:#005CC5"> 32</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">struct less_than_32_serializer {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> we want to use </span><span style="color:#005CC5">ADL</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> call the correct to_json overload</span></span>
-<span class="line"><span style="color:#24292E">        using nlohmann::to_json; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> this method </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called by adl_serializer,</span></span>
-<span class="line"><span style="color:#D73A49">                                 //</span><span style="color:#24292E"> this </span><span style="color:#D73A49">is</span><span style="color:#24292E"> where the magic happens</span></span>
-<span class="line"><span style="color:#24292E">        to_json(j, value);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void from_json(const BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> same thing here</span></span>
-<span class="line"><span style="color:#24292E">        using nlohmann::from_json;</span></span>
-<span class="line"><span style="color:#24292E">        from_json(j, value);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// You should use void as a second template argument
+// if you don't need compile-time checks on T
+template&lt;typename T, typename SFINAE = typename std::enable_if&lt;sizeof(T) &lt;= 32&gt;::type&gt;
+struct less_than_32_serializer {
+    template &lt;typename BasicJsonType&gt;
+    static void to_json(BasicJsonType&amp; j, T value) {
+        // we want to use ADL, and call the correct to_json overload
+        using nlohmann::to_json; // this method is called by adl_serializer,
+                                 // this is where the magic happens
+        to_json(j, value);
+    }
+
+    template &lt;typename BasicJsonType&gt;
+    static void from_json(const BasicJsonType&amp; j, T&amp; value) {
+        // same thing here
+        using nlohmann::from_json;
+        from_json(j, value);
+    }
+};</code></pre>
 <p>Be <strong>very</strong> careful when reimplementing your serializer, you can stack overflow if you don't pay attention:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T, void</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">struct bad_serializer</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">      //</span><span style="color:#24292E"> this calls BasicJsonType::json_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::to_json(j, value)</span></span>
-<span class="line"><span style="color:#D73A49">      //</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> BasicJsonType::json_serializer </span><span style="color:#D73A49">==</span><span style="color:#24292E"> bad_serializer </span><span style="color:#005CC5">...</span><span style="color:#24292E"> oops!</span></span>
-<span class="line"><span style="color:#24292E">      j = value;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(const BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">      //</span><span style="color:#24292E"> this calls BasicJsonType::json_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::from_json(j, value)</span></span>
-<span class="line"><span style="color:#D73A49">      //</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> BasicJsonType::json_serializer </span><span style="color:#D73A49">==</span><span style="color:#24292E"> bad_serializer </span><span style="color:#005CC5">...</span><span style="color:#24292E"> oops!</span></span>
-<span class="line"><span style="color:#24292E">      value = j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> oops!</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>template &lt;typename T, void&gt;
+struct bad_serializer
+{
+    template &lt;typename BasicJsonType&gt;
+    static void to_json(BasicJsonType&amp; j, const T&amp; value) {
+      // this calls BasicJsonType::json_serializer&lt;T&gt;::to_json(j, value)
+      // if BasicJsonType::json_serializer == bad_serializer ... oops!
+      j = value;
+    }
+
+    template &lt;typename BasicJsonType&gt;
+    static void to_json(const BasicJsonType&amp; j, T&amp; value) {
+      // this calls BasicJsonType::json_serializer&lt;T&gt;::from_json(j, value)
+      // if BasicJsonType::json_serializer == bad_serializer ... oops!
+      value = j.get&lt;T&gt;(); // oops!
+    }
+};</code></pre>
 <h3>Specializing enum conversion</h3>
 <p>By default, enum values are serialized to JSON as integers. In some cases, this could result in undesired behavior. If an enum is modified or re-ordered after data has been serialized to JSON, the later deserialized JSON data may be undefined or a different enum value than was originally intended.</p>
 <p>It is possible to more precisely specify how a given enum is mapped to and from JSON as shown below:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> example enum </span><span style="color:#005CC5">type</span><span style="color:#24292E"> declaration</span></span>
-<span class="line"><span style="color:#24292E">enum TaskState {</span></span>
-<span class="line"><span style="color:#005CC5">    TS_STOPPED</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    TS_RUNNING</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    TS_COMPLETED</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    TS_INVALID</span><span style="color:#24292E">=</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> map</span><span style="color:#24292E"> TaskState values to </span><span style="color:#005CC5">JSON</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> strings</span></span>
-<span class="line"><span style="color:#24292E">NLOHMANN_JSON_SERIALIZE_ENUM( TaskState, {</span></span>
-<span class="line"><span style="color:#24292E">    {</span><span style="color:#005CC5">TS_INVALID</span><span style="color:#24292E">, nullptr},</span></span>
-<span class="line"><span style="color:#24292E">    {</span><span style="color:#005CC5">TS_STOPPED</span><span style="color:#24292E">, </span><span style="color:#032F62">"stopped"</span><span style="color:#24292E">},</span></span>
-<span class="line"><span style="color:#24292E">    {</span><span style="color:#005CC5">TS_RUNNING</span><span style="color:#24292E">, </span><span style="color:#032F62">"running"</span><span style="color:#24292E">},</span></span>
-<span class="line"><span style="color:#24292E">    {</span><span style="color:#005CC5">TS_COMPLETED</span><span style="color:#24292E">, </span><span style="color:#032F62">"completed"</span><span style="color:#24292E">},</span></span>
-<span class="line"><span style="color:#24292E">})</span></span></code></pre>
+<pre><code>// example enum type declaration
+enum TaskState {
+    TS_STOPPED,
+    TS_RUNNING,
+    TS_COMPLETED,
+    TS_INVALID=-1,
+};
+
+// map TaskState values to JSON as strings
+NLOHMANN_JSON_SERIALIZE_ENUM( TaskState, {
+    {TS_INVALID, nullptr},
+    {TS_STOPPED, "stopped"},
+    {TS_RUNNING, "running"},
+    {TS_COMPLETED, "completed"},
+})</code></pre>
 <p>The <code>NLOHMANN_JSON_SERIALIZE_ENUM()</code> macro declares a set of <code>to_json()</code> / <code>from_json()</code> functions for type <code>TaskState</code> while avoiding repetition and boilerplate serialization code.</p>
 <p><strong>Usage:</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> enum to </span><span style="color:#005CC5">JSON</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> string</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> TS_STOPPED</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(j </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "stopped"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> json string to enum</span></span>
-<span class="line"><span style="color:#24292E">json j3 </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "running"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(j3.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">TaskState</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> TS_RUNNING</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> undefined json value to enum (where the first </span><span style="color:#005CC5">map</span><span style="color:#24292E"> entry above </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the default)</span></span>
-<span class="line"><span style="color:#24292E">json jPi </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 3.14</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(jPi.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">TaskState</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> TS_INVALID</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// enum to JSON as string
+json j = TS_STOPPED;
+assert(j == "stopped");
+
+// json string to enum
+json j3 = "running";
+assert(j3.get&lt;TaskState&gt;() == TS_RUNNING);
+
+// undefined json value to enum (where the first map entry above is the default)
+json jPi = 3.14;
+assert(jPi.get&lt;TaskState&gt;() == TS_INVALID);</code></pre>
 <p>Just as in <a href="#arbitrary-types-conversions">Arbitrary Type Conversions</a> above,</p>
 <ul>
 <li><code>NLOHMANN_JSON_SERIALIZE_ENUM()</code> MUST be declared in your enum type's namespace (which can be the global namespace), or the library will not be able to locate it, and it will default to integer serialization.</li>
@@ -939,66 +939,66 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 </ul>
 <h3>Binary formats (BSON, CBOR, MessagePack, UBJSON, and BJData)</h3>
 <p>Though JSON is a ubiquitous data format, it is not a very compact format suitable for data exchange, for instance over a network. Hence, the library supports <a href="https://bsonspec.org">BSON</a> (Binary JSON), <a href="https://cbor.io">CBOR</a> (Concise Binary Object Representation), <a href="https://msgpack.org">MessagePack</a>, <a href="https://ubjson.org">UBJSON</a> (Universal Binary JSON Specification) and <a href="https://neurojson.org/bjdata">BJData</a> (Binary JData) to efficiently encode JSON values to byte vectors and to decode such vectors.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> R</span><span style="color:#032F62">"({"</span><span style="color:#24292E">compact</span><span style="color:#032F62">": true, "</span><span style="color:#24292E">schema</span><span style="color:#032F62">": 0})"</span><span style="color:#24292E">_json</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">BSON</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_bson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">1B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">08</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">01</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_bson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_bson(v_bson)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">CBOR</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_cbor(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">A2</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">67</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">F5</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">66</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_cbor(v_cbor)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to MessagePack</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_msgpack(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">82</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A7</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">C3</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">A6</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_msgpack </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_msgpack(v_msgpack)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to </span><span style="color:#005CC5">UBJSON</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_ubjson(j)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">7B</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">07</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6F</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">70</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">74</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">54</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">06</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">73</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">63</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">68</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">65</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">6D</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">61</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">69</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">00</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">7D</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> roundtrip</span></span>
-<span class="line"><span style="color:#24292E">json j_from_ubjson </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_ubjson(v_ubjson)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// create a JSON value
+json j = R"({"compact": true, "schema": 0})"_json;
+
+// serialize to BSON
+std::vector&lt;std::uint8_t&gt; v_bson = json::to_bson(j);
+
+// 0x1B, 0x00, 0x00, 0x00, 0x08, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x00, 0x01, 0x10, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00
+
+// roundtrip
+json j_from_bson = json::from_bson(v_bson);
+
+// serialize to CBOR
+std::vector&lt;std::uint8_t&gt; v_cbor = json::to_cbor(j);
+
+// 0xA2, 0x67, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xF5, 0x66, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
+
+// roundtrip
+json j_from_cbor = json::from_cbor(v_cbor);
+
+// serialize to MessagePack
+std::vector&lt;std::uint8_t&gt; v_msgpack = json::to_msgpack(j);
+
+// 0x82, 0xA7, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0xC3, 0xA6, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x00
+
+// roundtrip
+json j_from_msgpack = json::from_msgpack(v_msgpack);
+
+// serialize to UBJSON
+std::vector&lt;std::uint8_t&gt; v_ubjson = json::to_ubjson(j);
+
+// 0x7B, 0x69, 0x07, 0x63, 0x6F, 0x6D, 0x70, 0x61, 0x63, 0x74, 0x54, 0x69, 0x06, 0x73, 0x63, 0x68, 0x65, 0x6D, 0x61, 0x69, 0x00, 0x7D
+
+// roundtrip
+json j_from_ubjson = json::from_ubjson(v_ubjson);</code></pre>
 <p>The library also supports binary types from BSON, CBOR (byte strings), and MessagePack (bin, ext, fixext). They are stored by default as <code>std::vector&lt;std::uint8_t&gt;</code> to be processed outside the library.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> CBOR</span><span style="color:#24292E"> byte string </span><span style="color:#D73A49">with</span><span style="color:#24292E"> payload </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CAFE</span></span>
-<span class="line"><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> v </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">42</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CA</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">FE</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> read value</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::from_cbor(v)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> the </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> value has </span><span style="color:#005CC5">type</span><span style="color:#24292E"> binary</span></span>
-<span class="line"><span style="color:#24292E">j.is_binary(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> get reference to stored binary value</span></span>
-<span class="line"><span style="color:#24292E">auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> binary </span><span style="color:#D73A49">=</span><span style="color:#24292E"> j.get_binary()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> the binary value has no subtype (</span><span style="color:#005CC5">CBOR</span><span style="color:#24292E"> has no binary subtypes)</span></span>
-<span class="line"><span style="color:#24292E">binary.has_subtype(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> false</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> access std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> member functions</span></span>
-<span class="line"><span style="color:#24292E">binary.size(); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 2</span></span>
-<span class="line"><span style="color:#24292E">binary[</span><span style="color:#005CC5">0</span><span style="color:#24292E">]; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">CA</span></span>
-<span class="line"><span style="color:#24292E">binary[</span><span style="color:#005CC5">1</span><span style="color:#24292E">]; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">FE</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> subtype to </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span></span>
-<span class="line"><span style="color:#24292E">binary.set_subtype(</span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> serialize to MessagePack</span></span>
-<span class="line"><span style="color:#24292E">auto cbor </span><span style="color:#D73A49">=</span><span style="color:#24292E"> json::to_msgpack(j); </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> 0x</span><span style="color:#005CC5">D5</span><span style="color:#24292E"> (fixext2), </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">CA</span><span style="color:#24292E">, </span><span style="color:#D73A49">0x</span><span style="color:#005CC5">FE</span></span></code></pre>
+<pre><code>// CBOR byte string with payload 0xCAFE
+std::vector&lt;std::uint8_t&gt; v = {0x42, 0xCA, 0xFE};
+
+// read value
+json j = json::from_cbor(v);
+
+// the JSON value has type binary
+j.is_binary(); // true
+
+// get reference to stored binary value
+auto&amp; binary = j.get_binary();
+
+// the binary value has no subtype (CBOR has no binary subtypes)
+binary.has_subtype(); // false
+
+// access std::vector&lt;std::uint8_t&gt; member functions
+binary.size(); // 2
+binary[0]; // 0xCA
+binary[1]; // 0xFE
+
+// set subtype to 0x10
+binary.set_subtype(0x10);
+
+// serialize to MessagePack
+auto cbor = json::to_msgpack(j); // 0xD5 (fixext2), 0x10, 0xCA, 0xFE</code></pre>
 <h2>Customers</h2>
 <p>The library is used in multiple projects, applications, operating systems, etc. The list below is not exhaustive, but the result of an internet search. If you know further customers of the library, please let me know, see <a href="#contact">contact</a>.</p>
 <p><a href="https://json.nlohmann.me/home/customers/"><img src="https://raw.githubusercontent.com/nlohmann/json/7c2b2ede37f9a3f5b9983b427459b367a75127cc/docs/mkdocs/docs/images/customers.png" alt="logos of customers using the library"></a></p>
@@ -1021,7 +1021,7 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 <li><p>GCC 4.8 has a bug <a href="https://gcc.gnu.org/bugzilla/show_bug.cgi?id=57824">57824</a>: multiline raw strings cannot be the arguments to macros. Don't use multiline raw strings directly in macros with this compiler.</p>
 </li>
 <li><p>Android defaults to using very old compilers and C++ libraries. To fix this, add the following to your <code>Application.mk</code>. This will switch to the LLVM C++ library, the Clang compiler, and enable C++11 and other features disabled by default.</p>
-<pre><code lang="py">APP_STL := c++_shared
+<pre><code>APP_STL := c++_shared
 NDK_TOOLCHAIN_VERSION := clang3.6
 APP_CPPFLAGS += -frtti -fexceptions</code></pre>
 <p>  The code compiles successfully with <a href="https://developer.android.com/ndk/index.html?hl=ml">Android NDK</a>, Revision 9 - 11 (and possibly later) and <a href="https://www.crystax.net/en/android/ndk">CrystaX's Android NDK</a> version 10.</p>
@@ -1648,4 +1648,4 @@ json/tests/src/make_test_data_available.hpp:23: FATAL ERROR: REQUIRE( utils::che
 <p>Some tests change the installed files and hence make the whole process not reproducible. Please execute <code>ctest -LE not_reproducible</code> to skip these tests. See <a href="https://github.com/nlohmann/json/issues/2324">issue #2324</a> for more information. Furthermore, assertions must be switched off to ensure reproducible builds (see <a href="https://github.com/nlohmann/json/discussions/4494">discussion 4494</a>).</p>
 <p>Note you need to call <code>cmake -LE "not_reproducible|git_required"</code> to exclude both labels. See <a href="https://github.com/nlohmann/json/issues/2596">issue #2596</a> for more information.</p>
 <p>As Intel compilers use unsafe floating point optimization by default, the unit tests may fail. Use flag <a href="https://www.intel.com/content/www/us/en/docs/cpp-compiler/developer-guide-reference/2021-8/fp-model-fp.html"><code>/fp:precise</code></a> then.</p>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">JSON for Modern C++</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/nlohmann/json" title="@nlohmann"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@nlohmann/json</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/nlohmann.png" alt="@nlohmann"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/nlohmann/json"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">49695</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Friday, November 7, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 96.9%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 96.9%"> </span><span style="width: 2%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 2%"> </span><span style="width: 0.6%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.6%"> </span><span style="width: 0.3%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.3%"> </span><span style="width: 0.1%; background-color: var(--lang-Jinja-bg, #ccc)" title="Jinja: 0.1%"> </span><span style="width: 0.1%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">96.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Jinja-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Jinja</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cuda-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Cuda</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Swift-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Swift</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/keith" title="Keith Smiley"><img class="avatar circle" width="48" height="48" src="https://github.com/keith.png" alt="@keith"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/Vertexwahn" title="Julian Amann"><img class="avatar circle" width="48" height="48" src="https://github.com/Vertexwahn.png" alt="@Vertexwahn"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/keith" title="Keith Smiley"><img class="avatar circle" width="48" height="48" src="https://github.com/keith.png" alt="@keith"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/6454"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add nlohmann_json with rules_cc import (#6454)"><span class="text-mono">#6454</span> <span class="text-light">Add nlohmann_json with rules_...</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/nlohmann/json/releases/download/v3.12.0/include.zip" title="https://github.com/nlohmann/json/releases/download/v3.12.0/include.zip"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/nlohmann/j...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/4af1d3ad85a866db7298e47fb4dfb47185258dcf/modules/nlohmann_json/3.12.0.bcr.1/patches/add_singleheader_target.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">add_singleheader_target.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/4af1d3ad85a866db7298e47fb4dfb47185258dcf/modules/nlohmann_json/3.12.0.bcr.1/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">6</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.12.0.bcr.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 49%, transparent 49%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.12.0.bcr.1"><span class="text-bold">3.12.0.bcr.1</span><sup class="color-fg-attention"> +6.3mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">49%<sup> 67</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-07</span></div></td></tr><tr class=""><td title="3.12.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 5%, transparent 5%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.12.0"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.12.0">3.12.0</a><sup class="color-fg-attention"> +6.8mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">5%<sup> 7</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-04-30</span></div></td></tr><tr class=""><td title="3.11.3.bcr.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 4%, transparent 4%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.3.bcr.1"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.3.bcr.1">3.11.3.bcr.1</a><sup class="color-fg-attention"> +10.4mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">4%<sup> 6</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-10-09</span></div></td></tr><tr class=""><td title="3.11.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 10%, transparent 10%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.3"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.3">3.11.3</a><sup class="color-fg-attention"> +10.6mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">10%<sup> 14</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-12-03</span></div></td></tr><tr class=""><td title="3.11.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 1%, transparent 1%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.2"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.2">3.11.2</a><sup class="color-fg-attention"> +5d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">1%<sup> 2</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-01-19</span></div></td></tr><tr class=""><td title="3.6.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 30%, transparent 30%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.6.1"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.6.1">3.6.1</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">30%<sup> 42</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-01-13</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">JSON for Modern C++</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/nlohmann/json" title="@nlohmann"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@nlohmann/json</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/nlohmann.png" alt="@nlohmann"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/nlohmann/json"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">49588</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Friday, November 7, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 96.9%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 96.9%"> </span><span style="width: 2%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 2%"> </span><span style="width: 0.6%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.6%"> </span><span style="width: 0.3%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.3%"> </span><span style="width: 0.1%; background-color: var(--lang-Jinja-bg, #ccc)" title="Jinja: 0.1%"> </span><span style="width: 0.1%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/#/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">96.9%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.6%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Jinja-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Jinja</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cuda-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Cuda</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Swift-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Swift</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/#/maintainers/keith" title="Keith Smiley"><img class="avatar circle" width="48" height="48" src="https://github.com/keith.png" alt="@keith"></a></div><div class="m-1"><a class="d-inline-block" href="/#/maintainers/Vertexwahn" title="Julian Amann"><img class="avatar circle" width="48" height="48" src="https://github.com/Vertexwahn.png" alt="@Vertexwahn"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/keith" title="Keith Smiley"><img class="avatar circle" width="48" height="48" src="https://github.com/keith.png" alt="@keith"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/6454"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="Add nlohmann_json with rules_cc import (#6454)"><span class="text-mono">#6454</span> <span class="text-light">Add nlohmann_json with rules_...</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/nlohmann/json/releases/download/v3.12.0/include.zip" title="https://github.com/nlohmann/json/releases/download/v3.12.0/include.zip"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/nlohmann/j...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/5896ee13642e2fb690b2679d18892df465618205/modules/nlohmann_json/3.12.0.bcr.1/patches/add_singleheader_target.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">add_singleheader_target.patch</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/5896ee13642e2fb690b2679d18892df465618205/modules/nlohmann_json/3.12.0.bcr.1/patches/module_dot_bazel.patch" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M1 1.75C1 .784 1.784 0 2.75 0h7.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16H2.75A1.75 1.75 0 0 1 1 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h10.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073ZM8 3.25a.75.75 0 0 1 .75.75v1.5h1.5a.75.75 0 0 1 0 1.5h-1.5v1.5a.75.75 0 0 1-1.5 0V7h-1.5a.75.75 0 0 1 0-1.5h1.5V4A.75.75 0 0 1 8 3.25Zm-3 8a.75.75 0 0 1 .75-.75h4.5a.75.75 0 0 1 0 1.5h-4.5a.75.75 0 0 1-.75-.75Z"></path></g></svg></span><span class="mr-1">module_dot_bazel.patch</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">6</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="3.12.0.bcr.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 49%, transparent 49%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.12.0.bcr.1"><span class="text-bold">3.12.0.bcr.1</span><sup class="color-fg-attention"> +6.3mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">49%<sup> 67</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-11-07</span></div></td></tr><tr class=""><td title="3.12.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 5%, transparent 5%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.12.0"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.12.0">3.12.0</a><sup class="color-fg-attention"> +6.8mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">5%<sup> 7</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-04-30</span></div></td></tr><tr class=""><td title="3.11.3.bcr.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 4%, transparent 4%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.3.bcr.1"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.3.bcr.1">3.11.3.bcr.1</a><sup class="color-fg-attention"> +10.4mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">4%<sup> 6</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-10-09</span></div></td></tr><tr class=""><td title="3.11.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 10%, transparent 10%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.3"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.3">3.11.3</a><sup class="color-fg-attention"> +10.6mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">10%<sup> 14</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-12-03</span></div></td></tr><tr class=""><td title="3.11.2; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 1%, transparent 1%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.11.2"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.11.2">3.11.2</a><sup class="color-fg-attention"> +5d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">1%<sup> 2</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-01-19</span></div></td></tr><tr class=""><td title="3.6.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 30%, transparent 30%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.6.1"><a class="Box-row-link" href="/#/modules/nlohmann_json/3.6.1">3.6.1</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">30%<sup> 42</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2023-01-13</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

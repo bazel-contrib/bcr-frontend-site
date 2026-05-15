@@ -35,10 +35,10 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.40d4e1da.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.cc3feade.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.113e17b5.js" defer=""></script>
-		<script src="/registry.e01df808.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a5f2a7e1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/bant/0.2.8"></head>
 
 	<body style="margin: 0 auto">
@@ -193,7 +193,7 @@ classic way <code>"str %s %s" % (foo,bar)</code>.</li>
 <li>Array accesses.</li>
 <li>String and list concatenation with <code>+</code>.</li>
 <li>Some basic arithmetic operators.</li>
-<li>Macro substitution of <a href="https://github.com/hzeller/bant/blob/bd03ffb9d4b358c33f65e6c972bf75c9c04c20c2/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">builtin-macros</a> or <code>.bant-macros</code> (in a
+<li>Macro substitution of <a href="https://github.com/hzeller/bant/blob/48b7b2e93d90df733265994530cbedd20333b366/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">builtin-macros</a> or <code>.bant-macros</code> (in a
 bant-specific syntax) to help bant better see through some constructs
 (used in <code>dwyu</code>; to enable in printing: use <code>-m</code>).</li>
 </ul>
@@ -201,7 +201,7 @@ bant-specific syntax) to help bant better see through some constructs
 <code>-vv</code> - it will show what operations it glossed over (If observed in the field:
 good candidate to implement next).</p>
 <h4>Macros</h4>
-<p>Bant ships with a set of <a href="https://github.com/hzeller/bant/blob/bd03ffb9d4b358c33f65e6c972bf75c9c04c20c2/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">built-in macros</a> that map common
+<p>Bant ships with a set of <a href="https://github.com/hzeller/bant/blob/48b7b2e93d90df733265994530cbedd20333b366/bant/builtin-macros.bnt" target="_blank" rel="noopener noreferrer">built-in macros</a> that map common
 custom rules (e.g. <code>cc_proto_library</code>) to standard Bazel rules so that <code>dwyu</code>
 and other commands can analyze them.</p>
 <p>If your project uses custom rules that bant doesn't know about (e.g.
@@ -229,7 +229,7 @@ strings in the AST of a rule matches a pattern.</p>
 <p>The output contains the full rule matching the grep pattern, highlighted text
 if output <code>isatty()</code>, the BUILD file, and location where it is found, the
 fully qualified name of the target, as well as visibility.</p>
-<p><img src="https://raw.githubusercontent.com/hzeller/bant/bd03ffb9d4b358c33f65e6c972bf75c9c04c20c2/img/grep-print.png" alt="print grep output"></p>
+<p><img src="https://raw.githubusercontent.com/hzeller/bant/48b7b2e93d90df733265994530cbedd20333b366/img/grep-print.png" alt="print grep output"></p>
 <p>Evaluation of <a href="https://bazel.build/docs/configurable-attributes#custom-flags">custom flags</a> in <code>select()</code> also works (partially: see note in
 <a href="#synopsis">synopsis</a> output), and similar to
 <code>bazel</code>, you pass these options with <code>--//...</code> to bant; let's use that

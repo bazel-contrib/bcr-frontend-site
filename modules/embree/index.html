@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.860a1642.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6a96611f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.575d11a3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.43b4ac79.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
-		<script src="/bcr.54cf5bef.js" defer=""></script>
-		<script src="/registry.cd116608.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.5cab9dbd.js" defer=""></script>
+		<script src="/registry.fdb96aab.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/embree/4.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -1460,9 +1460,9 @@ inside the SYCL context used to create the Embree device.</p>
 <h4>NAME {#name}</h4>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcRetainDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> increments the device reference count</span></span></code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcRetainDevice(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">#include &lt;embree4/rtcore.h&gt;
+
+void rtcRetainDevice(RTCDevice device);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Device objects are reference counted. The <code>rtcRetainDevice</code> function
 increments the reference count of the passed device object (<code>device</code>
@@ -1474,14 +1474,14 @@ ownership of the object.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice], [rtcReleaseDevice]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcReleaseDevice</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcReleaseDevice </span><span style="color:#D73A49">-</span><span style="color:#24292E"> decrements the device reference count</span></span></code></pre>
+<pre><code>rtcReleaseDevice - decrements the device reference count</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void rtcReleaseDevice(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+void rtcReleaseDevice(RTCDevice device);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Device objects are reference counted. The <code>rtcReleaseDevice</code> function
 decrements the reference count of the passed device object (<code>device</code>
@@ -1495,17 +1495,17 @@ unless these objects are destroyed first.</p>
 <code>rtcGetDeviceError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcNewDevice], [rtcRetainDevice]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetDeviceProperty</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceProperty </span><span style="color:#D73A49">-</span><span style="color:#24292E"> queries properties of the device</span></span></code></pre>
+<pre><code>rtcGetDeviceProperty - queries properties of the device</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ssize_t rtcGetDeviceProperty(</span></span>
-<span class="line"><span style="color:#24292E">  RTCDevice device,</span></span>
-<span class="line"><span style="color:#24292E">  enum RTCDeviceProperty prop</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+ssize_t rtcGetDeviceProperty(
+  RTCDevice device,
+  enum RTCDeviceProperty prop
+);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>The <code>rtcGetDeviceProperty</code> function can be used to query properties
 (<code>prop</code> argument) of a device object (<code>device</code> argument). The returned
@@ -1623,14 +1623,14 @@ returning a boolean value, the return value 0 denotes <code>false</code> and 1
 denotes <code>true</code>.</p>
 <p>On failure zero is returned and an error code is set that can be
 queried using <code>rtcGetDeviceError</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetDeviceError</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceError </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns the error code of the device</span></span></code></pre>
+<pre><code>rtcGetDeviceError - returns the error code of the device</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">RTCError rtcGetDeviceError(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+RTCError rtcGetDeviceError(RTCDevice device);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>Each thread has its own error code per device. If an error occurs when
 calling an API function, this error code is set to the occurred error
@@ -1683,15 +1683,15 @@ of a given <code>RTCError</code>.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcSetDeviceErrorFunction], [rtcGetDeviceLastErrorMessage],
 [rtcGetErrorString]</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"></span></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetDeviceLastErrorMessage</h2>
 <h4>NAME {#name}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rtcGetDeviceLastErrorMessage </span><span style="color:#D73A49">-</span><span style="color:#24292E"> returns a message corresponding</span></span>
-<span class="line"><span style="color:#24292E">  to the last error code</span></span></code></pre>
+<pre><code>rtcGetDeviceLastErrorMessage - returns a message corresponding
+  to the last error code</code></pre>
 <h4>SYNOPSIS {#synopsis}</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;embree4/rtcore.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> rtcGetDeviceLastErrorMessage(RTCDevice device)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;embree4/rtcore.h&gt;
+
+const char* rtcGetDeviceLastErrorMessage(RTCDevice device);</code></pre>
 <h4>DESCRIPTION {#description}</h4>
 <p>This function can be used to get a message corresponding to the last
 error code (returned by <code>rtcGetDeviceError</code>) which often provides
@@ -1709,7 +1709,7 @@ specified.</p>
 <p>Returns a message corresponding to the last error code.</p>
 <h4>SEE ALSO {#see-also}</h4>
 <p>[rtcGetDeviceError], [rtcSetDeviceErrorFunction]</p>
-<pre><code lang="py"></code></pre>
+<pre><code></code></pre>
 <h2>rtcGetErrorString</h2>
 <h4>NAME {#name}</h4>
 <pre><code>rtcGetErrorString - returns a string representation

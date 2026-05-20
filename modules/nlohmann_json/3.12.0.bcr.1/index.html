@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bb9e44d4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.881e580f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0dfb374f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b3e7cd79.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.fe3497d5.js" defer=""></script>
-		<script src="/registry.b8124c38.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.148a4175.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/nlohmann_json/3.12.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -724,35 +724,35 @@ You can switch off implicit conversions by defining <code>JSON_USE_IMPLICIT_CONV
 <span class="line"><span style="color:#24292E">    j[</span><span style="color:#032F62">"age"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span>
 <span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>It works, but that's quite a lot of boilerplate... Fortunately, there's a better way:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> create a person</span></span>
-<span class="line"><span style="color:#24292E">ns::person p {</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">, </span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">, </span><span style="color:#005CC5">60</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: person </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> json</span></span>
-<span class="line"><span style="color:#24292E">json j </span><span style="color:#D73A49">=</span><span style="color:#24292E"> p</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> j </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"address"</span><span style="color:#24292E">:</span><span style="color:#032F62">"744 Evergreen Terrace"</span><span style="color:#24292E">,</span><span style="color:#032F62">"age"</span><span style="color:#24292E">:</span><span style="color:#005CC5">60</span><span style="color:#24292E">,</span><span style="color:#032F62">"name"</span><span style="color:#24292E">:</span><span style="color:#032F62">"Ned Flanders"</span><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> conversion: json </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> person</span></span>
-<span class="line"><span style="color:#24292E">auto p2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">ns::person</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> that</span><span style="color:#032F62">'s it</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(p </span><span style="color:#D73A49">==</span><span style="color:#24292E"> p2)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">// create a person
+ns::person p {"Ned Flanders", "744 Evergreen Terrace", 60};
+
+// conversion: person -&gt; json
+json j = p;
+
+std::cout &lt;&lt; j &lt;&lt; std::endl;
+// {"address":"744 Evergreen Terrace","age":60,"name":"Ned Flanders"}
+
+// conversion: json -&gt; person
+auto p2 = j.get&lt;ns::person&gt;();
+
+// that's it
+assert(p == p2);</code></pre>
 <h4>Basic usage</h4>
 <p>To make this work with one of your types, you only need to provide two functions:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">using json </span><span style="color:#D73A49">=</span><span style="color:#24292E"> nlohmann::json</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#24292E">    void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const person</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> p) {</span></span>
-<span class="line"><span style="color:#24292E">        j = json{{</span><span style="color:#032F62">"name"</span><span style="color:#24292E">, p.name}, {</span><span style="color:#032F62">"address"</span><span style="color:#24292E">, p.address}, {</span><span style="color:#032F62">"age"</span><span style="color:#24292E">, p.age}};</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, person</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> p) {</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"name"</span><span style="color:#24292E">).get_to(p.name);</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"address"</span><span style="color:#24292E">).get_to(p.address);</span></span>
-<span class="line"><span style="color:#24292E">        j.at(</span><span style="color:#032F62">"age"</span><span style="color:#24292E">).get_to(p.age);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">} </span><span style="color:#D73A49">//</span><span style="color:#24292E"> namespace ns</span></span></code></pre>
+<pre><code>using json = nlohmann::json;
+
+namespace ns {
+    void to_json(json&amp; j, const person&amp; p) {
+        j = json{{"name", p.name}, {"address", p.address}, {"age", p.age}};
+    }
+
+    void from_json(const json&amp; j, person&amp; p) {
+        j.at("name").get_to(p.name);
+        j.at("address").get_to(p.address);
+        j.at("age").get_to(p.age);
+    }
+} // namespace ns</code></pre>
 <p>That's all! When calling the <code>json</code> constructor with your type, your custom <code>to_json</code> method will be automatically called.
 Likewise, when calling <code>get&lt;your_type&gt;()</code> or <code>get_to(your_type&amp;)</code>, the <code>from_json</code> method will be called.</p>
 <p>Some important things:</p>
@@ -768,89 +768,89 @@ Likewise, when calling <code>get&lt;your_type&gt;()</code> or <code>get_to(your_
 <p>Which macro to choose depends on whether private member variables need to be accessed, a deserialization is needed, missing values should yield an error or should be replaced by default values, and if derived classes are used. See <a href="https://json.nlohmann.me/api/macros/#serializationdeserialization-macros">this overview to choose the right one for your use case</a>.</p>
 <h5>Example usage of macros</h5>
 <p>The <code>to_json</code>/<code>from_json</code> functions for the <code>person</code> struct above can be created with <a href="https://json.nlohmann.me/api/macros/nlohmann_define_type_non_intrusive/"><code>NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE</code></a>. In all macros, the first parameter is the name of the class/struct, and all remaining parameters name the members.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#24292E">    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(person, name, address, age)</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>namespace ns {
+    NLOHMANN_DEFINE_TYPE_NON_INTRUSIVE(person, name, address, age)
+}</code></pre>
 <p>Here is another example with private members, where <a href="https://json.nlohmann.me/api/macros/nlohmann_define_type_intrusive/"><code>NLOHMANN_DEFINE_TYPE_INTRUSIVE</code></a> is needed:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">namespace ns {</span></span>
-<span class="line"><span style="color:#D73A49">    class</span><span style="color:#24292E"> address {</span></span>
-<span class="line"><span style="color:#24292E">      private:</span></span>
-<span class="line"><span style="color:#24292E">        std::string street;</span></span>
-<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> housenumber;</span></span>
-<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> postcode;</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#24292E">      public:</span></span>
-<span class="line"><span style="color:#24292E">        NLOHMANN_DEFINE_TYPE_INTRUSIVE(address, street, housenumber, postcode)</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>namespace ns {
+    class address {
+      private:
+        std::string street;
+        int housenumber;
+        int postcode;
+  
+      public:
+        NLOHMANN_DEFINE_TYPE_INTRUSIVE(address, street, housenumber, postcode)
+    };
+}</code></pre>
 <h4>How do I convert third-party types?</h4>
 <p>This requires a bit more advanced technique. But first, let's see how this conversion mechanism works:</p>
 <p>The library uses <strong>JSON Serializers</strong> to convert types to JSON.
 The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_serializer</code> (ADL means <a href="https://en.cppreference.com/w/cpp/language/adl">Argument-Dependent Lookup</a>).</p>
 <p>It is implemented like this (simplified):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">struct adl_serializer {</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> calls the </span><span style="color:#032F62">"to_json"</span><span style="color:#24292E"> method </span><span style="color:#D73A49">in</span><span style="color:#24292E"> T</span><span style="color:#032F62">'s namespace</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    static void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> same thing, but </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the </span><span style="color:#032F62">"from_json"</span><span style="color:#24292E"> method</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>template &lt;typename T&gt;
+struct adl_serializer {
+    static void to_json(json&amp; j, const T&amp; value) {
+        // calls the "to_json" method in T's namespace
+    }
+
+    static void from_json(const json&amp; j, T&amp; value) {
+        // same thing, but with the "from_json" method
+    }
+};</code></pre>
 <p>This serializer works fine when you have control over the type's namespace. However, what about <code>boost::optional</code> or <code>std::filesystem::path</code> (C++17)? Hijacking the <code>boost</code> namespace is pretty bad, and it's illegal to add something other than template specializations to <code>std</code>...</p>
 <p>To solve this, you need to add a specialization of <code>adl_serializer</code> to the <code>nlohmann</code> namespace, here's an example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> partial specialization (full specialization works too)</span></span>
-<span class="line"><span style="color:#24292E">namespace nlohmann {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    struct adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">        static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, const boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> opt) {</span></span>
-<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (opt </span><span style="color:#D73A49">==</span><span style="color:#24292E"> boost::none) {</span></span>
-<span class="line"><span style="color:#24292E">                j = nullptr;</span></span>
-<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">              j = </span><span style="color:#D73A49">*</span><span style="color:#24292E">opt; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> this will call adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::to_json which will</span></span>
-<span class="line"><span style="color:#D73A49">                        //</span><span style="color:#24292E"> find the free function to_json </span><span style="color:#D73A49">in</span><span style="color:#24292E"> T</span><span style="color:#032F62">'s namespace!</span></span>
-<span class="line"><span style="color:#24292E">            }</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">        static void from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, boost::optional</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> opt) {</span></span>
-<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> (j.is_null()) {</span></span>
-<span class="line"><span style="color:#24292E">                opt = boost::none;</span></span>
-<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">                opt = j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> same </span><span style="color:#D73A49">as</span><span style="color:#24292E"> above, but </span><span style="color:#D73A49">with</span></span>
-<span class="line"><span style="color:#D73A49">                                  //</span><span style="color:#24292E"> adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::from_json</span></span>
-<span class="line"><span style="color:#24292E">            }</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>// partial specialization (full specialization works too)
+namespace nlohmann {
+    template &lt;typename T&gt;
+    struct adl_serializer&lt;boost::optional&lt;T&gt;&gt; {
+        static void to_json(json&amp; j, const boost::optional&lt;T&gt;&amp; opt) {
+            if (opt == boost::none) {
+                j = nullptr;
+            } else {
+              j = *opt; // this will call adl_serializer&lt;T&gt;::to_json which will
+                        // find the free function to_json in T's namespace!
+            }
+        }
+
+        static void from_json(const json&amp; j, boost::optional&lt;T&gt;&amp; opt) {
+            if (j.is_null()) {
+                opt = boost::none;
+            } else {
+                opt = j.get&lt;T&gt;(); // same as above, but with
+                                  // adl_serializer&lt;T&gt;::from_json
+            }
+        }
+    };
+}</code></pre>
 <h4>How can I use <code>get()</code> for non-default constructible/non-copyable types?</h4>
 <p>There is a way if your type is <a href="https://en.cppreference.com/w/cpp/named_req/MoveConstructible">MoveConstructible</a>. You will need to specialize the <code>adl_serializer</code> as well, but with a special <code>from_json</code> overload:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct move_only_type {</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type() = delete;</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> ii): i(ii) {}</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(const move_only_type</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">) = delete;</span></span>
-<span class="line"><span style="color:#24292E">    move_only_type(move_only_type</span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E">) = default;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> i;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">namespace nlohmann {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;&gt;</span></span>
-<span class="line"><span style="color:#24292E">    struct adl_serializer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">move_only_type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> note: the </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> type</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> no longer </span><span style="color:#032F62">'void'</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> the method only takes</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> one argument</span></span>
-<span class="line"><span style="color:#24292E">        static move_only_type from_json(const json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j) {</span></span>
-<span class="line"><span style="color:#D73A49">            return</span><span style="color:#24292E"> {j.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()};</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Here</span><span style="color:#032F62">'s the catch! You must provide a to_json method! Otherwise, you</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> will </span><span style="color:#D73A49">not</span><span style="color:#24292E"> be able to convert move_only_type to json, since you fully</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> specialized adl_serializer on that </span><span style="color:#005CC5">type</span></span>
-<span class="line"><span style="color:#24292E">        static void to_json(json</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, move_only_type t) {</span></span>
-<span class="line"><span style="color:#24292E">            j = t.i;</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>struct move_only_type {
+    move_only_type() = delete;
+    move_only_type(int ii): i(ii) {}
+    move_only_type(const move_only_type&amp;) = delete;
+    move_only_type(move_only_type&amp;&amp;) = default;
+
+    int i;
+};
+
+namespace nlohmann {
+    template &lt;&gt;
+    struct adl_serializer&lt;move_only_type&gt; {
+        // note: the return type is no longer 'void', and the method only takes
+        // one argument
+        static move_only_type from_json(const json&amp; j) {
+            return {j.get&lt;int&gt;()};
+        }
+
+        // Here's the catch! You must provide a to_json method! Otherwise, you
+        // will not be able to convert move_only_type to json, since you fully
+        // specialized adl_serializer on that type
+        static void to_json(json&amp; j, move_only_type t) {
+            j = t.i;
+        }
+    };
+}</code></pre>
 <h4>Can I write my own serializer? (Advanced use)</h4>
 <p>Yes. You might want to take a look at <a href="https://github.com/nlohmann/json/blob/develop/tests/src/unit-udt.cpp"><code>unit-udt.cpp</code></a> in the test suite, to see a few examples.</p>
 <p>If you write your own serializer, you'll need to do a few things:</p>
@@ -860,27 +860,27 @@ The default serializer for <code>nlohmann::json</code> is <code>nlohmann::adl_se
 <li>use <code>nlohmann::to_json</code> and <code>nlohmann::from_json</code> when you need ADL</li>
 </ul>
 <p>Here is an example, without simplifications, that only accepts types with a size &lt;= 32, and uses ADL.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> You should use void </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a second template argument</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you don</span><span style="color:#032F62">'t need compile-time checks on T</span></span>
-<span class="line"><span style="color:#24292E">template</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T, typename </span><span style="color:#005CC5">SFINAE</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> typename std::enable_if</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">sizeof(T) </span><span style="color:#D73A49">&lt;=</span><span style="color:#005CC5"> 32</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">struct less_than_32_serializer {</span></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void to_json(BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> we want to use </span><span style="color:#005CC5">ADL</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> call the correct to_json overload</span></span>
-<span class="line"><span style="color:#24292E">        using nlohmann::to_json; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> this method </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called by adl_serializer,</span></span>
-<span class="line"><span style="color:#D73A49">                                 //</span><span style="color:#24292E"> this </span><span style="color:#D73A49">is</span><span style="color:#24292E"> where the magic happens</span></span>
-<span class="line"><span style="color:#24292E">        to_json(j, value);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    template </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename BasicJsonType</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">    static void from_json(const BasicJsonType</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> j, T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> same thing here</span></span>
-<span class="line"><span style="color:#24292E">        using nlohmann::from_json;</span></span>
-<span class="line"><span style="color:#24292E">        from_json(j, value);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// You should use void as a second template argument
+// if you don't need compile-time checks on T
+template&lt;typename T, typename SFINAE = typename std::enable_if&lt;sizeof(T) &lt;= 32&gt;::type&gt;
+struct less_than_32_serializer {
+    template &lt;typename BasicJsonType&gt;
+    static void to_json(BasicJsonType&amp; j, T value) {
+        // we want to use ADL, and call the correct to_json overload
+        using nlohmann::to_json; // this method is called by adl_serializer,
+                                 // this is where the magic happens
+        to_json(j, value);
+    }
+
+    template &lt;typename BasicJsonType&gt;
+    static void from_json(const BasicJsonType&amp; j, T&amp; value) {
+        // same thing here
+        using nlohmann::from_json;
+        from_json(j, value);
+    }
+};</code></pre>
 <p>Be <strong>very</strong> careful when reimplementing your serializer, you can stack overflow if you don't pay attention:</p>
-<pre><code lang="py">template &lt;typename T, void&gt;
+<pre><code>template &lt;typename T, void&gt;
 struct bad_serializer
 {
     template &lt;typename BasicJsonType&gt;

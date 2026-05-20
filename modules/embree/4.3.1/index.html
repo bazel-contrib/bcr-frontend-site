@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.78411ecb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a6e953ad.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.bb9e44d4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.881e580f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.fe3497d5.js" defer=""></script>
-		<script src="/registry.05145d7c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b8124c38.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/embree/4.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -221,29 +221,29 @@ not recommend using AOT compilation as it does not allow the usage of
 specialization constants to reduce code complexity.</p>
 <p>For ahead of time compilation add these compile options to the
 compilation phase of all C++ files that contain SYCL code:</p>
-<pre><code lang="py">-fsycl -Xclang -fsycl-allow-func-ptr -fsycl-targets=spir64_gen</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">fsycl </span><span style="color:#D73A49">-</span><span style="color:#24292E">Xclang </span><span style="color:#D73A49">-</span><span style="color:#24292E">fsycl</span><span style="color:#D73A49">-</span><span style="color:#24292E">allow</span><span style="color:#D73A49">-</span><span style="color:#24292E">func</span><span style="color:#D73A49">-</span><span style="color:#24292E">ptr </span><span style="color:#D73A49">-</span><span style="color:#24292E">fsycl</span><span style="color:#D73A49">-</span><span style="color:#24292E">targets</span><span style="color:#D73A49">=</span><span style="color:#24292E">spir64_gen</span></span></code></pre>
 <p>These options enable SYCL two phase compilation (<code>-fsycl</code> option),
 enable function pointer support (<code>-Xclang -fsycl-allow-func-ptr</code>
 option), and ahead of time (AOT) compilation
 (<code>-fsycl-targets=spir64_gen</code> option).</p>
 <p>The following link options have to get added to the linking stage of
 your application when compiling ahead of time for Xe HPG devices:</p>
-<pre><code>-fsycl -fsycl-targets=spir64_gen
--Xsycl-target-backend=spir64_gen "-device XE_HPG_CORE"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">fsycl </span><span style="color:#D73A49">-</span><span style="color:#24292E">fsycl</span><span style="color:#D73A49">-</span><span style="color:#24292E">targets</span><span style="color:#D73A49">=</span><span style="color:#24292E">spir64_gen</span></span>
+<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">Xsycl</span><span style="color:#D73A49">-</span><span style="color:#24292E">target</span><span style="color:#D73A49">-</span><span style="color:#24292E">backend</span><span style="color:#D73A49">=</span><span style="color:#24292E">spir64_gen </span><span style="color:#032F62">"-device XE_HPG_CORE"</span></span></code></pre>
 <p>This in particular configures the devices for AOT compilation to
 <code>XE_HPG_CORE</code>.</p>
 <p>To get a list of all device supported by AOT compilation look at the
 help of the device option in ocloc tool:</p>
-<pre><code>ocloc compile --help</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ocloc </span><span style="color:#005CC5">compile</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#005CC5">help</span></span></code></pre>
 <h2>Building Embree Tests</h2>
 <p>Embree is released with a bundle of tests in an optional testing package.
 To run these tests extract the testing package in the same folder as your embree installation.
 e.g.:</p>
-<pre><code>tar -xzf embree-4.4.1-testing.zip -C /path/to/installed/embree</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tar </span><span style="color:#D73A49">-</span><span style="color:#24292E">xzf embree</span><span style="color:#D73A49">-</span><span style="color:#005CC5">4.4</span><span style="color:#24292E">.1</span><span style="color:#D73A49">-</span><span style="color:#24292E">testing.zip </span><span style="color:#D73A49">-</span><span style="color:#24292E">C </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">installed</span><span style="color:#D73A49">/</span><span style="color:#24292E">embree</span></span></code></pre>
 <p>The tests are extracted into a new folder inside you embree installation and can be run with:</p>
-<pre><code>cd /path/to/installed/embree/testing
-cmake -B build
-cmake --build build target=tests</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">installed</span><span style="color:#D73A49">/</span><span style="color:#24292E">embree</span><span style="color:#D73A49">/</span><span style="color:#24292E">testing</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build target</span><span style="color:#D73A49">=</span><span style="color:#24292E">tests</span></span></code></pre>
 <h1>Compiling Embree</h1>
 <p>We recommend using the prebuild Embree packages from
 <a href="https://github.com/embree/embree/releases">https://github.com/embree/embree/releases</a>. If
@@ -287,7 +287,7 @@ executable during CMake configuration.</p>
 version of <a href="https://www.glfw.org/">GLFW</a> version 3.</p>
 <p>Under macOS, all these dependencies can be installed
 using <a href="http://www.macports.org/">MacPorts</a>:</p>
-<pre><code>sudo port install cmake tbb glfw-devel</code></pre>
+<pre><code lang="py">sudo port install cmake tbb glfw-devel</code></pre>
 <p>Depending on your Linux distribution you can install these dependencies
 using <code>yum</code> or <code>apt-get</code>.  Some of these packages might already be
 installed or might have slightly different names.</p>

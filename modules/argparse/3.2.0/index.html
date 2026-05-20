@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.78411ecb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a6e953ad.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.bb9e44d4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.881e580f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.fe3497d5.js" defer=""></script>
-		<script src="/registry.05145d7c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b8124c38.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/argparse/3.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -968,98 +968,98 @@ unknown arguments will not make a parser <code>true</code>.</p>
 <span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "/B    : "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"/B"</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
 <span class="line"><span style="color:#24292E">  }</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
-<pre><code lang="py">foo@bar:/home/dev/$ ./main --foo=Foo /B:Bar
---foo : Foo
-/B    : Bar</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">foo</span><span style="color:#D73A49">=</span><span style="color:#24292E">Foo </span><span style="color:#D73A49">/</span><span style="color:#24292E">B:Bar</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">foo : Foo</span></span>
+<span class="line"><span style="color:#D73A49">/</span><span style="color:#24292E">B    : Bar</span></span></code></pre>
 <h2>Further Examples</h2>
 <h3>Construct a JSON object from a filename argument</h3>
-<pre><code>argparse::ArgumentParser program("json_test");
-
-program.add_argument("config")
-  .action([](const std::string&amp; value) {
-    // read a JSON file
-    std::ifstream stream(value);
-    nlohmann::json config_json;
-    stream &gt;&gt; config_json;
-    return config_json;
-  });
-
-try {
-  program.parse_args({"./test", "config.json"});
-}
-catch (const std::exception&amp; err) {
-  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
-  std::cerr &lt;&lt; program;
-  std::exit(1);
-}
-
-nlohmann::json config = program.get&lt;nlohmann::json&gt;("config");</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"json_test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"config"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .action([](const std::string</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> read a </span><span style="color:#005CC5">JSON</span><span style="color:#E36209"> file</span></span>
+<span class="line"><span style="color:#24292E">    std::ifstream stream(value);</span></span>
+<span class="line"><span style="color:#24292E">    nlohmann::json config_json;</span></span>
+<span class="line"><span style="color:#24292E">    stream </span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E"> config_json;</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> config_json;</span></span>
+<span class="line"><span style="color:#24292E">  })</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">  program.parse_args({</span><span style="color:#032F62">"./test"</span><span style="color:#24292E">, </span><span style="color:#032F62">"config.json"</span><span style="color:#24292E">});</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
+<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">nlohmann::json config </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">nlohmann::json</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"config"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h3>Positional Arguments with Compound Toggle Arguments</h3>
-<pre><code>argparse::ArgumentParser program("test");
-
-program.add_argument("numbers")
-  .nargs(3)
-  .scan&lt;'i', int&gt;();
-
-program.add_argument("-a")
-  .default_value(false)
-  .implicit_value(true);
-
-program.add_argument("-b")
-  .default_value(false)
-  .implicit_value(true);
-
-program.add_argument("-c")
-  .nargs(2)
-  .scan&lt;'g', float&gt;();
-
-program.add_argument("--files")
-  .nargs(3);
-
-try {
-  program.parse_args(argc, argv);
-}
-catch (const std::exception&amp; err) {
-  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
-  std::cerr &lt;&lt; program;
-  std::exit(1);
-}
-
-auto numbers = program.get&lt;std::vector&lt;int&gt;&gt;("numbers");        // {1, 2, 3}
-auto a = program.get&lt;bool&gt;("-a");                               // true
-auto b = program.get&lt;bool&gt;("-b");                               // true
-auto c = program.get&lt;std::vector&lt;float&gt;&gt;("-c");                 // {3.14f, 2.718f}
-auto files = program.get&lt;std::vector&lt;std::string&gt;&gt;("--files");  // {"a.txt", "b.txt", "c.txt"}
-
-/// Some code that prints parsed arguments</code></pre>
-<pre><code>foo@bar:/home/dev/$ ./main 1 2 3 -abc 3.14 2.718 --files a.txt b.txt c.txt
-numbers = {1, 2, 3}
-a = true
-b = true
-c = {3.14, 2.718}
-files = {"a.txt", "b.txt", "c.txt"}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"numbers"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">3</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'i'</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .default_value(false)</span></span>
+<span class="line"><span style="color:#24292E">  .implicit_value(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .default_value(false)</span></span>
+<span class="line"><span style="color:#24292E">  .implicit_value(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-c"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'g'</span><span style="color:#24292E">, </span><span style="color:#005CC5">float</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"--files"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .nargs(</span><span style="color:#005CC5">3</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
+<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto numbers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"numbers"</span><span style="color:#24292E">);        </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">auto a </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-a"</span><span style="color:#24292E">);                               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
+<span class="line"><span style="color:#24292E">auto b </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-b"</span><span style="color:#24292E">);                               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> true</span></span>
+<span class="line"><span style="color:#24292E">auto c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">float</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"-c"</span><span style="color:#24292E">);                 </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#005CC5">3.</span><span style="color:#B31D28;font-style:italic">14f</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.</span><span style="color:#B31D28;font-style:italic">718f</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">auto files </span><span style="color:#D73A49">=</span><span style="color:#24292E"> program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"--files"</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"a.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"b.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c.txt"</span><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">///</span><span style="color:#24292E"> Some code that prints parsed arguments</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main </span><span style="color:#005CC5">1</span><span style="color:#005CC5"> 2</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> -</span><span style="color:#24292E">abc </span><span style="color:#005CC5">3.14</span><span style="color:#005CC5"> 2.718</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">files a.txt b.txt c.txt</span></span>
+<span class="line"><span style="color:#24292E">numbers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">a </span><span style="color:#D73A49">=</span><span style="color:#24292E"> true</span></span>
+<span class="line"><span style="color:#24292E">b </span><span style="color:#D73A49">=</span><span style="color:#24292E"> true</span></span>
+<span class="line"><span style="color:#24292E">c </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">3.14</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.718</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">files </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#032F62">"a.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"b.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c.txt"</span><span style="color:#24292E">}</span></span></code></pre>
 <h3>Restricting the set of values for an argument</h3>
-<pre><code>argparse::ArgumentParser program("test");
-
-program.add_argument("input")
-  .default_value(std::string{"baz"})
-  .choices("foo", "bar", "baz");
-
-try {
-  program.parse_args(argc, argv);
-}
-catch (const std::exception&amp; err) {
-  std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
-  std::cerr &lt;&lt; program;
-  std::exit(1);
-}
-
-auto input = program.get("input");
-std::cout &lt;&lt; input &lt;&lt; std::endl;</code></pre>
-<pre><code>foo@bar:/home/dev/$ ./main fex
-Invalid argument "fex" - allowed options: {foo, bar, baz}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"test"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">  .default_value(std::string{</span><span style="color:#032F62">"baz"</span><span style="color:#24292E">})</span></span>
+<span class="line"><span style="color:#24292E">  .choices(</span><span style="color:#032F62">"foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"bar"</span><span style="color:#24292E">, </span><span style="color:#032F62">"baz"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">  program.parse_args(argc, argv);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
+<span class="line"><span style="color:#24292E">  std::</span><span style="color:#005CC5">exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto </span><span style="color:#005CC5">input</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> program.get(</span><span style="color:#032F62">"input"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> input</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">foo</span><span style="color:#D73A49">@</span><span style="color:#24292E">bar:</span><span style="color:#D73A49">/</span><span style="color:#24292E">home</span><span style="color:#D73A49">/</span><span style="color:#24292E">dev</span><span style="color:#D73A49">/</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">main fex</span></span>
+<span class="line"><span style="color:#24292E">Invalid argument </span><span style="color:#032F62">"fex"</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> allowed options: {foo, bar, baz}</span></span></code></pre>
 <p>Using choices also works with integer types, e.g.,</p>
-<pre><code>argparse::ArgumentParser program("test");
+<pre><code lang="py">argparse::ArgumentParser program("test");
 
 program.add_argument("input")
   .default_value(0)

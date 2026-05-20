@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.03521d88.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.902575d0.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ae78ae6d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8470a796.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.cf7f09fd.js" defer=""></script>
-		<script src="/registry.35ff62b9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.962459e3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cpp-httplib/0.22.0"></head>
 
 	<body style="margin: 0 auto">
@@ -784,27 +784,27 @@ if you don't provide the <code>catch (...)</code> block for a rethrown exception
 <span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h3>'Expect: 100-continue' handler</h3>
 <p>By default, the server sends a <code>100 Continue</code> response for an <code>Expect: 100-continue</code> header.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Send a </span><span style="color:#032F62">'417 Expectation Failed'</span><span style="color:#24292E"> response.</span></span>
-<span class="line"><span style="color:#24292E">svr.set_expect_100_continue_handler([](const Request </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">req, Response </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">res) {</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> StatusCode::ExpectationFailed_417;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Send a final status without reading the message body.</span></span>
-<span class="line"><span style="color:#24292E">svr.set_expect_100_continue_handler([](const Request </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">req, Response </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">res) {</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> res.status = StatusCode::Unauthorized_401;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">// Send a '417 Expectation Failed' response.
+svr.set_expect_100_continue_handler([](const Request &amp;req, Response &amp;res) {
+  return StatusCode::ExpectationFailed_417;
+});</code></pre>
+<pre><code>// Send a final status without reading the message body.
+svr.set_expect_100_continue_handler([](const Request &amp;req, Response &amp;res) {
+  return res.status = StatusCode::Unauthorized_401;
+});</code></pre>
 <h3>Keep-Alive connection</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">svr.set_keep_alive_max_count(</span><span style="color:#005CC5">2</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Default </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> 100</span></span>
-<span class="line"><span style="color:#24292E">svr.set_keep_alive_timeout(</span><span style="color:#005CC5">10</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Default </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> 5</span></span></code></pre>
+<pre><code>svr.set_keep_alive_max_count(2); // Default is 100
+svr.set_keep_alive_timeout(10);  // Default is 5</code></pre>
 <h3>Timeout</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">svr.set_read_timeout(</span><span style="color:#005CC5">5</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 5</span><span style="color:#24292E"> seconds</span></span>
-<span class="line"><span style="color:#24292E">svr.set_write_timeout(</span><span style="color:#005CC5">5</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 5</span><span style="color:#24292E"> seconds</span></span>
-<span class="line"><span style="color:#24292E">svr.set_idle_interval(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">100000</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 100</span><span style="color:#24292E"> milliseconds</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> std::chrono </span><span style="color:#D73A49">is</span><span style="color:#24292E"> also supported</span></span>
-<span class="line"><span style="color:#24292E">svr.set_read_timeout(std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">svr.set_keep_alive_timeout(std::chrono::seconds(</span><span style="color:#005CC5">10</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>svr.set_read_timeout(5, 0); // 5 seconds
+svr.set_write_timeout(5, 0); // 5 seconds
+svr.set_idle_interval(0, 100000); // 100 milliseconds
+
+// std::chrono is also supported
+svr.set_read_timeout(std::chrono::seconds(5));
+svr.set_keep_alive_timeout(std::chrono::seconds(10));</code></pre>
 <h3>Set maximum payload length for reading a request body</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">svr.set_payload_max_length(</span><span style="color:#005CC5">1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 512</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> 512MB</span></span></code></pre>
+<pre><code>svr.set_payload_max_length(1024 * 1024 * 512); // 512MB</code></pre>
 <blockquote>
 <p>[!NOTE]
 When the request body content type is 'www-form-urlencoded', the actual payload length shouldn't exceed <code>CPPHTTPLIB_FORM_URL_ENCODED_PAYLOAD_MAX_LENGTH</code>.</p>
@@ -815,341 +815,341 @@ When the request body content type is 'www-form-urlencoded', the actual payload 
 <p><code>ThreadPool</code> is used as the <strong>default</strong> task queue, with dynamic scaling support. By default, it maintains a base thread count of 8 or <code>std::thread::hardware_concurrency() - 1</code> (whichever is greater), and can scale up to 4x that count under load. You can change these with <code>CPPHTTPLIB_THREAD_POOL_COUNT</code> and <code>CPPHTTPLIB_THREAD_POOL_MAX_COUNT</code>.</p>
 <p>When all threads are busy and a new task arrives, a temporary thread is spawned (up to the maximum). When a dynamic thread finishes its task and the queue is empty, or after an idle timeout, it exits automatically. The idle timeout defaults to 3 seconds, configurable via <code>CPPHTTPLIB_THREAD_POOL_IDLE_TIMEOUT</code>.</p>
 <p>If you want to set the thread counts at runtime:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">svr.new_task_queue </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [] { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> new ThreadPool(</span><span style="color:#D73A49">/*</span><span style="color:#E36209">base_threads</span><span style="color:#D73A49">=*/</span><span style="color:#005CC5">8</span><span style="color:#24292E">, </span><span style="color:#D73A49">/*</span><span style="color:#E36209">max_threads</span><span style="color:#D73A49">=*/</span><span style="color:#005CC5">64</span><span style="color:#24292E">); }</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>svr.new_task_queue = [] { return new ThreadPool(/*base_threads=*/8, /*max_threads=*/64); };</code></pre>
 <h4>Max queued requests</h4>
 <p>You can also provide an optional parameter to limit the maximum number
 of pending requests, i.e. requests <code>accept()</code>ed by the listener but
 still waiting to be serviced by worker threads.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">svr.new_task_queue </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [] { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> new ThreadPool(</span><span style="color:#D73A49">/*</span><span style="color:#E36209">base_threads</span><span style="color:#D73A49">=*/</span><span style="color:#005CC5">12</span><span style="color:#24292E">, </span><span style="color:#D73A49">/*</span><span style="color:#E36209">max_threads</span><span style="color:#D73A49">=*/</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#D73A49">/*</span><span style="color:#E36209">max_queued_requests</span><span style="color:#D73A49">=*/</span><span style="color:#005CC5">18</span><span style="color:#24292E">); }</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>svr.new_task_queue = [] { return new ThreadPool(/*base_threads=*/12, /*max_threads=*/0, /*max_queued_requests=*/18); };</code></pre>
 <p>Default limit is 0 (unlimited). Once the limit is reached, the listener
 will shutdown the client connection.</p>
 <h3>Override the default thread pool with yours</h3>
 <p>You can supply your own thread pool implementation according to your need.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> YourThreadPoolTaskQueue</span><span style="color:#24292E"> : public TaskQueue {</span></span>
-<span class="line"><span style="color:#24292E">public:</span></span>
-<span class="line"><span style="color:#24292E">  YourThreadPoolTaskQueue(size_t n) {</span></span>
-<span class="line"><span style="color:#24292E">    pool_.start_with_thread_count(n);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  virtual </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> enqueue(std::function</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void()</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> fn) override {</span></span>
-<span class="line"><span style="color:#D73A49">    /*</span><span style="color:#24292E"> Return true </span><span style="color:#D73A49">if</span><span style="color:#24292E"> the task was actually enqueued, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> false</span></span>
-<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> the caller must drop the corresponding connection. </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> pool_.enqueue(fn);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  virtual void shutdown() override {</span></span>
-<span class="line"><span style="color:#24292E">    pool_.shutdown_gracefully();</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">private:</span></span>
-<span class="line"><span style="color:#24292E">  YourThreadPool pool_;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">svr.new_task_queue </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [] {</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> new YourThreadPoolTaskQueue(</span><span style="color:#005CC5">12</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>class YourThreadPoolTaskQueue : public TaskQueue {
+public:
+  YourThreadPoolTaskQueue(size_t n) {
+    pool_.start_with_thread_count(n);
+  }
+
+  virtual bool enqueue(std::function&lt;void()&gt; fn) override {
+    /* Return true if the task was actually enqueued, or false
+     * if the caller must drop the corresponding connection. */
+    return pool_.enqueue(fn);
+  }
+
+  virtual void shutdown() override {
+    pool_.shutdown_gracefully();
+  }
+
+private:
+  YourThreadPool pool_;
+};
+
+svr.new_task_queue = [] {
+  return new YourThreadPoolTaskQueue(12);
+};</code></pre>
 <h2>Client</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;httplib.h&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(void)</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  httplib::Client cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1234</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (auto res = cli.Get(</span><span style="color:#032F62">"/hi"</span><span style="color:#24292E">)) {</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">status </span><span style="color:#D73A49">==</span><span style="color:#24292E"> StatusCode::</span><span style="color:#005CC5">OK_200</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#24292E">      std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">body </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">  } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    auto err = res.error();</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "HTTP error: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> httplib::to_string(err) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>#include &lt;httplib.h&gt;
+#include &lt;iostream&gt;
+
+int main(void)
+{
+  httplib::Client cli("localhost", 1234);
+
+  if (auto res = cli.Get("/hi")) {
+    if (res-&gt;status == StatusCode::OK_200) {
+      std::cout &lt;&lt; res-&gt;body &lt;&lt; std::endl;
+    }
+  } else {
+    auto err = res.error();
+    std::cout &lt;&lt; "HTTP error: " &lt;&lt; httplib::to_string(err) &lt;&lt; std::endl;
+  }
+}</code></pre>
 <blockquote>
 <p>[!TIP]
 Constructor with scheme-host-port string is now supported!</p>
 </blockquote>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"localhost:8080"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"http://localhost"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"http://localhost:8080"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"https://localhost"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::SSLClient cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::Client cli("localhost");
+httplib::Client cli("localhost:8080");
+httplib::Client cli("http://localhost");
+httplib::Client cli("http://localhost:8080");
+httplib::Client cli("https://localhost");
+httplib::SSLClient cli("localhost");</code></pre>
 <h3>Error code</h3>
 <p>Here is the list of errors from <code>Result::error()</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">enum </span><span style="color:#D73A49">class</span><span style="color:#24292E"> Error {</span></span>
-<span class="line"><span style="color:#24292E">  Success = </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">  Unknown,</span></span>
-<span class="line"><span style="color:#24292E">  Connection,</span></span>
-<span class="line"><span style="color:#24292E">  BindIPAddress,</span></span>
-<span class="line"><span style="color:#24292E">  Read,</span></span>
-<span class="line"><span style="color:#24292E">  Write,</span></span>
-<span class="line"><span style="color:#24292E">  ExceedRedirectCount,</span></span>
-<span class="line"><span style="color:#24292E">  Canceled,</span></span>
-<span class="line"><span style="color:#24292E">  SSLConnection,</span></span>
-<span class="line"><span style="color:#24292E">  SSLLoadingCerts,</span></span>
-<span class="line"><span style="color:#24292E">  SSLServerVerification,</span></span>
-<span class="line"><span style="color:#24292E">  SSLServerHostnameVerification,</span></span>
-<span class="line"><span style="color:#24292E">  UnsupportedMultipartBoundaryChars,</span></span>
-<span class="line"><span style="color:#24292E">  Compression,</span></span>
-<span class="line"><span style="color:#24292E">  ConnectionTimeout,</span></span>
-<span class="line"><span style="color:#24292E">  ProxyConnection,</span></span>
-<span class="line"><span style="color:#24292E">  ConnectionClosed,</span></span>
-<span class="line"><span style="color:#24292E">  Timeout,</span></span>
-<span class="line"><span style="color:#24292E">  ResourceExhaustion,</span></span>
-<span class="line"><span style="color:#24292E">  TooManyFormDataFiles,</span></span>
-<span class="line"><span style="color:#24292E">  ExceedMaxPayloadSize,</span></span>
-<span class="line"><span style="color:#24292E">  ExceedUriMaxLength,</span></span>
-<span class="line"><span style="color:#24292E">  ExceedMaxSocketDescriptorCount,</span></span>
-<span class="line"><span style="color:#24292E">  InvalidRequestLine,</span></span>
-<span class="line"><span style="color:#24292E">  InvalidHTTPMethod,</span></span>
-<span class="line"><span style="color:#24292E">  InvalidHTTPVersion,</span></span>
-<span class="line"><span style="color:#24292E">  InvalidHeaders,</span></span>
-<span class="line"><span style="color:#24292E">  MultipartParsing,</span></span>
-<span class="line"><span style="color:#24292E">  OpenFile,</span></span>
-<span class="line"><span style="color:#24292E">  Listen,</span></span>
-<span class="line"><span style="color:#24292E">  GetSockName,</span></span>
-<span class="line"><span style="color:#24292E">  UnsupportedAddressFamily,</span></span>
-<span class="line"><span style="color:#24292E">  HTTPParsing,</span></span>
-<span class="line"><span style="color:#24292E">  InvalidRangeHeader,</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>enum class Error {
+  Success = 0,
+  Unknown,
+  Connection,
+  BindIPAddress,
+  Read,
+  Write,
+  ExceedRedirectCount,
+  Canceled,
+  SSLConnection,
+  SSLLoadingCerts,
+  SSLServerVerification,
+  SSLServerHostnameVerification,
+  UnsupportedMultipartBoundaryChars,
+  Compression,
+  ConnectionTimeout,
+  ProxyConnection,
+  ConnectionClosed,
+  Timeout,
+  ResourceExhaustion,
+  TooManyFormDataFiles,
+  ExceedMaxPayloadSize,
+  ExceedUriMaxLength,
+  ExceedMaxSocketDescriptorCount,
+  InvalidRequestLine,
+  InvalidHTTPMethod,
+  InvalidHTTPVersion,
+  InvalidHeaders,
+  MultipartParsing,
+  OpenFile,
+  Listen,
+  GetSockName,
+  UnsupportedAddressFamily,
+  HTTPParsing,
+  InvalidRangeHeader,
+};</code></pre>
 <h3>Client Logging</h3>
 <h4>Access Logging</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_logger([](const httplib::Request</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> req, const httplib::Response</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> res) {</span></span>
-<span class="line"><span style="color:#24292E">  auto duration = std::chrono::duration_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::chrono::milliseconds</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span></span>
-<span class="line"><span style="color:#24292E">    std::chrono::steady_clock::now() </span><span style="color:#D73A49">-</span><span style="color:#24292E"> start_time).count();</span></span>
-<span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "✓ "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> req.method </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> req.path</span></span>
-<span class="line"><span style="color:#D73A49">            &lt;&lt;</span><span style="color:#032F62"> " -&gt; "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> res.status </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " ("</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> res.body.size() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " bytes, "</span></span>
-<span class="line"><span style="color:#D73A49">            &lt;&lt;</span><span style="color:#24292E"> duration </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "ms)"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_logger([](const httplib::Request&amp; req, const httplib::Response&amp; res) {
+  auto duration = std::chrono::duration_cast&lt;std::chrono::milliseconds&gt;(
+    std::chrono::steady_clock::now() - start_time).count();
+  std::cout &lt;&lt; "✓ " &lt;&lt; req.method &lt;&lt; " " &lt;&lt; req.path
+            &lt;&lt; " -&gt; " &lt;&lt; res.status &lt;&lt; " (" &lt;&lt; res.body.size() &lt;&lt; " bytes, "
+            &lt;&lt; duration &lt;&lt; "ms)" &lt;&lt; std::endl;
+});</code></pre>
 <h4>Error Logging</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_error_logger([](const httplib::Error</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err, const httplib::Request</span><span style="color:#D73A49">*</span><span style="color:#24292E"> req) {</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "✗ "</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (req) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> req</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">method </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> req</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">path </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "failed: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> httplib::to_string(err);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Add specific guidance based on error </span><span style="color:#005CC5">type</span></span>
-<span class="line"><span style="color:#24292E">  switch (err) {</span></span>
-<span class="line"><span style="color:#24292E">    case httplib::Error::Connection:</span></span>
-<span class="line"><span style="color:#24292E">      std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " (verify server is running and reachable)"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">      break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    case httplib::Error::SSLConnection:</span></span>
-<span class="line"><span style="color:#24292E">      std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " (check SSL certificate and TLS configuration)"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">      break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    case httplib::Error::ConnectionTimeout:</span></span>
-<span class="line"><span style="color:#24292E">      std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " (increase timeout or check network latency)"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">      break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    case httplib::Error::Read:</span></span>
-<span class="line"><span style="color:#24292E">      std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " (server may have closed connection prematurely)"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">      break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    default:</span></span>
-<span class="line"><span style="color:#D73A49">      break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_error_logger([](const httplib::Error&amp; err, const httplib::Request* req) {
+  std::cerr &lt;&lt; "✗ ";
+  if (req) {
+    std::cerr &lt;&lt; req-&gt;method &lt;&lt; " " &lt;&lt; req-&gt;path &lt;&lt; " ";
+  }
+  std::cerr &lt;&lt; "failed: " &lt;&lt; httplib::to_string(err);
+
+  // Add specific guidance based on error type
+  switch (err) {
+    case httplib::Error::Connection:
+      std::cerr &lt;&lt; " (verify server is running and reachable)";
+      break;
+    case httplib::Error::SSLConnection:
+      std::cerr &lt;&lt; " (check SSL certificate and TLS configuration)";
+      break;
+    case httplib::Error::ConnectionTimeout:
+      std::cerr &lt;&lt; " (increase timeout or check network latency)";
+      break;
+    case httplib::Error::Read:
+      std::cerr &lt;&lt; " (server may have closed connection prematurely)";
+      break;
+    default:
+      break;
+  }
+  std::cerr &lt;&lt; std::endl;
+});</code></pre>
 <h3>GET with HTTP headers</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Headers headers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"Hello"</span><span style="color:#24292E">, </span><span style="color:#032F62">"World!"</span><span style="color:#24292E"> }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/hi"</span><span style="color:#24292E">, headers)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::Headers headers = {
+  { "Hello", "World!" }
+};
+auto res = cli.Get("/hi", headers);</code></pre>
 <p>or</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/hi"</span><span style="color:#24292E">, {{</span><span style="color:#032F62">"Hello"</span><span style="color:#24292E">, </span><span style="color:#032F62">"World!"</span><span style="color:#24292E">}})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto res = cli.Get("/hi", {{"Hello", "World!"}});</code></pre>
 <p>or</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_default_headers({</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"Hello"</span><span style="color:#24292E">, </span><span style="color:#032F62">"World!"</span><span style="color:#24292E"> }</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/hi"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_default_headers({
+  { "Hello", "World!" }
+});
+auto res = cli.Get("/hi");</code></pre>
 <h3>POST</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/post"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/person"</span><span style="color:#24292E">, </span><span style="color:#032F62">"name=john1&amp;note=coder"</span><span style="color:#24292E">, </span><span style="color:#032F62">"application/x-www-form-urlencoded"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Post("/post", "text", "text/plain");
+res = cli.Post("/person", "name=john1&amp;note=coder", "application/x-www-form-urlencoded");</code></pre>
 <h3>POST with parameters</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Params params</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">params.emplace(</span><span style="color:#032F62">"name"</span><span style="color:#24292E">, </span><span style="color:#032F62">"john"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">params.emplace(</span><span style="color:#032F62">"note"</span><span style="color:#24292E">, </span><span style="color:#032F62">"coder"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/post"</span><span style="color:#24292E">, params)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::Params params;
+params.emplace("name", "john");
+params.emplace("note", "coder");
+
+auto res = cli.Post("/post", params);</code></pre>
 <p> or</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Params params{</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"name"</span><span style="color:#24292E">, </span><span style="color:#032F62">"john"</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"note"</span><span style="color:#24292E">, </span><span style="color:#032F62">"coder"</span><span style="color:#24292E"> }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/post"</span><span style="color:#24292E">, params)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::Params params{
+  { "name", "john" },
+  { "note", "coder" }
+};
+
+auto res = cli.Post("/post", params);</code></pre>
 <h3>POST with Multipart Form Data</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::UploadFormDataItems items </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"text1"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text default"</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"text2"</span><span style="color:#24292E">, </span><span style="color:#032F62">"aωb"</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"file1"</span><span style="color:#24292E">, </span><span style="color:#032F62">"h</span><span style="color:#005CC5">\n</span><span style="color:#032F62">e</span><span style="color:#005CC5">\n\n</span><span style="color:#032F62">l</span><span style="color:#005CC5">\n</span><span style="color:#032F62">l</span><span style="color:#005CC5">\n</span><span style="color:#032F62">o</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#032F62">"hello.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"file2"</span><span style="color:#24292E">, </span><span style="color:#032F62">"{</span><span style="color:#005CC5">\n</span><span style="color:#005CC5">  \"</span><span style="color:#032F62">world</span><span style="color:#005CC5">\"</span><span style="color:#032F62">, true</span><span style="color:#005CC5">\n</span><span style="color:#032F62">}</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#032F62">"world.json"</span><span style="color:#24292E">, </span><span style="color:#032F62">"application/json"</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">  { </span><span style="color:#032F62">"file3"</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E">, </span><span style="color:#032F62">"application/octet-stream"</span><span style="color:#24292E"> },</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/multipart"</span><span style="color:#24292E">, items)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::UploadFormDataItems items = {
+  { "text1", "text default", "", "" },
+  { "text2", "aωb", "", "" },
+  { "file1", "h\ne\n\nl\nl\no\n", "hello.txt", "text/plain" },
+  { "file2", "{\n  \"world\", true\n}\n", "world.json", "application/json" },
+  { "file3", "", "", "application/octet-stream" },
+};
+
+auto res = cli.Post("/multipart", items);</code></pre>
 <p>To upload files from disk without loading them entirely into memory, use <code>make_file_provider</code>. The file is sent with chunked transfer encoding.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::FormDataProviderItems providers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  httplib::make_file_provider(</span><span style="color:#032F62">"file1"</span><span style="color:#24292E">, </span><span style="color:#032F62">"/path/to/large.bin"</span><span style="color:#24292E">, </span><span style="color:#032F62">"large.bin"</span><span style="color:#24292E">, </span><span style="color:#032F62">"application/octet-stream"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#24292E">  httplib::make_file_provider(</span><span style="color:#032F62">"avatar"</span><span style="color:#24292E">, </span><span style="color:#032F62">"/path/to/photo.jpg"</span><span style="color:#24292E">, </span><span style="color:#032F62">"photo.jpg"</span><span style="color:#24292E">, </span><span style="color:#032F62">"image/jpeg"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/upload"</span><span style="color:#24292E">, {}, {}, providers)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::FormDataProviderItems providers = {
+  httplib::make_file_provider("file1", "/path/to/large.bin", "large.bin", "application/octet-stream"),
+  httplib::make_file_provider("avatar", "/path/to/photo.jpg", "photo.jpg", "image/jpeg"),
+};
+
+auto res = cli.Post("/upload", {}, {}, providers);</code></pre>
 <h3>POST with a file body</h3>
 <p>To POST a file as a raw binary body with <code>Content-Length</code>, use <code>make_file_body</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto [size, provider] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::make_file_body(</span><span style="color:#032F62">"/path/to/data.bin"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/upload"</span><span style="color:#24292E">, size, provider, </span><span style="color:#032F62">"application/octet-stream"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto [size, provider] = httplib::make_file_body("/path/to/data.bin");
+auto res = cli.Post("/upload", size, provider, "application/octet-stream");</code></pre>
 <h3>PUT</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Put(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Put("/resource/foo", "text", "text/plain");</code></pre>
 <h3>PATCH</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Patch(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text"</span><span style="color:#24292E">, </span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Patch("/resource/foo", "text", "text/plain");</code></pre>
 <h3>DELETE</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Delete(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Delete("/resource/foo");</code></pre>
 <h3>OPTIONS</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Options(</span><span style="color:#032F62">"*"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Options(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Options("*");
+res = cli.Options("/resource/foo");</code></pre>
 <h3>Timeout</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_connection_timeout(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">300000</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 300</span><span style="color:#24292E"> milliseconds</span></span>
-<span class="line"><span style="color:#24292E">cli.set_read_timeout(</span><span style="color:#005CC5">5</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 5</span><span style="color:#24292E"> seconds</span></span>
-<span class="line"><span style="color:#24292E">cli.set_write_timeout(</span><span style="color:#005CC5">5</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 5</span><span style="color:#24292E"> seconds</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> This method works the same </span><span style="color:#D73A49">as</span><span style="color:#24292E"> curl</span><span style="color:#032F62">'s `--max-time` option</span></span>
-<span class="line"><span style="color:#24292E">cli.set_max_timeout(</span><span style="color:#005CC5">5000</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 5</span><span style="color:#24292E"> seconds</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> std::chrono </span><span style="color:#D73A49">is</span><span style="color:#24292E"> also supported</span></span>
-<span class="line"><span style="color:#24292E">cli.set_connection_timeout(std::chrono::milliseconds(</span><span style="color:#005CC5">300</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.set_read_timeout(std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.set_write_timeout(std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.set_max_timeout(std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_connection_timeout(0, 300000); // 300 milliseconds
+cli.set_read_timeout(5, 0); // 5 seconds
+cli.set_write_timeout(5, 0); // 5 seconds
+
+// This method works the same as curl's `--max-time` option
+cli.set_max_timeout(5000); // 5 seconds
+
+// std::chrono is also supported
+cli.set_connection_timeout(std::chrono::milliseconds(300));
+cli.set_read_timeout(std::chrono::seconds(5));
+cli.set_write_timeout(std::chrono::seconds(5));
+cli.set_max_timeout(std::chrono::seconds(5));</code></pre>
 <h3>Set maximum payload length for reading a response body</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_payload_max_length(</span><span style="color:#005CC5">1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 1024</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 512</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> 512MB</span></span></code></pre>
+<pre><code>cli.set_payload_max_length(1024 * 1024 * 512); // 512MB</code></pre>
 <h3>Receive content with a content receiver</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string body</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/large-data"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">  [</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">](const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">data, size_t data_length) {</span></span>
-<span class="line"><span style="color:#24292E">    body.append(data, data_length);</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> true;</span></span>
-<span class="line"><span style="color:#24292E">  })</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string body</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span></span>
-<span class="line"><span style="color:#032F62">  "/stream"</span><span style="color:#24292E">, Headers(),</span></span>
-<span class="line"><span style="color:#24292E">  [</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">](const Response </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">response) {</span></span>
-<span class="line"><span style="color:#24292E">    EXPECT_EQ(StatusCode::</span><span style="color:#005CC5">OK_200</span><span style="color:#24292E">, response.status);</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> true; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#032F62"> 'false'</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you want to cancel the request.</span></span>
-<span class="line"><span style="color:#24292E">  },</span></span>
-<span class="line"><span style="color:#24292E">  [</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">](const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">data, size_t data_length) {</span></span>
-<span class="line"><span style="color:#24292E">    body.append(data, data_length);</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> true; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#032F62"> 'false'</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you want to cancel the request.</span></span>
-<span class="line"><span style="color:#24292E">  })</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>std::string body;
+
+auto res = cli.Get("/large-data",
+  [&amp;](const char *data, size_t data_length) {
+    body.append(data, data_length);
+    return true;
+  });</code></pre>
+<pre><code>std::string body;
+
+auto res = cli.Get(
+  "/stream", Headers(),
+  [&amp;](const Response &amp;response) {
+    EXPECT_EQ(StatusCode::OK_200, response.status);
+    return true; // return 'false' if you want to cancel the request.
+  },
+  [&amp;](const char *data, size_t data_length) {
+    body.append(data, data_length);
+    return true; // return 'false' if you want to cancel the request.
+  });</code></pre>
 <h3>Send content with a content provider</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string body </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> ...</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span></span>
-<span class="line"><span style="color:#032F62">  "/stream"</span><span style="color:#24292E">, body.size(),</span></span>
-<span class="line"><span style="color:#24292E">  [](size_t offset, size_t length, DataSink </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">sink) {</span></span>
-<span class="line"><span style="color:#24292E">    sink.write(body.data() </span><span style="color:#D73A49">+</span><span style="color:#24292E"> offset, length);</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> true; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#032F62"> 'false'</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you want to cancel the request.</span></span>
-<span class="line"><span style="color:#24292E">  },</span></span>
-<span class="line"><span style="color:#032F62">  "text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>std::string body = ...;
+
+auto res = cli.Post(
+  "/stream", body.size(),
+  [](size_t offset, size_t length, DataSink &amp;sink) {
+    sink.write(body.data() + offset, length);
+    return true; // return 'false' if you want to cancel the request.
+  },
+  "text/plain");</code></pre>
 <h3>Chunked transfer encoding</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span></span>
-<span class="line"><span style="color:#032F62">  "/stream"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">  [](size_t offset, DataSink </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">sink) {</span></span>
-<span class="line"><span style="color:#24292E">    sink.os </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "chunked data 1"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    sink.os </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "chunked data 2"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    sink.os </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "chunked data 3"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    sink.done();</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> true; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#032F62"> 'false'</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you want to cancel the request.</span></span>
-<span class="line"><span style="color:#24292E">  },</span></span>
-<span class="line"><span style="color:#032F62">  "text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto res = cli.Post(
+  "/stream",
+  [](size_t offset, DataSink &amp;sink) {
+    sink.os &lt;&lt; "chunked data 1";
+    sink.os &lt;&lt; "chunked data 2";
+    sink.os &lt;&lt; "chunked data 3";
+    sink.done();
+    return true; // return 'false' if you want to cancel the request.
+  },
+  "text/plain");</code></pre>
 <h3>With Progress Callback</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(url, port)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> prints: </span><span style="color:#005CC5">0</span><span style="color:#D73A49"> /</span><span style="color:#005CC5"> 000</span><span style="color:#005CC5"> bytes</span><span style="color:#D73A49"> =&gt;</span><span style="color:#005CC5"> 50</span><span style="color:#D73A49">%</span><span style="color:#24292E"> complete</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/"</span><span style="color:#24292E">, [](size_t </span><span style="color:#005CC5">len</span><span style="color:#24292E">, size_t total) {</span></span>
-<span class="line"><span style="color:#24292E">  printf(</span><span style="color:#032F62">"%lld / %lld bytes =&gt; </span><span style="color:#005CC5">%d%%</span><span style="color:#032F62"> complete</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    len</span><span style="color:#24292E">, total,</span></span>
-<span class="line"><span style="color:#24292E">    (</span><span style="color:#005CC5">int</span><span style="color:#24292E">)(</span><span style="color:#005CC5">len</span><span style="color:#D73A49">*</span><span style="color:#005CC5">100</span><span style="color:#D73A49">/</span><span style="color:#24292E">total));</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#24292E"> true; </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#032F62"> 'false'</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> you want to cancel the request.</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>httplib::Client cli(url, port);
+
+// prints: 0 / 000 bytes =&gt; 50% complete
+auto res = cli.Get("/", [](size_t len, size_t total) {
+  printf("%lld / %lld bytes =&gt; %d%% complete\n",
+    len, total,
+    (int)(len*100/total));
+  return true; // return 'false' if you want to cancel the request.
+}
+);</code></pre>
 <p><img src="https://user-images.githubusercontent.com/236374/33138910-495c4ecc-cf86-11e7-8693-2fc6d09615c4.gif" alt="progress"></p>
 <h3>Authentication</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Basic Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_basic_auth(</span><span style="color:#032F62">"user"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pass"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Digest Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_digest_auth(</span><span style="color:#032F62">"user"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pass"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Bearer Token Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_bearer_token_auth(</span><span style="color:#032F62">"token"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// Basic Authentication
+cli.set_basic_auth("user", "pass");
+
+// Digest Authentication
+cli.set_digest_auth("user", "pass");
+
+// Bearer Token Authentication
+cli.set_bearer_token_auth("token");</code></pre>
 <blockquote>
 <p>[!NOTE]
 OpenSSL is required for Digest Authentication.</p>
 </blockquote>
 <h3>Proxy server support</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_proxy(</span><span style="color:#032F62">"host"</span><span style="color:#24292E">, port)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Basic Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_proxy_basic_auth(</span><span style="color:#032F62">"user"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pass"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Digest Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_proxy_digest_auth(</span><span style="color:#032F62">"user"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pass"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Bearer Token Authentication</span></span>
-<span class="line"><span style="color:#24292E">cli.set_proxy_bearer_token_auth(</span><span style="color:#032F62">"pass"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_proxy("host", port);
+
+// Basic Authentication
+cli.set_proxy_basic_auth("user", "pass");
+
+// Digest Authentication
+cli.set_proxy_digest_auth("user", "pass");
+
+// Bearer Token Authentication
+cli.set_proxy_bearer_token_auth("pass");</code></pre>
 <blockquote>
 <p>[!NOTE]
 OpenSSL is required for Digest Authentication.</p>
 </blockquote>
 <h3>Range</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"httpcan.org"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/range/32"</span><span style="color:#24292E">, {</span></span>
-<span class="line"><span style="color:#24292E">  httplib::make_range_header({{</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">}}) </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'Range: bytes=1-10'</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">status should be </span><span style="color:#005CC5">206</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">body should be </span><span style="color:#032F62">"bcdefghijk"</span><span style="color:#24292E">.</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::make_range_header({{</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">}, {</span><span style="color:#005CC5">20</span><span style="color:#24292E">, </span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">}})      </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'Range: bytes=1-10, 20-'</span></span>
-<span class="line"><span style="color:#24292E">httplib::make_range_header({{</span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">199</span><span style="color:#24292E">}, {</span><span style="color:#005CC5">500</span><span style="color:#24292E">, </span><span style="color:#005CC5">599</span><span style="color:#24292E">}}) </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'Range: bytes=100-199, 500-599'</span></span>
-<span class="line"><span style="color:#24292E">httplib::make_range_header({{</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">}, {</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">}})        </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'Range: bytes=0-0, -1'</span></span></code></pre>
+<pre><code>httplib::Client cli("httpcan.org");
+
+auto res = cli.Get("/range/32", {
+  httplib::make_range_header({{1, 10}}) // 'Range: bytes=1-10'
+});
+// res-&gt;status should be 206.
+// res-&gt;body should be "bcdefghijk".</code></pre>
+<pre><code>httplib::make_range_header({{1, 10}, {20, -1}})      // 'Range: bytes=1-10, 20-'
+httplib::make_range_header({{100, 199}, {500, 599}}) // 'Range: bytes=100-199, 500-599'
+httplib::make_range_header({{0, 0}, {-1, 1}})        // 'Range: bytes=0-0, -1'</code></pre>
 <h3>Keep-Alive connection</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1234</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cli.Get(</span><span style="color:#032F62">"/hello"</span><span style="color:#24292E">);         </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> with</span><span style="color:#032F62"> "Connection: close"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cli.set_keep_alive(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.Get(</span><span style="color:#032F62">"/world"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cli.set_keep_alive(false)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.Get(</span><span style="color:#032F62">"/last-request"</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> with</span><span style="color:#032F62"> "Connection: close"</span></span></code></pre>
+<pre><code>httplib::Client cli("localhost", 1234);
+
+cli.Get("/hello");         // with "Connection: close"
+
+cli.set_keep_alive(true);
+cli.Get("/world");
+
+cli.set_keep_alive(false);
+cli.Get("/last-request");  // with "Connection: close"</code></pre>
 <h3>Redirect</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"yahoo.com"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">status; </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 301</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cli.set_follow_location(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">status; </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 200</span></span></code></pre>
+<pre><code>httplib::Client cli("yahoo.com");
+
+auto res = cli.Get("/");
+res-&gt;status; // 301
+
+cli.set_follow_location(true);
+res = cli.Get("/");
+res-&gt;status; // 200</code></pre>
 <h3>Use a specific network interface</h3>
 <blockquote>
 <p>[!NOTE]
 This feature is not available on Windows, yet.</p>
 </blockquote>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_interface(</span><span style="color:#032F62">"eth0"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Interface name, </span><span style="color:#005CC5">IP</span><span style="color:#24292E"> address </span><span style="color:#D73A49">or</span><span style="color:#24292E"> host name</span></span></code></pre>
+<pre><code>cli.set_interface("eth0"); // Interface name, IP address or host name</code></pre>
 <h3>Automatic Path Encoding</h3>
 <p>The client automatically encodes special characters in URL paths by default:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"https://example.com"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Automatic path encoding (default behavior)</span></span>
-<span class="line"><span style="color:#24292E">cli.set_path_encode(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/path with spaces/file.txt"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Automatically encodes spaces</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Disable automatic path encoding</span></span>
-<span class="line"><span style="color:#24292E">cli.set_path_encode(false)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/already</span><span style="color:#005CC5">%20e</span><span style="color:#032F62">ncoded/path"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Use pre</span><span style="color:#D73A49">-</span><span style="color:#24292E">encoded paths</span></span></code></pre>
+<pre><code>httplib::Client cli("https://example.com");
+
+// Automatic path encoding (default behavior)
+cli.set_path_encode(true);
+auto res = cli.Get("/path with spaces/file.txt"); // Automatically encodes spaces
+
+// Disable automatic path encoding
+cli.set_path_encode(false);
+auto res = cli.Get("/already%20encoded/path"); // Use pre-encoded paths</code></pre>
 <ul>
 <li><code>set_path_encode(bool on)</code> - Controls automatic encoding of special characters in URL paths<ul>
 <li><code>true</code> (default): Automatically encodes spaces, plus signs, newlines, and other special characters</li>
@@ -1163,15 +1163,15 @@ This feature is not available on Windows, yet.</p>
 On Windows systems with improperly configured IPv6 settings, using "localhost" as the hostname may cause significant connection delays (up to 2 seconds per request) due to DNS resolution issues. This affects both client and server operations. For better performance when connecting to local services, use "127.0.0.1" instead of "localhost".</p>
 <p>See: <a href="https://github.com/yhirose/cpp-httplib/issues/366#issuecomment-593004264">https://github.com/yhirose/cpp-httplib/issues/366#issuecomment-593004264</a></p>
 </blockquote>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> May be slower on Windows due to </span><span style="color:#005CC5">DNS</span><span style="color:#24292E"> resolution delays</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::Server svr</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">svr.listen(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Faster alternative </span><span style="color:#D73A49">for</span><span style="color:#24292E"> local connections</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">httplib::Server svr;</span></span>
-<span class="line"><span style="color:#24292E">svr.listen(</span><span style="color:#032F62">"127.0.0.1"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">);</span></span></code></pre>
+<pre><code>// May be slower on Windows due to DNS resolution delays
+httplib::Client cli("localhost", 8080);
+httplib::Server svr;
+svr.listen("localhost", 8080);
+
+// Faster alternative for local connections
+httplib::Client cli("127.0.0.1", 8080);
+httplib::Server svr;
+svr.listen("127.0.0.1", 8080);</code></pre>
 <h2>Payload Limit</h2>
 <p>The maximum payload body size is limited to 100MB by default for both server and client. You can change it with <code>set_payload_max_length()</code> or by defining <code>CPPHTTPLIB_PAYLOAD_MAX_LENGTH</code> at compile time. Setting it to <code>0</code> disables the limit entirely.</p>
 <h2>Compression</h2>
@@ -1195,39 +1195,39 @@ Please see <a href="https://github.com/google/brotli">https://github.com/google/
 Please see <a href="https://github.com/facebook/zstd">https://github.com/facebook/zstd</a> for more detail.</p>
 <h3>Default <code>Accept-Encoding</code> value</h3>
 <p>The default <code>Accept-Encoding</code> value contains all possible compression types. So, the following two examples are same.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">, {{</span><span style="color:#032F62">"Accept-Encoding"</span><span style="color:#24292E">, </span><span style="color:#032F62">"br, gzip, deflate, zstd"</span><span style="color:#24292E">}})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Get("/resource/foo");
+res = cli.Get("/resource/foo", {{"Accept-Encoding", "br, gzip, deflate, zstd"}});</code></pre>
 <p>If we don't want a response without compression, we have to set <code>Accept-Encoding</code> to an empty string. This behavior is similar to curl.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">, {{</span><span style="color:#032F62">"Accept-Encoding"</span><span style="color:#24292E">, </span><span style="color:#032F62">""</span><span style="color:#24292E">}})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>res = cli.Get("/resource/foo", {{"Accept-Encoding", ""}});</code></pre>
 <h3>Compress request body on client</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_compress(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Post(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">, </span><span style="color:#032F62">"..."</span><span style="color:#24292E">, </span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>cli.set_compress(true);
+res = cli.Post("/resource/foo", "...", "text/plain");</code></pre>
 <h3>Compress response body on client</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cli.set_decompress(false)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cli.Get(</span><span style="color:#032F62">"/resource/foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">res</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">body; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Compressed data</span></span></code></pre>
+<pre><code>cli.set_decompress(false);
+res = cli.Get("/resource/foo");
+res-&gt;body; // Compressed data</code></pre>
 <h2>Unix Domain Socket Support</h2>
 <p>Unix Domain Socket support is available on Linux and macOS.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Server</span></span>
-<span class="line"><span style="color:#24292E">httplib::Server svr</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">svr.set_address_family(</span><span style="color:#005CC5">AF_UNIX</span><span style="color:#24292E">).listen(</span><span style="color:#032F62">"./my-socket.sock"</span><span style="color:#24292E">, </span><span style="color:#005CC5">80</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Client</span></span>
-<span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"./my-socket.sock"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.set_address_family(</span><span style="color:#005CC5">AF_UNIX</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// Server
+httplib::Server svr;
+svr.set_address_family(AF_UNIX).listen("./my-socket.sock", 80);
+
+// Client
+httplib::Client cli("./my-socket.sock");
+cli.set_address_family(AF_UNIX);</code></pre>
 <p>"my-socket.sock" can be a relative path or an absolute path. Your application must have the appropriate permissions for the path. You can also use an abstract socket address on Linux. To use an abstract socket address, prepend a null byte ('\x00') to the path.</p>
 <p>This library automatically sets the Host header to "localhost" for Unix socket connections, similar to curl's behavior:</p>
 <h2>URI Encoding/Decoding Utilities</h2>
 <p>cpp-httplib provides utility functions for URI encoding and decoding:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;httplib.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">std::string url </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "https://example.com/search?q=hello world"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::string encoded </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::encode_uri(url)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::string decoded </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::decode_uri(encoded)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">std::string param </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "hello world"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::string encoded_component </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::encode_uri_component(param)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::string decoded_component </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::decode_uri_component(encoded_component)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>#include &lt;httplib.h&gt;
+
+std::string url = "https://example.com/search?q=hello world";
+std::string encoded = httplib::encode_uri(url);
+std::string decoded = httplib::decode_uri(encoded);
+
+std::string param = "hello world";
+std::string encoded_component = httplib::encode_uri_component(param);
+std::string decoded_component = httplib::decode_uri_component(encoded_component);</code></pre>
 <h3>Functions</h3>
 <ul>
 <li><code>encode_uri(const std::string &amp;value)</code> - Encodes a full URI, preserving reserved characters like <code>://</code>, <code>?</code>, <code>&amp;</code>, <code>=</code></li>
@@ -1238,67 +1238,67 @@ Please see <a href="https://github.com/facebook/zstd">https://github.com/faceboo
 <p>Use <code>encode_uri()</code> for full URLs and <code>encode_uri_component()</code> for individual query parameters or path segments.</p>
 <h2>Stream API</h2>
 <p>Process large responses without loading everything into memory.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">httplib::Client cli(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">cli.set_follow_location(true)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto result </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::stream::Get(cli, </span><span style="color:#032F62">"/large-file"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (result) {</span></span>
-<span class="line"><span style="color:#D73A49">  while</span><span style="color:#24292E"> (result.next()) {</span></span>
-<span class="line"><span style="color:#24292E">    process(result.data(), result.size());  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Process each chunk </span><span style="color:#D73A49">as</span><span style="color:#24292E"> it arrives</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Or read the entire body at once</span></span>
-<span class="line"><span style="color:#24292E">auto result2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> httplib::stream::Get(cli, </span><span style="color:#032F62">"/file"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (result2) {</span></span>
-<span class="line"><span style="color:#24292E">  std::string body = result2.read_all();</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>httplib::Client cli("localhost", 8080);
+cli.set_follow_location(true);
+...
+
+auto result = httplib::stream::Get(cli, "/large-file");
+if (result) {
+  while (result.next()) {
+    process(result.data(), result.size());  // Process each chunk as it arrives
+  }
+}
+
+// Or read the entire body at once
+auto result2 = httplib::stream::Get(cli, "/file");
+if (result2) {
+  std::string body = result2.read_all();
+}</code></pre>
 <p>All HTTP methods are supported: <code>stream::Get</code>, <code>Post</code>, <code>Put</code>, <code>Patch</code>, <code>Delete</code>, <code>Head</code>, <code>Options</code>.</p>
 <p>See <a href="README-stream.md">README-stream.md</a> for more details.</p>
 <h2>SSE Client</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;httplib.h&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
-<span class="line"><span style="color:#24292E">    httplib::Client cli(</span><span style="color:#032F62">"http://localhost:8080"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    httplib::sse::SSEClient sse(cli, </span><span style="color:#032F62">"/events"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    sse.on_message([](const httplib::sse::SSEMessage </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">msg) {</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Event: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> msg.event </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Data: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> msg.data </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    });</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    sse.start();  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Blocking, </span><span style="color:#D73A49">with</span><span style="color:#24292E"> auto</span><span style="color:#D73A49">-</span><span style="color:#24292E">reconnect</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>#include &lt;httplib.h&gt;
+
+int main() {
+    httplib::Client cli("http://localhost:8080");
+    httplib::sse::SSEClient sse(cli, "/events");
+
+    sse.on_message([](const httplib::sse::SSEMessage &amp;msg) {
+        std::cout &lt;&lt; "Event: " &lt;&lt; msg.event &lt;&lt; std::endl;
+        std::cout &lt;&lt; "Data: " &lt;&lt; msg.data &lt;&lt; std::endl;
+    });
+
+    sse.start();  // Blocking, with auto-reconnect
+    return 0;
+}</code></pre>
 <p>See <a href="README-sse.md">README-sse.md</a> for more details.</p>
 <h2>WebSocket</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Server</span></span>
-<span class="line"><span style="color:#24292E">httplib::Server svr</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">svr.WebSocket(</span><span style="color:#032F62">"/ws"</span><span style="color:#24292E">, [](const httplib::Request </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">req, httplib::ws::WebSocket </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">ws) {</span></span>
-<span class="line"><span style="color:#24292E">    httplib::ws::Message msg;</span></span>
-<span class="line"><span style="color:#D73A49">    while</span><span style="color:#24292E"> (ws.read(msg)) {</span></span>
-<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (msg.is_text()) {</span></span>
-<span class="line"><span style="color:#24292E">            ws.send(</span><span style="color:#032F62">"Echo: "</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> msg.data);</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">svr.listen(</span><span style="color:#032F62">"localhost"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Client</span></span>
-<span class="line"><span style="color:#24292E">httplib::ws::WebSocketClient ws(</span><span style="color:#032F62">"ws://localhost:8080/ws"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (ws.connect()) {</span></span>
-<span class="line"><span style="color:#24292E">    ws.send(</span><span style="color:#032F62">"Hello, WebSocket!"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    std::string msg;</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (ws.read(msg)) {</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Received: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> msg </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    ws.close();</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>// Server
+httplib::Server svr;
+
+svr.WebSocket("/ws", [](const httplib::Request &amp;req, httplib::ws::WebSocket &amp;ws) {
+    httplib::ws::Message msg;
+    while (ws.read(msg)) {
+        if (msg.is_text()) {
+            ws.send("Echo: " + msg.data);
+        }
+    }
+});
+
+svr.listen("localhost", 8080);</code></pre>
+<pre><code>// Client
+httplib::ws::WebSocketClient ws("ws://localhost:8080/ws");
+
+if (ws.connect()) {
+    ws.send("Hello, WebSocket!");
+
+    std::string msg;
+    if (ws.read(msg)) {
+        std::cout &lt;&lt; "Received: " &lt;&lt; msg &lt;&lt; std::endl;
+    }
+
+    ws.close();
+}</code></pre>
 <p>SSL is also supported via <code>wss://</code> scheme (e.g. <code>WebSocketClient("wss://example.com/ws")</code>). Subprotocol negotiation (<code>Sec-WebSocket-Protocol</code>) is supported via <code>SubProtocolSelector</code> callback.</p>
 <blockquote>
 <p><strong>Note:</strong> WebSocket connections occupy a thread for their entire lifetime (plus an additional thread per connection for heartbeat pings). This thread-per-connection model is intended for small- to mid-scale workloads; large numbers of simultaneous WebSocket connections are outside the design target of this library. If you expect many concurrent WebSocket clients, configure a dynamic thread pool (<code>svr.new_task_queue = [] { return new ThreadPool(8, 64); };</code>) and measure carefully.</p>
@@ -1312,38 +1312,38 @@ Please see <a href="https://github.com/facebook/zstd">https://github.com/faceboo
 <p>See <a href="README-websocket.md">README-websocket.md</a> for more details.</p>
 <h2>Socket Option Utility</h2>
 <p><code>set_socket_opt</code> is a convenience wrapper around <code>setsockopt</code> for setting integer socket options:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto sock </span><span style="color:#D73A49">=</span><span style="color:#24292E"> svr.socket()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">httplib::set_socket_opt(sock, </span><span style="color:#005CC5">IPPROTO_TCP</span><span style="color:#24292E">, </span><span style="color:#005CC5">TCP_NODELAY</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto sock = svr.socket();
+httplib::set_socket_opt(sock, IPPROTO_TCP, TCP_NODELAY, 1);</code></pre>
 <blockquote>
 <p>[!TIP]
 For most use cases, prefer <code>set_tcp_nodelay(true)</code> or <code>set_socket_options(callback)</code> on the Server/Client instead of calling <code>set_socket_opt</code> directly.</p>
 </blockquote>
 <h2>Split httplib.h into .h and .cc</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">split.py </span><span style="color:#D73A49">-</span><span style="color:#24292E">h</span></span>
-<span class="line"><span style="color:#24292E">usage: split.py [</span><span style="color:#D73A49">-</span><span style="color:#24292E">h] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">e </span><span style="color:#005CC5">EXTENSION</span><span style="color:#24292E">] [</span><span style="color:#D73A49">-</span><span style="color:#24292E">o </span><span style="color:#005CC5">OUT</span><span style="color:#24292E">]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">This script splits httplib.h into .h </span><span style="color:#D73A49">and</span><span style="color:#24292E"> .cc parts.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">optional arguments:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">            show this </span><span style="color:#005CC5">help</span><span style="color:#24292E"> message </span><span style="color:#D73A49">and</span><span style="color:#005CC5"> exit</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">e </span><span style="color:#005CC5">EXTENSION</span><span style="color:#24292E">, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">extension </span><span style="color:#005CC5">EXTENSION</span></span>
-<span class="line"><span style="color:#24292E">                        extension of the implementation </span><span style="color:#E36209">file</span><span style="color:#24292E"> (default: cc)</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">o </span><span style="color:#005CC5">OUT</span><span style="color:#24292E">, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">out </span><span style="color:#005CC5">OUT</span><span style="color:#24292E">     where to write the files (default: out)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">split.py</span></span>
-<span class="line"><span style="color:#24292E">Wrote out</span><span style="color:#D73A49">/</span><span style="color:#24292E">httplib.h </span><span style="color:#D73A49">and</span><span style="color:#24292E"> out</span><span style="color:#D73A49">/</span><span style="color:#24292E">httplib.cc</span></span></code></pre>
+<pre><code>$ ./split.py -h
+usage: split.py [-h] [-e EXTENSION] [-o OUT]
+
+This script splits httplib.h into .h and .cc parts.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -e EXTENSION, --extension EXTENSION
+                        extension of the implementation file (default: cc)
+  -o OUT, --out OUT     where to write the files (default: out)
+
+$ ./split.py
+Wrote out/httplib.h and out/httplib.cc</code></pre>
 <h2>Dockerfile for Static HTTP Server</h2>
 <p>Dockerfile for static HTTP server is available. Port number of this HTTP server is 80, and it serves static files from <code>/html</code> directory in the container.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> docker build </span><span style="color:#D73A49">-</span><span style="color:#24292E">t cpp</span><span style="color:#D73A49">-</span><span style="color:#24292E">httplib</span><span style="color:#D73A49">-</span><span style="color:#24292E">server .</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> docker run </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">rm </span><span style="color:#D73A49">-</span><span style="color:#24292E">it </span><span style="color:#D73A49">-</span><span style="color:#24292E">p </span><span style="color:#005CC5">8080</span><span style="color:#24292E">:</span><span style="color:#005CC5">80</span><span style="color:#D73A49"> -</span><span style="color:#24292E">v .</span><span style="color:#D73A49">/</span><span style="color:#24292E">docker</span><span style="color:#D73A49">/</span><span style="color:#24292E">html:</span><span style="color:#D73A49">/</span><span style="color:#24292E">html cpp</span><span style="color:#D73A49">-</span><span style="color:#24292E">httplib</span><span style="color:#D73A49">-</span><span style="color:#24292E">server</span></span>
-<span class="line"><span style="color:#24292E">Serving </span><span style="color:#005CC5">HTTP</span><span style="color:#24292E"> on </span><span style="color:#005CC5">0.0</span><span style="color:#24292E">.0.0 port </span><span style="color:#005CC5">80</span><span style="color:#005CC5"> ...</span></span>
-<span class="line"><span style="color:#005CC5">192.168</span><span style="color:#24292E">.65.1 </span><span style="color:#D73A49">-</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> [</span><span style="color:#005CC5">31</span><span style="color:#D73A49">/</span><span style="color:#24292E">Aug</span><span style="color:#D73A49">/</span><span style="color:#005CC5">2024</span><span style="color:#24292E">:</span><span style="color:#005CC5">21</span><span style="color:#24292E">:</span><span style="color:#005CC5">33</span><span style="color:#24292E">:</span><span style="color:#005CC5">56</span><span style="color:#D73A49"> +</span><span style="color:#005CC5">0000</span><span style="color:#24292E">] </span><span style="color:#032F62">"GET / HTTP/1.1"</span><span style="color:#005CC5"> 200</span><span style="color:#005CC5"> 599</span><span style="color:#032F62"> "-"</span><span style="color:#032F62"> "curl/8.7.1"</span></span>
-<span class="line"><span style="color:#005CC5">192.168</span><span style="color:#24292E">.65.1 </span><span style="color:#D73A49">-</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> [</span><span style="color:#005CC5">31</span><span style="color:#D73A49">/</span><span style="color:#24292E">Aug</span><span style="color:#D73A49">/</span><span style="color:#005CC5">2024</span><span style="color:#24292E">:</span><span style="color:#005CC5">21</span><span style="color:#24292E">:</span><span style="color:#005CC5">34</span><span style="color:#24292E">:</span><span style="color:#005CC5">26</span><span style="color:#D73A49"> +</span><span style="color:#005CC5">0000</span><span style="color:#24292E">] </span><span style="color:#032F62">"GET / HTTP/1.1"</span><span style="color:#005CC5"> 200</span><span style="color:#005CC5"> 599</span><span style="color:#032F62"> "-"</span><span style="color:#032F62"> "Mozilla/5.0 ..."</span></span>
-<span class="line"><span style="color:#005CC5">192.168</span><span style="color:#24292E">.65.1 </span><span style="color:#D73A49">-</span><span style="color:#D73A49"> -</span><span style="color:#24292E"> [</span><span style="color:#005CC5">31</span><span style="color:#D73A49">/</span><span style="color:#24292E">Aug</span><span style="color:#D73A49">/</span><span style="color:#005CC5">2024</span><span style="color:#24292E">:</span><span style="color:#005CC5">21</span><span style="color:#24292E">:</span><span style="color:#005CC5">34</span><span style="color:#24292E">:</span><span style="color:#005CC5">26</span><span style="color:#D73A49"> +</span><span style="color:#005CC5">0000</span><span style="color:#24292E">] </span><span style="color:#032F62">"GET /favicon.ico HTTP/1.1"</span><span style="color:#005CC5"> 404</span><span style="color:#005CC5"> 152</span><span style="color:#032F62"> "-"</span><span style="color:#032F62"> "Mozilla/5.0 ..."</span></span></code></pre>
+<pre><code>&gt; docker build -t cpp-httplib-server .
+...
+
+&gt; docker run --rm -it -p 8080:80 -v ./docker/html:/html cpp-httplib-server
+Serving HTTP on 0.0.0.0 port 80 ...
+192.168.65.1 - - [31/Aug/2024:21:33:56 +0000] "GET / HTTP/1.1" 200 599 "-" "curl/8.7.1"
+192.168.65.1 - - [31/Aug/2024:21:34:26 +0000] "GET / HTTP/1.1" 200 599 "-" "Mozilla/5.0 ..."
+192.168.65.1 - - [31/Aug/2024:21:34:26 +0000] "GET /favicon.ico HTTP/1.1" 404 152 "-" "Mozilla/5.0 ..."</code></pre>
 <p>From Docker Hub</p>
-<pre><code lang="py">&gt; docker run --rm -it -p 8080:80 -v ./docker/html:/html yhirose4dockerhub/cpp-httplib-server
+<pre><code>&gt; docker run --rm -it -p 8080:80 -v ./docker/html:/html yhirose4dockerhub/cpp-httplib-server
 Serving HTTP on 0.0.0.0 port 80 ...
 192.168.65.1 - - [31/Aug/2024:21:33:56 +0000] "GET / HTTP/1.1" 200 599 "-" "curl/8.7.1"
 192.168.65.1 - - [31/Aug/2024:21:34:26 +0000] "GET / HTTP/1.1" 200 599 "-" "Mozilla/5.0 ..."
@@ -1381,4 +1381,4 @@ Windows 8 or lower, Visual Studio 2015 or lower, and Cygwin and MSYS2 including 
 <p>MIT license (© 2026 Yuji Hirose)</p>
 <h2>Special Thanks To</h2>
 <p><a href="https://github.com/yhirose/cpp-httplib/graphs/contributors">These folks</a> made great contributions to polish this library to totally another level from a simple toy!</p>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A C++ header-only HTTP/HTTPS server and client library</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/yhirose/cpp-httplib" title="@yhirose"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@yhirose/cpp-httplib</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/yhirose.png" alt="@yhirose"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/yhirose/cpp-httplib"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">16492</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, July 1, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 95.7%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 95.7%"> </span><span style="width: 1.3%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1.3%"> </span><span style="width: 1.1%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.1%"> </span><span style="width: 0.7%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.7%"> </span><span style="width: 0.4%; background-color: var(--lang-C-bg, #ccc)" title="C: 0.4%"> </span><span style="width: 0.4%; background-color: var(--lang-Meson-bg, #ccc)" title="Meson: 0.4%"> </span><span style="width: 0.3%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.3%"> </span><span style="width: 0.1%; background-color: var(--lang-Just-bg, #ccc)" title="Just: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">95.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Just-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Just</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Dockerfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Dockerfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/bcr-maintainers@bazel.build" title="No Maintainer Specified"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/c8ef" title="Connector Switch"><img class="avatar circle" width="48" height="48" src="https://github.com/c8ef.png" alt="@c8ef"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/5056"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="cpp-httplib@0.22.0 (#5056)"><span class="text-mono">#5056</span> <span class="text-light">cpp-httplib@0.22.0 (#5056)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.22.0.tar.gz" title="https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.22.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/yhirose/cp...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/18a2ffc3ebd6a223be189445d4e1e0b29548145d/modules/cpp-httplib/0.22.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/18a2ffc3ebd6a223be189445d4e1e0b29548145d/modules/cpp-httplib/0.22.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h3><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">5</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.22.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 100%, transparent 100%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.22.0"><span class="text-bold">0.22.0</span><sup class="color-fg-attention"> +9.8mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">100%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-07-01</span></div></td></tr><tr class=""><td title="0.16.3.bzl.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.16.3.bzl.1"><a class="Box-row-link" href="/modules/cpp-httplib/0.16.3.bzl.1">0.16.3.bzl.1</a><sup class="color-fg-attention"> +14d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-10</span></div></td></tr><tr class=""><td title="0.12.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.12.3"><a class="Box-row-link" href="/modules/cpp-httplib/0.12.3">0.12.3</a><sup class="color-fg-attention"> +15h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-27</span></div></td></tr><tr class=""><td title="0.16.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.16.3"><a class="Box-row-link" href="/modules/cpp-httplib/0.16.3">0.16.3</a><sup class="color-fg-attention"> +3.5mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-26</span></div></td></tr><tr class=""><td title="0.7.15; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.7.15"><a class="Box-row-link" href="/modules/cpp-httplib/0.7.15">0.7.15</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-05-12</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A C++ header-only HTTP/HTTPS server and client library</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/yhirose/cpp-httplib" title="@yhirose"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@yhirose/cpp-httplib</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/yhirose.png" alt="@yhirose"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/yhirose/cpp-httplib"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">16493</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Tuesday, July 1, 2025</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 95.7%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 95.7%"> </span><span style="width: 1.3%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 1.3%"> </span><span style="width: 1.1%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.1%"> </span><span style="width: 0.7%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.7%"> </span><span style="width: 0.4%; background-color: var(--lang-C-bg, #ccc)" title="C: 0.4%"> </span><span style="width: 0.4%; background-color: var(--lang-Meson-bg, #ccc)" title="Meson: 0.4%"> </span><span style="width: 0.3%; background-color: var(--lang-Python-bg, #ccc)" title="Python: 0.3%"> </span><span style="width: 0.1%; background-color: var(--lang-Just-bg, #ccc)" title="Just: 0.1%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">95.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">1.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Meson-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Meson</span><span class="ml-2 color-fg-muted">0.4%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Python-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Python</span><span class="ml-2 color-fg-muted">0.3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Just-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Just</span><span class="ml-2 color-fg-muted">0.1%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Dockerfile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Dockerfile</span><span class="ml-2 color-fg-muted">0%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-HTML-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>HTML</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/bcr-maintainers@bazel.build" title="No Maintainer Specified"><img class="avatar circle" width="48" height="48" src="https://github.com/bazelbuild.png" alt="@"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Source Details</span></h3><div><div class="mb-2"><div class="m-1 mb-2"><a class="d-inline-block" href="https://github.com/c8ef" title="Connector Switch"><img class="avatar circle" width="48" height="48" src="https://github.com/c8ef.png" alt="@c8ef"></a></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/5056"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--color-done-fg)"><path d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"></path></g></svg></span><span title="cpp-httplib@0.22.0 (#5056)"><span class="text-mono">#5056</span> <span class="text-light">cpp-httplib@0.22.0 (#5056)</span></span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.22.0.tar.gz" title="https://github.com/yhirose/cpp-httplib/archive/refs/tags/v0.22.0.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M3.5 1.75v11.5c0 .09.048.173.126.217a.75.75 0 0 1-.752 1.298A1.748 1.748 0 0 1 2 13.25V1.75C2 .784 2.784 0 3.75 0h5.586c.464 0 .909.185 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v8.586A1.75 1.75 0 0 1 12.25 15h-.5a.75.75 0 0 1 0-1.5h.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177L9.513 1.573a.25.25 0 0 0-.177-.073H7.25a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5h-3a.25.25 0 0 0-.25.25Zm3.75 8.75h.5c.966 0 1.75.784 1.75 1.75v3a.75.75 0 0 1-.75.75h-2.5a.75.75 0 0 1-.75-.75v-3c0-.966.784-1.75 1.75-1.75ZM6 5.25a.75.75 0 0 1 .75-.75h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 6 5.25Zm.75 2.25h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 6.75A.75.75 0 0 1 8.75 6h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 6.75ZM8.75 3h.5a.75.75 0 0 1 0 1.5h-.5a.75.75 0 0 1 0-1.5ZM8 9.75A.75.75 0 0 1 8.75 9h.5a.75.75 0 0 1 0 1.5h-.5A.75.75 0 0 1 8 9.75Zm-1 2.5v2.25h1v-2.25a.25.25 0 0 0-.25-.25h-.5a.25.25 0 0 0-.25.25Z"></path></g></svg></span><span>https://github.com/yhirose/cp...</span></a></div><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/6e366d17f2c64cedfd04cc8b2c5d257a36ae0b1d/modules/cpp-httplib/0.22.0/overlay/BUILD.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">BUILD.bazel</span></a><a class="Link--muted d-flex flex-items-center mb-1" href="https://github.com/bazelbuild/bazel-central-registry/tree/6e366d17f2c64cedfd04cc8b2c5d257a36ae0b1d/modules/cpp-httplib/0.22.0/overlay/MODULE.bazel" title="Patch file"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V4.664a.25.25 0 0 0-.073-.177l-2.914-2.914a.25.25 0 0 0-.177-.073Zm4.48 3.758a.75.75 0 0 1 .755.745l.01 1.497h1.497a.75.75 0 0 1 0 1.5H9v1.507a.75.75 0 0 1-1.5 0V9.005l-1.502.01a.75.75 0 0 1-.01-1.5l1.507-.01-.01-1.492a.75.75 0 0 1 .745-.755Z"></path></g></svg></span><span class="mr-1">MODULE.bazel</span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h3><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=7.2.1</label></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">5</label></span></h3><table class="width-full"><tbody><tr class="Box-row-link"><td title="0.22.0; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 100%, transparent 100%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.22.0"><span class="text-bold">0.22.0</span><sup class="color-fg-attention"> +9.8mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding: 0 0.5em;">100%<sup> 1</sup></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2025-07-01</span></div></td></tr><tr class=""><td title="0.16.3.bzl.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.16.3.bzl.1"><a class="Box-row-link" href="/modules/cpp-httplib/0.16.3.bzl.1">0.16.3.bzl.1</a><sup class="color-fg-attention"> +14d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-09-10</span></div></td></tr><tr class=""><td title="0.12.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.12.3"><a class="Box-row-link" href="/modules/cpp-httplib/0.12.3">0.12.3</a><sup class="color-fg-attention"> +15h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-27</span></div></td></tr><tr class=""><td title="0.16.3; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.16.3"><a class="Box-row-link" href="/modules/cpp-httplib/0.16.3">0.16.3</a><sup class="color-fg-attention"> +3.5mo</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-08-26</span></div></td></tr><tr class=""><td title="0.7.15; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.7.15"><a class="Box-row-link" href="/modules/cpp-httplib/0.7.15">0.7.15</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-05-12</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

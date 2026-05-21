@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.7af7e400.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.888d121a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e0ed4cb9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a20a844c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ed0d654b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.fe3497d5.js" defer=""></script>
-		<script src="/registry.da4cad7d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f67cb02b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/embree/4.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -317,19 +317,19 @@ configurations as described below in [CMake Configuration]. After having
 configured Embree, press <code>c</code> (for configure) and <code>g</code> (for generate) to
 generate a Makefile and leave the configuration. The code can be
 compiled by executing make.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">j </span><span style="color:#005CC5">8</span></span></code></pre>
+<pre><code lang="py">make -j 8</code></pre>
 <p>The executables will be generated inside the build folder. We recommend
 installing the Embree library and header files on your
 system. Therefore set the <code>CMAKE_INSTALL_PREFIX</code> to <code>/usr</code> in cmake
 and type:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo make install</span></span></code></pre>
+<pre><code>sudo make install</code></pre>
 <p>If you keep the default <code>CMAKE_INSTALL_PREFIX</code> of <code>/usr/local</code> then
 you have to make sure the path <code>/usr/local/lib</code> is in your
 <code>LD_LIBRARY_PATH</code>.</p>
 <p>You can also uninstall Embree again by executing:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo make uninstall</span></span></code></pre>
+<pre><code>sudo make uninstall</code></pre>
 <p>You can also create an Embree package using the following command:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make package</span></span></code></pre>
+<pre><code>make package</code></pre>
 <p>Please see the [Building Embree Applications] section on how to build
 your application with such an Embree package.</p>
 <h2>Linux SYCL Compilation</h2>
@@ -345,12 +345,12 @@ DPC++ compiler is</p>
 </ul>
 <p>The compiler can be downloaded and simply extracted. The oneAPI DPC++ compiler
 can be set up executing the following commands in a Linux (bash) shell:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">=</span><span style="color:#24292E">path_to_dpcpp_compiler</span></span>
-<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">PATH</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#24292E">:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">PATH</span></span>
-<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">CPATH</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">/</span><span style="color:#24292E">include:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">CPATH</span></span>
-<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">LIBRARY_PATH</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">/</span><span style="color:#24292E">lib:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">LIBRARY_PATH</span></span>
-<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">LD_LIBRARY_PATH</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">/</span><span style="color:#24292E">lib:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">LD_LIBRARY_PATH</span></span>
-<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">LD_LIBRARY_PATH</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">SYCL_BUNDLE_ROOT</span><span style="color:#D73A49">/</span><span style="color:#24292E">linux</span><span style="color:#D73A49">/</span><span style="color:#24292E">lib</span><span style="color:#D73A49">/</span><span style="color:#24292E">x64:</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#005CC5">LD_LIBRARY_PATH</span></span></code></pre>
+<pre><code>export SYCL_BUNDLE_ROOT=path_to_dpcpp_compiler
+export PATH=$SYCL_BUNDLE_ROOT/bin:$PATH
+export CPATH=$SYCL_BUNDLE_ROOT/include:$CPATH
+export LIBRARY_PATH=$SYCL_BUNDLE_ROOT/lib:$LIBRARY_PATH
+export LD_LIBRARY_PATH=$SYCL_BUNDLE_ROOT/lib:$LD_LIBRARY_PATH
+export LD_LIBRARY_PATH=$SYCL_BUNDLE_ROOT/linux/lib/x64:$LD_LIBRARY_PATH</code></pre>
 <p>where the <code>path_to_dpcpp_compiler</code> should point to the unpacked oneAPI DPC++
 compiler. This will put <code>clang++</code> and <code>clang</code> from the oneAPI DPC++ Compiler
 into your path.</p>
@@ -358,10 +358,10 @@ into your path.</p>
 section.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DEMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
+<pre><code>cmake -B build \
+      -DCMAKE_CXX_COMPILER=clang++ \
+      -DCMAKE_C_COMPILER=clang \
+      -DEMBREE_SYCL_SUPPORT=ON</code></pre>
 <p>This will create a directory <code>build</code> to use as the CMake build directory,
 configure the usage of the oneAPI DPC++ Compiler, and turn on SYCL support
 through <code>EMBREE_SYCL_SUPPORT=ON</code>.</p>
@@ -371,20 +371,20 @@ through <code>EMBREE_SYCL_SUPPORT=ON</code>.</p>
 </ul>
 <p>After installation, you can set up the compiler by sourcing the
 <code>vars.sh</code> script in the <code>env</code> directory of the compiler install directory, for example,</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">source </span><span style="color:#D73A49">/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">intel</span><span style="color:#D73A49">/</span><span style="color:#24292E">oneAPI</span><span style="color:#D73A49">/</span><span style="color:#24292E">compiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">latest</span><span style="color:#D73A49">/</span><span style="color:#24292E">env</span><span style="color:#D73A49">/</span><span style="color:#005CC5">vars</span><span style="color:#24292E">.sh</span></span></code></pre>
+<pre><code>source /opt/intel/oneAPI/compiler/latest/env/vars.sh</code></pre>
 <p>This script will put the <code>icpx</code> and <code>icx</code> compiler executables from the
 Intel(R) oneAPI DPC++/C++ Compiler in your path.</p>
 <p>Now, you can configure Embree using CMake by executing the following command
 in the Embree root directory:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_CXX_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icpx \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DCMAKE_C_COMPILER</span><span style="color:#D73A49">=</span><span style="color:#24292E">icx \</span></span>
-<span class="line"><span style="color:#D73A49">      -</span><span style="color:#005CC5">DEMBREE_SYCL_SUPPORT</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span></code></pre>
+<pre><code>cmake -B build \
+      -DCMAKE_CXX_COMPILER=icpx \
+      -DCMAKE_C_COMPILER=icx \
+      -DEMBREE_SYCL_SUPPORT=ON</code></pre>
 <p>More information about setting up the Intel(R) oneAPI DPC++/C++ compiler can be
 found in the <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup.html">Development Reference Guide</a>. Please note, that the Intel(R) oneAPI DPC++/C++ compiler
 requires <a href="https://www.intel.com/content/www/us/en/develop/documentation/oneapi-dpcpp-cpp-compiler-dev-guide-and-reference/top/compiler-setup/use-the-command-line/use-cmake-with-the-compiler.html">at least CMake version 3.20.5 on Linux</a>.</p>
 <p>Independent of the DPC++ compiler choice, you can now build Embree using</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#D73A49">-</span><span style="color:#24292E">j </span><span style="color:#005CC5">8</span></span></code></pre>
+<pre><code>cmake --build build -j 8</code></pre>
 <p>The executables will be generated inside the build folder. The
 executable names of the SYCL versions of the tutorials end with
 <code>_sycl</code>.</p>
@@ -396,7 +396,7 @@ the driver installation instructions for your graphics card and
 operating system.</p>
 <p>After installing the drivers you have to install an additional package
 manually using</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo apt install intel</span><span style="color:#D73A49">-</span><span style="color:#24292E">level</span><span style="color:#D73A49">-</span><span style="color:#24292E">zero</span><span style="color:#D73A49">-</span><span style="color:#24292E">gpu</span><span style="color:#D73A49">-</span><span style="color:#24292E">raytracing</span></span></code></pre>
+<pre><code>sudo apt install intel-level-zero-gpu-raytracing</code></pre>
 <h2>Windows</h2>
 <p>Embree is tested using the following compilers under Windows:</p>
 <ul>
@@ -468,7 +468,7 @@ extensions for the "Microsoft Visual C++" editor.</p>
 <h3>Using the Command Line</h3>
 <p>Embree can also be configured and built without the IDE using the Visual
 Studio command prompt:</p>
-<pre><code lang="py">cd path\to\embree
+<pre><code>cd path\to\embree
 mkdir build
 cd build
 cmake -G "Visual Studio 16 2019" ..

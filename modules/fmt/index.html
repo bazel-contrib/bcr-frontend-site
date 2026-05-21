@@ -35,11 +35,11 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.b82c3c41.css" type="text/css" rel="stylesheet">
 		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7799e1cb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8581cffd.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fb6523bb.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c55fec52.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
 		<script src="/bcr.2e372961.js" defer=""></script>
-		<script src="/registry.4bae1ce7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.da378396.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/fmt/12.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -135,21 +135,21 @@ consistent output across platforms and support for older compilers</li>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> s </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "The answer is 42."</span></span></code></pre>
 <p><strong>Format a string using positional arguments</strong>
 (<a href="https://godbolt.org/z/Yn7Txe">run</a>)</p>
-<pre><code lang="py">std::string s = fmt::format("I'd rather be {1} than {0}.", "right", "happy");
-// s == "I'd rather be happy than right."</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string s </span><span style="color:#D73A49">=</span><span style="color:#24292E"> fmt::</span><span style="color:#005CC5">format</span><span style="color:#24292E">(</span><span style="color:#032F62">"I'd rather be </span><span style="color:#005CC5">{1}</span><span style="color:#032F62"> than </span><span style="color:#005CC5">{0}</span><span style="color:#032F62">."</span><span style="color:#24292E">, </span><span style="color:#032F62">"right"</span><span style="color:#24292E">, </span><span style="color:#032F62">"happy"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> s </span><span style="color:#D73A49">==</span><span style="color:#032F62"> "I'd rather be happy than right."</span></span></code></pre>
 <p><strong>Print dates and times</strong> (<a href="https://godbolt.org/z/c31ExdY3W">run</a>)</p>
-<pre><code>#include &lt;fmt/chrono.h&gt;
-
-int main() {
-  auto now = std::chrono::system_clock::now();
-  fmt::print("Date and time: {}\n", now);
-  fmt::print("Time: {:%H:%M}\n", now);
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;fmt/chrono.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
+<span class="line"><span style="color:#24292E">  auto now = std::chrono::system_clock::now();</span></span>
+<span class="line"><span style="color:#24292E">  fmt::</span><span style="color:#005CC5">print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Date and time: </span><span style="color:#005CC5">{}\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, now);</span></span>
+<span class="line"><span style="color:#24292E">  fmt::</span><span style="color:#005CC5">print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Time: </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:</span><span style="color:#005CC5">%H:%M}\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, now);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>Output:</p>
-<pre><code>Date and time: 2023-12-26 19:10:31.557195597
-Time: 19:10</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Date </span><span style="color:#D73A49">and</span><span style="color:#24292E"> time: </span><span style="color:#005CC5">2023</span><span style="color:#D73A49">-</span><span style="color:#005CC5">12</span><span style="color:#D73A49">-</span><span style="color:#005CC5">26</span><span style="color:#005CC5"> 19</span><span style="color:#24292E">:</span><span style="color:#005CC5">10</span><span style="color:#24292E">:</span><span style="color:#005CC5">31.557195597</span></span>
+<span class="line"><span style="color:#24292E">Time: </span><span style="color:#005CC5">19</span><span style="color:#24292E">:</span><span style="color:#005CC5">10</span></span></code></pre>
 <p><strong>Print a container</strong> (<a href="https://godbolt.org/z/MxM1YqjE7">run</a>)</p>
-<pre><code>#include &lt;vector&gt;
+<pre><code lang="py">#include &lt;vector&gt;
 #include &lt;fmt/ranges.h&gt;
 
 int main() {

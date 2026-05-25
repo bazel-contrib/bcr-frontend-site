@@ -1007,8 +1007,8 @@ function __wbg_get_imports() {
         const ret = BigInt.asUintN(64, arg0);
         return ret;
     };
-    imports.wbg.__wbindgen_cast_6ad6aa2864ac3163 = function(arg0, arg1) {
-        // Cast intrinsic for `Closure(Closure { dtor_idx: 185, function: Function { arguments: [Externref], shim_idx: 186, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
+    imports.wbg.__wbindgen_cast_d4e72ce7b74d162f = function(arg0, arg1) {
+        // Cast intrinsic for `Closure(Closure { dtor_idx: 192, function: Function { arguments: [Externref], shim_idx: 193, ret: Unit, inner_ret: Some(Unit) }, mutable: true }) -> Externref`.
         const ret = makeMutClosure(arg0, arg1, wasm.wasm_bindgen__closure__destroy__h43807ed0526f8837, wasm_bindgen__convert__closures_____invoke__h4680220145e932cb);
         return ret;
     };

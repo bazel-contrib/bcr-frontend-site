@@ -34,12 +34,12 @@
 		</script>
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ab9e8045.css" type="text/css" rel="stylesheet">
-		<link href="/primer.1ea011b5.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a09a3390.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.92311ae9.pb.gz">
+		<link href="/primer.2d4abba1.css" type="text/css" rel="stylesheet">
+		<meta name="bcr:symbols-url" content="/symbols.c0d9cc3d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.05d37012.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.3797d84d.pb.gz">
-		<script src="/bcr.081e5089.js" defer=""></script>
-		<script src="/registry.f3cbbef2.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.5196c20e.js" defer=""></script>
+		<script src="/registry.a86c9f5a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_graalvm/0.11.1"></head>
 
 	<body style="margin: 0 auto">
@@ -126,14 +126,14 @@
 <span class="line"><span style="color:#032F62">        "https://github.com/sgammon/rules_graalvm/releases/download/v0.12.0/rules_graalvm-0.12.0.zip"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">    ],</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_graalvm//graalvm:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"graalvm_repository"</span><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">graalvm_repository(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "graalvm"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    distribution</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ce"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># `oracle`, `ce`, or `community`</span></span>
-<span class="line"><span style="color:#E36209">    java_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "23"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># `17`, `20`, `22`, `23`, etc.</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "23.0.0"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># pass graalvm or specific jdk version supported by gvm</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre><code lang="py">load("@rules_graalvm//graalvm:workspace.bzl", "register_graalvm_toolchains", "rules_graalvm_repositories")</code></pre>
+<pre><code lang="py">load("@rules_graalvm//graalvm:repositories.bzl", "graalvm_repository")</code></pre>
+<pre><code>graalvm_repository(
+    name = "graalvm",
+    distribution = "ce",  # `oracle`, `ce`, or `community`
+    java_version = "23",  # `17`, `20`, `22`, `23`, etc.
+    version = "23.0.0",  # pass graalvm or specific jdk version supported by gvm
+)</code></pre>
+<pre><code>load("@rules_graalvm//graalvm:workspace.bzl", "register_graalvm_toolchains", "rules_graalvm_repositories")</code></pre>
 <pre><code>rules_graalvm_repositories()
 
 register_graalvm_toolchains()</code></pre>

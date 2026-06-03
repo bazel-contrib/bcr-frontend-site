@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.40a95ef1.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d530f9ee.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.28a2bc89.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4b6472bb.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.63202f92.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.efec1c1e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aexml/4.7.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -96,23 +96,23 @@ For more examples check out <a href="https://github.com/tadija/AEXML/blob/db8067
 <h2>Usage</h2>
 <h3>Read XML</h3>
 <p>Let's say this is some XML string you picked up somewhere and made a variable <code>data: Data</code> from that.</p>
-<pre><code lang="py">&lt;?xml version="1.0" encoding="utf-8"?&gt;
-&lt;animals&gt;
-    &lt;cats&gt;
-        &lt;cat breed="Siberian" color="lightgray"&gt;Tinna&lt;/cat&gt;
-        &lt;cat breed="Domestic" color="darkgray"&gt;Rose&lt;/cat&gt;
-        &lt;cat breed="Domestic" color="yellow"&gt;Caesar&lt;/cat&gt;
-        &lt;cat&gt;&lt;/cat&gt;
-    &lt;/cats&gt;
-    &lt;dogs&gt;
-        &lt;dog breed="Bull Terrier" color="white"&gt;Villy&lt;/dog&gt;
-        &lt;dog breed="Bull Terrier" color="white"&gt;Spot&lt;/dog&gt;
-        &lt;dog breed="Golden Retriever" color="yellow"&gt;Betty&lt;/dog&gt;
-        &lt;dog breed="Miniature Schnauzer" color="black"&gt;Kika&lt;/dog&gt;
-    &lt;/dogs&gt;
-&lt;/animals&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">xml version</span><span style="color:#D73A49">=</span><span style="color:#032F62">"1.0"</span><span style="color:#24292E"> encoding</span><span style="color:#D73A49">=</span><span style="color:#032F62">"utf-8"</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">animals</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">cats</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">cat breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Siberian"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"lightgray"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Tinna</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">cat</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">cat breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Domestic"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"darkgray"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Rose</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">cat</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">cat breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Domestic"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"yellow"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Caesar</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">cat</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">cat</span><span style="color:#D73A49">&gt;&lt;/</span><span style="color:#24292E">cat</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;/</span><span style="color:#24292E">cats</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">dogs</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">dog breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Bull Terrier"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"white"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Villy</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dog</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">dog breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Bull Terrier"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"white"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Spot</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dog</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">dog breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Golden Retriever"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"yellow"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Betty</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dog</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;</span><span style="color:#24292E">dog breed</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Miniature Schnauzer"</span><span style="color:#24292E"> color</span><span style="color:#D73A49">=</span><span style="color:#032F62">"black"</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">Kika</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dog</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">    &lt;/</span><span style="color:#24292E">dogs</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">animals</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>This is how you can use <strong>AEXML</strong> for working with this data:<br>(for even more examples, look at the unit tests code included in project)</p>
-<pre><code>guard let
+<pre><code lang="py">guard let
     let xmlPath = Bundle.main.path(forResource: "example", ofType: "xml"),
     let data = try? Data(contentsOf: URL(fileURLWithPath: xmlPath))
 else { return }

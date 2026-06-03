@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7acc0430.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7d1c3be2.pb.gz">
-		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.30e6fa98.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.40a95ef1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d530f9ee.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.ee087d27.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.63202f92.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/argparse/3.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -130,9 +130,9 @@
 </ul>
 <h2>Quick Start</h2>
 <p>Simply include argparse.hpp and you're good to go.</p>
-<pre><code lang="py">#include &lt;argparse/argparse.hpp&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span></code></pre>
 <p>To start parsing command-line arguments, create an <code>ArgumentParser</code>.</p>
-<pre><code>argparse::ArgumentParser program("program_name");</code></pre>
+<pre><code lang="py">argparse::ArgumentParser program("program_name");</code></pre>
 <p><strong>NOTE:</strong> There is an optional second argument to the <code>ArgumentParser</code> which is the program version. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0");</code></p>
 <p><strong>NOTE:</strong> There are optional third and fourth arguments to the <code>ArgumentParser</code> which control default arguments. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0", default_arguments::help, false);</code> See <a href="#default-arguments">Default Arguments</a>, below.</p>
 <p>To add a new argument, simply call <code>.add_argument(...)</code>. You can provide a variadic list of argument names that you want to group together, e.g., <code>-v</code> and <code>--verbose</code></p>

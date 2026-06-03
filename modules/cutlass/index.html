@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7acc0430.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7d1c3be2.pb.gz">
-		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.30e6fa98.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.40a95ef1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d530f9ee.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.ee087d27.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.63202f92.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cutlass/3.5.1"></head>
 
 	<body style="margin: 0 auto">
@@ -347,61 +347,61 @@ and template concepts defined in the CUTLASS project.</p>
 <p>A detailed explanation of the source code organization may be found in the 
 <a href="https://github.com/NVIDIA/cutlass/blob/f7b19de32c5d1f3cedfc735c2849f12b537522ee/media/docs/code_organization.md" target="_blank" rel="noopener noreferrer">CUTLASS documentation</a>, but several main components are summarized below.</p>
 <h2>CUTLASS Template Library</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                     # client applications should target this directory in their build's include paths</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # direct exposure of architecture features (including instruction-level GEMMs)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    conv</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for convolution</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    epilogue</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # code specialized for the epilogue of gemm/convolution</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    gemm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for general matrix product computations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    layout</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # layout definitions for matrices, tensors, and other mathematical objects in memory</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    platform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # CUDA-capable Standard Library components</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    reduction</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # bandwidth-limited reduction kernels that do not fit the "gemm" model</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    thread</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # simt code that can be performed within a CUDA thread</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">    transform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # code specialized for layout, type, and domain transformations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # core vocabulary types, containers, and basic numeric operations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  cute</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    algorithm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # Definitions of core operations such as copy, gemm, and operations on cute::tuples</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Bare bones PTX wrapper structs for copy and math instructions</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    atom</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Meta-information either link to or built from arch/ operators</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">      mma_atom.hpp           </span><span style="color:#6A737D"># cute::Mma_Atom and cute::TiledMma</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">      copy_atom.hpp          </span><span style="color:#6A737D"># cute::Copy_Atom and cute::TiledCopy</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">      *</span><span style="color:#24292E">sm</span><span style="color:#D73A49">*</span><span style="color:#24292E">.hpp               </span><span style="color:#6A737D"># Arch specific meta-information for copy and math operations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations</span></span></code></pre>
+<pre><code lang="py">include/                     # client applications should target this directory in their build's include paths
+
+  cutlass/                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only
+
+    arch/                    # direct exposure of architecture features (including instruction-level GEMMs)
+
+    conv/                    # code specialized for convolution
+
+    epilogue/                # code specialized for the epilogue of gemm/convolution
+
+    gemm/                    # code specialized for general matrix product computations
+
+    layout/                  # layout definitions for matrices, tensors, and other mathematical objects in memory
+
+    platform/                # CUDA-capable Standard Library components
+
+    reduction/               # bandwidth-limited reduction kernels that do not fit the "gemm" model
+
+    thread/                  # simt code that can be performed within a CUDA thread
+    
+    transform/               # code specialized for layout, type, and domain transformations
+
+    *                        # core vocabulary types, containers, and basic numeric operations
+
+  cute/                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy
+
+    algorithm/               # Definitions of core operations such as copy, gemm, and operations on cute::tuples
+
+    arch/                    # Bare bones PTX wrapper structs for copy and math instructions
+
+    atom/                    # Meta-information either link to or built from arch/ operators
+
+      mma_atom.hpp           # cute::Mma_Atom and cute::TiledMma
+
+      copy_atom.hpp          # cute::Copy_Atom and cute::TiledCopy
+
+      *sm*.hpp               # Arch specific meta-information for copy and math operations
+
+    *                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations</code></pre>
 <h3>CUTLASS SDK Examples</h3>
 <p><a href="https://github.com/NVIDIA/cutlass/blob/f7b19de32c5d1f3cedfc735c2849f12b537522ee/examples" target="_blank" rel="noopener noreferrer">CUTLASS SDK examples</a> apply CUTLASS templates to implement basic computations.</p>
 <h3>Tools</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">  library</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates</span></span>
-<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">        library</span><span style="color:#D73A49">/</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  profiler</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # CUTLASS Profiler         - command-line utility for executing operations in the</span></span>
-<span class="line"><span style="color:#6A737D">                             #                            CUTLASS Library</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#24292E">  util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CUTLASS Utilities        - contains numerous helper classes for</span></span>
-<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                 #                            manging tensors in device memory, reference</span></span>
-<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               #                            implementations for GEMM, random initialization</span></span>
-<span class="line"><span style="color:#24292E">        util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                #                            of tensors, and I/O.</span></span></code></pre>
+<pre><code>tools/
+  library/                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates
+    include/
+      cutlass/
+        library/
+
+  profiler/                  # CUTLASS Profiler         - command-line utility for executing operations in the
+                             #                            CUTLASS Library
+  
+  util/                      # CUTLASS Utilities        - contains numerous helper classes for
+    include/                 #                            manging tensors in device memory, reference
+      cutlass/               #                            implementations for GEMM, random initialization
+        util/                #                            of tensors, and I/O.</code></pre>
 <h3>Test</h3>
 <p>The <code>test/unit/</code> directory consist of unit tests implemented with Google Test that demonstrate
 basic usage of Core API components and complete tests of the CUTLASS GEMM computations.</p>
@@ -409,16 +409,16 @@ basic usage of Core API components and complete tests of the CUTLASS GEMM comput
 <h1>Performance Profiling</h1>
 <p>The <code>tools/profiler/</code> directory contains a command-line utility for launching each of the GEMM kernels.
 It can be built as follows:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<pre><code>$ make cutlass_profiler -j16</code></pre>
 <h2>Building all GEMM and Convolution kernels (<em>long</em> build times)</h2>
 <p>By default, only one tile size is instantiated for each data type, math instruction, and layout.
 To instantiate all, set the following environment variable when running CMake from an empty <code>build/</code> directory.
 Beware, this results in <em>tens of thousands</em> of kernels and long build times. 
 This would also result in a large binary size and on some platforms linker to fail on building the library.
 Therefore, it's highly recommended to generate only a subset of kernels as demonstrated in the sub-section below.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">90a</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">all</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<pre><code>$ cmake .. -DCUTLASS_NVCC_ARCHS=90a -DCUTLASS_LIBRARY_KERNELS=all
+...
+$ make cutlass_profiler -j16</code></pre>
 <h2>Building a subset of GEMM and Convolution kernels (<em>reduced</em> build times)</h2>
 <p>To compile strictly one kernel or a small set of kernels, a comma-delimited list of kernel names with 
 wildcard characters may be used to reduce the set of kernels. The following examples show building exactly one
@@ -426,51 +426,51 @@ or a subset of kernels for NVIDIA Ampere and Turing architecture:</p>
 <h3>Building a subset Tensor Core GEMM kernels</h3>
 <p>To compile a subset of Tensor Core GEMM kernels with FP32 accumulation and FP16 input targeting NVIDIA Ampere and Turing architecture, 
 use the below cmake command line:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">gemm_f16_</span><span style="color:#D73A49">*</span><span style="color:#24292E">_nt_align8</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<pre><code>$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_tensorop_s*gemm_f16_*_nt_align8
+...
+$ make cutlass_profiler -j16</code></pre>
 <p>Example command line for profiling a subset of Tensor Core GEMM kernels is as follows:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span><span style="color:#24292E">profiler</span><span style="color:#D73A49">/</span><span style="color:#24292E">cutlass_profiler </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">kernels</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_tensorop_s</span><span style="color:#D73A49">*</span><span style="color:#24292E">gemm_f16_</span><span style="color:#D73A49">*</span><span style="color:#24292E">_nt_align8 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#D73A49">=============================</span></span>
-<span class="line"><span style="color:#24292E">  Problem </span><span style="color:#005CC5">ID</span><span style="color:#24292E">: </span><span style="color:#005CC5">1</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">        Provider: </span><span style="color:#005CC5">CUTLASS</span></span>
-<span class="line"><span style="color:#24292E">   OperationKind: gemm</span></span>
-<span class="line"><span style="color:#24292E">       Operation: cutlass_tensorop_s1688gemm_f16_256x128_32x2_nt_align8</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">          Status: Success</span></span>
-<span class="line"><span style="color:#24292E">    Verification: </span><span style="color:#005CC5">ON</span></span>
-<span class="line"><span style="color:#24292E">     Disposition: Passed</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">reference_device: Passed</span></span>
-<span class="line"><span style="color:#24292E">          cuBLAS: Passed</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">       Arguments: </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">gemm_kind</span><span style="color:#D73A49">=</span><span style="color:#24292E">universal </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">3456</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4096</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">A</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">B</span><span style="color:#D73A49">=</span><span style="color:#24292E">f16:row </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">C</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32:column </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">alpha</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#24292E">  \</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">beta</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">split_k_slices</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">batch_count</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">op_class</span><span style="color:#D73A49">=</span><span style="color:#24292E">tensorop </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">accum</span><span style="color:#D73A49">=</span><span style="color:#24292E">f32 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cta_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">256</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">cta_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">128</span><span style="color:#24292E">  \</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">cta_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">32</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">stages</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">4</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">2</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">warps_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_m</span><span style="color:#D73A49">=</span><span style="color:#005CC5">16</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_n</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">inst_k</span><span style="color:#D73A49">=</span><span style="color:#005CC5">8</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">min_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">75</span><span style="color:#24292E">  \</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">                  --</span><span style="color:#24292E">max_cc</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1024</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">           Bytes: </span><span style="color:#005CC5">118489088</span><span style="color:#005CC5">  bytes</span></span>
-<span class="line"><span style="color:#24292E">           FLOPs: </span><span style="color:#005CC5">115992428544</span><span style="color:#24292E">  flops</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">         Runtime: </span><span style="color:#005CC5">1.55948</span><span style="color:#24292E">  ms</span></span>
-<span class="line"><span style="color:#24292E">          Memory: </span><span style="color:#005CC5">70.7616</span><span style="color:#24292E"> GiB</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">            Math: </span><span style="color:#005CC5">74378.8</span><span style="color:#005CC5"> GFLOP</span><span style="color:#D73A49">/</span><span style="color:#24292E">s</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">=============================</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code>./tools/profiler/cutlass_profiler --kernels=cutlass_tensorop_s*gemm_f16_*_nt_align8 --m=3456 --n=4096 --k=4096
+
+...
+=============================
+  Problem ID: 1
+
+        Provider: CUTLASS
+   OperationKind: gemm
+       Operation: cutlass_tensorop_s1688gemm_f16_256x128_32x2_nt_align8
+
+          Status: Success
+    Verification: ON
+     Disposition: Passed
+
+reference_device: Passed
+          cuBLAS: Passed
+
+       Arguments: --gemm_kind=universal --m=3456 --n=4096 --k=4096 --A=f16:column --B=f16:row --C=f32:column --alpha=1  \
+                  --beta=0 --split_k_slices=1 --batch_count=1 --op_class=tensorop --accum=f32 --cta_m=256 --cta_n=128  \
+                  --cta_k=32 --stages=2 --warps_m=4 --warps_n=2 --warps_k=1 --inst_m=16 --inst_n=8 --inst_k=8 --min_cc=75  \
+                  --max_cc=1024
+
+           Bytes: 118489088  bytes
+           FLOPs: 115992428544  flops
+
+         Runtime: 1.55948  ms
+          Memory: 70.7616 GiB/s
+
+            Math: 74378.8 GFLOP/s
+
+
+
+=============================
+...</code></pre>
 <h3>Building one CUDA Core GEMM kernel</h3>
 <p>To compile one SGEMM kernel targeting NVIDIA Ampere and Turing architecture, use the below cmake command line:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">'75;80'</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DCUTLASS_LIBRARY_KERNELS</span><span style="color:#D73A49">=</span><span style="color:#24292E">cutlass_simt_sgemm_128x128_8x2_nn_align1</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make cutlass_profiler </span><span style="color:#D73A49">-</span><span style="color:#24292E">j16</span></span></code></pre>
+<pre><code>$ cmake .. -DCUTLASS_NVCC_ARCHS='75;80' -DCUTLASS_LIBRARY_KERNELS=cutlass_simt_sgemm_128x128_8x2_nn_align1
+...
+$ make cutlass_profiler -j16</code></pre>
 <p>Example command line for profiling single SGEMM CUDA kernel is as follows:</p>
-<pre><code lang="py">$ ./tools/profiler/cutlass_profiler --kernels=sgemm --m=3456 --n=4096 --k=4096
+<pre><code>$ ./tools/profiler/cutlass_profiler --kernels=sgemm --m=3456 --n=4096 --k=4096
 
 =============================
   Problem ID: 1

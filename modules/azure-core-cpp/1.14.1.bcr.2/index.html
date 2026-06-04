@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.dd965b7a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.70519ab8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f6aeee60.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.721ade6a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.aa8ff0cb.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.5926244f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/azure-core-cpp/1.14.1.bcr.2"></head>
 
 	<body style="margin: 0 auto">
@@ -123,53 +123,53 @@
 <p>The <strong>entry point</strong> for most scenarios when using the SDK will be a top-level client type corresponding to the Azure service. For example, sending requests to blob storage can be done via the <code>Azure::Storage::Blobs::BlobClient</code> API. All APIs on the client type send HTTP requests to the cloud service and return back an HTTP <code>Response&lt;T&gt;</code>.</p>
 <p>Azure C++ SDK headers needed are located within the <code>&lt;azure&gt;</code> folder, with sub-folders corresponding to each service. Similarly, all types and APIs can be found within the <code>Azure::</code> namespace. For example, to use functionality from <code>Azure::Core</code>, include the following header at the beginning of your application <code>#include &lt;azure/core.hpp&gt;</code>.</p>
 <p>Here's an example application to help you get started:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Include the necessary </span><span style="color:#005CC5">SDK</span><span style="color:#24292E"> headers</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;azure/core.hpp&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;azure/storage/blobs.hpp&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Add appropriate using namespace directives</span></span>
-<span class="line"><span style="color:#24292E">using namespace Azure::Storage</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">using namespace Azure::Storage::Blobs</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Secrets should be stored </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> retrieved </span><span style="color:#D73A49">from</span><span style="color:#24292E"> secure locations such </span><span style="color:#D73A49">as</span><span style="color:#24292E"> Azure::KeyVault. For</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> convenience </span><span style="color:#D73A49">and</span><span style="color:#24292E"> brevity of samples, the secrets are retrieved </span><span style="color:#D73A49">from</span><span style="color:#24292E"> environment variables.</span></span>
-<span class="line"><span style="color:#24292E">std::string GetEndpointUrl() { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> std::getenv(</span><span style="color:#032F62">"AZURE_STORAGE_ACCOUNT_URL"</span><span style="color:#24292E">); }</span></span>
-<span class="line"><span style="color:#24292E">std::string GetAccountName() { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> std::getenv(</span><span style="color:#032F62">"AZURE_STORAGE_ACCOUNT_NAME"</span><span style="color:#24292E">); }</span></span>
-<span class="line"><span style="color:#24292E">std::string GetAccountKey() { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> std::getenv(</span><span style="color:#032F62">"AZURE_STORAGE_ACCOUNT_KEY"</span><span style="color:#24292E">); }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  std::string endpointUrl = GetEndpointUrl();</span></span>
-<span class="line"><span style="color:#24292E">  std::string accountName = GetAccountName();</span></span>
-<span class="line"><span style="color:#24292E">  std::string accountKey = GetAccountKey();</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span></span>
-<span class="line"><span style="color:#24292E">  {</span></span>
-<span class="line"><span style="color:#24292E">    auto sharedKeyCredential = std::make_shared</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">StorageSharedKeyCredential</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(accountName, accountKey);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    auto blockBlobClient = BlockBlobClient(endpointUrl, sharedKeyCredential);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Create some data to upload into the blob.</span></span>
-<span class="line"><span style="color:#24292E">    std::vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">uint8_t</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> data = {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">};</span></span>
-<span class="line"><span style="color:#24292E">    Azure::Core::</span><span style="color:#005CC5">IO</span><span style="color:#24292E">::MemoryBodyStream stream(data);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Azure::Response</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Models::UploadBlockBlobResult</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> response = blockBlobClient.Upload(stream);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Models::UploadBlockBlobResult model = response.Value;</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Last modified date of uploaded blob: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> model.LastModified.ToString()</span></span>
-<span class="line"><span style="color:#D73A49">              &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const Azure::Core::RequestFailedException</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> e)</span></span>
-<span class="line"><span style="color:#24292E">  {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Status Code: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> static_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(e.StatusCode)</span></span>
-<span class="line"><span style="color:#D73A49">              &lt;&lt;</span><span style="color:#032F62"> ", Reason Phrase: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> e.ReasonPhrase </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> e.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">#include &lt;iostream&gt;
+
+// Include the necessary SDK headers
+#include &lt;azure/core.hpp&gt;
+#include &lt;azure/storage/blobs.hpp&gt;
+
+// Add appropriate using namespace directives
+using namespace Azure::Storage;
+using namespace Azure::Storage::Blobs;
+
+// Secrets should be stored &amp; retrieved from secure locations such as Azure::KeyVault. For
+// convenience and brevity of samples, the secrets are retrieved from environment variables.
+std::string GetEndpointUrl() { return std::getenv("AZURE_STORAGE_ACCOUNT_URL"); }
+std::string GetAccountName() { return std::getenv("AZURE_STORAGE_ACCOUNT_NAME"); }
+std::string GetAccountKey() { return std::getenv("AZURE_STORAGE_ACCOUNT_KEY"); }
+
+int main()
+{
+  std::string endpointUrl = GetEndpointUrl();
+  std::string accountName = GetAccountName();
+  std::string accountKey = GetAccountKey();
+
+  try
+  {
+    auto sharedKeyCredential = std::make_shared&lt;StorageSharedKeyCredential&gt;(accountName, accountKey);
+
+    auto blockBlobClient = BlockBlobClient(endpointUrl, sharedKeyCredential);
+
+    // Create some data to upload into the blob.
+    std::vector&lt;uint8_t&gt; data = {1, 2, 3, 4};
+    Azure::Core::IO::MemoryBodyStream stream(data);
+
+    Azure::Response&lt;Models::UploadBlockBlobResult&gt; response = blockBlobClient.Upload(stream);
+
+    Models::UploadBlockBlobResult model = response.Value;
+    std::cout &lt;&lt; "Last modified date of uploaded blob: " &lt;&lt; model.LastModified.ToString()
+              &lt;&lt; std::endl;
+  }
+  catch (const Azure::Core::RequestFailedException&amp; e)
+  {
+    std::cout &lt;&lt; "Status Code: " &lt;&lt; static_cast&lt;int&gt;(e.StatusCode)
+              &lt;&lt; ", Reason Phrase: " &lt;&lt; e.ReasonPhrase &lt;&lt; std::endl;
+    std::cout &lt;&lt; e.what() &lt;&lt; std::endl;
+    return 1;
+  }
+  return 0;
+}</code></pre>
 <h3>Build and run the project</h3>
 <ul>
 <li><strong>Visual Studio:</strong> Press <code>Ctrl+Shift+B</code> to build the project in Visual Studio. Then click the run play button.</li>
@@ -190,40 +190,40 @@
 </ul>
 <h4><code>Response &lt;T&gt;</code> Model Types</h4>
 <p>Many client library operations <strong>return</strong> the templated <code>Azure::Core::Response&lt;T&gt;</code> type from the API calls. This type let's you get the raw HTTP response from the service request call the Azure service APIs make, along with the result of the operation to get more API specific details. This is the templated <code>T</code> operation result which can be extracted from the response, using the <code>Value</code> field.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Azure service operations </span><span style="color:#D73A49">return</span><span style="color:#24292E"> a Response</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> templated </span><span style="color:#005CC5">type</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#24292E">  Azure::Response</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Models::BlobProperties</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> propertiesResponse </span><span style="color:#D73A49">=</span><span style="color:#24292E"> blockBlobClient.GetProperties()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> You can get the T, </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the returned Response</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">T</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> which </span><span style="color:#D73A49">is</span><span style="color:#24292E"> typically named </span><span style="color:#D73A49">with</span><span style="color:#24292E"> a Result suffix </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#005CC5">type</span><span style="color:#24292E"> name.</span></span>
-<span class="line"><span style="color:#24292E">  Models::BlobProperties propertiesModel </span><span style="color:#D73A49">=</span><span style="color:#24292E"> propertiesResponse.Value</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Now you can look at </span><span style="color:#005CC5">API</span><span style="color:#24292E"> specific members on the result </span><span style="color:#005CC5">object</span><span style="color:#24292E"> that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "The size of the blob is: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> propertiesModel.BlobSize </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>// Azure service operations return a Response&lt;T&gt; templated type.
+  Azure::Response&lt;Models::BlobProperties&gt; propertiesResponse = blockBlobClient.GetProperties();
+
+  // You can get the T, from the returned Response&lt;T&gt;,
+  // which is typically named with a Result suffix in the type name.
+  Models::BlobProperties propertiesModel = propertiesResponse.Value;
+
+  // Now you can look at API specific members on the result object that is returned.
+  std::cout &lt;&lt; "The size of the blob is: " &lt;&lt; propertiesModel.BlobSize &lt;&lt; std::endl;</code></pre>
 <h4>Long Running Operations</h4>
 <p>Some operations take a long time to complete and require polling for their status. Methods starting long-running operations return <code>Operation&lt;T&gt;</code> types.</p>
 <p>You can intermittently poll whether the operation has finished by using the <code>Poll()</code> method inside a loop on the returned <code>Operation&lt;T&gt;</code> and track progress of the operation using <code>Value()</code>, while the operation is not done (using <code>IsDone()</code>). Your per-polling custom logic can go in that loop, such as logging progress. Alternatively, if you just want to wait until the operation completes, you can use <code>PollUntilDone()</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string sourceUri </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "&lt;a uri to the source blob to copy&gt;"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Typically, </span><span style="color:#E36209">long</span><span style="color:#24292E"> running operation APIs have names that begin </span><span style="color:#D73A49">with</span><span style="color:#24292E"> Start.</span></span>
-<span class="line"><span style="color:#24292E">  StartBlobCopyOperation operation </span><span style="color:#D73A49">=</span><span style="color:#24292E"> blockBlobClient.StartCopyFromUri(sourceUri)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Waits </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the operation to finish, checking </span><span style="color:#D73A49">for</span><span style="color:#24292E"> status every </span><span style="color:#005CC5">1</span><span style="color:#24292E"> second.</span></span>
-<span class="line"><span style="color:#24292E">  auto copyResponse = operation.PollUntilDone(std::chrono::milliseconds(</span><span style="color:#005CC5">1000</span><span style="color:#24292E">));</span></span>
-<span class="line"><span style="color:#24292E">  auto propertiesModel = copyResponse.Value;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Now you can look at </span><span style="color:#005CC5">API</span><span style="color:#24292E"> specific members on the result </span><span style="color:#005CC5">object</span><span style="color:#24292E"> that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> returned.</span></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (propertiesModel.CopySource.HasValue())</span></span>
-<span class="line"><span style="color:#24292E">  {</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "The source of the copied blob is: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> propertiesModel.CopySource.Value()</span></span>
-<span class="line"><span style="color:#D73A49">              &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span></code></pre>
+<pre><code>std::string sourceUri = "&lt;a uri to the source blob to copy&gt;";
+
+  // Typically, long running operation APIs have names that begin with Start.
+  StartBlobCopyOperation operation = blockBlobClient.StartCopyFromUri(sourceUri);
+
+  // Waits for the operation to finish, checking for status every 1 second.
+  auto copyResponse = operation.PollUntilDone(std::chrono::milliseconds(1000));
+  auto propertiesModel = copyResponse.Value;
+
+  // Now you can look at API specific members on the result object that is returned.
+  if (propertiesModel.CopySource.HasValue())
+  {
+    std::cout &lt;&lt; "The source of the copied blob is: " &lt;&lt; propertiesModel.CopySource.Value()
+              &lt;&lt; std::endl;
+  }</code></pre>
 <h4><code>Azure::Core::Context</code></h4>
 <p>Most Azure SDK Service Client methods accept an optional <code>Azure::Core::Context</code> parameter, which is used to enable cancellation of the operation or to
 establish an absolute deadline for the operation.</p>
 <p>This is useful when you want to assign a time limit on an operation to ensure that it completes in a "reasonable" timeframe. For instance, the 
 snippet below will cancel a blob client upload after 5 seconds.</p>
 
-<pre><code lang="py">Azure::Core::Context cancelledIn5s{
+<pre><code>Azure::Core::Context cancelledIn5s{
           std::chrono::system_clock::now() + std::chrono::seconds(5)};
 
       auto containerClient = BlobContainerClient::CreateFromConnectionString(

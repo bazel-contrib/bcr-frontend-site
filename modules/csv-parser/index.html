@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f6aeee60.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.721ade6a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e6555d4e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3bdd4da6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.5926244f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.66db46d7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/csv-parser/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -184,33 +184,33 @@ performant.</p>
 <p>However, <code>std::ifstream</code> may also be used as well as in-memory sources via <code>std::stringstream</code>.</p>
 <p><strong>Note</strong>: Currently CSV guessing only works for memory-mapped files. The CSV dialect
 must be manually defined for other sources.</p>
-<pre><code lang="py">CSVFormat format;
-// custom formatting options go here
-
-CSVReader mmap("some_file.csv", format);
-
-std::ifstream infile("some_file.csv", std::ios::binary);
-CSVReader ifstream_reader(infile, format);
-
-std::stringstream my_csv;
-CSVReader sstream_reader(my_csv, format);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">CSVFormat </span><span style="color:#005CC5">format</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> custom formatting options go here</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader mmap(</span><span style="color:#032F62">"some_file.csv"</span><span style="color:#24292E">, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::ifstream infile(</span><span style="color:#032F62">"some_file.csv"</span><span style="color:#24292E">, std::ios::binary)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVReader ifstream_reader(infile, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">std::stringstream my_csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">CSVReader sstream_reader(my_csv, </span><span style="color:#005CC5">format</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h3>Indexing by Column Names</h3>
 <p>Retrieving values using a column name string is a cheap, constant time operation.</p>
-<pre><code># include "csv.hpp"
-
-using namespace csv;
-
-...
-
-CSVReader reader("very_big_file.csv");
-double sum = 0;
-
-for (auto&amp; row: reader) {
-    // Note: Can also use index of column with [] operator
-    sum += row["Total Salary"].get&lt;double&gt;();
-}
-
-...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">double </span><span style="color:#005CC5">sum</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Note: Can also use index of column with [] operator</span></span>
+<span class="line"><span style="color:#005CC5">    sum</span><span style="color:#D73A49"> +</span><span style="color:#24292E">= row[</span><span style="color:#032F62">"Total Salary"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Numeric Conversions</h3>
 <p>If your CSV has lots of numeric values, you can also have this parser (lazily)
 convert them to the proper data type.</p>
@@ -222,41 +222,41 @@ convert them to the proper data type.</p>
 <li><code>get&lt;float&gt;()</code>, <code>get&lt;double&gt;()</code>, and <code>get&lt;long double&gt;()</code> are capable of parsing numbers written in scientific notation.</li>
 <li><strong>Note:</strong> Conversions to floating point types are not currently checked for loss of precision.</li>
 </ul>
-<pre><code># include "csv.hpp"
-
-using namespace csv;
-
-...
-
-CSVReader reader("very_big_file.csv");
-
-for (auto&amp; row: reader) {
-    if (row["timestamp"].is_int()) {
-        // Can use get&lt;&gt;() with any integer type, but negative
-        // numbers cannot be converted to unsigned types
-        row["timestamp"].get&lt;int&gt;();
-        
-        // You can also attempt to parse hex values
-        int value;
-        if (row["hexValue"].try_parse_hex(value)) {
-            std::cout &lt;&lt; "Hex value is " &lt;&lt; value &lt;&lt; std::endl;
-        }
-
-        // Non-imperial decimal numbers can be handled this way
-        long double decimalValue;
-        if (row["decimalNumber"].try_parse_decimal(decimalValue, ',')) {
-            std::cout &lt;&lt; "Decimal value is " &lt;&lt; decimalValue &lt;&lt; std::endl;
-        }
-
-        // ..
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># include "csv.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">using namespace csv</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CSVReader reader(</span><span style="color:#032F62">"very_big_file.csv"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> row: reader) {</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"timestamp"</span><span style="color:#24292E">].is_int()) {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Can use get</span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">() </span><span style="color:#D73A49">with</span><span style="color:#005CC5"> any</span><span style="color:#24292E"> integer </span><span style="color:#005CC5">type</span><span style="color:#24292E">, but negative</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> numbers cannot be converted to unsigned types</span></span>
+<span class="line"><span style="color:#24292E">        row[</span><span style="color:#032F62">"timestamp"</span><span style="color:#24292E">].get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
+<span class="line"><span style="color:#24292E">        </span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> You can also attempt to parse </span><span style="color:#005CC5">hex</span><span style="color:#24292E"> values</span></span>
+<span class="line"><span style="color:#005CC5">        int</span><span style="color:#24292E"> value;</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"hexValue"</span><span style="color:#24292E">].try_parse_hex(value)) {</span></span>
+<span class="line"><span style="color:#24292E">            std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Hex value is "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> value </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Non</span><span style="color:#D73A49">-</span><span style="color:#24292E">imperial decimal numbers can be handled this way</span></span>
+<span class="line"><span style="color:#E36209">        long</span><span style="color:#24292E"> double decimalValue;</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (row[</span><span style="color:#032F62">"decimalNumber"</span><span style="color:#24292E">].try_parse_decimal(decimalValue, </span><span style="color:#032F62">','</span><span style="color:#24292E">)) {</span></span>
+<span class="line"><span style="color:#24292E">            std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "Decimal value is "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> decimalValue </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> ..</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h3>Converting to JSON</h3>
 <p>You can serialize individual rows as JSON objects, where the keys are column names, or as 
 JSON arrays (which don't contain column names). The outputted JSON contains properly escaped
 strings with minimal whitespace and no quoting for numeric values. How these JSON fragments are 
 assembled into a larger JSON document is an exercise left for the user.</p>
-<pre><code># include &lt;sstream&gt;
+<pre><code lang="py"># include &lt;sstream&gt;
 # include "csv.hpp"
 
 using namespace csv;

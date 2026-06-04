@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1c3dbf37.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ad7d792d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.07c78c63.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.78e1b8f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.2d606f24.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.396c04b0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_py/2.0.0-alpha.1"></head>
 
 	<body style="margin: 0 auto">
@@ -274,54 +274,54 @@ on a different OS</li>
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Requirements are declared in standard <code>pyproject.toml</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[project]</span></span>
-<span class="line"><span style="color:#24292E">name </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "myapp"</span></span>
-<span class="line"><span style="color:#24292E">version </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "1.0.0"</span></span>
-<span class="line"><span style="color:#24292E">requires</span><span style="color:#D73A49">-</span><span style="color:#24292E">python </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "&gt;= 3.11"</span></span>
-<span class="line"><span style="color:#24292E">dependencies </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">    "requests&gt;=2.28"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "pydantic&gt;=2.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">[dependency</span><span style="color:#D73A49">-</span><span style="color:#24292E">groups]</span></span>
-<span class="line"><span style="color:#24292E">dev </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"pytest"</span><span style="color:#24292E">, </span><span style="color:#032F62">"black"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mypy"</span><span style="color:#24292E">]</span></span></code></pre>
+<pre><code lang="py">[project]
+name = "myapp"
+version = "1.0.0"
+requires-python = "&gt;= 3.11"
+dependencies = [
+    "requests&gt;=2.28",
+    "pydantic&gt;=2.0",
+]
+
+[dependency-groups]
+dev = ["pytest", "black", "mypy"]</code></pre>
 <p>Generate the lockfile with uv:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv lock</span></span></code></pre>
+<pre><code>uv lock</code></pre>
 <p>Switch between dependency groups:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Default: use all dependencies</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:app</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Use only production dependencies</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:app </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">pypi</span><span style="color:#D73A49">//</span><span style="color:#24292E">dep_group</span><span style="color:#D73A49">=</span><span style="color:#24292E">prod</span></span></code></pre>
+<pre><code># Default: use all dependencies
+bazel run //:app
+
+# Use only production dependencies
+bazel run //:app --@pypi//dep_group=prod</code></pre>
 <h2>Virtual Dependencies</h2>
 <p>Declare virtual dependencies in libraries:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">py_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "greet_lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"greet.py"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    virtual_deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"cowsay"</span><span style="color:#24292E">],  </span><span style="color:#6A737D"># Not a label—just a package name</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>py_library(
+    name = "greet_lib",
+    srcs = ["greet.py"],
+    virtual_deps = ["cowsay"],  # Not a label—just a package name
+)</code></pre>
 <p>Resolve them in binaries:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">py_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"main.py"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":greet_lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    resolutions</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#032F62">        "cowsay"</span><span style="color:#24292E">: </span><span style="color:#032F62">"@pypi//cowsay"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    },</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Or use a different implementation!</span></span>
-<span class="line"><span style="color:#24292E">py_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app_snake"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"main.py"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":greet_lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    resolutions</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#032F62">        "cowsay"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//cowsnake"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Swapped implementation</span></span>
-<span class="line"><span style="color:#24292E">    },</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>py_binary(
+    name = "app",
+    srcs = ["main.py"],
+    deps = [":greet_lib"],
+    resolutions = {
+        "cowsay": "@pypi//cowsay",
+    },
+)
+
+# Or use a different implementation!
+py_binary(
+    name = "app_snake",
+    srcs = ["main.py"],
+    deps = [":greet_lib"],
+    resolutions = {
+        "cowsay": "//cowsnake",  # Swapped implementation
+    },
+)</code></pre>
 <h2>Container Images</h2>
 <p>Build optimized OCI images with layer caching:</p>
-<pre><code lang="py">load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_image_layer")
+<pre><code>load("@aspect_rules_py//py:defs.bzl", "py_binary", "py_image_layer")
 load("@rules_oci//oci:defs.bzl", "oci_image", "oci_load")
 
 py_binary(

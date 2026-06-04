@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1c3dbf37.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ad7d792d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.07c78c63.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.78e1b8f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.2d606f24.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.396c04b0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/urdfdom/2.3.4.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -71,13 +71,13 @@ included in this repo but instead is added in during the ROS release process. To
 file into this repository using the following format. Be sure to replace the ALLCAPS words with the apropriate terms:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">raw.github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ros</span><span style="color:#D73A49">-</span><span style="color:#24292E">gbp</span><span style="color:#D73A49">/</span><span style="color:#24292E">urdfdom</span><span style="color:#D73A49">-</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">debian</span><span style="color:#D73A49">/</span><span style="color:#005CC5">ROS_DISTRO</span><span style="color:#D73A49">/</span><span style="color:#005CC5">UBUNTU_DISTRO</span><span style="color:#D73A49">/</span><span style="color:#24292E">urdfdom</span><span style="color:#D73A49">/</span><span style="color:#24292E">package.xml</span></span></code></pre>
 <p>For example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">raw.github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ros</span><span style="color:#D73A49">-</span><span style="color:#24292E">gbp</span><span style="color:#D73A49">/</span><span style="color:#24292E">urdfdom</span><span style="color:#D73A49">-</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">debian</span><span style="color:#D73A49">/</span><span style="color:#24292E">hydro</span><span style="color:#D73A49">/</span><span style="color:#24292E">precise</span><span style="color:#D73A49">/</span><span style="color:#24292E">urdfdom</span><span style="color:#D73A49">/</span><span style="color:#24292E">package.xml</span></span></code></pre>
+<pre><code lang="py">wget https://raw.github.com/ros-gbp/urdfdom-release/debian/hydro/precise/urdfdom/package.xml</code></pre>
 <h3>Installing from Source with ROS Debians</h3>
 <p><strong>Warning: this will break ABI compatibility with future /opt/ros updates through the debian package manager. This is a hack, use at your own risk.</strong></p>
 <p>If you want to install urdfdom from source, but not install all of ROS from source, you can follow these loose guidelines.
 This is not best practice for installing, but works.
 This version is for ROS Hydro but should be easily customized for future version of ROS:</p>
-<pre><code lang="py">sudo mv /opt/ros/hydro/include/urdf_parser/ /opt/ros/hydro/include/_urdf_parser/
+<pre><code>sudo mv /opt/ros/hydro/include/urdf_parser/ /opt/ros/hydro/include/_urdf_parser/
 sudo mv /opt/ros/hydro/lib/liburdfdom_model.so /opt/ros/hydro/lib/_liburdfdom_model.so
 sudo mv /opt/ros/hydro/lib/liburdfdom_model_state.so /opt/ros/hydro/lib/_liburdfdom_model_state.so
 sudo mv /opt/ros/hydro/lib/liburdfdom_sensor.so /opt/ros/hydro/lib/_liburdfdom_sensor.so

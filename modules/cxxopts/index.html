@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1ee6b3f4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.544a1107.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.79566fcc.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ba9f101a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.b07b2409.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.95832e97.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cxxopts/3.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -91,22 +91,22 @@ style syntax for options.</p>
 <h2>Basics</h2>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;cxxopts.hpp&gt;</span></span></code></pre>
 <p>Create a <code>cxxopts::Options</code> instance.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cxxopts::Options options(</span><span style="color:#032F62">"MyProgram"</span><span style="color:#24292E">, </span><span style="color:#032F62">"One line description of MyProgram"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">cxxopts::Options options("MyProgram", "One line description of MyProgram");</code></pre>
 <p>Then use <code>add_options</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">options.add_options()</span></span>
-<span class="line"><span style="color:#24292E">  (</span><span style="color:#032F62">"d,debug"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Enable debugging"</span><span style="color:#24292E">) </span><span style="color:#D73A49">//</span><span style="color:#24292E"> a </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> parameter</span></span>
-<span class="line"><span style="color:#24292E">  (</span><span style="color:#032F62">"i,integer"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Int param"</span><span style="color:#24292E">, cxxopts::value</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">())</span></span>
-<span class="line"><span style="color:#24292E">  (</span><span style="color:#032F62">"f,file"</span><span style="color:#24292E">, </span><span style="color:#032F62">"File name"</span><span style="color:#24292E">, cxxopts::value</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">())</span></span>
-<span class="line"><span style="color:#24292E">  (</span><span style="color:#032F62">"v,verbose"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Verbose output"</span><span style="color:#24292E">, cxxopts::value</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">default_value(</span><span style="color:#032F62">"false"</span><span style="color:#24292E">))</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  ;</span></span></code></pre>
+<pre><code>options.add_options()
+  ("d,debug", "Enable debugging") // a bool parameter
+  ("i,integer", "Int param", cxxopts::value&lt;int&gt;())
+  ("f,file", "File name", cxxopts::value&lt;std::string&gt;())
+  ("v,verbose", "Verbose output", cxxopts::value&lt;bool&gt;()-&gt;default_value("false"))
+  ;</code></pre>
 <p>Options are declared with a long and an optional short option. A description
 must be provided. The third argument is the value, if omitted it is boolean.
 Any type can be given as long as it can be parsed, with operator&gt;&gt;.</p>
 <p>To parse the command line do:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto result </span><span style="color:#D73A49">=</span><span style="color:#24292E"> options.parse(argc, argv)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>auto result = options.parse(argc, argv);</code></pre>
 <p>To retrieve an option use <code>result.count("option")</code> to get the number of times
 it appeared, and</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">result[</span><span style="color:#032F62">"opt"</span><span style="color:#24292E">].</span><span style="color:#D73A49">as&lt;</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">()</span></span></code></pre>
+<pre><code>result["opt"].as&lt;type&gt;()</code></pre>
 <p>to get its value. If "opt" doesn't exist, or isn't of the right type, then an
 exception will be thrown.</p>
 <h2>Unrecognised arguments</h2>
@@ -114,7 +114,7 @@ exception will be thrown.</p>
 positional arguments that are not parsed into another option, and <code>--</code>
 arguments that do not match an argument that you specify. This is done by
 calling:</p>
-<pre><code lang="py">options.allow_unrecognised_options();</code></pre>
+<pre><code>options.allow_unrecognised_options();</code></pre>
 <p>and in the result object they are retrieved with:</p>
 <pre><code>result.unmatched()</code></pre>
 <h2>Exceptions</h2>

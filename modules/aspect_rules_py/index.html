@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ec8f7371.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b43f04c8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e6b244fa.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.75e1f5be.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.c11519e5.js" defer=""></script>
-		<script src="/registry.e90e1eca.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.aa637d29.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_py/2.0.0-alpha.1"></head>
 
 	<body style="margin: 0 auto">
@@ -286,16 +286,16 @@ on a different OS</li>
 <span class="line"><span style="color:#24292E">[dependency</span><span style="color:#D73A49">-</span><span style="color:#24292E">groups]</span></span>
 <span class="line"><span style="color:#24292E">dev </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"pytest"</span><span style="color:#24292E">, </span><span style="color:#032F62">"black"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mypy"</span><span style="color:#24292E">]</span></span></code></pre>
 <p>Generate the lockfile with uv:</p>
-<pre><code lang="py">uv lock</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv lock</span></span></code></pre>
 <p>Switch between dependency groups:</p>
-<pre><code># Default: use all dependencies
-bazel run //:app
-
-# Use only production dependencies
-bazel run //:app --@pypi//dep_group=prod</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Default: use all dependencies</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:app</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Use only production dependencies</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:app </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">pypi</span><span style="color:#D73A49">//</span><span style="color:#24292E">dep_group</span><span style="color:#D73A49">=</span><span style="color:#24292E">prod</span></span></code></pre>
 <h2>Virtual Dependencies</h2>
 <p>Declare virtual dependencies in libraries:</p>
-<pre><code>py_library(
+<pre><code lang="py">py_library(
     name = "greet_lib",
     srcs = ["greet.py"],
     virtual_deps = ["cowsay"],  # Not a label—just a package name

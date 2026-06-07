@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f32eae77.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ec262b2a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8cc87451.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.54b901ed.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.82e5f28c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c3875b12.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_jvm_external/7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -147,21 +147,21 @@ the required files.</li>
 used in the dependency resolution. <code>rules_jvm_external</code> will fail the build and
 notify you if a repin is ever required.</p>
 <p>Next, reference the artifacts in the BUILD file with their versionless label:</p>
-<pre><code lang="py">java_library(
-    name = "java_test_deps",
-    exports = [
-        "@maven//:junit_junit",
-        "@maven//:org_hamcrest_hamcrest_library",
-    ],
-)
-
-android_library(
-    name = "android_test_deps",
-    exports = [
-        "@maven//:junit_junit",
-        "@maven//:androidx_test_espresso_espresso_core",
-    ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">java_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "java_test_deps"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exports</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:org_hamcrest_hamcrest_library"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">android_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "android_test_deps"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exports</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:junit_junit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:androidx_test_espresso_espresso_core"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The default label syntax for an artifact <code>foo.bar:baz-qux:1.2.3</code> is <code>@maven//:foo_bar_baz_qux</code>. That is,</p>
 <ul>
 <li>All non-alphanumeric characters are substituted with underscores.</li>
@@ -192,7 +192,7 @@ Alternatively, pass an array of <code>additional_netrc_lines</code> to <code>mav
 outside the workspace.</p>
 <p>To get started with pinning artifacts, run the following command to generate the
 initial <code>maven_install.json</code> at the root of your Bazel workspace:</p>
-<pre><code>$ bazel run @maven//:pin</code></pre>
+<pre><code lang="py">$ bazel run @maven//:pin</code></pre>
 <p>Then, specify <code>lock_file</code> in your <code>maven.install</code> in <code>MODULE.bazel</code>:</p>
 <pre><code>maven.install(
     # artifacts, repositories, ...

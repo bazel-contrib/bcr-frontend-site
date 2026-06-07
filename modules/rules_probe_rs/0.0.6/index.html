@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7de26280.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f5e6c886.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.19c97b85.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d7a471e6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.18572616.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9488548f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_probe_rs/0.0.6"></head>
 
 	<body style="margin: 0 auto">
@@ -103,20 +103,20 @@
 <span class="line"><span style="color:#24292E">probe_rs.tools(</span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.27.0"</span><span style="color:#24292E">,)</span></span>
 <span class="line"><span style="color:#24292E">use_repo(probe_rs, </span><span style="color:#032F62">"probe_rs"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>From source (this repository)</h3>
-<pre><code lang="py">bazel_dep(name = "rules_probe_rs", version = "&lt;version&gt;")
-
-git_override(
-    module_name = "rules_probe_rs",
-    remote = "https://github.com/hexdae/rules_probe_rs.git",
-    commit = "&lt;commit&gt;",
-)
-
-probe_rs = use_extension("@rules_probe_rs//probe_rs:extensions.bzl", "probe_rs")
-probe_rs.tools(version = "0.27.0",)
-use_repo(probe_rs, "probe_rs")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_probe_rs"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_probe_rs"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/hexdae/rules_probe_rs.git"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    commit</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;commit&gt;"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">probe_rs </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_probe_rs//probe_rs:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"probe_rs"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">probe_rs.tools(</span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.27.0"</span><span style="color:#24292E">,)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(probe_rs, </span><span style="color:#032F62">"probe_rs"</span><span style="color:#24292E">)</span></span></code></pre>
 <h2>RTT support using <code>DEFMT_LOG</code></h2>
 <p>You can enable RTT support for a specific target by adding the following to your <code>BUILD.bazel</code> rust_binary target.</p>
-<pre><code>rust_binary(
+<pre><code lang="py">rust_binary(
     ...
     rustc_env = {
         "DEFMT_LOG": "trace",

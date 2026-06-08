@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.8b673712.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9ed2351e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7f6f5831.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c44d1077.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.27cb7397.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.5a582375.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.26d8f27a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/periphery/3.7.4"></head>
 
 	<body style="margin: 0 auto">
@@ -182,77 +182,77 @@ You can ignore all unused parameters from protocols and conforming functions wit
 <p>Unused parameters of protocols or classes defined in foreign modules (e.g. Foundation) are always ignored since you do not have access to modify the base function declaration.</p>
 <h4>fatalError Functions</h4>
 <p>Unused parameters of functions that simply call <code>fatalError</code> are also ignored. Such functions are often unimplemented required initializers in subclasses.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> Base {</span></span>
-<span class="line"><span style="color:#24292E">    let param: String</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    required init(param: String) {</span></span>
-<span class="line"><span style="color:#005CC5">        self</span><span style="color:#24292E">.param = param</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> Subclass</span><span style="color:#24292E">: Base {</span></span>
-<span class="line"><span style="color:#24292E">    init(custom: String) {</span></span>
-<span class="line"><span style="color:#005CC5">        super</span><span style="color:#24292E">.init(param: custom)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    required init(param: String) {</span></span>
-<span class="line"><span style="color:#24292E">        fatalError(</span><span style="color:#032F62">"init(param:) has not been implemented"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">class Base {
+    let param: String
+
+    required init(param: String) {
+        self.param = param
+    }
+}
+
+class Subclass: Base {
+    init(custom: String) {
+        super.init(param: custom)
+    }
+
+    required init(param: String) {
+        fatalError("init(param:) has not been implemented")
+    }
+}</code></pre>
 <h3>Protocols</h3>
 <p>A protocol that is conformed to by an object is not truly used unless it's also used as an existential type or to specialize a generic method/class. Periphery is able to identify such redundant protocols whether they are conformed to by one or even multiple objects.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">protocol MyProtocol { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'MyProtocol'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> redundant</span></span>
-<span class="line"><span style="color:#24292E">    func someMethod()</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> MyClass1</span><span style="color:#24292E">: MyProtocol { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'MyProtocol'</span><span style="color:#24292E"> conformance </span><span style="color:#D73A49">is</span><span style="color:#24292E"> redundant</span></span>
-<span class="line"><span style="color:#24292E">    func someMethod() {</span></span>
-<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Hello from MyClass1!"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> MyClass2</span><span style="color:#24292E">: MyProtocol { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'MyProtocol'</span><span style="color:#24292E"> conformance </span><span style="color:#D73A49">is</span><span style="color:#24292E"> redundant</span></span>
-<span class="line"><span style="color:#24292E">    func someMethod() {</span></span>
-<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Hello from MyClass2!"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let myClass1 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> MyClass1()</span></span>
-<span class="line"><span style="color:#24292E">myClass1.someMethod()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let myClass2 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> MyClass2()</span></span>
-<span class="line"><span style="color:#24292E">myClass2.someMethod()</span></span></code></pre>
+<pre><code>protocol MyProtocol { // 'MyProtocol' is redundant
+    func someMethod()
+}
+
+class MyClass1: MyProtocol { // 'MyProtocol' conformance is redundant
+    func someMethod() {
+        print("Hello from MyClass1!")
+    }
+}
+
+class MyClass2: MyProtocol { // 'MyProtocol' conformance is redundant
+    func someMethod() {
+        print("Hello from MyClass2!")
+    }
+}
+
+let myClass1 = MyClass1()
+myClass1.someMethod()
+
+let myClass2 = MyClass2()
+myClass2.someMethod()</code></pre>
 <p>Here we can see that despite both implementations of <code>someMethod</code> being called, at no point does an object take on the type of <code>MyProtocol</code>. Therefore, the protocol itself is redundant, and there's no benefit from <code>MyClass1</code> or <code>MyClass2</code> conforming to it. We can remove <code>MyProtocol</code> along with each redundant conformance and just keep <code>someMethod</code> in each class.</p>
 <p>Just like a normal method or property of an object, individual properties and methods declared by your protocol can also be identified as unused.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">protocol MyProtocol {</span></span>
-<span class="line"><span style="color:#24292E">    var usedProperty: String { get }</span></span>
-<span class="line"><span style="color:#24292E">    var unusedProperty: String { get } </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'unusedProperty'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> MyConformingClass</span><span style="color:#24292E">: MyProtocol {</span></span>
-<span class="line"><span style="color:#24292E">    var usedProperty: String = </span><span style="color:#032F62">"used"</span></span>
-<span class="line"><span style="color:#24292E">    var unusedProperty: String = </span><span style="color:#032F62">"unused"</span><span style="color:#D73A49"> //</span><span style="color:#032F62"> 'unusedProperty'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> MyClass {</span></span>
-<span class="line"><span style="color:#24292E">    let conformingClass: MyProtocol</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    init() {</span></span>
-<span class="line"><span style="color:#24292E">        conformingClass = MyConformingClass()</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    func perform() {</span></span>
-<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(conformingClass.usedProperty)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let myClass </span><span style="color:#D73A49">=</span><span style="color:#24292E"> MyClass()</span></span>
-<span class="line"><span style="color:#24292E">myClass.perform()</span></span></code></pre>
+<pre><code>protocol MyProtocol {
+    var usedProperty: String { get }
+    var unusedProperty: String { get } // 'unusedProperty' is unused
+}
+
+class MyConformingClass: MyProtocol {
+    var usedProperty: String = "used"
+    var unusedProperty: String = "unused" // 'unusedProperty' is unused
+}
+
+class MyClass {
+    let conformingClass: MyProtocol
+
+    init() {
+        conformingClass = MyConformingClass()
+    }
+
+    func perform() {
+        print(conformingClass.usedProperty)
+    }
+}
+
+let myClass = MyClass()
+myClass.perform()</code></pre>
 <p>Here we can see that <code>MyProtocol</code> is itself used and cannot be removed. However, since <code>unusedProperty</code> is never called on <code>MyConformingClass</code>, Periphery can identify that the declaration of <code>unusedProperty</code> in <code>MyProtocol</code> is also unused and can be removed along with the unused implementation of <code>unusedProperty</code>.</p>
 <h3>Enumerations</h3>
 <p>Along with being able to identify unused enumerations, Periphery can also identify individual unused enum cases. Plain enums that are not raw representable, i.e., that <em>don't</em> have a <code>String</code>, <code>Character</code>, <code>Int</code>, or floating-point value type, can be reliably identified. However, enumerations that <em>do</em> have a raw value type can be dynamic, and therefore must be assumed to be used.</p>
 <p>Let's clear this up with a quick example:</p>
-<pre><code lang="py">enum MyEnum: String {
+<pre><code>enum MyEnum: String {
     case myCase
 }
 

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9d694655.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.37ec2715.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.71e271a5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4d355fff.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.28c72528.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8bed9070.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_py/2.0.0-alpha.1"></head>
 
 	<body style="margin: 0 auto">
@@ -241,54 +241,54 @@ on a different OS</li>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Dependency Resolution with <code>uv</code></h2>
 <p><code>aspect_rules_py//uv</code> is our alternative to <code>rules_python</code>'s <code>pip.parse</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@aspect_rules_py//uv:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"uv"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 1. Declare a hub (a shared dependency namespace)</span></span>
-<span class="line"><span style="color:#24292E">uv.declare_hub(</span></span>
-<span class="line"><span style="color:#E36209">    hub_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 2. Register projects (lockfiles) into the hub</span></span>
-<span class="line"><span style="color:#24292E">uv.project(</span></span>
-<span class="line"><span style="color:#E36209">    hub_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:uv.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    pyproject</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:pyproject.toml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Build tools injected for sdist packages that need them (e.g. maturin, setuptools)</span></span>
-<span class="line"><span style="color:#E36209">    default_build_dependencies</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"build"</span><span style="color:#24292E">, </span><span style="color:#032F62">"setuptools"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 3a. (Optional) Replace a package with a local Bazel target</span></span>
-<span class="line"><span style="color:#24292E">uv.override_package(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "some_package"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:uv.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//third_party/some_package"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># 3b. (Optional) Patch an installed wheel's file tree after unpacking</span></span>
-<span class="line"><span style="color:#24292E">uv.override_package(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "some_other_package"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:uv.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    post_install_patches</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//third_party/patches:fix_some_other_package.patch"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    post_install_patch_strip</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">uv = use_extension("@aspect_rules_py//uv:extensions.bzl", "uv")
+
+# 1. Declare a hub (a shared dependency namespace)
+uv.declare_hub(
+    hub_name = "pypi",
+)
+
+# 2. Register projects (lockfiles) into the hub
+uv.project(
+    hub_name = "pypi",
+    lock = "//:uv.lock",
+    pyproject = "//:pyproject.toml",
+    # Build tools injected for sdist packages that need them (e.g. maturin, setuptools)
+    default_build_dependencies = ["build", "setuptools"],
+)
+
+# 3a. (Optional) Replace a package with a local Bazel target
+uv.override_package(
+    name = "some_package",
+    lock = "//:uv.lock",
+    target = "//third_party/some_package",
+)
+
+# 3b. (Optional) Patch an installed wheel's file tree after unpacking
+uv.override_package(
+    name = "some_other_package",
+    lock = "//:uv.lock",
+    post_install_patches = ["//third_party/patches:fix_some_other_package.patch"],
+    post_install_patch_strip = 1,
+)
+
+use_repo(uv, "pypi")</code></pre>
 <p>Requirements are declared in standard <code>pyproject.toml</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[project]</span></span>
-<span class="line"><span style="color:#24292E">name </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "myapp"</span></span>
-<span class="line"><span style="color:#24292E">version </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "1.0.0"</span></span>
-<span class="line"><span style="color:#24292E">requires</span><span style="color:#D73A49">-</span><span style="color:#24292E">python </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "&gt;= 3.11"</span></span>
-<span class="line"><span style="color:#24292E">dependencies </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">    "requests&gt;=2.28"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "pydantic&gt;=2.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">]</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">[dependency</span><span style="color:#D73A49">-</span><span style="color:#24292E">groups]</span></span>
-<span class="line"><span style="color:#24292E">dev </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"pytest"</span><span style="color:#24292E">, </span><span style="color:#032F62">"black"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mypy"</span><span style="color:#24292E">]</span></span></code></pre>
+<pre><code>[project]
+name = "myapp"
+version = "1.0.0"
+requires-python = "&gt;= 3.11"
+dependencies = [
+    "requests&gt;=2.28",
+    "pydantic&gt;=2.0",
+]
+
+[dependency-groups]
+dev = ["pytest", "black", "mypy"]</code></pre>
 <p>Generate the lockfile with uv:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv lock</span></span></code></pre>
+<pre><code>uv lock</code></pre>
 <p>Switch between dependency groups:</p>
-<pre><code lang="py"># Default: use all dependencies
+<pre><code># Default: use all dependencies
 bazel run //:app
 
 # Use only production dependencies

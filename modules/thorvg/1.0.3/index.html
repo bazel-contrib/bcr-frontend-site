@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fde2740f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7da206da.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6829dd93.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5252aca3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.b3c20d49.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3af2d91a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/thorvg/1.0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -253,13 +253,13 @@ The following figure illustrates the geometry changes and highlights the minimal
 <p>Run meson to configure ThorVG in the thorvg root folder.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">meson setup builddir</span></span></code></pre>
 <p>Run ninja to build &amp; install ThorVG:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ninja </span><span style="color:#D73A49">-</span><span style="color:#24292E">C builddir install</span></span></code></pre>
+<pre><code lang="py">ninja -C builddir install</code></pre>
 <p>Regardless of the installation, all build results (symbols, executable) are generated in the builddir folder in thorvg. Some results such as examples won't be installed, you can check More examples section to see how to change it. <br>
 ​<br>
 Note that some systems might include ThorVG package as a default component. In that case, you can skip this manual installation.<br></p>
 <h3>Build with Visual Studio</h3>
 <p>If you want to create Visual Studio project files, use the command <code>--backend=vs</code>. The resulting solution file <code>thorvg.sln</code> will be located in the build folder.</p>
-<pre><code lang="py">meson setup builddir --backend=vs</code></pre>
+<pre><code>meson setup builddir --backend=vs</code></pre>
 <h3>Build with Xcode</h3>
 <p>If you want to create Xcode project files, use the command <code>--backend=xcode</code>. The resulting solution file <code>thorvg.xcodeproj</code> will be located in the build folder.</p>
 <pre><code>meson setup builddir --backend=xcode</code></pre>

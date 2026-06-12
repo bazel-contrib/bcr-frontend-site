@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5da7bdc1.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.07603212.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.80e76ee0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.cca23981.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.84027ea6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.94c9ba76.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_prefect/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -66,29 +66,29 @@
 <p>Add to your <code>MODULE.bazel</code>:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_prefect"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>You must also have <code>rules_python</code> with a pip hub that includes <code>prefect</code>:</p>
-<pre><code lang="py">bazel_dep(name = "rules_python", version = "1.8.4")
-bazel_dep(name = "aspect_rules_py", version = "1.8.4")
-
-pip = use_extension("@rules_python//python/extensions:pip.bzl", "pip")
-pip.parse(
-    hub_name = "pip",
-    python_version = "3.13",
-    requirements_lock = "//:requirements.txt",
-)
-use_repo(pip, "pip")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_python"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.8.4"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "aspect_rules_py"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.8.4"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pip </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_python//python/extensions:pip.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pip"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">pip.parse(</span></span>
+<span class="line"><span style="color:#E36209">    hub_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pip"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    python_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.13"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    requirements_lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:requirements.txt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(pip, </span><span style="color:#032F62">"pip"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Your <code>requirements.txt</code> must include <code>prefect&gt;=3.6</code>.</p>
 <h2>Usage</h2>
-<pre><code>load("@rules_prefect//prefect:defs.bzl", "prefect_deploy")
-
-prefect_deploy(
-    name = "deploy",
-    flow_file = "flow.py",
-    entrypoint = "flow.py:my_flow",
-    image_repository = "us-central1-docker.pkg.dev/my-project/prefect",
-    work_pool_name = "my-cloud-run-pool",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_prefect//prefect:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"prefect_deploy"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">prefect_deploy(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "deploy"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    flow_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "flow.py"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entrypoint</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "flow.py:my_flow"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    image_repository</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "us-central1-docker.pkg.dev/my-project/prefect"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    work_pool_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-cloud-run-pool"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Then deploy with:</p>
-<pre><code>bazel run //:deploy</code></pre>
+<pre><code lang="py">bazel run //:deploy</code></pre>
 <h3><code>prefect_deploy</code> Parameters</h3>
 <table>
 <thead>

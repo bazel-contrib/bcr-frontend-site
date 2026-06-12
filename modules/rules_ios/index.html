@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.866d5356.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.901eedfe.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.35628557.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5f796bc9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.11fa8c0e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.05e34120.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ios/6.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -149,54 +149,54 @@ See the <a href="https://github.com/bazel-ios/rules_ios/releases/latest">latest 
 <h3>WORKSPACE setup</h3>
 <p>Add the following lines to your <code>WORKSPACE</code> file.
 See the <a href="https://github.com/bazel-ios/rules_ios/releases/latest">latest release</a> for an up-to-date snippet!</p>
-<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-# See https://github.com/bazel-ios/rules_ios/releases/latest
-http_archive(
-    name = "build_bazel_rules_ios",
-    sha256 = "4faa33a671f615500d3ec0d04d89e390103bcc1abb5e973c8fb1c2510af85985",
-    url = "https://github.com/bazel-ios/rules_ios/releases/download/1.0.1/rules_ios.1.0.1.tar.gz",
-)
-
-load(
-    "@build_bazel_rules_ios//rules:repositories.bzl",
-    "rules_ios_dependencies"
-)
-
-rules_ios_dependencies()
-
-load(
-    "@build_bazel_rules_apple//apple:repositories.bzl",
-    "apple_rules_dependencies",
-)
-
-apple_rules_dependencies()
-
-load(
-    "@build_bazel_rules_swift//swift:repositories.bzl",
-    "swift_rules_dependencies",
-)
-
-swift_rules_dependencies()
-
-load(
-    "@build_bazel_apple_support//lib:repositories.bzl",
-    "apple_support_dependencies",
-)
-
-apple_support_dependencies()
-
-load(
-    "@com_google_protobuf//:protobuf_deps.bzl",
-    "protobuf_deps",
-)
-
-protobuf_deps()</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># See https://github.com/bazel-ios/rules_ios/releases/latest</span></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "build_bazel_rules_ios"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "4faa33a671f615500d3ec0d04d89e390103bcc1abb5e973c8fb1c2510af85985"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/bazel-ios/rules_ios/releases/download/1.0.1/rules_ios.1.0.1.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_ios//rules:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "rules_ios_dependencies"</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">rules_ios_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_apple//apple:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "apple_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">apple_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_swift//swift:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "swift_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swift_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_apple_support//lib:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "apple_support_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">apple_support_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@com_google_protobuf//:protobuf_deps.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "protobuf_deps"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">protobuf_deps()</span></span></code></pre>
 <p>rules_ios pulls a vetted sha of <code>rules_apple</code> and <code>rules_swift</code> - you can find the versions in <a href="https://github.com/bazel-ios/rules_ios/tree/master/rules/repositories.bzl"><code>repositories.bzl</code></a>.</p>
 <h3>iOS applications</h3>
 <p>rules_ios supports all the primitives like apps, extensions, app clips, and widgets</p>
 <p>For example, create an iOS app like so:</p>
-<pre><code>load("@build_bazel_rules_ios//rules:app.bzl", "ios_application")
+<pre><code lang="py">load("@build_bazel_rules_ios//rules:app.bzl", "ios_application")
 
 ios_application(
     name = "iOS-App",

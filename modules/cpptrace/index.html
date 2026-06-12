@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2eac2b7a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4fb29963.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.18999613.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e5142486.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ff4fd96c.js" defer=""></script>
-		<script src="/registry.d40679c8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ab3536b3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cpptrace/1.0.4.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -169,26 +169,26 @@ be resolved later:</p>
 <span class="line"><span style="color:#24292E">raw_trace.resolve().print()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>One of the most important features cpptrace offers is the ability to retrieve stack traces on arbitrary exceptions.
 More information on this system <a href="https://github.com/jeremy-rifkin/cpptrace/blob/3db8da80111171c219ab5839905771386bee06b3/(#traces-from-all-exceptions-cpptrace_try-and-cpptrace_catch)" target="_blank" rel="noopener noreferrer">below</a>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;cpptrace/from_current.hpp&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;stdexcept&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">void foo() {</span></span>
-<span class="line"><span style="color:#24292E">    throw std::runtime_error(</span><span style="color:#032F62">"foo failed"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
-<span class="line"><span style="color:#005CC5">    CPPTRACE_TRY</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">        foo();</span></span>
-<span class="line"><span style="color:#24292E">    } CPPTRACE_CATCH(const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> e) {</span></span>
-<span class="line"><span style="color:#24292E">        std::cerr</span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62">"Exception: "</span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E">e.what()</span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E">std::endl;</span></span>
-<span class="line"><span style="color:#24292E">        cpptrace::from_current_exception().print();</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">#include &lt;cpptrace/from_current.hpp&gt;
+#include &lt;iostream&gt;
+#include &lt;stdexcept&gt;
+
+void foo() {
+    throw std::runtime_error("foo failed");
+}
+
+int main() {
+    CPPTRACE_TRY {
+        foo();
+    } CPPTRACE_CATCH(const std::exception&amp; e) {
+        std::cerr&lt;&lt;"Exception: "&lt;&lt;e.what()&lt;&lt;std::endl;
+        cpptrace::from_current_exception().print();
+    }
+}</code></pre>
 <p><img src="https://raw.githubusercontent.com/jeremy-rifkin/cpptrace/3db8da80111171c219ab5839905771386bee06b3/res/from_current.png" alt="from_current"></p>
 <p>Cpptrace also provides a handful of traced exception objects that store stack traces when thrown. This is useful when
 the exceptions might not be caught by <code>CPPTRACE_CATCH</code>:</p>
-<pre><code lang="py">#include &lt;cpptrace/cpptrace.hpp&gt;
+<pre><code>#include &lt;cpptrace/cpptrace.hpp&gt;
 
 void trace() {
     throw cpptrace::logic_error("This wasn't supposed to happen!");

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.08c8c7b9.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2300c91b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.70ab2def.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.df6880c2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.b3601747.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.53045674.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_kotlin/2.3.20"></head>
 
 	<body style="margin: 0 auto">
@@ -125,19 +125,19 @@ this:</p>
 <span class="line"><span style="color:#24292E">kt_register_toolchains() </span><span style="color:#6A737D"># to use the default toolchain, otherwise see toolchains below</span></span></code></pre>
 <h2><code>BUILD</code> files</h2>
 <p>In your project's <code>BUILD</code> files, load the Kotlin rules and use them like so:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_kotlin//kotlin:jvm.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"kt_jvm_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">kt_jvm_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "package_name"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"*.kt"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "//path/to/dependency"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_library")
+
+kt_jvm_library(
+    name = "package_name",
+    srcs = glob(["*.kt"]),
+    deps = [
+        "//path/to/dependency",
+    ],
+)</code></pre>
 <h2>Custom toolchain</h2>
 <p>To enable a custom toolchain (to configure language level, etc.)
 do the following.  In a <code>&lt;workspace&gt;/BUILD.bazel</code> file define the following:</p>
-<pre><code lang="py">load("@rules_kotlin//kotlin:core.bzl", "define_kt_toolchain")
+<pre><code>load("@rules_kotlin//kotlin:core.bzl", "define_kt_toolchain")
 
 define_kt_toolchain(
     name = "kotlin_toolchain",

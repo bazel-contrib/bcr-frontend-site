@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.cafb305e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7ce8bfb8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.603e5e65.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.34b4629e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.b672dd72.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b9c21b97.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pkg/1.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -93,14 +93,14 @@ Any new capabilities will be added here.</p>
 <span class="line"><span style="color:#24292E">rules_pkg_dependencies()</span></span></code></pre>
 <p>To use <code>pkg_rpm()</code>, you must provide a copy of <code>rpmbuild</code>. You can use the
 system installed <code>rpmbuild</code> with this stanza.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_pkg//toolchains/rpm:rpmbuild_configure.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"find_system_rpmbuild"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">find_system_rpmbuild(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_pkg_rpmbuild"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    verbose</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> False</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_pkg//toolchains/rpm:rpmbuild_configure.bzl", "find_system_rpmbuild")
+
+find_system_rpmbuild(
+    name = "rules_pkg_rpmbuild",
+    verbose = False,
+)</code></pre>
 <h2>MODULE.bazel setup</h2>
-<pre><code lang="py">bazel_dep(name = "rules_pkg", version = "0.0.10")</code></pre>
+<pre><code>bazel_dep(name = "rules_pkg", version = "0.0.10")</code></pre>
 <p>To use <code>pkg_rpm()</code>, you must provide a copy of <code>rpmbuild</code>. You can use the
 system installed <code>rpmbuild</code> with this stanza.</p>
 <pre><code>find_rpm = use_extension("//toolchains/rpm:rpmbuild_configure.bzl", "find_system_rpmbuild_bzlmod")

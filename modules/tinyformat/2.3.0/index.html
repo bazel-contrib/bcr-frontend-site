@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.83ac735a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.908350a3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.cafb305e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7ce8bfb8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.355f92f4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b672dd72.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinyformat/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -90,13 +90,13 @@ with your projects.</li>
 The ability to rearrange formatting arguments is an important feature
 for localization because the word order may vary in different languages.</p>
 <p>Previous example for German usage. Arguments are reordered:</p>
-<pre><code lang="py">tfm::printf("%1$s, %3$d. %2$s, %4$d:%5$.2d\n", weekday, month, day, hour, min);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tfm::printf(</span><span style="color:#032F62">"%1$s, %3$d. %2$s, %4$d:%5$.2d</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, weekday, month, day, hour, </span><span style="color:#005CC5">min</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The strange types here emphasize the type safety of the interface, for example
 it is possible to print a <code>std::string</code> using the <code>"%s"</code> conversion, and a
 <code>size_t</code> using the <code>"%d"</code> conversion.  A similar result could be achieved
 using either of the <code>tfm::format()</code> functions.  One prints on a user provided
 stream:</p>
-<pre><code>tfm::format(std::cerr, "%s, %s %d, %.2d:%.2d\n",
+<pre><code lang="py">tfm::format(std::cerr, "%s, %s %d, %.2d:%.2d\n",
             weekday, month, day, hour, min);</code></pre>
 <p>The other returns a <code>std::string</code>:</p>
 <pre><code>std::string date = tfm::format("%s, %s %d, %.2d:%.2d\n",

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.02ae300d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.485f2dd4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.33b0c997.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1ff6088f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.2bd56746.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.10c19811.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_dart_proto/0.4.4"></head>
 
 	<body style="margin: 0 auto">
@@ -91,23 +91,23 @@ Dart <code>protobuf</code> (and optionally <code>grpc</code>) runtime libraries 
 dependencies. This avoids type-identity conflicts when your application code and
 generated proto code both use these packages.</p>
 <p>Add to your root <code>BUILD.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_dart_proto//dart_proto:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"dart_proto_toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">dart_proto_toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "dart_proto_toolchain_impl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    protobuf_runtime</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@pub_deps//:protobuf"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # grpc_runtime = "@pub_deps//:grpc",  # uncomment if using grpc = True</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "dart_proto_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":dart_proto_toolchain_impl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@rules_dart_proto//dart_proto:toolchain_type"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_dart_proto//dart_proto:defs.bzl", "dart_proto_toolchain")
+
+dart_proto_toolchain(
+    name = "dart_proto_toolchain_impl",
+    protobuf_runtime = "@pub_deps//:protobuf",
+    # grpc_runtime = "@pub_deps//:grpc",  # uncomment if using grpc = True
+)
+
+toolchain(
+    name = "dart_proto_toolchain",
+    toolchain = ":dart_proto_toolchain_impl",
+    toolchain_type = "@rules_dart_proto//dart_proto:toolchain_type",
+)</code></pre>
 <p>The build tools (<code>protoc</code> and <code>protoc-gen-dart</code>) are provided by default. Only the
 runtime libraries need to come from your dependency graph.</p>
 <h2>Usage</h2>
-<pre><code lang="py">load("@rules_proto//proto:defs.bzl", "proto_library")
+<pre><code>load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_dart_proto//dart_proto:defs.bzl", "dart_proto_library")
 load("@rules_dart//dart:defs.bzl", "dart_binary")
 

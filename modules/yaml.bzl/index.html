@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c3d338d8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4a38b45b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.723ecfed.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.34c4d287.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.2b443abc.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d2d0f73d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yaml.bzl/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -76,16 +76,16 @@
 <h3>With bzlmod</h3>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "yaml.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>With WORKSPACE</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "yaml.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;sha256&gt;"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "yaml.bzl-&lt;version&gt;"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/scottpledger/yaml.bzl/releases/download/v&lt;version&gt;/yaml.bzl-v&lt;version&gt;.tar.gz"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "yaml.bzl",
+    sha256 = "&lt;sha256&gt;",
+    strip_prefix = "yaml.bzl-&lt;version&gt;",
+    url = "https://github.com/scottpledger/yaml.bzl/releases/download/v&lt;version&gt;/yaml.bzl-v&lt;version&gt;.tar.gz",
+)</code></pre>
 <h2>Usage</h2>
-<pre><code lang="py">load("@yaml.bzl//:yaml.bzl", "yaml")
+<pre><code>load("@yaml.bzl//:yaml.bzl", "yaml")
 
 doc = yaml.parse("""
 service:

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.12b87ffc.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a376de71.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.881a7d71.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.17e609e3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.ca0ed74b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8c8e9716.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ciq/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -116,22 +116,22 @@ containing the following reference to your CIQ developer key:</p>
 rules provided by this repository. See the<a href="https://github.com/semolina-solutions/rules_ciq/blob/3dc54c6fb986467af8bc87ae7bc242253fb329df/samples/hello_world" target="_blank" rel="noopener noreferrer"><code>samples/hello_world</code></a>
 project for an introductory example. As a minimal demonstration, here is what to put in
 the <code>BUILD.bazel</code> file to generate an app manifest for a widget file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_ciq//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ciq_manifest"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ciq_manifest(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_manifest"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    entry</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyApp"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "00000000-0000-0000-0000-000000000001"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    launcher_icon_drawable_resource_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyLauncherIconResource"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    min_api_level</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.0.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    name_string_resource_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyAppNameResource"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "widget"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_ciq//:defs.bzl", "ciq_manifest")
+
+ciq_manifest(
+    name = "my_manifest",
+    entry = "MyApp",
+    id = "00000000-0000-0000-0000-000000000001",
+    launcher_icon_drawable_resource_id = "MyLauncherIconResource",
+    min_api_level = "3.0.0",
+    name_string_resource_id = "MyAppNameResource",
+    type = "widget",
+)</code></pre>
 </li>
 <li><p>Build, run or test your Bazel targets using <code>bazel build</code>, <code>bazel run</code>, or
 <code>bazel test</code>. To generate the manifest file from the minimal example above, in
 the same directory as the <code>BUILD.bazel</code> file, run in the terminal:</p>
-<pre><code lang="py">bazel build my_manifest</code></pre>
+<pre><code>bazel build my_manifest</code></pre>
 <p> The generated file will be written to the <code>bazel-bin</code> directory. You can
  observe that all devices that support widgets and a minimum API level
  <code>3.0.0</code> are included.</p>

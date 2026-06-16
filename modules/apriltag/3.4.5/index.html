@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.64bfb23d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2fb31454.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.227f1089.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.af6b7a73.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.2794568e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6b8e529e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -98,14 +98,14 @@
 <h1>Install</h1>
 <p>Officially only Linux operating systems are supported, although users have had success installing on Windows too.</p>
 <p>The default installation will place headers in /usr/local/include and shared library in /usr/local/lib. It also installs a pkg-config script into /usr/local/lib/pkgconfig and will install a python wrapper if python3 is installed.</p>
-<pre><code lang="py">cmake -B build -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>This will build shared (*.so) libraries by default. If you need static (*.a) libraries set <code>BUILD_SHARED_LIBS</code> to <code>OFF</code>:</p>
-<pre><code>cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>If you have Ninja (<code>sudo apt install ninja-build</code>) installed, you can use:</p>
-<pre><code>cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>to generate and compile via the ninja build script. It will be much faster than with cmake's default Makefile generator.</p>
 <p>You can omit <code>--target install</code> if you only want to use this locally without installing.</p>
 <h1>Usage</h1>
@@ -121,7 +121,7 @@ cmake --build build --target install</code></pre>
 <p>If none of these fit your needs, generate your own custom tag family <a href="https://github.com/AprilRobotics/apriltag-generation">here</a>.</p>
 <h2>Getting Started with the Detector</h2>
 <h3>Python</h3>
-<pre><code>import cv2
+<pre><code lang="py">import cv2
 import numpy as np
 from apriltag import apriltag
 

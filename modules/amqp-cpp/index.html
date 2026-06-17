@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.625fff32.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c98b91fa.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9a7a6a62.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.889ef37e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f25bf758.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.1751584c.js" defer=""></script>
-		<script src="/registry.b2cd08dd.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a7b1c478.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/amqp-cpp/4.3.27"></head>
 
 	<body style="margin: 0 auto">
@@ -192,14 +192,14 @@ would be:</p>
 </tbody></table>
 <h2>Using make</h2>
 <p>Compiling and installing AMQP-CPP with make is as easy as running: </p>
-<pre><code lang="py">make
-make install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make</span></span>
+<span class="line"><span style="color:#24292E">make install</span></span></code></pre>
 <p>This will install the full version of AMQP-CPP, including 
 the system specific TCP module. </p>
 <p>To install without the TCP module (so that you can handle 
 network connection yourself), run:</p>
-<pre><code>make pure
-make install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make pure</span></span>
+<span class="line"><span style="color:#24292E">make install</span></span></code></pre>
 <h2>Compiling a program</h2>
 <p>When you compile an application that uses the AMQP-CPP library, remember to link 
 with the library. For gcc and clang the linker flag is <code>-lamqpcpp</code>.</p>
@@ -209,7 +209,7 @@ and non-blocking DNS hostname lookup, and it must be linked with the <code>dl</c
 allow dynamic lookups for functions from the openssl library if a secure connection 
 to RabbitMQ has to be set up.</p>
 <p>An example compilation command for an application using the TCP module:</p>
-<pre><code>g++ -g -Wall -lamqcpp -lpthread -ldl my-amqp-cpp.c -o my-amqp-cpp</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">g</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49"> -</span><span style="color:#24292E">g </span><span style="color:#D73A49">-</span><span style="color:#24292E">Wall </span><span style="color:#D73A49">-</span><span style="color:#24292E">lamqcpp </span><span style="color:#D73A49">-</span><span style="color:#24292E">lpthread </span><span style="color:#D73A49">-</span><span style="color:#24292E">ldl my</span><span style="color:#D73A49">-</span><span style="color:#24292E">amqp</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp.c </span><span style="color:#D73A49">-</span><span style="color:#24292E">o my</span><span style="color:#D73A49">-</span><span style="color:#24292E">amqp</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp</span></span></code></pre>
 <h1>HOW TO USE AMQP-CPP</h1>
 <p><a href="#table-of-contents">Back to Table of Contents</a></p>
 <p>AMQP-CPP operates in a network-agnostic fashion. It does not do IO by itself.
@@ -217,79 +217,79 @@ An object must be provided that defines the IO operations. We have provided the
 <code>ConnectionHandler</code> base class for you to extend from and create your own object. 
 This class defines a number of methods called by the library any time it wants 
 to send data, or if it wants to notify you an error has occurred.</p>
-<pre><code>#include &lt;amqpcpp.h&gt;
-
-// You'll need to extend the ConnectionHandler class and make your own, like this
-class MyConnectionHandler : public AMQP::ConnectionHandler
-{
-    /**
-     *  Method that is called by the AMQP library every time it has data
-     *  available that should be sent to RabbitMQ.
-     *  @param  connection  pointer to the main connection object
-     *  @param  data        memory buffer with the data that should be sent to RabbitMQ
-     *  @param  size        size of the buffer
-     */
-    virtual void onData(AMQP::Connection *connection, const char *data, size_t size)
-    {
-        // @todo
-        //  Add your own implementation, for example by doing a call to the
-        //  send() system call. But be aware that the send() call may not
-        //  send all data at once, so you also need to take care of buffering
-        //  the bytes that could not immediately be sent, and try to send
-        //  them again when the socket becomes writable again
-    }
-
-    /**
-     *  Method that is called by the AMQP library when the login attempt
-     *  succeeded. After this method has been called, the connection is ready
-     *  to use.
-     *  @param  connection      The connection that can now be used
-     */
-    virtual void onReady(AMQP::Connection *connection)
-    {
-        // @todo
-        //  add your own implementation, for example by creating a channel
-        //  instance, and start publishing or consuming
-    }
-
-    /**
-     *  Method that is called by the AMQP library when a fatal error occurs
-     *  on the connection, for example because data received from RabbitMQ
-     *  could not be recognized.
-     *  @param  connection      The connection on which the error occurred
-     *  @param  message         A human readable error message
-     */
-    virtual void onError(AMQP::Connection *connection, const char *message)
-    {
-        // @todo
-        //  add your own implementation, for example by reporting the error
-        //  to the user of your program, log the error, and destruct the
-        //  connection object because it is no longer in a usable state
-    }
-
-    /**
-     *  Method that is called when the connection was closed. This is the
-     *  counter part of a call to Connection::close() and it confirms that the
-     *  AMQP connection was correctly closed.
-     *
-     *  @param  connection      The connection that was closed and that is now unusable
-     */
-    virtual void onClosed(AMQP::Connection *connection) 
-    {
-        // @todo
-        //  add your own implementation, for example by closing down the
-        //  underlying TCP connection too
-    }
-
-
-};</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;amqpcpp.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> You</span><span style="color:#032F62">'ll need to extend the ConnectionHandler class and make your own, like this</span></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> MyConnectionHandler</span><span style="color:#24292E"> : public </span><span style="color:#005CC5">AMQP</span><span style="color:#24292E">::ConnectionHandler</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">    /**</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  Method that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called by the </span><span style="color:#005CC5">AMQP</span><span style="color:#24292E"> library every time it has data</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  available that should be sent to RabbitMQ.</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  connection  pointer to the main connection </span><span style="color:#005CC5">object</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  data        memory buffer </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the data that should be sent to RabbitMQ</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  size        size of the buffer</span></span>
+<span class="line"><span style="color:#D73A49">     */</span></span>
+<span class="line"><span style="color:#24292E">    virtual void onData(</span><span style="color:#005CC5">AMQP</span><span style="color:#24292E">::Connection </span><span style="color:#D73A49">*</span><span style="color:#24292E">connection, const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">data, size_t size)</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#D73A49"> @</span><span style="color:#24292E">todo</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  Add your own implementation, </span><span style="color:#D73A49">for</span><span style="color:#24292E"> example by doing a call to the</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  send() system call. But be aware that the send() call may </span><span style="color:#D73A49">not</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  send </span><span style="color:#005CC5">all</span><span style="color:#24292E"> data at once, so you also need to take care of buffering</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  the </span><span style="color:#005CC5">bytes</span><span style="color:#24292E"> that could </span><span style="color:#D73A49">not</span><span style="color:#24292E"> immediately be sent, </span><span style="color:#D73A49">and</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> to send</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  them again when the socket becomes writable again</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    /**</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  Method that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called by the </span><span style="color:#005CC5">AMQP</span><span style="color:#24292E"> library when the login attempt</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  succeeded. After this method has been called, the connection </span><span style="color:#D73A49">is</span><span style="color:#24292E"> ready</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  to use.</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  connection      The connection that can now be used</span></span>
+<span class="line"><span style="color:#D73A49">     */</span></span>
+<span class="line"><span style="color:#24292E">    virtual void onReady(</span><span style="color:#005CC5">AMQP</span><span style="color:#24292E">::Connection </span><span style="color:#D73A49">*</span><span style="color:#24292E">connection)</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#D73A49"> @</span><span style="color:#24292E">todo</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  add your own implementation, </span><span style="color:#D73A49">for</span><span style="color:#24292E"> example by creating a channel</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  instance, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> start publishing </span><span style="color:#D73A49">or</span><span style="color:#24292E"> consuming</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    /**</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  Method that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called by the </span><span style="color:#005CC5">AMQP</span><span style="color:#24292E"> library when a fatal error occurs</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  on the connection, </span><span style="color:#D73A49">for</span><span style="color:#24292E"> example because data received </span><span style="color:#D73A49">from</span><span style="color:#24292E"> RabbitMQ</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  could </span><span style="color:#D73A49">not</span><span style="color:#24292E"> be recognized.</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  connection      The connection on which the error occurred</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  message         A human readable error message</span></span>
+<span class="line"><span style="color:#D73A49">     */</span></span>
+<span class="line"><span style="color:#24292E">    virtual void onError(</span><span style="color:#005CC5">AMQP</span><span style="color:#24292E">::Connection </span><span style="color:#D73A49">*</span><span style="color:#24292E">connection, const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">message)</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#D73A49"> @</span><span style="color:#24292E">todo</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  add your own implementation, </span><span style="color:#D73A49">for</span><span style="color:#24292E"> example by reporting the error</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  to the user of your program, log the error, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> destruct the</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  connection </span><span style="color:#005CC5">object</span><span style="color:#24292E"> because it </span><span style="color:#D73A49">is</span><span style="color:#24292E"> no longer </span><span style="color:#D73A49">in</span><span style="color:#24292E"> a usable state</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    /**</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  Method that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called when the connection was closed. This </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#24292E">  counter part of a call to Connection::close() </span><span style="color:#D73A49">and</span><span style="color:#24292E"> it confirms that the</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#005CC5">  AMQP</span><span style="color:#24292E"> connection was correctly closed.</span></span>
+<span class="line"><span style="color:#D73A49">     *</span></span>
+<span class="line"><span style="color:#D73A49">     *</span><span style="color:#D73A49">  @</span><span style="color:#24292E">param  connection      The connection that was closed </span><span style="color:#D73A49">and</span><span style="color:#24292E"> that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> now unusable</span></span>
+<span class="line"><span style="color:#D73A49">     */</span></span>
+<span class="line"><span style="color:#24292E">    virtual void onClosed(</span><span style="color:#005CC5">AMQP</span><span style="color:#24292E">::Connection </span><span style="color:#D73A49">*</span><span style="color:#24292E">connection) </span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#D73A49"> @</span><span style="color:#24292E">todo</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  add your own implementation, </span><span style="color:#D73A49">for</span><span style="color:#24292E"> example by closing down the</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">  underlying </span><span style="color:#005CC5">TCP</span><span style="color:#24292E"> connection too</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">};</span></span></code></pre>
 <p>Even though <code>ConnectionHandler</code> methods are not marked <code>noexcept</code> explicitly, 
 you are not expected to throw from them, and the behaviour is undefined if you 
 do so.</p>
 <p>After you've implemented the <code>ConnectionHandler</code> class the way you like, 
 you can start using the library by creating a <code>Connection</code> object, and one 
 or more <code>Channel</code> objects:</p>
-<pre><code>// create an instance of your own connection handler
+<pre><code lang="py">// create an instance of your own connection handler
 MyConnectionHandler myHandler;
 
 // create a AMQP connection object

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.99132f4a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.db8b09be.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d895893e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e5e8ba77.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3bd267e7.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.57794072.js" defer=""></script>
-		<script src="/registry.fae2b1a0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f08d89e8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/textforge/1.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -69,12 +69,12 @@
 <p>Specify the dependency: Use the bazel_dep function to add the dependency. The syntax is as follows:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "textforge"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>After adding the dependency to your MODULE.bazel file, you can load the rule into your BUILD.bazel file. Example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@textforge//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"generate_files"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">generate_files(</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@textforge//:defs.bzl", "generate_files")
+
+
+generate_files(
+...
+)</code></pre>
 <h3>Rule attributes</h3>
 <table>
 <thead>
@@ -110,7 +110,7 @@
 </tbody></table>
 <h2>Example</h2>
 <p><em>templates/templateA.txt.jinja</em></p>
-<pre><code lang="py">Template A value: {{ a }}</code></pre>
+<pre><code>Template A value: {{ a }}</code></pre>
 <p><em>templates/templateB.txt.jinja</em></p>
 <pre><code>Template B value: {{ b }}</code></pre>
 <p><em>templates/templateC.txt.jinja</em></p>

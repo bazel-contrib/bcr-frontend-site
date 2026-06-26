@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e0a763a5.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6332707e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.159314dd.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d77a71e9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2934c660.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.57794072.js" defer=""></script>
-		<script src="/registry.3df3025f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.998c6416.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asio-grpc/3.1.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -81,29 +81,29 @@
 <p>Officially supported compilers are GCC 8+, Clang 10+, AppleClang 14+ and latest MSVC.</p>
 <h1>Usage</h1>
 <p>The library can be added to a CMake project using either <code>add_subdirectory</code> or <code>find_package</code>. Once set up, include the individual headers from the <code>agrpc</code> directory or the convenience header:</p>
-<pre><code lang="py">#include &lt;agrpc/asio_grpc.hpp&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;agrpc/asio_grpc.hpp&gt;</span></span></code></pre>
 <details><summary><b>Using vcpkg</b></summary>
 <p>
 
 </p><p>Add <a href="https://github.com/microsoft/vcpkg/blob/master/ports/asio-grpc/vcpkg.json">asio-grpc</a> to the dependencies inside your <code>vcpkg.json</code>: </p>
-<pre><code>{
-    "name": "your_app",
-    "version": "0.1.0",
-    "dependencies": [
-        "asio-grpc",
-        // To use the Boost.Asio backend add
-        // "boost-asio",
-        // To use the standalone Asio backend add
-        // "asio",
-        // To use the libunifex backend add
-        // "libunifex",
-        // To use the stdexec backend add
-        // "stdexec"
-    ]
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">    "name"</span><span style="color:#24292E">: </span><span style="color:#032F62">"your_app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "version"</span><span style="color:#24292E">: </span><span style="color:#032F62">"0.1.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "dependencies"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">        "asio-grpc"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> To use the Boost.Asio backend add</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#032F62"> "boost-asio"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> To use the standalone Asio backend add</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#032F62"> "asio"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> To use the libunifex backend add</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#032F62"> "libunifex"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> To use the stdexec backend add</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#032F62"> "stdexec"</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>Find asio-grpc and link it to your target.</p>
 <p>Using <a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio.html">Boost.Asio</a>:</p>
-<pre><code>find_package(asio-grpc CONFIG REQUIRED)
+<pre><code lang="py">find_package(asio-grpc CONFIG REQUIRED)
 find_package(Boost REQUIRED)
 target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc Boost::headers)</code></pre>
 <p>Or using <a href="https://github.com/chriskohlhoff/asio">standalone Asio</a>:</p>

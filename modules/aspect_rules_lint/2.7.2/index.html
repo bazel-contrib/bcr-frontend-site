@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e0a763a5.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d77a71e9.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2934c660.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7df652d3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5891d62c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.57794072.js" defer=""></script>
-		<script src="/registry.998c6416.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e1cb87c8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_lint/2.7.2"></head>
 
 	<body style="margin: 0 auto">
@@ -99,13 +99,13 @@ run a verbose build to produce report files, then hunt them down under
 <code>aspect lint</code> command that runs the same Bazel aspects, then collects and prints
 every finding for you — grouped by linter, tagged by severity, with <code>file:line</code>
 and rule, and one-key interactive fixes:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> aspect lint </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">🧹 Linters (</span><span style="color:#005CC5">1</span><span style="color:#24292E">): ShellCheck</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Lint findings</span></span>
-<span class="line"><span style="color:#24292E">  ℹ️ src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh:</span><span style="color:#005CC5">4</span><span style="color:#24292E"> · ShellCheck — Double quote to prevent globbing </span><span style="color:#D73A49">and</span><span style="color:#24292E"> word splitting.</span></span>
-<span class="line"><span style="color:#24292E">  ⚠️ src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh:</span><span style="color:#005CC5">10</span><span style="color:#24292E"> · ShellCheck — Grep uses regex, but this looks like a glob.</span></span></code></pre>
+<pre><code lang="py">$ aspect lint //...
+
+🧹 Linters (1): ShellCheck
+
+Lint findings
+  ℹ️ src/hello.sh:4 · ShellCheck — Double quote to prevent globbing and word splitting.
+  ⚠️ src/hello.sh:10 · ShellCheck — Grep uses regex, but this looks like a glob.</code></pre>
 <p>It also scopes findings to your changed lines by default (the "Water Leak
 Principle") and applies fixes with <code>aspect lint --fix</code>.</p>
 <p>On CI, the <strong>free <a href="https://aspect.build/docs/cli/authentication">Aspect Workflows GitHub App</a></strong>
@@ -121,28 +121,28 @@ lint task — <a href="https://github.com/aspect-build/rules_lint/pull/920/check
 </blockquote>
 <p>Configure it once in <code>.aspect/config.axl</code> by pointing the <code>lint</code> task at your
 aspects — no <code>--config=lint</code> or output-group flags to remember:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> config</span><span style="color:#24292E">(ctx: ConfigContext):</span></span>
-<span class="line"><span style="color:#24292E">    ctx.tasks[</span><span style="color:#032F62">"lint"</span><span style="color:#24292E">].args.aspects </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools/lint:linters.bzl</span><span style="color:#005CC5">%s</span><span style="color:#032F62">hellcheck"</span><span style="color:#24292E">]</span></span></code></pre>
+<pre><code>def config(ctx: ConfigContext):
+    ctx.tasks["lint"].args.aspects = ["//tools/lint:linters.bzl%shellcheck"]</code></pre>
 <p><strong>Try it in this repo:</strong> every linter under <a href="https://github.com/aspect-build/rules_lint/blob/1953c5a6d06500608467cfdedb6375e69cedc94b/examples" target="_blank" rel="noopener noreferrer"><code>examples/</code></a> is wired
 up for <code>aspect lint</code>. After <a href="https://docs.aspect.build/cli/install">installing the CLI</a>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd examples</span><span style="color:#D73A49">/</span><span style="color:#24292E">shell </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> aspect lint </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code>$ cd examples/shell &amp;&amp; aspect lint //...</code></pre>
 <h3>Formatting</h3>
 <p>The same applies to formatting. Instead of <code>bazel run //tools/format</code>, the
 <code>aspect format</code> command runs your <code>//tools/format</code> target, formats only your
 changed files by default (or <code>--scope=all</code> for the whole tree), and reports
 exactly what it touched — with a ready-to-run fix command:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> aspect </span><span style="color:#005CC5">format</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">→ ✨ Format · Formatting changed files</span></span>
-<span class="line"><span style="color:#24292E">→ 📋 Diff · Computing </span><span style="color:#005CC5">format</span><span style="color:#24292E"> diff</span></span>
-<span class="line"><span style="color:#005CC5">2</span><span style="color:#24292E"> files were modified:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">sourced_dep.sh</span></span></code></pre>
+<pre><code>$ aspect format
+
+→ ✨ Format · Formatting changed files
+→ 📋 Diff · Computing format diff
+2 files were modified:
+  - src/hello.sh
+  - src/sourced_dep.sh</code></pre>
 <p>On CI it posts a <strong>format status check</strong> via the same GitHub App, and
 <code>--severity</code> chooses whether an unformatted file warns or fails the build. It
 works out of the box — <code>aspect format</code> already targets <code>//tools/format</code>, so no
 extra config is needed:</p>
-<pre><code lang="py">$ cd examples/shell &amp;&amp; aspect format</code></pre>
+<pre><code>$ cd examples/shell &amp;&amp; aspect format</code></pre>
 <p>See the <a href="https://docs.aspect.build/cli/overview">Aspect CLI overview</a> and the
 <a href="https://docs.aspect.build/cli/lint"><code>lint</code></a> and
 <a href="https://docs.aspect.build/cli/format"><code>format</code></a> task docs.</p>

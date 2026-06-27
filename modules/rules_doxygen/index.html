@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e0a763a5.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a2f6f573.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5c55ec35.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ad77897a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f9590ffd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.57794072.js" defer=""></script>
-		<script src="/registry.818d9bbe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d2f4c16e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_doxygen/2.6.3"></head>
 
 	<body style="margin: 0 auto">
@@ -66,24 +66,24 @@
 <p>This repository contains a <a href="https://github.com/bazelbuild/starlark">Starlark</a> implementation of <a href="https://www.doxygen.nl/">Doxygen</a> rules in <a href="https://bazel.build/">Bazel</a>.</p>
 <h2>Setup as a module dependency (Bzlmod)</h2>
 <p>Add the following to your <em>MODULE.bazel</em>:</p>
-<pre><code lang="py"># MODULE.bazel file
-
-bazel_dep(name = "rules_doxygen", version = "2.6.3", dev_dependency = True)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel file</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_doxygen"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2.6.3"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span></code></pre>
 <p>If you don't want to depend on the <a href="https://bazel.build/external/bazelbuild/rules_pkg">Bazel package registry</a> or need a not-yet-published version of this module, you can use a <code>git_override</code> by adding the following lines below <code>bazel_dep</code> in your <em>MODULE.bazel</em> file:</p>
-<pre><code># MODULE.bazel file
-
-bazel_dep(name = "rules_doxygen", version = "2.6.3", dev_dependency = True)
-git_override(
-    module_name = "rules_doxygen",
-    commit = "aacc1c856c350a89a0fa9c43b9318a248d5f1781", # Commit hash you want to use
-    remote = "https://github.com/TendTo/rules_doxygen.git",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel file</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_doxygen"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2.6.3"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_doxygen"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    commit</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "aacc1c856c350a89a0fa9c43b9318a248d5f1781"</span><span style="color:#24292E">, </span><span style="color:#6A737D"># Commit hash you want to use</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/TendTo/rules_doxygen.git"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <blockquote>
 <p>[!Note]<br>Only <a href="https://blog.bazel.build/2023/12/11/bazel-7-release.html">Bazel 7</a> and above are supported.</p>
 </blockquote>
 <h3>Doxygen version selection</h3>
 <p>To add the <code>@doxygen</code> repository to your module, use <code>doxygen_extension</code> under <code>bazel_dep</code> in your MODULE.bazel file.</p>
-<pre><code># MODULE.bazel file
+<pre><code lang="py"># MODULE.bazel file
 
 bazel_dep(name = "rules_doxygen", version = "...", dev_dependency = True)
 

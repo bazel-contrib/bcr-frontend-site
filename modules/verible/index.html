@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.e0a763a5.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6e23a42a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8e611cdf.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f3c95b48.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b2083972.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.254b4758.js" defer=""></script>
-		<script src="/registry.acb6b7e2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d882311f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/verible/0.0.3933"></head>
 
 	<body style="margin: 0 auto">
@@ -199,16 +199,16 @@ target name <code>//verible/verilog/tools/syntax:verible-verilog-syntax</code>).
 shared libraries, you can use custom config
 <code>create_static_linked_executables</code> (with this setting <code>bfd</code> linker will be used,
 instead of default <code>gold</code> linker).</p>
-<pre><code lang="py"># Generate statically linked executables.
-# Uses bfd linker and needs static system libs available.
-bazel build -c opt --config=create_static_linked_executables //...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Generate statically linked executables.</span></span>
+<span class="line"><span style="color:#6A737D"># Uses bfd linker and needs static system libs available.</span></span>
+<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config</span><span style="color:#D73A49">=</span><span style="color:#24292E">create_static_linked_executables </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Optionally using local flex/bison for build</h3>
 <p>Flex and Bison, that are needed for the parser generation, are compiled as part
 of the build process. But if for any reason you want or need local tools (e.g.
 if you encounter a compile problem with them - please file a bug then)
 can choose so by adding <code>--//bazel:use_local_flex_bison</code> to your bazel
 command line:</p>
-<pre><code># Also append the option '--//bazel:use_local_flex_bison' to test/install commands
+<pre><code lang="py"># Also append the option '--//bazel:use_local_flex_bison' to test/install commands
 bazel build -c opt  --//bazel:use_local_flex_bison //...</code></pre>
 <h3>Building on Windows</h3>
 <p>Building on Windows requires LLVM, WinFlexBison 3 and Git-bash to be installed. Using package manager <a href="https://chocolatey.org/">chocolatey</a>, this can be done with</p>

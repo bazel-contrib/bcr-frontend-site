@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.788356c1.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.42e632dd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ee03ea09.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.74b6704d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7cac9aa4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
-		<script src="/bcr.fdfb65ce.js" defer=""></script>
-		<script src="/registry.092d1411.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.7e71ad55.js" defer=""></script>
+		<script src="/registry.d5ff420e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_cc/0.2.22"></head>
 
 	<body style="margin: 0 auto">
@@ -76,17 +76,17 @@ Bazel</a>.</p>
 <p>Add the <a href="https://registry.bazel.build/modules/rules_cc">latest release</a> to your <a href="https://bazel.build/external/overview">MODULE.bazel project file</a>.</p>
 <h2>Declare a build target</h2>
 <p>In a <code>BUILD.bazel</code> file, import and use the rules:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_cc//cc:cc_binary.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cc_binary"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cc_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hello_world"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"hello_world.cc"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_cc//cc:cc_binary.bzl", "cc_binary")
+
+cc_binary(
+    name = "hello_world",
+    srcs = ["hello_world.cc"],
+)</code></pre>
 <h2>Build and run your project</h2>
 <p>Build and run your C/C++ binary with one command:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel run hello_world</span></span></code></pre>
+<pre><code>$ bazel run hello_world</code></pre>
 <p>To build the project without running the binary, use Bazel's <code>build</code> subcommand:</p>
-<pre><code lang="py">$ bazel build hello_world</code></pre>
+<pre><code>$ bazel build hello_world</code></pre>
 <h1>Toolchains</h1>
 <h2>Default autoconfigured toolchain</h2>
 <p>rules_cc includes an auto-configured toolchain that uses the local compiler

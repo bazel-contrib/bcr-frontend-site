@@ -33,14 +33,14 @@
 		})();
 		</script>
 		<link rel="icon" href="/favicon.png">
-		<link href="/bcr.788356c1.css" type="text/css" rel="stylesheet">
+		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.74b6704d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7cac9aa4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.cc49bab9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.970dfcc6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.d5ff420e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e7f28820.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rapidjson/1.1.0.bcr.20250205"></head>
 
 	<body style="margin: 0 auto">
@@ -157,33 +157,33 @@ to use it from other CMake projects by adding <code>find_package(RapidJSON)</cod
 your CMakeLists.txt.</p>
 <h2>Usage at a glance</h2>
 <p>This simple example parses a JSON string into a document (DOM), make a simple modification of the DOM, and finally stringify the DOM to a JSON string.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> rapidjson</span><span style="color:#D73A49">/</span><span style="color:#24292E">example</span><span style="color:#D73A49">/</span><span style="color:#24292E">simpledom</span><span style="color:#D73A49">/</span><span style="color:#24292E">simpledom.cpp</span><span style="color:#B31D28;font-style:italic">`</span></span>
-<span class="line"><span style="color:#6A737D">#include "rapidjson/document.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include "rapidjson/writer.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include "rapidjson/stringbuffer.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">using namespace rapidjson</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">. Parse a </span><span style="color:#005CC5">JSON</span><span style="color:#24292E"> string into </span><span style="color:#005CC5">DOM</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#24292E">    const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> json = </span><span style="color:#032F62">"{</span><span style="color:#005CC5">\"</span><span style="color:#032F62">project</span><span style="color:#005CC5">\"</span><span style="color:#032F62">:</span><span style="color:#005CC5">\"</span><span style="color:#032F62">rapidjson</span><span style="color:#005CC5">\"</span><span style="color:#032F62">,</span><span style="color:#005CC5">\"</span><span style="color:#032F62">stars</span><span style="color:#005CC5">\"</span><span style="color:#032F62">:10}"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    Document d;</span></span>
-<span class="line"><span style="color:#24292E">    d.Parse(json);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 2</span><span style="color:#24292E">. Modify it by </span><span style="color:#005CC5">DOM</span><span style="color:#24292E">.</span></span>
-<span class="line"><span style="color:#24292E">    Value</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> s = d[</span><span style="color:#032F62">"stars"</span><span style="color:#24292E">];</span></span>
-<span class="line"><span style="color:#24292E">    s.SetInt(s.GetInt() </span><span style="color:#D73A49">+</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 3</span><span style="color:#24292E">. Stringify the </span><span style="color:#005CC5">DOM</span></span>
-<span class="line"><span style="color:#24292E">    StringBuffer buffer;</span></span>
-<span class="line"><span style="color:#24292E">    Writer</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">StringBuffer</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> writer(buffer);</span></span>
-<span class="line"><span style="color:#24292E">    d.Accept(writer);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Output {</span><span style="color:#032F62">"project"</span><span style="color:#24292E">:</span><span style="color:#032F62">"rapidjson"</span><span style="color:#24292E">,</span><span style="color:#032F62">"stars"</span><span style="color:#24292E">:</span><span style="color:#005CC5">11</span><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> buffer.GetString() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">// rapidjson/example/simpledom/simpledom.cpp`
+#include "rapidjson/document.h"
+#include "rapidjson/writer.h"
+#include "rapidjson/stringbuffer.h"
+#include &lt;iostream&gt;
+
+using namespace rapidjson;
+
+int main() {
+    // 1. Parse a JSON string into DOM.
+    const char* json = "{\"project\":\"rapidjson\",\"stars\":10}";
+    Document d;
+    d.Parse(json);
+
+    // 2. Modify it by DOM.
+    Value&amp; s = d["stars"];
+    s.SetInt(s.GetInt() + 1);
+
+    // 3. Stringify the DOM
+    StringBuffer buffer;
+    Writer&lt;StringBuffer&gt; writer(buffer);
+    d.Accept(writer);
+
+    // Output {"project":"rapidjson","stars":11}
+    std::cout &lt;&lt; buffer.GetString() &lt;&lt; std::endl;
+    return 0;
+}</code></pre>
 <p>Note that this example did not handle potential errors.</p>
 <p>The following diagram shows the process.</p>
 <p><img src="https://raw.githubusercontent.com/Tencent/rapidjson/24b5e7a8b27f42fa16b96fc70aade9106cf7102f/doc/diagram/simpledom.png" alt="simpledom"></p>
@@ -240,7 +240,7 @@ For crash problems on certain platforms, please bring stack dump content with th
 <p>NOTE: Be sure to merge the latest from "upstream" before making a pull request!</p>
 <h3>Copyright and Licensing</h3>
 <p>You can copy and paste the license summary from below.</p>
-<pre><code lang="py">Tencent is pleased to support the open source community by making RapidJSON available.
+<pre><code>Tencent is pleased to support the open source community by making RapidJSON available.
 
 Copyright (C) 2015 THL A29 Limited, a Tencent company, and Milo Yip.
 

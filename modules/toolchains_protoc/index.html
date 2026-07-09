@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.91ed5613.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0d58f59d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e1f2abc7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a304a872.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.a236c060.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a7408f89.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_protoc/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -135,11 +135,11 @@ changing their dependency versions.</li>
 <p>Fetch this module using instructions from the release you wish to use:
 <a href="https://github.com/aspect-build/toolchains_protoc/releases">https://github.com/aspect-build/toolchains_protoc/releases</a></p>
 <p>Enable the toolchain support by adding this to <code>.bazelrc</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Introduced in Bazel 7.</span></span>
-<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">incompatible_enable_proto_toolchain_resolution</span></span></code></pre>
+<pre><code lang="py"># Introduced in Bazel 7.
+common --incompatible_enable_proto_toolchain_resolution</code></pre>
 <p>Make sure this module wins the toolchain registration for the
 <a href="https://github.com/bazelbuild/rules_proto/blob/74961e561111a3510d5c25233477b950379ae06d/proto/BUILD#L58"><code>@rules_proto//proto:toolchain_type</code> symbol</a>, either by ensuring the <code>bazel_dep</code> for <code>toolchains_protoc</code> is listed BEFORE the one for <code>protobuf</code>, or explicitly register the toolchain in your own <code>MODULE.bazel</code>:</p>
-<pre><code lang="py"># Override the toolchain registration from the protobuf module
+<pre><code># Override the toolchain registration from the protobuf module
 protoc = use_extension("@toolchains_protoc//protoc:extensions.bzl", "protoc")
 use_repo(protoc, "toolchains_protoc_hub")
 register_toolchains("@toolchains_protoc_hub//:all")</code></pre>

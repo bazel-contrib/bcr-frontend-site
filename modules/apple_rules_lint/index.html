@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d878e9f8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.89088213.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.bfc99755.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fd756f5f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.40b16e28.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e8d04c4c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apple_rules_lint/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,46 +67,46 @@
 This is because later rulesets that depend on the linting framework will
 attempt to ensure that linters are configured by registering no-op
 implementations of lint configs. You can do this by:</p>
-<pre><code lang="py"># WORKSPACE
-
-load("@apple_rules_lint//lint:repositories.bzl", "lint_deps")
-
-lint_deps()
-
-load("@apple_rules_lint//lint:setup.bzl", "lint_setup")
-
-lint_setup({
-    "java-checkstyle": "//your:checkstyle-config",
-})</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># WORKSPACE</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@apple_rules_lint//lint:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"lint_deps"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">lint_deps()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@apple_rules_lint//lint:setup.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"lint_setup"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">lint_setup({</span></span>
+<span class="line"><span style="color:#032F62">    "java-checkstyle"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//your:checkstyle-config"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">})</span></span></code></pre>
 <p>Alternatively, using Bzlmod:</p>
-<pre><code># MODULE.bazel
-bazel_dep(name = "apple_rules_lint", version = "0.4.0")
-
-linter = use_extension("@apple_rules_lint//lint:extensions.bzl", "linter")
-linter.configure(name = "java-checkstyle", config = "//your:checkstyle-config")
-use_repo(linter, "apple_linters")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "apple_rules_lint"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.0"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">linter </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@apple_rules_lint//lint:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"linter"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">linter.configure(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "java-checkstyle"</span><span style="color:#24292E">, </span><span style="color:#E36209">config</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//your:checkstyle-config"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(linter, </span><span style="color:#032F62">"apple_linters"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>You may override specific lint configurations on a per-package basis by:</p>
-<pre><code># BUILD.bazel
-
-load("@apple_rules_lint//lint:defs.bzl", "package_lint_config")
-
-package_lint_config({
-    "java-checkstyle": ":alternative-checkstyle-config",
-})</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># BUILD.bazel</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@apple_rules_lint//lint:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"package_lint_config"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">package_lint_config({</span></span>
+<span class="line"><span style="color:#032F62">    "java-checkstyle"</span><span style="color:#24292E">: </span><span style="color:#032F62">":alternative-checkstyle-config"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">})</span></span></code></pre>
 <h3>Missing <code>@@apple_linters</code> error</h3>
 <p>Bazel may report an error like this:</p>
-<pre><code>ERROR: Failed to load Starlark extension '@@apple_linters//:defs.bzl'.
-Cycle in the workspace file detected. This indicates that a repository is used prior to being defined.
-The following chain of repository dependencies lead to the missing definition.
- - @@apple_linters
-This could either mean you have to add the '@@apple_linters' repository with a statement like `http_archive` in your WORKSPACE file (note that transitive dependencies are not added automatically), or move an existing definition earlier in your WORKSPACE file.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">ERROR</span><span style="color:#24292E">: Failed to load Starlark extension </span><span style="color:#032F62">'@@apple_linters//:defs.bzl'</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#24292E">Cycle </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the workspace </span><span style="color:#E36209">file</span><span style="color:#24292E"> detected. This indicates that a repository </span><span style="color:#D73A49">is</span><span style="color:#24292E"> used prior to being defined.</span></span>
+<span class="line"><span style="color:#24292E">The following chain of repository dependencies lead to the missing definition.</span></span>
+<span class="line"><span style="color:#D73A49"> -</span><span style="color:#D73A49"> @@</span><span style="color:#24292E">apple_linters</span></span>
+<span class="line"><span style="color:#24292E">This could either mean you have to add the </span><span style="color:#032F62">'@@apple_linters'</span><span style="color:#24292E"> repository </span><span style="color:#D73A49">with</span><span style="color:#24292E"> a statement like </span><span style="color:#B31D28;font-style:italic">`http_archive`</span><span style="color:#D73A49"> in</span><span style="color:#24292E"> your </span><span style="color:#005CC5">WORKSPACE</span><span style="color:#E36209"> file</span><span style="color:#24292E"> (note that transitive dependencies are </span><span style="color:#D73A49">not</span><span style="color:#24292E"> added automatically), </span><span style="color:#D73A49">or</span><span style="color:#24292E"> move an existing definition earlier </span><span style="color:#D73A49">in</span><span style="color:#24292E"> your </span><span style="color:#005CC5">WORKSPACE</span><span style="color:#E36209"> file</span><span style="color:#24292E">.</span></span></code></pre>
 <p>The <code>@apple_linters</code> repository is defined when <code>lint_setup</code> is called. You'll need to figure out where <code>load("@apple_linters//:defs.bzl, ...)</code> is getting called, and modify your build to ensure that <code>lint_setup</code> is called <em>before</em> linting is loaded.</p>
 <h3>API Documentation</h3>
 <p>Can be found in <a href="https://github.com/apple/apple_rules_lint/blob/ccfc3520169bd88ed73801c50ea4fe3abd535a12/api.md" target="_blank" rel="noopener noreferrer">the api docs</a></p>
 <h2>Ruleset Authors</h2>
 <h3>WORKSPACE setup</h3>
 <p>To add linter support to your repo, add this to...</p>
-<pre><code># repositories.bzl
+<pre><code lang="py"># repositories.bzl
 load("@apple_rules_lint//lint:repositories.bzl", "lint_deps")
 
 lint_deps()</code></pre>

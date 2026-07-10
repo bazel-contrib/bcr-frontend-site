@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.341d0156.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4c127ea8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0073092b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a5480304.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.e782ef9c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bfeb198a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/argparse/3.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -136,36 +136,36 @@
 <p><strong>NOTE:</strong> There is an optional second argument to the <code>ArgumentParser</code> which is the program version. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0");</code></p>
 <p><strong>NOTE:</strong> There are optional third and fourth arguments to the <code>ArgumentParser</code> which control default arguments. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0", default_arguments::help, false);</code> See <a href="#default-arguments">Default Arguments</a>, below.</p>
 <p>To add a new argument, simply call <code>.add_argument(...)</code>. You can provide a variadic list of argument names that you want to group together, e.g., <code>-v</code> and <code>--verbose</code></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-v"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--verbose"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> parameter packing</span></span></code></pre>
+<pre><code lang="py">program.add_argument("foo");
+program.add_argument("-v", "--verbose"); // parameter packing</code></pre>
 <p>Argparse supports a variety of argument types including positional, optional, and compound arguments. Below you can see how to configure each of these types:</p>
 <h3>Positional Arguments</h3>
 <p>Here's an example of a <em><strong>positional argument</strong></em>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">argv[]) {</span></span>
-<span class="line"><span style="color:#24292E">  argparse::ArgumentParser program(</span><span style="color:#032F62">"program_name"</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  program.add_argument(</span><span style="color:#032F62">"square"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .help(</span><span style="color:#032F62">"display the square of a given integer"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    .scan</span><span style="color:#D73A49">&lt;</span><span style="color:#032F62">'i'</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">();</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    program.parse_args(argc, argv);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  catch (const std::exception</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> err) {</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> err.what() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">    std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> program;</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  auto </span><span style="color:#005CC5">input</span><span style="color:#24292E"> = program.get</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">(</span><span style="color:#032F62">"square"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> (</span><span style="color:#005CC5">input</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> input</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>#include &lt;argparse/argparse.hpp&gt;
+
+int main(int argc, char *argv[]) {
+  argparse::ArgumentParser program("program_name");
+
+  program.add_argument("square")
+    .help("display the square of a given integer")
+    .scan&lt;'i', int&gt;();
+
+  try {
+    program.parse_args(argc, argv);
+  }
+  catch (const std::exception&amp; err) {
+    std::cerr &lt;&lt; err.what() &lt;&lt; std::endl;
+    std::cerr &lt;&lt; program;
+    return 1;
+  }
+
+  auto input = program.get&lt;int&gt;("square");
+  std::cout &lt;&lt; (input * input) &lt;&lt; std::endl;
+
+  return 0;
+}</code></pre>
 <p>And running the code:</p>
-<pre><code lang="py">foo@bar:/home/dev/$ ./main 15
+<pre><code>foo@bar:/home/dev/$ ./main 15
 225</code></pre>
 <p>Here's what's happening:</p>
 <ul>

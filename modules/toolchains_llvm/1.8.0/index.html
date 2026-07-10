@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9fcac5e8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.375cd129.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.65157479.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.09695281.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.9c547837.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ce351e7f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_llvm/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -100,21 +100,21 @@ more configuration attributes.</p>
 is not yet present in the bundled distribution table. The required SHA-256s
 can be obtained with <code>utils/extra_distributions.sh -v &lt;version&gt;</code>
 (see <a href="#distribution-data-and-scripts">Distribution data and scripts</a> below).</p>
-<pre><code lang="py">llvm = use_extension("@toolchains_llvm//toolchain/extensions:llvm.bzl", "llvm", dev_dependency = True)
-llvm.toolchain(
-    name = "llvm_toolchain",
-    llvm_version = "20.1.4",
-    extra_llvm_distributions = {
-        "LLVM-20.1.4-Linux-ARM64.tar.xz": "4de80a332eecb06bf55097fd3280e1c69ed80f222e5bdd556221a6ceee02721a",
-        "LLVM-20.1.4-Linux-X64.tar.xz": "113b54c397adb2039fa45e38dc8107b9ec5a0baead3a3bac8ccfbb65b2340caa",
-        "LLVM-20.1.4-macOS-ARM64.tar.xz": "debb43b7b364c5cf864260d84ba1b201d49b6460fe84b76eaa65688dfadf19d2",
-        "clang+llvm-20.1.4-x86_64-pc-windows-msvc.tar.xz": "2b12ac1a0689e29a38a7c98c409cbfa83f390aea30c60b7a06e4ed73f82d2457",
-    },
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">llvm </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@toolchains_llvm//toolchain/extensions:llvm.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"llvm"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">llvm.toolchain(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "llvm_toolchain"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    llvm_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "20.1.4"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    extra_llvm_distributions</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        "LLVM-20.1.4-Linux-ARM64.tar.xz"</span><span style="color:#24292E">: </span><span style="color:#032F62">"4de80a332eecb06bf55097fd3280e1c69ed80f222e5bdd556221a6ceee02721a"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "LLVM-20.1.4-Linux-X64.tar.xz"</span><span style="color:#24292E">: </span><span style="color:#032F62">"113b54c397adb2039fa45e38dc8107b9ec5a0baead3a3bac8ccfbb65b2340caa"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "LLVM-20.1.4-macOS-ARM64.tar.xz"</span><span style="color:#24292E">: </span><span style="color:#032F62">"debb43b7b364c5cf864260d84ba1b201d49b6460fe84b76eaa65688dfadf19d2"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "clang+llvm-20.1.4-x86_64-pc-windows-msvc.tar.xz"</span><span style="color:#24292E">: </span><span style="color:#032F62">"2b12ac1a0689e29a38a7c98c409cbfa83f390aea30c60b7a06e4ed73f82d2457"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The following <code>WORKSPACE</code> snippet shows how to add a specific version for a specific target before
 the version was added to the bundled distribution data under
 <a href="https://github.com/bazel-contrib/toolchains_llvm/blob/332d6856cf41452acbd0ee2636e00232c251dd65/toolchain/distributions" target="_blank" rel="noopener noreferrer"><code>toolchain/distributions/</code></a>.</p>
-<pre><code>llvm_toolchain(
+<pre><code lang="py">llvm_toolchain(
     name = "llvm_toolchain",
     llvm_version = "19.1.6",
     sha256 = {"linux-x86_64": "d55dcbb309de7ade4e3073ec3ac3fac4d3ff236d54df3c4de04464fe68bec531"},

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b908d985.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6f6d736d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.341d0156.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bdb56756.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.4e85b8a4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f3dd0fc6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinygltf/2.9.6"></head>
 
 	<body style="margin: 0 auto">
@@ -84,25 +84,25 @@ Compile <code>tiny_gltf_v3.c</code> as C11 or newer. Define <code>TINYGLTF3_ENAB
 building <code>tiny_gltf_v3.c</code> if you want <code>tg3_parse_file()</code> to use stdio-backed
 filesystem helpers. The legacy <code>TINYGLTF3_IMPLEMENTATION</code> include path remains
 available for compatibility.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "tiny_gltf_v3.h"</span></span></code></pre>
+<pre><code lang="py">#include "tiny_gltf_v3.h"</code></pre>
 <p>Loading a glTF file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tg3_parse_options opts</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">tg3_error_stack errors</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">tg3_model model</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">tg3_parse_options_init(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opts)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">tg3_error_stack_init(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">tg3_error_code err </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tg3_parse_file(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">model, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors, </span><span style="color:#032F62">"scene.gltf"</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opts)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (err </span><span style="color:#D73A49">!=</span><span style="color:#005CC5"> TG3_OK</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (uint32_t i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> errors.count; i</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#24292E">        fprintf(stderr, </span><span style="color:#032F62">"[</span><span style="color:#005CC5">%d</span><span style="color:#032F62">] </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, (</span><span style="color:#005CC5">int</span><span style="color:#24292E">)errors.entries[i].severity,</span></span>
-<span class="line"><span style="color:#24292E">                errors.entries[i].message </span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> errors.entries[i].message : </span><span style="color:#032F62">"(null)"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> ...</span><span style="color:#24292E"> use model </span><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">tg3_model_free(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">model);</span></span>
-<span class="line"><span style="color:#24292E">tg3_error_stack_free(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors);</span></span></code></pre>
+<pre><code>tg3_parse_options opts;
+tg3_error_stack errors;
+tg3_model model;
+
+tg3_parse_options_init(&amp;opts);
+tg3_error_stack_init(&amp;errors);
+
+tg3_error_code err = tg3_parse_file(&amp;model, &amp;errors, "scene.gltf", 10, &amp;opts);
+if (err != TG3_OK) {
+    for (uint32_t i = 0; i &lt; errors.count; i++) {
+        fprintf(stderr, "[%d] %s\n", (int)errors.entries[i].severity,
+                errors.entries[i].message ? errors.entries[i].message : "(null)");
+    }
+}
+// ... use model ...
+tg3_model_free(&amp;model);
+tg3_error_stack_free(&amp;errors);</code></pre>
 <h3>Testing &amp; verification</h3>
 <p>The v3 C runtime ships with three layers of automated coverage:</p>
 <ul>
@@ -246,7 +246,7 @@ WASI build example is located in <a href="https://github.com/syoyo/tinygltf/blob
 <h2>Build and example</h2>
 <p>Copy <code>stb_image.h</code>, <code>stb_image_write.h</code>, <code>json.hpp</code> and <code>tiny_gltf.h</code> to your project.</p>
 <h3>Loading glTF 2.0 model</h3>
-<pre><code lang="py">// Define these only in *one* .cc file.
+<pre><code>// Define these only in *one* .cc file.
 #define TINYGLTF_IMPLEMENTATION
 #define STB_IMAGE_IMPLEMENTATION
 #define STB_IMAGE_WRITE_IMPLEMENTATION

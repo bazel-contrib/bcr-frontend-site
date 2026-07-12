@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fc1700b5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b1b5184b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.75ce761b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f5d437ae.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.2145ba2c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7b881278.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/subspace/2.9.0"></head>
 
 	<body style="margin: 0 auto">
@@ -118,15 +118,15 @@ General Motors Inc.</p>
 The build also needs some external libraries, but Bazel takes care of downloading them.
 The <em>.bazelrc</em> file contains some configuration options.</p>
 <h3>To build on Mac</h3>
-<pre><code lang="py">bazel build --config=macos_arm64 ...    # Apple Silicon
-bazel build --config=macos_x86_64 ...   # Intel</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config</span><span style="color:#D73A49">=</span><span style="color:#24292E">macos_arm64 </span><span style="color:#005CC5">...</span><span style="color:#6A737D">    # Apple Silicon</span></span>
+<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config</span><span style="color:#D73A49">=</span><span style="color:#24292E">macos_x86_64 </span><span style="color:#005CC5">...</span><span style="color:#6A737D">   # Intel</span></span></code></pre>
 <h3>To build on Linux</h3>
 <p>Subspace really wants to be built using <em>clang</em> but modern <em>GCC</em> versions work well too.  Depending on how your OS is configured, you
 might need to tell bazel what compiler to use.</p>
-<pre><code>CC=clang bazel build ...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">CC</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang bazel build </span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Example: Ubuntu 20.04</h3>
 <p>Build a minimal set of binaries:</p>
-<pre><code>CC=clang bazel build //server:subspace_server //manual_tests:{pub,sub}</code></pre>
+<pre><code lang="py">CC=clang bazel build //server:subspace_server //manual_tests:{pub,sub}</code></pre>
 <p>Then run each in a separate terminal:</p>
 <ul>
 <li><code>./bazel-bin/server/subspace_server</code></li>

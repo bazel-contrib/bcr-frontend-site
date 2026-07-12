@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e6151523.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bcee5e2e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.779b854c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.46c1991a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d0b26734.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
-		<script src="/bcr.7e71ad55.js" defer=""></script>
-		<script src="/registry.733ed60a.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.a2d5aa38.js" defer=""></script>
+		<script src="/registry.541e663b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_multirun/0.14.0"></head>
 
 	<body style="margin: 0 auto">
@@ -66,63 +66,63 @@ parallel with a single <code>bazel run</code> invocation. This is especially use
 for running multiple linters or formatters with a single command.</p>
 <h2>Usage</h2>
 <p>Setup the tools you want to run:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_multirun//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"command"</span><span style="color:#24292E">, </span><span style="color:#032F62">"multirun"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_python//python:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_binary"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">sh_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "some_linter"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">py_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "some_other_linter"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">command(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lint-something"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    command</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":some_linter"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    arguments</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"check"</span><span style="color:#24292E">], </span><span style="color:#6A737D"># Optional arguments passed directly to the tool</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">command(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lint-something-else"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    command</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":some_other_linter"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    environment</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span><span style="color:#032F62">"CHECK"</span><span style="color:#24292E">: </span><span style="color:#032F62">"true"</span><span style="color:#24292E">}, </span><span style="color:#6A737D"># Optional environment variables set when invoking the command</span></span>
-<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"..."</span><span style="color:#24292E">] </span><span style="color:#6A737D"># Optional runtime data dependencies</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">multirun(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lint"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    commands</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "lint-something"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "lint-something-else"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#E36209">    jobs</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">, </span><span style="color:#6A737D"># Set to 0 to run in parallel, defaults to sequential</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_multirun//:defs.bzl", "command", "multirun")
+load("@rules_python//python:defs.bzl", "py_binary")
+
+sh_binary(
+    name = "some_linter",
+    ...
+)
+
+py_binary(
+    name = "some_other_linter",
+    ...
+)
+
+command(
+    name = "lint-something",
+    command = ":some_linter",
+    arguments = ["check"], # Optional arguments passed directly to the tool
+)
+
+command(
+    name = "lint-something-else",
+    command = ":some_other_linter",
+    environment = {"CHECK": "true"}, # Optional environment variables set when invoking the command
+    data = ["..."] # Optional runtime data dependencies
+)
+
+multirun(
+    name = "lint",
+    commands = [
+        "lint-something",
+        "lint-something-else",
+    ],
+    jobs = 0, # Set to 0 to run in parallel, defaults to sequential
+)</code></pre>
 <p>Run the <code>multirun</code> target with bazel:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:lint</span></span></code></pre>
+<pre><code>$ bazel run //:lint</code></pre>
 <p>See <a href="https://github.com/keith/rules_multirun/blob/632a2fbfd3159cb8b2881236c4f5caa9bdd45dfd/doc" target="_blank" rel="noopener noreferrer">the full API docs</a> for more info.</p>
 <h2>Usage with platform transitions</h2>
 <p>In case if the <code>multirun</code> rule requires a transition to other configuration than <code>target</code> then
 a new <code>multirun</code>-like rule can be defined as in the following example</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_multirun//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"multirun_with_transition"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> _aws_deploy_platforms_impl</span><span style="color:#24292E">(settings, attr):</span></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> {</span><span style="color:#032F62">"//command_line_option:platforms"</span><span style="color:#24292E">: [</span><span style="color:#032F62">":aws_lambda"</span><span style="color:#24292E">]}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">aws_deploy_transition </span><span style="color:#D73A49">=</span><span style="color:#24292E"> transition(</span></span>
-<span class="line"><span style="color:#E36209">    implementation</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> _aws_deploy_platforms_impl,</span></span>
-<span class="line"><span style="color:#E36209">    inputs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [],</span></span>
-<span class="line"><span style="color:#E36209">    outputs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//command_line_option:platforms"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">aws_deploy </span><span style="color:#D73A49">=</span><span style="color:#24292E"> multirun_with_transition(</span></span>
-<span class="line"><span style="color:#24292E">    aws_deploy_transition,</span></span>
-<span class="line"><span style="color:#032F62">    "@bazel_tools//tools/allowlists/function_transition_allowlist"</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@rules_multirun//:defs.bzl", "multirun_with_transition")
+
+def _aws_deploy_platforms_impl(settings, attr):
+    return {"//command_line_option:platforms": [":aws_lambda"]}
+
+aws_deploy_transition = transition(
+    implementation = _aws_deploy_platforms_impl,
+    inputs = [],
+    outputs = ["//command_line_option:platforms"],
+)
+
+aws_deploy = multirun_with_transition(
+    aws_deploy_transition,
+    "@bazel_tools//tools/allowlists/function_transition_allowlist"
+)</code></pre>
 <p>and used in a <code>BUILD</code> file</p>
-<pre><code lang="py">aws_deploy(
+<pre><code>aws_deploy(
     name = "staging",
     commands = [
        ...

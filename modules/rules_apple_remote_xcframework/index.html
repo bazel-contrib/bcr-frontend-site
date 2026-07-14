@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.680b429d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f004ef52.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c92e83d8.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.37b89fdd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.4cedd07b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8c0eba38.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_apple_remote_xcframework/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -65,25 +65,25 @@
 <p>Tested with Bazel <code>8.x</code> and <code>9.x</code>.</p>
 <h2>Installation</h2>
 <p>Add the following to your <code>MODULE.bazel</code> file:</p>
-<pre><code lang="py">bazel_dep(name = "rules_apple_remote_xcframework", version = "1.0.1")
-
-remote_xcframework = use_extension(
-    "@rules_apple_remote_xcframework//remote_xcframework:extensions.bzl",
-    "remote_xcframework_extension",
-)
-
-remote_xcframework.xcframework(
-    name = "MyRemoteFramework",
-    url = "https://my.server.com/path/to/MyFramework.xcframework.zip",
-    sha256 = "...",
-    strip_prefix = "MyFramework-1.2.3",
-)
-
-use_repo(remote_xcframework, "MyRemoteFramework")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_apple_remote_xcframework"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.0.1"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">remote_xcframework </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span></span>
+<span class="line"><span style="color:#032F62">    "@rules_apple_remote_xcframework//remote_xcframework:extensions.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "remote_xcframework_extension"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">remote_xcframework.xcframework(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyRemoteFramework"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://my.server.com/path/to/MyFramework.xcframework.zip"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyFramework-1.2.3"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">use_repo(remote_xcframework, </span><span style="color:#032F62">"MyRemoteFramework"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>This module depends on <code>rules_apple</code> and <code>rules_swift</code> and is intended for Bzlmod-based projects.</p>
 <h2>Usage</h2>
 <p>You can now depend on the downloaded framework in your <code>swift_library</code> or <code>ios_application</code> targets:</p>
-<pre><code>swift_library(
+<pre><code lang="py">swift_library(
     name = "my_lib",
     srcs = ["..."],
     deps = [

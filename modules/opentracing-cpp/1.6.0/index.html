@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.48600e97.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.907f07e7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.2cb70589.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.216b190c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.b62db259.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1a19bb1a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/opentracing-cpp/1.6.0"></head>
 
 	<body style="margin: 0 auto">
@@ -88,7 +88,7 @@
 Run the below command to run the tests with the debug targets</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ctest </span><span style="color:#D73A49">-</span><span style="color:#24292E">C Debug</span></span></code></pre>
 <p>Run the below command to run the tests with the release targets</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ctest </span><span style="color:#D73A49">-</span><span style="color:#24292E">C Release</span></span></code></pre>
+<pre><code lang="py">ctest -C Release</code></pre>
 <h2>API overview for those adding instrumentation</h2>
 <p>Everyday consumers of this <code>opentracing</code> package really only need to worry
 about a couple of key abstractions: the <code>StartSpan</code> function, the <code>Span</code>
@@ -96,84 +96,84 @@ interface, and binding a <code>Tracer</code> at <code>main()</code>-time. Here a
 demonstrating some important use cases.</p>
 <h4>Singleton initialization</h4>
 <p>The simplest starting point is <code>opentracing/tracer.h</code>. As early as possible, call</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;opentracing/tracer.h&gt;</span></span>
-<span class="line"><span style="color:#6A737D">    #include &lt;some_tracing_impl.h&gt;</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> main() {</span></span>
-<span class="line"><span style="color:#24292E">      Tracer::InitGlobal(make_some_tracing_impl());</span></span>
-<span class="line"><span style="color:#005CC5">      ...</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span></code></pre>
+<pre><code>#include &lt;opentracing/tracer.h&gt;
+    #include &lt;some_tracing_impl.h&gt;
+    
+    int main() {
+      Tracer::InitGlobal(make_some_tracing_impl());
+      ...
+    }</code></pre>
 <h4>Non-Singleton initialization</h4>
 <p>If you prefer direct control to singletons, manage ownership of the
 <code>opentracing::Tracer</code> implementation explicitly.</p>
 <h4>Starting an empty trace by creating a "root span"</h4>
 <p>It's always possible to create a "root" <code>Span</code> with no parent or other causal
 reference.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">void xyz() {</span></span>
-<span class="line"><span style="color:#005CC5">        ...</span></span>
-<span class="line"><span style="color:#24292E">        auto tracer = </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> Some Tracer </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#24292E">        auto span = tracer</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">StartSpan(</span><span style="color:#032F62">"operation_name"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">span)</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#24292E"> Error creating span.</span></span>
-<span class="line"><span style="color:#005CC5">          ...</span></span>
-<span class="line"><span style="color:#24292E">        span</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">Finish();</span></span>
-<span class="line"><span style="color:#005CC5">        ...</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span></code></pre>
+<pre><code>void xyz() {
+        ...
+        auto tracer = /* Some Tracer */
+        auto span = tracer-&gt;StartSpan("operation_name");
+        if (!span)
+          // Error creating span.
+          ...
+        span-&gt;Finish();
+        ...
+    }</code></pre>
 <h4>Creating a (child) Span given an existing (parent) Span</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">void xyz(const opentracing::Span</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> parent_span, </span><span style="color:#005CC5">...</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#005CC5">        ...</span></span>
-<span class="line"><span style="color:#24292E">        auto tracer = </span><span style="color:#D73A49">/*</span><span style="color:#24292E"> Some Tracer </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#24292E">        auto span = tracer</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">StartSpan(</span></span>
-<span class="line"><span style="color:#032F62">            "operation_name"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">            {opentracing::ChildOf(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">parent_span.context())});</span></span>
-<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">span)</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#24292E"> Error creating span.</span></span>
-<span class="line"><span style="color:#005CC5">          ...</span></span>
-<span class="line"><span style="color:#24292E">        span</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">Finish();</span></span>
-<span class="line"><span style="color:#005CC5">        ...</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span></code></pre>
+<pre><code>void xyz(const opentracing::Span&amp; parent_span, ...) {
+        ...
+        auto tracer = /* Some Tracer */
+        auto span = tracer-&gt;StartSpan(
+            "operation_name",
+            {opentracing::ChildOf(&amp;parent_span.context())});
+        if (!span)
+          // Error creating span.
+          ...
+        span-&gt;Finish();
+        ...
+    }</code></pre>
 <h4>Inject Span context into a TextMapWriter</h4>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct CustomCarrierWriter : opentracing::TextMapWriter {</span></span>
-<span class="line"><span style="color:#24292E">      explicit CustomCarrierWriter(</span></span>
-<span class="line"><span style="color:#24292E">          std::unordered_map</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string, std::string</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> data_)</span></span>
-<span class="line"><span style="color:#24292E">          : data{data_} {}</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">      opentracing::expected</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Set(</span></span>
-<span class="line"><span style="color:#24292E">          opentracing::string_view key,</span></span>
-<span class="line"><span style="color:#24292E">          opentracing::string_view value) const override {</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> OpenTracing uses opentracing::expected </span><span style="color:#D73A49">for</span><span style="color:#24292E"> error handling. This closely</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> follows the expected proposal </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> Standard Library. See</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E">    http:</span><span style="color:#D73A49">//</span><span style="color:#005CC5">open</span><span style="color:#D73A49">-</span><span style="color:#24292E">std.org</span><span style="color:#D73A49">/</span><span style="color:#005CC5">JTC1</span><span style="color:#D73A49">/</span><span style="color:#005CC5">SC22</span><span style="color:#D73A49">/</span><span style="color:#005CC5">WG21</span><span style="color:#D73A49">/</span><span style="color:#24292E">docs</span><span style="color:#D73A49">/</span><span style="color:#24292E">papers</span><span style="color:#D73A49">/</span><span style="color:#005CC5">2017</span><span style="color:#D73A49">/</span><span style="color:#24292E">p0323r3.pdf</span></span>
-<span class="line"><span style="color:#D73A49">        //</span><span style="color:#D73A49"> for</span><span style="color:#24292E"> more background.</span></span>
-<span class="line"><span style="color:#24292E">        opentracing::expected</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> result;</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">        auto was_successful = data.emplace(key, value);</span></span>
-<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> (was_successful.second) {</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#24292E"> Use a default constructed opentracing::expected</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> to indicate</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#24292E"> success.</span></span>
-<span class="line"><span style="color:#D73A49">          return</span><span style="color:#24292E"> result;</span></span>
-<span class="line"><span style="color:#24292E">        } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#B31D28;font-style:italic"> `key`</span><span style="color:#24292E"> clashes </span><span style="color:#D73A49">with</span><span style="color:#24292E"> existing data, so the span context can</span><span style="color:#032F62">'t be encoded</span></span>
-<span class="line"><span style="color:#D73A49">          //</span><span style="color:#24292E"> successfully; </span><span style="color:#005CC5">set</span><span style="color:#24292E"> opentracing::expected</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">void</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> to an std::error_code.</span></span>
-<span class="line"><span style="color:#D73A49">          return</span><span style="color:#24292E"> opentracing::make_unexpected(</span></span>
-<span class="line"><span style="color:#24292E">              std::make_error_code(std::errc::not_supported));</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">      }</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">      std::unordered_map</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string, std::string</span><span style="color:#D73A49">&gt;&amp;</span><span style="color:#24292E"> data;</span></span>
-<span class="line"><span style="color:#24292E">    };</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#24292E">    std::unordered_map</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string, std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> data;</span></span>
-<span class="line"><span style="color:#24292E">    CustomCarrierWriter carrier{data};</span></span>
-<span class="line"><span style="color:#24292E">    auto was_successful = tracer</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">Inject(span</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">context(), carrier);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">was_successful) {</span></span>
-<span class="line"><span style="color:#D73A49">      //</span><span style="color:#24292E"> Injection failed, log an error message.</span></span>
-<span class="line"><span style="color:#24292E">      std::cerr </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> was_successful.error().message() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span></code></pre>
+<pre><code>struct CustomCarrierWriter : opentracing::TextMapWriter {
+      explicit CustomCarrierWriter(
+          std::unordered_map&lt;std::string, std::string&gt;&amp; data_)
+          : data{data_} {}
+    
+      opentracing::expected&lt;void&gt; Set(
+          opentracing::string_view key,
+          opentracing::string_view value) const override {
+        // OpenTracing uses opentracing::expected for error handling. This closely
+        // follows the expected proposal for the C++ Standard Library. See
+        //    http://open-std.org/JTC1/SC22/WG21/docs/papers/2017/p0323r3.pdf
+        // for more background.
+        opentracing::expected&lt;void&gt; result;
+    
+        auto was_successful = data.emplace(key, value);
+        if (was_successful.second) {
+          // Use a default constructed opentracing::expected&lt;void&gt; to indicate
+          // success.
+          return result;
+        } else {
+          // `key` clashes with existing data, so the span context can't be encoded
+          // successfully; set opentracing::expected&lt;void&gt; to an std::error_code.
+          return opentracing::make_unexpected(
+              std::make_error_code(std::errc::not_supported));
+        }
+      }
+    
+      std::unordered_map&lt;std::string, std::string&gt;&amp; data;
+    };
+
+    ...
+    
+    std::unordered_map&lt;std::string, std::string&gt; data;
+    CustomCarrierWriter carrier{data};
+    auto was_successful = tracer-&gt;Inject(span-&gt;context(), carrier);
+    if (!was_successful) {
+      // Injection failed, log an error message.
+      std::cerr &lt;&lt; was_successful.error().message() &lt;&lt; "\n";
+    }</code></pre>
 <h4>Extract Span context from a TextMapReader</h4>
-<pre><code lang="py">struct CustomCarrierReader : opentracing::TextMapReader {
+<pre><code>struct CustomCarrierReader : opentracing::TextMapReader {
       explicit CustomCarrierReader(
           const std::unordered_map&lt;std::string, std::string&gt;&amp; data_)
           : data{data_} {}

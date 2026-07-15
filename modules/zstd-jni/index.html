@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.151dca1f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b39b9404.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7a304a65.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f290e41a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.09fda313.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a047fe59.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zstd-jni/1.5.6-9.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -108,9 +108,9 @@ embeds the native library.</p>
 v0.5.2, as that version is not published to Maven. Before compiling, you need to publish it locally:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd sbt</span><span style="color:#D73A49">-</span><span style="color:#24292E">java</span><span style="color:#D73A49">-</span><span style="color:#24292E">module</span><span style="color:#D73A49">-</span><span style="color:#24292E">info </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">sbt publishLocal </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd </span><span style="color:#D73A49">-</span></span></code></pre>
 <p>Compile and test:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">sbt </span><span style="color:#005CC5">compile</span><span style="color:#24292E"> test package</span></span></code></pre>
+<pre><code lang="py">$ ./sbt compile test package</code></pre>
 <p>If you want to publish it to you local ivy2 repository:</p>
-<pre><code lang="py">$ ./sbt publishLocal</code></pre>
+<pre><code>$ ./sbt publishLocal</code></pre>
 <h2>Binary releases</h2>
 <p>The binary releases are architecture dependent because we are embedding the
 native library in the provided Jar file. Currently they are built for

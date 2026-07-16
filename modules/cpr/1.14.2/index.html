@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a93f4515.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a1fda615.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.68911f28.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3c64f967.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.313c18c7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.49b159ed.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cpr/1.14.2"></head>
 
 	<body style="margin: 0 auto">
@@ -169,25 +169,25 @@ All of this can be found in an example <a href="https://github.com/libcpr/exampl
 <h4>find_package():</h4>
 <p>If you prefer not to use <code>fetch_content</code>, you can download, build, and install the library and then use CMake <code>find_package()</code> function to integrate it into a project.</p>
 <p><strong>Note:</strong> this feature is feasible only if CPR_USE_SYSTEM_CURL is set. (see <a href="https://github.com/libcpr/cpr/pull/645">#645</a>)</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">libcpr</span><span style="color:#D73A49">/</span><span style="color:#24292E">cpr.git</span></span>
-<span class="line"><span style="color:#24292E">cd cpr </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
-<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCPR_USE_SYSTEM_CURL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">parallel</span></span>
-<span class="line"><span style="color:#24292E">sudo cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install .</span></span></code></pre>
+<pre><code lang="py">git clone https://github.com/libcpr/cpr.git
+cd cpr &amp;&amp; mkdir build &amp;&amp; cd build
+cmake .. -DCPR_USE_SYSTEM_CURL=ON
+cmake --build . --parallel
+sudo cmake --install .</code></pre>
 <h4>Build Static Library</h4>
 <p>As an alternative if you want to switch between a static or shared version of cpr use <a href="https://cmake.org/cmake/help/latest/variable/BUILD_SHARED_LIBS.html">'-DBUILD_SHARED_LIBS=ON/OFF'</a>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">libcpr</span><span style="color:#D73A49">/</span><span style="color:#24292E">cpr.git</span></span>
-<span class="line"><span style="color:#24292E">cd cpr </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
-<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCPR_USE_SYSTEM_CURL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">parallel</span></span>
-<span class="line"><span style="color:#24292E">sudo cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install .</span></span></code></pre>
+<pre><code>git clone https://github.com/libcpr/cpr.git
+cd cpr &amp;&amp; mkdir build &amp;&amp; cd build
+cmake .. -DCPR_USE_SYSTEM_CURL=ON -DBUILD_SHARED_LIBS=OFF
+cmake --build . --parallel
+sudo cmake --install .</code></pre>
 <p>In your <code>CMakeLists.txt</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">find_package(cpr </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">add_executable(your_target_name your_target_name.cpp)</span></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(your_target_name </span><span style="color:#005CC5">PRIVATE</span><span style="color:#24292E"> cpr::cpr)</span></span></code></pre>
+<pre><code>find_package(cpr REQUIRED)
+add_executable(your_target_name your_target_name.cpp)
+target_link_libraries(your_target_name PRIVATE cpr::cpr)</code></pre>
 <h4>Tests</h4>
 <p><code>cpr</code> provides a bunch of tests that can be executed via the following commands.</p>
-<pre><code lang="py">git clone https://github.com/libcpr/cpr.git
+<pre><code>git clone https://github.com/libcpr/cpr.git
 cd cpr &amp;&amp; mkdir build &amp;&amp; cd build
 cmake .. -DCPR_BUILD_TESTS=ON # There are other test related options like 'CPR_BUILD_TESTS_SSL' and 'CPR_BUILD_TESTS_PROXY'
 cmake --build . --parallel

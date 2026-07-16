@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a84a24f1.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e83c0b50.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.47b06fbe.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2e6f75e4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.ca27f8f2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c5f523a8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zstd/1.5.7.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -242,16 +242,16 @@ to create the <code>zstd</code> binary as well as <code>libzstd</code> dynamic a
 The repository root now contains a minimal <code>CMakeLists.txt</code> that forwards to <code>build/cmake</code>,
 so you can configure the project with a standard <code>cmake -S .</code> invocation,
 while the historical <code>cmake -S build/cmake</code> entry point remains fully supported.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span></span></code></pre>
+<pre><code lang="py">cmake -S . -B build-cmake
+cmake --build build-cmake</code></pre>
 <p>By default, <code>CMAKE_BUILD_TYPE</code> is set to <code>Release</code>.</p>
 <h4>Support for Fat (Universal2) Output</h4>
 <p><code>zstd</code> can be built and installed with support for both Apple Silicon (M1/M2) as well as Intel by using CMake's Universal2 support.
 To perform a Fat/Universal2 build and install use the following commands:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span><span style="color:#D73A49">-</span><span style="color:#24292E">debug </span><span style="color:#D73A49">-</span><span style="color:#24292E">G Ninja </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_OSX_ARCHITECTURES</span><span style="color:#D73A49">=</span><span style="color:#032F62">"x86_64;x86_64h;arm64"</span></span>
-<span class="line"><span style="color:#24292E">cd build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span><span style="color:#D73A49">-</span><span style="color:#24292E">debug</span></span>
-<span class="line"><span style="color:#24292E">ninja</span></span>
-<span class="line"><span style="color:#24292E">sudo ninja install</span></span></code></pre>
+<pre><code>cmake -S . -B build-cmake-debug -G Ninja -DCMAKE_OSX_ARCHITECTURES="x86_64;x86_64h;arm64"
+cd build-cmake-debug
+ninja
+sudo ninja install</code></pre>
 <h3>Meson</h3>
 <p>A Meson project is provided within <a href="https://github.com/facebook/zstd/blob/ae9f20ca2716f2605822ca375995b7d876389b64/build/meson" target="_blank" rel="noopener noreferrer"><code>build/meson</code></a>. Follow
 build instructions in that directory.</p>
@@ -260,7 +260,7 @@ example about how Meson is used to build this project.</p>
 <p>Note that default build type is <strong>release</strong>.</p>
 <h3>VCPKG</h3>
 <p>You can build and install zstd <a href="https://github.com/Microsoft/vcpkg/">vcpkg</a> dependency manager:</p>
-<pre><code lang="py">git clone https://github.com/Microsoft/vcpkg.git
+<pre><code>git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
 ./vcpkg integrate install

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a84a24f1.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e83c0b50.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.47b06fbe.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2e6f75e4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.ca27f8f2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c5f523a8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yams/6.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -75,13 +75,13 @@ Swift Package Manager or CMake and Ninja.</p>
 <h3>CMake</h3>
 <p>CMake 3.17.2 or newer is required, along with Ninja 1.9.0 or newer.</p>
 <p>When building for non-Apple platforms:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">build </span><span style="color:#D73A49">-</span><span style="color:#24292E">G Ninja </span><span style="color:#D73A49">-</span><span style="color:#24292E">S </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">yams </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release </span><span style="color:#D73A49">-</span><span style="color:#24292E">DFoundation_DIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">foundation</span><span style="color:#D73A49">/</span><span style="color:#24292E">build</span><span style="color:#D73A49">/</span><span style="color:#24292E">cmake</span><span style="color:#D73A49">/</span><span style="color:#24292E">modules</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">build</span></span></code></pre>
+<pre><code lang="py">cmake -B /path/to/build -G Ninja -S /path/to/yams -DCMAKE_BUILD_TYPE=Release -DFoundation_DIR=/path/to/foundation/build/cmake/modules
+cmake --build /path/to/build</code></pre>
 <p>To build for Apple platforms (macOS, iOS, tvOS, watchOS), there is no
 need to separately build Foundation because it is included as part of
 the SDK:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">build </span><span style="color:#D73A49">-</span><span style="color:#24292E">G Ninja </span><span style="color:#D73A49">-</span><span style="color:#24292E">S </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">yams </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">build</span></span></code></pre>
+<pre><code>cmake -B /path/to/build -G Ninja -S /path/to/yams -DCMAKE_BUILD_TYPE=Release
+cmake --build /path/to/build</code></pre>
 <h3>Swift Package Manager</h3>
 <p>Add <code>.package(url: "https://github.com/jpsim/Yams.git", from: "6.2.1")</code> to your
 <code>Package.swift</code> file's <code>dependencies</code>.</p>
@@ -91,7 +91,7 @@ the SDK:</p>
 <p>Add <code>github "jpsim/Yams"</code> to your <code>Cartfile</code>.</p>
 <h3>Bazel</h3>
 <p>In your WORKSPACE file</p>
-<pre><code lang="py">YAMS_GIT_SHA = "SOME_SHA"
+<pre><code>YAMS_GIT_SHA = "SOME_SHA"
 http_archive(
     name = "com_github_jpsim_yams",
     urls = [

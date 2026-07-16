@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.159cf8d5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.59ea7f48.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a93f4515.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a1fda615.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.f4d30910.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.313c18c7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ada-url/3.4.4"></head>
 
 	<body style="margin: 0 auto">
@@ -102,9 +102,9 @@ standard libraries, follow the RFC 3986. The following table illustrates possibl
 on popular websites</a>,
 we find that ada can be several times faster than popular competitors (system: Apple MacBook 2022
 with LLVM 14).</p>
-<pre><code lang="py">ada ▏  188 ns/URL ███▏
-servo url ▏  664 ns/URL ███████████▎
-     CURL ▏ 1471 ns/URL █████████████████████████</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ada ▏  </span><span style="color:#005CC5">188</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> ███▏</span></span>
+<span class="line"><span style="color:#24292E">servo url ▏  </span><span style="color:#005CC5">664</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> ███████████▎</span></span>
+<span class="line"><span style="color:#005CC5">     CURL</span><span style="color:#24292E"> ▏ </span><span style="color:#005CC5">1471</span><span style="color:#24292E"> ns</span><span style="color:#D73A49">/</span><span style="color:#005CC5">URL</span><span style="color:#24292E"> █████████████████████████</span></span></code></pre>
 <p>Ada has improved the performance of the popular JavaScript environment Node.js:</p>
 <blockquote>
 <p>Since Node.js 18, a new URL parser dependency was added to Node.js — Ada. This addition bumped the Node.js performance when parsing URLs to a new level. Some results could reach up to an improvement of <strong>400%</strong>. (<a href="https://blog.rafaelgss.dev/state-of-nodejs-performance-2023">State of Node.js Performance 2023</a>)</p>
@@ -121,28 +121,28 @@ A recent C++ compiler supporting C++20. We test GCC 12 or better, LLVM 14 or bet
 <p>Linux or macOS users might follow the following instructions if they have a recent C++ compiler installed and a standard utility (<code>wget</code>)</p>
 <ol>
 <li><p>Pull the library in a directory</p>
-<pre><code>wget https://github.com/ada-url/ada/releases/download/v3.0.0/ada.cpp
-wget https://github.com/ada-url/ada/releases/download/v3.0.0/ada.h</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">-</span><span style="color:#24292E">url</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.0.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada.cpp</span></span>
+<span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">-</span><span style="color:#24292E">url</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.0.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada.h</span></span></code></pre>
 </li>
 <li><p>Create a new file named <code>demo.cpp</code> with this content:</p>
-<pre><code>#include "ada.cpp"
- #include "ada.h"
- #include &lt;iostream&gt;
-
- int main(int, char *[]) {
-   auto url = ada::parse("https://www.google.com");
-   if (!url) {
-     std::cout &lt;&lt; "failure" &lt;&lt; std::endl;
-     return EXIT_FAILURE;
-   }
-   url-&gt;set_protocol("http");
-   std::cout &lt;&lt; url-&gt;get_protocol() &lt;&lt; std::endl;
-   std::cout &lt;&lt; url-&gt;get_host() &lt;&lt; std::endl;
-   return EXIT_SUCCESS;
- }</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "ada.cpp"</span></span>
+<span class="line"><span style="color:#6A737D"> #include "ada.h"</span></span>
+<span class="line"><span style="color:#6A737D"> #include &lt;iostream&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5"> int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E">, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">[]) {</span></span>
+<span class="line"><span style="color:#24292E">   auto url = ada::parse(</span><span style="color:#032F62">"https://www.google.com"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">   if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">url) {</span></span>
+<span class="line"><span style="color:#24292E">     std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "failure"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#D73A49">     return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">   }</span></span>
+<span class="line"><span style="color:#24292E">   url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_protocol(</span><span style="color:#032F62">"http"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_protocol() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_host() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#D73A49">   return</span><span style="color:#005CC5"> EXIT_SUCCESS</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E"> }</span></span></code></pre>
 </li>
 <li><p>Compile</p>
-<pre><code>c++ -std=c++20 -o demo demo.cpp</code></pre>
+<pre><code lang="py">c++ -std=c++20 -o demo demo.cpp</code></pre>
 </li>
 <li><p><code>./demo</code></p>
 <pre><code>http:

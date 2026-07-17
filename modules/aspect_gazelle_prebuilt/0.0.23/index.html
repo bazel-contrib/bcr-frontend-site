@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9f500b15.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.df9b4bfe.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fc5ff98b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4a849c5c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.fd1a1ebf.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.34b80740.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_gazelle_prebuilt/0.0.23"></head>
 
 	<body style="margin: 0 auto">
@@ -106,9 +106,9 @@ However this doesn't always work well.</p>
 <p><a href="https://github.com/bazel-contrib/rules_python/issues/1913">https://github.com/bazel-contrib/rules_python/issues/1913</a></p>
 <h3>Install &amp; Setup</h3>
 <p>Add to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "aspect_gazelle_prebuilt"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "aspect_gazelle_prebuilt", version = "...")</code></pre>
 <p>Add a <code>gazelle</code> target to your <code>BUILD</code> file:</p>
-<pre><code lang="py">load("@aspect_gazelle_prebuilt//:def.bzl", "aspect_gazelle")
+<pre><code>load("@aspect_gazelle_prebuilt//:def.bzl", "aspect_gazelle")
 
 aspect_gazelle(
     name = "gazelle",

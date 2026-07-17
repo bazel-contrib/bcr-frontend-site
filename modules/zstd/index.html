@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.80939560.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.60140dd1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ff75d39e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.49c151f0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.8f81bdd8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0dfb5c6c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zstd/1.5.7.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -248,10 +248,10 @@ while the historical <code>cmake -S build/cmake</code> entry point remains fully
 <h4>Support for Fat (Universal2) Output</h4>
 <p><code>zstd</code> can be built and installed with support for both Apple Silicon (M1/M2) as well as Intel by using CMake's Universal2 support.
 To perform a Fat/Universal2 build and install use the following commands:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span><span style="color:#D73A49">-</span><span style="color:#24292E">debug </span><span style="color:#D73A49">-</span><span style="color:#24292E">G Ninja </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_OSX_ARCHITECTURES</span><span style="color:#D73A49">=</span><span style="color:#032F62">"x86_64;x86_64h;arm64"</span></span>
-<span class="line"><span style="color:#24292E">cd build</span><span style="color:#D73A49">-</span><span style="color:#24292E">cmake</span><span style="color:#D73A49">-</span><span style="color:#24292E">debug</span></span>
-<span class="line"><span style="color:#24292E">ninja</span></span>
-<span class="line"><span style="color:#24292E">sudo ninja install</span></span></code></pre>
+<pre><code lang="py">cmake -S . -B build-cmake-debug -G Ninja -DCMAKE_OSX_ARCHITECTURES="x86_64;x86_64h;arm64"
+cd build-cmake-debug
+ninja
+sudo ninja install</code></pre>
 <h3>Meson</h3>
 <p>A Meson project is provided within <a href="https://github.com/facebook/zstd/blob/ae9f20ca2716f2605822ca375995b7d876389b64/build/meson" target="_blank" rel="noopener noreferrer"><code>build/meson</code></a>. Follow
 build instructions in that directory.</p>
@@ -260,7 +260,7 @@ example about how Meson is used to build this project.</p>
 <p>Note that default build type is <strong>release</strong>.</p>
 <h3>VCPKG</h3>
 <p>You can build and install zstd <a href="https://github.com/Microsoft/vcpkg/">vcpkg</a> dependency manager:</p>
-<pre><code lang="py">git clone https://github.com/Microsoft/vcpkg.git
+<pre><code>git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
 ./vcpkg integrate install

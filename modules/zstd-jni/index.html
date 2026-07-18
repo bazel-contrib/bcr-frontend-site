@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.52256156.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.eba4c589.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.43963be4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.de382f84.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.12f51993.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d5281a8a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zstd-jni/1.5.6-9.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -120,13 +120,13 @@ native library in the provided Jar file. Currently they are built for
 <em>aix-ppc64</em>, <em>freebsd-amd64</em>, and <em>freebsd-i386</em>.</p>
 <p>More builds will be available if I get access to more platforms.</p>
 <p>You can find published releases on Maven Central.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">com.github.luben</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">zstd</span><span style="color:#D73A49">-</span><span style="color:#24292E">jni</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">VERSION</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span></code></pre>
+<pre><code lang="py">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.luben&lt;/groupId&gt;
+    &lt;artifactId&gt;zstd-jni&lt;/artifactId&gt;
+    &lt;version&gt;VERSION&lt;/version&gt;
+&lt;/dependency&gt;</code></pre>
 <p>sbt dependency:</p>
-<pre><code lang="py">libraryDependencies += "com.github.luben" % "zstd-jni" % "VERSION"</code></pre>
+<pre><code>libraryDependencies += "com.github.luben" % "zstd-jni" % "VERSION"</code></pre>
 <p>Single architecture classified jars are also published. They can be used like:</p>
 <pre><code>&lt;dependency&gt;
     &lt;groupId&gt;com.github.luben&lt;/groupId&gt;

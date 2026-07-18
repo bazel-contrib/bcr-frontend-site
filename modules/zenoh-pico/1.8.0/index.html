@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.505b163e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bf8425e0.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b1d963c7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d84fbae9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.a2d5aa38.js" defer=""></script>
-		<script src="/registry.45926220.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a960a785.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-pico/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -166,15 +166,15 @@ There are two kind of packages:</p>
 on your platform -- if not please install it.</p>
 <p>Once the <a href="https://cmake.org">cmake</a> dependency is satisfied, just do the following for <strong>CMake</strong> version 3 and higher:</p>
 <p>  -- CMake version 3 and higher --</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">pico</span></span>
-<span class="line"><span style="color:#24292E">make</span></span>
-<span class="line"><span style="color:#24292E">make install </span><span style="color:#6A737D"># on Linux use **sudo**</span></span></code></pre>
-<p>If you want to build with debug symbols, set the <code>BUILD_TYPE=Debug</code>environment variable before to run make:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">pico</span></span>
-<span class="line"><span style="color:#005CC5">BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug make</span></span>
-<span class="line"><span style="color:#24292E">make install </span><span style="color:#6A737D"># on Linux use **sudo**</span></span></code></pre>
-<p>For those that still have <strong>CMake</strong> version 2.8, do the following commands:</p>
 <pre><code lang="py">cd /path/to/zenoh-pico
+make
+make install # on Linux use **sudo**</code></pre>
+<p>If you want to build with debug symbols, set the <code>BUILD_TYPE=Debug</code>environment variable before to run make:</p>
+<pre><code>cd /path/to/zenoh-pico
+BUILD_TYPE=Debug make
+make install # on Linux use **sudo**</code></pre>
+<p>For those that still have <strong>CMake</strong> version 2.8, do the following commands:</p>
+<pre><code>cd /path/to/zenoh-pico
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ../cmake-2.8

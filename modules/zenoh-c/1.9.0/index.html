@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.74a58401.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.605c8914.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.518675f5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3e70a225.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.4962912f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.265f94da.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-c/1.9.0"></head>
 
 	<body style="margin: 0 auto">
@@ -96,12 +96,12 @@ If you already have the Rust toolchain installed, make sure it is up-to-date wit
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja</span></span>
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span></code></pre>
 <p>Unstable api and/or shared memory support can be enabled by setting repectively <code>ZENOHC_BUILD_WITH_UNSTABLE_API</code> and <code>ZENOHC_BUILD_WITH_SHARED_MEMORY</code> Cmake flags to <code>true</code> during configuration step.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHC_BUILD_WITH_UNSTABLE_API</span><span style="color:#D73A49">=</span><span style="color:#24292E">true </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHC_BUILD_WITH_SHARED_MEMORY</span><span style="color:#D73A49">=</span><span style="color:#24292E">true ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config Release</span></span></code></pre>
+<pre><code lang="py">cmake -DZENOHC_BUILD_WITH_UNSTABLE_API=true -DZENOHC_BUILD_WITH_SHARED_MEMORY=true ../zenoh-c
+cmake --build . --config Release</code></pre>
 </li>
 <li><p>Install:</p>
 <p>To install zenoh-c library into system just build target <code>install</code>. You need root privileges to do it, as the default install location is <code>/usr/local</code>.</p>
-<pre><code lang="py">cmake --build . --target install</code></pre>
+<pre><code>cmake --build . --target install</code></pre>
 <p>If you want to install zenoh-c libraries locally, you can set the installation directory with <code>CMAKE_INSTALL_PREFIX</code></p>
 <pre><code>cmake ../zenoh-c -DCMAKE_INSTALL_PREFIX=~/.local
 cmake --build . --target install</code></pre>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3d4b2e39.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f4c61df3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.54a5a709.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d8380677.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.cdc9445d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ff9fba15.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-pico/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -170,11 +170,11 @@ on your platform -- if not please install it.</p>
 <span class="line"><span style="color:#24292E">make</span></span>
 <span class="line"><span style="color:#24292E">make install </span><span style="color:#6A737D"># on Linux use **sudo**</span></span></code></pre>
 <p>If you want to build with debug symbols, set the <code>BUILD_TYPE=Debug</code>environment variable before to run make:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">pico</span></span>
-<span class="line"><span style="color:#005CC5">BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug make</span></span>
-<span class="line"><span style="color:#24292E">make install </span><span style="color:#6A737D"># on Linux use **sudo**</span></span></code></pre>
-<p>For those that still have <strong>CMake</strong> version 2.8, do the following commands:</p>
 <pre><code lang="py">cd /path/to/zenoh-pico
+BUILD_TYPE=Debug make
+make install # on Linux use **sudo**</code></pre>
+<p>For those that still have <strong>CMake</strong> version 2.8, do the following commands:</p>
+<pre><code>cd /path/to/zenoh-pico
 mkdir build
 cd build
 cmake -DCMAKE_BUILD_TYPE=Release ../cmake-2.8

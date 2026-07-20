@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8da76d96.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f90f652f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.03585701.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e9efc672.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.8dd8941b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4d0a3283.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-cpp/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -88,18 +88,18 @@ Using the library requires either [zenoh-c] or [zenoh-pico] to be installed.</p>
 <li><p>Build and install.</p>
 <p>By default it is expected that you have [zenoh-c] installed. If you want to install for [zenoh-pico] backend or for both (or to not specify any backend), please set <code>ZENOHCXX_ZENOHC</code> or <code>ZENOHCXX_ZENOHPICO</code> Cmake variables to<code>ON</code> or <code>OFF</code> accordingly. Notice that at least one of the backends is required for using the library and/or building tests and examples.</p>
 <p>Use option <code>CMAKE_INSTALL_PREFIX</code> for specifying installation location. Without this parameter installation is performed to default system location <code>/usr/local</code> which requires root privileges.</p>
-<pre><code lang="py">mkdir build &amp;&amp; cd build
-cmake .. -DCMAKE_INSTALL_PREFIX=~/.local # to configure only for zenoh-c backend
-cmake .. -DZENOHCXX_ZENOHC=OFF -DZENOHCXX_ZENOHPICO=ON  -DCMAKE_INSTALL_PREFIX=~/.local # to configure  only for zenoh-pico backend
-cmake .. -DZENOHCXX_ZENOHC=OFF -DZENOHCXX_ZENOHPICO=OFF  -DCMAKE_INSTALL_PREFIX=~/.local # to configure for none of the backends
-cmake .. -DZENOHCXX_ZENOHPICO=ON  -DCMAKE_INSTALL_PREFIX=~/.local # to configure for both backends
-cmake --install .</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local </span><span style="color:#6A737D"># to configure only for zenoh-c backend</span></span>
+<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHCXX_ZENOHC</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DZENOHCXX_ZENOHPICO</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#D73A49">  -</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local </span><span style="color:#6A737D"># to configure  only for zenoh-pico backend</span></span>
+<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHCXX_ZENOHC</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#D73A49"> -</span><span style="color:#005CC5">DZENOHCXX_ZENOHPICO</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#D73A49">  -</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local </span><span style="color:#6A737D"># to configure for none of the backends</span></span>
+<span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHCXX_ZENOHPICO</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#D73A49">  -</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local </span><span style="color:#6A737D"># to configure for both backends</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install .</span></span></code></pre>
 </li>
 </ol>
 <h2>Building and running tests</h2>
 <p>By default it is expected that you have [zenoh-c] installed. If you want to build and run tests for [zenoh-pico] backend or for both, please set <code>ZENOHCXX_ZENOHC</code> or <code>ZENOHCXX_ZENOHPICO</code> Cmake variables to<code>ON</code> or <code>OFF</code> accordingly.</p>
 <p>To build tests run:</p>
-<pre><code>mkdir build &amp;&amp; cd build
+<pre><code lang="py">mkdir build &amp;&amp; cd build
 cmake ..  -DCMAKE_INSTALL_PREFIX=~/.local # to build tests only for zenoh-c backend
 cmake .. -DZENOHCXX_ZENOHC=OFF -DZENOHCXX_ZENOHPICO=ON  -DCMAKE_INSTALL_PREFIX=~/.local # to build tests only for zenoh-pico backend
 cmake .. -DZENOHCXX_ZENOHPICO=ON  -DCMAKE_INSTALL_PREFIX=~/.local # to build tests for both backends

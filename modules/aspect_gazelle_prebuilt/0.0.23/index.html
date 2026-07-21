@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d991805f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d46b2928.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7c5f2540.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.95c5ffe0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.3ce12ff1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dbdba00c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_gazelle_prebuilt/0.0.23"></head>
 
 	<body style="margin: 0 auto">
@@ -78,7 +78,7 @@ See the <a href="https://docs.aspect.build/cli/overview">docs</a> and <a href="h
 <h3>Gitignore</h3>
 <p>Support for <code>.gitignore</code> when generating BUILD files. Files (and directories) matched by any <code>.gitignore</code> in the workspace are skipped during the walk, so they don't become BUILD-file sources.</p>
 <p>Enabled by default. To opt out, pass <code>--gitignore=false</code> to gazelle (in <code>extra_args</code> on the gazelle target, or on the command line):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:gazelle </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">gitignore</span><span style="color:#D73A49">=</span><span style="color:#24292E">false</span></span></code></pre>
+<pre><code lang="py">bazel run //:gazelle -- --gitignore=false</code></pre>
 <h3>Caching</h3>
 <p>File based caching of any file analysis by Gazelle language implementations.</p>
 <p>Basic caching can be enabled by setting the <code>ASPECT_CONFIGURE_CACHE</code> environment variable to a path (e.g. <code>~/.cache/aspect-gazelle.cache</code>) for loading+persisting the cache between Gazelle runs.</p>
@@ -106,7 +106,7 @@ However this doesn't always work well.</p>
 <p><a href="https://github.com/bazel-contrib/rules_python/issues/1913">https://github.com/bazel-contrib/rules_python/issues/1913</a></p>
 <h3>Install &amp; Setup</h3>
 <p>Add to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "aspect_gazelle_prebuilt", version = "...")</code></pre>
+<pre><code>bazel_dep(name = "aspect_gazelle_prebuilt", version = "...")</code></pre>
 <p>Add a <code>gazelle</code> target to your <code>BUILD</code> file:</p>
 <pre><code>load("@aspect_gazelle_prebuilt//:def.bzl", "aspect_gazelle")
 

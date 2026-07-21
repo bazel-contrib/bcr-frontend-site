@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.58b143d0.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.06892649.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b0bb49c5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7d690d27.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.2ed5031e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.66abefdd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032"></head>
 
 	<body style="margin: 0 auto">
@@ -200,9 +200,9 @@ they encapsulate the necessary configuration.</p>
 <h4>cmake</h4>
 <p>If your project uses CMake, then after cloning <code>stdexec</code> simply add the following to your
 <code>CMakeLists.txt</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">add_subdirectory(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">stdexec root</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">add_subdirectory(&lt;stdexec root&gt;)</code></pre>
 <p>This will make the <code>STDEXEC::stdexec</code> target available to link with your project:</p>
-<pre><code lang="py">target_link_libraries(my_project PRIVATE STDEXEC::stdexec)</code></pre>
+<pre><code>target_link_libraries(my_project PRIVATE STDEXEC::stdexec)</code></pre>
 <p>This target encapsulates all of the necessary configuration and compiler flags for using
 <code>stdexec</code>.</p>
 <h4>CMake Package Manager (CPM)</h4>

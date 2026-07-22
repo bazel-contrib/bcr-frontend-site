@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.278b3d4b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.18b38d9b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e97b51db.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4fd94fea.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.d47a009f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a83e40c2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yyjson/0.10.0"></head>
 
 	<body style="margin: 0 auto">
@@ -284,31 +284,31 @@ This benchmark project only checks the DOM API, a new benchmark will be added la
 <span class="line"></span>
 <span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> All functions accept </span><span style="color:#005CC5">NULL</span><span style="color:#005CC5"> input</span><span style="color:#24292E">, </span><span style="color:#D73A49">and</span><span style="color:#D73A49"> return</span><span style="color:#005CC5"> NULL</span><span style="color:#24292E"> on error.</span></span></code></pre>
 <h3>Write JSON string</h3>
-<pre><code lang="py">// Create a mutable doc
-yyjson_mut_doc *doc = yyjson_mut_doc_new(NULL);
-yyjson_mut_val *root = yyjson_mut_obj(doc);
-yyjson_mut_doc_set_root(doc, root);
-
-// Set root["name"] and root["star"]
-yyjson_mut_obj_add_str(doc, root, "name", "Mash");
-yyjson_mut_obj_add_int(doc, root, "star", 4);
-
-// Set root["hits"] with an array
-int hits_arr[] = {2, 2, 1, 3};
-yyjson_mut_val *hits = yyjson_mut_arr_with_sint32(doc, hits_arr, 4);
-yyjson_mut_obj_add_val(doc, root, "hits", hits);
-
-// To string, minified
-const char *json = yyjson_mut_write(doc, 0, NULL);
-if (json) {
-    printf("json: %s\n", json); // {"name":"Mash","star":4,"hits":[2,2,1,3]}
-    free((void *)json);
-}
-
-// Free the doc
-yyjson_mut_doc_free(doc);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Create a mutable doc</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_doc </span><span style="color:#D73A49">*</span><span style="color:#24292E">doc </span><span style="color:#D73A49">=</span><span style="color:#24292E"> yyjson_mut_doc_new(</span><span style="color:#005CC5">NULL</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_val </span><span style="color:#D73A49">*</span><span style="color:#24292E">root </span><span style="color:#D73A49">=</span><span style="color:#24292E"> yyjson_mut_obj(doc)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_doc_set_root(doc, root)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Set root[</span><span style="color:#032F62">"name"</span><span style="color:#24292E">] </span><span style="color:#D73A49">and</span><span style="color:#24292E"> root[</span><span style="color:#032F62">"star"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_obj_add_str(doc, root, </span><span style="color:#032F62">"name"</span><span style="color:#24292E">, </span><span style="color:#032F62">"Mash"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_obj_add_int(doc, root, </span><span style="color:#032F62">"star"</span><span style="color:#24292E">, </span><span style="color:#005CC5">4</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Set root[</span><span style="color:#032F62">"hits"</span><span style="color:#24292E">] </span><span style="color:#D73A49">with</span><span style="color:#24292E"> an array</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> hits_arr[] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_val </span><span style="color:#D73A49">*</span><span style="color:#24292E">hits </span><span style="color:#D73A49">=</span><span style="color:#24292E"> yyjson_mut_arr_with_sint32(doc, hits_arr, </span><span style="color:#005CC5">4</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_obj_add_val(doc, root, </span><span style="color:#032F62">"hits"</span><span style="color:#24292E">, hits)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> To string, minified</span></span>
+<span class="line"><span style="color:#24292E">const char </span><span style="color:#D73A49">*</span><span style="color:#24292E">json </span><span style="color:#D73A49">=</span><span style="color:#24292E"> yyjson_mut_write(doc, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">NULL</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (json) {</span></span>
+<span class="line"><span style="color:#24292E">    printf(</span><span style="color:#032F62">"json: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, json); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> {</span><span style="color:#032F62">"name"</span><span style="color:#24292E">:</span><span style="color:#032F62">"Mash"</span><span style="color:#24292E">,</span><span style="color:#032F62">"star"</span><span style="color:#24292E">:</span><span style="color:#005CC5">4</span><span style="color:#24292E">,</span><span style="color:#032F62">"hits"</span><span style="color:#24292E">:[</span><span style="color:#005CC5">2</span><span style="color:#24292E">,</span><span style="color:#005CC5">2</span><span style="color:#24292E">,</span><span style="color:#005CC5">1</span><span style="color:#24292E">,</span><span style="color:#005CC5">3</span><span style="color:#24292E">]}</span></span>
+<span class="line"><span style="color:#24292E">    free((void </span><span style="color:#D73A49">*</span><span style="color:#24292E">)json);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Free the doc</span></span>
+<span class="line"><span style="color:#24292E">yyjson_mut_doc_free(doc)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h3>Read JSON file with options</h3>
-<pre><code>// Read JSON file, allowing comments and trailing commas
+<pre><code lang="py">// Read JSON file, allowing comments and trailing commas
 yyjson_read_flag flg = YYJSON_READ_ALLOW_COMMENTS | YYJSON_READ_ALLOW_TRAILING_COMMAS;
 yyjson_read_err err;
 yyjson_doc *doc = yyjson_read_file("/tmp/config.json", flg, NULL, &amp;err);

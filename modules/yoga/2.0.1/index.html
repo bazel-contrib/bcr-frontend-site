@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.444c948a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.90f34eb9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.930245fa.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5cc36952.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.bc645860.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b29b3f47.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yoga/2.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -64,12 +64,12 @@
 <p>Yoga is an embeddable and performant flexbox layout engine with bindings for multiple languages.</p>
 <h2>Building</h2>
 <p>Yoga's main implementation targets C++ 14 with accompanying build logic in CMake. A wrapper is provided to build the main library and run unit tests.</p>
-<pre><code lang="py">./unit_tests &lt;Debug|Release&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">unit_tests </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Debug</span><span style="color:#D73A49">|</span><span style="color:#24292E">Release</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>While not required, this script will use <a href="https://ninja-build.org/">ninja</a> if it is installed for faster builds.</p>
 <p>Yoga is additionally part of the <a href="https://github.com/Microsoft/vcpkg/">vcpkg</a> collection of ports maintained by Microsoft and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
 <h2>Adding Tests</h2>
 <p>Many of Yoga's tests are automatically generated, using HTML fixtures describing node structure. These are rendered in Chrome to generate an expected layout result for the tree. New fixtures can be added to <code>gentest/fixtures</code>.</p>
-<pre><code>&lt;div id="my_test" style="width: 100px; height: 100px; align-items: center;"&gt;
+<pre><code lang="py">&lt;div id="my_test" style="width: 100px; height: 100px; align-items: center;"&gt;
   &lt;div style="width: 50px; height: 50px;"&gt;&lt;/div&gt;
 &lt;/div&gt;</code></pre>
 <p>To generate new tests from added fixtures:</p>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.621966d7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2f8d5d73.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ac6b7967.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7da6aca3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.942943db.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0c1677d3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/fire/0.6.0"></head>
 
 	<body style="margin: 0 auto">
@@ -100,19 +100,19 @@ mandatory <code>?version=N</code> query parameter:</p>
 <li>Requirements: <code>[REQ-ID](/path/to/file.sysreq.md?version=N#REQ-ID)</code></li>
 </ul>
 <p>Register requirements in Bazel:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@fire//fire/starlark:requirements.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"requirement_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">requirement_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "vehicle_requirements"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"requirements/*.sysreq.md"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":vehicle_params"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@fire//fire/starlark:requirements.bzl", "requirement_library")
+
+requirement_library(
+    name = "vehicle_requirements",
+    srcs = glob(["requirements/*.sysreq.md"]),
+    deps = [":vehicle_params"],
+)</code></pre>
 <h2>Software (Component) Requirements</h2>
 <p>Software requirements are stored in <code>.swreq.md</code> files. They follow the same
 format as system requirements with one addition: a <code>Parent</code> field that links
 back to the parent system requirement and tracks its version.</p>
 <p>Single parent on the same line:</p>
-<pre><code lang="py">## REQ_BC_CALCULATE_FORCE
+<pre><code>## REQ_BC_CALCULATE_FORCE
 
 SIL: ASIL-D | Sec: false | Version: 2 | Parent: [REQ-BRK-001](/requirements/braking.sysreq.md?version=4#REQ-BRK-001)</code></pre>
 <p>Multiple parents use multi-line continuation with a trailing <code>|</code>:</p>

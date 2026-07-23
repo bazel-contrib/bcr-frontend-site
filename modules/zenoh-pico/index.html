@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.05184566.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e76e5990.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ec743cdf.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.06999344.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.a2f5a920.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.37d9f9a2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-pico/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -200,16 +200,16 @@ structure:</p>
 <span class="line"><span style="color:#24292E">│    └── CMakeLists.txt</span></span>
 <span class="line"><span style="color:#24292E">└── platformio.ini</span></span></code></pre>
 <p>To initialize this project structure, execute the following commands:</p>
-<pre><code lang="py">mkdir -p /path/to/project_dir
-cd /path/to/project_dir
-platformio init -b reel_board
-platformio run</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir </span><span style="color:#D73A49">-</span><span style="color:#24292E">p </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">project_dir</span></span>
+<span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">project_dir</span></span>
+<span class="line"><span style="color:#24292E">platformio init </span><span style="color:#D73A49">-</span><span style="color:#24292E">b reel_board</span></span>
+<span class="line"><span style="color:#24292E">platformio run</span></span></code></pre>
 <p>Include the CMakelist.txt and prj.conf in the project_dir/zephyr folder as
 shown in the structure above,</p>
-<pre><code>cp /path/to/zenoh-pico/docs/zephyr/reel_board/CMakelists.txt /path/to/project_dir/zephyr/
-cp /path/to/zenoh-pico/docs/zephyr/reel_board/prj.conf /path/to/project_dir/zephyr/</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cp </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">pico</span><span style="color:#D73A49">/</span><span style="color:#24292E">docs</span><span style="color:#D73A49">/</span><span style="color:#24292E">zephyr</span><span style="color:#D73A49">/</span><span style="color:#24292E">reel_board</span><span style="color:#D73A49">/</span><span style="color:#24292E">CMakelists.txt </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">project_dir</span><span style="color:#D73A49">/</span><span style="color:#24292E">zephyr</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">cp </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">pico</span><span style="color:#D73A49">/</span><span style="color:#24292E">docs</span><span style="color:#D73A49">/</span><span style="color:#24292E">zephyr</span><span style="color:#D73A49">/</span><span style="color:#24292E">reel_board</span><span style="color:#D73A49">/</span><span style="color:#24292E">prj.conf </span><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">project_dir</span><span style="color:#D73A49">/</span><span style="color:#24292E">zephyr</span><span style="color:#D73A49">/</span></span></code></pre>
 <p>and add zenoh-pico as a library by doing:</p>
-<pre><code>ln -s /path/to/zenoh-pico /path/to/project_dir/lib/zenoh-pico</code></pre>
+<pre><code lang="py">ln -s /path/to/zenoh-pico /path/to/project_dir/lib/zenoh-pico</code></pre>
 <p>or just include the following line in platformio.ini:</p>
 <pre><code>lib_deps = https://github.com/eclipse-zenoh/zenoh-pico</code></pre>
 <p>Finally, your code should go into project_dir/src/main.c.

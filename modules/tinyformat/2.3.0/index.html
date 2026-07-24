@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a0ec7737.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4b04a431.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ea155417.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.676500f2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.1d2c2427.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.eb6c2e15.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinyformat/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -79,24 +79,24 @@ with your projects.</li>
 <a href="https://ci.appveyor.com/project/c42f/tinyformat/branch/master"><img src="https://ci.appveyor.com/api/projects/status/rwxqhhy6v5m0p1aq/branch/master?svg=true" alt="Windows build"></a></p>
 <h2>Quickstart</h2>
 <p>To print a date to <code>std::cout</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string weekday </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Wednesday"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> month </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "July"</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">size_t day </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 27</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#E36209">long</span><span style="color:#24292E"> hour </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 14</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#005CC5"> min</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 44</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">tfm::printf(</span><span style="color:#032F62">"</span><span style="color:#005CC5">%s</span><span style="color:#032F62">, </span><span style="color:#005CC5">%s</span><span style="color:#005CC5"> %d</span><span style="color:#032F62">, </span><span style="color:#005CC5">%.2d</span><span style="color:#032F62">:</span><span style="color:#005CC5">%.2d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, weekday, month, day, hour, </span><span style="color:#005CC5">min</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">std::string weekday = "Wednesday";
+const char* month = "July";
+size_t day = 27;
+long hour = 14;
+int min = 44;
+
+tfm::printf("%s, %s %d, %.2d:%.2d\n", weekday, month, day, hour, min);</code></pre>
 <p>POSIX extension for positional arguments is available.
 The ability to rearrange formatting arguments is an important feature
 for localization because the word order may vary in different languages.</p>
 <p>Previous example for German usage. Arguments are reordered:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tfm::printf(</span><span style="color:#032F62">"%1$s, %3$d. %2$s, %4$d:%5$.2d</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, weekday, month, day, hour, </span><span style="color:#005CC5">min</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>tfm::printf("%1$s, %3$d. %2$s, %4$d:%5$.2d\n", weekday, month, day, hour, min);</code></pre>
 <p>The strange types here emphasize the type safety of the interface, for example
 it is possible to print a <code>std::string</code> using the <code>"%s"</code> conversion, and a
 <code>size_t</code> using the <code>"%d"</code> conversion.  A similar result could be achieved
 using either of the <code>tfm::format()</code> functions.  One prints on a user provided
 stream:</p>
-<pre><code lang="py">tfm::format(std::cerr, "%s, %s %d, %.2d:%.2d\n",
+<pre><code>tfm::format(std::cerr, "%s, %s %d, %.2d:%.2d\n",
             weekday, month, day, hour, min);</code></pre>
 <p>The other returns a <code>std::string</code>:</p>
 <pre><code>std::string date = tfm::format("%s, %s %d, %.2d:%.2d\n",

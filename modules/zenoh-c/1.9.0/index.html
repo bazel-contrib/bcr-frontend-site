@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1c8fabf6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f13a9906.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8f187e09.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.71b3d1ea.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80e74e6b.js" defer=""></script>
-		<script src="/registry.a14f1103.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1b2eecda.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-c/1.9.0"></head>
 
 	<body style="margin: 0 auto">
@@ -84,12 +84,12 @@ If you already have the Rust toolchain installed, make sure it is up-to-date wit
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">rustup update</span></span></code></pre>
 </li>
 <li><p>Clone the <a href="https://github.com/eclipse-zenoh/zenoh-c">source</a> with <code>git</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">eclipse</span><span style="color:#D73A49">-</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c.git</span></span></code></pre>
+<pre><code lang="py">git clone https://github.com/eclipse-zenoh/zenoh-c.git</code></pre>
 </li>
 <li><p>Build:</p>
 <p>Good CMake practice is to perform build outside of source directory, leaving source tree untouched. The examples below demonstrates this mode of building. On the other hand VScode by default creates build directory named 'build' inside source tree. In this case build script slightly changes its behavior. See more about it in section 'VScode'.</p>
 <p>By default build configuration is set to <code>Release</code>, it's not necessary to add <code>-DCMAKE_BUILD_TYPE=Release</code> option on configuration step. But if your platform uses multi-config generator by default (this is the case on Windows), you may need to add option <code>--config Release</code> on build step. See more in CMake <a href="https://cmake.org/cmake/help/latest/manual/cmake-buildsystem.7.html#build-configurations">build-configurations</a> documentation. Option<code>--config Release</code> is skipped in further examples for brewity. It's actually necessary for <a href="https://cmake.org/cmake/help/latest/manual/cmake-generators.7.html#id14">Visual Studio generators</a> only. For <a href="https://cmake.org/cmake/help/latest/generator/Ninja%20Multi-Config.html">Ninja Multi-Config</a> the build script is able to select <code>Release</code> as the default configuration.</p>
-<pre><code lang="py">mkdir -p build &amp;&amp; cd build 
+<pre><code>mkdir -p build &amp;&amp; cd build 
 cmake ../zenoh-c
 cmake --build . --config Release</code></pre>
 <p>The generator to use is selected with option <code>-G</code>. If Ninja is installed on your system, adding <code>-GNinja</code> to <code>cmake</code> command can greatly speed up the build time:</p>

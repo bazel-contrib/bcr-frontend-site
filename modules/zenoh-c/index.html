@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d9d8bcaf.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c3ee1afb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4c4868c0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f3b95466.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.61b9d793.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.494850a1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/zenoh-c/1.9.0"></head>
 
 	<body style="margin: 0 auto">
@@ -96,18 +96,18 @@ If you already have the Rust toolchain installed, make sure it is up-to-date wit
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja</span></span>
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span></code></pre>
 <p>Unstable api and/or shared memory support can be enabled by setting repectively <code>ZENOHC_BUILD_WITH_UNSTABLE_API</code> and <code>ZENOHC_BUILD_WITH_SHARED_MEMORY</code> Cmake flags to <code>true</code> during configuration step.</p>
-<pre><code lang="py">cmake -DZENOHC_BUILD_WITH_UNSTABLE_API=true -DZENOHC_BUILD_WITH_SHARED_MEMORY=true ../zenoh-c
-cmake --build . --config Release</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHC_BUILD_WITH_UNSTABLE_API</span><span style="color:#D73A49">=</span><span style="color:#24292E">true </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DZENOHC_BUILD_WITH_SHARED_MEMORY</span><span style="color:#D73A49">=</span><span style="color:#24292E">true ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config Release</span></span></code></pre>
 </li>
 <li><p>Install:</p>
 <p>To install zenoh-c library into system just build target <code>install</code>. You need root privileges to do it, as the default install location is <code>/usr/local</code>.</p>
-<pre><code>cmake --build . --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>If you want to install zenoh-c libraries locally, you can set the installation directory with <code>CMAKE_INSTALL_PREFIX</code></p>
-<pre><code>cmake ../zenoh-c -DCMAKE_INSTALL_PREFIX=~/.local
-cmake --build . --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>By default only dynamic library is built and installed. Set <code>BUILD_SHARED_LIBS</code> variable to false to build and install static library:</p>
-<pre><code>cmake ../zenoh-c -DCMAKE_INSTALL_PREFIX=~/.local -DBUILD_SHARED_LIBS=FALSE
-cmake --build . --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=~/</span><span style="color:#24292E">.local </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">FALSE</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>The result of installation is the header files in <code>include</code> directory, the library files in <code>lib</code> directory and cmake package configuration files for package <code>zenohc</code> in <code>lib/cmake</code> directory. The library later can be loaded with CMake command <code>find_package(zenohc)</code>.
 Add dependency in CMakeLists.txt on target</p>
 <ul>
@@ -122,15 +122,15 @@ Add dependency in CMakeLists.txt on target</p>
 </ol>
 <h2>Building the Examples</h2>
 <p>The examples can be built in two ways. One is to select <code>examples</code> as a build target of zenoh-c project (assuming here that the current directory is side-by-side with zenoh-c directory):</p>
-<pre><code>cmake ../zenoh-c
-cmake --build . --target examples</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target examples</span></span></code></pre>
 <p>You may also use <code>--target &lt;example_name&gt;</code> if you wish to only build a specific example.</p>
 <p>All build artifacts will be in the <code>target/release/examples</code> directory in this case.</p>
 <p>The second way is to directly build <code>examples</code> as a root project:</p>
-<pre><code>cmake ../zenoh-c/examples
-cmake --build .</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake ..</span><span style="color:#D73A49">/</span><span style="color:#24292E">zenoh</span><span style="color:#D73A49">-</span><span style="color:#24292E">c</span><span style="color:#D73A49">/</span><span style="color:#24292E">examples</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span></code></pre>
 <p>Link with <code>zenoh-c</code> installed into default location in the system (with [find_package]):</p>
-<pre><code>cmake ../zenoh-c/examples</code></pre>
+<pre><code lang="py">cmake ../zenoh-c/examples</code></pre>
 <p>Link with <code>zenoh-c</code> installed in <code>~/.local</code> directory:</p>
 <pre><code>cmake ../zenoh-c/examples -DCMAKE_INSTALL_PREFIX=~/.local</code></pre>
 <h2>Running the Examples</h2>

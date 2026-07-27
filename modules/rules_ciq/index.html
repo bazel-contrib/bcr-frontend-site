@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.48434284.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8c23590e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0e70d553.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ba6a6294.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.b29ae841.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2fd9dc72.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ciq/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -104,19 +104,19 @@ containing the following reference to your CIQ developer key:</p>
 <li><p>Create a <code>MODULE.bazel</code> file for your project and add the <code>rules_ciq</code> dependency:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_ciq"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p> If you'd prefer to be on the bleeding edge, instead use:</p>
-<pre><code lang="py">bazel_dep(name = "rules_ciq")
-
-git_override(
-    module_name = "rules_ciq",
-    remote = "https://github.com/semolina-solutions/rules_ciq",
-    branch = "main",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_ciq"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_ciq"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/semolina-solutions/rules_ciq"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    branch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 </li>
 <li><p>Create a <code>BUILD.bazel</code> file for your project and declare targets using the
 rules provided by this repository. See the<a href="https://github.com/semolina-solutions/rules_ciq/blob/3dc54c6fb986467af8bc87ae7bc242253fb329df/samples/hello_world" target="_blank" rel="noopener noreferrer"><code>samples/hello_world</code></a>
 project for an introductory example. As a minimal demonstration, here is what to put in
 the <code>BUILD.bazel</code> file to generate an app manifest for a widget file:</p>
-<pre><code>load("@rules_ciq//:defs.bzl", "ciq_manifest")
+<pre><code lang="py">load("@rules_ciq//:defs.bzl", "ciq_manifest")
 
 ciq_manifest(
     name = "my_manifest",

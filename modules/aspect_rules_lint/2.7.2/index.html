@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.48434284.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8c23590e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0e70d553.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ba6a6294.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.b29ae841.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2fd9dc72.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_lint/2.7.2"></head>
 
 	<body style="margin: 0 auto">
@@ -131,18 +131,18 @@ up for <code>aspect lint</code>. After <a href="https://docs.aspect.build/cli/in
 <code>aspect format</code> command runs your <code>//tools/format</code> target, formats only your
 changed files by default (or <code>--scope=all</code> for the whole tree), and reports
 exactly what it touched — with a ready-to-run fix command:</p>
-<pre><code lang="py">$ aspect format
-
-→ ✨ Format · Formatting changed files
-→ 📋 Diff · Computing format diff
-2 files were modified:
-  - src/hello.sh
-  - src/sourced_dep.sh</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> aspect </span><span style="color:#005CC5">format</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">→ ✨ Format · Formatting changed files</span></span>
+<span class="line"><span style="color:#24292E">→ 📋 Diff · Computing </span><span style="color:#005CC5">format</span><span style="color:#24292E"> diff</span></span>
+<span class="line"><span style="color:#005CC5">2</span><span style="color:#24292E"> files were modified:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">sourced_dep.sh</span></span></code></pre>
 <p>On CI it posts a <strong>format status check</strong> via the same GitHub App, and
 <code>--severity</code> chooses whether an unformatted file warns or fails the build. It
 works out of the box — <code>aspect format</code> already targets <code>//tools/format</code>, so no
 extra config is needed:</p>
-<pre><code>$ cd examples/shell &amp;&amp; aspect format</code></pre>
+<pre><code lang="py">$ cd examples/shell &amp;&amp; aspect format</code></pre>
 <p>See the <a href="https://docs.aspect.build/cli/overview">Aspect CLI overview</a> and the
 <a href="https://docs.aspect.build/cli/lint"><code>lint</code></a> and
 <a href="https://docs.aspect.build/cli/format"><code>format</code></a> task docs.</p>

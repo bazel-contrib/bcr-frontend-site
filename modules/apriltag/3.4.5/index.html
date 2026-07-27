@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.48434284.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8c23590e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0e70d553.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ba6a6294.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.b29ae841.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2fd9dc72.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -101,10 +101,10 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>This will build shared (*.so) libraries by default. If you need static (*.a) libraries set <code>BUILD_SHARED_LIBS</code> to <code>OFF</code>:</p>
-<pre><code lang="py">cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>If you have Ninja (<code>sudo apt install ninja-build</code>) installed, you can use:</p>
-<pre><code>cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release
+<pre><code lang="py">cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release
 cmake --build build --target install</code></pre>
 <p>to generate and compile via the ninja build script. It will be much faster than with cmake's default Makefile generator.</p>
 <p>You can omit <code>--target install</code> if you only want to use this locally without installing.</p>

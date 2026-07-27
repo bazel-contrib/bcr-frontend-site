@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.53783b5c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0d4570f7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4973ab2b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2cd84e73.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.8a4c2942.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.18dc3c9e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_avr/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -89,12 +89,12 @@
 <span class="line"><span style="color:#032F62">    &amp;&amp; chmod +x /usr/local/bin/bazelisk </span><span style="color:#005CC5">\</span></span>
 <span class="line"><span style="color:#032F62">    &amp;&amp; ln -sf /usr/local/bin/bazelisk /usr/local/bin/bazel'</span></span></code></pre>
 <p><strong>macOS:</strong></p>
-<pre><code lang="py">brew install bazelisk</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">brew install bazelisk</span></span></code></pre>
 <h3>2. Create the project</h3>
 <p>Create a new directory for your project:</p>
-<pre><code>mkdir my_project &amp;&amp; cd my_project</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir my_project </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd my_project</span></span></code></pre>
 <p>Pin the Bazel version by writing <code>.bazelversion</code>:</p>
-<pre><code>9.0.2</code></pre>
+<pre><code lang="py">9.0.2</code></pre>
 <p>Create <code>MODULE.bazel</code> to declare <code>toolchains_avr</code> as a dependency and configure the avr-gcc toolchain. Bazel will download the toolchain automatically on first build — no manual installation needed.</p>
 <pre><code>bazel_dep(name = "rules_cc", version = "0.2.17")
 bazel_dep(name = "toolchains_avr", version = "0.1.0", repo_name = "avr")

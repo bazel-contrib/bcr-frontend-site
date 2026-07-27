@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.aacc7042.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ca02e060.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.06878de2.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9887b561.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.9cd8ab85.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3b5031f6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yosys-slang/0.0.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -106,12 +106,12 @@
 <p>Check out the repository including the submodule, e.g. with</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recursive https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">povik</span><span style="color:#D73A49">/</span><span style="color:#24292E">yosys</span><span style="color:#D73A49">-</span><span style="color:#24292E">slang</span></span></code></pre>
 <p>Then build both slang and the <code>build/slang.so</code> plugin for Yosys:</p>
-<pre><code lang="py">make -j$(nproc)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(nproc)</span></span></code></pre>
 <p>Use a custom <code>-jN</code> switch to build with <code>N</code> concurrent processes instead of matching the number of cores.</p>
 <p>The built plugin is placed at <code>build/slang.so</code>. Copy this file into the Yosys plugin directory, which can be achieved through <code>make install</code>, or use a full path to this file (instead of the <code>slang</code> shorthand) when loading the plugin.</p>
 <h2>Usage</h2>
 <p>You load the plugin into Yosys on startup by passing the <code>-m</code> argument:</p>
-<pre><code>$ yosys -m slang</code></pre>
+<pre><code lang="py">$ yosys -m slang</code></pre>
 <p>Or, alternatively, you load the plugin at runtime with the <code>plugin</code> command:</p>
 <pre><code>plugin -i slang</code></pre>
 <p>After the plugin has been loaded, the frontend is invoked with the <code>read_slang</code> command.</p>

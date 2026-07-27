@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.aacc7042.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ca02e060.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.06878de2.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9887b561.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.9cd8ab85.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3b5031f6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yams/6.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -91,14 +91,14 @@ the SDK:</p>
 <p>Add <code>github "jpsim/Yams"</code> to your <code>Cartfile</code>.</p>
 <h3>Bazel</h3>
 <p>In your WORKSPACE file</p>
-<pre><code lang="py">YAMS_GIT_SHA = "SOME_SHA"
-http_archive(
-    name = "com_github_jpsim_yams",
-    urls = [
-        "https://github.com/jpsim/Yams/archive/%s.zip" % YAMS_GIT_SHA,
-    ],
-    strip_prefix = "Yams-%s" % YAMS_GIT_SHA,
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">YAMS_GIT_SHA</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SOME_SHA"</span></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com_github_jpsim_yams"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "https://github.com/jpsim/Yams/archive/</span><span style="color:#005CC5">%s</span><span style="color:#032F62">.zip"</span><span style="color:#D73A49"> %</span><span style="color:#005CC5"> YAMS_GIT_SHA</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "Yams-</span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#D73A49"> %</span><span style="color:#005CC5"> YAMS_GIT_SHA</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage</h2>
 <p>Yams has three groups of conversion APIs:
 one for use with <a href="#codable-types"><code>Codable</code> types</a>,
@@ -116,7 +116,7 @@ Produces a YAML <code>String</code> from an instance of type conforming to <code
 Decodes an instance of type conforming to <code>Decodable</code> from YAML <code>String</code> or
 <code>Data</code>.</li>
 </ul>
-<pre><code>import Foundation
+<pre><code lang="py">import Foundation
 import Yams
 
 struct S: Codable {

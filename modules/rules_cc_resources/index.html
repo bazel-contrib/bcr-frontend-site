@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d061772e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2984c20b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.861cd77e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4829e541.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.001bfdea.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.252b59a9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_cc_resources/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -97,15 +97,15 @@
 </ul>
 <h3>Examples</h3>
 <p>Basic usage with default settings:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_cc_resources//rules:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cc_resources"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cc_resources(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "image_resources"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"images/logo.png"</span><span style="color:#24292E">, </span><span style="color:#032F62">"images/background.png"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    out_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "assets"</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_cc_resources//rules:defs.bzl", "cc_resources")
+
+cc_resources(
+    name = "image_resources",
+    srcs = ["images/logo.png", "images/background.png"],
+    out_prefix = "assets"
+)</code></pre>
 <p>Using unsigned int type to reduce generated file size:</p>
-<pre><code lang="py">cc_resources(
+<pre><code>cc_resources(
     name = "large_resources",
     srcs = ["data/large_file.bin"],
     out_prefix = "data",

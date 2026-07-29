@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d061772e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2984c20b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.861cd77e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4829e541.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.001bfdea.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.252b59a9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yosys/0.64"></head>
 
 	<body style="margin: 0 auto">
@@ -114,25 +114,25 @@ source</a>
 on Read the Docs.</p>
 <p>When cloning Yosys, some required libraries are included as git submodules. Make
 sure to call e.g.</p>
-<pre><code lang="py">$ git clone --recurse-submodules https://github.com/YosysHQ/yosys.git</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recurse</span><span style="color:#D73A49">-</span><span style="color:#24292E">submodules https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">YosysHQ</span><span style="color:#D73A49">/</span><span style="color:#24292E">yosys.git</span></span></code></pre>
 <p>or</p>
-<pre><code>$ git clone https://github.com/YosysHQ/yosys.git
-$ cd yosys
-$ git submodule update --init --recursive</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">YosysHQ</span><span style="color:#D73A49">/</span><span style="color:#24292E">yosys.git</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd yosys</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> git submodule update </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">init </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recursive</span></span></code></pre>
 <p>You need a C++ compiler with C++17 support (up-to-date CLANG or GCC is
 recommended) and some standard tools such as GNU Flex, GNU Bison, and GNU Make.
 TCL, readline and libffi are optional (see <code>ENABLE_*</code> settings in Makefile).
 Xdot (graphviz) is used by the <code>show</code> command in yosys to display schematics.</p>
 <p>For example on Ubuntu Linux 22.04 LTS the following commands will install all
 prerequisites for building yosys:</p>
-<pre><code>$ sudo apt-get install gawk git make python3 lld bison clang flex \
-    libffi-dev libfl-dev libreadline-dev pkg-config tcl-dev zlib1g-dev \
-    graphviz xdot
-$ curl -LsSf https://astral.sh/uv/install.sh | sh</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> sudo apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install gawk git make python3 lld bison clang flex \</span></span>
+<span class="line"><span style="color:#24292E">    libffi</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev libfl</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev libreadline</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev pkg</span><span style="color:#D73A49">-</span><span style="color:#24292E">config tcl</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev zlib1g</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev \</span></span>
+<span class="line"><span style="color:#24292E">    graphviz xdot</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> curl </span><span style="color:#D73A49">-</span><span style="color:#24292E">LsSf https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">astral.sh</span><span style="color:#D73A49">/</span><span style="color:#24292E">uv</span><span style="color:#D73A49">/</span><span style="color:#24292E">install.sh </span><span style="color:#D73A49">|</span><span style="color:#24292E"> sh</span></span></code></pre>
 <p>The environment variable <code>CXX</code> can be used to control the C++ compiler used, or
 run one of the following to override it:</p>
-<pre><code>$ make config-clang
-$ make config-gcc</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make config</span><span style="color:#D73A49">-</span><span style="color:#24292E">clang</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make config</span><span style="color:#D73A49">-</span><span style="color:#24292E">gcc</span></span></code></pre>
 <p>The Makefile has many variables influencing the build process. These can be
 adjusted by modifying the Makefile.conf file which is created at the <code>make config-...</code> step (see above), or they can be set by passing an option to the
 make command directly:</p>
@@ -140,7 +140,7 @@ make command directly:</p>
 <p>For other compilers and build configurations it might be necessary to make some
 changes to the config section of the Makefile. It's also an alternative way to
 set the make variables mentioned above.</p>
-<pre><code>$ vi Makefile            # ..or..
+<pre><code lang="py">$ vi Makefile            # ..or..
 $ vi Makefile.conf</code></pre>
 <p>To build Yosys simply type 'make' in this directory.</p>
 <pre><code>$ make

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8dabacd7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a275e4b9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d061772e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2984c20b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.f5639692.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.001bfdea.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_dart_proto/0.4.6"></head>
 
 	<body style="margin: 0 auto">
@@ -107,27 +107,27 @@ generated proto code both use these packages.</p>
 <p>The build tools (<code>protoc</code> and <code>protoc-gen-dart</code>) are provided by default. Only the
 runtime libraries need to come from your dependency graph.</p>
 <h2>Usage</h2>
-<pre><code lang="py">load("@rules_proto//proto:defs.bzl", "proto_library")
-load("@rules_dart_proto//dart_proto:defs.bzl", "dart_proto_library")
-load("@rules_dart//dart:defs.bzl", "dart_binary")
-
-proto_library(
-    name = "person_proto",
-    srcs = ["person.proto"],
-)
-
-dart_proto_library(
-    name = "person_dart_proto",
-    deps = [":person_proto"],
-)
-
-dart_binary(
-    name = "app",
-    main = "main.dart",
-    deps = [":person_dart_proto"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_proto//proto:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"proto_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_dart_proto//dart_proto:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"dart_proto_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_dart//dart:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"dart_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">proto_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "person_proto"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"person.proto"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">dart_proto_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "person_dart_proto"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":person_proto"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">dart_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    main</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main.dart"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":person_dart_proto"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Generated code is imported via <code>package:&lt;dart_proto_library name&gt;/&lt;proto_name&gt;.pb.dart</code>:</p>
-<pre><code>import 'package:person_dart_proto/person.pb.dart';</code></pre>
+<pre><code lang="py">import 'package:person_dart_proto/person.pb.dart';</code></pre>
 <h3>Interdependent protos</h3>
 <p>Each <code>proto_library</code> needs its own <code>dart_proto_library</code>. Use <code>dart_deps</code> to wire the Dart-level dependencies between them:</p>
 <pre><code>proto_library(

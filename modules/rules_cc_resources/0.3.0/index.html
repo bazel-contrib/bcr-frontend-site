@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8dabacd7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a275e4b9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d061772e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2984c20b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.f5639692.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.001bfdea.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_cc_resources/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -69,12 +69,12 @@
 <span class="line"><span style="color:#6A737D"># load("@rules_cc_resources//rules:defs.bzl", "cc_resources")</span></span></code></pre>
 <h4>Rule Definition</h4>
 <p>You should define the <code>cc_resources</code> rule in your <code>BUILD.bazel</code> file with the required attributes:</p>
-<pre><code lang="py">cc_resources(
-    name = "my_resources",
-    srcs = ["path/to/resource1.bin", "path/to/resource2.bin"],
-    out_prefix = "my_res",  # Optional prefix for generated file names
-    data_type = "uchar",    # Optional data type for the array (default: "uchar")
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cc_resources(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"path/to/resource1.bin"</span><span style="color:#24292E">, </span><span style="color:#032F62">"path/to/resource2.bin"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    out_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_res"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Optional prefix for generated file names</span></span>
+<span class="line"><span style="color:#E36209">    data_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "uchar"</span><span style="color:#24292E">,    </span><span style="color:#6A737D"># Optional data type for the array (default: "uchar")</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>Attributes</h3>
 <ul>
 <li><p><code>srcs</code>: A mandatory list of input binary files that need to be converted. These files will be processed and transformed into C/C++ source files.</p>
@@ -97,15 +97,15 @@
 </ul>
 <h3>Examples</h3>
 <p>Basic usage with default settings:</p>
-<pre><code>load("@rules_cc_resources//rules:defs.bzl", "cc_resources")
-
-cc_resources(
-    name = "image_resources",
-    srcs = ["images/logo.png", "images/background.png"],
-    out_prefix = "assets"
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_cc_resources//rules:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cc_resources"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">cc_resources(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "image_resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"images/logo.png"</span><span style="color:#24292E">, </span><span style="color:#032F62">"images/background.png"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    out_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "assets"</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Using unsigned int type to reduce generated file size:</p>
-<pre><code>cc_resources(
+<pre><code lang="py">cc_resources(
     name = "large_resources",
     srcs = ["data/large_file.bin"],
     out_prefix = "data",

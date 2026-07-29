@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c7017ccc.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.360d6f64.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6c7fe1a9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.90cb1b20.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.7dc8efd4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.30646221.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_lint/2.7.2"></head>
 
 	<body style="margin: 0 auto">
@@ -125,24 +125,24 @@ aspects — no <code>--config=lint</code> or output-group flags to remember:</p>
 <span class="line"><span style="color:#24292E">    ctx.tasks[</span><span style="color:#032F62">"lint"</span><span style="color:#24292E">].args.aspects </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools/lint:linters.bzl</span><span style="color:#005CC5">%s</span><span style="color:#032F62">hellcheck"</span><span style="color:#24292E">]</span></span></code></pre>
 <p><strong>Try it in this repo:</strong> every linter under <a href="https://github.com/aspect-build/rules_lint/blob/1953c5a6d06500608467cfdedb6375e69cedc94b/examples" target="_blank" rel="noopener noreferrer"><code>examples/</code></a> is wired
 up for <code>aspect lint</code>. After <a href="https://docs.aspect.build/cli/install">installing the CLI</a>:</p>
-<pre><code lang="py">$ cd examples/shell &amp;&amp; aspect lint //...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd examples</span><span style="color:#D73A49">/</span><span style="color:#24292E">shell </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> aspect lint </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Formatting</h3>
 <p>The same applies to formatting. Instead of <code>bazel run //tools/format</code>, the
 <code>aspect format</code> command runs your <code>//tools/format</code> target, formats only your
 changed files by default (or <code>--scope=all</code> for the whole tree), and reports
 exactly what it touched — with a ready-to-run fix command:</p>
-<pre><code>$ aspect format
-
-→ ✨ Format · Formatting changed files
-→ 📋 Diff · Computing format diff
-2 files were modified:
-  - src/hello.sh
-  - src/sourced_dep.sh</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> aspect </span><span style="color:#005CC5">format</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">→ ✨ Format · Formatting changed files</span></span>
+<span class="line"><span style="color:#24292E">→ 📋 Diff · Computing </span><span style="color:#005CC5">format</span><span style="color:#24292E"> diff</span></span>
+<span class="line"><span style="color:#005CC5">2</span><span style="color:#24292E"> files were modified:</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh</span></span>
+<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E"> src</span><span style="color:#D73A49">/</span><span style="color:#24292E">sourced_dep.sh</span></span></code></pre>
 <p>On CI it posts a <strong>format status check</strong> via the same GitHub App, and
 <code>--severity</code> chooses whether an unformatted file warns or fails the build. It
 works out of the box — <code>aspect format</code> already targets <code>//tools/format</code>, so no
 extra config is needed:</p>
-<pre><code>$ cd examples/shell &amp;&amp; aspect format</code></pre>
+<pre><code lang="py">$ cd examples/shell &amp;&amp; aspect format</code></pre>
 <p>See the <a href="https://docs.aspect.build/cli/overview">Aspect CLI overview</a> and the
 <a href="https://docs.aspect.build/cli/lint"><code>lint</code></a> and
 <a href="https://docs.aspect.build/cli/format"><code>format</code></a> task docs.</p>

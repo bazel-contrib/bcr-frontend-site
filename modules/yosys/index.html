@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6c7fe1a9.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.90cb1b20.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e81e2976.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3611a481.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.30646221.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6d5b2f0f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yosys/0.64"></head>
 
 	<body style="margin: 0 auto">
@@ -163,16 +163,16 @@ a simple synthesis job using the interactive command shell:</p>
 commands and <code>help &lt;command&gt;</code> to print details on the specified command:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yosys</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> help</span><span style="color:#005CC5"> help</span></span></code></pre>
 <p>reading and elaborating the design using the Verilog frontend:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yosys</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> read </span><span style="color:#D73A49">-</span><span style="color:#24292E">sv tests</span><span style="color:#D73A49">/</span><span style="color:#24292E">simple</span><span style="color:#D73A49">/</span><span style="color:#24292E">fiedler</span><span style="color:#D73A49">-</span><span style="color:#24292E">cooley.v</span></span>
-<span class="line"><span style="color:#24292E">yosys</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> hierarchy </span><span style="color:#D73A49">-</span><span style="color:#24292E">top up3down5</span></span></code></pre>
+<pre><code lang="py">yosys&gt; read -sv tests/simple/fiedler-cooley.v
+yosys&gt; hierarchy -top up3down5</code></pre>
 <p>writing the design to the console in the RTLIL format used by Yosys
 internally:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yosys</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> write_rtlil</span></span></code></pre>
+<pre><code>yosys&gt; write_rtlil</code></pre>
 <p>convert processes (<code>always</code> blocks) to netlist elements and perform
 some simple optimizations:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yosys</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> proc; opt</span></span></code></pre>
+<pre><code>yosys&gt; proc; opt</code></pre>
 <p>display design netlist using <code>xdot</code>:</p>
-<pre><code lang="py">yosys&gt; show</code></pre>
+<pre><code>yosys&gt; show</code></pre>
 <p>the same thing using <code>gv</code> as postscript viewer:</p>
 <pre><code>yosys&gt; show -format ps -viewer gv</code></pre>
 <p>translating netlist to gate logic and perform some simple optimizations:</p>

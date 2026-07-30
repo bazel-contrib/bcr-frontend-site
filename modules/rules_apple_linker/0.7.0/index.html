@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ccac1edd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.abf25fea.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.71df8949.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1067d679.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.e4baf330.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e3378288.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_apple_linker/0.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -85,27 +85,27 @@ evolving quickly and is being used in production to link Chrome today.</p>
 <p>By default <code>rules_apple_linker</code> provides a target for <code>lld</code>
 (<code>@rules_apple_linker//:lld</code>) for you to use. To enable it add the
 target to the <code>deps</code> of your targets:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">objc_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#005CC5">...</span><span style="color:#24292E">, </span><span style="color:#032F62">"@rules_apple_linker//:lld"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">objc_library(
+    name = "main",
+    ...
+    deps = [..., "@rules_apple_linker//:lld"],
+)</code></pre>
 <p>To make sure you're always using the override, even if you have multiple
 apps or test targets that don't all have the same libraries in their
 dependency trees, you can add it directly to the <code>deps</code> of your
 <a href="https://github.com/bazelbuild/rules_apple"><code>rules_apple</code></a> packaging target. For example in a custom
 macro:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> my_custom_ios_unit_test</span><span style="color:#24292E">(</span><span style="color:#D73A49">**</span><span style="color:#24292E">kwargs):</span></span>
-<span class="line"><span style="color:#24292E">    deps </span><span style="color:#D73A49">=</span><span style="color:#24292E"> kwargs.pop(</span><span style="color:#032F62">"deps"</span><span style="color:#24292E">, []) </span><span style="color:#D73A49">+</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@rules_apple_linker//:lld"</span><span style="color:#24292E">]</span></span>
-<span class="line"><span style="color:#24292E">    ios_unit_test(</span></span>
-<span class="line"><span style="color:#E36209">        deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> deps,</span></span>
-<span class="line"><span style="color:#D73A49">        **</span><span style="color:#24292E">kwargs</span></span>
-<span class="line"><span style="color:#24292E">    )</span></span></code></pre>
+<pre><code>def my_custom_ios_unit_test(**kwargs):
+    deps = kwargs.pop("deps", []) + ["@rules_apple_linker//:lld"]
+    ios_unit_test(
+        deps = deps,
+        **kwargs
+    )</code></pre>
 <h2>Custom linkopts</h2>
 <p>Using bazel's <a href="https://docs.bazel.build/versions/main/command-line-reference.html#flag--linkopt"><code>--linkopt=</code></a> flag you can pass whatever custom
 options you want to the linker. If you need to customize this more based
 on other conditions, you can create your own linker target:</p>
-<pre><code lang="py">load("@rules_apple_linker//:rules.bzl", "lld_override")
+<pre><code>load("@rules_apple_linker//:rules.bzl", "lld_override")
 
 lld_override(
     name = "lld"

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7f7c75cc.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.01c80ed9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ff98637b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.26e0c9f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.a000af8b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.581270f0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/yams/6.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -148,34 +148,34 @@ Produces a YAML <code>String</code> from an instance of Swift Standard Library t
 Produces an instance of Swift Standard Library types as <code>Any</code> from YAML
 <code>String</code>.</li>
 </ul>
-<pre><code lang="py">// [String: Any]
-let dictionary: [String: Any] = ["key": "value"]
-let mapYAML: String = try Yams.dump(object: dictionary)
-mapYAML == """
-key: value
-
-"""
-let loadedDictionary = try Yams.load(yaml: mapYAML) as? [String: Any]
-
-// [Any]
-let array: [Int] = [1, 2, 3]
-let sequenceYAML: String = try Yams.dump(object: array)
-sequenceYAML == """
-- 1
-- 2
-- 3
-
-"""
-let loadedArray: [Int]? = try Yams.load(yaml: sequenceYAML) as? [Int]
-
-// Any
-let string = "string"
-let scalarYAML: String = try Yams.dump(object: string)
-scalarYAML == """
-string
-
-"""
-let loadedString: String? = try Yams.load(yaml: scalarYAML) as? String</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> [String: Any]</span></span>
+<span class="line"><span style="color:#24292E">let dictionary: [String: Any] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"key"</span><span style="color:#24292E">: </span><span style="color:#032F62">"value"</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">let mapYAML: String </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.dump(</span><span style="color:#005CC5">object</span><span style="color:#24292E">: dictionary)</span></span>
+<span class="line"><span style="color:#24292E">mapYAML </span><span style="color:#D73A49">==</span><span style="color:#032F62"> """</span></span>
+<span class="line"><span style="color:#032F62">key: value</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62">"""</span></span>
+<span class="line"><span style="color:#24292E">let loadedDictionary </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.load(yaml: mapYAML) </span><span style="color:#D73A49">as</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> [String: Any]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> [Any]</span></span>
+<span class="line"><span style="color:#24292E">let array: [Int] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">let sequenceYAML: String </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.dump(</span><span style="color:#005CC5">object</span><span style="color:#24292E">: array)</span></span>
+<span class="line"><span style="color:#24292E">sequenceYAML </span><span style="color:#D73A49">==</span><span style="color:#032F62"> """</span></span>
+<span class="line"><span style="color:#032F62">- 1</span></span>
+<span class="line"><span style="color:#032F62">- 2</span></span>
+<span class="line"><span style="color:#032F62">- 3</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62">"""</span></span>
+<span class="line"><span style="color:#24292E">let loadedArray: [Int]</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.load(yaml: sequenceYAML) </span><span style="color:#D73A49">as</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> [Int]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Any</span></span>
+<span class="line"><span style="color:#24292E">let string </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "string"</span></span>
+<span class="line"><span style="color:#24292E">let scalarYAML: String </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.dump(</span><span style="color:#005CC5">object</span><span style="color:#24292E">: string)</span></span>
+<span class="line"><span style="color:#24292E">scalarYAML </span><span style="color:#D73A49">==</span><span style="color:#032F62"> """</span></span>
+<span class="line"><span style="color:#032F62">string</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62">"""</span></span>
+<span class="line"><span style="color:#24292E">let loadedString: String</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> Yams.load(yaml: scalarYAML) </span><span style="color:#D73A49">as</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> String</span></span></code></pre>
 <h4><code>Yams.Node</code></h4>
 <ul>
 <li>Yams' native model representing <a href="http://www.yaml.org/spec/1.2/spec.html#id2764044">Nodes of YAML</a> which provides all
@@ -186,7 +186,7 @@ Produces a YAML <code>String</code> from an instance of <code>Node</code>.</li>
 <li><strong>Decoding <code>Yams.compose(yaml:)</code></strong>
 Produces an instance of <code>Node</code> from YAML <code>String</code>.</li>
 </ul>
-<pre><code>var map: Yams.Node = [
+<pre><code lang="py">var map: Yams.Node = [
     "array": [
         1, 2, 3
     ]

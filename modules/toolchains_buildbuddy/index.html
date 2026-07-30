@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7f7c75cc.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.01c80ed9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ff98637b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.26e0c9f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.a000af8b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.581270f0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_buildbuddy/0.0.4"></head>
 
 	<body style="margin: 0 auto">
@@ -66,30 +66,30 @@
 <p>For the most up-to-date instructions, see our <a href="https://buildbuddy.io/docs/rbe-setup">Official Documentation</a>.</p>
 <h4>BzlMod</h4>
 <p>Add the following to your <code>MODULE.bazel</code> file:</p>
-<pre><code lang="py">bazel_dep(name = "toolchains_buildbuddy")
-
-# Use the extension to create toolchain and platform targets
-buildbuddy = use_extension("@buildbuddy//:extensions.bzl", "buildbuddy")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "toolchains_buildbuddy"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Use the extension to create toolchain and platform targets</span></span>
+<span class="line"><span style="color:#24292E">buildbuddy </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@buildbuddy//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>The execution platforms and CC toolchains should be registered automatically under BzlMod.</p>
 <p>For a more detailed example and customization options, see our <a href="https://github.com/buildbuddy-io/buildbuddy-toolchain/tree/master/examples/bzlmod">BzlMod Example</a>.</p>
 <h4>WORKSPACE</h4>
 <p>Add the following lines to your <code>WORKSPACE</code> file. You'll probably want to pin your version to a specific commit rather than master.</p>
-<pre><code>http_archive(
-    name = "io_buildbuddy_buildbuddy_toolchain",
-    sha256 = "62ab60d07205f98c4fc3735bb21630272490fce193c59c3bb2cb2b962176400c",
-    strip_prefix = "buildbuddy-toolchain-0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d",
-    urls = ["https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d.tar.gz"],
-)
-
-load("@io_buildbuddy_buildbuddy_toolchain//:deps.bzl", "buildbuddy_deps")
-
-buildbuddy_deps()
-
-load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy")
-
-buildbuddy(name = "buildbuddy_toolchain")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "io_buildbuddy_buildbuddy_toolchain"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "62ab60d07205f98c4fc3735bb21630272490fce193c59c3bb2cb2b962176400c"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildbuddy-toolchain-0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/buildbuddy-io/buildbuddy-toolchain/archive/0c575cc56a0c5ed69a6dfb544a3f794b9d1b474d.tar.gz"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@io_buildbuddy_buildbuddy_toolchain//:deps.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy_deps"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">buildbuddy_deps()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@io_buildbuddy_buildbuddy_toolchain//:rules.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">buildbuddy(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildbuddy_toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Now you can use the toolchain in your BuildBuddy RBE builds. For example:</p>
-<pre><code>bazel build server \
+<pre><code lang="py">bazel build server \
     --remote_executor=remote.buildbuddy.io \
     --extra_toolchains=@buildbuddy_toolchain//:ubuntu_cc_toolchain \
     --extra_execution_platforms=@buildbuddy_toolchain//:platform_linux_x86_64 \

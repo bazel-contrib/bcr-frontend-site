@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7bf40196.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ea6e4d2f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.11cfbb87.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9a5a74e3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.312b2c07.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ec21e7c0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xtensor/0.27.1"></head>
 
 	<body style="margin: 0 auto">
@@ -101,11 +101,11 @@ Julia and R bindings, check out the <a href="https://github.com/xtensor-stack/xt
 <span class="line"><span style="color:#24292E">make install</span></span></code></pre>
 <h3>Installing xtensor using vcpkg</h3>
 <p>You can download and install xtensor using the <a href="https://github.com/Microsoft/vcpkg">vcpkg</a> dependency manager:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">Microsoft</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg.git</span></span>
-<span class="line"><span style="color:#24292E">cd vcpkg</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">bootstrap</span><span style="color:#D73A49">-</span><span style="color:#24292E">vcpkg.sh</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg integrate install</span></span>
-<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg install xtensor</span></span></code></pre>
+<pre><code lang="py">git clone https://github.com/Microsoft/vcpkg.git
+cd vcpkg
+./bootstrap-vcpkg.sh
+./vcpkg integrate install
+./vcpkg install xtensor</code></pre>
 <p>The xtensor port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
 <h2>Trying it online</h2>
 <p>You can play with <code>xtensor</code> interactively in a Jupyter notebook right now! Just click on the binder link below:</p>
@@ -209,7 +209,7 @@ in <code>xtensor</code>. This can be done by defining the macro <code>XTENSOR_US
 <h2>Usage</h2>
 <h3>Basic usage</h3>
 <p><strong>Initialize a 2-D array and compute the sum of one of its rows and a 1-D array.</strong></p>
-<pre><code lang="py">#include &lt;iostream&gt;
+<pre><code>#include &lt;iostream&gt;
 #include "xtensor/xarray.hpp"
 #include "xtensor/xio.hpp"
 #include "xtensor/xview.hpp"

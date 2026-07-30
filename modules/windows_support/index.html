@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f496f339.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.082256ca.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.74cbc027.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2b0502b7.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.c3c05fb1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8166e19f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/windows_support/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -107,26 +107,26 @@ This is guarded by the user-defined <code>BAZEL_MSVC_RUNTIME_VISUAL_STUDIO_EULA<
 <p>Visual Studio installer manifest URL is resolved from the channel URL specified by <code>visual_studio_channel_url</code> (defaulting to <code>https://aka.ms/vs/stable/channel</code>).
 That URL resolution is cached in your <code>MODULE.bazel.lock</code> to ensure reproducibility.</p>
 <p>However, alternatively you could set the Visual Studio installer manifest URL and integrity manually to avoid channel resolution:</p>
-<pre><code lang="py">bazel_dep(name = "windows_support", version = "0.0.1")
-
-msvc_runtime = use_extension("@windows_support//windows:extensions.bzl", "msvc_runtime")
-msvc_runtime.configure(
-  msvc_version = "14.50.35717",
-  visual_studio_installer_manifest_url = "https://download.visualstudio.microsoft.com/download/pr/fdc37f6e-59f6-4054-838a-b476eeaa6ec3/1d82370739911457e0a2f6be15d8b5f569531b352b2eabb961429eea1e99e356/VisualStudio.vsman",
-  visual_studio_installer_manifest_integrity = "sha256-qOhU+p8/uurCfXME4pfxZg1xN0ATid61fPeYPzPBb+8=",
-)
-use_repo(msvc_runtime, "msvc_runtime")
-
-windows_sdk = use_extension("@windows_support//windows:extensions.bzl", "windows_sdk")
-windows_sdk.configure(
-    windows_sdk_version = "10.0.26100.7705",
-    windows_sdk_integrity = {
-      "Microsoft.Windows.SDK.CPP": "sha256-/0VWYL7gcadEcVqWZWZvopwHaBV509gVlZqe7FpVZCQ=",
-      "Microsoft.Windows.SDK.CPP.x64": "sha256-rWzpD/lAEGmdKVSLPCseUsieuBFD4hmRVdmlw4ABtSs=",
-      "Microsoft.Windows.SDK.CPP.arm64": "sha256-A7wMA9Q5zvhQdLvNQl+dXTptO0Z5Z6zSHaO6bf7q+mc="
-    },
-)
-use_repo(windows_sdk, "windows_sdk")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "windows_support"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.1"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">msvc_runtime </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@windows_support//windows:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"msvc_runtime"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">msvc_runtime.configure(</span></span>
+<span class="line"><span style="color:#E36209">  msvc_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "14.50.35717"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  visual_studio_installer_manifest_url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://download.visualstudio.microsoft.com/download/pr/fdc37f6e-59f6-4054-838a-b476eeaa6ec3/1d82370739911457e0a2f6be15d8b5f569531b352b2eabb961429eea1e99e356/VisualStudio.vsman"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  visual_studio_installer_manifest_integrity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sha256-qOhU+p8/uurCfXME4pfxZg1xN0ATid61fPeYPzPBb+8="</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(msvc_runtime, </span><span style="color:#032F62">"msvc_runtime"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">windows_sdk </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@windows_support//windows:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"windows_sdk"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">windows_sdk.configure(</span></span>
+<span class="line"><span style="color:#E36209">    windows_sdk_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "10.0.26100.7705"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    windows_sdk_integrity</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">      "Microsoft.Windows.SDK.CPP"</span><span style="color:#24292E">: </span><span style="color:#032F62">"sha256-/0VWYL7gcadEcVqWZWZvopwHaBV509gVlZqe7FpVZCQ="</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "Microsoft.Windows.SDK.CPP.x64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"sha256-rWzpD/lAEGmdKVSLPCseUsieuBFD4hmRVdmlw4ABtSs="</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "Microsoft.Windows.SDK.CPP.arm64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"sha256-A7wMA9Q5zvhQdLvNQl+dXTptO0Z5Z6zSHaO6bf7q+mc="</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(windows_sdk, </span><span style="color:#032F62">"windows_sdk"</span><span style="color:#24292E">)</span></span></code></pre>
 <h2>Case-sensitive filesystem support</h2>
 <p>This is an example on how case-sensitive filesystems can be supported.
 This example does two things:</p>
@@ -134,7 +134,7 @@ This example does two things:</p>
 <li>naively lowercases (while keeping originals) headers and libraries files, either by symlinking (if supported) or copying them</li>
 <li>transforms (while keeping originals) to some cased variant observed in some C sources in the wild, either by symlinking (if supported) or copying them</li>
 </ul>
-<pre><code>windows_sdk = use_extension("@windows_support//windows:extensions.bzl", "windows_sdk")
+<pre><code lang="py">windows_sdk = use_extension("@windows_support//windows:extensions.bzl", "windows_sdk")
 windows_sdk.configure(
     windows_sdk_version = "10.0.26100.7705",
     transformations = {

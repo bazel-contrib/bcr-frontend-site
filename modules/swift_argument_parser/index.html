@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.58d09285.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5a146ee5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d18e468c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9401dd9c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.47b50d19.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.22172c0e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift_argument_parser/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -69,38 +69,38 @@ and then declare conformance to <code>ParsableCommand</code> and add the <code>@
 (Note, for <code>async</code> renditions of <code>run</code>, conform to <code>AsyncParsableCommand</code> rather
 than <code>ParsableCommand</code>.) 
 Finally, implement your command's logic in the <code>run()</code> method.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> ArgumentParser</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6F42C1">@main</span></span>
-<span class="line"><span style="color:#24292E">struct Repeat: ParsableCommand {</span></span>
-<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Flag(</span><span style="color:#005CC5">help</span><span style="color:#24292E">: </span><span style="color:#032F62">"Include a counter with each repetition."</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    var includeCounter = false</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Option(name: .shortAndLong, </span><span style="color:#005CC5">help</span><span style="color:#24292E">: </span><span style="color:#032F62">"How many times to repeat 'phrase'."</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    var count: Int</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> = nil</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Argument(</span><span style="color:#005CC5">help</span><span style="color:#24292E">: </span><span style="color:#032F62">"The phrase to repeat."</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">    var phrase: String</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    mutating func run() throws {</span></span>
-<span class="line"><span style="color:#24292E">        let repeatCount = count </span><span style="color:#B31D28;font-style:italic">??</span><span style="color:#005CC5"> 2</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">        for</span><span style="color:#24292E"> i </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 1...</span><span style="color:#24292E">repeatCount {</span></span>
-<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> includeCounter {</span></span>
-<span class="line"><span style="color:#005CC5">                print</span><span style="color:#24292E">(</span><span style="color:#032F62">"\(i): \(phrase)"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#005CC5">                print</span><span style="color:#24292E">(phrase)</span></span>
-<span class="line"><span style="color:#24292E">            }</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">import ArgumentParser
+
+@main
+struct Repeat: ParsableCommand {
+    @Flag(help: "Include a counter with each repetition.")
+    var includeCounter = false
+
+    @Option(name: .shortAndLong, help: "How many times to repeat 'phrase'.")
+    var count: Int? = nil
+
+    @Argument(help: "The phrase to repeat.")
+    var phrase: String
+
+    mutating func run() throws {
+        let repeatCount = count ?? 2
+
+        for i in 1...repeatCount {
+            if includeCounter {
+                print("\(i): \(phrase)")
+            } else {
+                print(phrase)
+            }
+        }
+    }
+}</code></pre>
 <p>The <code>ArgumentParser</code> library parses the command-line arguments,
 instantiates your command type, and then either executes your <code>run()</code> method
 or exits with a useful message.</p>
 <p><code>ArgumentParser</code> uses your properties' names and type information,
 along with the details you provide using property wrappers,
 to supply useful error messages and detailed help:</p>
-<pre><code lang="py">$ repeat hello --count 3
+<pre><code>$ repeat hello --count 3
 hello
 hello
 hello

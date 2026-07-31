@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d18e468c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9401dd9c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8af487e8.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7220fdf0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.22172c0e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.48d72fbd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/roaring/4.3.11"></head>
 
 	<body style="margin: 0 auto">
@@ -146,25 +146,25 @@ Users who choose this route, do not need to rely on CRoaring's build system (bas
 <span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">RoaringBitmap</span><span style="color:#D73A49">/</span><span style="color:#24292E">CRoaring</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v2.1.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">roaring.h</span></span>
 <span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">RoaringBitmap</span><span style="color:#D73A49">/</span><span style="color:#24292E">CRoaring</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v2.1.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">roaring.hh</span></span></code></pre>
 </li>
-<li>Create a new file named <code>demo.c</code> with this content:<pre><code lang="py">#include &lt;stdio.h&gt;
-#include &lt;stdlib.h&gt;
-#include "roaring.c"
-int main() {
-    roaring_bitmap_t *r1 = roaring_bitmap_create();
-    for (uint32_t i = 100; i &lt; 1000; i++) roaring_bitmap_add(r1, i);
-    printf("cardinality = %d\n", (int) roaring_bitmap_get_cardinality(r1));
-    roaring_bitmap_free(r1);
-
-    bitset_t *b = bitset_create();
-    for (int k = 0; k &lt; 1000; ++k) {
-            bitset_set(b, 3 * k);
-    }
-    printf("%zu \n", bitset_count(b));
-    bitset_free(b);
-    return EXIT_SUCCESS;
-}</code></pre>
+<li>Create a new file named <code>demo.c</code> with this content:<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;stdio.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;stdlib.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include "roaring.c"</span></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
+<span class="line"><span style="color:#24292E">    roaring_bitmap_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">r1 = roaring_bitmap_create();</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (uint32_t i = </span><span style="color:#005CC5">100</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 1000</span><span style="color:#24292E">; i</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">) roaring_bitmap_add(r1, i);</span></span>
+<span class="line"><span style="color:#24292E">    printf(</span><span style="color:#032F62">"cardinality = </span><span style="color:#005CC5">%d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, (</span><span style="color:#005CC5">int</span><span style="color:#24292E">) roaring_bitmap_get_cardinality(r1));</span></span>
+<span class="line"><span style="color:#24292E">    roaring_bitmap_free(r1);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    bitset_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">b = bitset_create();</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (</span><span style="color:#005CC5">int</span><span style="color:#24292E"> k = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; k </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 1000</span><span style="color:#24292E">; </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">k) {</span></span>
+<span class="line"><span style="color:#24292E">            bitset_set(b, </span><span style="color:#005CC5">3</span><span style="color:#D73A49"> *</span><span style="color:#24292E"> k);</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    printf(</span><span style="color:#032F62">"%zu </span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, bitset_count(b));</span></span>
+<span class="line"><span style="color:#24292E">    bitset_free(b);</span></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#005CC5"> EXIT_SUCCESS</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 </li>
-<li>Create a new file named <code>demo.cpp</code> with this content:<pre><code>#include &lt;iostream&gt;
+<li>Create a new file named <code>demo.cpp</code> with this content:<pre><code lang="py">#include &lt;iostream&gt;
 #include "roaring.hh" // the amalgamated roaring.hh includes roaring64map.hh
 #include "roaring.c"
 int main() {

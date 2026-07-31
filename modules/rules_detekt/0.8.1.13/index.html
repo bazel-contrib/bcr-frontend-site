@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.19a327ce.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2d93a6d8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3ae9e951.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.58d09285.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5a146ee5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.a404d596.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.47b50d19.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_detekt/0.8.1.13"></head>
 
 	<body style="margin: 0 auto">
@@ -74,12 +74,12 @@ for <a href="https://bazel.build">the Bazel build system</a>.</p>
 </ul>
 <h2>Usage</h2>
 <h3><code>MODULE.bazel</code> Configuration</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_detekt"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_detekt", version = "...")</code></pre>
 <h3><code>WORKSPACE</code> Configuration</h3>
 <p>First of all you need to declare the rule in the <code>WORKSPACE</code> file.
 Please refer to <a href="https://github.com/buildfoundation/bazel_rules_detekt/releases">GitHub releases</a> for the version and
 the SHA-256 hashsum.</p>
-<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+<pre><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 rules_detekt_version = "see-github-releases-page"
 rules_detekt_sha = "see-github-releases-page"

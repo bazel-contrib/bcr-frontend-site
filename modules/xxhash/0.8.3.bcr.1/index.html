@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc84080a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5420b8fa.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.36d97032.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b7cc96cd.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0e9a45cb.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.fdfa1c71.js" defer=""></script>
-		<script src="/registry.cb2aa317.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2a92a809.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xxhash/0.8.3.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -353,16 +353,16 @@ A more detailed analysis is documented <a href="https://github.com/Cyan4973/xxHa
 </ul>
 <h3>Building xxHash - Using vcpkg</h3>
 <p>You can download and install xxHash using the <a href="https://github.com/Microsoft/vcpkg">vcpkg</a> dependency manager:</p>
-<pre><code lang="py">git clone https://github.com/Microsoft/vcpkg.git
-cd vcpkg
-./bootstrap-vcpkg.sh
-./vcpkg integrate install
-./vcpkg install xxhash</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">Microsoft</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg.git</span></span>
+<span class="line"><span style="color:#24292E">cd vcpkg</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">bootstrap</span><span style="color:#D73A49">-</span><span style="color:#24292E">vcpkg.sh</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg integrate install</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">vcpkg install xxhash</span></span></code></pre>
 <p>The xxHash port in vcpkg is kept up to date by Microsoft team members and community contributors. If the version is out of date, please <a href="https://github.com/Microsoft/vcpkg">create an issue or pull request</a> on the vcpkg repository.</p>
 <h3>Example</h3>
 <p>The simplest example calls xxhash 64-bit variant as a one-shot function
 generating a hash value from a single buffer, and invoked from a C/C++ program:</p>
-<pre><code>#include "xxhash.h"
+<pre><code lang="py">#include "xxhash.h"
 
     (...)
     XXH64_hash_t hash = XXH64(buffer, size, seed);

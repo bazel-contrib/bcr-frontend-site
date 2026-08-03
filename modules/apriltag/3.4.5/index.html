@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc84080a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.95997ed8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.810b4cb2.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.68a69fbd.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c350c4ed.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f3571e0a.js" defer=""></script>
-		<script src="/registry.37be0f07.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.052e91dc.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -101,11 +101,11 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>This will build shared (*.so) libraries by default. If you need static (*.a) libraries set <code>BUILD_SHARED_LIBS</code> to <code>OFF</code>:</p>
-<pre><code lang="py">cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>If you have Ninja (<code>sudo apt install ninja-build</code>) installed, you can use:</p>
-<pre><code>cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>to generate and compile via the ninja build script. It will be much faster than with cmake's default Makefile generator.</p>
 <p>You can omit <code>--target install</code> if you only want to use this locally without installing.</p>
 <h1>Usage</h1>
@@ -121,37 +121,37 @@ cmake --build build --target install</code></pre>
 <p>If none of these fit your needs, generate your own custom tag family <a href="https://github.com/AprilRobotics/apriltag-generation">here</a>.</p>
 <h2>Getting Started with the Detector</h2>
 <h3>Python</h3>
-<pre><code>import cv2
-import numpy as np
-from apriltag import apriltag
-
-imagepath = 'test.jpg'
-image = cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE)
-detector = apriltag("tagStandard41h12")
-
-detections = detector.detect(image)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> cv2</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> numpy </span><span style="color:#D73A49">as</span><span style="color:#24292E"> np</span></span>
+<span class="line"><span style="color:#D73A49">from</span><span style="color:#24292E"> apriltag </span><span style="color:#D73A49">import</span><span style="color:#24292E"> apriltag</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">imagepath </span><span style="color:#D73A49">=</span><span style="color:#032F62"> 'test.jpg'</span></span>
+<span class="line"><span style="color:#24292E">image </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cv2.imread(imagepath, cv2.</span><span style="color:#005CC5">IMREAD_GRAYSCALE</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">detector </span><span style="color:#D73A49">=</span><span style="color:#24292E"> apriltag(</span><span style="color:#032F62">"tagStandard41h12"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">detections </span><span style="color:#D73A49">=</span><span style="color:#24292E"> detector.detect(image)</span></span></code></pre>
 <p>Alternately you can use the AprilTag python bindings created by <a href="https://github.com/duckietown/lib-dt-apriltags">duckietown</a>.</p>
 <h3>C</h3>
-<pre><code>image_u8_t* im = image_u8_create_from_pnm("test.pnm");
-if (im == NULL) {
-    fprintf(stderr, "Failed to load pnm image.\n");
-    exit(1);
-}
-apriltag_detector_t *td = apriltag_detector_create();
-apriltag_family_t *tf = tagStandard41h12_create();
-apriltag_detector_add_family(td, tf);
-zarray_t *detections = apriltag_detector_detect(td, im);
-
-for (int i = 0; i &lt; zarray_size(detections); i++) {
-    apriltag_detection_t *det;
-    zarray_get(detections, i, &amp;det);
-
-    // Do stuff with detections here.
-}
-// Cleanup.
-apriltag_detections_destroy(detections);
-tagStandard41h12_destroy(tf);
-apriltag_detector_destroy(td);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">image_u8_t</span><span style="color:#D73A49">*</span><span style="color:#24292E"> im </span><span style="color:#D73A49">=</span><span style="color:#24292E"> image_u8_create_from_pnm(</span><span style="color:#032F62">"test.pnm"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (im </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> NULL</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">    fprintf(stderr, </span><span style="color:#032F62">"Failed to load pnm image.</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#005CC5">    exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">apriltag_detector_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">td </span><span style="color:#D73A49">=</span><span style="color:#24292E"> apriltag_detector_create()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">apriltag_family_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">tf </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tagStandard41h12_create()</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">apriltag_detector_add_family(td, tf)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">zarray_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">detections </span><span style="color:#D73A49">=</span><span style="color:#24292E"> apriltag_detector_detect(td, im)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (</span><span style="color:#005CC5">int</span><span style="color:#24292E"> i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> zarray_size(detections); i</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">    apriltag_detection_t </span><span style="color:#D73A49">*</span><span style="color:#24292E">det;</span></span>
+<span class="line"><span style="color:#24292E">    zarray_get(detections, i, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">det);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Do stuff </span><span style="color:#D73A49">with</span><span style="color:#24292E"> detections here.</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Cleanup.</span></span>
+<span class="line"><span style="color:#24292E">apriltag_detections_destroy(detections);</span></span>
+<span class="line"><span style="color:#24292E">tagStandard41h12_destroy(tf);</span></span>
+<span class="line"><span style="color:#24292E">apriltag_detector_destroy(td);</span></span></code></pre>
 <h3>Matlab</h3>
 <p>Provided by third-party <a href="https://github.com/alddiaz/MATLAB_AprilTag3">here</a>.</p>
 <h3>Julia</h3>
@@ -167,7 +167,7 @@ apriltag_detector_destroy(td);</code></pre>
 will require, at minimum, a method for acquiring images.</p>
 <p>See example/opencv_demo.cc for an example of using AprilTag in C++ with OpenCV.
 This example application can be built by executing the following:</p>
-<pre><code>$ cd examples
+<pre><code lang="py">$ cd examples
 $ make opencv_demo</code></pre>
 <p>Image data in a cv::Mat object can be passed to AprilTag without creating
 a deep copy. Simply create an image_u8_t header for the cv::Mat data buffer:</p>

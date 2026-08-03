@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc84080a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6c45e706.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3c382977.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a0d44fc0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.010e85f8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f3571e0a.js" defer=""></script>
-		<script src="/registry.3fc76fbb.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a0e64efb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pydeps/0.5.0"></head>
 
 	<body style="margin: 0 auto">
@@ -69,15 +69,15 @@
 <p><strong>Add rules_pydeps to your MODULE.bazel:</strong></p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_pydeps"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><strong>Configure the external deps analyzer:</strong></p>
-<pre><code lang="py">reqs = use_extension("@rules_pydeps//pydeps:reqs.bzl", "reqs")
-reqs.requirements(
-    requirements_in = "//:requirements.in",
-    pip_requirements = "@pip//:requirements.bzl",
-)
-use_repo(reqs, "reqs")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">reqs </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_pydeps//pydeps:reqs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"reqs"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">reqs.requirements(</span></span>
+<span class="line"><span style="color:#E36209">    requirements_in</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:requirements.in"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    pip_requirements</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@pip//:requirements.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(reqs, </span><span style="color:#032F62">"reqs"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><strong>Configure deps_enforcer aspect:</strong></p>
 <p>Define a new aspect in a <code>.bzl</code> file (such as <code>./tools/aspects.bzl</code>):</p>
-<pre><code>load("@rules_pydeps//pydeps:pydeps.bzl", "deps_enforcer_aspect_factory")
+<pre><code lang="py">load("@rules_pydeps//pydeps:pydeps.bzl", "deps_enforcer_aspect_factory")
 
 deps_enforcer = deps_enforcer_aspect_factory(
     pip_deps_index = Label("@reqs//:pip_deps_index"),

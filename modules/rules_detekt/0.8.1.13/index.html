@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc84080a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f634e191.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3224e3f1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fd691be9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.dc4ba055.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.29a10215.js" defer=""></script>
-		<script src="/registry.a94fc796.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.268a8671.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_detekt/0.8.1.13"></head>
 
 	<body style="margin: 0 auto">
@@ -181,18 +181,18 @@ for the <a href="https://bazel.build">Bazel build system</a>.</p>
 <p><code>detekt</code> is a regular Bazel build rule. When Detekt finds violations, the <strong>build action itself
 fails</strong>, stopping <code>bazel build</code> immediately with an error. This makes it behave like a compiler
 error — violations block the build.</p>
-<pre><code lang="py">load("@rules_detekt//detekt:defs.bzl", "detekt")
-
-detekt(
-    name = "my_detekt",
-    srcs = glob(["src/main/kotlin/**/*.kt"]),
-)</code></pre>
-<pre><code>$ bazel build //mypackage:my_detekt</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_detekt//detekt:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"detekt"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">detekt(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_detekt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"src/main/kotlin/**/*.kt"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel build </span><span style="color:#D73A49">//</span><span style="color:#24292E">mypackage:my_detekt</span></span></code></pre>
 <h3><code>detekt_test</code></h3>
 <p><code>detekt_test</code> is a Bazel test rule. The build action always succeeds (even when violations are
 found), and Bazel then runs a test script that reads the real Detekt exit code and prints findings
 to the test output. Violations cause the <strong>test</strong> to fail rather than the build action.</p>
-<pre><code>load("@rules_detekt//detekt:defs.bzl", "detekt_test")
+<pre><code lang="py">load("@rules_detekt//detekt:defs.bzl", "detekt_test")
 
 detekt_test(
     name = "my_detekt",

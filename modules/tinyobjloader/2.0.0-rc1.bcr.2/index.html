@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc84080a.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f634e191.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3224e3f1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fd691be9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.dc4ba055.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.29a10215.js" defer=""></script>
-		<script src="/registry.a94fc796.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.268a8671.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinyobjloader/2.0.0-rc1.bcr.2"></head>
 
 	<body style="margin: 0 auto">
@@ -205,42 +205,42 @@ Old version is available as <code>v0.9.x</code> branch <a href="https://github.c
 <span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#D73A49">-+</span><span style="color:#D73A49">      +</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#D73A49">-+</span></span></code></pre>
 <p>Each <code>shape_t::mesh_t</code> does not contain vertex data but contains array index to <code>attrib_t</code>.
 See <code>loader_example.cc</code> for more details.</p>
-<pre><code lang="py">mesh_t::indices =&gt; array of vertex indices.
-
-  +----+----+----+----+----+----+----+----+----+----+     +--------+
-  | i0 | i1 | i2 | i3 | i4 | i5 | i6 | i7 | i8 | i9 | ... | i(n-1) |
-  +----+----+----+----+----+----+----+----+----+----+     +--------+
-
-Each index has an array index to attrib_t::vertices, attrib_t::normals and attrib_t::texcoords.
-
-mesh_t::num_face_vertices =&gt; array of the number of vertices per face(e.g. 3 = triangle, 4 = quad , 5 or more = N-gons).
-
-
-  +---+---+---+        +---+
-  | 3 | 4 | 3 | ...... | 3 |
-  +---+---+---+        +---+
-    |   |   |            |
-    |   |   |            +-----------------------------------------+
-    |   |   |                                                      |
-    |   |   +------------------------------+                       |
-    |   |                                  |                       |
-    |   +------------------+               |                       |
-    |                      |               |                       |
-    |/                     |/              |/                      |/
-
- mesh_t::indices
-
-  |    face[0]   |       face[1]     |    face[2]   |     |      face[n-1]           |
-  +----+----+----+----+----+----+----+----+----+----+     +--------+--------+--------+
-  | i0 | i1 | i2 | i3 | i4 | i5 | i6 | i7 | i8 | i9 | ... | i(n-3) | i(n-2) | i(n-1) |
-  +----+----+----+----+----+----+----+----+----+----+     +--------+--------+--------+</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mesh_t::indices </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> array of vertex indices.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#D73A49">     +</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span></span>
+<span class="line"><span style="color:#D73A49">  |</span><span style="color:#24292E"> i0 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i1 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i2 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i3 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i4 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i5 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i6 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i7 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i8 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i9 </span><span style="color:#D73A49">|</span><span style="color:#005CC5"> ...</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> i(n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#D73A49">     +</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">Each index has an array index to attrib_t::vertices, attrib_t::normals </span><span style="color:#D73A49">and</span><span style="color:#24292E"> attrib_t::texcoords.</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">mesh_t::num_face_vertices </span><span style="color:#D73A49">=&gt;</span><span style="color:#24292E"> array of the number of vertices per face(e.g. 3 </span><span style="color:#D73A49">=</span><span style="color:#24292E"> triangle, </span><span style="color:#005CC5">4</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> quad , </span><span style="color:#005CC5">5</span><span style="color:#D73A49"> or</span><span style="color:#E36209"> more</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> N</span><span style="color:#D73A49">-</span><span style="color:#24292E">gons).</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#D73A49">        +</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span></span>
+<span class="line"><span style="color:#D73A49">  |</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> |</span><span style="color:#005CC5"> 4</span><span style="color:#D73A49"> |</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> |</span><span style="color:#005CC5"> ......</span><span style="color:#D73A49"> |</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> |</span></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span><span style="color:#D73A49">        +</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">-+</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">            |</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">            +</span><span style="color:#B31D28;font-style:italic">----------------------------------------</span><span style="color:#D73A49">-+</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">                                                      |</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">   +</span><span style="color:#B31D28;font-style:italic">------------------------------</span><span style="color:#D73A49">+</span><span style="color:#D73A49">                       |</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   |</span><span style="color:#D73A49">                                  |</span><span style="color:#D73A49">                       |</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">   +</span><span style="color:#B31D28;font-style:italic">------------------</span><span style="color:#D73A49">+</span><span style="color:#D73A49">               |</span><span style="color:#D73A49">                       |</span></span>
+<span class="line"><span style="color:#D73A49">    |</span><span style="color:#D73A49">                      |</span><span style="color:#D73A49">               |</span><span style="color:#D73A49">                       |</span></span>
+<span class="line"><span style="color:#D73A49">    |/</span><span style="color:#D73A49">                     |/</span><span style="color:#D73A49">              |/</span><span style="color:#D73A49">                      |/</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E"> mesh_t::indices</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  |</span><span style="color:#24292E">    face[</span><span style="color:#005CC5">0</span><span style="color:#24292E">]   </span><span style="color:#D73A49">|</span><span style="color:#24292E">       face[</span><span style="color:#005CC5">1</span><span style="color:#24292E">]     </span><span style="color:#D73A49">|</span><span style="color:#24292E">    face[</span><span style="color:#005CC5">2</span><span style="color:#24292E">]   </span><span style="color:#D73A49">|</span><span style="color:#D73A49">     |</span><span style="color:#24292E">      face[n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">]           </span><span style="color:#D73A49">|</span></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#D73A49">     +</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span></span>
+<span class="line"><span style="color:#D73A49">  |</span><span style="color:#24292E"> i0 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i1 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i2 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i3 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i4 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i5 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i6 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i7 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i8 </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i9 </span><span style="color:#D73A49">|</span><span style="color:#005CC5"> ...</span><span style="color:#D73A49"> |</span><span style="color:#24292E"> i(n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">3</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i(n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">2</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> i(n</span><span style="color:#D73A49">-</span><span style="color:#005CC5">1</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span></span>
+<span class="line"><span style="color:#D73A49">  +</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">+</span><span style="color:#D73A49">     +</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">--------</span><span style="color:#D73A49">+</span></span></code></pre>
 <p>Note that when <code>triangulate</code> flag is true in <code>tinyobj::LoadObj()</code> argument, <code>num_face_vertices</code> are all filled with 3(triangle).</p>
 <h3>float data type</h3>
 <p>TinyObjLoader now use <code>real_t</code> for floating point data type.
 Default is <code>float(32bit)</code>.
 You can enable <code>double(64bit)</code> precision by using <code>TINYOBJLOADER_USE_DOUBLE</code> define.</p>
 <h4>Example code</h4>
-<pre><code>#define TINYOBJLOADER_IMPLEMENTATION // define this in only *one* .cc
+<pre><code lang="py">#define TINYOBJLOADER_IMPLEMENTATION // define this in only *one* .cc
 #include "tiny_obj_loader.h"
 
 std::string inputfile = "cornell_box.obj";

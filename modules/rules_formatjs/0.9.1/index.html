@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.330bf86b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.443e19d5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3a43fd80.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e77ce4ae.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.29a10215.js" defer=""></script>
-		<script src="/registry.29988e90.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.97020494.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_formatjs/0.9.1"></head>
 
 	<body style="margin: 0 auto">
@@ -75,15 +75,15 @@
 <p>Add <code>rules_formatjs</code> to your <code>MODULE.bazel</code>:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_formatjs"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Or use a specific commit from GitHub:</p>
-<pre><code lang="py">git_override(
-    module_name = "rules_formatjs",
-    remote = "https://github.com/formatjs/rules_formatjs.git",
-    commit = "&lt;commit-sha&gt;",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_formatjs"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/formatjs/rules_formatjs.git"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    commit</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;commit-sha&gt;"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage</h2>
 <h3>Run the FormatJS CLI</h3>
 <p>The platform-specific CLI selected by the registered toolchain is directly runnable:</p>
-<pre><code>bazel run @rules_formatjs//cli -- --version</code></pre>
+<pre><code lang="py">bazel run @rules_formatjs//cli -- --version</code></pre>
 <p>The same label can be used in executable or tool attributes. Apply the execution transition when declaring a Starlark attribute:</p>
 <pre><code>"_formatjs_cli": attr.label(
     default = Label("@rules_formatjs//cli"),

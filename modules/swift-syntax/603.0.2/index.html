@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.77fa203a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b25c3f2a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.330bf86b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.443e19d5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.29a10215.js" defer=""></script>
-		<script src="/registry.48a1a6a2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.29988e90.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-syntax/603.0.2"></head>
 
 	<body style="margin: 0 auto">
@@ -69,9 +69,9 @@
 <h2>Releases</h2>
 <p>Releases of SwiftSyntax are aligned with corresponding language and tooling releases, for example the major version 509 of swift-syntax is aligned with Swift 5.9. </p>
 <p>To depend on swift-syntax in a SwiftPM package, add the following to your <code>Package.swift</code>.</p>
-<pre><code lang="py">dependencies: [
-  .package(url: "https://github.com/swiftlang/swift-syntax.git", from: "&lt;#latest swift-syntax tag#&gt;"),
-],</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">dependencies: [</span></span>
+<span class="line"><span style="color:#24292E">  .package(url: </span><span style="color:#032F62">"https://github.com/swiftlang/swift-syntax.git"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"&lt;#latest swift-syntax tag#&gt;"</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#24292E">],</span></span></code></pre>
 <p>To add swift-syntax as a dependency of your Xcode project, go to the <em>Package Dependencies</em> tab of your Xcode project, click the plus button and search for <a href="https://github.com/swiftlang/swift-syntax.git">https://github.com/swiftlang/swift-syntax.git</a>.</p>
 <h2>Reporting Issues</h2>
 <p>If you should hit any issues while using SwiftSyntax, we appreciate bug reports on <a href="https://github.com/swiftlang/swift-syntax/issues">GitHub Issue</a>.</p>
@@ -81,7 +81,7 @@
 <p>SwiftSyntax provides an experimental <a href="https://bazel.build">Bazel</a> build configuration, maintained by Keith Smiley. 
 To use it, you can pull the source archive from the relevant release tag
 into your <code>MODULE.bazel</code> file (preferred and recommended) with <code>bazel_dep</code>. Bzlmod support was added starting release of <code>509.0.0</code> and above. All available versions can be found in the <a href="https://registry.bazel.build/modules/swift-syntax">Bazel Central Registry</a></p>
-<pre><code>bazel_dep(name = "swift-syntax", version = "600.0.1")</code></pre>
+<pre><code lang="py">bazel_dep(name = "swift-syntax", version = "600.0.1")</code></pre>
 <p>You can also pull source archive with <code>WORKSPACE</code> but note that it is preferred to use <code>MODULE.bazel</code>. To use <code>WORKSPACE</code> and swift-syntax, you can use <code>http_archive</code> as such</p>
 <pre><code>http_archive(
     name = "SwiftSyntax",

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.501db8b3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.dc9fa23d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.18f9b8ec.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c6dcc466.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.06f84b57.js" defer=""></script>
-		<script src="/registry.2088c8ff.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.75e4823e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xsimd/8.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -180,10 +180,10 @@ A migration guide will be available soon. In the meanwhile, the following exampl
 <p>Do not forget to enable AVX extension when building the example. With gcc or clang, this is done with the <code>-march=native</code> flag,
 on MSVC you have to pass the <code>/arch:AVX</code> option.</p>
 <p>This example outputs:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">(</span><span style="color:#005CC5">2.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">3.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">4.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">5.0</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">(2.0, 3.0, 4.0, 5.0)</code></pre>
 <h3>Explicit use of an instruction set extension (7.x and 8.x)</h3>
 <p>Here is an example that computes the mean of two sets of 4 double floating point values, assuming AVX extension is supported:</p>
-<pre><code lang="py">#include &lt;iostream&gt;
+<pre><code>#include &lt;iostream&gt;
 #include "xsimd/xsimd.hpp"
 
 namespace xs = xsimd;

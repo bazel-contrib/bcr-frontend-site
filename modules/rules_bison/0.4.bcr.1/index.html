@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.70004767.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ccb53b29.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f563e2d0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.992ea888.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.06f84b57.js" defer=""></script>
-		<script src="/registry.7ea43556.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.37fcbfb9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_bison/0.4.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -66,26 +66,26 @@ can be used to generate parsers in C, C++, or Java.</p>
 <p>API reference: <a href="https://github.com/jmillikin/rules_bison/blob/730a0252422f89056635557f9dd8056e381765fe/docs/rules_bison.md" target="_blank" rel="noopener noreferrer">docs/rules_bison.md</a></p>
 <h2>Setup</h2>
 <p>Add the following to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_bison"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_bison", version = "0.4")</code></pre>
 <p>To specify a version or build with additional C compiler options, use the
 <code>bison_repository_ext</code> module extension:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bison </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_bison//bison/extensions:bison_repository_ext.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "bison_repository_ext"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">bison.repository(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bison"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.3.2"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    extra_copts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"-O3"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(bison, </span><span style="color:#032F62">"bison"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@bison//:toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>bison = use_extension(
+    "@rules_bison//bison/extensions:bison_repository_ext.bzl",
+    "bison_repository_ext",
+)
+bison.repository(
+    name = "bison",
+    version = "3.3.2",
+    extra_copts = ["-O3"],
+)
+use_repo(bison, "bison")
+register_toolchains("@bison//:toolchain")</code></pre>
 <p>Note that repository names registered with a given bzlmod module extension must
 be unique within the scope of that extension. See the <a href="https://bazel.build/external/extension">Bazel module extensions</a>
 documentation for more details.</p>
 <h2>Examples</h2>
 <p>Integrating Bison into a C/C++ dependency graph:</p>
-<pre><code lang="py">load("@rules_bison//bison:bison.bzl", "bison_cc_library")
+<pre><code>load("@rules_bison//bison:bison.bzl", "bison_cc_library")
 
 bison_cc_library(
     name = "hello_parser",

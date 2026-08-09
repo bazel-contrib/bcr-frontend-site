@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.75c71420.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1cd369eb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a5f3b92f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ba0057c9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.1a69ecae.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3b1e39df.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sv-elab/2026-07-07"></head>
 
 	<body style="margin: 0 auto">
@@ -107,15 +107,15 @@
 </li>
 </ul>
 <p>Check out the repository including the submodule, e.g. with</p>
-<pre><code lang="py">git clone --recursive https://github.com/povik/sv-elab</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recursive https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">povik</span><span style="color:#D73A49">/</span><span style="color:#24292E">sv</span><span style="color:#D73A49">-</span><span style="color:#24292E">elab</span></span></code></pre>
 <p>Then build sv-elab (incl. the bundled <code>slang</code> library) as a Yosys plugin:</p>
-<pre><code>cmake -B build .
-make -C build -j$(nproc)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build .</span></span>
+<span class="line"><span style="color:#24292E">make </span><span style="color:#D73A49">-</span><span style="color:#24292E">C build </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(nproc)</span></span></code></pre>
 <p>Use a custom <code>-jN</code> switch to build with <code>N</code> concurrent processes instead of matching the number of cores.</p>
 <p>The built plugin is placed at <code>build/slang.so</code>. Copy this file into the Yosys plugin directory, which can be achieved through <code>make install</code>, or use a full path to this file (instead of the <code>slang</code> shorthand) when loading the plugin.</p>
 <h3>Using the plugin</h3>
 <p>One can load the plugin into Yosys on startup by passing the <code>-m</code> argument:</p>
-<pre><code>$ yosys -m slang</code></pre>
+<pre><code lang="py">$ yosys -m slang</code></pre>
 <p>Or, alternatively, one can use the <code>plugin</code> command at runtime:</p>
 <pre><code>plugin -i slang</code></pre>
 <p>After the plugin has been loaded, reading designs using sv-elab uses the historical <code>read_slang</code> command name.</p>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5bd6715a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a6ff4b39.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.2f4e7cd0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f967341b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.7acf92dc.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dbf0afe7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/su-exec/0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -73,11 +73,11 @@ users do not have permission to change uid/gid.</p>
 <p><code>user-spec</code> is either a user name (e.g. <code>nobody</code>) or user name and group
 name separated with colon (e.g. <code>nobody:ftp</code>). Numeric uid/gid values
 can be used instead of names. Example:</p>
-<pre><code lang="py">$ su-exec apache:1000 /usr/sbin/httpd -f /opt/www/httpd.conf</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> su</span><span style="color:#D73A49">-</span><span style="color:#005CC5">exec</span><span style="color:#24292E"> apache:</span><span style="color:#005CC5">1000</span><span style="color:#D73A49"> /</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">sbin</span><span style="color:#D73A49">/</span><span style="color:#24292E">httpd </span><span style="color:#D73A49">-</span><span style="color:#24292E">f </span><span style="color:#D73A49">/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">www</span><span style="color:#D73A49">/</span><span style="color:#24292E">httpd.conf</span></span></code></pre>
 <h2>TTY &amp; parent/child handling</h2>
 <p>Notice how <code>su</code> will make <code>ps</code> be a child of a shell while <code>su-exec</code>
 just executes <code>ps</code> directly.</p>
-<pre><code>$ docker run -it --rm alpine:edge su postgres -c 'ps aux'
+<pre><code lang="py">$ docker run -it --rm alpine:edge su postgres -c 'ps aux'
 PID   USER     TIME   COMMAND
     1 postgres   0:00 ash -c ps aux
    12 postgres   0:00 ps aux

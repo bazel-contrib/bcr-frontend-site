@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3f4df548.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2262684a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.668c7f92.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.60f37472.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.84de5e88.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.da1ec681.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apple_rules_lint/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -79,23 +79,23 @@ implementations of lint configs. You can do this by:</p>
 <span class="line"><span style="color:#032F62">    "java-checkstyle"</span><span style="color:#24292E">: </span><span style="color:#032F62">"//your:checkstyle-config"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">})</span></span></code></pre>
 <p>Alternatively, using Bzlmod:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "apple_rules_lint"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.0"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">linter </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@apple_rules_lint//lint:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"linter"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">linter.configure(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "java-checkstyle"</span><span style="color:#24292E">, </span><span style="color:#E36209">config</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//your:checkstyle-config"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(linter, </span><span style="color:#032F62">"apple_linters"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># MODULE.bazel
+bazel_dep(name = "apple_rules_lint", version = "0.4.0")
+
+linter = use_extension("@apple_rules_lint//lint:extensions.bzl", "linter")
+linter.configure(name = "java-checkstyle", config = "//your:checkstyle-config")
+use_repo(linter, "apple_linters")</code></pre>
 <p>You may override specific lint configurations on a per-package basis by:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># BUILD.bazel</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@apple_rules_lint//lint:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"package_lint_config"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">package_lint_config({</span></span>
-<span class="line"><span style="color:#032F62">    "java-checkstyle"</span><span style="color:#24292E">: </span><span style="color:#032F62">":alternative-checkstyle-config"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">})</span></span></code></pre>
+<pre><code># BUILD.bazel
+
+load("@apple_rules_lint//lint:defs.bzl", "package_lint_config")
+
+package_lint_config({
+    "java-checkstyle": ":alternative-checkstyle-config",
+})</code></pre>
 <h3>Missing <code>@@apple_linters</code> error</h3>
 <p>Bazel may report an error like this:</p>
-<pre><code lang="py">ERROR: Failed to load Starlark extension '@@apple_linters//:defs.bzl'.
+<pre><code>ERROR: Failed to load Starlark extension '@@apple_linters//:defs.bzl'.
 Cycle in the workspace file detected. This indicates that a repository is used prior to being defined.
 The following chain of repository dependencies lead to the missing definition.
  - @@apple_linters

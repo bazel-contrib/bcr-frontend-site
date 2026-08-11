@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.4f8d8e50.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.97119a78.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3f4df548.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2262684a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.2f14d54c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.84de5e88.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/wolfd_bazel_compile_commands/0.5.2"></head>
 
 	<body style="margin: 0 auto">
@@ -64,13 +64,13 @@
 <h2>Usage</h2>
 <p>See <a href="https://github.com/wolfd/bazel-compile-commands/releases">releases</a> for install information.</p>
 <p>If you're using the <a href="https://marketplace.visualstudio.com/items?itemName=llvm-vs-code-extensions.vscode-clangd">VS Code clangd plugin</a>, you may want to experiment with this option in .vscode/settings.json:</p>
-<pre><code lang="py">"clangd.arguments": [
-    // Allow clangd to execute your compiler to find system headers. I've seen strange errors when this is enabled, so it might be worth trying without it.
-    "--query-driver=/**"
-  ],</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#032F62">"clangd.arguments"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Allow clangd to execute your compiler to find system headers. I</span><span style="color:#032F62">'ve seen strange errors when this is enabled, so it might be worth trying without it.</span></span>
+<span class="line"><span style="color:#032F62">    "--query-driver=/**"</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span></code></pre>
 <p>To run, use <code>bazel run @wolfd_bazel_compile_commands//:generate_compile_commands -- &lt;optional query pattern&gt;</code></p>
 <p>Consider adding an alias to your root BUILD.bazel:</p>
-<pre><code>alias(
+<pre><code lang="py">alias(
     name = "compile_commands",
     actual = "@wolfd_bazel_compile_commands//:generate_compile_commands",
 )</code></pre>

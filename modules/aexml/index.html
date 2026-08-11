@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.4f8d8e50.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.97119a78.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3f4df548.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2262684a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.2f14d54c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.84de5e88.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aexml/4.7.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -189,19 +189,19 @@ For more examples check out <a href="https://github.com/tadija/AEXML/blob/db8067
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h3>Write XML</h3>
 <p>Let's say this is some SOAP XML request you need to generate.<br>Well, you could just build ordinary string for that?</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">xml version</span><span style="color:#D73A49">=</span><span style="color:#032F62">"1.0"</span><span style="color:#24292E"> encoding</span><span style="color:#D73A49">=</span><span style="color:#032F62">"utf-8"</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">soap:Envelope xmlns:xsd</span><span style="color:#D73A49">=</span><span style="color:#032F62">"http://www.w3.org/2001/XMLSchema"</span><span style="color:#24292E"> xmlns:xsi</span><span style="color:#D73A49">=</span><span style="color:#032F62">"http://www.w3.org/2001/XMLSchema-instance"</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">soap:Header</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">m:Trans xmlns:m</span><span style="color:#D73A49">=</span><span style="color:#032F62">"http://www.w3schools.com/transaction/"</span><span style="color:#24292E"> soap:mustUnderstand</span><span style="color:#D73A49">=</span><span style="color:#032F62">"1"</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">234</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">m:Trans</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;/</span><span style="color:#24292E">soap:Header</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">soap:Body</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;</span><span style="color:#24292E">m:GetStockPrice</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">m:StockName</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">AAPL</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">m:StockName</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">    &lt;/</span><span style="color:#24292E">m:GetStockPrice</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">  &lt;/</span><span style="color:#24292E">soap:Body</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">soap:Envelope</span><span style="color:#D73A49">&gt;</span></span></code></pre>
+<pre><code lang="py">&lt;?xml version="1.0" encoding="utf-8"?&gt;
+&lt;soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;soap:Header&gt;
+    &lt;m:Trans xmlns:m="http://www.w3schools.com/transaction/" soap:mustUnderstand="1"&gt;234&lt;/m:Trans&gt;
+  &lt;/soap:Header&gt;
+  &lt;soap:Body&gt;
+    &lt;m:GetStockPrice&gt;
+      &lt;m:StockName&gt;AAPL&lt;/m:StockName&gt;
+    &lt;/m:GetStockPrice&gt;
+  &lt;/soap:Body&gt;
+&lt;/soap:Envelope&gt;</code></pre>
 <p>Yes, but, you can also do it in a more structured and elegant way with AEXML:</p>
-<pre><code lang="py">// create XML Document
+<pre><code>// create XML Document
 let soapRequest = AEXMLDocument()
 let attributes = ["xmlns:xsi" : "http://www.w3.org/2001/XMLSchema-instance", "xmlns:xsd" : "http://www.w3.org/2001/XMLSchema"]
 let envelope = soapRequest.addChild(name: "soap:Envelope", attributes: attributes)

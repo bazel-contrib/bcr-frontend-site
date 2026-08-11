@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ea81a9d8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f77cd239.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5c67be1d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.6d7cd623.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.e7d47ee0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f9c141b0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sparse_map/0.6.2"></head>
 
 	<body style="margin: 0 auto">
@@ -110,31 +110,31 @@
 <li><strong><a href="https://tessil.github.io/sparse-map/classtsl_1_1sh_1_1mod__growth__policy.html">tsl::sh::mod_growth_policy.</a></strong> The policy grows the map by a customizable growth factor passed in parameter. It then just use the modulo operator to map a hash to a bucket. Slower but more flexible.</li>
 </ul>
 <p>To implement your own policy, you have to implement the following interface.</p>
-<pre><code lang="py">struct custom_policy {
-    // Called on hash table construction and rehash, min_bucket_count_in_out is the minimum buckets
-    // that the hash table needs. The policy can change it to a higher number of buckets if needed 
-    // and the hash table will use this value as bucket count. If 0 bucket is asked, then the value
-    // must stay at 0.    
-    explicit custom_policy(std::size_t&amp; min_bucket_count_in_out);
-    
-    // Return the bucket [0, bucket_count()) to which the hash belongs. 
-    // If bucket_count() is 0, it must always return 0.
-    std::size_t bucket_for_hash(std::size_t hash) const noexcept;
-    
-    // Return the number of buckets that should be used on next growth
-    std::size_t next_bucket_count() const;
-    
-    // Return the maximum number of buckets supported by the policy.
-    std::size_t max_bucket_count() const;
-    
-    // Reset the growth policy as if it was created with a bucket count of 0.
-    // After a clear, the policy must always return 0 when bucket_for_hash is called.
-    void clear() noexcept;
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct custom_policy {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Called on </span><span style="color:#005CC5">hash</span><span style="color:#24292E"> table construction </span><span style="color:#D73A49">and</span><span style="color:#24292E"> rehash, min_bucket_count_in_out </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the minimum buckets</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> that the </span><span style="color:#005CC5">hash</span><span style="color:#24292E"> table needs. The policy can change it to a higher number of buckets </span><span style="color:#D73A49">if</span><span style="color:#24292E"> needed </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> the </span><span style="color:#005CC5">hash</span><span style="color:#24292E"> table will use this value </span><span style="color:#D73A49">as</span><span style="color:#24292E"> bucket count. If </span><span style="color:#005CC5">0</span><span style="color:#24292E"> bucket </span><span style="color:#D73A49">is</span><span style="color:#24292E"> asked, then the value</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> must stay at </span><span style="color:#005CC5">0</span><span style="color:#24292E">.    </span></span>
+<span class="line"><span style="color:#24292E">    explicit custom_policy(std::size_t</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> min_bucket_count_in_out);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Return the bucket [</span><span style="color:#005CC5">0</span><span style="color:#24292E">, bucket_count()) to which the </span><span style="color:#005CC5">hash</span><span style="color:#24292E"> belongs. </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> If bucket_count() </span><span style="color:#D73A49">is</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">, it must always </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#24292E">    std::size_t bucket_for_hash(std::size_t </span><span style="color:#005CC5">hash</span><span style="color:#24292E">) const noexcept;</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Return the number of buckets that should be used on </span><span style="color:#005CC5">next</span><span style="color:#24292E"> growth</span></span>
+<span class="line"><span style="color:#24292E">    std::size_t next_bucket_count() const;</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Return the maximum number of buckets supported by the policy.</span></span>
+<span class="line"><span style="color:#24292E">    std::size_t max_bucket_count() const;</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Reset the growth policy </span><span style="color:#D73A49">as</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> it was created </span><span style="color:#D73A49">with</span><span style="color:#24292E"> a bucket count of </span><span style="color:#005CC5">0</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> After a clear, the policy must always </span><span style="color:#D73A49">return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E"> when bucket_for_hash </span><span style="color:#D73A49">is</span><span style="color:#24292E"> called.</span></span>
+<span class="line"><span style="color:#24292E">    void clear() noexcept;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h3>Installation</h3>
 <p>To use sparse-map, just add the <a href="https://github.com/Tessil/sparse-map/blob/d71e6fd75f4970f07f4f1fe67438055be70d0945/include/" target="_blank" rel="noopener noreferrer">include</a> directory to your include path. It is a <strong>header-only</strong> library.</p>
 <p>If you use CMake, you can also use the <code>tsl::sparse_map</code> exported target from the <a href="https://github.com/Tessil/sparse-map/blob/d71e6fd75f4970f07f4f1fe67438055be70d0945/CMakeLists.txt" target="_blank" rel="noopener noreferrer">CMakeLists.txt</a> with <code>target_link_libraries</code>. </p>
-<pre><code># Example where the sparse-map project is stored in a third-party directory
+<pre><code lang="py"># Example where the sparse-map project is stored in a third-party directory
 add_subdirectory(third-party/sparse-map)
 target_link_libraries(your_target PRIVATE tsl::sparse_map)</code></pre>
 <p>If the project has been installed through <code>make install</code>, you can also use <code>find_package(tsl-sparse-map REQUIRED)</code> instead of <code>add_subdirectory</code>.</p>

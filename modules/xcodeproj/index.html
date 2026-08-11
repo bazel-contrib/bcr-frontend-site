@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1ef30f0b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8cea8933.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3b784d32.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.10adc942.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.fb627138.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dcce58d0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xcodeproj/9.10.1"></head>
 
 	<body style="margin: 0 auto">
@@ -151,30 +151,30 @@
 <p>Using <a href="https://github.com/mxcl/swift-sh"><code>swift-sh</code></a> you can automate project-tasks using scripts, for example we
 can make a script that keeps a project’s version key in sync with the current
 git tag that represents the project’s version:</p>
-<pre><code lang="py">#!/usr/bin/swift sh
-import Foundation
-import XcodeProj  // @tuist ~&gt; 8.8.0
-import PathKit
-
-guard CommandLine.arguments.count == 3 else {
-    let arg0 = Path(CommandLine.arguments[0]).lastComponent
-    fputs("usage: \(arg0) &lt;project&gt; &lt;new-version&gt;\n", stderr)
-    exit(1)
-}
-
-let projectPath = Path(CommandLine.arguments[1])
-let newVersion = CommandLine.arguments[2]
-let xcodeproj = try XcodeProj(path: projectPath)
-let key = "CURRENT_PROJECT_VERSION"
-
-for conf in xcodeproj.pbxproj.buildConfigurations where conf.buildSettings[key] != nil {
-    conf.buildSettings[key] = newVersion
-}
-
-try xcodeproj.write(path: projectPath)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#!/usr/bin/swift sh</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> Foundation</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> XcodeProj  </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> @</span><span style="color:#24292E">tuist </span><span style="color:#D73A49">~&gt;</span><span style="color:#005CC5"> 8.8</span><span style="color:#24292E">.0</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> PathKit</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">guard CommandLine.arguments.count </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 3</span><span style="color:#D73A49"> else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">    let arg0 = Path(CommandLine.arguments[</span><span style="color:#005CC5">0</span><span style="color:#24292E">]).lastComponent</span></span>
+<span class="line"><span style="color:#24292E">    fputs(</span><span style="color:#032F62">"usage: \(arg0) &lt;project&gt; &lt;new-version&gt;</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, stderr)</span></span>
+<span class="line"><span style="color:#005CC5">    exit</span><span style="color:#24292E">(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">let projectPath </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Path(CommandLine.arguments[</span><span style="color:#005CC5">1</span><span style="color:#24292E">])</span></span>
+<span class="line"><span style="color:#24292E">let newVersion </span><span style="color:#D73A49">=</span><span style="color:#24292E"> CommandLine.arguments[</span><span style="color:#005CC5">2</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">let xcodeproj </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> XcodeProj(path: projectPath)</span></span>
+<span class="line"><span style="color:#24292E">let key </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "CURRENT_PROJECT_VERSION"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> conf </span><span style="color:#D73A49">in</span><span style="color:#24292E"> xcodeproj.pbxproj.buildConfigurations where conf.buildSettings[key] </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">    conf.buildSettings[key] = newVersion</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> xcodeproj.write(path: projectPath)</span></span></code></pre>
 <p>You could then store this in your repository, for example at
 <code>scripts/set-project-version</code> and then run it:</p>
-<pre><code>$ scripts/set-project-version ./App.xcodeproj 1.2.3
+<pre><code lang="py">$ scripts/set-project-version ./App.xcodeproj 1.2.3
 $ git add App.xcodeproj
 $ git commit -m "Bump version"
 $ git tag 1.2.3</code></pre>

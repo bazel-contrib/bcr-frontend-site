@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1ef30f0b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8cea8933.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3b784d32.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.10adc942.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.fb627138.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dcce58d0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/diff.bzl/0.5.8"></head>
 
 	<body style="margin: 0 auto">
@@ -91,15 +91,15 @@ This ruleset is under active development. The API is subject to breaking changes
 <span class="line"><span style="color:#E36209">    out</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cmp_output"</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>Produce human-readable diffs</h3>
-<pre><code lang="py"># Side-by-side diff
-load("@diff.bzl", "sdiff")
-
-sdiff(
-    name = "side_by_side",
-    srcs = ["a.txt", "b.txt"],
-    out = "compare"
-)</code></pre>
-<pre><code># Three way diff
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Side-by-side diff</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@diff.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sdiff"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">sdiff(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "side_by_side"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"a.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"b.txt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    out</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "compare"</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># Three way diff
 load("@diff.bzl", "diff3")
 
 sdiff(

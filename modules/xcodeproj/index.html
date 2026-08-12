@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5288602e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0de05782.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.293032d6.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f4d0f768.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.18e38407.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7e2e75d4.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xcodeproj/9.10.1"></head>
 
 	<body style="margin: 0 auto">
@@ -136,22 +136,22 @@
 <h2>Installation</h2>
 <h3>Swift Package Manager</h3>
 <p>Add the dependency in your <code>Package.swift</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">let package </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Package(</span></span>
-<span class="line"><span style="color:#24292E">    name: </span><span style="color:#032F62">"myproject"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    dependencies: [</span></span>
-<span class="line"><span style="color:#24292E">        .package(url: </span><span style="color:#032F62">"https://github.com/tuist/XcodeProj.git"</span><span style="color:#24292E">, .upToNextMajor(</span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"8.12.0"</span><span style="color:#24292E">)),</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">    targets: [</span></span>
-<span class="line"><span style="color:#24292E">        .target(</span></span>
-<span class="line"><span style="color:#24292E">            name: </span><span style="color:#032F62">"myproject"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">            dependencies: [</span><span style="color:#032F62">"XcodeProj"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#24292E">        ]</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">let package = Package(
+    name: "myproject",
+    dependencies: [
+        .package(url: "https://github.com/tuist/XcodeProj.git", .upToNextMajor(from: "8.12.0")),
+    ],
+    targets: [
+        .target(
+            name: "myproject",
+            dependencies: ["XcodeProj"]),
+        ]
+)</code></pre>
 <h3>Scripting</h3>
 <p>Using <a href="https://github.com/mxcl/swift-sh"><code>swift-sh</code></a> you can automate project-tasks using scripts, for example we
 can make a script that keeps a project’s version key in sync with the current
 git tag that represents the project’s version:</p>
-<pre><code lang="py">#!/usr/bin/swift sh
+<pre><code>#!/usr/bin/swift sh
 import Foundation
 import XcodeProj  // @tuist ~&gt; 8.8.0
 import PathKit

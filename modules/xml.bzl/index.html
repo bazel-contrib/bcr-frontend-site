@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8ac8305f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.54fc0475.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9002dc6a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.cae0e9ee.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.14939f56.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3e0090eb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xml.bzl/0.2.3"></head>
 
 	<body style="margin: 0 auto">
@@ -77,17 +77,17 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "xml.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>With WORKSPACE</h3>
 <p>Add to your <code>WORKSPACE</code> file:</p>
-<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "xml.bzl",
-    sha256 = "&lt;sha256&gt;",
-    strip_prefix = "xml.bzl-&lt;version&gt;",
-    url = "https://github.com/scottpledger/xml.bzl/releases/download/v&lt;version&gt;/xml.bzl-v&lt;version&gt;.tar.gz",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "xml.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;sha256&gt;"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "xml.bzl-&lt;version&gt;"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/scottpledger/xml.bzl/releases/download/v&lt;version&gt;/xml.bzl-v&lt;version&gt;.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage</h2>
 <h3>Basic Parsing</h3>
-<pre><code>load("@xml.bzl", "xml")
+<pre><code lang="py">load("@xml.bzl", "xml")
 
 def _my_rule_impl(ctx):
     xml_content = '''&lt;?xml version="1.0"?&gt;

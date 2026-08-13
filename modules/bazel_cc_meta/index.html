@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f711ac61.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.32aeac50.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ae60a0ff.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0d56fecf.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.7b741fb8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a1895c2b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/bazel_cc_meta/0.2.1"></head>
 
 	<body style="margin: 0 auto">
@@ -96,12 +96,12 @@ the C/C++ targets and their dependencies. Core capabilities include:</p>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>Git commit as <code>git_override</code></h3>
 <p>Put the following into your MODULE.bazel file</p>
-<pre><code lang="py">bazel_dep(name = "bazel_cc_meta", version = "0.0.0")
-git_override(
-    module_name = "bazel_cc_meta",
-    commit = &lt;commit_you_are_interested_in&gt;,
-    remote = "https://github.com/mikael-s-persson/bazel_cc_meta",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    commit</span><span style="color:#D73A49"> =</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">commit_you_are_interested_in</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/mikael-s-persson/bazel_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h1>Usage</h1>
 <h2>Default aspect</h2>
 <p>The most basic usage of <code>bazel_cc_meta</code> is to use the default configurations (aspect).</p>
@@ -113,7 +113,7 @@ git_override(
 <p>If default tools (aspect or refresh tool) are not appropriate (see "Known issues"), custom
 configurations can be created, see sections below.</p>
 <p>To use the default tools, use <code>bazel run</code> to invoke the refresh tool:</p>
-<pre><code>bazel run [build_options] @bazel_cc_meta//cc_meta:refresh_all -- [build_options]</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run [build_options] </span><span style="color:#D73A49">@</span><span style="color:#24292E">bazel_cc_meta</span><span style="color:#D73A49">//</span><span style="color:#24292E">cc_meta:refresh_all </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E"> [build_options]</span></span></code></pre>
 <p>Where <code>build_options</code> should be the build configuration options you need when building your
 targets, e.g., <code>-c opt --config=clang</code>. The trailing <code>build_options</code> are the options that
 the script will use when invoking <code>bazel</code> under-the-hood, so those are the options that truly
@@ -133,7 +133,7 @@ as missing dependencies (aka "not_found" headers) and unused ones.</li>
 and will only run on targets whose aspect output are not up-to-date. Thus, it's
 usually quick after the first run.</p>
 <p>To automatically fix the issues listed in <code>dependency_issues.json</code>, run the <code>fix_deps</code> tool:</p>
-<pre><code>bazel run [build_options] @bazel_cc_meta//cc_meta:fix_deps</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run [build_options] </span><span style="color:#D73A49">@</span><span style="color:#24292E">bazel_cc_meta</span><span style="color:#D73A49">//</span><span style="color:#24292E">cc_meta:fix_deps</span></span></code></pre>
 <p>The <code>build_options</code> don't really matter here, as <code>fix_deps</code> does not build anything and it's
 just a vanilla python script. Under-the-hood, it uses <code>buildozer</code> to fix issues with build
 rules, and it is therefore subject to its shortcomings (see Known issues).</p>
@@ -171,32 +171,32 @@ to instantiate your own custom trio of components. Doing so requires a <code>BUI
 file (don't ask why). The deviations and refresh script will be rules in your <code>BUILD</code> file.
 The aspect, parametrized by your custom deviations, will be created in your <code>.bzl</code> file.</p>
 <p>In a BUILD file (e.g., //my:BUILD):</p>
-<pre><code>load("@bazel_cc_meta//cc_meta:cc_meta.bzl", "make_cc_meta_deviations", "refresh_cc_meta")
-
-make_cc_meta_deviations(
-    name = "my_cc_meta_deviations",
-    deviations = {
-        # gtest and gtest_main export the gtest headers and should always be linked in (for main).
-        "@com_google_googletest//:gtest": {"exports": [
-            "gtest/gtest.h",
-            "gmock/gmock.h",
-        ]},
-        "@com_google_googletest//:gtest_main": {
-            "alwaysused": True,
-            "forward_exports": True,
-        },
-    },
-    visibility = ["//visibility:public"],
-)
-
-refresh_cc_meta(
-    name = "refresh_foo_cc_meta",
-    cc_meta_aspect = "//my:defs.bzl%my_cc_meta_aspect",   # Default: "@bazel_cc_meta//:defs.bzl%default_cc_meta_aspect"
-    targets = ["//my:foo"],                               # Default: "//..." (aka "all")
-    visibility = ["//visibility:public"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_cc_meta//cc_meta:cc_meta.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"make_cc_meta_deviations"</span><span style="color:#24292E">, </span><span style="color:#032F62">"refresh_cc_meta"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">make_cc_meta_deviations(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_cc_meta_deviations"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deviations</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#6A737D">        # gtest and gtest_main export the gtest headers and should always be linked in (for main).</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest"</span><span style="color:#24292E">: {</span><span style="color:#032F62">"exports"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#032F62">            "gtest/gtest.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "gmock/gmock.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ]},</span></span>
+<span class="line"><span style="color:#032F62">        "@com_google_googletest//:gtest_main"</span><span style="color:#24292E">: {</span></span>
+<span class="line"><span style="color:#032F62">            "alwaysused"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">            "forward_exports"</span><span style="color:#24292E">: </span><span style="color:#005CC5">True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        },</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">refresh_cc_meta(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "refresh_foo_cc_meta"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    cc_meta_aspect</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//my:defs.bzl%my_cc_meta_aspect"</span><span style="color:#24292E">,   </span><span style="color:#6A737D"># Default: "@bazel_cc_meta//:defs.bzl%default_cc_meta_aspect"</span></span>
+<span class="line"><span style="color:#E36209">    targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//my:foo"</span><span style="color:#24292E">],                               </span><span style="color:#6A737D"># Default: "//..." (aka "all")</span></span>
+<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>In a bzl file (e.g., //my:defs.bzl):</p>
-<pre><code>load("@bazel_cc_meta//cc_meta:cc_meta.bzl", "cc_meta_aspect_factory")
+<pre><code lang="py">load("@bazel_cc_meta//cc_meta:cc_meta.bzl", "cc_meta_aspect_factory")
 
 my_cc_meta_aspect = cc_meta_aspect_factory(
     deviations = [Label("@//my:my_cc_meta_deviations")],  # Default: []

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ae60a0ff.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0d56fecf.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d0376a78.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3dae2807.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.a1895c2b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.225fcb6f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asc_swift/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -83,15 +83,15 @@
 <p>The package defines two products: <code>AppStoreConnect</code> and <code>EnterpriseProgram</code>. Each product provides the <code>AppStoreConnect</code> module, which contains the client and authentication logic, and either the <code>AppStoreAPI</code> or <code>EnterpriseAPI</code> modules, respectively. To integrate with App Store Connect, you would add a dependency on the <code>"AppStoreConnect"</code> product. To use the Enterprise Program API, add the <code>"EnterpriseProgram"</code> product as a target dependency instead. Finally, both products can be made dependencies of the same target without significant conflict. See the <a href="https://github.com/aaronsky/asc-swift/blob/e04c1c1a8e36b1e6b14619198cc8a797cee638af//Examples/invite_user/InviteUser.swift" target="_blank" rel="noopener noreferrer">invite_user</a> sample for a rough example of this.</p>
 <h3>Swift Package Manager</h3>
 <p>To use <code>AppStoreConnect</code> in your project, add the following line to the dependencies in your <code>Package.swift</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/aaronsky/asc-swift"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"1.0.0"</span><span style="color:#24292E">),</span></span></code></pre>
+<pre><code lang="py">.package(url: "https://github.com/aaronsky/asc-swift", from: "1.0.0"),</code></pre>
 <p>Then, include <code>"AppStoreConnect"</code> as a dependency of your target:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.target(name: </span><span style="color:#032F62">"&lt;target&gt;"</span><span style="color:#24292E">, dependencies: [</span></span>
-<span class="line"><span style="color:#24292E">    .product(name: </span><span style="color:#032F62">"AppStoreConnect"</span><span style="color:#24292E">, package: </span><span style="color:#032F62">"AppStoreConnect"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#24292E">]),</span></span></code></pre>
+<pre><code>.target(name: "&lt;target&gt;", dependencies: [
+    .product(name: "AppStoreConnect", package: "AppStoreConnect"),
+]),</code></pre>
 <p>Finally, add <code>import AppStoreConnect</code> to your code to import the client, and <code>import AppStoreAPI</code> to import the API bindings.</p>
 <h3>Bazel</h3>
 <p>This project is available on the <a href="https://registry.bazel.build/modules/asc_swift">Bazel Central Registry</a>. Much like other modules there, all that's required to add the dependency is to insert the following line into your <code>MODULE.bazel</code>. Note that this requires your project to be using <a href="https://bazel.build/external/overview#bzlmod">Bzlmod</a>.</p>
-<pre><code lang="py">bazel_dep(name = "asc_swift", version = "&lt;version&gt;")</code></pre>
+<pre><code>bazel_dep(name = "asc_swift", version = "&lt;version&gt;")</code></pre>
 <p>An example of how to set this up can be found in <a href="https://github.com/aaronsky/asc-swift/blob/e04c1c1a8e36b1e6b14619198cc8a797cee638af//Examples/bzlmod/MODULE.bazel" target="_blank" rel="noopener noreferrer"><code>Examples/bzlmod</code></a>.</p>
 <h2>Usage</h2>
 <h3>Authentication</h3>

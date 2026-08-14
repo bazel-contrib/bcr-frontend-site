@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.98bb217f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.088ee4fb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d34c6569.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b82d856d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.713bb212.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6b37d79d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sse2neon/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -123,15 +123,15 @@ but SSE intrinsic <code>_mm_maddubs_epi16</code> has to be implemented with 13+ 
 <p>Some conversions require several NEON intrinsics, which may produce inconsistent results
 compared to their SSE counterparts due to differences in the arithmetic rules of IEEE-754.</p>
 <p>Taking a possible conversion of <code>_mm_rsqrt_ps</code> as example:</p>
-<pre><code lang="py">__m128 _mm_rsqrt_ps(__m128 in)
-{
-    float32x4_t out = vrsqrteq_f32(vreinterpretq_f32_m128(in));
-
-    out = vmulq_f32(
-        out, vrsqrtsq_f32(vmulq_f32(vreinterpretq_f32_m128(in), out), out));
-
-    return vreinterpretq_m128_f32(out);
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">__m128 _mm_rsqrt_ps(__m128 </span><span style="color:#D73A49">in</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    float32x4_t out = vrsqrteq_f32(vreinterpretq_f32_m128(</span><span style="color:#D73A49">in</span><span style="color:#24292E">));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    out = vmulq_f32(</span></span>
+<span class="line"><span style="color:#24292E">        out, vrsqrtsq_f32(vmulq_f32(vreinterpretq_f32_m128(</span><span style="color:#D73A49">in</span><span style="color:#24292E">), out), out));</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> vreinterpretq_m128_f32(out);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>The <code>_mm_rsqrt_ps</code> conversion will produce NaN if a source value is <code>0.0</code> (first INF for the
 reciprocal square root of <code>0.0</code>, then INF * <code>0.0</code> using <code>vmulq_f32</code>). In contrast,
 the SSE counterpart produces INF if a source value is <code>0.0</code>.
@@ -145,13 +145,13 @@ As a result, additional treatments should be applied to ensure consistency betwe
 <li><p>Locate the following SSE header files included in the code:</p>
 </li>
 </ul>
-<pre><code>#include &lt;xmmintrin.h&gt;
-#include &lt;emmintrin.h&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;xmmintrin.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;emmintrin.h&gt;</span></span></code></pre>
 <p>  {p,t,s,n,w}mmintrin.h could be replaceable as well.</p>
 <ul>
 <li>Replace them with:</li>
 </ul>
-<pre><code>#include "sse2neon.h"</code></pre>
+<pre><code lang="py">#include "sse2neon.h"</code></pre>
 <ul>
 <li>Explicitly specify platform-specific options to gcc/clang compilers.<ul>
 <li>On ARMv8-A 64-bit targets, you should specify the following compiler option: (Remove <code>crypto</code> and/or <code>crc</code> if your architecture does not support cryptographic and/or CRC32 extensions)</li>

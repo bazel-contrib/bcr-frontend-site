@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3a34c04a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.af1b957e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.99639ab5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7a75dc39.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.cb29e324.js" defer=""></script>
-		<script src="/registry.e3b7229c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bc7630e9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rapidcheck/2023.12.14"></head>
 
 	<body style="margin: 0 auto">
@@ -101,12 +101,12 @@
 <p>The <code>check</code> function is used to check properties. The first parameter is an optional string which describes the property. The second parameter is a callable object that implements the property, in this case a lambda. Any parameters to the callable (in our case the <code>l0</code> parameter) will be randomly generated. The <code>RC_ASSERT</code> macro works just like any other assert macro. If the given condition is false, the property has been falsified.</p>
 <p>The property above also forms part of a specification of the reversal function: "For any list of integers A, reversing and then reversing again should result in A".</p>
 <p>If we were to run this, RapidCheck would (hopefully) output the following:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Using configuration: seed</span><span style="color:#D73A49">=</span><span style="color:#005CC5">9928307433081493900</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E"> double reversal yields the original value</span></span>
-<span class="line"><span style="color:#005CC5">OK</span><span style="color:#24292E">, passed </span><span style="color:#005CC5">100</span><span style="color:#24292E"> tests</span></span></code></pre>
+<pre><code lang="py">Using configuration: seed=9928307433081493900
+
+- double reversal yields the original value
+OK, passed 100 tests</code></pre>
 <p>Here, RapidCheck tells us that it ran 100 test cases and all of them passed. It also tells us the configuration that was used, in particular the random seed. If there was a bug in the implementation of <code>std::reverse</code> we could get the following output instead:</p>
-<pre><code lang="py">Falsifiable after 12 tests and 10 shrinks
+<pre><code>Falsifiable after 12 tests and 10 shrinks
 
 std::tuple&lt;std::vector&lt;int&gt;&gt;:
 ([1, 0, 0, 0, 0, 0, 0, 0, 0, 0])

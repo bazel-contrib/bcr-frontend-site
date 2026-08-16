@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.472fec80.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.15b7a7e7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b24ead02.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.136f503c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.dd5f1b24.js" defer=""></script>
-		<script src="/registry.bbb424f8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.cd05e70e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/wheelos_common_msgs/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -83,22 +83,22 @@ modules.</p>
 <p>The repository defines schemas and generated-language targets. It does not
 contain autonomous-driving runtime nodes or algorithms.</p>
 <h2>Architecture</h2>
-<pre><code lang="py">wheelos_msgs/&lt;message_package&gt;/*.proto
-              |
-              v
-     proto_library (Bazel)
-              |
-       +------+------+
-       |             |
-       v             v
-cc_proto_library  py_proto_library
-       |             |
-       v             v
- C++ generated    Python generated
- targets/headers  *_pb2 modules
-       \             /
-        \           /
-         WheelOS module consumers</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">wheelos_msgs</span><span style="color:#D73A49">/&lt;</span><span style="color:#24292E">message_package</span><span style="color:#D73A49">&gt;/*</span><span style="color:#24292E">.proto</span></span>
+<span class="line"><span style="color:#D73A49">              |</span></span>
+<span class="line"><span style="color:#24292E">              v</span></span>
+<span class="line"><span style="color:#24292E">     proto_library (Bazel)</span></span>
+<span class="line"><span style="color:#D73A49">              |</span></span>
+<span class="line"><span style="color:#D73A49">       +</span><span style="color:#B31D28;font-style:italic">------</span><span style="color:#D73A49">+</span><span style="color:#B31D28;font-style:italic">------</span><span style="color:#D73A49">+</span></span>
+<span class="line"><span style="color:#D73A49">       |</span><span style="color:#D73A49">             |</span></span>
+<span class="line"><span style="color:#24292E">       v             v</span></span>
+<span class="line"><span style="color:#24292E">cc_proto_library  py_proto_library</span></span>
+<span class="line"><span style="color:#D73A49">       |</span><span style="color:#D73A49">             |</span></span>
+<span class="line"><span style="color:#24292E">       v             v</span></span>
+<span class="line"><span style="color:#24292E"> C</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> generated    Python generated</span></span>
+<span class="line"><span style="color:#24292E"> targets</span><span style="color:#D73A49">/</span><span style="color:#24292E">headers  </span><span style="color:#D73A49">*</span><span style="color:#24292E">_pb2 modules</span></span>
+<span class="line"><span style="color:#24292E">       \             </span><span style="color:#B31D28;font-style:italic">/</span></span>
+<span class="line"><span style="color:#24292E">        \           </span><span style="color:#B31D28;font-style:italic">/</span></span>
+<span class="line"><span style="color:#24292E">         WheelOS module consumers</span></span></code></pre>
 <p>Each message package exposes package-level C++ and Python aggregate targets.
 The root package also exposes <code>wheelos_msgs_cc_proto</code> and
 <code>wheelos_msgs_py</code> aggregates for the complete repository.</p>
@@ -106,7 +106,7 @@ The root package also exposes <code>wheelos_msgs_cc_proto</code> and
 <h3>Set up the build tools</h3>
 <p>The repository includes a script that installs the pinned Bazel version from
 <code>.bazelversion</code> and Buildifier:</p>
-<pre><code>bash scripts/deploy/build.sh</code></pre>
+<pre><code lang="py">bash scripts/deploy/build.sh</code></pre>
 <h3>Build the generated message targets</h3>
 <pre><code>bash scripts/build.sh</code></pre>
 <p>The equivalent direct Bazel command is:</p>

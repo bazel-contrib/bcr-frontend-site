@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b24ead02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.136f503c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.289ae2d7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.38168994.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.dd5f1b24.js" defer=""></script>
-		<script src="/registry.cd05e70e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.53e2a943.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/azure-core-test-cpp/1.14.1"></head>
 
 	<body style="margin: 0 auto">
@@ -202,43 +202,43 @@
 <h4>Long Running Operations</h4>
 <p>Some operations take a long time to complete and require polling for their status. Methods starting long-running operations return <code>Operation&lt;T&gt;</code> types.</p>
 <p>You can intermittently poll whether the operation has finished by using the <code>Poll()</code> method inside a loop on the returned <code>Operation&lt;T&gt;</code> and track progress of the operation using <code>Value()</code>, while the operation is not done (using <code>IsDone()</code>). Your per-polling custom logic can go in that loop, such as logging progress. Alternatively, if you just want to wait until the operation completes, you can use <code>PollUntilDone()</code>.</p>
-<pre><code lang="py">std::string sourceUri = "&lt;a uri to the source blob to copy&gt;";
-
-  // Typically, long running operation APIs have names that begin with Start.
-  StartBlobCopyOperation operation = blockBlobClient.StartCopyFromUri(sourceUri);
-
-  // Waits for the operation to finish, checking for status every 1 second.
-  auto copyResponse = operation.PollUntilDone(std::chrono::milliseconds(1000));
-  auto propertiesModel = copyResponse.Value;
-
-  // Now you can look at API specific members on the result object that is returned.
-  if (propertiesModel.CopySource.HasValue())
-  {
-    std::cout &lt;&lt; "The source of the copied blob is: " &lt;&lt; propertiesModel.CopySource.Value()
-              &lt;&lt; std::endl;
-  }</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string sourceUri </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "&lt;a uri to the source blob to copy&gt;"</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Typically, </span><span style="color:#E36209">long</span><span style="color:#24292E"> running operation APIs have names that begin </span><span style="color:#D73A49">with</span><span style="color:#24292E"> Start.</span></span>
+<span class="line"><span style="color:#24292E">  StartBlobCopyOperation operation </span><span style="color:#D73A49">=</span><span style="color:#24292E"> blockBlobClient.StartCopyFromUri(sourceUri)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Waits </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the operation to finish, checking </span><span style="color:#D73A49">for</span><span style="color:#24292E"> status every </span><span style="color:#005CC5">1</span><span style="color:#24292E"> second.</span></span>
+<span class="line"><span style="color:#24292E">  auto copyResponse = operation.PollUntilDone(std::chrono::milliseconds(</span><span style="color:#005CC5">1000</span><span style="color:#24292E">));</span></span>
+<span class="line"><span style="color:#24292E">  auto propertiesModel = copyResponse.Value;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Now you can look at </span><span style="color:#005CC5">API</span><span style="color:#24292E"> specific members on the result </span><span style="color:#005CC5">object</span><span style="color:#24292E"> that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> returned.</span></span>
+<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (propertiesModel.CopySource.HasValue())</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "The source of the copied blob is: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> propertiesModel.CopySource.Value()</span></span>
+<span class="line"><span style="color:#D73A49">              &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span></code></pre>
 <h4><code>Azure::Core::Context</code></h4>
 <p>Most Azure SDK Service Client methods accept an optional <code>Azure::Core::Context</code> parameter, which is used to enable cancellation of the operation or to
 establish an absolute deadline for the operation.</p>
 <p>This is useful when you want to assign a time limit on an operation to ensure that it completes in a "reasonable" timeframe. For instance, the 
 snippet below will cancel a blob client upload after 5 seconds.</p>
 
-<pre><code>Azure::Core::Context cancelledIn5s{
-          std::chrono::system_clock::now() + std::chrono::seconds(5)};
-
-      auto containerClient = BlobContainerClient::CreateFromConnectionString(
-          GetConnectionString(), containerName + std::to_string(i));
-      containerClient.CreateIfNotExists({}, cancelledIn5s);
-      for (int j = 0; j &lt; 3; ++j)
-      {
-        BlockBlobClient blobClient
-            = containerClient.GetBlockBlobClient(blobName + std::to_string(j));
-        blobClient.UploadFrom(
-            reinterpret_cast&lt;const uint8_t*&gt;(blobContent.data()),
-            blobContent.size(),
-            {},
-            cancelledIn5s);
-      }</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Azure::Core::Context cancelledIn5s{</span></span>
+<span class="line"><span style="color:#24292E">          std::chrono::system_clock::now() </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">)}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">      auto containerClient </span><span style="color:#D73A49">=</span><span style="color:#24292E"> BlobContainerClient::CreateFromConnectionString(</span></span>
+<span class="line"><span style="color:#24292E">          GetConnectionString(), containerName </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::to_string(i))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">      containerClient.CreateIfNotExists({}, cancelledIn5s)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">      for</span><span style="color:#24292E"> (</span><span style="color:#005CC5">int</span><span style="color:#24292E"> j = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; j </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 3</span><span style="color:#24292E">; </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">j)</span></span>
+<span class="line"><span style="color:#24292E">      {</span></span>
+<span class="line"><span style="color:#24292E">        BlockBlobClient blobClient</span></span>
+<span class="line"><span style="color:#24292E">            = containerClient.GetBlockBlobClient(blobName </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::to_string(j));</span></span>
+<span class="line"><span style="color:#24292E">        blobClient.UploadFrom(</span></span>
+<span class="line"><span style="color:#24292E">            reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const uint8_t</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(blobContent.data()),</span></span>
+<span class="line"><span style="color:#24292E">            blobContent.size(),</span></span>
+<span class="line"><span style="color:#24292E">            {},</span></span>
+<span class="line"><span style="color:#24292E">            cancelledIn5s);</span></span>
+<span class="line"><span style="color:#24292E">      }</span></span></code></pre>
 <p><code>Context</code> objects can also be directly cancelled using the <code>Cancel()</code> method.</p>
 <p><code>Context</code> objects form a directed tree, where a child context can be created from a parent context. 
 The context tree is unidirectional and acyclic.</p>
@@ -271,7 +271,7 @@ to these types are allowed. These types are located in an <code>Azure</code> nam
 <p>Static SDK members should not be accessed and SDK functions should not be called before the static initialization phase is finished.</p>
 <h4>Visual Studio - CMakeSettings.json</h4>
 <p>When building your application via Visual Studio, you can create and update a <code>CMakeSettings.json</code> file and include the following properties to let Visual Studio know where the packages are installed and which triplet needs to be used:</p>
-<pre><code>{
+<pre><code lang="py">{
   "configurations": [
     {
         "cmakeToolchain": "&lt;path to vcpkg repo&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake",

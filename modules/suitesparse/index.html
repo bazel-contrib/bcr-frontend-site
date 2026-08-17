@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.792fb46e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.61e9378b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7c6f532a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a89d091e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.dd5f1b24.js" defer=""></script>
-		<script src="/registry.8a46e09f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9e4c98b9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/suitesparse/7.12.3"></head>
 
 	<body style="margin: 0 auto">
@@ -640,8 +640,8 @@ this can be changed by setting the cmake variable
 <code>SUITESPARSE_USE_64BIT_BLAS</code> to <code>ON</code>.</p>
 <p>By default, SuiteSparse hunts for a suitable BLAS library.  To enforce a
 particular BLAS library use either:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">CMAKE_OPTIONS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-DBLA_VENDOR=OpenBLAS"</span><span style="color:#24292E"> make</span></span>
-<span class="line"><span style="color:#24292E">cd Package ; cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBLA_VENDOR</span><span style="color:#D73A49">=</span><span style="color:#24292E">OpenBLAS .. make</span></span></code></pre>
+<pre><code lang="py">CMAKE_OPTIONS="-DBLA_VENDOR=OpenBLAS" make
+cd Package ; cmake -DBLA_VENDOR=OpenBLAS .. make</code></pre>
 <p>To use the default (hunt for a BLAS), do not set <code>BLA_VENDOR</code>, or set it to
 an empty string.  In this case, if <code>SUITESPARSE_USE_64BIT_BLAS</code> is ON,
 preference is given to a 64-bit BLAS, but a 32-bit BLAS library will be used if
@@ -655,7 +655,7 @@ no such BLAS is found, the build will fail.</p>
 <h2>QUICK START FOR THE C/C++ LIBRARIES:</h2>
 <p>Type the following in this directory (requires system priviledge to do the
 <code>sudo make install</code>):</p>
-<pre><code lang="py">mkdir -p build &amp;&amp; cd build
+<pre><code>mkdir -p build &amp;&amp; cd build
     cmake ..
     cmake --build .
     sudo cmake --install .</code></pre>

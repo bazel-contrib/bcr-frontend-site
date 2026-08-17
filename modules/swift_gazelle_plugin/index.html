@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7c6f532a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a89d091e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.07a98cb4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0a6f6e84.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.dd5f1b24.js" defer=""></script>
-		<script src="/registry.9e4c98b9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a7bbe602.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift_gazelle_plugin/0.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -92,27 +92,27 @@ dependencies. If you are using Bazel's legacy external dependency management, we
 
 <h3>2. Add Gazelle targets to <code>BUILD.bazel</code> at the root of your workspace.</h3>
 <p>Add the following to the <code>BUILD.bazel</code> file at the root of your workspace.</p>
-<pre><code lang="py">load("@gazelle//:def.bzl", "gazelle", "gazelle_binary")
-
-# This declaration builds a Gazelle binary that incorporates all of the Gazelle
-# plugins for the languages that you use in your workspace. In this example, we
-# are only listing the Gazelle plugin for Swift from swift_gazelle_plugin.
-gazelle_binary(
-    name = "gazelle_bin",
-    languages = [
-        "@swift_gazelle_plugin//gazelle",
-    ],
-)
-
-# This target updates the Bazel build files for your project. Run this target
-# whenever you add or remove source files from your project.
-gazelle(
-    name = "update_build_files",
-    gazelle = ":gazelle_bin",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@gazelle//:def.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gazelle"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gazelle_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># This declaration builds a Gazelle binary that incorporates all of the Gazelle</span></span>
+<span class="line"><span style="color:#6A737D"># plugins for the languages that you use in your workspace. In this example, we</span></span>
+<span class="line"><span style="color:#6A737D"># are only listing the Gazelle plugin for Swift from swift_gazelle_plugin.</span></span>
+<span class="line"><span style="color:#24292E">gazelle_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gazelle_bin"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    languages</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@swift_gazelle_plugin//gazelle"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># This target updates the Bazel build files for your project. Run this target</span></span>
+<span class="line"><span style="color:#6A737D"># whenever you add or remove source files from your project.</span></span>
+<span class="line"><span style="color:#24292E">gazelle(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "update_build_files"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    gazelle</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":gazelle_bin"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>3. Create or update Bazel build files for your project.</h3>
 <p>Generate/update the Bazel build files for your project by running the following:</p>
-<pre><code>bazel run //:update_build_files</code></pre>
+<pre><code lang="py">bazel run //:update_build_files</code></pre>
 <h3>4. Build and test your project.</h3>
 <p>Build and test your project.</p>
 <pre><code>bazel test //...</code></pre>

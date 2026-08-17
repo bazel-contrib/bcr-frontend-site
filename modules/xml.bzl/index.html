@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.ecb43dfa.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.29b70ea6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.79c51325.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.df345789.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8c9d9395.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.dd5f1b24.js" defer=""></script>
-		<script src="/registry.4540b0d0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.034bd7ed.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/xml.bzl/0.2.3"></head>
 
 	<body style="margin: 0 auto">
@@ -87,21 +87,21 @@
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage</h2>
 <h3>Basic Parsing</h3>
-<pre><code lang="py">load("@xml.bzl", "xml")
-
-def _my_rule_impl(ctx):
-    xml_content = '''&lt;?xml version="1.0"?&gt;
-    &lt;config&gt;
-        &lt;setting name="debug"&gt;true&lt;/setting&gt;
-        &lt;setting name="timeout"&gt;30&lt;/setting&gt;
-    &lt;/config&gt;
-    '''
-
-    doc = xml.parse(xml_content)
-    root = xml.get_document_element(doc)
-    print("Root element:", xml.get_tag_name(root))  # "config"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@xml.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"xml"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> _my_rule_impl</span><span style="color:#24292E">(ctx):</span></span>
+<span class="line"><span style="color:#24292E">    xml_content </span><span style="color:#D73A49">=</span><span style="color:#032F62"> '''&lt;?xml version="1.0"?&gt;</span></span>
+<span class="line"><span style="color:#032F62">    &lt;config&gt;</span></span>
+<span class="line"><span style="color:#032F62">        &lt;setting name="debug"&gt;true&lt;/setting&gt;</span></span>
+<span class="line"><span style="color:#032F62">        &lt;setting name="timeout"&gt;30&lt;/setting&gt;</span></span>
+<span class="line"><span style="color:#032F62">    &lt;/config&gt;</span></span>
+<span class="line"><span style="color:#032F62">    '''</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    doc </span><span style="color:#D73A49">=</span><span style="color:#24292E"> xml.parse(xml_content)</span></span>
+<span class="line"><span style="color:#24292E">    root </span><span style="color:#D73A49">=</span><span style="color:#24292E"> xml.get_document_element(doc)</span></span>
+<span class="line"><span style="color:#005CC5">    print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Root element:"</span><span style="color:#24292E">, xml.get_tag_name(root))  </span><span style="color:#6A737D"># "config"</span></span></code></pre>
 <h3>Navigating the DOM</h3>
-<pre><code>load("@xml.bzl", "xml")
+<pre><code lang="py">load("@xml.bzl", "xml")
 
 doc = xml.parse("&lt;root&gt;&lt;a&gt;1&lt;/a&gt;&lt;b&gt;2&lt;/b&gt;&lt;c&gt;3&lt;/c&gt;&lt;/root&gt;")
 root = xml.get_document_element(doc)

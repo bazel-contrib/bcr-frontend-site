@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f9ef7ea3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2aa802de.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5e99a6bd.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fb5f862c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.8e5b9f62.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0566848e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spdlog/1.17.0"></head>
 
 	<body style="margin: 0 auto">
@@ -122,34 +122,34 @@
 </ul>
 <h2>Usage samples</h2>
 <h4>Basic usage</h4>
-<pre><code lang="py">#include "spdlog/spdlog.h"
-
-int main() 
-{
-    spdlog::info("Welcome to spdlog!");
-    spdlog::error("Some error message with arg: {}", 1);
-    
-    spdlog::warn("Easy padding in numbers like {:08d}", 12);
-    spdlog::critical("Support for int: {0:d};  hex: {0:x};  oct: {0:o}; bin: {0:b}", 42);
-    spdlog::info("Support for floats {:03.2f}", 1.23456);
-    spdlog::info("Positional args are {1} {0}..", "too", "supported");
-    spdlog::info("{:&lt;30}", "left aligned");
-    
-    spdlog::set_level(spdlog::level::debug); // Set *global* log level to debug
-    spdlog::debug("This message should be displayed..");    
-    
-    // change log pattern
-    spdlog::set_pattern("[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v");
-    
-    // Compile time log levels
-    // Note that this does not change the current log level, it will only
-    // remove (depending on SPDLOG_ACTIVE_LEVEL) the call on the release code.
-    SPDLOG_TRACE("Some trace message with param {}", 42);
-    SPDLOG_DEBUG("Some debug message");
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "spdlog/spdlog.h"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() </span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::info(</span><span style="color:#032F62">"Welcome to spdlog!"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::error(</span><span style="color:#032F62">"Some error message with arg: </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">    spdlog::warn(</span><span style="color:#032F62">"Easy padding in numbers like </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:08d</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">12</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::critical(</span><span style="color:#032F62">"Support for int: </span><span style="color:#005CC5">{0</span><span style="color:#D73A49">:d</span><span style="color:#005CC5">}</span><span style="color:#032F62">;  hex: </span><span style="color:#005CC5">{0</span><span style="color:#D73A49">:x</span><span style="color:#005CC5">}</span><span style="color:#032F62">;  oct: </span><span style="color:#005CC5">{0</span><span style="color:#D73A49">:o</span><span style="color:#005CC5">}</span><span style="color:#032F62">; bin: </span><span style="color:#005CC5">{0</span><span style="color:#D73A49">:b</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">42</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::info(</span><span style="color:#032F62">"Support for floats </span><span style="color:#005CC5">{</span><span style="color:#D73A49">:03.2f</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1.23456</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::info(</span><span style="color:#032F62">"Positional args are </span><span style="color:#005CC5">{1}</span><span style="color:#005CC5"> {0}</span><span style="color:#032F62">.."</span><span style="color:#24292E">, </span><span style="color:#032F62">"too"</span><span style="color:#24292E">, </span><span style="color:#032F62">"supported"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::info(</span><span style="color:#032F62">"</span><span style="color:#005CC5">{</span><span style="color:#D73A49">:&lt;30</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#032F62">"left aligned"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#24292E">    spdlog::set_level(spdlog::level::debug); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Set </span><span style="color:#D73A49">*global*</span><span style="color:#24292E"> log level to debug</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::debug(</span><span style="color:#032F62">"This message should be displayed.."</span><span style="color:#24292E">);    </span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> change log pattern</span></span>
+<span class="line"><span style="color:#24292E">    spdlog::set_pattern(</span><span style="color:#032F62">"[%H:%M:%S %z] [%n] [%^---%L---%$] [thread %t] %v"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    </span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Compile time log levels</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Note that this does </span><span style="color:#D73A49">not</span><span style="color:#24292E"> change the current log level, it will only</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> remove (depending on </span><span style="color:#005CC5">SPDLOG_ACTIVE_LEVEL</span><span style="color:#24292E">) the call on the release code.</span></span>
+<span class="line"><span style="color:#24292E">    SPDLOG_TRACE(</span><span style="color:#032F62">"Some trace message with param </span><span style="color:#005CC5">{}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#005CC5">42</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    SPDLOG_DEBUG(</span><span style="color:#032F62">"Some debug message"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <hr>
 <h4>Create stdout/stderr logger object</h4>
-<pre><code>#include "spdlog/spdlog.h"
+<pre><code lang="py">#include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 void stdout_example()
 {

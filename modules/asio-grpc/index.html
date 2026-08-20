@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ba16b6db.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2ac0731e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.de1b42d3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.947bd557.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.4f966f20.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.90035197.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asio-grpc/3.1.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -103,11 +103,11 @@
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>Find asio-grpc and link it to your target.</p>
 <p>Using <a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio.html">Boost.Asio</a>:</p>
-<pre><code lang="py">find_package(asio-grpc CONFIG REQUIRED)
-find_package(Boost REQUIRED)
-target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc Boost::headers)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">find_package(asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc </span><span style="color:#005CC5">CONFIG</span><span style="color:#005CC5"> REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">find_package(Boost </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(your_app </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc::asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc Boost::headers)</span></span></code></pre>
 <p>Or using <a href="https://github.com/chriskohlhoff/asio">standalone Asio</a>:</p>
-<pre><code>find_package(asio-grpc CONFIG REQUIRED)
+<pre><code lang="py">find_package(asio-grpc CONFIG REQUIRED)
 find_package(asio CONFIG REQUIRED)
 target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc-standalone-asio asio::asio)</code></pre>
 <p>Or using <a href="https://github.com/facebookexperimental/libunifex">libunifex</a>:</p>

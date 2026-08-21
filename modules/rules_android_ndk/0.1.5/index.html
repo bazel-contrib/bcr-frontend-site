@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.648a3bfe.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6a3c27d9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.120661cb.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4227a31c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.f4429c7d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2e422909.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_android_ndk/0.1.5"></head>
 
 	<body style="margin: 0 auto">
@@ -81,80 +81,80 @@ Android native rules in Bazel 7 or earlier are a suitable alternative.</p>
 <span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@androidndk//:all"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>Legacy WORKSPACE setup</h3>
 <p>To use the Android NDK rules, add the following to your <code>WORKSPACE</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_android_ndk"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "89bf5012567a5bade4c78eac5ac56c336695c3bfd281a9b0894ff6605328d2d5"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_android_ndk-0.1.3"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/bazelbuild/rules_android_ndk/releases/download/v0.1.3/rules_android_ndk-v0.1.3.tar.gz"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_android"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "af84b69ab3d16dd1a41056286e6511f147a94ccea995603e13e934c915c1631c"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_android-0.6.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/bazelbuild/rules_android/releases/download/v0.6.0/rules_android-v0.6.0.tar.gz"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Android rules dependencies</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_android//:prereqs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_android_prereqs"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_android_prereqs()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">##### rules_java setup for rules_android #####</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_java//java:rules_java_deps.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_java_dependencies"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_java_dependencies()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># note that the following line is what is minimally required from protobuf for the java rules</span></span>
-<span class="line"><span style="color:#6A737D"># consider using the protobuf_deps() public API from @com_google_protobuf//:protobuf_deps.bzl</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@com_google_protobuf//bazel/private:proto_bazel_features.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"proto_bazel_features"</span><span style="color:#24292E">)  </span><span style="color:#6A737D"># buildifier: disable=bzl-visibility</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">proto_bazel_features(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "proto_bazel_features"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># register toolchains</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_java//java:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_java_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_java_toolchains()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">##### rules_jvm_external setup for rules_android #####</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_jvm_external_deps"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_jvm_external_deps()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_jvm_external//:setup.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_jvm_external_setup"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_jvm_external_setup()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">##### rules_android setup #####</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_android//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_android_workspace"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_android_workspace()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Android SDK setup</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_android//rules:rules.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"android_sdk_repository"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">android_sdk_repository(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "androidsdk"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_android//toolchains/android:android_default_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_android//toolchains/android_sdk:android_sdk_tools"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D">##### rules_cc setup #####</span></span>
-<span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_cc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "abc605dd850f813bb37004b77db20106a19311a96b2da1c92b789da529d28fe1"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_cc-0.0.17"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/bazelbuild/rules_cc/releases/download/0.0.17/rules_cc-0.0.17.tar.gz"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_android_ndk//:rules.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"android_ndk_repository"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">android_ndk_repository(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "androidndk"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@androidndk//:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">http_archive(
+    name = "rules_android_ndk",
+    sha256 = "89bf5012567a5bade4c78eac5ac56c336695c3bfd281a9b0894ff6605328d2d5",
+    strip_prefix = "rules_android_ndk-0.1.3",
+    url = "https://github.com/bazelbuild/rules_android_ndk/releases/download/v0.1.3/rules_android_ndk-v0.1.3.tar.gz",
+)
+
+http_archive(
+    name = "rules_android",
+    sha256 = "af84b69ab3d16dd1a41056286e6511f147a94ccea995603e13e934c915c1631c",
+    strip_prefix = "rules_android-0.6.0",
+    url = "https://github.com/bazelbuild/rules_android/releases/download/v0.6.0/rules_android-v0.6.0.tar.gz",
+)
+
+# Android rules dependencies
+load("@rules_android//:prereqs.bzl", "rules_android_prereqs")
+
+rules_android_prereqs()
+
+##### rules_java setup for rules_android #####
+load("@rules_java//java:rules_java_deps.bzl", "rules_java_dependencies")
+
+rules_java_dependencies()
+
+# note that the following line is what is minimally required from protobuf for the java rules
+# consider using the protobuf_deps() public API from @com_google_protobuf//:protobuf_deps.bzl
+load("@com_google_protobuf//bazel/private:proto_bazel_features.bzl", "proto_bazel_features")  # buildifier: disable=bzl-visibility
+
+proto_bazel_features(name = "proto_bazel_features")
+
+# register toolchains
+load("@rules_java//java:repositories.bzl", "rules_java_toolchains")
+
+rules_java_toolchains()
+
+##### rules_jvm_external setup for rules_android #####
+load("@rules_jvm_external//:repositories.bzl", "rules_jvm_external_deps")
+
+rules_jvm_external_deps()
+
+load("@rules_jvm_external//:setup.bzl", "rules_jvm_external_setup")
+
+rules_jvm_external_setup()
+
+##### rules_android setup #####
+load("@rules_android//:defs.bzl", "rules_android_workspace")
+
+rules_android_workspace()
+
+# Android SDK setup
+load("@rules_android//rules:rules.bzl", "android_sdk_repository")
+
+android_sdk_repository(
+    name = "androidsdk",
+)
+
+register_toolchains(
+    "@rules_android//toolchains/android:android_default_toolchain",
+    "@rules_android//toolchains/android_sdk:android_sdk_tools",
+)
+
+##### rules_cc setup #####
+http_archive(
+    name = "rules_cc",
+    sha256 = "abc605dd850f813bb37004b77db20106a19311a96b2da1c92b789da529d28fe1",
+    strip_prefix = "rules_cc-0.0.17",
+    urls = ["https://github.com/bazelbuild/rules_cc/releases/download/0.0.17/rules_cc-0.0.17.tar.gz"],
+)
+
+load("@rules_android_ndk//:rules.bzl", "android_ndk_repository")
+
+android_ndk_repository(name = "androidndk")
+
+register_toolchains("@androidndk//:all")</code></pre>
 <p>Then, set the <code>ANDROID_NDK_HOME</code> environment variable or the <code>path</code> attribute of
 <code>android_ndk_repository</code> to the path of the local Android NDK installation
 directory. If the path starts with <code>$WORKSPACE_ROOT</code>, then this string is
@@ -163,7 +163,7 @@ replaced with the root path of the Bazel workspace.</p>
 against.</p>
 <p>Finally, when building an Android app with native dependencies (e.g.
 <code>cc_library</code> targets), add</p>
-<pre><code lang="py">--android_platforms=&lt;platforms&gt;</code></pre>
+<pre><code>--android_platforms=&lt;platforms&gt;</code></pre>
 <p>to your Bazel invocation. <code>&lt;platforms&gt;</code> is a comma-separated list of the available
 platforms. See <a href="https://bazel.build/extending/platforms">https://bazel.build/extending/platforms</a> for more details.
 Some common platforms can be constructed as follows:</p>

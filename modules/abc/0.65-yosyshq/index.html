@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a2008e5e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ff89fddc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.153c38e3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.852d3fce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.fcac517e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8547eefd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/abc/0.65-yosyshq"></head>
 
 	<body style="margin: 0 auto">
@@ -86,13 +86,13 @@ APIs of ABC compiled as a static library.</p>
 <li>Run <code>g++ -g -o demo demo.o libabc.a -lm -ldl -lreadline -lpthread</code></li>
 </ul>
 <p>To run the demo program, give it a file with the logic network in AIGER or BLIF. For example:</p>
-<pre><code lang="py">[...] ~/abc&gt; demo i10.aig
-i10          : i/o =  257/  224  lat =    0  and =   2396  lev = 37
-i10          : i/o =  257/  224  lat =    0  and =   1851  lev = 35
-Networks are equivalent.
-Reading =   0.00 sec   Rewriting =   0.18 sec   Verification =   0.41 sec</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[</span><span style="color:#005CC5">...</span><span style="color:#24292E">] </span><span style="color:#D73A49">~/</span><span style="color:#24292E">abc</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> demo i10.aig</span></span>
+<span class="line"><span style="color:#24292E">i10          : i</span><span style="color:#D73A49">/</span><span style="color:#24292E">o </span><span style="color:#D73A49">=</span><span style="color:#005CC5">  257</span><span style="color:#D73A49">/</span><span style="color:#005CC5">  224</span><span style="color:#24292E">  lat </span><span style="color:#D73A49">=</span><span style="color:#005CC5">    0</span><span style="color:#D73A49">  and</span><span style="color:#D73A49"> =</span><span style="color:#005CC5">   2396</span><span style="color:#24292E">  lev </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 37</span></span>
+<span class="line"><span style="color:#24292E">i10          : i</span><span style="color:#D73A49">/</span><span style="color:#24292E">o </span><span style="color:#D73A49">=</span><span style="color:#005CC5">  257</span><span style="color:#D73A49">/</span><span style="color:#005CC5">  224</span><span style="color:#24292E">  lat </span><span style="color:#D73A49">=</span><span style="color:#005CC5">    0</span><span style="color:#D73A49">  and</span><span style="color:#D73A49"> =</span><span style="color:#005CC5">   1851</span><span style="color:#24292E">  lev </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 35</span></span>
+<span class="line"><span style="color:#24292E">Networks are equivalent.</span></span>
+<span class="line"><span style="color:#24292E">Reading </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.00</span><span style="color:#24292E"> sec   Rewriting </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.18</span><span style="color:#24292E"> sec   Verification </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.41</span><span style="color:#24292E"> sec</span></span></code></pre>
 <p>The same can be produced by running the binary in the command-line mode:</p>
-<pre><code>[...] ~/abc&gt; ./abc
+<pre><code lang="py">[...] ~/abc&gt; ./abc
 UC Berkeley, ABC 1.01 (compiled Oct  6 2012 19:05:18)
 abc 01&gt; r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec
 i10          : i/o =  257/  224  lat =    0  and =   2396  lev = 37

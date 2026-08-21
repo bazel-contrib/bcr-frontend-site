@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b9da7b6d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c8f0b8e1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.636fa05b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.df2a6c64.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.61189b6e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4f92cfbd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rawrtc_data_channel/0.1.4"></head>
 
 	<body style="margin: 0 auto">
@@ -137,21 +137,21 @@ handles all the nitty-gritty details for you.</p>
 into your stack.</p>
 <h3>Initialise</h3>
 <p>Before doing anything, initialise the library:</p>
-<pre><code lang="py">#include &lt;rawrtcc.h&gt;
-#include &lt;rawrtcdc.h&gt;
-
-[...]
-
-enum rawrtc_code error = rawrtcdc_init(init_re, timer_handler);
-if (error) {
-    your_log_function("Initialisation failed: %s", rawrtc_code_to_str(error));
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;rawrtcc.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;rawrtcdc.h&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">[</span><span style="color:#005CC5">...</span><span style="color:#24292E">]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">enum rawrtc_code error </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rawrtcdc_init(init_re, timer_handler)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (error) {</span></span>
+<span class="line"><span style="color:#24292E">    your_log_function(</span><span style="color:#032F62">"Initialisation failed: </span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#24292E">, rawrtc_code_to_str(error));</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>In the following code examples, the error handling will be omitted. But you of
 course still need to handle it in your code.</p>
 <p>Unless you're initialising <a href="https://github.com/creytiv/re">re</a> yourselves, the <code>init_re</code> parameter to
 <code>rawrtcdc_init</code> should be <code>true</code>. The second is a pointer to a timer handler.</p>
 <p>The timer handler function works in the following way (see comments inline):</p>
-<pre><code>enum rawrtc_code timer_handler(bool const on, uint_fast16_t const interval) {
+<pre><code lang="py">enum rawrtc_code timer_handler(bool const on, uint_fast16_t const interval) {
     if (on) {
         // Start a timer that calls `rawrtcdc_timer_tick` every `interval`
         // milliseconds.

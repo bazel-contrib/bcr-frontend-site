@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.120661cb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4227a31c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4d46c763.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.90bdd526.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.2e422909.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0d97b05a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/vhdl_ls_gen/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -73,43 +73,43 @@
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "vhdl_ls_gen"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">) </span><span style="color:#6A737D"># Select version</span></span></code></pre>
 <p>Then tag each filegroup containing VHDL library files as follows:</p>
-<pre><code lang="py">load("@rules_shell//shell:sh_test.bzl", "sh_test")
-
-package(default_visibility = ["//visibility:public"])
-
-filegroup(
-    name = "srcs",
-    srcs = ["my_vhdl_lib/my_package.vhd"],
-    tags = [
-        # Add this tag to denote that these files should become part of a library.
-        "vhdl_ls",
-        # Add this tag to name the library `some_library`. That is what vhdl_ls
-        # will know it as.
-        "vhdl_ls:lib=some_library",
-    ],
-)
-
-filegroup(
-    name = "srcs_2",
-    srcs = ["my_vhdl_lib/my_package.vhd"],
-    # This repeats the above exercise, but with a different library.
-    tags = ["vhdl_ls", "vhdl_ls:lib=some_other_library"],
-)
-
-filegroup(
-    name = "srcs_3",
-    srcs = ["my_vhdl_lib/my_package.vhd"],
-    tags = [
-        "vhdl_ls",
-        "vhdl_ls:lib=some_other_library",
-        # Example of stripping an existing prefix from the files.
-        "vhdl_ls:rem=my_vhdl_lib",
-        # Example of adding a new prefix to the files.
-        "vhdl_ls:add=your_vhdl_lib",
-    ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shell//shell:sh_test.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sh_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">package(</span><span style="color:#E36209">default_visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">filegroup(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "srcs"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"my_vhdl_lib/my_package.vhd"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # Add this tag to denote that these files should become part of a library.</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">        # Add this tag to name the library `some_library`. That is what vhdl_ls</span></span>
+<span class="line"><span style="color:#6A737D">        # will know it as.</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls:lib=some_library"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">filegroup(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "srcs_2"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"my_vhdl_lib/my_package.vhd"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#6A737D">    # This repeats the above exercise, but with a different library.</span></span>
+<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"vhdl_ls"</span><span style="color:#24292E">, </span><span style="color:#032F62">"vhdl_ls:lib=some_other_library"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">filegroup(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "srcs_3"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"my_vhdl_lib/my_package.vhd"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls:lib=some_other_library"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">        # Example of stripping an existing prefix from the files.</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls:rem=my_vhdl_lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">        # Example of adding a new prefix to the files.</span></span>
+<span class="line"><span style="color:#032F62">        "vhdl_ls:add=your_vhdl_lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Now you can do the following to regenerate <code>vhdl_ls.toml</code>:</p>
-<pre><code>bazel run @vhdl_ls_gen//:gen</code></pre>
+<pre><code lang="py">bazel run @vhdl_ls_gen//:gen</code></pre>
 <p>This will collect all marked targets in the project and add write them to
 the file named <code>vhdl_ls.toml</code> in your project's root directory.</p>
 <p>This is simplistic, but will be enough as a proof of concept, before any

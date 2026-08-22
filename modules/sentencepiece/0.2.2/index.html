@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.eb84aebb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.24976deb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.09330417.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.53ab5c17.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.19178ee9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8c15767a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sentencepiece/0.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -115,13 +115,13 @@
 <h3>1. Reversible &amp; Lossless Tokenization (Whitespace as a Basic Symbol)</h3>
 <p>Traditional tokenizers drop whitespace information (e.g., treating <code>Tokenize("World.")</code> identically to <code>Tokenize("World .")</code>), making detokenization ambiguous and language-dependent. </p>
 <p>SentencePiece treats the input text as a raw sequence of Unicode characters. It escapes whitespaces with a meta-symbol <code>▁</code> (U+2581) and includes it in the tokenization. This design ensures that <strong>detokenization is a simple, lossless string join operation</strong>, entirely independent of the language:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Lossless detokenization</span></span>
-<span class="line"><span style="color:#24292E">original_text </span><span style="color:#D73A49">=</span><span style="color:#032F62"> ""</span><span style="color:#24292E">.join(pieces).replace(</span><span style="color:#032F62">"▁"</span><span style="color:#24292E">, </span><span style="color:#032F62">" "</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># Lossless detokenization
+original_text = "".join(pieces).replace("▁", " ")</code></pre>
 <h3>2. Purely Data-Driven &amp; Language-Independent</h3>
 <p>SentencePiece trains tokenization and detokenization models directly from raw sentences. It does <strong>not</strong> require language-specific pre-tokenizers (such as Moses, MeCab, or KyTea). This makes it highly effective for languages without explicit word boundaries, such as Chinese, Japanese, and Korean.</p>
 <h3>3. Subword Regularization &amp; BPE-Dropout</h3>
 <p>To improve the robustness and accuracy of translation and language models, SentencePiece supports on-the-fly subword sampling during training. By sampling different segmentations for the same input text (Subword Regularization for Unigram, BPE-Dropout for BPE), it virtually augments your training data and makes the model more resilient to spelling variations and noise.</p>
-<pre><code lang="py"># Sample different segmentations on-the-fly
+<pre><code># Sample different segmentations on-the-fly
 for _ in range(3):
     print(sp.encode('New York', out_type=str, enable_sampling=True, alpha=0.1, nbest_size=-1))
 # May output:

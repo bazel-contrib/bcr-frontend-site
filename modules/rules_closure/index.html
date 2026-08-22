@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.37eb1ca4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.56be9aa4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.eb84aebb.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.24976deb.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.229e141c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.19178ee9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_closure/0.16.0"></head>
 
 	<body style="margin: 0 auto">
@@ -147,9 +147,9 @@ for that matter; they will be fetched automatically by Bazel.</p>
 </ul>
 <h1>Reference</h1>
 <h2>closure_js_library</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_closure//closure:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"closure_js_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">closure_js_library(name, srcs, data, deps, exports, suppress, convention,</span></span>
-<span class="line"><span style="color:#24292E">                   no_closure_library)</span></span></code></pre>
+<pre><code lang="py">load("@rules_closure//closure:defs.bzl", "closure_js_library")
+closure_js_library(name, srcs, data, deps, exports, suppress, convention,
+                   no_closure_library)</code></pre>
 <p>Defines a set of JavaScript sources.</p>
 <p>The purpose of this rule is to define an abstract graph of JavaScript sources.
 It must be used in conjunction with <a href="#closure_js_binary">closure_js_binary</a> to output a minified
@@ -195,7 +195,7 @@ a single big one.</p>
 linter should ignore. Warning and error messages that are allowed to be
 suppressed, will display the codes for disabling it. For example, if the
 linter says:</p>
-<pre><code lang="py">foo.js:123: WARNING lintChecks JSC_MUST_BE_PRIVATE - Property bar_ must be marked @private</code></pre>
+<pre><code>foo.js:123: WARNING lintChecks JSC_MUST_BE_PRIVATE - Property bar_ must be marked @private</code></pre>
 <p>Then the diagnostic code <code>"JSC_MUST_BE_PRIVATE"</code> can be used in the <code>suppress</code>
 list. It is also possible to use the group code <code>"lintChecks"</code> to disable all
 diagnostic codes associated with linting.</p>

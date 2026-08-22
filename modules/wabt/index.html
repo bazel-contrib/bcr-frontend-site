@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.37eb1ca4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.56be9aa4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.eb84aebb.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.24976deb.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3043bd45.js" defer=""></script>
-		<script src="/registry.229e141c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.19178ee9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/wabt/1.0.37"></head>
 
 	<body style="margin: 0 auto">
@@ -308,16 +308,16 @@ target; instead they aim for full fidelity and compliance with the spec (e.g.
 </tbody></table>
 <h2>Cloning</h2>
 <p>Clone as normal, but don't forget to get the submodules as well:</p>
-<pre><code lang="py">$ git clone --recursive https://github.com/WebAssembly/wabt
-$ cd wabt
-$ git submodule update --init</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recursive https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">WebAssembly</span><span style="color:#D73A49">/</span><span style="color:#24292E">wabt</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd wabt</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> git submodule update </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">init</span></span></code></pre>
 <p>This will fetch the testsuite and gtest repos, which are needed for some tests.</p>
 <h2>Building using CMake directly (Linux and macOS)</h2>
 <p>You'll need <a href="https://cmake.org">CMake</a>. You can then run CMake, the normal way:</p>
-<pre><code>$ mkdir build
-$ cd build
-$ cmake ..
-$ cmake --build .</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> mkdir build</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake ..</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span></code></pre>
 <p>This will produce build files using CMake's default build generator. Read the
 CMake documentation for more information.</p>
 <p><strong>NOTE</strong>: You must create a separate directory for the build artifacts (e.g.
@@ -335,7 +335,7 @@ you just run <code>make</code>, it will run CMake for you, and put the result in
 <blockquote>
 <p>Note: If you are on macOS, you will need to use CMake version 3.2 or higher</p>
 </blockquote>
-<pre><code>$ make</code></pre>
+<pre><code lang="py">$ make</code></pre>
 <p>This will build the default version of the tools: a debug build using the Clang
 compiler.</p>
 <p>There are many make targets available for other configurations as well. They

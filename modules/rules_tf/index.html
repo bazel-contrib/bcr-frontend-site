@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.243029e6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.19c8797b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.dbc93eb3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8139ac2f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.d7b8c668.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4ea792bf.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_tf/0.0.10"></head>
 
 	<body style="margin: 0 auto">
@@ -67,67 +67,67 @@
 <p>Because now you can either use "tofu" or "terraform" binary.</p>
 <h2>Getting Started</h2>
 <p>To import rules_tf in your project, you first need to add it to your <code>MODULE.bazel</code> file:</p>
-<pre><code lang="py">bazel_dep(name = "rules_tf", version = "0.0.9")
-# git_override(
-#     module_name = "rules_tf",
-#     remote      = "https://github.com/yanndegat/rules_tf",
-#     commit      = "...",
-# )
-
-tf = use_extension("@rules_tf//tf:extensions.bzl", "tf_repositories", dev_dependency = True)
-tf.download(
-    version = "1.9.5",
-    tflint_version = "0.53.0",
-    tfdoc_version = "0.19.0",
-    use_tofu = False,
-    mirror = {
-        "random" : "hashicorp/random:3.3.2",
-        "null"   : "hashicorp/null:3.1.1",
-    }
-)
-
-# Switch to tofu
-# tf = use_extension("@rules_tf//tf:extensions.bzl", "tf_repositories")
-# tf.download(
-#    version = "1.6.0",
-#    use_tofu = True,
-#    mirror = {
-#        "random" : "hashicorp/random:3.3.2",
-#        "null"   : "hashicorp/null:3.1.1",
-#    }
-# )
-
-use_repo(tf, "tf_toolchains")
-register_toolchains(
-    "@tf_toolchains//:all",
-    dev_dependency = True,
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_tf"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.9"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># git_override(</span></span>
+<span class="line"><span style="color:#6A737D">#     module_name = "rules_tf",</span></span>
+<span class="line"><span style="color:#6A737D">#     remote      = "https://github.com/yanndegat/rules_tf",</span></span>
+<span class="line"><span style="color:#6A737D">#     commit      = "...",</span></span>
+<span class="line"><span style="color:#6A737D"># )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tf </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_tf//tf:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"tf_repositories"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">tf.download(</span></span>
+<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.9.5"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tflint_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.53.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tfdoc_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.19.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    use_tofu</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> False</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    mirror</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        "random"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"hashicorp/random:3.3.2"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "null"</span><span style="color:#24292E">   : </span><span style="color:#032F62">"hashicorp/null:3.1.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Switch to tofu</span></span>
+<span class="line"><span style="color:#6A737D"># tf = use_extension("@rules_tf//tf:extensions.bzl", "tf_repositories")</span></span>
+<span class="line"><span style="color:#6A737D"># tf.download(</span></span>
+<span class="line"><span style="color:#6A737D">#    version = "1.6.0",</span></span>
+<span class="line"><span style="color:#6A737D">#    use_tofu = True,</span></span>
+<span class="line"><span style="color:#6A737D">#    mirror = {</span></span>
+<span class="line"><span style="color:#6A737D">#        "random" : "hashicorp/random:3.3.2",</span></span>
+<span class="line"><span style="color:#6A737D">#        "null"   : "hashicorp/null:3.1.1",</span></span>
+<span class="line"><span style="color:#6A737D">#    }</span></span>
+<span class="line"><span style="color:#6A737D"># )</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">use_repo(tf, </span><span style="color:#032F62">"tf_toolchains"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
+<span class="line"><span style="color:#032F62">    "@tf_toolchains//:all"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>Using Tf rules</h3>
 <p>Once you've imported the rule set, you can then load the tf rules in your <code>BUILD</code> files with:</p>
-<pre><code>load("@rules_tf//tf:def.bzl", "tf_providers_versions", "tf_module")
-
-tf_providers_versions(
-    name = "providers",
-    tf_version = "1.2.3",
-    providers = {
-        "random" : "hashicorp/random:&gt;=3.3",
-        "null"   : "hashicorp/null:&gt;=3.1",
-    },
-)
-
-tf_module(
-    name = "root-mod-a",
-    providers = [
-        "random",
-    ],
-    deps = [
-        "//tf/modules/mod-a",
-    ],
-    providers_versions = ":providers",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_tf//tf:def.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"tf_providers_versions"</span><span style="color:#24292E">, </span><span style="color:#032F62">"tf_module"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tf_providers_versions(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "providers"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tf_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.2.3"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    providers</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        "random"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"hashicorp/random:&gt;=3.3"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "null"</span><span style="color:#24292E">   : </span><span style="color:#032F62">"hashicorp/null:&gt;=3.1"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tf_module(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "root-mod-a"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    providers</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "random"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "//tf/modules/mod-a"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    providers_versions</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":providers"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h4>Provider Configuration Aliases</h4>
 <p>The <code>providers</code> parameter supports both string list format and dictionary format (for configuration aliases):</p>
-<pre><code># String list format (legacy)
+<pre><code lang="py"># String list format (legacy)
 tf_module(
     name = "simple-module",
     providers = [

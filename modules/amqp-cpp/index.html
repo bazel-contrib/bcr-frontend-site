@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7c61aabb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fa1077bc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.09852bc8.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b31d326b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.882121ac.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.24205a17.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/amqp-cpp/4.3.27"></head>
 
 	<body style="margin: 0 auto">
@@ -135,8 +135,8 @@ Then check out our other commercial and open source solutions:</p>
 <h1>HOW TO INSTALL</h1>
 <p><a href="#table-of-contents">Back to Table of Contents</a></p>
 <p>Start by cloning the repository and navigating to the <code>AMQP-CPP</code> directory.</p>
-<pre><code lang="py">git clone https://github.com/CopernicaMarketingSoftware/AMQP-CPP.git
-cd AMQP-CPP</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">CopernicaMarketingSoftware</span><span style="color:#D73A49">/</span><span style="color:#005CC5">AMQP</span><span style="color:#D73A49">-</span><span style="color:#005CC5">CPP</span><span style="color:#24292E">.git</span></span>
+<span class="line"><span style="color:#24292E">cd </span><span style="color:#005CC5">AMQP</span><span style="color:#D73A49">-</span><span style="color:#005CC5">CPP</span></span></code></pre>
 <p>There are two methods to compile AMQP-CPP: CMake and Make. CMake is platform portable 
 and works on all systems, while the Makefile only works on Linux. The two methods 
 create both a shared and a static version of the AMQP-CPP library. Building of a
@@ -167,7 +167,7 @@ are required to link with <code>pthread</code> and <code>dl</code>.</p>
 the install functionality, and instead manually use the build output at <code>build/bin/</code>. Keep
 in mind that the TCP module is only supported for Linux. An example install method 
 would be:</p>
-<pre><code>mkdir build
+<pre><code lang="py">mkdir build
 cd build
 cmake .. [-DAMQP-CPP_BUILD_SHARED=ON] [-DAMQP-CPP_LINUX_TCP=ON]
 cmake --build . --target install</code></pre>

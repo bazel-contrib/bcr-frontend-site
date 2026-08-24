@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b4afd55a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bd8ce14e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fa4e0f09.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.aadd945a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.126e6a78.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.5635e398.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/abc/0.65-yosyshq"></head>
 
 	<body style="margin: 0 auto">
@@ -92,14 +92,14 @@ APIs of ABC compiled as a static library.</p>
 <span class="line"><span style="color:#24292E">Networks are equivalent.</span></span>
 <span class="line"><span style="color:#24292E">Reading </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.00</span><span style="color:#24292E"> sec   Rewriting </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.18</span><span style="color:#24292E"> sec   Verification </span><span style="color:#D73A49">=</span><span style="color:#005CC5">   0.41</span><span style="color:#24292E"> sec</span></span></code></pre>
 <p>The same can be produced by running the binary in the command-line mode:</p>
-<pre><code lang="py">[...] ~/abc&gt; ./abc
-UC Berkeley, ABC 1.01 (compiled Oct  6 2012 19:05:18)
-abc 01&gt; r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec
-i10          : i/o =  257/  224  lat =    0  and =   2396  lev = 37
-i10          : i/o =  257/  224  lat =    0  and =   1851  lev = 35
-Networks are equivalent.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[</span><span style="color:#005CC5">...</span><span style="color:#24292E">] </span><span style="color:#D73A49">~/</span><span style="color:#24292E">abc</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">abc</span></span>
+<span class="line"><span style="color:#005CC5">UC</span><span style="color:#24292E"> Berkeley, </span><span style="color:#005CC5">ABC</span><span style="color:#005CC5"> 1.01</span><span style="color:#24292E"> (compiled Oct  </span><span style="color:#005CC5">6</span><span style="color:#005CC5"> 2012</span><span style="color:#005CC5"> 19</span><span style="color:#24292E">:</span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic">5</span><span style="color:#24292E">:</span><span style="color:#005CC5">18</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">abc </span><span style="color:#005CC5">0</span><span style="color:#B31D28;font-style:italic">1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> r i10.aig; b; ps; b; rw </span><span style="color:#D73A49">-</span><span style="color:#24292E">l; rw </span><span style="color:#D73A49">-</span><span style="color:#24292E">lz; b; rw </span><span style="color:#D73A49">-</span><span style="color:#24292E">lz; b; ps; cec</span></span>
+<span class="line"><span style="color:#24292E">i10          : i</span><span style="color:#D73A49">/</span><span style="color:#24292E">o </span><span style="color:#D73A49">=</span><span style="color:#005CC5">  257</span><span style="color:#D73A49">/</span><span style="color:#005CC5">  224</span><span style="color:#24292E">  lat </span><span style="color:#D73A49">=</span><span style="color:#005CC5">    0</span><span style="color:#D73A49">  and</span><span style="color:#D73A49"> =</span><span style="color:#005CC5">   2396</span><span style="color:#24292E">  lev </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 37</span></span>
+<span class="line"><span style="color:#24292E">i10          : i</span><span style="color:#D73A49">/</span><span style="color:#24292E">o </span><span style="color:#D73A49">=</span><span style="color:#005CC5">  257</span><span style="color:#D73A49">/</span><span style="color:#005CC5">  224</span><span style="color:#24292E">  lat </span><span style="color:#D73A49">=</span><span style="color:#005CC5">    0</span><span style="color:#D73A49">  and</span><span style="color:#D73A49"> =</span><span style="color:#005CC5">   1851</span><span style="color:#24292E">  lev </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 35</span></span>
+<span class="line"><span style="color:#24292E">Networks are equivalent.</span></span></code></pre>
 <p>or in the batch mode:</p>
-<pre><code>[...] ~/abc&gt; ./abc -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
+<pre><code lang="py">[...] ~/abc&gt; ./abc -c "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec"
 ABC command line: "r i10.aig; b; ps; b; rw -l; rw -lz; b; rw -lz; b; ps; cec".
 i10          : i/o =  257/  224  lat =    0  and =   2396  lev = 37
 i10          : i/o =  257/  224  lat =    0  and =   1851  lev = 35

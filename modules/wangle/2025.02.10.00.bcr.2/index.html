@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.999f09fd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8f84767c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7c46144c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c7ef31b7.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.bb3d93e5.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.31896eed.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/wangle/2025.02.10.00.bcr.2"></head>
 
 	<body style="margin: 0 auto">
@@ -75,10 +75,10 @@
 <li>OpenSSL, at least version 1.0.2+, preferably with TLS extension support.</li>
 </ul>
 <p>Once folly is installed, run the following inside the wangle directory to build, test, and install wangle:</p>
-<pre><code lang="py">cmake .
-make
-ctest
-sudo make install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake .</span></span>
+<span class="line"><span style="color:#24292E">make</span></span>
+<span class="line"><span style="color:#24292E">ctest</span></span>
+<span class="line"><span style="color:#24292E">sudo make install</span></span></code></pre>
 <h2>Tutorial</h2>
 <p>There is a tutorial <a href="https://github.com/facebook/wangle/blob/f257d29e6c818e8ce4953ba18d3cb78e6b477c30/tutorial.md" target="_blank" rel="noopener noreferrer">here</a> that explains the basics of Wangle and shows how to build an echo server/client.</p>
 <h2>Examples</h2>
@@ -164,7 +164,7 @@ sudo make install</code></pre>
 
 <p>A simple example:</p>
 
-<div><pre><span>ServerBootstrap</span><span>&lt;</span><span>TelnetPipeline</span><span>&gt;</span> <span>server</span><span>;</span>                                                                                                      
+<div><pre lang="py"><span>ServerBootstrap</span><span>&lt;</span><span>TelnetPipeline</span><span>&gt;</span> <span>server</span><span>;</span>                                                                                                      
 <span>server</span><span>.</span><span>childPipeline</span><span>(</span><span>std</span><span>::</span><span>make_shared</span><span>&lt;</span><span>TelnetPipelineFactory</span><span>&gt;());</span>                                                                             
 <span>server</span><span>.</span><span>bind</span><span>(</span><span>FLAGS_port</span><span>);</span>                                                                                                                     
 <span>server</span><span>.</span><span>waitForStop</span><span>();</span></pre></div></section><section><h1>ClientBootstrap</h1><p>Create clients easily</p><p>ClientBootstrap is a thin wrapper around AsyncSocket that provides a future interface to the connect callback, and a Pipeline interface to the read callback.</p>

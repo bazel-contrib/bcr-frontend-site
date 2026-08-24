@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6e113022.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.aa6c015c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.11566356.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a23d80b1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.e83d62f6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.97a5c9a1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_c_proto/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,23 +67,23 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_c_proto"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>See <a href="https://github.com/JalonWong/rules_c_proto/releases">Releases</a></p>
 <p><code>BUILD</code></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_c_proto//:base.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"c_proto_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">proto_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "msg_proto"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"msg.proto"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">c_proto_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "msg_c_proto"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":msg_proto"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">cc_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":msg_c_proto"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_c_proto//:base.bzl", "c_proto_library")
+
+proto_library(
+    name = "msg_proto",
+    srcs = ["msg.proto"],
+)
+c_proto_library(
+    name = "msg_c_proto",
+    deps = [":msg_proto"],
+)
+cc_binary(
+    name = "app",
+    deps = [":msg_c_proto"],
+)</code></pre>
 <h2>Build Options</h2>
 <p>If you don't want to use the heap in the std lib with your source code, for example embedded software, use the following.</p>
-<pre><code lang="py">build --define=protobuf_c_no_std=true</code></pre>
+<pre><code>build --define=protobuf_c_no_std=true</code></pre>
 <p>It will download <code>protoc</code> and <code>protoc-gen-c</code> by default. If you want to use your pre-installed binary, add the following to your <code>.bazelrc</code>. You can also use it in the command line. <strong>But this may cause version incompatibility issues</strong>.</p>
 <pre><code>build --define=c_proto_env_protoc=true</code></pre>
 <h2>Proto Options</h2>

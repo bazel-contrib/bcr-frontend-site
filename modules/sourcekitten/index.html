@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6e113022.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.aa6c015c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.11566356.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a23d80b1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.e83d62f6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.97a5c9a1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekitten/0.38.0"></head>
 
 	<body style="margin: 0 auto">
@@ -74,14 +74,14 @@ toolchain or later with the Swift Package Manager.</p>
 <p>Run <code>swift build</code> in the root directory of this project.</p>
 <h3>Bazel</h3>
 <p>Add the following to your <code>WORKSPACE</code> file:</p>
-<pre><code lang="py">SOURCEKITTEN_VERSION = "SOME_VERSION"
-SOURCEKITTEN_SHA = "SOME_SHA"
-http_archive(
-    name = "com_github_jpsim_sourcekitten",
-    url = "https://github.com/jpsim/SourceKitten/archive/refs/tags/%s.tar.gz" % (SOURCEKITTEN_VERSION),
-    sha256 = SOURCEKITTEN_SHA,
-    strip_prefix = "SourceKitten-%s" % SOURCEKITTEN_VERSION
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">SOURCEKITTEN_VERSION</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SOME_VERSION"</span></span>
+<span class="line"><span style="color:#005CC5">SOURCEKITTEN_SHA</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SOME_SHA"</span></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com_github_jpsim_sourcekitten"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/jpsim/SourceKitten/archive/refs/tags/</span><span style="color:#005CC5">%s</span><span style="color:#032F62">.tar.gz"</span><span style="color:#D73A49"> %</span><span style="color:#24292E"> (</span><span style="color:#005CC5">SOURCEKITTEN_VERSION</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> SOURCEKITTEN_SHA</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SourceKitten-</span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#D73A49"> %</span><span style="color:#005CC5"> SOURCEKITTEN_VERSION</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Then run: <code>bazel run @com_github_jpsim_sourcekitten//:sourcekitten -- -h</code></p>
 <h3>Xcode (via Make)</h3>
 <p>Run <code>make install</code> in the root directory of this project.</p>
@@ -89,7 +89,7 @@ http_archive(
 <p>Download and open SourceKitten.pkg from the <a href="https://github.com/jpsim/SourceKitten/releases">releases tab</a>.</p>
 <h2>Command Line Usage</h2>
 <p>Once SourceKitten is installed, you may use it from the command line.</p>
-<pre><code>$ sourcekitten help
+<pre><code lang="py">$ sourcekitten help
 OVERVIEW: An adorable little command line tool for interacting with SourceKit
 
 USAGE: sourcekitten &lt;subcommand&gt;

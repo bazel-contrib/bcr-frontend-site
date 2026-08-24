@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.183f5207.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.751b2701.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b4840e65.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0e5a3ace.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.d36ae0d4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8497169e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/fbthrift/2026.05.18.00"></head>
 
 	<body style="margin: 0 auto">
@@ -164,14 +164,14 @@ specifies whether to enable tests</li>
 <h3>Thrift Files</h3>
 <p>When using thrift and the CMake build system, include: <code>ThriftLibrary.cmake</code> in
 your project. This includes the following macro to help building Thrift files:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">thrift_library(</span></span>
-<span class="line"><span style="color:#6A737D">  #file_name</span></span>
-<span class="line"><span style="color:#6A737D">  #services</span></span>
-<span class="line"><span style="color:#6A737D">  #language</span></span>
-<span class="line"><span style="color:#6A737D">  #options</span></span>
-<span class="line"><span style="color:#6A737D">  #file_path</span></span>
-<span class="line"><span style="color:#6A737D">  #output_path</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">thrift_library(
+  #file_name
+  #services
+  #language
+  #options
+  #file_path
+  #output_path
+)</code></pre>
 <p>This generates a library called <code>file_name-&lt;language&gt;</code>. That is, for
 <code>Test.thrift</code> compiled as cpp2, it will generate the library <code>Test-cpp2</code>.
 This should be added as a dependency to any source or header file that contains
@@ -179,7 +179,7 @@ an include to generated code.</p>
 <h3>Python Build (thrift-python)</h3>
 <p>Build and install the thrift-python wheel for Python development.</p>
 <h4>Container Build with Docker BuildKit (Recommended)</h4>
-<pre><code lang="py">docker buildx build -t fbthrift-python-build -f .devcontainer/Containerfile .
+<pre><code>docker buildx build -t fbthrift-python-build -f .devcontainer/Containerfile .
 docker run -it -v $(pwd):/fbthrift -w /fbthrift fbthrift-python-build bash</code></pre>
 <h4>Build and Test Commands</h4>
 <pre><code>apt-get update

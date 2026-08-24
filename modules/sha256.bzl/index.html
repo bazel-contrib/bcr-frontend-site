@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fa4e0f09.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.aadd945a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3e797ebe.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fd28b0b4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.5635e398.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d9bcd2b1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sha256.bzl/0.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -78,12 +78,12 @@ lockfiles.</p>
 <p>For Bazel, add the dependency to your <code>MODULE.bazel</code>:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sha256.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>In standalone Starlark</h3>
-<pre><code lang="py">load("sha256.star", "sha256")
-
-print(sha256("hello"))</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"sha256.star"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sha256"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">print</span><span style="color:#24292E">(sha256(</span><span style="color:#032F62">"hello"</span><span style="color:#24292E">))</span></span></code></pre>
 <h3>Interactive interpreter</h3>
 <p>A bundled interpreter reads from stdin with <code>sha256()</code> pre-loaded:</p>
-<pre><code>echo 'print(sha256("hello"))' | bazel run //interpreter</code></pre>
+<pre><code lang="py">echo 'print(sha256("hello"))' | bazel run //interpreter</code></pre>
 <pre><code>bazel run //interpreter &lt; myscript.star</code></pre>
 <h3>sha256sum</h3>
 <p>A <code>sha256sum</code> replacement that computes hashes entirely in

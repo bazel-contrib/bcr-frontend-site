@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.39c0e1d3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3341a40f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.79a98ae1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.da47c203.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.56e5225b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bff0e05d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/verible/0.0.3933"></head>
 
 	<body style="margin: 0 auto">
@@ -189,8 +189,8 @@ A lot of users of Verible have to work on pretty old installations,
 so we try to keep the requirements as minimal as possible.</p>
 <p>Use your package manager to install the dependencies; on a system with
 the nix package manager simply run <code>nix-shell</code> to get a build environment.</p>
-<pre><code lang="py"># Build all tools and libraries
-bazel build -c opt //...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Build all tools and libraries</span></span>
+<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
 <p>You can access the generated artifacts under <code>bazel-bin/</code>. For instance the
 syntax checker will be at
 <code>bazel-bin/verible/verilog/tools/syntax/verible-verilog-syntax</code> (corresponding to the
@@ -199,7 +199,7 @@ target name <code>//verible/verilog/tools/syntax:verible-verilog-syntax</code>).
 shared libraries, you can use custom config
 <code>create_static_linked_executables</code> (with this setting <code>bfd</code> linker will be used,
 instead of default <code>gold</code> linker).</p>
-<pre><code># Generate statically linked executables.
+<pre><code lang="py"># Generate statically linked executables.
 # Uses bfd linker and needs static system libs available.
 bazel build -c opt --config=create_static_linked_executables //...</code></pre>
 <h3>Optionally using local flex/bison for build</h3>

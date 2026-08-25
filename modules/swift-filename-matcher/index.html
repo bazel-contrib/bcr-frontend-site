@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7db1e853.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ff0705d4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ed21c0f6.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.51f44ad7.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.e69e5b4d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f8043125.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-filename-matcher/2.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -65,11 +65,11 @@
 <h2>Installation</h2>
 <h3>Swift Package Manager</h3>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/ileitch/swift-filename-matcher.git"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
-<pre><code lang="py">.product(name: "FilenameMatcher", package: "swift-filename-matcher")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.product(name: </span><span style="color:#032F62">"FilenameMatcher"</span><span style="color:#24292E">, package: </span><span style="color:#032F62">"swift-filename-matcher"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>Bazel</h3>
-<pre><code>bazel_dep(name = "swift-filename-matcher", version = "&lt;version&gt;")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "swift-filename-matcher"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage</h2>
-<pre><code>let matcher = FilenameMatcher(
+<pre><code lang="py">let matcher = FilenameMatcher(
     pattern: "**/*.swift",
     options: [.globstar]
 )

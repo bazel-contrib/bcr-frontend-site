@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.154bf7ed.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6fb0558b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8f98633d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5a7e6b2a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.1b3ddec3.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.cf51d6c1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/universal-robots-client-library/2.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -173,69 +173,69 @@ to change the behavior, <a href="#create-new-log-handler">see create new log han
 <h3>Change logging level</h3>
 <p>Make sure to set the logging level in your application, as by default only messages of level
 WARNING or higher will be printed. See below for an example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "ur_client_library/log.h"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> argv[])</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  urcl::setLogLevel(urcl::LogLevel::</span><span style="color:#005CC5">DEBUG</span><span style="color:#24292E">);</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  URCL_LOG_DEBUG(</span><span style="color:#032F62">"Logging debug message"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">#include "ur_client_library/log.h"
+
+int main(int argc, char* argv[])
+{
+  urcl::setLogLevel(urcl::LogLevel::DEBUG);
+
+  URCL_LOG_DEBUG("Logging debug message");
+  return 0;
+}</code></pre>
 <h3>Create new log handler</h3>
 <p>The logger comes with an interface <a href="https://github.com/UniversalRobots/Universal_Robots_Client_Library/blob/73b7323641968c7175c898055b693855e80a50a1/include/ur_client_library/log.h" target="_blank" rel="noopener noreferrer"><code>LogHandler</code></a>, which can be
 used to implement your own log handler for messages logged with this library. This can be done by
 inheriting from the <code>LogHandler class</code>.</p>
 <p>If you want to create a new log handler in your application, you can use below example as
 inspiration:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "ur_client_library/log.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> MyLogHandler</span><span style="color:#24292E"> : public urcl::LogHandler</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">public:</span></span>
-<span class="line"><span style="color:#24292E">  MyLogHandler() = default;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  void log(const char</span><span style="color:#D73A49">*</span><span style="color:#E36209"> file</span><span style="color:#24292E">, </span><span style="color:#005CC5">int</span><span style="color:#24292E"> line, urcl::LogLevel loglevel, const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> log) override</span></span>
-<span class="line"><span style="color:#24292E">  {</span></span>
-<span class="line"><span style="color:#24292E">    switch (loglevel)</span></span>
-<span class="line"><span style="color:#24292E">    {</span></span>
-<span class="line"><span style="color:#24292E">      case urcl::LogLevel::</span><span style="color:#005CC5">INFO</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "INFO "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> line </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> ": "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> log </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">      case urcl::LogLevel::</span><span style="color:#005CC5">DEBUG</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "DEBUG "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> line </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> ": "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> log </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">      case urcl::LogLevel::</span><span style="color:#005CC5">WARN</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "WARN "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> line </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> ": "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> log </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">      case urcl::LogLevel::</span><span style="color:#005CC5">ERROR</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "ERROR "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> line </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> ": "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> log </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">      case urcl::LogLevel::</span><span style="color:#005CC5">FATAL</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">        std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "ERROR "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#E36209"> file</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#032F62"> " "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> line </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> ": "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> log </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">      default:</span></span>
-<span class="line"><span style="color:#D73A49">        break</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E"> argc, char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> argv[])</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">  urcl::setLogLevel(urcl::LogLevel::</span><span style="color:#005CC5">DEBUG</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">MyLogHandler</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> log_handler(new MyLogHandler);</span></span>
-<span class="line"><span style="color:#24292E">  urcl::registerLogHandler(std::move(log_handler));</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  URCL_LOG_DEBUG(</span><span style="color:#032F62">"logging debug message"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  URCL_LOG_INFO(</span><span style="color:#032F62">"logging info message"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">  return</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>#include "ur_client_library/log.h"
+#include &lt;iostream&gt;
+
+class MyLogHandler : public urcl::LogHandler
+{
+public:
+  MyLogHandler() = default;
+
+  void log(const char* file, int line, urcl::LogLevel loglevel, const char* log) override
+  {
+    switch (loglevel)
+    {
+      case urcl::LogLevel::INFO:
+        std::cout &lt;&lt; "INFO " &lt;&lt; file &lt;&lt; " " &lt;&lt; line &lt;&lt; ": " &lt;&lt; log &lt;&lt; std::endl;
+        break;
+      case urcl::LogLevel::DEBUG:
+        std::cout &lt;&lt; "DEBUG " &lt;&lt; file &lt;&lt; " " &lt;&lt; line &lt;&lt; ": " &lt;&lt; log &lt;&lt; std::endl;
+        break;
+      case urcl::LogLevel::WARN:
+        std::cout &lt;&lt; "WARN " &lt;&lt; file &lt;&lt; " " &lt;&lt; line &lt;&lt; ": " &lt;&lt; log &lt;&lt; std::endl;
+        break;
+      case urcl::LogLevel::ERROR:
+        std::cout &lt;&lt; "ERROR " &lt;&lt; file &lt;&lt; " " &lt;&lt; line &lt;&lt; ": " &lt;&lt; log &lt;&lt; std::endl;
+        break;
+      case urcl::LogLevel::FATAL:
+        std::cout &lt;&lt; "ERROR " &lt;&lt; file &lt;&lt; " " &lt;&lt; line &lt;&lt; ": " &lt;&lt; log &lt;&lt; std::endl;
+        break;
+      default:
+        break;
+    }
+  }
+};
+
+int main(int argc, char* argv[])
+{
+  urcl::setLogLevel(urcl::LogLevel::DEBUG);
+  std::unique_ptr&lt;MyLogHandler&gt; log_handler(new MyLogHandler);
+  urcl::registerLogHandler(std::move(log_handler));
+
+  URCL_LOG_DEBUG("logging debug message");
+  URCL_LOG_INFO("logging info message");
+  return 0;
+}</code></pre>
 <h2>Contributor Guidelines</h2>
 <ul>
 <li><p>This repo supports <a href="https://pre-commit.com/">pre-commit</a> e.g. for automatic code formatting. TLDR:
 This will prevent you from committing falsely formatted code:</p>
-<pre><code lang="py">pipx install pre-commit
+<pre><code>pipx install pre-commit
 pre-commit install</code></pre>
 </li>
 <li><p>Succeeding pipelines are a must on Pull Requests (unless there is a reason, e.g. when there have

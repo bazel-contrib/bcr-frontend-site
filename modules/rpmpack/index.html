@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.154bf7ed.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6fb0558b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8f98633d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5a7e6b2a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.1b3ddec3.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.cf51d6c1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rpmpack/0.6.0"></head>
 
 	<body style="margin: 0 auto">
@@ -71,22 +71,22 @@ by Google.</p>
 <p>This will make the <code>tar2rpm</code> tool available in <code>${GOPATH}/bin</code>, which by default means <code>~/go/bin</code>.</p>
 <h2>Usage of the binary (tar2rpm)</h2>
 <p><code>tar2rpm</code> takes a <code>tar</code> file (from <code>stdin</code> or a specified filename), and outputs an <code>rpm</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Usage:</span></span>
-<span class="line"><span style="color:#24292E">  tar2rpm </span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#005CC5">NAME</span><span style="color:#D73A49"> -</span><span style="color:#24292E">version </span><span style="color:#005CC5">VERSION</span><span style="color:#24292E"> [</span><span style="color:#005CC5">OPTION</span><span style="color:#24292E">] [</span><span style="color:#005CC5">TARFILE</span><span style="color:#24292E">]</span></span>
-<span class="line"><span style="color:#24292E">        Read tar content </span><span style="color:#D73A49">from</span><span style="color:#24292E"> stdin, </span><span style="color:#D73A49">or</span><span style="color:#005CC5"> TARFILE</span><span style="color:#D73A49"> if</span><span style="color:#24292E"> present. Write rpm to stdout, </span><span style="color:#D73A49">or</span><span style="color:#24292E"> the </span><span style="color:#E36209">file</span><span style="color:#24292E"> given</span></span>
-<span class="line"><span style="color:#24292E">        by </span><span style="color:#D73A49">-</span><span style="color:#E36209">file</span><span style="color:#005CC5"> RPMFILE</span><span style="color:#24292E">. If a filename </span><span style="color:#D73A49">is</span><span style="color:#032F62"> '-'</span><span style="color:#24292E"> use stdin</span><span style="color:#D73A49">/</span><span style="color:#24292E">stdout without printing a notice.</span></span>
-<span class="line"><span style="color:#24292E">Options:</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#E36209">file</span><span style="color:#005CC5"> RPMFILE</span></span>
-<span class="line"><span style="color:#24292E">        write rpm to </span><span style="color:#005CC5">RPMFILE</span><span style="color:#24292E"> instead of stdout</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">name string</span></span>
-<span class="line"><span style="color:#24292E">        the package name</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">release string</span></span>
-<span class="line"><span style="color:#24292E">        the rpm release</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">version string</span></span>
-<span class="line"><span style="color:#24292E">        the package version</span></span></code></pre>
+<pre><code lang="py">Usage:
+  tar2rpm -name NAME -version VERSION [OPTION] [TARFILE]
+        Read tar content from stdin, or TARFILE if present. Write rpm to stdout, or the file given
+        by -file RPMFILE. If a filename is '-' use stdin/stdout without printing a notice.
+Options:
+  -file RPMFILE
+        write rpm to RPMFILE instead of stdout
+  -name string
+        the package name
+  -release string
+        the rpm release
+  -version string
+        the package version</code></pre>
 <h2>Usage of the library (rpmpack)</h2>
 <p>API documentation for <code>rpmpack</code> can be found in <a href="https://godoc.org/github.com/google/rpmpack"><img src="https://godoc.org/github.com/google/rpmpack?status.svg" alt="GoDoc"></a>.</p>
-<pre><code lang="py">import "github.com/google/rpmpack"
+<pre><code>import "github.com/google/rpmpack"
 ...
 r, err := rpmpack.NewRPM(rpmpack.RPMMetaData{Name: "example", Version: "3"})
 if err != nil {

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e3065842.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4a5c6053.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.143a157e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d5f7a1f1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.e98ce46d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.83e2cc46.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/simplehttp/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -87,66 +87,66 @@
 <h3>Example</h3>
 <hr>
 <p>Basic example of how to use the SimpleHTTP server:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "simplehttp/simplehttp.hpp"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">using namespace SimpleHTTP</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">string</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> list</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Server server()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">server.Init(</span><span style="color:#032F62">"0.0.0.0"</span><span style="color:#24292E">, </span><span style="color:#005CC5">8080</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">server.Route(</span><span style="color:#032F62">"POST"</span><span style="color:#24292E">, </span><span style="color:#032F62">"/add"</span><span style="color:#24292E">, [</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">](Request </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">req, Body </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">body, Response </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">res) </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Task</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">  auto tokenHeader = req.getHeader(</span><span style="color:#032F62">"authorization"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">  if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">tokenHeader </span><span style="color:#B31D28;font-style:italic">||</span><span style="color:#D73A49"> *</span><span style="color:#24292E">tokenHeader</span><span style="color:#D73A49">!=</span><span style="color:#005CC5">TOKEN</span><span style="color:#24292E">) {</span></span>
-<span class="line"><span style="color:#24292E">    res</span></span>
-<span class="line"><span style="color:#24292E">      .setStatusCode(</span><span style="color:#005CC5">401</span><span style="color:#24292E">).setStatusReason(</span><span style="color:#032F62">"Unauthorized"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">      .setContentType(</span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">).setBody(</span><span style="color:#032F62">"Invalid authorization token provided!</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    co_return true;</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Read </span><span style="color:#005CC5">all</span><span style="color:#24292E"> data </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the body</span></span>
-<span class="line"><span style="color:#24292E">  vector</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">unsigned char</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> data = co_await body.readAll();</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> Insert data into the </span><span style="color:#005CC5">list</span></span>
-<span class="line"><span style="color:#005CC5">  list</span><span style="color:#24292E">.push_back(string(data.begin(), data.end()));</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  res.setStatusCode(</span><span style="color:#005CC5">200</span><span style="color:#24292E">).setStatusReason(</span><span style="color:#032F62">"OK"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  co_return true;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">server.Route(</span><span style="color:#032F62">"GET"</span><span style="color:#24292E">, </span><span style="color:#032F62">"/get"</span><span style="color:#24292E">, [</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">](Request </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">req, Body </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">body, Response </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">res) </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> Task</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">bool</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#D73A49">  try</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    auto indexParam = req.getQueryParam(</span><span style="color:#032F62">"index"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">indexParam)</span></span>
-<span class="line"><span style="color:#24292E">      throw runtime_error(</span><span style="color:#032F62">"No element index parameter was specified!"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Convert index string to integer</span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> index = stoi(</span><span style="color:#D73A49">*</span><span style="color:#24292E">req.getQueryParam(</span><span style="color:#032F62">"index"</span><span style="color:#24292E">));</span></span>
-<span class="line"><span style="color:#24292E">      </span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Obtain </span><span style="color:#005CC5">object</span><span style="color:#D73A49"> from</span><span style="color:#24292E"> vector</span></span>
-<span class="line"><span style="color:#24292E">    string item = </span><span style="color:#005CC5">list</span><span style="color:#24292E">.at(index);</span></span>
-<span class="line"><span style="color:#24292E">      </span></span>
-<span class="line"><span style="color:#24292E">    res</span></span>
-<span class="line"><span style="color:#24292E">      .setStatusCode(</span><span style="color:#005CC5">200</span><span style="color:#24292E">).setStatusReason(</span><span style="color:#032F62">"OK"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">      .setContentType(</span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">).setBody(item</span><span style="color:#D73A49">+</span><span style="color:#032F62">"</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">      </span></span>
-<span class="line"><span style="color:#24292E">  } catch (exception </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">_) {</span></span>
-<span class="line"><span style="color:#24292E">    res</span></span>
-<span class="line"><span style="color:#24292E">      .setStatusCode(</span><span style="color:#005CC5">404</span><span style="color:#24292E">).setStatusReason(</span><span style="color:#032F62">"Not Found"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">      .setContentType(</span><span style="color:#032F62">"text/plain"</span><span style="color:#24292E">).setBody(</span><span style="color:#032F62">"Element was not found!</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">  }</span></span>
-<span class="line"><span style="color:#24292E">  co_return true;</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">server.Serve()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">#include "simplehttp/simplehttp.hpp"
+
+using namespace SimpleHTTP;
+
+vector&lt;string&gt; list;
+
+Server server();
+
+server.Init("0.0.0.0", 8080);
+
+server.Route("POST", "/add", [&amp;](Request &amp;req, Body &amp;body, Response &amp;res) -&gt; Task&lt;bool&gt; {
+  auto tokenHeader = req.getHeader("authorization");
+  if (!tokenHeader || *tokenHeader!=TOKEN) {
+    res
+      .setStatusCode(401).setStatusReason("Unauthorized")
+      .setContentType("text/plain").setBody("Invalid authorization token provided!\n");
+    co_return true;
+  }
+  
+  // Read all data from the body
+  vector&lt;unsigned char&gt; data = co_await body.readAll();
+  
+  // Insert data into the list
+  list.push_back(string(data.begin(), data.end()));
+
+  res.setStatusCode(200).setStatusReason("OK");
+  co_return true;
+});
+
+server.Route("GET", "/get", [&amp;](Request &amp;req, Body &amp;body, Response &amp;res) -&gt; Task&lt;bool&gt; {
+  try {
+    auto indexParam = req.getQueryParam("index");
+    if (!indexParam)
+      throw runtime_error("No element index parameter was specified!");
+    
+    // Convert index string to integer
+    int index = stoi(*req.getQueryParam("index"));
+      
+    // Obtain object from vector
+    string item = list.at(index);
+      
+    res
+      .setStatusCode(200).setStatusReason("OK")
+      .setContentType("text/plain").setBody(item+"\n");
+      
+  } catch (exception &amp;_) {
+    res
+      .setStatusCode(404).setStatusReason("Not Found")
+      .setContentType("text/plain").setBody("Element was not found!\n");
+  }
+  co_return true;
+});
+
+server.Serve();</code></pre>
 <p>You can also find more examples in the <code>example</code> directory.</p>
 <h3>Compatibility</h3>
 <hr>
 <p>Including the SimpleHTTP header, requires compiling with <code>C++20</code> standard or above.</p>
 <p>You can enable it in your Bazel build file by adding a flag to the <code>copts</code>:</p>
-<pre><code lang="py">cc_binary(
+<pre><code>cc_binary(
     ...
     copts = ["-std=c++20"],
     ...

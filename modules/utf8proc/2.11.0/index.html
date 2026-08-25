@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.143a157e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d5f7a1f1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fd781893.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bc908ed4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.83e2cc46.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8200bf8d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/utf8proc/2.11.0"></head>
 
 	<body style="margin: 0 auto">
@@ -95,11 +95,11 @@ the included <code>LICENSE.md</code> file for more detailed information.</p>
 <p>The included <code>Makefile</code> supports GNU/Linux flavors and MacOS with <code>gcc</code>-like compilers; Windows users will typically use <code>cmake</code>.</p>
 <p>For other Unix-like systems and other compilers, you may need to pass modified settings to <code>make</code> in order to use the correct compilation flags for building shared libraries on your system.</p>
 <p>For HP-UX with HP's <code>aCC</code> compiler and GNU Make (installed as <code>gmake</code>), you can compile with</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">gmake </span><span style="color:#005CC5">CC</span><span style="color:#D73A49">=/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">aCC</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">aCC </span><span style="color:#005CC5">CFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"+O2"</span><span style="color:#005CC5"> PICFLAG</span><span style="color:#D73A49">=</span><span style="color:#032F62">"+z"</span><span style="color:#005CC5"> C99FLAG</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-Ae"</span><span style="color:#005CC5"> WCFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"+w"</span><span style="color:#005CC5"> LDFLAG_SHARED</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-b"</span><span style="color:#005CC5"> SOFLAG</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-Wl,+h"</span></span></code></pre>
+<pre><code lang="py">gmake CC=/opt/aCC/bin/aCC CFLAGS="+O2" PICFLAG="+z" C99FLAG="-Ae" WCFLAGS="+w" LDFLAG_SHARED="-b" SOFLAG="-Wl,+h"</code></pre>
 <p>To run <code>gmake install</code> you will need GNU coreutils for the <code>install</code> command, and you may want to pass <code>prefix=/opt libdir=/opt/lib/hpux32</code> or similar to change the installation location.</p>
 <h3>Using with CMake</h3>
 <p>A CMake Config-file package is provided. To use utf8proc in a CMake project:</p>
-<pre><code lang="py">add_executable (app app.c)
+<pre><code>add_executable (app app.c)
 find_package (utf8proc 2.9.0 REQUIRED)
 target_link_libraries (app PRIVATE utf8proc::utf8proc)</code></pre>
 <h2>General Information</h2>

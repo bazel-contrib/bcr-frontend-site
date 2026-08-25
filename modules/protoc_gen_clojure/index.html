@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ce5f077e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f2a52237.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.39c0e1d3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3341a40f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.8354e4b2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.56e5225b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/protoc_gen_clojure/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -94,10 +94,10 @@ declined rather than advertised.</p>
 <a href="https://github.com/bpalermo/protoc-gen-clojure/releases">Releases</a> and put it on
 <code>PATH</code>. The <strong>file name matters</strong> — <code>protoc</code> discovers plugins as
 <code>protoc-gen-&lt;name&gt;</code>, and that is what makes <code>--clojure_out</code> work:</p>
-<pre><code lang="py">VERSION=0.3.0
-curl -fsSLo protoc-gen-clojure \
-  "https://github.com/bpalermo/protoc-gen-clojure/releases/download/v$VERSION/protoc-gen-clojure_${VERSION}_linux_x86_64"
-chmod +x protoc-gen-clojure &amp;&amp; mv protoc-gen-clojure /usr/local/bin/</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">VERSION</span><span style="color:#D73A49">=</span><span style="color:#005CC5">0.3</span><span style="color:#24292E">.0</span></span>
+<span class="line"><span style="color:#24292E">curl </span><span style="color:#D73A49">-</span><span style="color:#24292E">fsSLo protoc</span><span style="color:#D73A49">-</span><span style="color:#24292E">gen</span><span style="color:#D73A49">-</span><span style="color:#24292E">clojure \</span></span>
+<span class="line"><span style="color:#032F62">  "https://github.com/bpalermo/protoc-gen-clojure/releases/download/v$VERSION/protoc-gen-clojure_$</span><span style="color:#005CC5">{VERSION}</span><span style="color:#032F62">_linux_x86_64"</span></span>
+<span class="line"><span style="color:#24292E">chmod </span><span style="color:#D73A49">+</span><span style="color:#24292E">x protoc</span><span style="color:#D73A49">-</span><span style="color:#24292E">gen</span><span style="color:#D73A49">-</span><span style="color:#24292E">clojure </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> mv protoc</span><span style="color:#D73A49">-</span><span style="color:#24292E">gen</span><span style="color:#D73A49">-</span><span style="color:#24292E">clojure </span><span style="color:#D73A49">/</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">local</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span></span></code></pre>
 <p><code>linux_x86_64</code> is <strong>fully static</strong> — no libc dependency at all, so it runs on any
 distribution, including Alpine and a <code>scratch</code> container.</p>
 <p><code>linux_aarch64</code> is dynamically linked and carries a glibc floor of 2.34, so a
@@ -109,7 +109,7 @@ distribution older than roughly Debian 12 or Ubuntu 22.04 will reject it with
 at all (issue #17).</p>
 <p>On macOS, a binary downloaded from the internet carries a quarantine attribute
 and will be killed on first run. Clear it:</p>
-<pre><code>xattr -d com.apple.quarantine /usr/local/bin/protoc-gen-clojure</code></pre>
+<pre><code lang="py">xattr -d com.apple.quarantine /usr/local/bin/protoc-gen-clojure</code></pre>
 <p>Binaries are unsigned and un-notarized for now.</p>
 <h2>Use</h2>
 <h3>protoc</h3>

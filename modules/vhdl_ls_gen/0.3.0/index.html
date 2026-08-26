@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8f98633d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5a7e6b2a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.88f03b94.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.47f1cf71.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.cf51d6c1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f1b47a67.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/vhdl_ls_gen/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -66,14 +66,14 @@
 <a href="https://github.com/filmil/bazel_vhdl_ls_gen/actions/workflows/publish.yml"><img src="https://github.com/filmil/bazel_vhdl_ls_gen/actions/workflows/publish.yml/badge.svg" alt="Publish to my Bazel registry"></a>
 <a href="https://github.com/filmil/bazel_vhdl_ls_gen/actions/workflows/publish-bcr.yml"><img src="https://github.com/filmil/bazel_vhdl_ls_gen/actions/workflows/publish-bcr.yml/badge.svg" alt="Publish on Bazel Central Registry"></a></p>
 <p>The directory <a href="https://github.com/filmil/bazel_vhdl_ls_gen/blob/63e72d4aa8badcff4c5e9fa0df4c67851da372c2/integration/" target="_blank" rel="noopener noreferrer">integration</a> shows usage.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">module(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "your_module"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.1"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "vhdl_ls_gen"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">) </span><span style="color:#6A737D"># Select version</span></span></code></pre>
+<pre><code lang="py">module(
+    name = "your_module",
+    version = "0.0.1",
+)
+
+bazel_dep(name = "vhdl_ls_gen", version = "0.0.0") # Select version</code></pre>
 <p>Then tag each filegroup containing VHDL library files as follows:</p>
-<pre><code lang="py">load("@rules_shell//shell:sh_test.bzl", "sh_test")
+<pre><code>load("@rules_shell//shell:sh_test.bzl", "sh_test")
 
 package(default_visibility = ["//visibility:public"])
 

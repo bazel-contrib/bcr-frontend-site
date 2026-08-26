@@ -33,14 +33,14 @@
 		})();
 		</script>
 		<link rel="icon" href="/favicon.png">
-		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
+		<link href="/bcr.dc9c14c6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fa4f7082.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.31352d60.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b2e013e5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.23775bc9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.8055357b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.cbfc2242.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/versor/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -118,17 +118,22 @@ is under 150kb, and supports arbitrary dimensions and metrics (limited by your c
 <p>See also my page at <a href="https://ucsb.academia.edu/PabloColapinto">Academia.edu</a></p>
 <p>My disseration, <a href="http://versor.mat.ucsb.edu/ArticulatingSpace.pdf">Articulating Space</a>, introduces geometric algebra and explores applications to parametric design. My <a href="http://wolftype.com/versor/colapinto_masters_final_02.pdf">Master's Thesis</a> before it, serves as an introduction as well.</p>
 <p>At C++ Now in Aspen I gave <a href="https://www.youtube.com/watch?v=W4p-e-g37tg">a Presentation on Metaprogramming Implementation Details</a></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">As </span><span style="color:#E36209">long</span><span style="color:#D73A49"> as</span><span style="color:#24292E"> algebra </span><span style="color:#D73A49">and</span><span style="color:#24292E"> geometry have been separated, their progress have been slow </span><span style="color:#D73A49">and</span><span style="color:#24292E"> their uses limited; but when these two sciences have been united, they have lent each mutual forces, </span><span style="color:#D73A49">and</span><span style="color:#24292E"> have marched together towards perfection.</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">Joseph Louis Lagrange</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">No attention should be paid to the fact that algebra </span><span style="color:#D73A49">and</span><span style="color:#24292E"> geometry are different </span><span style="color:#D73A49">in</span><span style="color:#24292E"> appearance.</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">Omar Khayyám</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">L’algèbre n’est qu’une géométrie écrite; la géométrie n’est qu’une algèbre figurée.</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">Sophie Germain</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">If you want to see, learn how to act</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">Heinz von Foerster</span></span></code></pre>
+<blockquote>
+<p>As long as algebra and geometry have been separated, their progress have been slow and their uses limited; but when these two sciences have been united, they have lent each mutual forces, and have marched together towards perfection. </p>
+<p>-Joseph Louis Lagrange</p>
+</blockquote>
+<blockquote>
+<p>No attention should be paid to the fact that algebra and geometry are different in appearance.</p>
+<p>-Omar Khayyám</p>
+</blockquote>
+<blockquote>
+<p>L’algèbre n’est qu’une géométrie écrite; la géométrie n’est qu’une algèbre figurée.</p>
+<p>-Sophie Germain</p>
+</blockquote>
+<blockquote>
+<p>If you want to see, learn how to act</p>
+<p>-Heinz von Foerster</p>
+</blockquote>
 <h2>OTHER NICE SOFTWARE:</h2>
 <ul>
 <li><a href="http://www.cinderella.de/tiki-index.php">Cinderella</a> Standalone GA interface</li>
@@ -145,10 +150,12 @@ See the <a href="#TROUBLESHOOTING">Troubleshooting</a> section below for instruc
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">wolftype</span><span style="color:#D73A49">/</span><span style="color:#24292E">versor.git</span></span></code></pre>
 <p>You'll need to initialize the submodules to build any graphics examples:</p>
 <pre><code lang="py">cd versor
-git submodule init
-git submodule update</code></pre>
+git submodule update --init --recursive</code></pre>
 <p>To build library</p>
 <pre><code>./build.sh</code></pre>
+<p>Run</p>
+<pre><code>./build.sh --help</code></pre>
+<p>for a list of possible options.</p>
 <p>To build library and examples:</p>
 <pre><code>./build.sh --examples</code></pre>
 <p>To build library without graphics:</p>
@@ -158,7 +165,10 @@ git submodule update</code></pre>
 <p>Note that not all projects in the scratch folder will compile as I am in the process of updating them in this development branch.</p>
 <p>You can add your own file to the list of targets by adding it to /examples or scratch/projects/</p>
 <h2>INSTALLATION</h2>
-<p>Hmmm, haven't added install options yet!  Will do so soon I promise.</p>
+<p>To configure, build and install the project you can run for example:</p>
+<pre><code>./build.sh --install -j 8</code></pre>
+<p>This will run <code>sudo cmake --install</code>, after configuration and building, and currently installs with prefix /usr/local.
+Please use cmake directly if you need a different prefix.</p>
 <h2>Use Cases</h2>
 <ol>
 <li>A math library:</li>
@@ -195,6 +205,8 @@ auto rp = p.rotate( Biv::xy * theta)</code></pre>
 </li>
 <li><p>You'll need C++11 support on your compiler (See makefile notes below). For C++11 you'll want clang 3.2 (mac) or above or gcc 4.7 or above (linux).</p>
 </li>
+<li><p>On Linux: you may need to sudo apt-get install libxmu-dev libxi-dev</p>
+</li>
 <li><p>Alternatively an earlier version of Versor is available at <a href="https://github.com/wolftype/versor_1.0.git">github.com/wolftype/versor_1.0.git</a>
 This older version runs just as fast, but is strictly 3D CGA (i.e. R4,1 metric) since I generated headers ahead of time.</p>
 </li>
@@ -213,19 +225,19 @@ It's a fantastic book and if you're reading this you should also consider readin
 <hr>
 <p>One quick word: clifford algebras and the spatial relationships they embody can often feel abstract and daunting.  But it's a twisty, boosty ride, full of weird discoveries.  You're bound to make some, so have fun!</p>
 <hr>
-<p>####BACKGROUND
-The homogenous 5D CGA model used here was initially proposed by David Hestenes, Hongbo Li, and Alan Rockwood in 2001, and given full form and weight through the excellent
+<h4>BACKGROUND</h4>
+<p>The homogenous 5D CGA model used here was initially proposed by David Hestenes, Hongbo Li, and Alan Rockwood in 2001, and given full form and weight through the excellent
 and careful work of Leo Dorst, Joan and Anthony Lasenby, and Eduardo Bayro-Corrochano, and others.  These researchers' writings have helped me quite a bit.  CGA is particular breed of <em>Clifford Algebras</em> (also known as Geometric Algebras),
 which operate upon combinatoric hypercomplex vector spaces that emerged from William Clifford's attempt to fuse Hamilton's quaternions with Grassmans' extension algebras.  Thus
 <em>transformations</em> were married with a system of <em>abstraction</em>.  For more information, take a look at the <a href="#links">links</a> to the sites at the bottom of
 this page.  For instance, for practical applications in robotics and "Geometric Cybernetics", see Eduardo Bayro-Corrochano's work.  For some
 very helpful algorithms in rigid body dynamics and gravitational physics see the variety of publications by Joan and Anthony Lasenby.  To get at the beginning of it all, read David Hestenes' <em>New Foundations for Classical Mechanics</em>.</p>
-<p>####SPEED
-Typical matrix operation libraries have templated inlined functions for Vector and Matrix multiplication.  Versor
+<h4>SPEED</h4>
+<p>Typical matrix operation libraries have templated inlined functions for Vector and Matrix multiplication.  Versor
 is similar, but on steroids, where <em>vectors</em> and sparse <em>matrices</em> of various sizes are all just called <em>multivectors</em> and represent geometric
 elements beyond just xyz directions and transformation matrices. Circles, lines, spheres, planes, points are all algebraic elements, as are
 operators that spin, twist, dilate, and bend those variables.  Both these elements and operators are <em>multivectors</em> which multiply together in many many many different ways.</p>
-<p>####What's new?</p>
+<h4>What's new?</h4>
 <p>Versor compiles much faster than before, and without any silly predetermined list
 of allowable operations or types.  Most notably, arbitrary metrics are now possible.  For example,
 the xRoots.cpp example calculates all the Euclidean 4D reflections of a couple of point groups
@@ -239,7 +251,7 @@ auto pc = Round::point(-1,0,0 );
 auto circle = pa ^ pb ^ pc;
 
 Draw(c);</code></pre>
-<p>####How does it work?</p>
+<h4>How does it work?</h4>
 <p>If you like functional template metaprogramming, take a look at the code
 and please let me know what you think.  If you don't, then I wouldn't . . .
 But if you have ideas or questions please do not hesitate to contact me.</p>
@@ -305,8 +317,8 @@ but just sort of new.</p>
 <pre><code>Biv b(1,2,3);</code></pre>
 <p>Some built-in Bivectors exist:</p>
 <pre><code>Biv::xy xy; //&lt;-- XY Counterclockwise Unit Area Biv(1,0,0)
-Biv::xz xy; //&lt;-- XZ Counterclockwise Unit Area Biv(0,1,0)
-Biv::yz xy; //&lt;-- YZ Counterclockwise Unit Area Biv(0,0,1)</code></pre>
+Biv::xz xz; //&lt;-- XZ Counterclockwise Unit Area Biv(0,1,0)
+Biv::yz yz; //&lt;-- YZ Counterclockwise Unit Area Biv(0,0,1)</code></pre>
 <p>While it is perfectly valid to write <code>Vector</code>, <code>Bivector</code> and <code>Rotor</code>, you'll notice I've truncated them to their three letter nicknames, <code>Vec</code> and <code>Rot</code>.
 That's up to you: Both long-name and nick-name versions are valid in libvsr (they are typedef'ed to each other).</p>
 <pre><code>Biv b = Biv::xy;
@@ -563,4 +575,4 @@ weight of the element (for a Point at x, it will change it by x^2)</p>
 <li>2011 <a href="http://wolftype.com/versor/colapinto_masters_final_02.pdf">Versor: Spatial Computing With Conformal Geometric Algebra</a></li>
 <li>2012 <a href="http://versor.mat.ucsb.edu/Boosted_Surfaces_submission_0113.pdf">Boosted Surfaces: Synthesis of Meshes using Point Pair Generators in the Conformal Model</a></li>
 </ul>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">Versor Geometric Algebra Library</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/wolftype/versor" title="@wolftype"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@wolftype/versor</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/wolftype.png" alt="@wolftype"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/wolftype/versor"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">327</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, June 10, 2024</span></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/2219"><img class="avatar circle mr-2 flex-shrink-0" width="20" height="20" src="https://github.com/udaya2899.png" alt="@udaya2899"><span title="Update to new versor version - old version unusable (yanked) (#2219)"><span class="text-mono">#2219</span> <span class="text-light">Update to new versor version ...</span></span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 86.7%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 86.7%"> </span><span style="width: 10.2%; background-color: var(--lang-C-bg, #ccc)" title="C: 10.2%"> </span><span style="width: 2%; background-color: var(--lang-TeX-bg, #ccc)" title="TeX: 2%"> </span><span style="width: 0.7%; background-color: var(--lang-CMake-bg, #ccc)" title="CMake: 0.7%"> </span><span style="width: 0.2%; background-color: var(--lang-Makefile-bg, #ccc)" title="Makefile: 0.2%"> </span><span style="width: 0.2%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 0.2%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/C++">C++</a><span class="ml-2 color-fg-muted">86.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">10.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-TeX-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>TeX</span><span class="ml-2 color-fg-muted">2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CMake-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CMake</span><span class="ml-2 color-fg-muted">0.7%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Makefile-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Makefile</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">0.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-CSS-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>CSS</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/udaya2899" title="Udaya Prakash Nageswaran"><img class="avatar circle" loading="lazy" decoding="async" width="48" height="48" src="https://github.com/udaya2899.png" alt="@udaya2899"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><table class="width-full"><tbody><tr><td title="0.1.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.1.0"><span class="text-bold f4">0.1.0</span><sup class="color-fg-attention"> +5d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-10</span></div></td></tr><tr><td title="0.0.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.1"><a class="Box-row-link f5" href="/modules/versor/0.0.1" style="text-decoration: line-through; color: var(--color-fg-muted);">0.0.1</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-05</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">No description provided.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/wolftype/versor" title="@wolftype"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@wolftype/versor</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/wolftype.png" alt="@wolftype"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/wolftype/versor"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Monday, June 10, 2024</span></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/2219"><img class="avatar circle mr-2 flex-shrink-0" width="20" height="20" src="https://github.com/udaya2899.png" alt="@udaya2899"><span title="Update to new versor version - old version unusable (yanked) (#2219)"><span class="text-mono">#2219</span> <span class="text-light">Update to new versor version ...</span></span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/udaya2899" title="Udaya Prakash Nageswaran"><img class="avatar circle" loading="lazy" decoding="async" width="48" height="48" src="https://github.com/udaya2899.png" alt="@udaya2899"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><table class="width-full"><tbody><tr><td title="0.1.0; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.1.0"><span class="text-bold f4">0.1.0</span><sup class="color-fg-attention"> +5d</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-10</span></div></td></tr><tr><td title="0.0.1; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.0.1"><a class="Box-row-link f5" href="/modules/versor/0.0.1" style="text-decoration: line-through; color: var(--color-fg-muted);">0.0.1</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2024-06-05</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

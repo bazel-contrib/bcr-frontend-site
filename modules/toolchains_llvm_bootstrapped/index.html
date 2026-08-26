@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a4b5f42f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fc811e5b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.863b65fd.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a51b6e73.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.3375d942.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.732c58fc.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_llvm_bootstrapped/0.5.9"></head>
 
 	<body style="margin: 0 auto">
@@ -97,20 +97,20 @@ We expose Bazel targets that package the same toolchain pieces as portable artif
 <h2>Advanced Usage</h2>
 <h3>Registering a subset of all toolchains</h3>
 <p>Use the toolchain module extension:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">toolchain </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@llvm//extensions:toolchain.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">toolchain.exec(</span><span style="color:#E36209">arch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "x86_64"</span><span style="color:#24292E">, </span><span style="color:#E36209">os</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "linux"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">toolchain.exec(</span><span style="color:#E36209">arch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "aarch64"</span><span style="color:#24292E">, </span><span style="color:#E36209">os</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "linux"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">toolchain.target(</span><span style="color:#E36209">arch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "x86_64"</span><span style="color:#24292E">, </span><span style="color:#E36209">os</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "linux"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">toolchain.target(</span><span style="color:#E36209">arch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "aarch64"</span><span style="color:#24292E">, </span><span style="color:#E36209">os</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "linux"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">toolchain.target(</span><span style="color:#E36209">arch</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "riscv64"</span><span style="color:#24292E">, </span><span style="color:#E36209">os</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "linux"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">use_repo(toolchain, </span><span style="color:#032F62">"llvm_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@llvm_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">toolchain = use_extension("@llvm//extensions:toolchain.bzl", "toolchain")
+
+toolchain.exec(arch = "x86_64", os = "linux")
+toolchain.exec(arch = "aarch64", os = "linux")
+toolchain.target(arch = "x86_64", os = "linux")
+toolchain.target(arch = "aarch64", os = "linux")
+toolchain.target(arch = "riscv64", os = "linux")
+
+use_repo(toolchain, "llvm_toolchains")
+
+register_toolchains("@llvm_toolchains//:all")</code></pre>
 <p>This registers the cross-product of the specified exec and target platforms.</p>
 <p>If you need finer control, register individual toolchain targets. You can list them with:</p>
-<pre><code lang="py">bazel query 'kind(toolchain, @llvm//toolchain:all)'</code></pre>
+<pre><code>bazel query 'kind(toolchain, @llvm//toolchain:all)'</code></pre>
 <h3>Cgo compatibility</h3>
 <p>To make the vanilla Go compiler work with a fully hermetic toolchain, we had to send some patches upstream. Only versions of Go &gt;= 1.27 are supported out of the box.</p>
 <p>To use this toolchain with earlier versions of Go, the compiler must be built from source with our patches. Luckily <code>rules_go</code> supports this.</p>

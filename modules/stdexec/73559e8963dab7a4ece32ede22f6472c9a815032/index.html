@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.863b65fd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a51b6e73.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.84434027.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.30a73b81.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.732c58fc.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bb5e599e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032"></head>
 
 	<body style="margin: 0 auto">
@@ -84,37 +84,37 @@ The authors and NVIDIA do not guarantee that this code is fit for any purpose wh
 <h2>Example</h2>
 <p>Below is a simple program that executes three senders concurrently on a thread pool.
 Try it live on <a href="https://godbolt.org/z/8MqaKEEfT">godbolt!</a>.</p>
-<pre><code lang="py">#include &lt;stdexec/execution.hpp&gt;
-#include &lt;exec/static_thread_pool.hpp&gt;
-
-int main()
-{
-    // Declare a pool of 3 worker threads:
-    exec::static_thread_pool pool(3);
-
-    // Get a handle to the thread pool:
-    auto sched = pool.get_scheduler();
-
-    // Describe some work:
-    // Creates 3 sender pipelines that are executed concurrently by passing to `when_all`
-    // Each sender is scheduled on `sched` using `on` and starts with `just(n)` that creates a
-    // Sender that just forwards `n` to the next sender.
-    // After `just(n)`, we chain `then(fun)` which invokes `fun` using the value provided from `just()`
-    // Note: No work actually happens here. Everything is lazy and `work` is just an object that statically
-    // represents the work to later be executed
-    auto fun = [](int i) { return i*i; };
-    auto work = stdexec::when_all(
-        stdexec::starts_on(sched, stdexec::just(0) | stdexec::then(fun)),
-        stdexec::starts_on(sched, stdexec::just(1) | stdexec::then(fun)),
-        stdexec::starts_on(sched, stdexec::just(2) | stdexec::then(fun))
-    );
-
-    // Launch the work and wait for the result
-    auto [i, j, k] = stdexec::sync_wait(std::move(work)).value();
-
-    // Prints "0 1 4":
-    std::printf("%d %d %d\n", i, j, k);
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;stdexec/execution.hpp&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;exec/static_thread_pool.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main()</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Declare a pool of </span><span style="color:#005CC5">3</span><span style="color:#24292E"> worker threads:</span></span>
+<span class="line"><span style="color:#005CC5">    exec</span><span style="color:#24292E">::static_thread_pool pool(</span><span style="color:#005CC5">3</span><span style="color:#24292E">);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Get a handle to the thread pool:</span></span>
+<span class="line"><span style="color:#24292E">    auto sched = pool.get_scheduler();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Describe some work:</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Creates </span><span style="color:#005CC5">3</span><span style="color:#24292E"> sender pipelines that are executed concurrently by passing to </span><span style="color:#B31D28;font-style:italic">`when_all`</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Each sender </span><span style="color:#D73A49">is</span><span style="color:#24292E"> scheduled on </span><span style="color:#B31D28;font-style:italic">`sched`</span><span style="color:#24292E"> using </span><span style="color:#B31D28;font-style:italic">`on`</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> starts </span><span style="color:#D73A49">with</span><span style="color:#B31D28;font-style:italic"> `just(n)`</span><span style="color:#24292E"> that creates a</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Sender that just forwards </span><span style="color:#B31D28;font-style:italic">`n`</span><span style="color:#24292E"> to the </span><span style="color:#005CC5">next</span><span style="color:#24292E"> sender.</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> After </span><span style="color:#B31D28;font-style:italic">`just(n)`</span><span style="color:#24292E">, we chain </span><span style="color:#B31D28;font-style:italic">`then(fun)`</span><span style="color:#24292E"> which invokes </span><span style="color:#B31D28;font-style:italic">`fun`</span><span style="color:#24292E"> using the value provided </span><span style="color:#D73A49">from</span><span style="color:#B31D28;font-style:italic"> `just()`</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Note: No work actually happens here. Everything </span><span style="color:#D73A49">is</span><span style="color:#24292E"> lazy </span><span style="color:#D73A49">and</span><span style="color:#B31D28;font-style:italic"> `work`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> just an </span><span style="color:#005CC5">object</span><span style="color:#24292E"> that statically</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> represents the work to later be executed</span></span>
+<span class="line"><span style="color:#24292E">    auto fun = [](</span><span style="color:#005CC5">int</span><span style="color:#24292E"> i) { </span><span style="color:#D73A49">return</span><span style="color:#24292E"> i</span><span style="color:#D73A49">*</span><span style="color:#24292E">i; };</span></span>
+<span class="line"><span style="color:#24292E">    auto work = stdexec::when_all(</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun)),</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">1</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun)),</span></span>
+<span class="line"><span style="color:#24292E">        stdexec::starts_on(sched, stdexec::just(</span><span style="color:#005CC5">2</span><span style="color:#24292E">) </span><span style="color:#D73A49">|</span><span style="color:#24292E"> stdexec::then(fun))</span></span>
+<span class="line"><span style="color:#24292E">    );</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Launch the work </span><span style="color:#D73A49">and</span><span style="color:#24292E"> wait </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the result</span></span>
+<span class="line"><span style="color:#24292E">    auto [i, j, k] = stdexec::sync_wait(std::move(work)).value();</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Prints </span><span style="color:#032F62">"0 1 4"</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">    std::printf(</span><span style="color:#032F62">"</span><span style="color:#005CC5">%d</span><span style="color:#005CC5"> %d</span><span style="color:#005CC5"> %d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, i, j, k);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h2>Structure</h2>
 <p>This library is header-only, so all the source code can be found in the <code>include/</code> directory. The physical and logical structure of the code can be summarized by the following table:</p>
 <table>
@@ -200,9 +200,9 @@ they encapsulate the necessary configuration.</p>
 <h4>cmake</h4>
 <p>If your project uses CMake, then after cloning <code>stdexec</code> simply add the following to your
 <code>CMakeLists.txt</code>:</p>
-<pre><code>add_subdirectory(&lt;stdexec root&gt;)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">add_subdirectory(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">stdexec root</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">)</span></span></code></pre>
 <p>This will make the <code>STDEXEC::stdexec</code> target available to link with your project:</p>
-<pre><code>target_link_libraries(my_project PRIVATE STDEXEC::stdexec)</code></pre>
+<pre><code lang="py">target_link_libraries(my_project PRIVATE STDEXEC::stdexec)</code></pre>
 <p>This target encapsulates all of the necessary configuration and compiler flags for using
 <code>stdexec</code>.</p>
 <h4>CMake Package Manager (CPM)</h4>

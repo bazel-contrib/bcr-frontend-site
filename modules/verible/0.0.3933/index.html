@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.84434027.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.30a73b81.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fa4f7082.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.31352d60.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.bb5e599e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8055357b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/verible/0.0.3933"></head>
 
 	<body style="margin: 0 auto">
@@ -189,8 +189,8 @@ A lot of users of Verible have to work on pretty old installations,
 so we try to keep the requirements as minimal as possible.</p>
 <p>Use your package manager to install the dependencies; on a system with
 the nix package manager simply run <code>nix-shell</code> to get a build environment.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Build all tools and libraries</span></span>
-<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code lang="py"># Build all tools and libraries
+bazel build -c opt //...</code></pre>
 <p>You can access the generated artifacts under <code>bazel-bin/</code>. For instance the
 syntax checker will be at
 <code>bazel-bin/verible/verilog/tools/syntax/verible-verilog-syntax</code> (corresponding to the
@@ -199,16 +199,16 @@ target name <code>//verible/verilog/tools/syntax:verible-verilog-syntax</code>).
 shared libraries, you can use custom config
 <code>create_static_linked_executables</code> (with this setting <code>bfd</code> linker will be used,
 instead of default <code>gold</code> linker).</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Generate statically linked executables.</span></span>
-<span class="line"><span style="color:#6A737D"># Uses bfd linker and needs static system libs available.</span></span>
-<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config</span><span style="color:#D73A49">=</span><span style="color:#24292E">create_static_linked_executables </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code># Generate statically linked executables.
+# Uses bfd linker and needs static system libs available.
+bazel build -c opt --config=create_static_linked_executables //...</code></pre>
 <h3>Optionally using local flex/bison for build</h3>
 <p>Flex and Bison, that are needed for the parser generation, are compiled as part
 of the build process. But if for any reason you want or need local tools (e.g.
 if you encounter a compile problem with them - please file a bug then)
 can choose so by adding <code>--//bazel:use_local_flex_bison</code> to your bazel
 command line:</p>
-<pre><code lang="py"># Also append the option '--//bazel:use_local_flex_bison' to test/install commands
+<pre><code># Also append the option '--//bazel:use_local_flex_bison' to test/install commands
 bazel build -c opt  --//bazel:use_local_flex_bison //...</code></pre>
 <h3>Building on Windows</h3>
 <p>Building on Windows requires LLVM, WinFlexBison 3 and Git-bash to be installed. Using package manager <a href="https://chocolatey.org/">chocolatey</a>, this can be done with</p>

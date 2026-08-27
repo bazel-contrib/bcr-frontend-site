@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.dc9c14c6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b2e013e5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.23775bc9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.15ec453b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.20e62139.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.134057bc.js" defer=""></script>
-		<script src="/registry.cbfc2242.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1a484ecc.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/version_utils/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -89,14 +89,14 @@ version from the registry, add a <a href="https://bazel.build/external/module#no
 file, e.g. <a href="https://bazel.build/rules/lib/globals/module#archive_override"><code>archive_override</code></a>:</p>
 
 
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">REF</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "v&lt;VERSION&gt;"</span><span style="color:#6A737D">  # </span><span style="color:#D73A49">NOTE</span><span style="color:#6A737D">: can be a repo tag or a commit hash</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">archive_override(</span></span>
-<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "version_utils"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    integrity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ""</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># </span><span style="color:#D73A49">TODO</span><span style="color:#6A737D">: copy the SRI hash that Bazel prints when fetching</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bazel_version_utils-</span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#D73A49"> %</span><span style="color:#005CC5"> REF</span><span style="color:#24292E">.strip(</span><span style="color:#032F62">"v"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/jjmaestro/bazel_version_utils/archive/</span><span style="color:#005CC5">%s</span><span style="color:#032F62">.tar.gz"</span><span style="color:#D73A49"> %</span><span style="color:#005CC5"> REF</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">REF = "v&lt;VERSION&gt;"  # NOTE: can be a repo tag or a commit hash
+
+archive_override(
+    module_name = "version_utils",
+    integrity = "",  # TODO: copy the SRI hash that Bazel prints when fetching
+    strip_prefix = "bazel_version_utils-%s" % REF.strip("v"),
+    urls = ["https://github.com/jjmaestro/bazel_version_utils/archive/%s.tar.gz" % REF],
+)</code></pre>
 
 
 <p><strong>NOTE</strong>:
@@ -113,7 +113,7 @@ currently supports two version schemes: <a href="https://semver.org">semantic ve
 versions</a>.</p>
 <h4>example: semantic versions</h4>
 <p>A semantic version can be created by parsing a string:</p>
-<pre><code lang="py">load("@version_utils//version:semver.bzl", "semver")
+<pre><code>load("@version_utils//version:semver.bzl", "semver")
 
 version = semver.parse("1.0.2-alpha+build.2025-01-15")
 

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.02d5b484.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b3a477f0.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f16625df.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8db7cc3a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.9ae0d862.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.554758df.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_protoc/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -86,13 +86,13 @@ changing their dependency versions.</li>
 <h2>Ensure protobuf and gRPC never built</h2>
 <p>You can ensure that protobuf and grpc is never built from source by breaking the CC compilation.</p>
 <p>Simply drop this in your <code>.bazelrc</code></p>
-<pre><code lang="py"># Ensure that we don't accidentally build protobuf or gRPC
-common --per_file_copt=external/.*protobuf.*@--PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT
-common --host_per_file_copt=external/.*protobuf.*@--PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT
-common --per_file_copt=external/.*grpc.*@--GRPC_WAS_NOT_SUPPOSED_TO_BE_BUILT
-common --host_per_file_copt=external/.*grpc.*@--GRPC_WAS_NOT_SUPPOSED_TO_BE_BUILT</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Ensure that we don't accidentally build protobuf or gRPC</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">per_file_copt</span><span style="color:#D73A49">=</span><span style="color:#24292E">external</span><span style="color:#D73A49">/</span><span style="color:#24292E">.</span><span style="color:#D73A49">*</span><span style="color:#24292E">protobuf.</span><span style="color:#D73A49">*@</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_per_file_copt</span><span style="color:#D73A49">=</span><span style="color:#24292E">external</span><span style="color:#D73A49">/</span><span style="color:#24292E">.</span><span style="color:#D73A49">*</span><span style="color:#24292E">protobuf.</span><span style="color:#D73A49">*@</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">PROTOBUF_WAS_NOT_SUPPOSED_TO_BE_BUILT</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">per_file_copt</span><span style="color:#D73A49">=</span><span style="color:#24292E">external</span><span style="color:#D73A49">/</span><span style="color:#24292E">.</span><span style="color:#D73A49">*</span><span style="color:#24292E">grpc.</span><span style="color:#D73A49">*@</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">GRPC_WAS_NOT_SUPPOSED_TO_BE_BUILT</span></span>
+<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_per_file_copt</span><span style="color:#D73A49">=</span><span style="color:#24292E">external</span><span style="color:#D73A49">/</span><span style="color:#24292E">.</span><span style="color:#D73A49">*</span><span style="color:#24292E">grpc.</span><span style="color:#D73A49">*@</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">GRPC_WAS_NOT_SUPPOSED_TO_BE_BUILT</span></span></code></pre>
 <p>or if you are using <a href="https://github.com/bazel-contrib/bazelrc-preset.bzl">bazelrc-preset.bzl</a>, you can extend your presets using the <code>PROTOC_TOOLCHAIN_FLAGS</code> preset defined in this repository.</p>
-<pre><code>load("@bazelrc-preset.bzl", "bazelrc_preset")
+<pre><code lang="py">load("@bazelrc-preset.bzl", "bazelrc_preset")
 load("@toolchains_protoc//protoc:flags.bzl", "PROTOC_TOOLCHAIN_FLAGS")
 
 bazelrc_preset(

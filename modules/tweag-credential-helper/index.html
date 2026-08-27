@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b3dccc0d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f90812ff.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.02d5b484.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b3a477f0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.4eb8bdc1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9ae0d862.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tweag-credential-helper/0.0.9"></head>
 
 	<body style="margin: 0 auto">
@@ -75,28 +75,28 @@ Instead of configuring credentials in your code, a credential helper decouples t
 <li>Cross Platform: Works out of the box on Linux, macOS and Windows (other platforms are untested).</li>
 </ul>
 <h2>Architecture</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">graph </span><span style="color:#005CC5">LR</span></span>
-<span class="line"><span style="color:#24292E">    Bazel </span><span style="color:#D73A49">&lt;</span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;|</span><span style="color:#032F62">"std{in|out}"</span><span style="color:#D73A49">|</span><span style="color:#24292E"> Helper</span></span>
-<span class="line"><span style="color:#24292E">    Helper </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;|</span><span style="color:#24292E">Check cached credentials</span><span style="color:#D73A49">|</span><span style="color:#24292E"> Agent</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    Agent </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">&gt;|</span><span style="color:#24292E">Cached credentials </span><span style="color:#D73A49">or</span><span style="color:#24292E"> cache miss</span><span style="color:#D73A49">|</span><span style="color:#24292E"> Helper</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Bazel[Bazel process]</span></span>
-<span class="line"><span style="color:#24292E">Helper[Credential Helper Process]</span></span>
-<span class="line"><span style="color:#24292E">Agent[</span><span style="color:#032F62">"Agent (listens on socket)"</span><span style="color:#24292E">]</span></span></code></pre>
+<pre><code lang="py">graph LR
+    Bazel &lt;--&gt;|"std{in|out}"| Helper
+    Helper --&gt;|Check cached credentials| Agent
+
+    Agent --&gt;|Cached credentials or cache miss| Helper
+
+Bazel[Bazel process]
+Helper[Credential Helper Process]
+Agent["Agent (listens on socket)"]</code></pre>
 <p>The credential helper follows a simple architecture:</p>
 <ul>
 <li>Bazel invokes a new instance of the credential helper process for each request. The process will receive one request, determine the credentials, write them to stdout and terminate</li>
 <li>In the background, the credential helper spawns a long-running agent process. The agent listens on a unix domain socket and caches credentials in memory.</li>
 </ul>
 <h3>Life of a helper request</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sequenceDiagram</span></span>
-<span class="line"><span style="color:#24292E">    Bazel </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Helper: req(uri)</span></span>
-<span class="line"><span style="color:#24292E">    Helper </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Agent: retrieve(cacheKey)</span></span>
-<span class="line"><span style="color:#24292E">    Agent </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Helper: credentials </span><span style="color:#D73A49">|</span><span style="color:#24292E"> cache miss</span></span>
-<span class="line"><span style="color:#24292E">    Helper </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Helper: generate fresh credentials on cache miss</span></span>
-<span class="line"><span style="color:#24292E">    Helper </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Agent: store(cacheKey, credentials)</span></span>
-<span class="line"><span style="color:#24292E">    Helper </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> Bazel: credentials</span></span></code></pre>
+<pre><code>sequenceDiagram
+    Bazel -&gt;&gt; Helper: req(uri)
+    Helper -&gt;&gt; Agent: retrieve(cacheKey)
+    Agent -&gt;&gt; Helper: credentials | cache miss
+    Helper -&gt;&gt; Helper: generate fresh credentials on cache miss
+    Helper -&gt;&gt; Agent: store(cacheKey, credentials)
+    Helper -&gt;&gt; Bazel: credentials</code></pre>
 <h2>Supported providers</h2>
 <p>The following providers are supported as of today:</p>
 <ul>
@@ -119,7 +119,7 @@ Prebuilt artifacts can be found in the <a href="https://github.com/tweag/credent
 If you want to manually install the helper, skip ahead to the <a href="#configuration">configuration</a> after installing the binary yourself.</p>
 <p>Add the following to your <code>MODULE.bazel</code> if you want to perform the recommended installation.
 The latest release can always be found on the <a href="https://registry.bazel.build/modules/tweag-credential-helper">Bazel Central Registry</a>:</p>
-<pre><code lang="py">bazel_dep(name = "tweag-credential-helper", version = "0.0.9")</code></pre>
+<pre><code>bazel_dep(name = "tweag-credential-helper", version = "0.0.9")</code></pre>
 <p>Then add the shell stub to your own workspace.</p>
 <pre><code>mkdir -p tools
 wget -O tools/credential-helper https://raw.githubusercontent.com/tweag/credential-helper/main/tools/credential-helper

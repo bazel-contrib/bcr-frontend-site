@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.20770274.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fb04335e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.1a9b1da7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.458d4074.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.cb1bae16.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.207c6713.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/utf8proc/2.11.0"></head>
 
 	<body style="margin: 0 auto">
@@ -88,14 +88,14 @@ the included <code>LICENSE.md</code> file for more detailed information.</p>
 <p>Typical users should download a <a href="http://juliastrings.github.io/utf8proc/releases/">utf8proc release</a> rather than cloning directly from github.</p>
 <p>For compilation of the C library, run <code>make</code>.  You can also install the library and header file with <code>make install</code> (by default into <code>/usr/local/lib</code> and <code>/usr/local/bin</code>, but this can be changed by <code>make prefix=/some/dir</code>).  <code>make check</code> runs some tests, and <code>make clean</code> deletes all of the generated files.</p>
 <p>Alternatively, you can compile with <code>cmake</code>, e.g. by</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S . </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span></span></code></pre>
+<pre><code lang="py">mkdir build
+cmake -S . -B build
+cmake --build build</code></pre>
 <h3>Using other compilers</h3>
 <p>The included <code>Makefile</code> supports GNU/Linux flavors and MacOS with <code>gcc</code>-like compilers; Windows users will typically use <code>cmake</code>.</p>
 <p>For other Unix-like systems and other compilers, you may need to pass modified settings to <code>make</code> in order to use the correct compilation flags for building shared libraries on your system.</p>
 <p>For HP-UX with HP's <code>aCC</code> compiler and GNU Make (installed as <code>gmake</code>), you can compile with</p>
-<pre><code lang="py">gmake CC=/opt/aCC/bin/aCC CFLAGS="+O2" PICFLAG="+z" C99FLAG="-Ae" WCFLAGS="+w" LDFLAG_SHARED="-b" SOFLAG="-Wl,+h"</code></pre>
+<pre><code>gmake CC=/opt/aCC/bin/aCC CFLAGS="+O2" PICFLAG="+z" C99FLAG="-Ae" WCFLAGS="+w" LDFLAG_SHARED="-b" SOFLAG="-Wl,+h"</code></pre>
 <p>To run <code>gmake install</code> you will need GNU coreutils for the <code>install</code> command, and you may want to pass <code>prefix=/opt libdir=/opt/lib/hpux32</code> or similar to change the installation location.</p>
 <h3>Using with CMake</h3>
 <p>A CMake Config-file package is provided. To use utf8proc in a CMake project:</p>

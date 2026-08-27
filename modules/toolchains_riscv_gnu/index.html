@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f5c5c91b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.15e8216b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4b3e5638.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5431b92e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.6efab016.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.fcb8e78c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_riscv_gnu/1.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -109,16 +109,16 @@ available (and customizable) for bazel developers.</p>
 <span class="line"><span style="color:#6A737D"># Build using platforms by default</span></span>
 <span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">incompatible_enable_cc_toolchain_resolution</span></span></code></pre>
 <h2>MODULE</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "toolchains_riscv_gnu"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;module_version&gt;"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">riscv_toolchain </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@toolchains_riscv_gnu//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"riscv_toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">riscv_toolchain.riscv_none_elf()</span></span>
-<span class="line"><span style="color:#24292E">use_repo(riscv_toolchain, </span><span style="color:#032F62">"riscv_none_elf"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@riscv_none_elf//toolchain:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "toolchains_riscv_gnu", version = "&lt;module_version&gt;")
+
+riscv_toolchain = use_extension("@toolchains_riscv_gnu//:extensions.bzl", "riscv_toolchain")
+riscv_toolchain.riscv_none_elf()
+use_repo(riscv_toolchain, "riscv_none_elf")
+
+register_toolchains("@riscv_none_elf//toolchain:all")</code></pre>
 <h2>WORKSPACE</h2>
 <p>Add this git repository to your WORKSPACE to use the compiler</p>
-<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+<pre><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 http_archive(
     name = "rules_cc",
     sha256 = "2037875b9a4456dce4a79d112a8ae885bbc4aad968e6587dca6e64f3a0900cdf",

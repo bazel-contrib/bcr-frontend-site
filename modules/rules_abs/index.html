@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1a9b1da7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.458d4074.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e1fe78ff.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.617f6c89.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.207c6713.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.acb435f2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_abs/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -72,7 +72,7 @@
 </ul>
 <h2>Installation</h2>
 <p>You can find the latest version of <a href="https://registry.bazel.build/modules/rules_abs"><code>rules_abs</code> on the Bazel Central Registry</a>. Installation works by adding a <code>bazel_dep</code> line to <code>MODULE.bazel</code>.</p>
-<pre><code lang="py">bazel_dep(name = "rules_abs", version = "0.1.0")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_abs"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>If you need to configure a credential helper to download from a private repo an example exists in <a href="https://github.com/michaeljs1990/rules_abs/blob/8a1421a3b71f87bfa1c0c537a9c8f4d7f46d2985//examples/full/tools/mock-credential-helper" target="_blank" rel="noopener noreferrer">examples/full</a> that will work if <code>az</code> is installed.
 I have planned work to add support for this to the <a href="https://github.com/tweag/credential-helper/issues/50">credential-helper</a> so that <code>az</code> is no longer required.</p>
 <h2>Usage</h2>
@@ -81,11 +81,7 @@ If you need to download multiple objects from a container, use the <a href="#abs
 <p>To see how it all comes together, take a look at the <a href="https://github.com/michaeljs1990/rules_abs/blob/8a1421a3b71f87bfa1c0c537a9c8f4d7f46d2985//examples/full/" target="_blank" rel="noopener noreferrer">full example</a>.</p>
 <p><a></a></p>
 <h2>abs_archive</h2>
-<pre>load("@rules_abs//abs:repo_rules.bzl", "abs_archive")
-
-abs_archive(<a href="#abs_archive-name">name</a>, <a href="#abs_archive-build_file">build_file</a>, <a href="#abs_archive-build_file_content">build_file_content</a>, <a href="#abs_archive-canonical_id">canonical_id</a>, <a href="#abs_archive-integrity">integrity</a>, <a href="#abs_archive-patch_strip">patch_strip</a>, <a href="#abs_archive-patches">patches</a>,
-            <a href="#abs_archive-rename_files">rename_files</a>, <a href="#abs_archive-repo_mapping">repo_mapping</a>, <a href="#abs_archive-sha256">sha256</a>, <a href="#abs_archive-strip_prefix">strip_prefix</a>, <a href="#abs_archive-type">type</a>, <a href="#abs_archive-url">url</a>)
-</pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">name</span></span></code></pre>
 
 <p>Downloads a Bazel repository as a compressed archive file from an Azure Blob Storage account, decompresses it,
 and makes its targets available for binding.</p>
@@ -96,7 +92,7 @@ or <code>"deb"</code>.</p>
   Suppose your code depends on a private library packaged as a <code>.tar.gz</code>
   which is available from <a href="https://myorg.blob.core.windows.net/libmagic.tar.gz">https://myorg.blob.core.windows.net/libmagic.tar.gz</a>. This <code>.tar.gz</code> file
   contains the following directory structure:</p>
-<pre><code>MODULE.bazel
+<pre><code lang="py">MODULE.bazel
 src/
   magic.cc
   magic.h</code></pre>

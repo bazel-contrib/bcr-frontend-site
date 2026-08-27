@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3773c96b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1a44bd5c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7f337374.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0e7db179.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.a48cdf57.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0550d2d0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/verible/0.0.3933"></head>
 
 	<body style="margin: 0 auto">
@@ -206,11 +206,11 @@ of the build process. But if for any reason you want or need local tools (e.g.
 if you encounter a compile problem with them - please file a bug then)
 can choose so by adding <code>--//bazel:use_local_flex_bison</code> to your bazel
 command line:</p>
-<pre><code lang="py"># Also append the option '--//bazel:use_local_flex_bison' to test/install commands
-bazel build -c opt  --//bazel:use_local_flex_bison //...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Also append the option '--//bazel:use_local_flex_bison' to test/install commands</span></span>
+<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">-</span><span style="color:#24292E">c opt  </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">//</span><span style="color:#24292E">bazel:use_local_flex_bison </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Building on Windows</h3>
 <p>In addition to Bazel &amp; Visual Studio, building on Windows requires WinFlexBison 3 and Git-bash to be installed. Using package manager <a href="https://chocolatey.org/">chocolatey</a>, this can be done with</p>
-<pre><code>choco install git winflexbison3</code></pre>
+<pre><code lang="py">choco install git winflexbison3</code></pre>
 <p>Bazel may also require environment variable to use git-bash, on powershell</p>
 <pre><code>$env:BAZEL_SH="C:\Program Files\Git\git-bash.exe"</code></pre>
 <h3>Installation</h3>

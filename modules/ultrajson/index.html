@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3b7e5549.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a8ce361e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.de7a1361.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1d44a883.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.2014bd63.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3f690c6f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ultrajson/5.10.0"></head>
 
 	<body style="margin: 0 auto">
@@ -86,16 +86,16 @@ future.</p>
 </blockquote>
 <h2>Usage</h2>
 <p>May be used as a drop in replacement for most other JSON parsers for Python:</p>
-<pre><code lang="py">&gt;&gt;&gt; import ujson
-&gt;&gt;&gt; ujson.dumps([{"key": "value"}, 81, True])
-'[{"key":"value"},81,true]'
-&gt;&gt;&gt; ujson.loads("""[{"key": "value"}, 81, true]""")
-[{'key': 'value'}, 81, True]</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#D73A49"> import</span><span style="color:#24292E"> ujson</span></span>
+<span class="line"><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#24292E"> ujson.dumps([{</span><span style="color:#032F62">"key"</span><span style="color:#24292E">: </span><span style="color:#032F62">"value"</span><span style="color:#24292E">}, </span><span style="color:#005CC5">81</span><span style="color:#24292E">, </span><span style="color:#005CC5">True</span><span style="color:#24292E">])</span></span>
+<span class="line"><span style="color:#032F62">'[{"key":"value"},81,true]'</span></span>
+<span class="line"><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#24292E"> ujson.loads(</span><span style="color:#032F62">"""[{"key": "value"}, 81, true]"""</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">[{</span><span style="color:#032F62">'key'</span><span style="color:#24292E">: </span><span style="color:#032F62">'value'</span><span style="color:#24292E">}, </span><span style="color:#005CC5">81</span><span style="color:#24292E">, </span><span style="color:#005CC5">True</span><span style="color:#24292E">]</span></span></code></pre>
 <h3>Encoder options</h3>
 <h4>encode_html_chars</h4>
 <p>Used to enable special encoding of "unsafe" HTML characters into safer Unicode
 sequences. Default is <code>False</code>:</p>
-<pre><code>&gt;&gt;&gt; ujson.dumps("&lt;script&gt;John&amp;Doe", encode_html_chars=True)
+<pre><code lang="py">&gt;&gt;&gt; ujson.dumps("&lt;script&gt;John&amp;Doe", encode_html_chars=True)
 '"\\u003cscript\\u003eJohn\\u0026Doe"'</code></pre>
 <h4>ensure_ascii</h4>
 <p>Limits output to ASCII and escapes all extended characters above 127. Default is <code>True</code>.

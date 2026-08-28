@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.aee6988e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.71224b68.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.da591b02.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e1076e67.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.94ae090c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a72944f6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/protobuf-matchers/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -77,21 +77,21 @@ project. This fork removes dependencies on Tensorflow and the rest of the
 Nucleus code.</p>
 <h1>Using as a Bazel module</h1>
 <p>In your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protobuf-matchers"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.2"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code lang="py">...
+bazel_dep(name = "protobuf-matchers", version = "0.1.2")
+...</code></pre>
 <p>In your <code>BUILD</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cc_test(</span></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#005CC5">       ...</span></span>
-<span class="line"><span style="color:#032F62">       "@protobuf-matchers//protobuf-matchers"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>cc_test(
+    ...
+    deps = [
+       ...
+       "@protobuf-matchers//protobuf-matchers",
+    ],
+)</code></pre>
 <p>See also: <a href="https://bazel.build/rules/lib/globals/module">https://bazel.build/rules/lib/globals/module</a></p>
 <h1>Build with Bazel</h1>
 <p>Build and test</p>
-<pre><code lang="py">bazel test //protobuf-matchers:protobuf-matchers-test</code></pre>
+<pre><code>bazel test //protobuf-matchers:protobuf-matchers-test</code></pre>
 <h1>Build with CMake</h1>
 <p>Build and test</p>
 <pre><code>cmake -S . -B build

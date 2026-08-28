@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ff0d3c02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b52ef061.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8b482428.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1c35161c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.06bf2746.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.14be584d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_runfile_codegen_core/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -85,57 +85,57 @@
 <h3>1. Define the Runfile Library</h3>
 <p>In your <code>BUILD.bazel</code>, load the Go rules and define a <code>go_runfile_library</code>.</p>
 
-<pre><code lang="py">load("@rules_go//go:def.bzl", "go_binary")
-load("@rules_runfile_codegen_go//:defs.bzl", "go_runfile", "go_runfile_library")
-
-package(default_visibility = ["//visibility:private"])
-
-# A helper binary to demonstrate executable runfiles
-go_binary(
-    name = "helper",
-    srcs = ["helper.go"],
-)
-
-# Generate the runfile accessor library
-go_runfile_library(
-    name = "resources",
-    importpath = "github.com/example/project/examples/go/resources",
-    entries = [
-        go_runfile(
-            name = "DataFile",
-            target = "data/dummy.txt",
-            doc = "A dummy data file.",
-        ),
-        go_runfile(
-            name = "HelperTool",
-            target = ":helper",
-            doc = "A helper tool executable.",
-        ),
-        go_runfile(
-            name = "ExampleSet",
-            targets = ["data/dummy.txt", "data/info.txt"],
-            base = "common_dir",
-            doc = "A set of example data files.",
-        ),
-    ],
-)
-
-# Use the library in a binary
-go_binary(
-    name = "main",
-    srcs = ["main.go"],
-    deps = [
-        ":resources",
-    ],
-)
-# #</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_go//go:def.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"go_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_runfile_codegen_go//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"go_runfile"</span><span style="color:#24292E">, </span><span style="color:#032F62">"go_runfile_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">package(</span><span style="color:#E36209">default_visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:private"</span><span style="color:#24292E">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># A helper binary to demonstrate executable runfiles</span></span>
+<span class="line"><span style="color:#24292E">go_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "helper"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"helper.go"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Generate the runfile accessor library</span></span>
+<span class="line"><span style="color:#24292E">go_runfile_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    importpath</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "github.com/example/project/examples/go/resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entries</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#24292E">        go_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "DataFile"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "data/dummy.txt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A dummy data file."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">        go_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "HelperTool"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":helper"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A helper tool executable."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">        go_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ExampleSet"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"data/dummy.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"data/info.txt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">            base</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "common_dir"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A set of example data files."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Use the library in a binary</span></span>
+<span class="line"><span style="color:#24292E">go_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"main.go"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        ":resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># #</span></span></code></pre>
 
 
 <h3>2. Use the Generated Symbols in Go</h3>
 <p>Import the generated package and access the symbols. Regular files are generated as <code>Runfile</code> types, and executables are generated as <code>ExecutableRunfile</code> types.</p>
 <p>Here is the actual example:</p>
 
-<pre><code>package main
+<pre><code lang="py">package main
 
 import (
     "fmt"

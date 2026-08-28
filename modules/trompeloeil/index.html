@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ff0d3c02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b52ef061.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8b482428.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1c35161c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.06bf2746.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.14be584d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/trompeloeil/49"></head>
 
 	<body style="margin: 0 auto">
@@ -94,75 +94,75 @@ to deceive the viewer into believing it is the object itself...</p>
 <p>Also, follow up with the post on
 <a href="https://playfulprogramming.blogspot.se/2015/01/sequence-control-with-trompeloeil-c.html">sequencing</a> for examples on how to restrict or relax allowed sequences of matching calls.</p>
 <h1>Teaser</h1>
-<pre><code lang="py">#include &lt;trompeloeil.hpp&gt;
-
-class Interface
-{
-public:
-  virtual ~Interface() = default;
-  virtual bool foo(int, std::string&amp; s) = 0;
-  virtual bool bar(int) = 0;
-  virtual bool bar(std::string) = 0;
-};
-
-void interface_func(Interface*); // function to test
-
-class Mock : public Interface
-{
-public:
-  MAKE_MOCK(foo, auto (int, std::string&amp;) -&gt; bool, override);
-  MAKE_MOCK(bar, auto (int) -&gt; bool, override);
-  MAKE_MOCK(bar, auto (std::string) -&gt; bool, override);
-  MAKE_MOCK0(baz, void()); // not from Interface
-};
-
-TEST(exercise_interface_func)
-{
-  using trompeloeil::_;  // wild card for matching any value
-  using trompeloeil::gt; // greater-than match
-
-  Mock m;
-
-  trompeloeil::sequence seq1, seq2;  // control order of matching calls
-
-  int local_var = 0;
-
-  REQUIRE_CALL(m, bar(ANY(int)))     // expect call to m.bar(int)
-    .LR_SIDE_EFFECT(local_var = _1)  // set captured variable to value of param
-    .RETURN(_1 &gt; 0)                  // return value depending on param value
-    .IN_SEQUENCE(seq1)               // must be first match for seq1
-    .TIMES(AT_LEAST(1));             // can be called several times
-
-  FORBID_CALL(m, bar(0));            // but m.bar(0) is not allowed
-
-  REQUIRE_CALL(m, bar("word"))       // expect one call to m.bar(std::string)
-    .RETURN(true)
-    .IN_SEQUENCE(seq2);              // must be first match for seq2
-
-  REQUIRE_CALL(m, foo(gt(2), _))     // expect call to foo(int,std::string&amp;)
-    .WITH(_2 == "")                  // with int &gt; 2 and empty string
-    .IN_SEQUENCE(seq1, seq2)         // last for both seq1 and seq2
-    .SIDE_EFFECT(_2 = "cat")         // and set param string to "cat"
-    .RETURN(true);
-
-  interface_func(&amp;m);
-
-  // all the above expectations must be fulfilled here
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;trompeloeil.hpp&gt;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> Interface</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">public:</span></span>
+<span class="line"><span style="color:#24292E">  virtual </span><span style="color:#D73A49">~</span><span style="color:#24292E">Interface() = default;</span></span>
+<span class="line"><span style="color:#24292E">  virtual </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> foo(</span><span style="color:#005CC5">int</span><span style="color:#24292E">, std::string</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> s) = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  virtual </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> bar(</span><span style="color:#005CC5">int</span><span style="color:#24292E">) = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">  virtual </span><span style="color:#005CC5">bool</span><span style="color:#24292E"> bar(std::string) = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">void interface_func(Interface</span><span style="color:#D73A49">*</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> function to test</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> Mock</span><span style="color:#24292E"> : public Interface</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">public:</span></span>
+<span class="line"><span style="color:#24292E">  MAKE_MOCK(foo, auto (</span><span style="color:#005CC5">int</span><span style="color:#24292E">, std::string</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">) </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#005CC5"> bool</span><span style="color:#24292E">, override);</span></span>
+<span class="line"><span style="color:#24292E">  MAKE_MOCK(bar, auto (</span><span style="color:#005CC5">int</span><span style="color:#24292E">) </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#005CC5"> bool</span><span style="color:#24292E">, override);</span></span>
+<span class="line"><span style="color:#24292E">  MAKE_MOCK(bar, auto (std::string) </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#005CC5"> bool</span><span style="color:#24292E">, override);</span></span>
+<span class="line"><span style="color:#24292E">  MAKE_MOCK0(baz, void()); </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> not</span><span style="color:#D73A49"> from</span><span style="color:#24292E"> Interface</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">TEST(exercise_interface_func)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">  using trompeloeil::_;  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> wild card </span><span style="color:#D73A49">for</span><span style="color:#24292E"> matching </span><span style="color:#005CC5">any</span><span style="color:#24292E"> value</span></span>
+<span class="line"><span style="color:#24292E">  using trompeloeil::gt; </span><span style="color:#D73A49">//</span><span style="color:#24292E"> greater</span><span style="color:#D73A49">-</span><span style="color:#24292E">than match</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  Mock m;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  trompeloeil::sequence seq1, seq2;  </span><span style="color:#D73A49">//</span><span style="color:#24292E"> control order of matching calls</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">  int</span><span style="color:#24292E"> local_var = </span><span style="color:#005CC5">0</span><span style="color:#24292E">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  REQUIRE_CALL(m, bar(ANY(</span><span style="color:#005CC5">int</span><span style="color:#24292E">)))     </span><span style="color:#D73A49">//</span><span style="color:#24292E"> expect call to m.bar(</span><span style="color:#005CC5">int</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    .LR_SIDE_EFFECT(</span><span style="color:#E36209">local_var</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> _1)  </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> captured variable to value of param</span></span>
+<span class="line"><span style="color:#24292E">    .RETURN(_1 </span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">)                  </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> return</span><span style="color:#24292E"> value depending on param value</span></span>
+<span class="line"><span style="color:#24292E">    .IN_SEQUENCE(seq1)               </span><span style="color:#D73A49">//</span><span style="color:#24292E"> must be first match </span><span style="color:#D73A49">for</span><span style="color:#24292E"> seq1</span></span>
+<span class="line"><span style="color:#24292E">    .TIMES(AT_LEAST(</span><span style="color:#005CC5">1</span><span style="color:#24292E">));             </span><span style="color:#D73A49">//</span><span style="color:#24292E"> can be called several times</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  FORBID_CALL(m, bar(</span><span style="color:#005CC5">0</span><span style="color:#24292E">));            </span><span style="color:#D73A49">//</span><span style="color:#24292E"> but m.bar(</span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#24292E"> allowed</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  REQUIRE_CALL(m, bar(</span><span style="color:#032F62">"word"</span><span style="color:#24292E">))       </span><span style="color:#D73A49">//</span><span style="color:#24292E"> expect one call to m.bar(std::string)</span></span>
+<span class="line"><span style="color:#24292E">    .RETURN(true)</span></span>
+<span class="line"><span style="color:#24292E">    .IN_SEQUENCE(seq2);              </span><span style="color:#D73A49">//</span><span style="color:#24292E"> must be first match </span><span style="color:#D73A49">for</span><span style="color:#24292E"> seq2</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  REQUIRE_CALL(m, foo(gt(</span><span style="color:#005CC5">2</span><span style="color:#24292E">), _))     </span><span style="color:#D73A49">//</span><span style="color:#24292E"> expect call to foo(</span><span style="color:#005CC5">int</span><span style="color:#24292E">,std::string</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    .WITH(_2 </span><span style="color:#D73A49">==</span><span style="color:#032F62"> ""</span><span style="color:#24292E">)                  </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> with</span><span style="color:#005CC5"> int</span><span style="color:#D73A49"> &gt;</span><span style="color:#005CC5"> 2</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> empty string</span></span>
+<span class="line"><span style="color:#24292E">    .IN_SEQUENCE(seq1, seq2)         </span><span style="color:#D73A49">//</span><span style="color:#24292E"> last </span><span style="color:#D73A49">for</span><span style="color:#24292E"> both seq1 </span><span style="color:#D73A49">and</span><span style="color:#24292E"> seq2</span></span>
+<span class="line"><span style="color:#24292E">    .SIDE_EFFECT(</span><span style="color:#E36209">_2</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cat"</span><span style="color:#24292E">)         </span><span style="color:#D73A49">//</span><span style="color:#D73A49"> and</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> param string to </span><span style="color:#032F62">"cat"</span></span>
+<span class="line"><span style="color:#24292E">    .RETURN(true);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">  interface_func(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">m);</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  //</span><span style="color:#005CC5"> all</span><span style="color:#24292E"> the above expectations must be fulfilled here</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h1><a> Building and running the self test suite</a></h1><a>
 <p>To build the self test suite run <code>cmake</code> with <code>-DTROMPELOEIL_BUILD_TESTS=yes</code>.
 Use the options <code>CXX_STANDARD</code> to select which C++ standard to test, and
 <code>SANITIZE</code> to select sanitizers to build with. Note that the self tests needs a
 reasonably modern version of CMake. Example:</p>
-<pre><code>cmake -B build_dir \
-      -D TROMPELOEIL_BUILD_TESTS=yes \
-      -D CMAKE_BUILD_TYPE=Debug \
-      -D CXX_STANDARD=17 \
-      -D SANITIZE=Address,Undefined \
-      &lt;trompeloeil source dir&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build_dir \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">TROMPELOEIL_BUILD_TESTS</span><span style="color:#D73A49">=</span><span style="color:#24292E">yes \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CXX_STANDARD</span><span style="color:#D73A49">=</span><span style="color:#005CC5">17</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">SANITIZE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Address,Undefined \</span></span>
+<span class="line"><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">trompeloeil source </span><span style="color:#005CC5">dir</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>If the build finds a CMake package for <code>Catch2</code> it will use that, otherwise it
 will download a header-only version of Catch2 v2.x.</p>
-<pre><code>cmake --build build_dir -t self_test thread_terror custom_recursive_mutex</code></pre>
+<pre><code lang="py">cmake --build build_dir -t self_test thread_terror custom_recursive_mutex</code></pre>
 <p>Then run the built binaries:</p>
 <pre><code>./build_dir/self_test &amp;&amp; ./build_dir/thread_terror &amp;&amp; ./build_dir/custom_recursive_mutex</code></pre>
 </a><h1><a></a><a> How to contribute</a></h1><a>

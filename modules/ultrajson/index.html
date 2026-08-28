@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ff0d3c02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b52ef061.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8b482428.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1c35161c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.06bf2746.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.14be584d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ultrajson/5.10.0"></head>
 
 	<body style="margin: 0 auto">
@@ -101,13 +101,13 @@ sequences. Default is <code>False</code>:</p>
 <p>Limits output to ASCII and escapes all extended characters above 127. Default is <code>True</code>.
 If your end format supports UTF-8, setting this option to false is highly recommended to
 save space:</p>
-<pre><code lang="py">&gt;&gt;&gt; ujson.dumps("åäö")
-'"\\u00e5\\u00e4\\u00f6"'
-&gt;&gt;&gt; ujson.dumps("åäö", ensure_ascii=False)
-'"åäö"'</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#24292E"> ujson.dumps(</span><span style="color:#032F62">"åäö"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#032F62">'"</span><span style="color:#005CC5">\\</span><span style="color:#032F62">u00e5</span><span style="color:#005CC5">\\</span><span style="color:#032F62">u00e4</span><span style="color:#005CC5">\\</span><span style="color:#032F62">u00f6"'</span></span>
+<span class="line"><span style="color:#D73A49">&gt;&gt;&gt;</span><span style="color:#24292E"> ujson.dumps(</span><span style="color:#032F62">"åäö"</span><span style="color:#24292E">, </span><span style="color:#E36209">ensure_ascii</span><span style="color:#D73A49">=</span><span style="color:#005CC5">False</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#032F62">'"åäö"'</span></span></code></pre>
 <h4>escape_forward_slashes</h4>
 <p>Controls whether forward slashes (<code>/</code>) are escaped. Default is <code>True</code>:</p>
-<pre><code>&gt;&gt;&gt; ujson.dumps("https://example.com")
+<pre><code lang="py">&gt;&gt;&gt; ujson.dumps("https://example.com")
 '"https:\\/\\/example.com"'
 &gt;&gt;&gt; ujson.dumps("https://example.com", escape_forward_slashes=False)
 '"https://example.com"'</code></pre>

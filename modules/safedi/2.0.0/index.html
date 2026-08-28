@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.47eb34e6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1bfbbf6c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.815119e0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.cf9d87cf.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.35c1cfd6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.241849e3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/safedi/2.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -128,19 +128,19 @@
 <h2>Tests and previews from real feature roots</h2>
 <p>Decorate a type with <code>@Instantiable(generateMock: true)</code> and SafeDI generates a <code>static func mock(…) -&gt; Type</code> method that builds the full dependency subtree for that type. The same declarations that define the production graph generate the test and preview graphs.</p>
 <p>For a <code>LoggedInView</code> decorated with <code>@Instantiable(generateMock: true)</code>, if every dependency can be mocked, calling <code>mock()</code> with no arguments works. The <code>User</code> mock below demonstrates how <code>mockOnly</code> can supply a default for a forwarded runtime value:</p>
-<pre><code lang="py">#Preview {
-    LoggedInView.mock()
-}
-
-// Declarations can participate only in mock generation via `mockOnly`.
-@Instantiable(mockOnly: true)
-extension User {
-    public static func mock() -&gt; User {
-        User(name: "Mock User")
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#Preview {</span></span>
+<span class="line"><span style="color:#24292E">    LoggedInView.mock()</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Declarations can participate only </span><span style="color:#D73A49">in</span><span style="color:#24292E"> mock generation via </span><span style="color:#B31D28;font-style:italic">`mockOnly`</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#6F42C1">@Instantiable</span><span style="color:#24292E">(mockOnly: true)</span></span>
+<span class="line"><span style="color:#24292E">extension User {</span></span>
+<span class="line"><span style="color:#24292E">    public static func mock() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> User {</span></span>
+<span class="line"><span style="color:#24292E">        User(name: </span><span style="color:#032F62">"Mock User"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>For previews and tests that need real data, pass forwarded values directly and use <code>safeDIOverrides</code> to reach into the subtree:</p>
-<pre><code>#Preview {
+<pre><code lang="py">#Preview {
     LoggedInView.mock(
         user: User(name: "dfed"),
         safeDIOverrides: .init(

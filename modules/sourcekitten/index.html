@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f306b5e0.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bed6006d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c2c5e47b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9a8750cf.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.ce45341d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d479c427.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekitten/0.38.0"></head>
 
 	<body style="margin: 0 auto">
@@ -89,27 +89,27 @@ toolchain or later with the Swift Package Manager.</p>
 <p>Download and open SourceKitten.pkg from the <a href="https://github.com/jpsim/SourceKitten/releases">releases tab</a>.</p>
 <h2>Command Line Usage</h2>
 <p>Once SourceKitten is installed, you may use it from the command line.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> sourcekitten </span><span style="color:#005CC5">help</span></span>
-<span class="line"><span style="color:#005CC5">OVERVIEW</span><span style="color:#24292E">: An adorable little command line tool </span><span style="color:#D73A49">for</span><span style="color:#24292E"> interacting </span><span style="color:#D73A49">with</span><span style="color:#24292E"> SourceKit</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">USAGE</span><span style="color:#24292E">: sourcekitten </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">subcommand</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">version               Show the version.</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">              Show </span><span style="color:#005CC5">help</span><span style="color:#24292E"> information.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">SUBCOMMANDS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">  complete                Generate code completion options</span></span>
-<span class="line"><span style="color:#24292E">  doc                     Print Swift </span><span style="color:#D73A49">or</span><span style="color:#24292E"> Objective</span><span style="color:#D73A49">-</span><span style="color:#24292E">C docs </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#005CC5">  format</span><span style="color:#24292E">                  Format Swift </span><span style="color:#E36209">file</span></span>
-<span class="line"><span style="color:#24292E">  index                   Index Swift </span><span style="color:#E36209">file</span><span style="color:#D73A49"> and</span><span style="color:#005CC5"> print</span><span style="color:#D73A49"> as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#24292E">  module</span><span style="color:#D73A49">-</span><span style="color:#24292E">info             Obtain information about a Swift module </span><span style="color:#D73A49">and</span><span style="color:#005CC5"> print</span><span style="color:#D73A49"> as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#24292E">  request                 Run a raw SourceKit request</span></span>
-<span class="line"><span style="color:#24292E">  structure               Print Swift structure information </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#24292E">  syntax                  Print Swift syntax information </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#24292E">  version                 Display the current version of SourceKitten</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  See </span><span style="color:#032F62">'sourcekitten help &lt;subcommand&gt;'</span><span style="color:#D73A49"> for</span><span style="color:#24292E"> detailed </span><span style="color:#005CC5">help</span><span style="color:#24292E">.</span></span></code></pre>
+<pre><code lang="py">$ sourcekitten help
+OVERVIEW: An adorable little command line tool for interacting with SourceKit
+
+USAGE: sourcekitten &lt;subcommand&gt;
+
+OPTIONS:
+  --version               Show the version.
+  -h, --help              Show help information.
+
+SUBCOMMANDS:
+  complete                Generate code completion options
+  doc                     Print Swift or Objective-C docs as JSON
+  format                  Format Swift file
+  index                   Index Swift file and print as JSON
+  module-info             Obtain information about a Swift module and print as JSON
+  request                 Run a raw SourceKit request
+  structure               Print Swift structure information as JSON
+  syntax                  Print Swift syntax information as JSON
+  version                 Display the current version of SourceKitten
+
+  See 'sourcekitten help &lt;subcommand&gt;' for detailed help.</code></pre>
 <h2>How is SourceKit resolved?</h2>
 <p>SourceKitten searches for SourceKit in the following order:</p>
 <ul>
@@ -204,7 +204,7 @@ get reports in Xcode, Jenkins and other CI platforms.</li>
 <p>Running <code>sourcekitten complete --file file.swift --offset 123</code> or
 <code>sourcekitten complete --text "0." --offset 2</code> will print out code completion
 options for the offset in the file/text provided:</p>
-<pre><code lang="py">[{
+<pre><code>[{
   "descriptionKey" : "advancedBy(n: Distance)",
   "associatedUSRs" : "s:FSi10advancedByFSiFSiSi s:FPSs21RandomAccessIndexType10advancedByuRq_S__Fq_Fqq_Ss16ForwardIndexType8Distanceq_ s:FPSs16ForwardIndexType10advancedByuRq_S__Fq_Fqq_S_8Distanceq_ s:FPSs10Strideable10advancedByuRq_S__Fq_Fqq_S_6Strideq_ s:FPSs11_Strideable10advancedByuRq_S__Fq_Fqq_S_6Strideq_",
   "kind" : "source.lang.swift.decl.function.method.instance",

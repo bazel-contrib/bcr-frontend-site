@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.df356923.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.eab5784c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a9706b60.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0557c9a8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ca20790f.js" defer=""></script>
-		<script src="/registry.5e2de7fb.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.912759c4.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -104,8 +104,8 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>If you have Ninja (<code>sudo apt install ninja-build</code>) installed, you can use:</p>
-<pre><code lang="py">cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>to generate and compile via the ninja build script. It will be much faster than with cmake's default Makefile generator.</p>
 <p>You can omit <code>--target install</code> if you only want to use this locally without installing.</p>
 <h1>Usage</h1>
@@ -121,18 +121,18 @@ cmake --build build --target install</code></pre>
 <p>If none of these fit your needs, generate your own custom tag family <a href="https://github.com/AprilRobotics/apriltag-generation">here</a>.</p>
 <h2>Getting Started with the Detector</h2>
 <h3>Python</h3>
-<pre><code>import cv2
-import numpy as np
-from apriltag import apriltag
-
-imagepath = 'test.jpg'
-image = cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE)
-detector = apriltag("tagStandard41h12")
-
-detections = detector.detect(image)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> cv2</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> numpy </span><span style="color:#D73A49">as</span><span style="color:#24292E"> np</span></span>
+<span class="line"><span style="color:#D73A49">from</span><span style="color:#24292E"> apriltag </span><span style="color:#D73A49">import</span><span style="color:#24292E"> apriltag</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">imagepath </span><span style="color:#D73A49">=</span><span style="color:#032F62"> 'test.jpg'</span></span>
+<span class="line"><span style="color:#24292E">image </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cv2.imread(imagepath, cv2.</span><span style="color:#005CC5">IMREAD_GRAYSCALE</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">detector </span><span style="color:#D73A49">=</span><span style="color:#24292E"> apriltag(</span><span style="color:#032F62">"tagStandard41h12"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">detections </span><span style="color:#D73A49">=</span><span style="color:#24292E"> detector.detect(image)</span></span></code></pre>
 <p>Alternately you can use the AprilTag python bindings created by <a href="https://github.com/duckietown/lib-dt-apriltags">duckietown</a>.</p>
 <h3>C</h3>
-<pre><code>image_u8_t* im = image_u8_create_from_pnm("test.pnm");
+<pre><code lang="py">image_u8_t* im = image_u8_create_from_pnm("test.pnm");
 if (im == NULL) {
     fprintf(stderr, "Failed to load pnm image.\n");
     exit(1);

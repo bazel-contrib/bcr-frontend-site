@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a7d27023.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.93016f98.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5a9596a0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c08333f9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.2c16e542.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ff469fcd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/trompeloeil/49"></head>
 
 	<body style="margin: 0 auto">
@@ -154,15 +154,15 @@ to deceive the viewer into believing it is the object itself...</p>
 Use the options <code>CXX_STANDARD</code> to select which C++ standard to test, and
 <code>SANITIZE</code> to select sanitizers to build with. Note that the self tests needs a
 reasonably modern version of CMake. Example:</p>
-<pre><code lang="py">cmake -B build_dir \
-      -D TROMPELOEIL_BUILD_TESTS=yes \
-      -D CMAKE_BUILD_TYPE=Debug \
-      -D CXX_STANDARD=17 \
-      -D SANITIZE=Address,Undefined \
-      &lt;trompeloeil source dir&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build_dir \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">TROMPELOEIL_BUILD_TESTS</span><span style="color:#D73A49">=</span><span style="color:#24292E">yes \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">CXX_STANDARD</span><span style="color:#D73A49">=</span><span style="color:#005CC5">17</span><span style="color:#24292E"> \</span></span>
+<span class="line"><span style="color:#D73A49">      -</span><span style="color:#24292E">D </span><span style="color:#005CC5">SANITIZE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Address,Undefined \</span></span>
+<span class="line"><span style="color:#D73A49">      &lt;</span><span style="color:#24292E">trompeloeil source </span><span style="color:#005CC5">dir</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>If the build finds a CMake package for <code>Catch2</code> it will use that, otherwise it
 will download a header-only version of Catch2 v2.x.</p>
-<pre><code>cmake --build build_dir -t self_test thread_terror custom_recursive_mutex</code></pre>
+<pre><code lang="py">cmake --build build_dir -t self_test thread_terror custom_recursive_mutex</code></pre>
 <p>Then run the built binaries:</p>
 <pre><code>./build_dir/self_test &amp;&amp; ./build_dir/thread_terror &amp;&amp; ./build_dir/custom_recursive_mutex</code></pre>
 </a><h1><a></a><a> How to contribute</a></h1><a>

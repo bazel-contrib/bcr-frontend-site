@@ -33,14 +33,14 @@
 		})();
 		</script>
 		<link rel="icon" href="/favicon.png">
-		<link href="/bcr.9e2e7de2.css" type="text/css" rel="stylesheet">
+		<link href="/bcr.57509a68.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bf5c4bf8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4285ee65.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.18fb5620.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3bedf735.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.ecbfbe1b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4ae883fe.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/argparse/3.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -132,16 +132,16 @@
 <p>Simply include argparse.hpp and you're good to go.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;argparse/argparse.hpp&gt;</span></span></code></pre>
 <p>To start parsing command-line arguments, create an <code>ArgumentParser</code>.</p>
-<pre><code lang="py">argparse::ArgumentParser program("program_name");</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">argparse::ArgumentParser program(</span><span style="color:#032F62">"program_name"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p><strong>NOTE:</strong> There is an optional second argument to the <code>ArgumentParser</code> which is the program version. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0");</code></p>
 <p><strong>NOTE:</strong> There are optional third and fourth arguments to the <code>ArgumentParser</code> which control default arguments. Example: <code>argparse::ArgumentParser program("libfoo", "1.9.0", default_arguments::help, false);</code> See <a href="#default-arguments">Default Arguments</a>, below.</p>
 <p>To add a new argument, simply call <code>.add_argument(...)</code>. You can provide a variadic list of argument names that you want to group together, e.g., <code>-v</code> and <code>--verbose</code></p>
-<pre><code>program.add_argument("foo");
-program.add_argument("-v", "--verbose"); // parameter packing</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"foo"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">program.add_argument(</span><span style="color:#032F62">"-v"</span><span style="color:#24292E">, </span><span style="color:#032F62">"--verbose"</span><span style="color:#24292E">); </span><span style="color:#D73A49">//</span><span style="color:#24292E"> parameter packing</span></span></code></pre>
 <p>Argparse supports a variety of argument types including positional, optional, and compound arguments. Below you can see how to configure each of these types:</p>
 <h3>Positional Arguments</h3>
 <p>Here's an example of a <em><strong>positional argument</strong></em>:</p>
-<pre><code>#include &lt;argparse/argparse.hpp&gt;
+<pre><code lang="py">#include &lt;argparse/argparse.hpp&gt;
 
 int main(int argc, char *argv[]) {
   argparse::ArgumentParser program("program_name");

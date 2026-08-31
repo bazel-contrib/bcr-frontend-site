@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.b04ed926.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b7a71b3f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ca7699a3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.986bc716.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bbb86294.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.45934b54.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.71e6b5de.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_protoc/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -159,18 +159,18 @@ using whatever Bazel rule you chose for interacting with package managers
 It looks like the following (where <code>LANG</code>, <code>--flag_to_protoc</code>, and <code>runtime</code> are replaced
 with appropriate values for the language and the label of the runtime you installed).</p>
 <p>You can choose a Bazel package where this goes; we recommend <code>/tools/toolchains/BUILD.bazel</code>.</p>
-<pre><code lang="py">load("@rules_proto//proto:defs.bzl", "proto_lang_toolchain")
-
-proto_lang_toolchain(
-    name = "protoc_LANG_toolchain",
-    command_line = "--flag_to_protoc=%s",
-    progress_message = "Generating LANG proto_library %{label}",
-    runtime = "@some-external//lib",
-    # This target should be declared by the language rules:
-    toolchain_type = "@rules_LANG//path/to/proto:toolchain_type",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_proto//proto:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"proto_lang_toolchain"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">proto_lang_toolchain(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protoc_LANG_toolchain"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    command_line</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "--flag_to_protoc=</span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    progress_message</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "Generating LANG proto_library %</span><span style="color:#005CC5">{label}</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    runtime</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@some-external//lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # This target should be declared by the language rules:</span></span>
+<span class="line"><span style="color:#E36209">    toolchain_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@rules_LANG//path/to/proto:toolchain_type"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Then register the toolchains, either in <code>MODULE.bazel</code> or <code>WORKSPACE</code>:</p>
-<pre><code>register_toolchains("//tools/toolchains:all")</code></pre>
+<pre><code lang="py">register_toolchains("//tools/toolchains:all")</code></pre>
 <p>See <code>examples</code> for several language rules like <code>py_proto_library</code> and <code>java_proto_library</code>.</p>
 <h3>Troubleshooting</h3>
 <p>What if you still see that protoc is compiling?</p>

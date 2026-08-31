@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.b04ed926.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2b2f2a45.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9a082cdc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.204c4a4a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.de2b21bd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.72f76e1c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6eede6ea.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_buildbuddy/0.0.4"></head>
 
 	<body style="margin: 0 auto">
@@ -108,9 +108,9 @@ You can enabled the Java toolchain with the following flags:</p>
 <h3>Ubuntu 16.04 image (<strong>default</strong>)</h3>
 <p>This image is the default when using the BuildBuddy toolchain. To
 reference it explicitly, you can declare the toolchain like this:</p>
-<pre><code lang="py">load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy", "UBUNTU16_04_IMAGE")
-
-buildbuddy(name = "buildbuddy_toolchain", container_image = UBUNTU16_04_IMAGE)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@io_buildbuddy_buildbuddy_toolchain//:rules.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"buildbuddy"</span><span style="color:#24292E">, </span><span style="color:#032F62">"UBUNTU16_04_IMAGE"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">buildbuddy(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "buildbuddy_toolchain"</span><span style="color:#24292E">, </span><span style="color:#E36209">container_image</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> UBUNTU16_04_IMAGE</span><span style="color:#24292E">)</span></span></code></pre>
 <p>This image includes the following build tools:</p>
 <ul>
 <li>Java 8 (javac 1.8.0_242)</li>
@@ -123,7 +123,7 @@ buildbuddy(name = "buildbuddy_toolchain", container_image = UBUNTU16_04_IMAGE)</
 </ul>
 <h3>Ubuntu 20.04 image</h3>
 <p>To use Ubuntu 20.04, import the toolchain as follows:</p>
-<pre><code>load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy", "UBUNTU20_04_IMAGE")
+<pre><code lang="py">load("@io_buildbuddy_buildbuddy_toolchain//:rules.bzl", "buildbuddy", "UBUNTU20_04_IMAGE")
 
 buildbuddy(name = "buildbuddy_toolchain", container_image = UBUNTU20_04_IMAGE)</code></pre>
 <p>This image includes the following build tools:</p>

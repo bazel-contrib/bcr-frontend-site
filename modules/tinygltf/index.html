@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.b04ed926.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2b2f2a45.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9a082cdc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.204c4a4a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.de2b21bd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.72f76e1c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6eede6ea.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinygltf/2.9.6"></head>
 
 	<body style="margin: 0 auto">
@@ -81,23 +81,23 @@ filesystem helpers. The legacy <code>TINYGLTF3_IMPLEMENTATION</code> include pat
 available for compatibility.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "tiny_gltf_v3.h"</span></span></code></pre>
 <p>Loading a glTF file:</p>
-<pre><code lang="py">tg3_parse_options opts;
-tg3_error_stack errors;
-tg3_model model;
-
-tg3_parse_options_init(&amp;opts);
-tg3_error_stack_init(&amp;errors);
-
-tg3_error_code err = tg3_parse_file(&amp;model, &amp;errors, "scene.gltf", 10, &amp;opts);
-if (err != TG3_OK) {
-    for (uint32_t i = 0; i &lt; errors.count; i++) {
-        fprintf(stderr, "[%d] %s\n", (int)errors.entries[i].severity,
-                errors.entries[i].message ? errors.entries[i].message : "(null)");
-    }
-}
-// ... use model ...
-tg3_model_free(&amp;model);
-tg3_error_stack_free(&amp;errors);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tg3_parse_options opts</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">tg3_error_stack errors</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">tg3_model model</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tg3_parse_options_init(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opts)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">tg3_error_stack_init(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">tg3_error_code err </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tg3_parse_file(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">model, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors, </span><span style="color:#032F62">"scene.gltf"</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">opts)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (err </span><span style="color:#D73A49">!=</span><span style="color:#005CC5"> TG3_OK</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#D73A49">    for</span><span style="color:#24292E"> (uint32_t i = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; i </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> errors.count; i</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">) {</span></span>
+<span class="line"><span style="color:#24292E">        fprintf(stderr, </span><span style="color:#032F62">"[</span><span style="color:#005CC5">%d</span><span style="color:#032F62">] </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, (</span><span style="color:#005CC5">int</span><span style="color:#24292E">)errors.entries[i].severity,</span></span>
+<span class="line"><span style="color:#24292E">                errors.entries[i].message </span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E"> errors.entries[i].message : </span><span style="color:#032F62">"(null)"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> ...</span><span style="color:#24292E"> use model </span><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">tg3_model_free(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">model);</span></span>
+<span class="line"><span style="color:#24292E">tg3_error_stack_free(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">errors);</span></span></code></pre>
 <h2>Testing &amp; verification</h2>
 <p>The v3 C runtime ships with three layers of automated coverage:</p>
 <ul>
@@ -108,7 +108,7 @@ tg3_error_stack_free(&amp;errors);</code></pre>
 <li><strong><code>tests/v3/fuzzer/</code></strong> — libFuzzer harness with ASan + UBSan (<code>make run</code> builds and runs <code>fuzz_gltf_v3_c</code>). Crafted regression inputs live in <code>tests/v3/security/</code> and are seeded into <code>tests/v3/fuzzer/corpus/</code>.</li>
 </ul>
 <h3>Building</h3>
-<pre><code># Plain make (gcc/clang)
+<pre><code lang="py"># Plain make (gcc/clang)
 $ make -C tests &amp;&amp; make -C tests run
 
 # CMake

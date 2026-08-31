@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.b04ed926.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.92904e5f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.af0b6d9a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.db9ce3fa.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fc2fa1c8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.d312f0c4.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.da14d4d8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.5e581f64.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_avr/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -94,9 +94,9 @@
 <p>Create a new directory for your project:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir my_project </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd my_project</span></span></code></pre>
 <p>Pin the Bazel version by writing <code>.bazelversion</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">9.0</span><span style="color:#24292E">.2</span></span></code></pre>
+<pre><code lang="py">9.0.2</code></pre>
 <p>Create <code>MODULE.bazel</code> to declare <code>toolchains_avr</code> as a dependency and configure the avr-gcc toolchain. Bazel will download the toolchain automatically on first build — no manual installation needed.</p>
-<pre><code lang="py">bazel_dep(name = "rules_cc", version = "0.2.17")
+<pre><code>bazel_dep(name = "rules_cc", version = "0.2.17")
 bazel_dep(name = "toolchains_avr", version = "0.1.0", repo_name = "avr")
 
 avr = use_extension("@avr//avr:extensions.bzl", "avr")

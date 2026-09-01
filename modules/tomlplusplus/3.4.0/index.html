@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.4f15a08c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5dc4a3d4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.496ae4c9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c5324823.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.96371363.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d40d9ed0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tomlplusplus/3.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -104,44 +104,44 @@ snippets instead, visit the project <a href="https://marzer.github.io/tomlpluspl
 <span class="line"><span style="color:#24292E">[dependencies]</span></span>
 <span class="line"><span style="color:#24292E">cpp </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 17</span></span></code></pre>
 <p>Reading it in C++ is easy with toml++:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;toml.hpp&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto config </span><span style="color:#D73A49">=</span><span style="color:#24292E"> toml::parse_file( </span><span style="color:#032F62">"configuration.toml"</span><span style="color:#24292E"> )</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> get key</span><span style="color:#D73A49">-</span><span style="color:#24292E">value pairs</span></span>
-<span class="line"><span style="color:#24292E">std::string_view library_name </span><span style="color:#D73A49">=</span><span style="color:#24292E"> config[</span><span style="color:#032F62">"library"</span><span style="color:#24292E">][</span><span style="color:#032F62">"name"</span><span style="color:#24292E">].value_or(</span><span style="color:#032F62">""</span><span style="color:#24292E">sv)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">std::string_view library_author </span><span style="color:#D73A49">=</span><span style="color:#24292E"> config[</span><span style="color:#032F62">"library"</span><span style="color:#24292E">][</span><span style="color:#032F62">"authors"</span><span style="color:#24292E">][</span><span style="color:#005CC5">0</span><span style="color:#24292E">].value_or(</span><span style="color:#032F62">""</span><span style="color:#24292E">sv)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">int64_t depends_on_cpp_version </span><span style="color:#D73A49">=</span><span style="color:#24292E"> config[</span><span style="color:#032F62">"dependencies"</span><span style="color:#24292E">][</span><span style="color:#032F62">"cpp"</span><span style="color:#24292E">].value_or(</span><span style="color:#005CC5">0</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> modify the data</span></span>
-<span class="line"><span style="color:#24292E">config.insert_or_assign(</span><span style="color:#032F62">"alternatives"</span><span style="color:#24292E">, toml::array{</span></span>
-<span class="line"><span style="color:#032F62">    "cpptoml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "toml11"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "Boost.TOML"</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> use a visitor to iterate over heterogenous data</span></span>
-<span class="line"><span style="color:#24292E">config.for_each([](auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> key, auto</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value)</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> value </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> constexpr (toml::is_string</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">decltype(value)</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">        do_something_with_string_values(value);</span></span>
-<span class="line"><span style="color:#24292E">})</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> you can also iterate more </span><span style="color:#032F62">'traditionally'</span><span style="color:#24292E"> using a ranged</span><span style="color:#D73A49">-for</span></span>
-<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> (auto</span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> [k, v] : config)</span></span>
-<span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> ...</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> re</span><span style="color:#D73A49">-</span><span style="color:#24292E">serialize </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> TOML</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> config </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> re</span><span style="color:#D73A49">-</span><span style="color:#24292E">serialize </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> JSON</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> toml::json_formatter{ config } </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> re</span><span style="color:#D73A49">-</span><span style="color:#24292E">serialize </span><span style="color:#D73A49">as</span><span style="color:#005CC5"> YAML</span></span>
-<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> toml::yaml_formatter{ config } </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span></code></pre>
+<pre><code lang="py">#include &lt;toml.hpp&gt;
+
+auto config = toml::parse_file( "configuration.toml" );
+
+// get key-value pairs
+std::string_view library_name = config["library"]["name"].value_or(""sv);
+std::string_view library_author = config["library"]["authors"][0].value_or(""sv);
+int64_t depends_on_cpp_version = config["dependencies"]["cpp"].value_or(0);
+
+// modify the data
+config.insert_or_assign("alternatives", toml::array{
+    "cpptoml",
+    "toml11",
+    "Boost.TOML"
+});
+
+// use a visitor to iterate over heterogenous data
+config.for_each([](auto&amp; key, auto&amp; value)
+{
+    std::cout &lt;&lt; value &lt;&lt; "\n";
+    if constexpr (toml::is_string&lt;decltype(value)&gt;)
+        do_something_with_string_values(value);
+});
+
+// you can also iterate more 'traditionally' using a ranged-for
+for (auto&amp;&amp; [k, v] : config)
+{
+    // ...
+}
+
+// re-serialize as TOML
+std::cout &lt;&lt; config &lt;&lt; "\n";
+
+// re-serialize as JSON
+std::cout &lt;&lt; toml::json_formatter{ config } &lt;&lt; "\n";
+
+// re-serialize as YAML
+std::cout &lt;&lt; toml::yaml_formatter{ config } &lt;&lt; "\n";</code></pre>
 <p>You'll find some more code examples in the <code>examples</code> directory, and plenty more as part of the <a href="https://marzer.github.io/tomlplusplus/">API documentation</a>.</p>
 <br>
 
@@ -162,7 +162,7 @@ snippets instead, visit the project <a href="https://marzer.github.io/tomlpluspl
 <p>Add <code>tomlplusplus/3.4.0</code> to your conanfile.</p>
 <h3>DDS</h3>
 <p>Add <code>tomlpp</code> to your <code>package.json5</code>, e.g.:</p>
-<pre><code lang="py">depends: [
+<pre><code>depends: [
     'tomlpp^3.4.0',
 ]</code></pre>
 <blockquote>

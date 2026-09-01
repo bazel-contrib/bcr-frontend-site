@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6c955081.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.41e87f27.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f67914f3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.633f21f4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.c58c1537.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f61209ef.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tl-expected/1.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -68,26 +68,26 @@ MSVC: <a href="https://ci.appveyor.com/project/TartanLlama/expected"><img src="h
 <p>Available on <a href="https://github.com/microsoft/vcpkg/tree/master/ports/tl-expected">Vcpkg</a>, <a href="https://github.com/yipdw/conan-tl-expected">Conan</a> and <a href="https://cppget.org/tl-expected"><code>build2</code></a>.</p>
 <p><a href="http://www.open-std.org/jtc1/sc22/wg21/docs/papers/2017/p0323r3.pdf"><code>std::expected</code></a> is proposed as the preferred way to represent object which will either have an expected value, or an unexpected value giving information about why something failed. Unfortunately, chaining together many computations which may fail can be verbose, as error-checking code will be mixed in with the actual programming logic. This implementation provides a number of utilities to make coding with <code>expected</code> cleaner.</p>
 <p>For example, instead of writing this code:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::expected</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">image,fail_reason</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> get_cute_cat (const image</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> img) {</span></span>
-<span class="line"><span style="color:#24292E">    auto cropped = crop_to_cat(img);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">cropped) {</span></span>
-<span class="line"><span style="color:#D73A49">      return</span><span style="color:#24292E"> cropped;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    auto with_tie = add_bow_tie(</span><span style="color:#D73A49">*</span><span style="color:#24292E">cropped);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">with_tie) {</span></span>
-<span class="line"><span style="color:#D73A49">      return</span><span style="color:#24292E"> with_tie;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    auto with_sparkles = make_eyes_sparkle(</span><span style="color:#D73A49">*</span><span style="color:#24292E">with_tie);</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">with_sparkles) {</span></span>
-<span class="line"><span style="color:#D73A49">       return</span><span style="color:#24292E"> with_sparkles;</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    return</span><span style="color:#24292E"> add_rainbow(make_smaller(</span><span style="color:#D73A49">*</span><span style="color:#24292E">with_sparkles));</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">std::expected&lt;image,fail_reason&gt; get_cute_cat (const image&amp; img) {
+    auto cropped = crop_to_cat(img);
+    if (!cropped) {
+      return cropped;
+    }
+
+    auto with_tie = add_bow_tie(*cropped);
+    if (!with_tie) {
+      return with_tie;
+    }
+
+    auto with_sparkles = make_eyes_sparkle(*with_tie);
+    if (!with_sparkles) {
+       return with_sparkles;
+    }
+
+    return add_rainbow(make_smaller(*with_sparkles));
+}</code></pre>
 <p>You can do this:</p>
-<pre><code lang="py">tl::expected&lt;image,fail_reason&gt; get_cute_cat (const image&amp; img) {
+<pre><code>tl::expected&lt;image,fail_reason&gt; get_cute_cat (const image&amp; img) {
     return crop_to_cat(img)
            .and_then(add_bow_tie)
            .and_then(make_eyes_sparkle)

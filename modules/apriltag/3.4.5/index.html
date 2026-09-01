@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.496ae4c9.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c5324823.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.1dc8a9c3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b8500b04.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.d40d9ed0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a72b741a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -98,10 +98,10 @@
 <h1>Install</h1>
 <p>Officially only Linux operating systems are supported, although users have had success installing on Windows too.</p>
 <p>The default installation will place headers in /usr/local/include and shared library in /usr/local/lib. It also installs a pkg-config script into /usr/local/lib/pkgconfig and will install a python wrapper if python3 is installed.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
+<pre><code lang="py">cmake -B build -DCMAKE_BUILD_TYPE=Release
+cmake --build build --target install</code></pre>
 <p>This will build shared (*.so) libraries by default. If you need static (*.a) libraries set <code>BUILD_SHARED_LIBS</code> to <code>OFF</code>:</p>
-<pre><code lang="py">cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
+<pre><code>cmake -B build -DCMAKE_BUILD_TYPE=Release -DBUILD_SHARED_LIBS=OFF
 cmake --build build --target install</code></pre>
 <p>If you have Ninja (<code>sudo apt install ninja-build</code>) installed, you can use:</p>
 <pre><code>cmake -B build -GNinja -DCMAKE_BUILD_TYPE=Release

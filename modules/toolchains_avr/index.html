@@ -33,14 +33,14 @@
 		})();
 		</script>
 		<link rel="icon" href="/favicon.png">
-		<link href="/bcr.b04ed926.css" type="text/css" rel="stylesheet">
+		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.aba28b43.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0dab3e3c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9ce06802.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f2c81a04.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3c8583b0.js" defer=""></script>
-		<script src="/registry.3aa3f267.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.99b78575.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/toolchains_avr/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -96,19 +96,19 @@
 <p>Pin the Bazel version by writing <code>.bazelversion</code>:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">9.0</span><span style="color:#24292E">.2</span></span></code></pre>
 <p>Create <code>MODULE.bazel</code> to declare <code>toolchains_avr</code> as a dependency and configure the avr-gcc toolchain. Bazel will download the toolchain automatically on first build — no manual installation needed.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_cc"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.2.17"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "toolchains_avr"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">, </span><span style="color:#E36209">repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "avr"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">avr </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@avr//avr:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"avr"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">avr.cc_toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    distro</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "avr-toolchain-gcc15.2.0-libc2.3.1-binutils2.46"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(avr, </span><span style="color:#032F62">"avr_cc_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@avr_cc_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_cc", version = "0.2.17")
+bazel_dep(name = "toolchains_avr", version = "0.1.0", repo_name = "avr")
+
+avr = use_extension("@avr//avr:extensions.bzl", "avr")
+avr.cc_toolchain(
+    distro = "avr-toolchain-gcc15.2.0-libc2.3.1-binutils2.46",
+)
+use_repo(avr, "avr_cc_toolchains")
+
+register_toolchains("@avr_cc_toolchains//:all")</code></pre>
 <h3>3. Write the first source file and BUILD</h3>
 <p>Create <code>src/hello/hello_main.c</code> with a minimal main loop:</p>
-<pre><code lang="py">#include &lt;avr/io.h&gt;
+<pre><code>#include &lt;avr/io.h&gt;
 
 int main(void) {
     while (1) {}

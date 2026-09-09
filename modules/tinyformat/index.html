@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8871fdd7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.558c76a0.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.24ba592e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.dbc09619.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.1f296c9d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b298615a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinyformat/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -105,11 +105,11 @@ stream:</p>
 <p>It is safe to use tinyformat inside a template function.  For any type which
 has the usual stream insertion <code>operator&lt;&lt;</code> defined, the following will work
 as desired:</p>
-<pre><code lang="py">template&lt;typename T&gt;
-void myPrint(const T&amp; value)
-{
-    tfm::printf("My value is '%s'\n", value);
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">template</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename T</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">void myPrint(const T</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> value)</span></span>
+<span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#24292E">    tfm::printf(</span><span style="color:#032F62">"My value is '</span><span style="color:#005CC5">%s</span><span style="color:#032F62">'</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, value);</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>(The above is a compile error for types <code>T</code> without a stream insertion
 operator.)</p>
 <h2>Function reference</h2>
@@ -129,14 +129,14 @@ is quite easy using the in-source code generator based on
 main part of the tinyformat interface.  <code>stream</code> is the output stream,
 <code>formatString</code> is a format string in C99 <code>printf()</code> format, and the values
 to be formatted have arbitrary types:</p>
-<pre><code>template&lt;typename... Args&gt;
-void format(std::ostream&amp; stream, const char* formatString,
-            const Args&amp;... args);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">template</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">typename</span><span style="color:#005CC5">...</span><span style="color:#24292E"> Args</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">void </span><span style="color:#005CC5">format</span><span style="color:#24292E">(std::ostream</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E"> stream, const char</span><span style="color:#D73A49">*</span><span style="color:#24292E"> formatString,</span></span>
+<span class="line"><span style="color:#24292E">            const Args</span><span style="color:#D73A49">&amp;</span><span style="color:#005CC5">...</span><span style="color:#24292E"> args)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The second version of <code>format()</code> is a convenience function which returns a
 <code>std::string</code> rather than printing onto a stream.  This function simply
 calls the main version of <code>format()</code> using a <code>std::ostringstream</code>, and
 returns the resulting string:</p>
-<pre><code>template&lt;typename... Args&gt;
+<pre><code lang="py">template&lt;typename... Args&gt;
 std::string format(const char* formatString, const Args&amp;... args);</code></pre>
 <p>Finally, <code>printf()</code> and <code>printfln()</code> are convenience functions which call
 <code>format()</code> with <code>std::cout</code> as the first argument; both have the same

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.24ba592e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.dbc09619.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.efd1737c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d4c43d5a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.b298615a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.903ec17c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/thrift/0.22.0"></head>
 
 	<body style="margin: 0 auto">
@@ -149,8 +149,8 @@ under the License.</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Contains sample Thrift files </span><span style="color:#D73A49">and</span><span style="color:#24292E"> test code across the target programming</span></span>
 <span class="line"><span style="color:#24292E">languages.</span></span></code></pre>
 <p>  tutorial/</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Contains a basic tutorial that will teach you how to develop software</span></span>
-<span class="line"><span style="color:#24292E">using Thrift.</span></span></code></pre>
+<pre><code lang="py">Contains a basic tutorial that will teach you how to develop software
+using Thrift.</code></pre>
 <h1>Development</h1>
 <p>To build the same way Travis CI builds the project you should use docker.
 We have <a href="https://github.com/apache/thrift/blob/HEAD/build/docker/README.md" target="_blank" rel="noopener noreferrer">comprehensive building instructions for docker</a>.</p>
@@ -158,7 +158,7 @@ We have <a href="https://github.com/apache/thrift/blob/HEAD/build/docker/README.
 <p>See <a href="http://thrift.apache.org/docs/install">http://thrift.apache.org/docs/install</a> for a list of build requirements (may be stale).  Alternatively, see the docker build environments for a list of prerequisites.</p>
 <h1>Resources</h1>
 <p>More information about Thrift can be obtained on the Thrift webpage at:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">http:</span><span style="color:#D73A49">//</span><span style="color:#24292E">thrift.apache.org</span></span></code></pre>
+<pre><code>http://thrift.apache.org</code></pre>
 <h1>Acknowledgments</h1>
 <p>Thrift was inspired by pillar, a lightweight RPC tool written by Adam D'Angelo,
 and also by Google's protocol buffers.</p>
@@ -166,13 +166,13 @@ and also by Google's protocol buffers.</p>
 <p>If you are building from the first time out of the source repository, you will
 need to generate the configure scripts.  (This is not necessary if you
 downloaded a tarball.)  From the top directory, do:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">bootstrap.sh</span></span></code></pre>
+<pre><code>./bootstrap.sh</code></pre>
 <p>Once the configure scripts are generated, thrift can be configured.
 From the top directory, do:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure</span></span></code></pre>
+<pre><code>./configure</code></pre>
 <p>You may need to specify the location of the boost files explicitly.
 If you installed boost in <code>/usr/local</code>, you would run configure as follows:</p>
-<pre><code lang="py">./configure --with-boost=/usr/local</code></pre>
+<pre><code>./configure --with-boost=/usr/local</code></pre>
 <p>Note that by default the thrift C++ library is typically built with debugging
 symbols included. If you want to customize these options you should use the
 CXXFLAGS option in configure, as such:</p>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.da0c5321.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d2c8a308.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8871fdd7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.558c76a0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.243b67f8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1f296c9d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/tinyformat/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -99,13 +99,13 @@ stream:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tfm::</span><span style="color:#005CC5">format</span><span style="color:#24292E">(std::cerr, </span><span style="color:#032F62">"</span><span style="color:#005CC5">%s</span><span style="color:#032F62">, </span><span style="color:#005CC5">%s</span><span style="color:#005CC5"> %d</span><span style="color:#032F62">, </span><span style="color:#005CC5">%.2d</span><span style="color:#032F62">:</span><span style="color:#005CC5">%.2d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">            weekday, month, day, hour, </span><span style="color:#005CC5">min</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The other returns a <code>std::string</code>:</p>
-<pre><code lang="py">std::string date = tfm::format("%s, %s %d, %.2d:%.2d\n",
-                               weekday, month, day, hour, min);
-std::cout &lt;&lt; date;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">std::string date </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tfm::</span><span style="color:#005CC5">format</span><span style="color:#24292E">(</span><span style="color:#032F62">"</span><span style="color:#005CC5">%s</span><span style="color:#032F62">, </span><span style="color:#005CC5">%s</span><span style="color:#005CC5"> %d</span><span style="color:#032F62">, </span><span style="color:#005CC5">%.2d</span><span style="color:#032F62">:</span><span style="color:#005CC5">%.2d\n</span><span style="color:#032F62">"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">                               weekday, month, day, hour, </span><span style="color:#005CC5">min</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> date</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>It is safe to use tinyformat inside a template function.  For any type which
 has the usual stream insertion <code>operator&lt;&lt;</code> defined, the following will work
 as desired:</p>
-<pre><code>template&lt;typename T&gt;
+<pre><code lang="py">template&lt;typename T&gt;
 void myPrint(const T&amp; value)
 {
     tfm::printf("My value is '%s'\n", value);

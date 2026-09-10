@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d6f773b4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.cc05f51a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c5b857e7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e03074e1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.65ab1b22.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.30a798ea.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_lint/2.9.0"></head>
 
 	<body style="margin: 0 auto">
@@ -125,13 +125,13 @@ aspects — no <code>--config=lint</code> or output-group flags to remember:</p>
 <span class="line"><span style="color:#24292E">    ctx.tasks[</span><span style="color:#032F62">"lint"</span><span style="color:#24292E">].args.aspects </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools/lint:linters.bzl</span><span style="color:#005CC5">%s</span><span style="color:#032F62">hellcheck"</span><span style="color:#24292E">]</span></span></code></pre>
 <p><strong>Try it in this repo:</strong> every linter under <a href="https://github.com/aspect-build/rules_lint/blob/c1fec8683c83f786a465d4ea544893ab23054564/examples" target="_blank" rel="noopener noreferrer"><code>examples/</code></a> is wired
 up for <code>aspect lint</code>. After <a href="https://docs.aspect.build/cli/install">installing the CLI</a>:</p>
-<pre><code lang="py">$ cd examples/shell &amp;&amp; aspect lint //...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cd examples</span><span style="color:#D73A49">/</span><span style="color:#24292E">shell </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> aspect lint </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Formatting</h3>
 <p>The same applies to formatting. Instead of <code>bazel run //tools/format</code>, the
 <code>aspect format</code> command runs your <code>//tools/format</code> target, formats only your
 changed files by default (or <code>--scope=all</code> for the whole tree), and reports
 exactly what it touched — with a ready-to-run fix command:</p>
-<pre><code>$ aspect format
+<pre><code lang="py">$ aspect format
 
 → ✨ Format · Formatting changed files
 → 📋 Diff · Computing format diff

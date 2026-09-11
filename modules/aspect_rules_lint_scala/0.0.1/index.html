@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a4980c25.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d9c56d2a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.10ccdb45.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a11d41cb.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.55778c79.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.76c4654e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_lint_scala/0.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -88,18 +88,18 @@ No need to create <code>sh_library</code> targets for your shell scripts, for ex
 <p>You <em>can</em> drive linting straight from Bazel, but the experience is rough: you
 run a verbose build to produce report files, then hunt them down under
 <code>bazel-out/</code> and <code>cat</code> them yourself.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config</span><span style="color:#D73A49">=</span><span style="color:#24292E">lint </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output_groups</span><span style="color:#D73A49">=</span><span style="color:#24292E">rules_lint_human </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#005CC5">INFO</span><span style="color:#24292E">: Build completed successfully, </span><span style="color:#005CC5">8</span><span style="color:#24292E"> total actions</span></span>
-<span class="line"><span style="color:#6A737D"># ...no findings printed. Now go find and cat the reports:</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cat bazel</span><span style="color:#D73A49">-</span><span style="color:#24292E">out</span><span style="color:#D73A49">/*/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.AspectRulesLintShellCheck.out</span></span>
-<span class="line"><span style="color:#24292E">In src</span><span style="color:#D73A49">/</span><span style="color:#24292E">hello.sh line </span><span style="color:#005CC5">10</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#24292E">grep </span><span style="color:#032F62">'*foo*'</span><span style="color:#E36209"> file</span></span>
-<span class="line"><span style="color:#D73A49">     ^</span><span style="color:#B31D28;font-style:italic">----</span><span style="color:#D73A49">-^</span><span style="color:#24292E"> SC2063 (warning): Grep uses regex, but this looks like a glob.</span></span></code></pre>
+<pre><code lang="py">$ bazel build --config=lint --output_groups=rules_lint_human //...
+INFO: Build completed successfully, 8 total actions
+# ...no findings printed. Now go find and cat the reports:
+$ cat bazel-out/*/bin/src/hello.AspectRulesLintShellCheck.out
+In src/hello.sh line 10:
+grep '*foo*' file
+     ^-----^ SC2063 (warning): Grep uses regex, but this looks like a glob.</code></pre>
 <p>The <a href="https://github.com/aspect-build/aspect-cli">Aspect CLI</a> adds a first-class
 <code>aspect lint</code> command that runs the same Bazel aspects, then collects and prints
 every finding for you — grouped by linter, tagged by severity, with <code>file:line</code>
 and rule, and one-key interactive fixes:</p>
-<pre><code lang="py">$ aspect lint //...
+<pre><code>$ aspect lint //...
 
 🧹 Linters (1): ShellCheck
 

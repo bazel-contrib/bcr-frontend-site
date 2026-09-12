@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c2088990.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6b4eb6be.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6682d1ee.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e0f05b3d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.438f2f6d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.48a157fb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-index-store/1.10.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,25 +67,25 @@ programmatically reading the source code index produced by <code>swiftc</code> a
 <h2>Example Usage</h2>
 <p>The <code>IndexStore</code> library is the primary entrypoint. For example if you
 want to print all the <code>class</code>es defined in a specific file:</p>
-<pre><code lang="py">let storePath = // path/to/DerivedData/index/store
-let sourceFile = // path/to/interesting/source/file
-
-// Load the index store produced by swiftc
-let store = try IndexStore(path: storePath)
-for unit in store.units {
-    // Find the unit that corresponds to the source file we're interested in
-    guard unit.mainFile == sourceFile, let recordName = unit.recordName else {
-        continue
-    }
-
-    let recordReader = try RecordReader(indexStore: store, recordName: recordName)
-    recordReader.forEach { symbolOccurrence in
-        // Print class definitions in the source file
-        if symbolOccurrence.roles.contains(.definition) &amp;&amp; symbolOccurrence.symbol.kind == .class {
-            print(symbolOccurrence.symbol.name)
-        }
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">let storePath </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> //</span><span style="color:#24292E"> path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">DerivedData</span><span style="color:#D73A49">/</span><span style="color:#24292E">index</span><span style="color:#D73A49">/</span><span style="color:#24292E">store</span></span>
+<span class="line"><span style="color:#24292E">let sourceFile </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> //</span><span style="color:#24292E"> path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">interesting</span><span style="color:#D73A49">/</span><span style="color:#24292E">source</span><span style="color:#D73A49">/</span><span style="color:#E36209">file</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Load the index store produced by swiftc</span></span>
+<span class="line"><span style="color:#24292E">let store </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> IndexStore(path: storePath)</span></span>
+<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> unit </span><span style="color:#D73A49">in</span><span style="color:#24292E"> store.units {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> Find the unit that corresponds to the source </span><span style="color:#E36209">file</span><span style="color:#24292E"> we</span><span style="color:#032F62">'re interested in</span></span>
+<span class="line"><span style="color:#24292E">    guard unit.mainFile </span><span style="color:#D73A49">==</span><span style="color:#24292E"> sourceFile, let recordName = unit.recordName </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#D73A49">        continue</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    let recordReader = </span><span style="color:#D73A49">try</span><span style="color:#24292E"> RecordReader(indexStore: store, recordName: recordName)</span></span>
+<span class="line"><span style="color:#24292E">    recordReader.forEach { symbolOccurrence </span><span style="color:#D73A49">in</span></span>
+<span class="line"><span style="color:#D73A49">        //</span><span style="color:#24292E"> Print </span><span style="color:#D73A49">class</span><span style="color:#24292E"> definitions </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the source </span><span style="color:#E36209">file</span></span>
+<span class="line"><span style="color:#D73A49">        if</span><span style="color:#24292E"> symbolOccurrence.roles.contains(.definition) </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> symbolOccurrence.symbol.kind </span><span style="color:#D73A49">==</span><span style="color:#24292E"> .</span><span style="color:#D73A49">class</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#005CC5">            print</span><span style="color:#24292E">(symbolOccurrence.symbol.name)</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>For more examples see:</p>
 <ul>
 <li><a href="https://github.com/MobileNativeFoundation/swift-index-store/blob/7edb9a64e084ed64f83b84fb9269d3d1a20c0687/Sources/unnecessary-testable/main.swift" target="_blank" rel="noopener noreferrer"><code>unnecessary-testable</code></a>
@@ -99,20 +99,20 @@ unexpected index data.</li>
 </ul>
 <h2>Setup</h2>
 <p>Swift Package Manager:</p>
-<pre><code>let package = Package(
-    // ...
-    dependencies: [
-        .package(url: "https://github.com/lyft/swift-index-store", from: "1.0.0"),
-    ],
-    targets: [
-        .executableTarget(name: "&lt;command-line-tool&gt;", dependencies: [
-            .product(name: "IndexStore", package: "swift-index-store"),
-        ]),
-    ]
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">let package </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Package(</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> ...</span></span>
+<span class="line"><span style="color:#24292E">    dependencies: [</span></span>
+<span class="line"><span style="color:#24292E">        .package(url: </span><span style="color:#032F62">"https://github.com/lyft/swift-index-store"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"1.0.0"</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">    targets: [</span></span>
+<span class="line"><span style="color:#24292E">        .executableTarget(name: </span><span style="color:#032F62">"&lt;command-line-tool&gt;"</span><span style="color:#24292E">, dependencies: [</span></span>
+<span class="line"><span style="color:#24292E">            .product(name: </span><span style="color:#032F62">"IndexStore"</span><span style="color:#24292E">, package: </span><span style="color:#032F62">"swift-index-store"</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#24292E">        ]),</span></span>
+<span class="line"><span style="color:#24292E">    ]</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Bazel:</p>
 <p>Add the following to your <code>WORKSPACE</code> file:</p>
-<pre><code>SWIFT_INDEX_STORE_VERSION = "1.1.0"
+<pre><code lang="py">SWIFT_INDEX_STORE_VERSION = "1.1.0"
 
 http_archive(
     name = "IndexStore",

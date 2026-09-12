@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3ee64258.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.011f4859.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7cd987e9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.895e8dbe.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.cdec1c67.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9e7d50b2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rabbitmq_seshat/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -76,18 +76,18 @@ a group per erlang application, or some subcomponent of your system.</p>
 stored. The <code>GroupRef</code> is an opaque type (but really it is an <code>ets:tid()</code>. The 
 group can be any <code>term()</code> but it makes sense to just use atoms. Keep stuff tidy folks.</p>
 <p>Now we're ready to register some counters. </p>
-<pre><code lang="py">-define(C_CARROTS_EATEN, 1).
--define(C_HOLES_DUG, 2).</code></pre>
-<pre><code>Fields = [{carrots_eaten_total, ?C_CARROTS_EATEN, counter,
-            "Total number of carrots eaten on a meal"},
-          {holes_dug_total, ?C_HOLES_DUG, counter,
-           "Total number of holes dug in an afternoon"}],
-Name = rabbit,
-CountersRef = seshat:new(pets, Name, Fields),</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">define(</span><span style="color:#005CC5">C_CARROTS_EATEN</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">).</span></span>
+<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">define(</span><span style="color:#005CC5">C_HOLES_DUG</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">).</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Fields </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [{carrots_eaten_total, </span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#005CC5">C_CARROTS_EATEN</span><span style="color:#24292E">, counter,</span></span>
+<span class="line"><span style="color:#032F62">            "Total number of carrots eaten on a meal"</span><span style="color:#24292E">},</span></span>
+<span class="line"><span style="color:#24292E">          {holes_dug_total, </span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#005CC5">C_HOLES_DUG</span><span style="color:#24292E">, counter,</span></span>
+<span class="line"><span style="color:#032F62">           "Total number of holes dug in an afternoon"</span><span style="color:#24292E">}],</span></span>
+<span class="line"><span style="color:#24292E">Name </span><span style="color:#D73A49">=</span><span style="color:#24292E"> rabbit,</span></span>
+<span class="line"><span style="color:#24292E">CountersRef </span><span style="color:#D73A49">=</span><span style="color:#24292E"> seshat:new(pets, Name, Fields),</span></span></code></pre>
 <p>The <code>CountersRef</code> is a <code>counters:counters_ref()</code> type and can use used as usual
 with the counters module. The <code>CountersRef</code> can be stored in the state of a
 stateful erlang module or be retrieved using <code>sesaht:fetch(Group, Name)</code></p>
-<pre><code>counters:add(CountersRef, ?C_CARROTS_EATEN, 3),</code></pre>
+<pre><code lang="py">counters:add(CountersRef, ?C_CARROTS_EATEN, 3),</code></pre>
 <p>To inspect the counters on the system for a given group do:</p>
 <pre><code>Counters = seshat:counters(pets),</code></pre>
 <p>Counters is a map of <code>#{Name =&gt; #{FieldName, Count}}</code>. E.g. for the above

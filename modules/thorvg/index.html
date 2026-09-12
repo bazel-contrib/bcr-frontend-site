@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.59157230.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.82f166cb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5c374443.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0c6b5e57.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.0d3fff4f.js" defer=""></script>
-		<script src="/registry.86ba0040.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f6191568.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/thorvg/1.0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -259,75 +259,75 @@ Note that some systems might include ThorVG package as a default component. In t
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">backend</span><span style="color:#D73A49">=</span><span style="color:#24292E">vs</span></span></code></pre>
 <h3>Build with Xcode</h3>
 <p>If you want to create Xcode project files, use the command <code>--backend=xcode</code>. The resulting solution file <code>thorvg.xcodeproj</code> will be located in the build folder.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">meson setup builddir </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">backend</span><span style="color:#D73A49">=</span><span style="color:#24292E">xcode</span></span></code></pre>
+<pre><code lang="py">meson setup builddir --backend=xcode</code></pre>
 <p><a href="#contents">Back to contents</a>
 <br>
 <br></p>
 <h2>Quick Start</h2>
 <p>ThorVG renders vector shapes to a given canvas buffer. The following is a quick start to show you how to use the essential APIs.</p>
 <p>First, you should initialize the ThorVG engine:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tvg::Initializer::init(</span><span style="color:#005CC5">4</span><span style="color:#24292E">);   </span><span style="color:#D73A49">//</span><span style="color:#005CC5">4</span><span style="color:#24292E"> threads</span></span></code></pre>
+<pre><code>tvg::Initializer::init(4);   //4 threads</code></pre>
 <p>Then it would be best if you prepared an empty canvas for drawing on it:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">static uint32_t buffer[</span><span style="color:#005CC5">WIDTH</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> HEIGHT</span><span style="color:#24292E">];                                   </span><span style="color:#D73A49">//</span><span style="color:#24292E">canvas target buffer</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto canvas </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::SwCanvas::gen();                                       </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a canvas</span></span>
-<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">target(buffer, </span><span style="color:#005CC5">WIDTH</span><span style="color:#24292E">, </span><span style="color:#005CC5">WIDTH</span><span style="color:#24292E">, </span><span style="color:#005CC5">HEIGHT</span><span style="color:#24292E">, tvg::ColorSpace::</span><span style="color:#005CC5">ARGB8888</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E">buffer, stride, w, h, Colorspace</span></span></code></pre>
+<pre><code>static uint32_t buffer[WIDTH * HEIGHT];                                   //canvas target buffer
+
+auto canvas = tvg::SwCanvas::gen();                                       //generate a canvas
+canvas-&gt;target(buffer, WIDTH, WIDTH, HEIGHT, tvg::ColorSpace::ARGB8888);  //buffer, stride, w, h, Colorspace</code></pre>
 <p>Next you can draw multiple shapes on the canvas:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto rect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();               </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a shape</span></span>
-<span class="line"><span style="color:#24292E">rect</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">appendRect(</span><span style="color:#005CC5">50</span><span style="color:#24292E">, </span><span style="color:#005CC5">50</span><span style="color:#24292E">, </span><span style="color:#005CC5">200</span><span style="color:#24292E">, </span><span style="color:#005CC5">200</span><span style="color:#24292E">, </span><span style="color:#005CC5">20</span><span style="color:#24292E">, </span><span style="color:#005CC5">20</span><span style="color:#24292E">);  </span><span style="color:#D73A49">//</span><span style="color:#24292E">define it </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a rounded rectangle (x, y, w, h, rx, ry)</span></span>
-<span class="line"><span style="color:#24292E">rect</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(</span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">);                   </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> its color (r, g, b)</span></span>
-<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(rect);                           </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the rectangle to the canvas</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto circle </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();             </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a shape</span></span>
-<span class="line"><span style="color:#24292E">circle</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">appendCircle(</span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#005CC5">100</span><span style="color:#24292E">);    </span><span style="color:#D73A49">//</span><span style="color:#24292E">define it </span><span style="color:#D73A49">as</span><span style="color:#24292E"> a circle (cx, cy, rx, ry)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">auto fill </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::RadialGradient::gen();      </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a radial gradient</span></span>
-<span class="line"><span style="color:#24292E">fill</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">radial(</span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">400</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">);    </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the radial gradient geometry info (cx, cy, radius, fx, fy, fr)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">tvg::Fill::ColorStop colorStops[</span><span style="color:#005CC5">2</span><span style="color:#24292E">];          </span><span style="color:#D73A49">//</span><span style="color:#24292E">gradient colors</span></span>
-<span class="line"><span style="color:#24292E">colorStops[</span><span style="color:#005CC5">0</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">0.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">};   </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic">1st</span><span style="color:#24292E"> color values (offset, r, g, b, a)</span></span>
-<span class="line"><span style="color:#24292E">colorStops[</span><span style="color:#005CC5">1</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">1.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">};         </span><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic">2nd</span><span style="color:#24292E"> color values (offset, r, g, b, a)</span></span>
-<span class="line"><span style="color:#24292E">fill</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">colorStops(colorStops, </span><span style="color:#005CC5">2</span><span style="color:#24292E">);             </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the gradient colors info</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">circle</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(fill);                          </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the circle fill</span></span>
-<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(circle);                         </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the circle to the canvas</span></span></code></pre>
+<pre><code>auto rect = tvg::Shape::gen();               //generate a shape
+rect-&gt;appendRect(50, 50, 200, 200, 20, 20);  //define it as a rounded rectangle (x, y, w, h, rx, ry)
+rect-&gt;fill(100, 100, 100);                   //set its color (r, g, b)
+canvas-&gt;add(rect);                           //add the rectangle to the canvas
+
+auto circle = tvg::Shape::gen();             //generate a shape
+circle-&gt;appendCircle(400, 400, 100, 100);    //define it as a circle (cx, cy, rx, ry)
+
+auto fill = tvg::RadialGradient::gen();      //generate a radial gradient
+fill-&gt;radial(400, 400, 150, 400, 400, 0);    //set the radial gradient geometry info (cx, cy, radius, fx, fy, fr)
+
+tvg::Fill::ColorStop colorStops[2];          //gradient colors
+colorStops[0] = {0.0, 255, 255, 255, 255};   //1st color values (offset, r, g, b, a)
+colorStops[1] = {1.0, 0, 0, 0, 255};         //2nd color values (offset, r, g, b, a)
+fill-&gt;colorStops(colorStops, 2);             //set the gradient colors info
+
+circle-&gt;fill(fill);                          //set the circle fill
+canvas-&gt;add(circle);                         //add the circle to the canvas</code></pre>
 <p>This code generates the following result:</p>
 <p align="center">
   <img width="416" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_shapes.png">
 </p>
 
 <p>You can also draw you own shapes and use dashed stroking:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">auto path </span><span style="color:#D73A49">=</span><span style="color:#24292E"> tvg::Shape::gen();               </span><span style="color:#D73A49">//</span><span style="color:#24292E">generate a path</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">moveTo(</span><span style="color:#005CC5">199</span><span style="color:#24292E">, </span><span style="color:#005CC5">34</span><span style="color:#24292E">);                       </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> sequential path coordinates</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">253</span><span style="color:#24292E">, </span><span style="color:#005CC5">143</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">374</span><span style="color:#24292E">, </span><span style="color:#005CC5">160</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">287</span><span style="color:#24292E">, </span><span style="color:#005CC5">244</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">307</span><span style="color:#24292E">, </span><span style="color:#005CC5">365</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">199</span><span style="color:#24292E">, </span><span style="color:#005CC5">309</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">97</span><span style="color:#24292E">, </span><span style="color:#005CC5">365</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">112</span><span style="color:#24292E">, </span><span style="color:#005CC5">245</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">26</span><span style="color:#24292E">, </span><span style="color:#005CC5">161</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">lineTo(</span><span style="color:#005CC5">146</span><span style="color:#24292E">, </span><span style="color:#005CC5">143</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">close()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">fill(</span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">150</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">);                   </span><span style="color:#D73A49">//</span><span style="color:#24292E">path color</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeWidth(</span><span style="color:#005CC5">3</span><span style="color:#24292E">);                        </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke width</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeFill(</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">255</span><span style="color:#24292E">);                 </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke color</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeJoin(tvg::StrokeJoin::Round);    </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke join style</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeCap(tvg::StrokeCap::Round);      </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke cap style</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">float</span><span style="color:#24292E"> pattern[</span><span style="color:#005CC5">2</span><span style="color:#24292E">] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span><span style="color:#005CC5">10</span><span style="color:#24292E">, </span><span style="color:#005CC5">10</span><span style="color:#24292E">};                 </span><span style="color:#D73A49">//</span><span style="color:#24292E">stroke dash pattern (line, gap)</span></span>
-<span class="line"><span style="color:#24292E">path</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">strokeDash(pattern, </span><span style="color:#005CC5">2</span><span style="color:#24292E">);                </span><span style="color:#D73A49">//</span><span style="color:#005CC5">set</span><span style="color:#24292E"> the stroke pattern</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">canvas</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">add(path);                           </span><span style="color:#D73A49">//</span><span style="color:#24292E">add the path to the canvas</span></span></code></pre>
+<pre><code>auto path = tvg::Shape::gen();               //generate a path
+path-&gt;moveTo(199, 34);                       //set sequential path coordinates
+path-&gt;lineTo(253, 143);
+path-&gt;lineTo(374, 160);
+path-&gt;lineTo(287, 244);
+path-&gt;lineTo(307, 365);
+path-&gt;lineTo(199, 309);
+path-&gt;lineTo(97, 365);
+path-&gt;lineTo(112, 245);
+path-&gt;lineTo(26, 161);
+path-&gt;lineTo(146, 143);
+path-&gt;close();
+
+path-&gt;fill(150, 150, 255);                   //path color
+
+path-&gt;strokeWidth(3);                        //stroke width
+path-&gt;strokeFill(0, 0, 255);                 //stroke color
+path-&gt;strokeJoin(tvg::StrokeJoin::Round);    //stroke join style
+path-&gt;strokeCap(tvg::StrokeCap::Round);      //stroke cap style
+
+float pattern[2] = {10, 10};                 //stroke dash pattern (line, gap)
+path-&gt;strokeDash(pattern, 2);                //set the stroke pattern
+
+canvas-&gt;add(path);                           //add the path to the canvas</code></pre>
 <p>The code generates the following result:</p>
 <p align="center">
   <img width="300" height="auto" src="https://github.com/thorvg/thorvg.site/blob/main/readme/example_path.png">
 </p>
 
 <p>Now begin rendering &amp; finish it at a particular time:</p>
-<pre><code lang="py">canvas-&gt;draw();
+<pre><code>canvas-&gt;draw();
 canvas-&gt;sync();</code></pre>
 <p>Then you can acquire the rendered image from the buffer memory.</p>
 <p>Lastly, terminate the engine after its usage:</p>

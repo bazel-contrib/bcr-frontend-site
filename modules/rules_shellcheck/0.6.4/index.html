@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bd0a183d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.eea37ac8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.10d2267a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.118acf75.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.3d4c7280.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.45208e9d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shellcheck/0.6.4"></head>
 
 	<body style="margin: 0 auto">
@@ -67,18 +67,18 @@
 <p>Then <code>shellcheck</code> can be accessed by running:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_shellcheck</span><span style="color:#D73A49">//</span><span style="color:#24292E">:shellcheck </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">parameters</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>And you can define a lint target:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shellcheck//:def.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"shellcheck"</span><span style="color:#24292E">, </span><span style="color:#032F62">"shellcheck_test"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">shellcheck_test(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "shellcheck_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"*.sh"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"lint"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    format</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gcc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    severity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "warning"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_shellcheck//:def.bzl", "shellcheck", "shellcheck_test")
+
+shellcheck_test(
+    name = "shellcheck_test",
+    data = glob(["*.sh"]),
+    tags = ["lint"],
+    format = "gcc",
+    severity = "warning",
+)</code></pre>
 <h2>Configuring the shellcheck aspect</h2>
 <p><code>shellcheck_aspect</code> runs <code>shellcheck</code> against any target that provides <code>ShInfo</code> or <code>ShBinaryInfo</code> (e.g. <code>sh_binary</code> and <code>sh_library</code> from <a href="https://github.com/bazelbuild/rules_shell">rules_shell</a>) as part of a normal <code>bazel build</code>. Enable it by adding the following to your <code>.bazelrc</code>:</p>
-<pre><code lang="py">build --aspects=@rules_shellcheck//shellcheck:shellcheck_aspect.bzl%shellcheck_aspect
+<pre><code>build --aspects=@rules_shellcheck//shellcheck:shellcheck_aspect.bzl%shellcheck_aspect
 build --output_groups=+shellcheck_checks</code></pre>
 <p>With those flags in place, any build that includes shell targets will also run <code>shellcheck</code> on their sources; the lint results are exposed via the <code>shellcheck_checks</code> output group.</p>
 <h3>Output format and severity</h3>

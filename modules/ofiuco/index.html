@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bd0a183d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.eea37ac8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.10d2267a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.118acf75.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.3d4c7280.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.45208e9d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ofiuco/0.9.3"></head>
 
 	<body style="margin: 0 auto">
@@ -76,17 +76,17 @@ This allows to use platform information of resolved Python toolchains and build 
 <span class="line"></span>
 <span class="line"><span style="color:#24292E">poetry update</span></span></code></pre>
 <p>or using a pre-defined target</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@ofiuco//python:poetry.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"poetry_lock"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">poetry_lock(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toml</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pyproject.toml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "poetry.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@ofiuco//python:poetry.bzl", "poetry_lock")
+
+poetry_lock(
+    name = "lock",
+    toml = "pyproject.toml",
+    lock = "poetry.lock",
+)</code></pre>
 <p>In both cases the host interpreter is used in the latter case poetry package with dependencies is installed as an external repository.</p>
 <h3>Import <code>ofiuco</code> as a module</h3>
 <p>To import <code>ofiuco</code> in your project, you first need to add it to your <code>MODULE.bazel</code> file</p>
-<pre><code lang="py">bazel_dep(name = "rules_python", version = "2.2.0")
+<pre><code>bazel_dep(name = "rules_python", version = "2.2.0")
 
 python = use_extension("@rules_python//python/extensions:python.bzl", "python")
 python.toolchain(python_version = "3.13")

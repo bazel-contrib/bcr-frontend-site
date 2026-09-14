@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9b5a36de.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.65ea9d97.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.66935f47.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f981cc73.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2313e18b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.b813fb86.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b89de2ab.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/amqp-cpp/4.3.27"></head>
 
 	<body style="margin: 0 auto">
@@ -167,10 +167,10 @@ are required to link with <code>pthread</code> and <code>dl</code>.</p>
 the install functionality, and instead manually use the build output at <code>build/bin/</code>. Keep
 in mind that the TCP module is only supported for Linux. An example install method 
 would be:</p>
-<pre><code lang="py">mkdir build
-cd build
-cmake .. [-DAMQP-CPP_BUILD_SHARED=ON] [-DAMQP-CPP_LINUX_TCP=ON]
-cmake --build . --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake .. [</span><span style="color:#D73A49">-</span><span style="color:#005CC5">DAMQP</span><span style="color:#D73A49">-</span><span style="color:#005CC5">CPP_BUILD_SHARED</span><span style="color:#24292E">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E">] [</span><span style="color:#D73A49">-</span><span style="color:#005CC5">DAMQP</span><span style="color:#D73A49">-</span><span style="color:#005CC5">CPP_LINUX_TCP</span><span style="color:#24292E">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E">]</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <table>
 <thead>
 <tr>
@@ -192,13 +192,13 @@ cmake --build . --target install</code></pre>
 </tbody></table>
 <h2>Using make</h2>
 <p>Compiling and installing AMQP-CPP with make is as easy as running: </p>
-<pre><code>make
-make install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">make</span></span>
+<span class="line"><span style="color:#24292E">make install</span></span></code></pre>
 <p>This will install the full version of AMQP-CPP, including 
 the system specific TCP module. </p>
 <p>To install without the TCP module (so that you can handle 
 network connection yourself), run:</p>
-<pre><code>make pure
+<pre><code lang="py">make pure
 make install</code></pre>
 <h2>Compiling a program</h2>
 <p>When you compile an application that uses the AMQP-CPP library, remember to link 

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.af8d755a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f33d6c8c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.668f3caa.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f7d14cec.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.0af2b43f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.52f953c9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_verilator/1.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -82,39 +82,39 @@
 <p>The default toolchain supports C++ output only and does not require SystemC.</p>
 <h3>With SystemC Support</h3>
 <p>If you need SystemC output, add the SystemC dependency and register the SystemC-enabled toolchain:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Register the SystemC-enabled toolchain</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_verilator//verilator:verilator_toolchain_with_systemc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># Register the SystemC-enabled toolchain
+register_toolchains(
+    "@rules_verilator//verilator:verilator_toolchain_with_systemc",
+)</code></pre>
 <h2>Usage</h2>
 <p>You can check <code>verilator/tests</code> for examples as well.</p>
 <h3>Verilator C++ Library</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_verilator//verilator:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"verilator_cc_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_verilog//verilog:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"verilog_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">verilog_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_module"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"my_top_module.sv"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    top_module</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_top_module"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">verilator_cc_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_verilated_lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    module</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":my_module"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    timing</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Enable timing support (--timing), optional</span></span>
-<span class="line"><span style="color:#E36209">    trace_mode</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "vcd"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Enable waveform tracing ("vcd", "fst", "saif"), optional</span></span>
-<span class="line"><span style="color:#E36209">    vopts</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "-Wall"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "--x-assign fast"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "--x-initial fast"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">cc_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"testbench.cpp"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":my_verilated_lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@rules_verilator//verilator:defs.bzl", "verilator_cc_library")
+load("@rules_verilog//verilog:defs.bzl", "verilog_library")
+
+verilog_library(
+    name = "my_module",
+    srcs = ["my_top_module.sv"],
+    top_module = "my_top_module",
+)
+
+verilator_cc_library(
+    name = "my_verilated_lib",
+    module = ":my_module",
+    timing = True,  # Enable timing support (--timing), optional
+    trace_mode = "vcd",  # Enable waveform tracing ("vcd", "fst", "saif"), optional
+    vopts = [
+        "-Wall",
+        "--x-assign fast",
+        "--x-initial fast",
+    ],
+)
+
+cc_binary(
+    name = "my_test",
+    srcs = ["testbench.cpp"],
+    deps = [":my_verilated_lib"],
+)</code></pre>
 <ul>
 <li><code>module_top</code> remains available as an override when you need to verilate a different top than the one declared on the <code>verilog_library</code>, but the recommended style is to put the canonical top in <code>verilog_library(top_module = ...)</code>.</li>
 <li>Use the dedicated <code>timing</code> attribute instead of passing <code>--timing</code> or <code>--no-timing</code> through <code>vopts</code>.</li>
@@ -122,7 +122,7 @@
 <li><code>trace = True</code> remains supported as a compatibility alias for <code>trace_mode = "vcd"</code>.</li>
 </ul>
 <h3>Verilator SystemC Library</h3>
-<pre><code lang="py">load("@rules_verilator//verilator:defs.bzl", "verilator_cc_library")
+<pre><code>load("@rules_verilator//verilator:defs.bzl", "verilator_cc_library")
 load("@rules_verilog//verilog:defs.bzl", "verilog_library")
 
 verilog_library(

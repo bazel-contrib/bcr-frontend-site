@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6e3e2d32.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2406354f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.af8d755a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f33d6c8c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.ed87ce0b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0af2b43f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_odin/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -80,37 +80,37 @@
 </ul>
 <h2>Quick Start</h2>
 <p><code>rules_odin</code> is published on the <a href="https://registry.bazel.build/modules/rules_odin">Bazel Central Registry</a>. Add to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "rules_odin", version = "0.4.1")
-
-odin = use_extension("@rules_odin//odin:extensions.bzl", "odin")
-odin.toolchain(odin_version = "dev-2026-06")
-use_repo(odin, "odin_toolchains")
-
-register_toolchains("@odin_toolchains//:all")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_odin"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.1"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">odin </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_odin//odin:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"odin"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">odin.toolchain(</span><span style="color:#E36209">odin_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "dev-2026-06"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(odin, </span><span style="color:#032F62">"odin_toolchains"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@odin_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
 <blockquote>
 <p>Check the <a href="https://registry.bazel.build/modules/rules_odin">BCR module page</a> or the <a href="https://github.com/clappingmonkey/rules_odin/releases/latest">latest release</a> for newer published versions.</p>
 </blockquote>
 <p>Then in your <code>BUILD.bazel</code>:</p>
-<pre><code>load("@rules_odin//odin:defs.bzl", "odin_binary", "odin_library", "odin_test")
-
-odin_library(
-    name = "greetings",
-    srcs = glob(["lib/*.odin"]),
-)
-
-odin_binary(
-    name = "hello",
-    srcs = glob(["hello/*.odin"]),
-    deps = [":greetings"],
-)
-
-odin_test(
-    name = "greetings_test",
-    srcs = glob(["tests/*.odin"]),
-    deps = [":greetings"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_odin//odin:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"odin_binary"</span><span style="color:#24292E">, </span><span style="color:#032F62">"odin_library"</span><span style="color:#24292E">, </span><span style="color:#032F62">"odin_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">odin_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "greetings"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"lib/*.odin"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">odin_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hello"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"hello/*.odin"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":greetings"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">odin_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "greetings_test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"tests/*.odin"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":greetings"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Import the library in your Odin code using the collection name (the <code>odin_library</code> target name) and the package directory name:</p>
-<pre><code>import greetings "greetings:lib"  // collection:name → lib/ directory</code></pre>
+<pre><code lang="py">import greetings "greetings:lib"  // collection:name → lib/ directory</code></pre>
 <h2>Hermetic Linux linking</h2>
 <p>The Odin compiler itself is downloaded hermetically. Linking is a separate step: Odin's linker driver shells out to a linker, and by default that linker comes from the host (<code>clang</code> on Linux, Xcode Command Line Tools on macOS, MSVC on Windows).</p>
 <p>On <strong>Linux (x86_64 and aarch64) only</strong>, <code>rules_odin</code> supports an opt-in mode that points the linker driver at a user-supplied ("bring your own") hermetic clang+lld and a pinned sysroot instead, so the link uses zero host clang/ld/libc.</p>

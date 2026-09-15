@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6e3e2d32.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2406354f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.af8d755a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f33d6c8c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.ed87ce0b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0af2b43f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-system/1.6.4.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -67,22 +67,22 @@
 <p>Our immediate goal is to simplify building cross-platform libraries and applications such as SwiftNIO and SwiftPM. It is not a design goal for System to eliminate the need for <code>#if os()</code> conditionals to implement cross-platform abstractions; rather, our goal is to make it safer and more expressive to fill out the platform-specific parts.</p>
 <p>(That said, it is desirable to avoid unnecessary differences -- for example, when two operating systems share the same C name for a system call, ideally Swift System would expose them using the same Swift name. This is a particularly obvious expectation for system interfaces that implement an industry standard, such as POSIX.)</p>
 <h2>Usage</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> SystemPackage</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let message: String </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "Hello, world!"</span><span style="color:#D73A49"> +</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span></span>
-<span class="line"><span style="color:#24292E">let path: FilePath </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "/tmp/log"</span></span>
-<span class="line"><span style="color:#24292E">let fd </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#24292E"> FileDescriptor.open(</span></span>
-<span class="line"><span style="color:#24292E">  path, .writeOnly, options: [.append, .create], permissions: .ownerReadWrite)</span></span>
-<span class="line"><span style="color:#D73A49">try</span><span style="color:#24292E"> fd.closeAfter {</span></span>
-<span class="line"><span style="color:#24292E">  _ = </span><span style="color:#D73A49">try</span><span style="color:#24292E"> fd.writeAll(message.utf8)</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">import SystemPackage
+
+let message: String = "Hello, world!" + "\n"
+let path: FilePath = "/tmp/log"
+let fd = try FileDescriptor.open(
+  path, .writeOnly, options: [.append, .create], permissions: .ownerReadWrite)
+try fd.closeAfter {
+  _ = try fd.writeAll(message.utf8)
+}</code></pre>
 <p><a href="https://swiftpackageindex.com/apple/swift-system/documentation/SystemPackage">API documentation</a></p>
 <h2>Adding <code>SystemPackage</code> as a Dependency</h2>
 <p>To use the <code>SystemPackage</code> library in a SwiftPM project,
 add the following line to the dependencies in your <code>Package.swift</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/apple/swift-system"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"1.6.1"</span><span style="color:#24292E">),</span></span></code></pre>
+<pre><code>.package(url: "https://github.com/apple/swift-system", from: "1.6.1"),</code></pre>
 <p>Finally, include <code>"SystemPackage"</code> as a dependency for your executable target:</p>
-<pre><code lang="py">let package = Package(
+<pre><code>let package = Package(
     // name, platforms, products, etc.
     dependencies: [
         .package(url: "https://github.com/apple/swift-system", from: "1.6.1"),

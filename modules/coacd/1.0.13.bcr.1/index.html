@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.49582628.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.57c8eb9d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.676da657.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.da0301d5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.7c12701c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b2e373da.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/coacd/1.0.13.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -99,7 +99,7 @@ See the example project in <a href="https://github.com/SarahWeiii/CoACD/tree/uni
 <li>Find and click the + button in the upper lefthand corner of the window. Select <code>Add package from git URL</code>.</li>
 <li>Enter the following URL:</li>
 </ol>
-<pre><code lang="py">https://github.com/SarahWeiii/CoACD.git?path=/Packages/info.flandre.coacd#unity</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">SarahWeiii</span><span style="color:#D73A49">/</span><span style="color:#24292E">CoACD.git</span><span style="color:#B31D28;font-style:italic">?</span><span style="color:#24292E">path</span><span style="color:#D73A49">=/</span><span style="color:#24292E">Packages</span><span style="color:#D73A49">/</span><span style="color:#24292E">info.flandre.coacd</span><span style="color:#6A737D">#unity</span></span></code></pre>
 <ol start="4">
 <li>Click <code>Add</code>.</li>
 </ol>
@@ -124,28 +124,28 @@ all children of the current object that contains a <code>MeshFilter</code>, resp
 <ol start="4">
 <li>Alternatively, you can call the runtime API as a method of the <code>CoACD</code> component:</li>
 </ol>
-<pre><code>public List&lt;Mesh&gt; RunACD(Mesh mesh);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">public List</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">Mesh</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> RunACD(Mesh mesh)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <h2>Compile from source</h2>
 <h3>(1) Clone the code</h3>
-<pre><code>git clone --recurse-submodules https://github.com/SarahWeiii/CoACD.git</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recurse</span><span style="color:#D73A49">-</span><span style="color:#24292E">submodules https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">SarahWeiii</span><span style="color:#D73A49">/</span><span style="color:#24292E">CoACD.git</span></span></code></pre>
 <h3>(2) Dependencies</h3>
 <p>Install dependencies: <code>git</code> and <code>cmake &gt;= 3.24</code>.
 Recommended compilers: Linux <code>g++ &gt;= 9, &lt; 12</code>; <code>clang</code> on MacOS <code>10.14</code> or higher; <code>MSVC 2019/2022</code> on Windows.</p>
 <h3>(3) Compile</h3>
 <p>First create the build directory:</p>
-<pre><code>cd CoACD \
-&amp;&amp; mkdir build \
-&amp;&amp; cd build \</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd CoACD \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> mkdir build \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build \</span></span></code></pre>
 <p>Then run <code>cmake</code>. On Linux and MacOS:</p>
-<pre><code>cmake .. -DCMAKE_BUILD_TYPE=Release \
-&amp;&amp; make main -j</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Release \</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> make main </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span></span></code></pre>
 <p>Parallel backends (CMake options):</p>
 <ul>
 <li><code>WITH_OPENMP</code> (default <strong>ON</strong> on Linux/Windows, <strong>OFF</strong> on macOS): prefer OpenMP when found.</li>
 <li><code>WITH_STD_THREADS</code> (default <strong>ON</strong>): C++17 <code>std::thread</code> fallback used <strong>only</strong> when OpenMP is disabled or missing — never alongside OpenMP.</li>
 </ul>
 <p>Examples:</p>
-<pre><code># Default Linux/Windows: OpenMP
+<pre><code lang="py"># Default Linux/Windows: OpenMP
 cmake .. -DCMAKE_BUILD_TYPE=Release
 
 # No OpenMP (macOS default, or dual-libgomp environments such as ROCm/HIP torch):

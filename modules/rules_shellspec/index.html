@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.70e159ba.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.07562fab.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3792c365.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.62558dda.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.7090bd30.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ae0cc8b7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shellspec/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -83,22 +83,22 @@
 <span class="line"><span style="color:#24292E">use_repo(shellspec, </span><span style="color:#032F62">"shellspec"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>WORKSPACE</h3>
 <p>Add to your <code>WORKSPACE</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_shellspec"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Get from release</span></span>
-<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/scottpledger/rules_shellspec/releases/download/v0.1.0/rules_shellspec-v0.1.0.tar.gz"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shellspec//shellspec:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_shellspec_dependencies"</span><span style="color:#24292E">, </span><span style="color:#032F62">"shellspec_register"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rules_shellspec_dependencies()</span></span>
-<span class="line"><span style="color:#24292E">shellspec_register()</span></span></code></pre>
+<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+
+http_archive(
+    name = "rules_shellspec",
+    sha256 = "...",  # Get from release
+    urls = ["https://github.com/scottpledger/rules_shellspec/releases/download/v0.1.0/rules_shellspec-v0.1.0.tar.gz"],
+)
+
+load("@rules_shellspec//shellspec:repositories.bzl", "rules_shellspec_dependencies", "shellspec_register")
+
+rules_shellspec_dependencies()
+shellspec_register()</code></pre>
 <h2>Usage</h2>
 <h3>Basic Example</h3>
 <p>Create a shell library:</p>
-<pre><code lang="py"># greet.sh
+<pre><code># greet.sh
 greet() {
     echo "Hello, ${1:-World}!"
 }</code></pre>

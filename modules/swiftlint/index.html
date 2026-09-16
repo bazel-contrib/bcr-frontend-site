@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.41eb9a4e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.84d8494e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.cd9e7c38.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e2110ac7.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.29f8b00d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.78f61f61.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swiftlint/0.65.1"></head>
 
 	<body style="margin: 0 auto">
@@ -120,7 +120,7 @@ project:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">brew install swiftlint</span></span></code></pre>
 <h3><a href="https://cocoapods.org">CocoaPods</a></h3>
 <p>Add the following to your <code>Podfile</code>:</p>
-<pre><code lang="py">pod 'SwiftLint'</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">pod </span><span style="color:#032F62">'SwiftLint'</span></span></code></pre>
 <p>This will download the SwiftLint binaries and dependencies in <code>Pods/</code> during
 your next <code>pod install</code> execution and will allow you to invoke it via
 <code>${PODS_ROOT}/SwiftLint/swiftlint</code> in your Script Build Phases.</p>
@@ -131,61 +131,61 @@ SwiftLint rather than simply the latest (which is the case with
 the Swift binary library distribution to the <code>Pods/</code> directory, so checking in
 this directory to SCM such as Git is discouraged.</p>
 <h3><a href="https://github.com/yonaskolb/mint">Mint</a></h3>
-<pre><code>mint install realm/SwiftLint</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mint install realm</span><span style="color:#D73A49">/</span><span style="color:#24292E">SwiftLint</span></span></code></pre>
 <h3><a href="https://bazel.build">Bazel</a></h3>
 <p>Put this in your <code>MODULE.bazel</code>:</p>
-<pre><code>bazel_dep(name = "swiftlint", version = "0.52.4", repo_name = "SwiftLint")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "swiftlint"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.52.4"</span><span style="color:#24292E">, </span><span style="color:#E36209">repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SwiftLint"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Or put this in your <code>WORKSPACE</code>:</p>
 <details>
 
 <summary>WORKSPACE</summary>
 
-<pre><code>load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "build_bazel_rules_apple",
-    sha256 = "390841dd5f8a85fc25776684f4793d56e21b098dfd7243cd145b9831e6ef8be6",
-    url = "https://github.com/bazelbuild/rules_apple/releases/download/2.4.1/rules_apple.2.4.1.tar.gz",
-)
-
-load(
-    "@build_bazel_rules_apple//apple:repositories.bzl",
-    "apple_rules_dependencies",
-)
-
-apple_rules_dependencies()
-
-load(
-    "@build_bazel_rules_swift//swift:repositories.bzl",
-    "swift_rules_dependencies",
-)
-
-swift_rules_dependencies()
-
-load(
-    "@build_bazel_rules_swift//swift:extras.bzl",
-    "swift_rules_extra_dependencies",
-)
-
-swift_rules_extra_dependencies()
-
-http_archive(
-    name = "SwiftLint",
-    sha256 = "c6ea58b9c72082cdc1ada4a2d48273ecc355896ed72204cedcc586b6ccb8aca6",
-    url = "https://github.com/realm/SwiftLint/releases/download/0.52.4/bazel.tar.gz",
-)
-
-load("@SwiftLint//bazel:repos.bzl", "swiftlint_repos")
-
-swiftlint_repos()
-
-load("@SwiftLint//bazel:deps.bzl", "swiftlint_deps")
-
-swiftlint_deps()</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "build_bazel_rules_apple"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "390841dd5f8a85fc25776684f4793d56e21b098dfd7243cd145b9831e6ef8be6"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/bazelbuild/rules_apple/releases/download/2.4.1/rules_apple.2.4.1.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_apple//apple:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "apple_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">apple_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_swift//swift:repositories.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "swift_rules_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swift_rules_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@build_bazel_rules_swift//swift:extras.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "swift_rules_extra_dependencies"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swift_rules_extra_dependencies()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "SwiftLint"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "c6ea58b9c72082cdc1ada4a2d48273ecc355896ed72204cedcc586b6ccb8aca6"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/realm/SwiftLint/releases/download/0.52.4/bazel.tar.gz"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@SwiftLint//bazel:repos.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swiftlint_repos"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swiftlint_repos()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@SwiftLint//bazel:deps.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swiftlint_deps"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">swiftlint_deps()</span></span></code></pre>
 </details>
 
 <p>Then you can run SwiftLint in the current directory with this command:</p>
-<pre><code>bazel run -c opt @SwiftLint//:swiftlint</code></pre>
+<pre><code lang="py">bazel run -c opt @SwiftLint//:swiftlint</code></pre>
 <h3>Pre-Built Package</h3>
 <p>Download <code>SwiftLint.pkg</code> from the
 <a href="https://github.com/realm/SwiftLint/releases/latest">latest GitHub release</a> and

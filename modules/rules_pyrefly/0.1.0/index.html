@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e438e5c2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.85370d31.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6f8112d7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.698aa694.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.8f6c5e75.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b3bcfbf2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pyrefly/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -84,11 +84,11 @@ release metadata or be supplied with explicit release asset checksums. Use
 <code>base_url</code> with checksums for forks, mirrors, or prereleases outside the default
 Pyrefly GitHub release location.</p>
 <p>Define an aspect in a project-local <code>.bzl</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_pyrefly//pyrefly:pyrefly.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pyrefly"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">pyrefly_aspect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pyrefly()</span></span></code></pre>
+<pre><code lang="py">load("@rules_pyrefly//pyrefly:pyrefly.bzl", "pyrefly")
+
+pyrefly_aspect = pyrefly()</code></pre>
 <p>Register it in <code>.bazelrc</code>:</p>
-<pre><code lang="py">build:pyrefly --aspects=//tools:aspects.bzl%pyrefly_aspect
+<pre><code>build:pyrefly --aspects=//tools:aspects.bzl%pyrefly_aspect
 build:pyrefly --output_groups=pyrefly</code></pre>
 <p>Then run:</p>
 <pre><code>bazel build --config=pyrefly //...</code></pre>

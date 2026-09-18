@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e253a1d5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9e35de0c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7afd7665.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.270c1307.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.ca3612ed.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6d89e25c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spirv_tools/2026.1"></head>
 
 	<body style="margin: 0 auto">
@@ -309,14 +309,14 @@ the included <a href="https://github.com/KhronosGroup/SPIRV-Tools/blob/fbe4f3ad9
 <p>We intend to maintain a linear history on the GitHub <code>main</code> branch.</p>
 <h3>Getting the source</h3>
 <p>Example of getting sources, assuming SPIRV-Tools is configured as a standalone project:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">KhronosGroup</span><span style="color:#D73A49">/</span><span style="color:#005CC5">SPIRV</span><span style="color:#D73A49">-</span><span style="color:#24292E">Tools.git   spirv</span><span style="color:#D73A49">-</span><span style="color:#24292E">tools</span></span>
-<span class="line"><span style="color:#24292E">cd spirv</span><span style="color:#D73A49">-</span><span style="color:#24292E">tools</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Check out sources for dependencies, at versions known to work together,</span></span>
-<span class="line"><span style="color:#6A737D"># as listed in the DEPS file.</span></span>
-<span class="line"><span style="color:#24292E">python3 utils</span><span style="color:#D73A49">/</span><span style="color:#24292E">git</span><span style="color:#D73A49">-</span><span style="color:#24292E">sync</span><span style="color:#D73A49">-</span><span style="color:#24292E">deps</span></span></code></pre>
+<pre><code lang="py">git clone https://github.com/KhronosGroup/SPIRV-Tools.git   spirv-tools
+cd spirv-tools
+
+# Check out sources for dependencies, at versions known to work together,
+# as listed in the DEPS file.
+python3 utils/git-sync-deps</code></pre>
 <p>For some kinds of development, you may need the latest sources from the third-party projects:</p>
-<pre><code lang="py">git clone https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
+<pre><code>git clone https://github.com/KhronosGroup/SPIRV-Headers.git spirv-tools/external/spirv-headers
 git clone https://github.com/google/googletest.git          spirv-tools/external/googletest
 git clone https://github.com/google/effcee.git              spirv-tools/external/effcee
 git clone https://github.com/google/re2.git                 spirv-tools/external/re2

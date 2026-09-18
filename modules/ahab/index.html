@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b75679ce.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.162e77a5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e253a1d5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9e35de0c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.38aa40f4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ca3612ed.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ahab/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -116,15 +116,15 @@ involved. What it buys is a check that covers everything and finishes in
 seconds.</p>
 <h2>Quickstart</h2>
 <p>Ahab is a Bazel module. Add it to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "ahab", version = "0.3.0")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ahab"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.3.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Then declare a target for whatever you want analyzed:</p>
-<pre><code>load("@ahab//:defs.bzl", "ahab")
-
-ahab(
-    name = "hermeticity",
-    label = "//...",
-)</code></pre>
-<pre><code>bazel run //:hermeticity</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@ahab//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ahab(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hermeticity</span></span></code></pre>
 <p>That prints every violation found and exits non-zero if there were any. One
 has to use <code>bazel run</code> and not <code>bazel test</code> with Ahab, since invoking Bazel
 commands inside a Bazel build is not permitted.</p>
@@ -149,7 +149,7 @@ holds one, is the way through that if you need it.</p>
 <p>A real codebase will not reach zero violations on the first day. The way to
 make that tractable is to record what you have and fail only on what is
 new:</p>
-<pre><code>load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
+<pre><code lang="py">load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
 
 ahab_update(
     name = "hermeticity.update",

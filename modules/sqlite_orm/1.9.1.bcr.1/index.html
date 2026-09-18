@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d81ff8e9.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1018b2dc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.1d32c11f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.954d8633.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.dbd98155.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d0f7bec8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sqlite_orm/1.9.1.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -144,24 +144,24 @@
 <p><code>CREATE TABLE users (id integer primary key autoincrement, first_name text not null, last_name text not null, birth_date integer not null, image_url text, type_id integer not null)</code></p>
 <p><code>CREATE TABLE user_types (id integer primary key autoincrement, name text not null DEFAULT 'name_placeholder')</code></p>
 <p>Now we tell <code>sqlite_orm</code> library about our schema and provide database filename. We create <code>storage</code> service object that has CRUD interface. Also we create every table and every column. All code is intuitive and minimalistic.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">using namespace sqlite_orm</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">auto storage </span><span style="color:#D73A49">=</span><span style="color:#24292E"> make_storage(</span><span style="color:#032F62">"db.sqlite"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">                            make_table(</span><span style="color:#032F62">"users"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"id"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::</span><span style="color:#005CC5">id</span><span style="color:#24292E">, primary_key().autoincrement()),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"first_name"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::firstName),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"last_name"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::lastName),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"birth_date"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::birthDate),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"image_url"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::imageUrl),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"type_id"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">User::typeId)),</span></span>
-<span class="line"><span style="color:#24292E">                            make_table(</span><span style="color:#032F62">"user_types"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"id"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">UserType::</span><span style="color:#005CC5">id</span><span style="color:#24292E">, primary_key().autoincrement()),</span></span>
-<span class="line"><span style="color:#24292E">                                       make_column(</span><span style="color:#032F62">"name"</span><span style="color:#24292E">, </span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">UserType::name, default_value(</span><span style="color:#032F62">"name_placeholder"</span><span style="color:#24292E">))))</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">using namespace sqlite_orm;
+auto storage = make_storage("db.sqlite",
+                            make_table("users",
+                                       make_column("id", &amp;User::id, primary_key().autoincrement()),
+                                       make_column("first_name", &amp;User::firstName),
+                                       make_column("last_name", &amp;User::lastName),
+                                       make_column("birth_date", &amp;User::birthDate),
+                                       make_column("image_url", &amp;User::imageUrl),
+                                       make_column("type_id", &amp;User::typeId)),
+                            make_table("user_types",
+                                       make_column("id", &amp;UserType::id, primary_key().autoincrement()),
+                                       make_column("name", &amp;UserType::name, default_value("name_placeholder"))));</code></pre>
 <p>Too easy isn't it? You do not have to specify mapped type explicitly - it is deduced from your member pointers you pass during making a column (for example: <code>&amp;User::id</code>). To create a column you have to pass two arguments at least: its name in the table and your mapped class member pointer. You can also add extra arguments to tell your storage about column's constraints like <code>primary_key</code>, <code>autoincrement</code>, <code>default_value</code>, <code>unique</code> or <code>generated_always_as</code> (order isn't important; <code>not_null</code>/<code>null</code> are deduced from type automatically but can be added manually if you wish with <code>null()</code> and <code>not_null()</code>).</p>
 <p>More details about making storage can be found in <a href="https://github.com/fnc12/sqlite_orm/wiki/Making-a-storage">tutorial</a>.</p>
 <p>If your datamodel classes have private or protected members to map to sqlite then you can make a storage with setter and getter functions. More info in the <a href="https://github.com/fnc12/sqlite_orm/blob/master/examples/private_class_members.cpp">example</a>.</p>
 <h1>CRUD</h1>
 <p>Let's create and insert new <code>User</code> into our database. First we need to create a <code>User</code> object with any id and call <code>insert</code> function. It will return id of just created user or throw exception if something goes wrong.</p>
-<pre><code lang="py">User user{-1, "Jonh", "Doe", 664416000, std::make_unique&lt;std::string&gt;("url_to_heaven"), 3 };
+<pre><code>User user{-1, "Jonh", "Doe", 664416000, std::make_unique&lt;std::string&gt;("url_to_heaven"), 3 };
     
 auto insertedId = storage.insert(user);
 cout &lt;&lt; "insertedId = " &lt;&lt; insertedId &lt;&lt; endl;      //  insertedId = 8

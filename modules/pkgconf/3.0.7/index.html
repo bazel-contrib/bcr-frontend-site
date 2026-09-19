@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c0cc12f0.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3cdc2325.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ba949c9e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.54a391c2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.137a2a04.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ff84e461.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/pkgconf/3.0.7"></head>
 
 	<body style="margin: 0 auto">
@@ -116,18 +116,18 @@ depended on as a source of information.  If you need a stable interface to query
 which is not covered, please get in touch.</p>
 <h2>compiling <code>pkgconf</code> and <code>libpkgconf</code></h2>
 <p>pkgconf is compiled using <a href="https://mesonbuild.com">Meson</a>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson setup build</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson </span><span style="color:#005CC5">compile</span><span style="color:#D73A49"> -</span><span style="color:#24292E">C build</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson install </span><span style="color:#D73A49">-</span><span style="color:#24292E">C build</span></span></code></pre>
+<pre><code lang="py">$ meson setup build
+$ meson compile -C build
+$ meson install -C build</code></pre>
 <p>If you are installing pkgconf into a custom prefix, such as <code>/opt/pkgconf</code>, you will
 likely want to define the default system includedir and libdir for your toolchain.
 To do this, use the <code>SYSTEM_LIBDIR</code> and <code>SYSTEM_INCLUDEDIR</code> Meson options like so:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson setup build \</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">     --</span><span style="color:#24292E">prefix</span><span style="color:#D73A49">=/</span><span style="color:#24292E">opt</span><span style="color:#D73A49">/</span><span style="color:#24292E">pkgconf \</span></span>
-<span class="line"><span style="color:#D73A49">     -</span><span style="color:#005CC5">DSYSTEM_LIBDIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">lib:</span><span style="color:#D73A49">/</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">lib \</span></span>
-<span class="line"><span style="color:#D73A49">     -</span><span style="color:#005CC5">DSYSTEM_INCLUDEDIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">include</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson </span><span style="color:#005CC5">compile</span><span style="color:#D73A49"> -</span><span style="color:#24292E">C build</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> meson install </span><span style="color:#D73A49">-</span><span style="color:#24292E">C build</span></span></code></pre>
+<pre><code>$ meson setup build \
+     --prefix=/opt/pkgconf \
+     -DSYSTEM_LIBDIR=/lib:/usr/lib \
+     -DSYSTEM_INCLUDEDIR=/usr/include
+$ meson compile -C build
+$ meson install -C build</code></pre>
 <p>There are a few additional defines such as <code>PKGCONFIGDIR</code>.  On Windows, the default
 <code>PKGCONFIGDIR</code> value is usually overridden at runtime based on path relocation.</p>
 <h3>bootstrapping with Muon</h3>
@@ -135,7 +135,7 @@ To do this, use the <code>SYSTEM_LIBDIR</code> and <code>SYSTEM_INCLUDEDIR</code
 built with <a href="https://muon.build">Muon</a>, a C implementation of the Meson build
 description language.  The same <code>meson.build</code> files are used; no separate
 configuration is needed.  Both Meson and Muon are tested in CI.</p>
-<pre><code lang="py">$ muon setup build
+<pre><code>$ muon setup build
 $ samu -C build
 $ muon install -C build</code></pre>
 <p>For non-bootstrap builds, Meson is recommended.</p>

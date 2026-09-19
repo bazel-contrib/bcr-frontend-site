@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.959a0041.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.88c330a8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.02973c6d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.714270d1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7c049a30.js" defer=""></script>
-		<script src="/registry.dafe1f73.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.33e5cace.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pyrefly/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -158,14 +158,14 @@ is not enough for a workspace.</p>
 <p><code>error_severities</code> maps Pyrefly error-kind names to the same four severity
 values accepted by <code>min_severity</code>. Suppression tags take precedence over opt-in
 tags. For example:</p>
-<pre><code lang="py">pyrefly_aspect = pyrefly(
-    color = "auto",
-    error_severities = {"bad-assignment": "error"},
-    min_severity = "warn",
-    suppression_tags = ["no-pyrefly", "no-checks"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">pyrefly_aspect </span><span style="color:#D73A49">=</span><span style="color:#24292E"> pyrefly(</span></span>
+<span class="line"><span style="color:#E36209">    color</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "auto"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    error_severities</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span><span style="color:#032F62">"bad-assignment"</span><span style="color:#24292E">: </span><span style="color:#032F62">"error"</span><span style="color:#24292E">},</span></span>
+<span class="line"><span style="color:#E36209">    min_severity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "warn"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    suppression_tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"no-pyrefly"</span><span style="color:#24292E">, </span><span style="color:#032F62">"no-checks"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Use <code>pyrefly_cli</code> when testing a local or otherwise preinstalled Pyrefly binary:</p>
-<pre><code>pyrefly_aspect = pyrefly(
+<pre><code lang="py">pyrefly_aspect = pyrefly(
     pyrefly_cli = Label("@local_pyrefly//:pyrefly"),
 )</code></pre>
 <p>The aspect follows the <code>rules_python</code> <code>python_import_all_repositories</code> setting

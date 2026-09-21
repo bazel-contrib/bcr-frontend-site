@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f19f6dd7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8e775b3e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.423f9ead.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e67b6950.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.cb536f39.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8036465f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apple_mig/138.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -86,11 +86,11 @@ has been tested.</li>
 and <code>gcc</code> have been tested.</li>
 </ul>
 <h2>Getting and building the source</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">hermeticbuild</span><span style="color:#D73A49">/</span><span style="color:#24292E">apple_mig</span></span>
-<span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> cd apple_mig</span></span>
-<span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> autoreconf </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install</span></span>
-<span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> sh configure</span></span>
-<span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> make</span></span></code></pre>
+<pre><code lang="py">% git clone https://github.com/hermeticbuild/apple_mig
+% cd apple_mig
+% autoreconf --install
+% sh configure
+% make</code></pre>
 <p>This will produce <code>migcom.tproj/migcom</code>, but don’t use that directly. Instead,
 invoke <code>migcom.tproj/mig.sh</code> as the front end.</p>
 <p>It is also possible to <code>make install</code>, which installs <code>mig.sh</code> as <code>mig</code>,
@@ -113,7 +113,7 @@ compiler default will not likely be correct otherwise. (Exception: in the
 unusual <code>gcc</code> cross compiler case, the compiler front-end is specific to the
 cross-build configuration, so <code>-arch</code> and <code>-target</code> should not be used, and in
 fact must not be used as they will be rejected by the compiler.)</p>
-<pre><code lang="py">% mig -arch x86_64 -isysroot ~/MacOSX11.1.sdk \
+<pre><code>% mig -arch x86_64 -isysroot ~/MacOSX11.1.sdk \
     ~/MacOSX11.1.sdk/usr/include/mach/mach_exc.defs</code></pre>
 <p>This will normally produce <code>mach_exc.h</code>, <code>mach_excServer.c</code>, and
 <code>mach_excUser.c</code>.</p>

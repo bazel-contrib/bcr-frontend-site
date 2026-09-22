@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c2e4fc6a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ce192081.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.462c4019.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7c9fa50e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.ac30bdaf.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9f2b82f6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_cypress/0.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -85,35 +85,35 @@ Skip it with <code>lifecycle_hooks_exclude = ["cypress"]</code> on <code>npm_tra
 <p><code>cypress_version</code> must be one of the versions mirrored in
 <a href="https://github.com/aspect-build/rules_cypress/blob/2fc223cfd7476fe302696924e4e0183adb126208/cypress/private/versions.bzl" target="_blank" rel="noopener noreferrer"><code>cypress/private/versions.bzl</code></a>, or you must supply
 <code>cypress_integrity</code> with a sha256 for every platform:</p>
-<pre><code lang="py">cypress.toolchain(
-    cypress_version = "16.1.0",
-    cypress_integrity = {
-        "darwin-x64": "...",
-        "darwin-arm64": "...",
-        "linux-x64": "...",
-        "linux-arm64": "...",
-    },
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cypress.toolchain(</span></span>
+<span class="line"><span style="color:#E36209">    cypress_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "16.1.0"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    cypress_integrity</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        "darwin-x64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "darwin-arm64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "linux-x64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "linux-arm64"</span><span style="color:#24292E">: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p><code>bazel run @aspect_rules_cypress//scripts:mirror_releases -- &lt;VERSION&gt;</code> prints the hashes for a release.</p>
 <h2>Usage</h2>
 <p><code>cypress_test</code> runs the Cypress CLI. It accepts all <code>js_test</code> attributes.</p>
-<pre><code>load("@aspect_rules_cypress//cypress:defs.bzl", "cypress_test")
-
-cypress_test(
-    name = "e2e",
-    args = [
-        "run",
-        "--config-file=$(rootpath cypress.config.ts)",
-    ],
-    data = [
-        "cypress.config.ts",
-        "e2e.cy.ts",
-        "//:node_modules",
-    ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@aspect_rules_cypress//cypress:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"cypress_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">cypress_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "e2e"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "run"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "--config-file=$(rootpath cypress.config.ts)"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "cypress.config.ts"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "e2e.cy.ts"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p><code>cypress_module_test</code> runs a JS file of your own that calls the
 <a href="https://docs.cypress.io/guides/guides/module-api">Cypress module API</a>.</p>
-<pre><code>load("@aspect_rules_cypress//cypress:defs.bzl", "cypress_module_test")
+<pre><code lang="py">load("@aspect_rules_cypress//cypress:defs.bzl", "cypress_module_test")
 
 cypress_module_test(
     name = "e2e",

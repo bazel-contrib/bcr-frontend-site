@@ -33,14 +33,14 @@
 		})();
 		</script>
 		<link rel="icon" href="/favicon.png">
-		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
+		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.66490d45.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.dc256b4e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.1b4d696f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e2046170.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.8d2e1b64.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7ac069bd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-bylaws/0.5.0"></head>
 
 	<body style="margin: 0 auto">
@@ -124,8 +124,8 @@ modules, you can add the following to a <code>Bylaws.swift</code> file at the pr
 <p>The import restrictions apply between the layers listed here. Imports of other
 modules, such as Foundation, remain permitted.</p>
 <p>When you run <code>bylaws lint</code>, it points to the import that crossed the boundary:</p>
-<pre><code lang="py">/path/to/App/Sources/Checkout/CheckoutViewModel.swift:2:8: error: import Persistence violates 'Modules follow their declared dependencies' [feature-boundaries]
-Checked 1 rule: 1 violation.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">App</span><span style="color:#D73A49">/</span><span style="color:#24292E">Sources</span><span style="color:#D73A49">/</span><span style="color:#24292E">Checkout</span><span style="color:#D73A49">/</span><span style="color:#24292E">CheckoutViewModel.swift:</span><span style="color:#005CC5">2</span><span style="color:#24292E">:</span><span style="color:#005CC5">8</span><span style="color:#24292E">: error: </span><span style="color:#D73A49">import</span><span style="color:#24292E"> Persistence violates </span><span style="color:#032F62">'Modules follow their declared dependencies'</span><span style="color:#24292E"> [feature</span><span style="color:#D73A49">-</span><span style="color:#24292E">boundaries]</span></span>
+<span class="line"><span style="color:#24292E">Checked </span><span style="color:#005CC5">1</span><span style="color:#24292E"> rule: </span><span style="color:#005CC5">1</span><span style="color:#24292E"> violation.</span></span></code></pre>
 <p>An enforced rule fails the run when it finds violations, but you can make a rule
 advisory to see its violations without failing your checks.</p>
 <p>You can run these rules from the command line or use the same <code>Rule</code> values in a
@@ -139,7 +139,7 @@ paths and type names to match your project.</p>
 formatting apply consistently. This rule reports calls named <code>print</code>,
 <code>debugPrint</code> or <code>NSLog</code> outside <code>Sources/Logging</code>, including calls in
 initialisers and property values:</p>
-<pre><code>Rule("central-logging", "Console output goes through the logging layer") {
+<pre><code lang="py">Rule("central-logging", "Console output goes through the logging layer") {
   try await app.calls
     .outside("Sources/Logging")
     .violations(matching: .references("print", "debugPrint", "NSLog"))

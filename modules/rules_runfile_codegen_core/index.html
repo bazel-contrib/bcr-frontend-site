@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.423d9bdd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4d37fcb2.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.13f82ea5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c79ad407.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.e6c6c5e2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a8040312.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_runfile_codegen_core/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -135,59 +135,59 @@
 <p>Import the generated package and access the symbols. Regular files are generated as <code>Runfile</code> types, and executables are generated as <code>ExecutableRunfile</code> types.</p>
 <p>Here is the actual example:</p>
 
-<pre><code lang="py">package main
-
-import (
-    "fmt"
-    "os"
-    "sort"
-    "strings"
-
-    "github.com/example/project/examples/go/resources"
-)
-
-func main() {
-    // 1. Access the resolved runfile path safely.
-    dataFile, err := resources.DataFile.Resolve()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error resolving runfile: %v\n", err)
-        os.Exit(1)
-    }
-
-    content, err := os.ReadFile(dataFile.Path())
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error reading runfile: %v\n", err)
-        os.Exit(1)
-    }
-    fmt.Printf("Data: %s\n", string(content))
-
-    // 2. Run an executable runfile with env propagation (fail-fast).
-    helper := resources.HelperTool.MustResolve()
-    cmd := helper.Cmd()
-    output, err := cmd.Output()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error running helper: %v\n", err)
-        os.Exit(1)
-    }
-    fmt.Printf("Helper output: %s", string(output))
-
-    // 3. Access a fileset of runfiles (FileSet).
-    exampleSet, err := resources.ExampleSet.Resolve()
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error resolving fileset: %v\n", err)
-        os.Exit(1)
-    }
-    paths := exampleSet.RelPaths()
-    sort.Strings(paths)
-    fmt.Printf("FileSet paths: %v\n", paths)
-    f1, err := exampleSet.File("dummy.txt")
-    if err != nil {
-        fmt.Fprintf(os.Stderr, "Error resolving dummy.txt: %v\n", err)
-        os.Exit(1)
-    }
-    c1, _ := os.ReadFile(f1.Path())
-    fmt.Printf("FileSet dummy content: %s\n", strings.TrimSpace(string(c1)))
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">package main</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> (</span></span>
+<span class="line"><span style="color:#032F62">    "fmt"</span></span>
+<span class="line"><span style="color:#032F62">    "os"</span></span>
+<span class="line"><span style="color:#032F62">    "sort"</span></span>
+<span class="line"><span style="color:#032F62">    "strings"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#032F62">    "github.com/example/project/examples/go/resources"</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">func main() {</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">. Access the resolved runfile path safely.</span></span>
+<span class="line"><span style="color:#24292E">    dataFile, err := resources.DataFile.Resolve()</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">        fmt.Fprintf(os.Stderr, </span><span style="color:#032F62">"Error resolving runfile: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, err)</span></span>
+<span class="line"><span style="color:#24292E">        os.Exit(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    content, err := os.ReadFile(dataFile.Path())</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">        fmt.Fprintf(os.Stderr, </span><span style="color:#032F62">"Error reading runfile: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, err)</span></span>
+<span class="line"><span style="color:#24292E">        os.Exit(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    fmt.Printf(</span><span style="color:#032F62">"Data: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, string(content))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 2</span><span style="color:#24292E">. Run an executable runfile </span><span style="color:#D73A49">with</span><span style="color:#24292E"> env propagation (fail</span><span style="color:#D73A49">-</span><span style="color:#24292E">fast).</span></span>
+<span class="line"><span style="color:#24292E">    helper := resources.HelperTool.MustResolve()</span></span>
+<span class="line"><span style="color:#24292E">    cmd := helper.Cmd()</span></span>
+<span class="line"><span style="color:#24292E">    output, err := cmd.Output()</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">        fmt.Fprintf(os.Stderr, </span><span style="color:#032F62">"Error running helper: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, err)</span></span>
+<span class="line"><span style="color:#24292E">        os.Exit(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    fmt.Printf(</span><span style="color:#032F62">"Helper output: </span><span style="color:#005CC5">%s</span><span style="color:#032F62">"</span><span style="color:#24292E">, string(output))</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#005CC5"> 3</span><span style="color:#24292E">. Access a fileset of runfiles (FileSet).</span></span>
+<span class="line"><span style="color:#24292E">    exampleSet, err := resources.ExampleSet.Resolve()</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">        fmt.Fprintf(os.Stderr, </span><span style="color:#032F62">"Error resolving fileset: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, err)</span></span>
+<span class="line"><span style="color:#24292E">        os.Exit(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    paths := exampleSet.RelPaths()</span></span>
+<span class="line"><span style="color:#24292E">    sort.Strings(paths)</span></span>
+<span class="line"><span style="color:#24292E">    fmt.Printf(</span><span style="color:#032F62">"FileSet paths: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, paths)</span></span>
+<span class="line"><span style="color:#24292E">    f1, err := exampleSet.File(</span><span style="color:#032F62">"dummy.txt"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
+<span class="line"><span style="color:#24292E">        fmt.Fprintf(os.Stderr, </span><span style="color:#032F62">"Error resolving dummy.txt: %v</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, err)</span></span>
+<span class="line"><span style="color:#24292E">        os.Exit(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">    c1, _ := os.ReadFile(f1.Path())</span></span>
+<span class="line"><span style="color:#24292E">    fmt.Printf(</span><span style="color:#032F62">"FileSet dummy content: </span><span style="color:#005CC5">%s\n</span><span style="color:#032F62">"</span><span style="color:#24292E">, strings.TrimSpace(string(c1)))</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 
 
 <h3>Actual Generated Go Code</h3>
@@ -195,7 +195,7 @@ func main() {
 <summary>Click to view the actual generated Go code for the example above</summary>
 
 
-<pre><code>// Code generated by rules_runfile_codegen. DO NOT EDIT.
+<pre><code lang="py">// Code generated by rules_runfile_codegen. DO NOT EDIT.
 
 // Package resources provides type-safe access to Bazel runfiles.
 package resources

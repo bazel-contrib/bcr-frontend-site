@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e89e618c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b6398d33.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d8f6ba7c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c4fe2ba8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.2f250ea1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.03baf103.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_package_manager/1.25.0"></head>
 
 	<body style="margin: 0 auto">
@@ -127,11 +127,11 @@ dependencies. If you are using Bazel's legacy external dependency management, we
 <p>Also, check out the <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/6f129122034df1e97b4be8805e70bb143c9702a4/examples/" target="_blank" rel="noopener noreferrer">examples</a> for more information.</p>
 <h3>1. Enable bzlmod</h3>
 <p>This repository supports <a href="https://bazel.build/external/overview#bzlmod">bzlmod</a>.</p>
-<pre><code lang="py">common --enable_bzlmod</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_bzlmod</span></span></code></pre>
 <h3>2. Configure your <code>MODULE.bazel</code> to use <a href="https://github.com/cgrindel/rules_swift_package_manager">rules_swift_package_manager</a>.</h3>
 <p>Add a dependency on <code>rules_swift_package_manager</code>.</p>
 
-<pre><code>bazel_dep(name = "rules_swift_package_manager", version = "1.25.0")</code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_swift_package_manager", version = "1.25.0")</code></pre>
 
 
 <p>In addition, add the following to load the external dependencies described in your <code>Package.swift</code>

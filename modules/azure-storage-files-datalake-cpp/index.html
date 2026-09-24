@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e89e618c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b6398d33.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d8f6ba7c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c4fe2ba8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.2f250ea1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.03baf103.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/azure-storage-files-datalake-cpp/12.12.0"></head>
 
 	<body style="margin: 0 auto">
@@ -223,22 +223,22 @@ establish an absolute deadline for the operation.</p>
 <p>This is useful when you want to assign a time limit on an operation to ensure that it completes in a "reasonable" timeframe. For instance, the 
 snippet below will cancel a blob client upload after 5 seconds.</p>
 
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Azure::Core::Context cancelledIn5s{</span></span>
-<span class="line"><span style="color:#24292E">          std::chrono::system_clock::now() </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::chrono::seconds(</span><span style="color:#005CC5">5</span><span style="color:#24292E">)}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">      auto containerClient </span><span style="color:#D73A49">=</span><span style="color:#24292E"> BlobContainerClient::CreateFromConnectionString(</span></span>
-<span class="line"><span style="color:#24292E">          GetConnectionString(), containerName </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::to_string(i))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">      containerClient.CreateIfNotExists({}, cancelledIn5s)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">      for</span><span style="color:#24292E"> (</span><span style="color:#005CC5">int</span><span style="color:#24292E"> j = </span><span style="color:#005CC5">0</span><span style="color:#24292E">; j </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 3</span><span style="color:#24292E">; </span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E">j)</span></span>
-<span class="line"><span style="color:#24292E">      {</span></span>
-<span class="line"><span style="color:#24292E">        BlockBlobClient blobClient</span></span>
-<span class="line"><span style="color:#24292E">            = containerClient.GetBlockBlobClient(blobName </span><span style="color:#D73A49">+</span><span style="color:#24292E"> std::to_string(j));</span></span>
-<span class="line"><span style="color:#24292E">        blobClient.UploadFrom(</span></span>
-<span class="line"><span style="color:#24292E">            reinterpret_cast</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">const uint8_t</span><span style="color:#D73A49">*&gt;</span><span style="color:#24292E">(blobContent.data()),</span></span>
-<span class="line"><span style="color:#24292E">            blobContent.size(),</span></span>
-<span class="line"><span style="color:#24292E">            {},</span></span>
-<span class="line"><span style="color:#24292E">            cancelledIn5s);</span></span>
-<span class="line"><span style="color:#24292E">      }</span></span></code></pre>
+<pre><code lang="py">Azure::Core::Context cancelledIn5s{
+          std::chrono::system_clock::now() + std::chrono::seconds(5)};
+
+      auto containerClient = BlobContainerClient::CreateFromConnectionString(
+          GetConnectionString(), containerName + std::to_string(i));
+      containerClient.CreateIfNotExists({}, cancelledIn5s);
+      for (int j = 0; j &lt; 3; ++j)
+      {
+        BlockBlobClient blobClient
+            = containerClient.GetBlockBlobClient(blobName + std::to_string(j));
+        blobClient.UploadFrom(
+            reinterpret_cast&lt;const uint8_t*&gt;(blobContent.data()),
+            blobContent.size(),
+            {},
+            cancelledIn5s);
+      }</code></pre>
 <p><code>Context</code> objects can also be directly cancelled using the <code>Cancel()</code> method.</p>
 <p><code>Context</code> objects form a directed tree, where a child context can be created from a parent context. 
 The context tree is unidirectional and acyclic.</p>
@@ -271,20 +271,20 @@ to these types are allowed. These types are located in an <code>Azure</code> nam
 <p>Static SDK members should not be accessed and SDK functions should not be called before the static initialization phase is finished.</p>
 <h4>Visual Studio - CMakeSettings.json</h4>
 <p>When building your application via Visual Studio, you can create and update a <code>CMakeSettings.json</code> file and include the following properties to let Visual Studio know where the packages are installed and which triplet needs to be used:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">{</span></span>
-<span class="line"><span style="color:#032F62">  "configurations"</span><span style="color:#24292E">: [</span></span>
-<span class="line"><span style="color:#24292E">    {</span></span>
-<span class="line"><span style="color:#032F62">        "cmakeToolchain"</span><span style="color:#24292E">: </span><span style="color:#032F62">"&lt;path to vcpkg repo&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "variables"</span><span style="color:#24292E">: [</span></span>
-<span class="line"><span style="color:#24292E">        {</span></span>
-<span class="line"><span style="color:#032F62">          "name"</span><span style="color:#24292E">: </span><span style="color:#032F62">"VCPKG_TARGET_TRIPLET"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">          "value"</span><span style="color:#24292E">: </span><span style="color:#032F62">"x64-windows"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">          "type"</span><span style="color:#24292E">: </span><span style="color:#032F62">"STRING"</span></span>
-<span class="line"><span style="color:#24292E">        }</span></span>
-<span class="line"><span style="color:#24292E">      ]</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">  ]</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code>{
+  "configurations": [
+    {
+        "cmakeToolchain": "&lt;path to vcpkg repo&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake",
+        "variables": [
+        {
+          "name": "VCPKG_TARGET_TRIPLET",
+          "value": "x64-windows",
+          "type": "STRING"
+        }
+      ]
+    }
+  ]
+}</code></pre>
 <h3>Azure Requirements</h3>
 <p>To call Azure services, you must first have an Azure subscription. Sign up for a <a href="https://azure.microsoft.com/pricing/free-trial/">free trial</a> or use your <a href="https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">MSDN subscriber benefits</a>.</p>
 <h2>Packages available</h2>
@@ -318,7 +318,7 @@ to these types are allowed. These types are located in an <code>Azure</code> nam
 For example, if you want to use OpenSSL 1.1.1, you should create a folder named <code>vcpkg-custom-ports</code> next to to your vcpkg.json file.</p>
 <p>Navigate to your clone of the vcpkg vcpkg repo and execute "git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e" - this will reset your repo to the last version of OpenSSL 1.1.1
 in vcpkg. Then, copy the contents of the <code>ports/openssl</code> folder from the vcpkg repo to the <code>vcpkg-custom-ports</code> folder you created earlier:</p>
-<pre><code lang="py">cd &lt;your vcpkg repo&gt;
+<pre><code>cd &lt;your vcpkg repo&gt;
 git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e
 cd ports
 cp -r openssl &lt;the location of the vcpkg-custom-ports directory listed above&gt;</code></pre>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e89e618c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b6398d33.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d8f6ba7c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c4fe2ba8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.2f250ea1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.03baf103.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift/4.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -79,13 +79,13 @@ visionOS, and watchOS), they can be combined with the
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Create a single library target that can be used by other targets in your
 build:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_swift//swift:swift_library.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swift_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">swift_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyLibrary"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"MyLibrary.swift"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"manual"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_swift//swift:swift_library.bzl", "swift_library")
+
+swift_library(
+    name = "MyLibrary",
+    srcs = ["MyLibrary.swift"],
+    tags = ["manual"],
+)</code></pre>
 <h2>Reference Documentation</h2>
 <p><a href="https://github.com/bazelbuild/rules_swift/tree/main/doc">Click here</a>
 for the reference documentation for the rules and other definitions in this
@@ -120,7 +120,7 @@ instructions.</p>
 <p><strong>macOS hosts:</strong> You can build with a custom Swift toolchain (downloaded
 from <a href="https://swift.org/download">https://swift.org/download</a>) instead of Xcode's default. To do so,
 pass the following flag to Bazel:</p>
-<pre><code lang="py">--action_env=TOOLCHAINS=toolchain.id</code></pre>
+<pre><code>--action_env=TOOLCHAINS=toolchain.id</code></pre>
 <p>Where <code>toolchain.id</code> is the value of the <code>CFBundleIdentifier</code> key in the
 toolchain's Info.plist file.</p>
 <p>To list the available toolchains and their bundle identifiers, you can run:</p>

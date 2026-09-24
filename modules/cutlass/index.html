@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.09840077.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a0982840.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.1ff4df02.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a8847d1d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.dc682082.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3d901762.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cutlass/4.2.1"></head>
 
 	<body style="margin: 0 auto">
@@ -407,9 +407,9 @@ If a user accidentally builds a kernel which uses SM90a features
 (e.g. Hopper Tensor Core Instructions), using the SM90 target
 (note the lack of "a"), with either CUDA Toolkit 12 or 11.8,
 the kernel is expected to fail with a runtime error.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"90a"</span></span></code></pre>
+<pre><code lang="py">cmake .. -DCUTLASS_NVCC_ARCHS="90a"</code></pre>
 <p>Or</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"100a"</span></span></code></pre>
+<pre><code>cmake .. -DCUTLASS_NVCC_ARCHS="100a"</code></pre>
 <p>Note: The NVIDIA Blackwell SM100 architecture used in the datacenter
 products has a different compute capability than the one underpinning
 NVIDIA Blackwell GeForce RTX 50 series GPUs (SM120). As a result, kernels
@@ -457,25 +457,25 @@ paths.</p>
 The minimum version of CMake is given in the <a href="https://docs.nvidia.com/cutlass/media/docs/cpp/quickstart.html">Quickstart guide</a>.
 Make sure the <code>CUDACXX</code> environment  variable points to NVCC in the CUDA Toolkit installed
 on your system.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> export </span><span style="color:#005CC5">CUDACXX</span><span style="color:#D73A49">=</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{</span><span style="color:#005CC5">CUDA_INSTALL_PATH</span><span style="color:#24292E">}</span><span style="color:#D73A49">/</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">nvcc</span></span></code></pre>
+<pre><code>$ export CUDACXX=${CUDA_INSTALL_PATH}/bin/nvcc</code></pre>
 <p>Create a build directory within the CUTLASS project, then run CMake. By default CUTLASS will build kernels
 for CUDA architecture versions 5.0, 6.0, 6.1, 7.0, 7.5, 8.0, 8.6, 8.9, and 9.0.
 To reduce compile time you can specify
 the architectures to build CUTLASS for by changing the CMake configuration setting
 <code>CUTLASS_NVCC_ARCHS</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake .. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCUTLASS_NVCC_ARCHS</span><span style="color:#D73A49">=</span><span style="color:#005CC5">80</span><span style="color:#6A737D">               # compiles for NVIDIA's Ampere Architecture</span></span></code></pre>
+<pre><code>$ mkdir build &amp;&amp; cd build
+
+$ cmake .. -DCUTLASS_NVCC_ARCHS=80               # compiles for NVIDIA's Ampere Architecture</code></pre>
 <p>From the <code>build/</code> directory, compile and run the CUTLASS unit tests by building the target <code>test_unit</code> with make.</p>
 <p>The unit tests are organized as several binaries mirroring the top-level namespaces of CUTLASS,
 and they may be executed in parallel via make's <code>-j</code> command line argument.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make test_unit </span><span style="color:#D73A49">-</span><span style="color:#24292E">j</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#005CC5">...</span></span>
-<span class="line"><span style="color:#24292E">[</span><span style="color:#B31D28;font-style:italic">----------</span><span style="color:#24292E">] Global test environment tear</span><span style="color:#D73A49">-</span><span style="color:#24292E">down</span></span>
-<span class="line"><span style="color:#24292E">[</span><span style="color:#D73A49">==========</span><span style="color:#24292E">] </span><span style="color:#005CC5">946</span><span style="color:#24292E"> tests </span><span style="color:#D73A49">from</span><span style="color:#005CC5"> 57</span><span style="color:#24292E"> test cases ran. (</span><span style="color:#005CC5">10812</span><span style="color:#24292E"> ms total)</span></span>
-<span class="line"><span style="color:#24292E">[  </span><span style="color:#005CC5">PASSED</span><span style="color:#24292E">  ] </span><span style="color:#005CC5">946</span><span style="color:#24292E"> tests.</span></span></code></pre>
+<pre><code>$ make test_unit -j
+...
+...
+...
+[----------] Global test environment tear-down
+[==========] 946 tests from 57 test cases ran. (10812 ms total)
+[  PASSED  ] 946 tests.</code></pre>
 <p>All tests should pass on supported platforms, though the exact number of tests may vary over time.</p>
 <h1>Project Structure</h1>
 <p>CUTLASS is arranged as a header-only library along with Utilities, Tools, Examples, and unit tests.
@@ -484,61 +484,61 @@ and template concepts defined in the CUTLASS project.</p>
 <p>A detailed explanation of the source code organization may be found in the
 <a href="https://docs.nvidia.com/cutlass/media/docs/cpp/code_organization.html">CUTLASS documentation</a>, but several main components are summarized below.</p>
 <h2>CUTLASS Template Library</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                     # client applications should target this directory in their build's include paths</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # direct exposure of architecture features (including instruction-level GEMMs)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    conv</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for convolution</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    epilogue</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # code specialized for the epilogue of gemm/convolution</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    gemm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # code specialized for general matrix product computations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    layout</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # layout definitions for matrices, tensors, and other mathematical objects in memory</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    platform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                # CUDA-capable Standard Library components</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    reduction</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # bandwidth-limited reduction kernels that do not fit the "gemm" model</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    thread</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # simt code that can be performed within a CUDA thread</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    transform</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # code specialized for layout, type, and domain transformations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # core vocabulary types, containers, and basic numeric operations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  cute</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    algorithm</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               # Definitions of core operations such as copy, gemm, and operations on cute::tuples</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    arch</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Bare bones PTX wrapper structs for copy and math instructions</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">    atom</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                    # Meta-information either link to or built from arch/ operators</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">      mma_atom.hpp           </span><span style="color:#6A737D"># cute::Mma_Atom and cute::TiledMma</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">      copy_atom.hpp          </span><span style="color:#6A737D"># cute::Copy_Atom and cute::TiledCopy</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">      *</span><span style="color:#24292E">sm</span><span style="color:#D73A49">*</span><span style="color:#24292E">.hpp               </span><span style="color:#6A737D"># Arch specific meta-information for copy and math operations</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    *</span><span style="color:#6A737D">                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations</span></span></code></pre>
+<pre><code>include/                     # client applications should target this directory in their build's include paths
+
+  cutlass/                   # CUDA Templates for Linear Algebra Subroutines and Solvers - headers only
+
+    arch/                    # direct exposure of architecture features (including instruction-level GEMMs)
+
+    conv/                    # code specialized for convolution
+
+    epilogue/                # code specialized for the epilogue of gemm/convolution
+
+    gemm/                    # code specialized for general matrix product computations
+
+    layout/                  # layout definitions for matrices, tensors, and other mathematical objects in memory
+
+    platform/                # CUDA-capable Standard Library components
+
+    reduction/               # bandwidth-limited reduction kernels that do not fit the "gemm" model
+
+    thread/                  # simt code that can be performed within a CUDA thread
+
+    transform/               # code specialized for layout, type, and domain transformations
+
+    *                        # core vocabulary types, containers, and basic numeric operations
+
+  cute/                      # CuTe Layout, layout algebra, MMA/Copy atoms, tiled MMA/Copy
+
+    algorithm/               # Definitions of core operations such as copy, gemm, and operations on cute::tuples
+
+    arch/                    # Bare bones PTX wrapper structs for copy and math instructions
+
+    atom/                    # Meta-information either link to or built from arch/ operators
+
+      mma_atom.hpp           # cute::Mma_Atom and cute::TiledMma
+
+      copy_atom.hpp          # cute::Copy_Atom and cute::TiledCopy
+
+      *sm*.hpp               # Arch specific meta-information for copy and math operations
+
+    *                        # Core library types such as Shape, Stride, Layout, Tensor, and associated operations</code></pre>
 <h3>CUTLASS SDK Examples</h3>
 <p><a href="https://github.com/NVIDIA/cutlass/tree/main/examples">CUTLASS SDK examples</a> apply CUTLASS templates to implement basic computations.</p>
 <h3>Tools</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">tools</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">  library</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates</span></span>
-<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">        library</span><span style="color:#D73A49">/</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  profiler</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                  # CUTLASS Profiler         - command-line utility for executing operations in the</span></span>
-<span class="line"><span style="color:#6A737D">                             #                            CUTLASS Library</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                      # CUTLASS Utilities        - contains numerous helper classes for</span></span>
-<span class="line"><span style="color:#24292E">    include</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                 #                            managing tensors in device memory, reference</span></span>
-<span class="line"><span style="color:#24292E">      cutlass</span><span style="color:#D73A49">/</span><span style="color:#6A737D">               #                            implementations for GEMM, random initialization</span></span>
-<span class="line"><span style="color:#24292E">        util</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                #                            of tensors, and I/O.</span></span></code></pre>
+<pre><code>tools/
+  library/                   # CUTLASS Instance Library - contains instantiations of all supported CUTLASS templates
+    include/
+      cutlass/
+        library/
+
+  profiler/                  # CUTLASS Profiler         - command-line utility for executing operations in the
+                             #                            CUTLASS Library
+
+  util/                      # CUTLASS Utilities        - contains numerous helper classes for
+    include/                 #                            managing tensors in device memory, reference
+      cutlass/               #                            implementations for GEMM, random initialization
+        util/                #                            of tensors, and I/O.</code></pre>
 <h3>Test</h3>
 <p>The <code>test/unit/</code> directory consist of unit tests implemented with Google Test that demonstrate
 basic usage of Core API components and complete tests of the CUTLASS GEMM computations.</p>
@@ -546,7 +546,7 @@ basic usage of Core API components and complete tests of the CUTLASS GEMM comput
 <h1>Performance Profiling</h1>
 <p>The <code>tools/profiler/</code> directory contains a command-line utility for launching each of the GEMM kernels.
 It can be built as follows:</p>
-<pre><code lang="py">$ make cutlass_profiler -j16</code></pre>
+<pre><code>$ make cutlass_profiler -j16</code></pre>
 <h2>Building all GEMM and Convolution kernels (<em>long</em> build times)</h2>
 <p>By default, only one tile size is instantiated for each data type, math instruction, and layout.
 To instantiate all, set the following environment variable when running CMake from an empty <code>build/</code> directory.

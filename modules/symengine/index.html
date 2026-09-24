@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1e26cf0f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.596bada7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.007a9461.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9330f2f2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.0538a5ff.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b59fc4eb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/symengine/0.12.0"></head>
 
 	<body style="margin: 0 auto">
@@ -93,23 +93,23 @@ information. Third party code packaged are licensed under BSD 3-clause license
 For Debian based systems (Ubuntu etc.):</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install cmake libgmp</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev</span></span></code></pre>
 <p>For RPM based systems (Fedora etc.):</p>
-<pre><code lang="py">yum install cmake gmp-devel</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yum install cmake gmp</span><span style="color:#D73A49">-</span><span style="color:#24292E">devel</span></span></code></pre>
 <p>Install SymEngine:</p>
-<pre><code>mkdir build &amp;&amp; cd build
-cmake ..
-make
-make install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">make</span></span>
+<span class="line"><span style="color:#24292E">make install</span></span></code></pre>
 <p>This will configure and build SymEngine in the default Release mode with all
 code and compiler optimizations on and then install it on your system.</p>
 <p>Run tests:</p>
-<pre><code>ctest</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ctest</span></span></code></pre>
 <h3>Development</h3>
 <p><a href="https://github.com/symengine/symengine/actions/workflows/ci.yml">GitHub Actions checks</a>
 the code in both Release and Debug mode with all possible checks, so just
 sending a GitHub pull request is enough and you can use any mode you want to
 develop it. However, the best way to develop SymEngine on Linux is to use the
 Debug mode with <code>BFD</code> support on:</p>
-<pre><code>cmake -DCMAKE_BUILD_TYPE=Debug -DWITH_BFD=yes ..</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DWITH_BFD</span><span style="color:#D73A49">=</span><span style="color:#24292E">yes ..</span></span></code></pre>
 <p>This <code>BFD</code> support turns on nice Python-like stack traces on exceptions, assert
 errors or segfaults, and the Debug mode automatically turns on
 <code>WITH_SYMENGINE_RCP=no</code> (which uses <code>Teuchos::RCP</code> with full Debug time
@@ -123,48 +123,48 @@ a stack trace).</p>
 <p>To make <code>WITH_BFD=yes</code> work, you need to install <code>binutils-dev</code> first,
 otherwise, you will get a <code>CMake</code> error during configuring.
 For Debian-based systems (Ubuntu etc.)</p>
-<pre><code>apt-get install binutils-dev</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install binutils</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev</span></span></code></pre>
 <p>For RPM-based systems (Fedora etc.)</p>
-<pre><code>yum install binutils-devel</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">yum install binutils</span><span style="color:#D73A49">-</span><span style="color:#24292E">devel</span></span></code></pre>
 <p>On OpenSuSE, you will additionally need <code>glibc-devel</code>.</p>
 <h2>CMake Options</h2>
 <p>Here are all the <code>CMake</code> options that you can use to configure the build, with
 their default values are indicated below:</p>
-<pre><code>cmake -DCMAKE_INSTALL_PREFIX:PATH="/usr/local" \  # Installation prefix
-    -DCMAKE_BUILD_TYPE:STRING="Release" \         # Type of build, one of: Debug, Release, RelWithDebInfo, MinSizeRel
-    -DWITH_BFD:BOOL=OFF \                         # Install with BFD library (requires binutils-dev)s
-    -DWITH_SYMENGINE_ASSERT:BOOL=OFF \            # Test all SYMENGINE_ASSERT statements in the code
-    -DWITH_SYMENGINE_RCP:BOOL=ON \                # Use our faster special implementation of RCP
-    -DWITH_SYMENGINE_THREAD_SAFE:BOOL=OFF \       # Build with thread safety
-    -DWITH_ECM:BOOL=OFF \                         # Build with GMP-ECM library for integer factorization
-    -DWITH_PRIMESIEVE:BOOL=OFF \                  # Install with Primesieve library
-    -DWITH_FLINT:BOOL=OFF \                       # Install with Flint library
-    -DWITH_ARB:BOOL=OFF \                         # Install with ARB library
-    -DWITH_TCMALLOC:BOOL=OFF \                    # Install with TCMalloc linked
-    -DWITH_OPENMP:BOOL=OFF \                      # Install with OpenMP enabled
-    -DWITH_PIRANHA:BOOL=OFF \                     # Install with Piranha library
-    -DWITH_MPFR:BOOL=OFF \                        # Install with MPFR library
-    -DWITH_MPC:BOOL=OFF \                         # Install with MPC library
-    -DWITH_LLVM:BOOL=OFF \                        # Build with LLVM libraries
-    -DWITH_SYSTEM_CEREAL:BOOL=OFF \               # Build with cereal headers from the system instead of
-                                                    the vendored copy
-    -DBUILD_TESTS:BOOL=ON \                       # Build with tests
-    -DBUILD_CUDA_TESTS:BOOL=OFF \                 # Build with cuda tests (requires cuda and an nvidia GPU)
-    -DBUILD_METAL_TESTS:BOOL=OFF \                # Build with metal tests (requires macOS, Metal, and metal-cpp headers)
-    -DBUILD_BENCHMARKS:BOOL=ON \                  # Build with benchmarks
-    -DBUILD_BENCHMARKS_GOOGLE:BOOL=OFF \          # Build with Google Benchmark benchmarks
-    -DINTEGER_CLASS:STRING=gmp \                  # Choose storage type for Integer. one of gmp, gmpxx,
-                                                    flint, piranha, boostmp
-    -DBUILD_SHARED_LIBS:BOOL=OFF \                # Build a shared library.
-    -DCMAKE_INSTALL_RPATH_USE_LINK_PATH:BOOL=OFF\ # Add dependencies to rpath when a shared lib is built
-    ..</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#24292E">:</span><span style="color:#005CC5">PATH</span><span style="color:#D73A49">=</span><span style="color:#032F62">"/usr/local"</span><span style="color:#24292E"> \  </span><span style="color:#B31D28;font-style:italic"># Installation prefix</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#24292E">:</span><span style="color:#005CC5">STRING</span><span style="color:#D73A49">=</span><span style="color:#032F62">"Release"</span><span style="color:#24292E"> \         </span><span style="color:#B31D28;font-style:italic"># Type of build, one of: Debug, Release, RelWithDebInfo, MinSizeRel</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_BFD</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                         </span><span style="color:#B31D28;font-style:italic"># Install with BFD library (requires binutils-dev)s</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_SYMENGINE_ASSERT</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \            </span><span style="color:#B31D28;font-style:italic"># Test all SYMENGINE_ASSERT statements in the code</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_SYMENGINE_RCP</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E"> \                </span><span style="color:#B31D28;font-style:italic"># Use our faster special implementation of RCP</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_SYMENGINE_THREAD_SAFE</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \       </span><span style="color:#B31D28;font-style:italic"># Build with thread safety</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_ECM</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                         </span><span style="color:#B31D28;font-style:italic"># Build with GMP-ECM library for integer factorization</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_PRIMESIEVE</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                  </span><span style="color:#B31D28;font-style:italic"># Install with Primesieve library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_FLINT</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                       </span><span style="color:#B31D28;font-style:italic"># Install with Flint library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_ARB</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                         </span><span style="color:#B31D28;font-style:italic"># Install with ARB library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_TCMALLOC</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                    </span><span style="color:#B31D28;font-style:italic"># Install with TCMalloc linked</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_OPENMP</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                      </span><span style="color:#B31D28;font-style:italic"># Install with OpenMP enabled</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_PIRANHA</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                     </span><span style="color:#B31D28;font-style:italic"># Install with Piranha library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_MPFR</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                        </span><span style="color:#B31D28;font-style:italic"># Install with MPFR library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_MPC</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                         </span><span style="color:#B31D28;font-style:italic"># Install with MPC library</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_LLVM</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                        </span><span style="color:#B31D28;font-style:italic"># Build with LLVM libraries</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DWITH_SYSTEM_CEREAL</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \               </span><span style="color:#B31D28;font-style:italic"># Build with cereal headers from the system instead of</span></span>
+<span class="line"><span style="color:#24292E">                                                    the vendored copy</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_TESTS</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E"> \                       </span><span style="color:#B31D28;font-style:italic"># Build with tests</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_CUDA_TESTS</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                 </span><span style="color:#B31D28;font-style:italic"># Build with cuda tests (requires cuda and an nvidia GPU)</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_METAL_TESTS</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                </span><span style="color:#B31D28;font-style:italic"># Build with metal tests (requires macOS, Metal, and metal-cpp headers)</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_BENCHMARKS</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span><span style="color:#24292E"> \                  </span><span style="color:#B31D28;font-style:italic"># Build with benchmarks</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_BENCHMARKS_GOOGLE</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \          </span><span style="color:#B31D28;font-style:italic"># Build with Google Benchmark benchmarks</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DINTEGER_CLASS</span><span style="color:#24292E">:</span><span style="color:#005CC5">STRING</span><span style="color:#D73A49">=</span><span style="color:#24292E">gmp \                  </span><span style="color:#B31D28;font-style:italic"># Choose storage type for Integer. one of gmp, gmpxx,</span></span>
+<span class="line"><span style="color:#24292E">                                                    flint, piranha, boostmp</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DBUILD_SHARED_LIBS</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E"> \                </span><span style="color:#B31D28;font-style:italic"># Build a shared library.</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#005CC5">DCMAKE_INSTALL_RPATH_USE_LINK_PATH</span><span style="color:#24292E">:</span><span style="color:#005CC5">BOOL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span><span style="color:#24292E">\ </span><span style="color:#B31D28;font-style:italic"># Add dependencies to rpath when a shared lib is built</span></span>
+<span class="line"><span style="color:#24292E">    ..</span></span></code></pre>
 <p>If <code>OpenMP</code> is enabled, then <code>SYMENGINE_THREAD_SAFE</code> is also enabled automatically
 irrespective of the user input for <code>WITH_SYMENGINE_THREAD_SAFE</code>.</p>
 <p><code>CMake</code> prints the value of its options at the end of the run.
 If you want to use a different compiler, do:</p>
-<pre><code>CC=clang CXX=clang++ cmake ..</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">CC</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang </span><span style="color:#005CC5">CXX</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> cmake ..</span></span></code></pre>
 <p>If you want to set additional compilation flags, do:</p>
-<pre><code>CXXFLAGS="$CXXFLAGS -march=native" cmake ..</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">CXXFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"$CXXFLAGS -march=native"</span><span style="color:#24292E"> cmake ..</span></span></code></pre>
 <p>These environment variables are checked only in the first run of
 cmake and you have to delete the build directory or <code>CMakeCache.txt</code> file
 for these environment variables to be picked up in subsequent runs.</p>
@@ -181,7 +181,7 @@ to always use TCMalloc when benchmarking (and the <code>Release</code> mode of S
 which is the default).</p>
 <h3>External Libraries</h3>
 <p>Use <code>CMAKE_PREFIX_PATH</code> to specify the prefixes of the external libraries.</p>
-<pre><code>cmake -DCMAKE_PREFIX_PATH=&lt;prefix1&gt;;&lt;prefix2&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_PREFIX_PATH</span><span style="color:#D73A49">=&lt;</span><span style="color:#24292E">prefix1</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">;</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">prefix2</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>If the headers and libs are not in <code>&lt;prefix&gt;/include</code> and <code>&lt;prefix&gt;/lib</code> respectively,
 use <code>CMAKE_LIBRARY_PATH</code> and <code>CMAKE_INCLUDE_PATH</code>.</p>
 <p>If CMake still cannot find the library, you can specify the path to the library by
@@ -192,11 +192,11 @@ Similarly, <code>-DPKG_INCLUDE_DIR</code> can be used for headers.</p>
 <h4>For package managers</h4>
 <p>For packaging symengine it is recommended to use <code>GMP, MPFR, MPC, FLINT, LLVM</code> as
 dependencies if they are available and built with thread safety on.</p>
-<pre><code>cmake -DWITH_MPFR=on -DWITH_MPC=on -DINTEGER_CLASS=flint -DWITH_LLVM=on
--DWITH_SYMENGINE_THREAD_SAFE=on ..</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DWITH_MPFR</span><span style="color:#D73A49">=</span><span style="color:#24292E">on </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DWITH_MPC</span><span style="color:#D73A49">=</span><span style="color:#24292E">on </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DINTEGER_CLASS</span><span style="color:#D73A49">=</span><span style="color:#24292E">flint </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DWITH_LLVM</span><span style="color:#D73A49">=</span><span style="color:#24292E">on</span></span>
+<span class="line"><span style="color:#D73A49">-</span><span style="color:#005CC5">DWITH_SYMENGINE_THREAD_SAFE</span><span style="color:#D73A49">=</span><span style="color:#24292E">on ..</span></span></code></pre>
 <h4>Optimized build</h4>
 <p>To build with more optimizations, you can use the above dependencies and options, and also,</p>
-<pre><code>CXXFLAGS="-march=native -O3" cmake -DWITH_TCMALLOC=on -DWITH_SYMENGINE_THREAD_SAFE=no ..</code></pre>
+<pre><code lang="py">CXXFLAGS="-march=native -O3" cmake -DWITH_TCMALLOC=on -DWITH_SYMENGINE_THREAD_SAFE=no ..</code></pre>
 <h2>Developer Documentation</h2>
 <p>Please follow the <a href="https://github.com/symengine/symengine/blob/04d77d48ece96dda1a31ced7e6f24206bdb8f6e9/docs/Doxygen/md/style_guide.md" target="_blank" rel="noopener noreferrer">C++ Style Guide</a> when developing.</p>
 <p>The design decisions are documented in <a href="https://symengine.org/design/design.html">Design</a>.</p>

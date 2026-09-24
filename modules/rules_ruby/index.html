@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1e26cf0f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.596bada7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.007a9461.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9330f2f2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.0538a5ff.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b59fc4eb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ruby/0.28.0"></head>
 
 	<body style="margin: 0 auto">
@@ -103,19 +103,19 @@
 <li>Install ruleset following Bzlmod instructions on the <a href="https://github.com/bazel-contrib/rules_ruby/releases/tag/v0.3.0">latest release</a>.</li>
 <li>Download and install Ruby:</li>
 </ol>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
-<span class="line"><span style="color:#24292E">ruby </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_ruby//ruby:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ruby"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">ruby.toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ruby"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.0.6"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # alternatively, load version from .ruby-version file</span></span>
-<span class="line"><span style="color:#6A737D">    # version_file = "//:.ruby-version",</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(ruby, </span><span style="color:#032F62">"ruby"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># MODULE.bazel
+ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
+ruby.toolchain(
+    name = "ruby",
+    version = "3.0.6",
+    # alternatively, load version from .ruby-version file
+    # version_file = "//:.ruby-version",
+)
+use_repo(ruby, "ruby")</code></pre>
 <ol start="3">
 <li><em>(Optional)</em> Download and install Bundler dependencies:</li>
 </ol>
-<pre><code lang="py"># MODULE.bazel
+<pre><code># MODULE.bazel
 ruby.bundle_fetch(
     name = "bundle",
     gemfile = "//:Gemfile",

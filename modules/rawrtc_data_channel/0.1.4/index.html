@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.cf0e3c5a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d1b73ee4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.87328592.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0a7adb25.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.f382f33a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.608e53de.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rawrtc_data_channel/0.1.4"></head>
 
 	<body style="margin: 0 auto">
@@ -127,17 +127,17 @@ handles all the nitty-gritty details for you.</p>
 <li>Optional: pkg-config (<code>pkgconf</code> for newer FreeBSD versions)</li>
 </ul>
 <h2>Build</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">path</span><span style="color:#D73A49">-</span><span style="color:#24292E">to</span><span style="color:#D73A49">-</span><span style="color:#24292E">rawrtcdc</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">mkdir build</span></span>
-<span class="line"><span style="color:#24292E">meson build</span></span>
-<span class="line"><span style="color:#24292E">cd build</span></span>
-<span class="line"><span style="color:#24292E">ninja</span></span></code></pre>
+<pre><code lang="py">cd &lt;path-to-rawrtcdc&gt;
+mkdir build
+meson build
+cd build
+ninja</code></pre>
 <h2>Getting Started</h2>
 <p>Now that you've built the library, let's get started integrating this library
 into your stack.</p>
 <h3>Initialise</h3>
 <p>Before doing anything, initialise the library:</p>
-<pre><code lang="py">#include &lt;rawrtcc.h&gt;
+<pre><code>#include &lt;rawrtcc.h&gt;
 #include &lt;rawrtcdc.h&gt;
 
 [...]

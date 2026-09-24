@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ac5e3a94.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fcca5151.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6335bb09.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.47125b56.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.e1cd3be1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.47c5ba38.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/phaser_zc_protobuf/1.1.1"></head>
 
 	<body style="margin: 0 auto">
@@ -162,24 +162,24 @@ allocator</strong> that trades speed for compactness (size mode), selectable via
 <h3>1. Add a <code>phaser_library</code> to your build</h3>
 <p>Phaser integrates with Bazel through the <code>phaser_library</code> rule. Point it at a standard
 <code>proto_library</code>, much like you would a <code>cc_proto_library</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@phaser//phaser:phaser_library.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"phaser_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">proto_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "foo_proto"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"Foo.proto"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">phaser_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "foo_phaser"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    add_namespace</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "phaser"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># optional: avoids clashing with protobuf classes</span></span>
-<span class="line"><span style="color:#E36209">    frontend</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protobuf"</span><span style="color:#24292E">,     </span><span style="color:#6A737D"># default; use "ros" for public field proxies</span></span>
-<span class="line"><span style="color:#E36209">    enable_active_message</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> False</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># optionally add std::any active_message</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":foo_proto"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@phaser//phaser:phaser_library.bzl", "phaser_library")
+
+proto_library(
+    name = "foo_proto",
+    srcs = ["Foo.proto"],
+)
+
+phaser_library(
+    name = "foo_phaser",
+    add_namespace = "phaser",  # optional: avoids clashing with protobuf classes
+    frontend = "protobuf",     # default; use "ros" for public field proxies
+    enable_active_message = False,  # optionally add std::any active_message
+    deps = [":foo_proto"],
+)</code></pre>
 <p>If <code>Foo.proto</code> is in package <code>foo.bar</code>, the generated classes live in
 <code>::foo::bar::phaser</code> (when <code>add_namespace = "phaser"</code>), and you include them as you would
 any protobuf header:</p>
-<pre><code lang="py">#include "foo/bar/Foo.phaser.h"</code></pre>
+<pre><code>#include "foo/bar/Foo.phaser.h"</code></pre>
 <p>Phaser can generate either the default protobuf-style accessors or a ROS-style
 struct interface:</p>
 <pre><code>phaser_library(

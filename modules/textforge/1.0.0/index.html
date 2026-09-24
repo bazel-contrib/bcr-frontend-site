@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.648e9011.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1ff4df02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a8847d1d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e89e618c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b6398d33.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.f41d18f6.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.3d901762.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.2f250ea1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/textforge/1.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -110,19 +110,19 @@
 </tbody></table>
 <h2>Example</h2>
 <p><em>templates/templateA.txt.jinja</em></p>
-<pre><code lang="py">Template A value: {{ a }}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Template A value: {{ a }}</span></span></code></pre>
 <p><em>templates/templateB.txt.jinja</em></p>
-<pre><code>Template B value: {{ b }}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Template B value: {{ b }}</span></span></code></pre>
 <p><em>templates/templateC.txt.jinja</em></p>
-<pre><code>Template C value: {{ c }}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Template C value: {{ c }}</span></span></code></pre>
 <p><em>data/data.json</em></p>
-<pre><code>{
-    "a": 123,
-    "b": 456,
-    "c": 789
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">    "a"</span><span style="color:#24292E">: </span><span style="color:#005CC5">123</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "b"</span><span style="color:#24292E">: </span><span style="color:#005CC5">456</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "c"</span><span style="color:#24292E">: </span><span style="color:#005CC5">789</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p><em>BUILD.bazel</em></p>
-<pre><code>load("@textforge//:defs.bzl", "generate_files")
+<pre><code lang="py">load("@textforge//:defs.bzl", "generate_files")
 
 filegroup(
     name = "templates",

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.18488fa3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fb73490a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.78d4b36d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e913409b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.90034085.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.56d12224.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_spring_aot/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -73,7 +73,7 @@
 <h2>Installation</h2>
 <h3>Using Bazel Modules (Bzlmod)</h3>
 <p>Add to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "rules_spring_aot", version = "0.1.0")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_spring_aot"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>Using WORKSPACE</h3>
 <p>From the release you wish to use:
 <a href="https://github.com/tharakadesilva/rules_spring_aot/releases">https://github.com/tharakadesilva/rules_spring_aot/releases</a>
@@ -88,42 +88,42 @@ print a message with the correct value.</li>
 </ol>
 <h2>Quick Start</h2>
 <h3>1. Basic Spring Boot Application with AOT</h3>
-<pre><code>load("@rules_spring_aot//spring_aot:defs.bzl", "spring_aot_library")
-load("@rules_java//java:defs.bzl", "java_library", "java_binary")
-
-# Define your Spring Boot application
-java_library(
-    name = "my-app-lib",
-    srcs = glob(["src/main/java/**/*.java"]),
-    runtime_deps = [
-        "@maven//:org_springframework_boot_spring_boot_starter_web",
-    ],
-    deps = [
-        # ... other dependencies
-    ],
-)
-
-# Apply AOT processing
-# Creates a java_library containing all AOT-generated classes and resources
-spring_aot_library(
-    name = "my-app-aot",
-    target = ":my-app-lib",
-    main_class = "com.example.MyApplication",
-    group_id = "com.example",
-    artifact_id = "my-app",
-)
-
-# Create executable JAR
-# Produces a standard JAR with improved startup time (faster than regular Spring Boot, slower than native)
-java_binary(
-    name = "my-app",
-    main_class = "com.example.MyApplication",
-    runtime_deps = [":my-app-aot"],
-    jvm_flags = ["-Dspring.aot.enabled=true"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_spring_aot//spring_aot:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"spring_aot_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_java//java:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"java_library"</span><span style="color:#24292E">, </span><span style="color:#032F62">"java_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Define your Spring Boot application</span></span>
+<span class="line"><span style="color:#24292E">java_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-app-lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"src/main/java/**/*.java"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#E36209">    runtime_deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "@maven//:org_springframework_boot_spring_boot_starter_web"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">        # ... other dependencies</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Apply AOT processing</span></span>
+<span class="line"><span style="color:#6A737D"># Creates a java_library containing all AOT-generated classes and resources</span></span>
+<span class="line"><span style="color:#24292E">spring_aot_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-app-aot"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":my-app-lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    main_class</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.MyApplication"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    group_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    artifact_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Create executable JAR</span></span>
+<span class="line"><span style="color:#6A737D"># Produces a standard JAR with improved startup time (faster than regular Spring Boot, slower than native)</span></span>
+<span class="line"><span style="color:#24292E">java_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    main_class</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.MyApplication"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    runtime_deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":my-app-aot"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    jvm_flags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"-Dspring.aot.enabled=true"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>2. Native Image with GraalVM</h3>
 <p>See <a href="https://github.com/sgammon/rules_graalvm">rules_graalvm</a> for setup instructions.</p>
-<pre><code>load("@rules_spring_aot//spring_aot:defs.bzl", "spring_aot_library")
+<pre><code lang="py">load("@rules_spring_aot//spring_aot:defs.bzl", "spring_aot_library")
 load("@rules_graalvm//graalvm:defs.bzl", "native_image")
 
 # ... (previous definitions)

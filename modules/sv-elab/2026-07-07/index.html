@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.eec7b25c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.09729998.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.10cb6134.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.67ba227b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.1ba6d84f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8f9c5f86.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sv-elab/2026-07-07"></head>
 
 	<body style="margin: 0 auto">
@@ -107,9 +107,9 @@
 </li>
 </ul>
 <p>Check out the repository including the submodule, e.g. with</p>
-<pre><code lang="py">git clone --recursive https://github.com/povik/sv-elab</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">recursive https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">povik</span><span style="color:#D73A49">/</span><span style="color:#24292E">sv</span><span style="color:#D73A49">-</span><span style="color:#24292E">elab</span></span></code></pre>
 <p>Then build sv-elab (incl. the bundled <code>slang</code> library) as a Yosys plugin:</p>
-<pre><code>cmake -B build .
+<pre><code lang="py">cmake -B build .
 make -C build -j$(nproc)</code></pre>
 <p>Use a custom <code>-jN</code> switch to build with <code>N</code> concurrent processes instead of matching the number of cores.</p>
 <p>The built plugin is placed at <code>build/slang.so</code>. Copy this file into the Yosys plugin directory, which can be achieved through <code>make install</code>, or use a full path to this file (instead of the <code>slang</code> shorthand) when loading the plugin.</p>

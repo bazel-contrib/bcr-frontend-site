@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6d5011e5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4a83285c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b4ea3fa0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0ef4d749.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.bbec6fb0.js" defer=""></script>
-		<script src="/registry.65ffe298.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4d1bf4f7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/slinky/0.0.0-20260506-1032be6"></head>
 
 	<body style="margin: 0 auto">
@@ -116,31 +116,31 @@ Data dependencies are expressed as a <code>[min, max]</code> interval for each i
 <li>Large memory allocation for <code>tmp</code>.</li>
 <li><code>tmp</code> memory is first fully written and then fully read, resulting in expensive memory traffic and inefficient use of CPU caches.</li>
 </ol>
-<pre><code lang="py">check(in)
-check((buffer_rank(in) == 1))
-check(out)
-check((buffer_rank(out) == 1))
-check((buffer_elem_size(in) == 4))
-check((buffer_elem_size(out) == 4))
-check(or_else((buffer_fold_factor(out, 0) == 9223372036854775807), (buffer_max(out, 0) &lt; (buffer_fold_factor(out, 0) + buffer_min(out, 0)))))
-check((buffer_min(in, 0) &lt;= buffer_min(out, 0)))
-check((buffer_max(out, 0) &lt;= buffer_max(in, 0)))
-tmp = allocate(automatic, 4, {
-  {[buffer_min(out, 0), buffer_max(out, 0)], &lt;&gt;, &lt;&gt;}
-}) {
- call(&lt;mul&gt;, {in}, {tmp})
- call(&lt;add&gt;, {tmp}, {out})
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">check(</span><span style="color:#D73A49">in</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_rank(</span><span style="color:#D73A49">in</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">))</span></span>
+<span class="line"><span style="color:#24292E">check(out)</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_rank(out) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">))</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_elem_size(</span><span style="color:#D73A49">in</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 4</span><span style="color:#24292E">))</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_elem_size(out) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 4</span><span style="color:#24292E">))</span></span>
+<span class="line"><span style="color:#24292E">check(or_else((buffer_fold_factor(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 9223372036854775807</span><span style="color:#24292E">), (buffer_max(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E"> (buffer_fold_factor(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">+</span><span style="color:#24292E"> buffer_min(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">)))))</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_min(</span><span style="color:#D73A49">in</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> buffer_min(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">)))</span></span>
+<span class="line"><span style="color:#24292E">check((buffer_max(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">) </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> buffer_max(</span><span style="color:#D73A49">in</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">)))</span></span>
+<span class="line"><span style="color:#24292E">tmp </span><span style="color:#D73A49">=</span><span style="color:#24292E"> allocate(automatic, </span><span style="color:#005CC5">4</span><span style="color:#24292E">, {</span></span>
+<span class="line"><span style="color:#24292E">  {[buffer_min(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">), buffer_max(out, </span><span style="color:#005CC5">0</span><span style="color:#24292E">)], </span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">, </span><span style="color:#D73A49">&lt;&gt;</span><span style="color:#24292E">}</span></span>
+<span class="line"><span style="color:#24292E">}) {</span></span>
+<span class="line"><span style="color:#24292E"> call(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">mul</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">, {</span><span style="color:#D73A49">in</span><span style="color:#24292E">}, {tmp})</span></span>
+<span class="line"><span style="color:#24292E"> call(</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">add</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">, {tmp}, {out})</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>The opposite extreme would be the following:</p>
 <ol>
 <li>Allocate a buffer of size 1 for <code>tmp</code>.</li>
 <li>For each element compute <code>mul</code> followed by <code>add</code> and store the result to <code>out</code>.</li>
 </ol>
-<pre><code>...
-const int chunk_size = 1;
-add.loops({{x, chunk_size}});
-pipeline p = build_pipeline(ctx, {in}, {out});</code></pre>
-<pre><code>tmp = allocate(automatic, 4, {
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">...</span></span>
+<span class="line"><span style="color:#24292E">const </span><span style="color:#005CC5">int</span><span style="color:#24292E"> chunk_size </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 1</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">add.loops({{x, chunk_size}})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">pipeline p </span><span style="color:#D73A49">=</span><span style="color:#24292E"> build_pipeline(ctx, {</span><span style="color:#D73A49">in</span><span style="color:#24292E">}, {out})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">tmp = allocate(automatic, 4, {
   {[buffer_min(out, 0), buffer_max(out, 0)], &lt;&gt;, 1}
 }) {
  out.j = loop(serial, [buffer_min(out, 0), buffer_max(out, 0)], 1) {

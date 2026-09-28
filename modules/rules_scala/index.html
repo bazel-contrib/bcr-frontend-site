@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bcb6e70e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.66088a5c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4a6402d6.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9043bfc8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.025844ae.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.39657cff.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_scala/7.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -193,15 +193,15 @@ page</a>.</p>
 <h3>Resolving <code>protobuf</code> conflicts</h3>
 <p>If a newer <code>protobuf</code> version in the module graph breaks your build, use
 <a href="https://bazel.build/external/module#single-version_override"><code>single_version_override</code></a> or <a href="https://bazel.build/external/module#multiple-version_override"><code>multiple_version_override</code></a> to fix it:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protobuf"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "29.5"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com_google_protobuf"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">single_version_override(</span></span>
-<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protobuf"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "29.5"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(
+    name = "protobuf",
+    version = "29.5",
+    repo_name = "com_google_protobuf",
+)
+single_version_override(
+    module_name = "protobuf",
+    version = "29.5",
+)</code></pre>
 <h3>Legacy <code>WORKSPACE</code> configuration</h3>
 <p><code>rules_scala</code> 7.x enables existing users to migrate to Bzlmod. Legacy
 <code>WORKSPACE</code> builds continue to work for Bazel 7 and 8, but <a href="https://bazel.build/external/migration"><strong>the legacy
@@ -214,7 +214,7 @@ page</a>. This snippet is designed to ensure that users pick up the
 correct order of dependencies for <code>rules_scala</code>. If you want to override any of
 the following dependency versions, make sure to <code>load()</code> them before calling
 <code>rules_scala_dependencies()</code>.</p>
-<pre><code lang="py"># WORKSPACE
+<pre><code># WORKSPACE
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 # See https://github.com/bazelbuild/rules_scala/releases for up to date version

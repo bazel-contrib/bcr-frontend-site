@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.164f496f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.389c105f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4a04ee3a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ded342f6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.609f8a4a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c200a8f1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/paho.mqtt.c/1.3.14.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -120,8 +120,8 @@
 <p>Tracing is switched on using <code>MQTT_C_CLIENT_TRACE</code> (a value of ON traces to stdout, any other value should specify a file to trace to).</p>
 <p>The verbosity of the output is controlled using the  <code>MQTT_C_CLIENT_TRACE_LEVEL</code> environment variable - valid values are ERROR, PROTOCOL, MINIMUM, MEDIUM and MAXIMUM (from least to most verbose).</p>
 <p>The variable <code>MQTT_C_CLIENT_TRACE_MAX_LINES</code> limits the number of lines of trace that are output.</p>
-<pre><code lang="py">export MQTT_C_CLIENT_TRACE=ON
-export MQTT_C_CLIENT_TRACE_LEVEL=PROTOCOL</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">MQTT_C_CLIENT_TRACE</span><span style="color:#D73A49">=</span><span style="color:#005CC5">ON</span></span>
+<span class="line"><span style="color:#24292E">export </span><span style="color:#005CC5">MQTT_C_CLIENT_TRACE_LEVEL</span><span style="color:#D73A49">=</span><span style="color:#005CC5">PROTOCOL</span></span></code></pre>
 <h2>Reporting bugs</h2>
 <p>Please open issues in the Github project: <a href="https://github.com/eclipse-paho/paho.mqtt.c/issues">https://github.com/eclipse-paho/paho.mqtt.c/issues</a>.</p>
 <h2>More information</h2>
@@ -137,7 +137,7 @@ export MQTT_C_CLIENT_TRACE_LEVEL=PROTOCOL</code></pre>
 <li>A conforming C compiler, such as <a href="https://gcc.gnu.org/">gcc</a>, <a href="https://clang.llvm.org/">Clang</a>, etc</li>
 </ul>
 <p>On Debian based systems this would mean that the following packages have to be installed:</p>
-<pre><code>$ apt-get install build-essential gcc make cmake cmake-gui cmake-curses-gui</code></pre>
+<pre><code lang="py">$ apt-get install build-essential gcc make cmake cmake-gui cmake-curses-gui</code></pre>
 <p>Also, in order to build a debian package from the source code, the following packages have to be installed</p>
 <pre><code>$ apt-get install fakeroot devscripts dh-make lsb-release</code></pre>
 <p>Ninja can be downloaded from its github project page in the "releases" section. Optionally it is possible to build binaries with SSL/TLS support. This requires the OpenSSL libraries and includes to be available. E. g. on Debian:</p>

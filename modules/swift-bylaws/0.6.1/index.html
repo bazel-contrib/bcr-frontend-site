@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ea480ff2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5e76a6b9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.85c7f7b1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bef80e97.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.bc3578b0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d24cd348.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-bylaws/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -105,32 +105,32 @@ read the compiler index from the latest build.</p>
 <h2>Try Bylaws</h2>
 <p>Create <code>Bylaws.swift</code> with a rule that keeps console output inside the logging
 layer:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> Bylaws</span></span>
-<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> Testing</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let app </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Codebase(root: .automatic(), including: [</span><span style="color:#032F62">"Sources/**"</span><span style="color:#24292E">])</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">let projectRules: [Rule] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#24292E">  Rule(</span></span>
-<span class="line"><span style="color:#032F62">    "central-logging"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "Console output goes through the logging layer"</span></span>
-<span class="line"><span style="color:#24292E">  ) {</span></span>
-<span class="line"><span style="color:#D73A49">    try</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> app.calls</span></span>
-<span class="line"><span style="color:#24292E">      .outside(</span><span style="color:#032F62">"Sources/Logging"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">      .violations(</span></span>
-<span class="line"><span style="color:#24292E">        matching: .references(</span><span style="color:#032F62">"print"</span><span style="color:#24292E">, </span><span style="color:#032F62">"debugPrint"</span><span style="color:#24292E">, </span><span style="color:#032F62">"NSLog"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">      )</span></span>
-<span class="line"><span style="color:#24292E">  },</span></span>
-<span class="line"><span style="color:#24292E">]</span></span></code></pre>
+<pre><code lang="py">import Bylaws
+import Testing
+
+let app = Codebase(root: .automatic(), including: ["Sources/**"])
+
+let projectRules: [Rule] = [
+  Rule(
+    "central-logging",
+    "Console output goes through the logging layer"
+  ) {
+    try await app.calls
+      .outside("Sources/Logging")
+      .violations(
+        matching: .references("print", "debugPrint", "NSLog")
+      )
+  },
+]</code></pre>
 <p>Save the file at the project root to run it with the CLI, or place it in a test
 target to run it with Swift Testing.</p>
 <h3>Run the example with the CLI</h3>
 <p>Install <code>bylaws</code>, then run the rule from the project root:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">brew install theblixguy</span><span style="color:#D73A49">/</span><span style="color:#24292E">tap</span><span style="color:#D73A49">/</span><span style="color:#24292E">bylaws</span></span>
-<span class="line"><span style="color:#24292E">bylaws lint</span></span></code></pre>
+<pre><code>brew install theblixguy/tap/bylaws
+bylaws lint</code></pre>
 <p>If <code>Sources/App.swift</code> calls <code>print</code>, the command exits with status 1 and points
 to the call and the rule that reported it:</p>
-<pre><code lang="py">/path/to/App/Sources/App.swift:2:3: error: print violates 'Console output goes through the logging layer' [central-logging]
+<pre><code>/path/to/App/Sources/App.swift:2:3: error: print violates 'Console output goes through the logging layer' [central-logging]
 /path/to/App/Bylaws.swift:7:3: note: rule 'central-logging' is declared here
 Checked 1 rule: 1 violation.</code></pre>
 <h3>Run the example with Swift Testing</h3>

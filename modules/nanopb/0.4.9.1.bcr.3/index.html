@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ea480ff2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5e76a6b9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.85c7f7b1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bef80e97.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.bc3578b0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d24cd348.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/nanopb/0.4.9.1.bcr.3"></head>
 
 	<body style="margin: 0 auto">
@@ -88,8 +88,8 @@ README.txt in that folder.</p>
 <p>Protocol Buffers messages are defined in a <code>.proto</code> file, which follows a standard
 format that is compatible with all Protocol Buffers libraries. To use it with nanopb,
 you need to generate <code>.pb.c</code> and <code>.pb.h</code> files from it:</p>
-<pre><code lang="py">python generator/nanopb_generator.py myprotocol.proto  # For source checkout
-generator-bin/nanopb_generator myprotocol.proto        # For binary package</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">python generator</span><span style="color:#D73A49">/</span><span style="color:#24292E">nanopb_generator.py myprotocol.proto  </span><span style="color:#6A737D"># For source checkout</span></span>
+<span class="line"><span style="color:#24292E">generator</span><span style="color:#D73A49">-</span><span style="color:#005CC5">bin</span><span style="color:#D73A49">/</span><span style="color:#24292E">nanopb_generator myprotocol.proto        </span><span style="color:#6A737D"># For binary package</span></span></code></pre>
 <p>(Note: For instructions for nanopb-0.3.9.x and older, see the documentation
 of that particular version <a href="https://github.com/nanopb/nanopb/blob/maintenance_0.3/README.md">here</a>)</p>
 <p>The binary packages for Windows, Linux and Mac OS X should contain all necessary
@@ -105,7 +105,7 @@ its functionality using your compiler and platform, you'll want to run the
 test suite. The build rules for the test suite are implemented using Scons,
 so you need to have that installed (ex: <code>sudo apt install scons</code> or <code>pip install scons</code>).
 To run the tests:</p>
-<pre><code>cd tests
+<pre><code lang="py">cd tests
 scons</code></pre>
 <p>This will show the progress of various test cases. If the output does not
 end in an error, the test cases were successful.</p>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.20c87933.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.30c7804e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5fdf1bd4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8ee0f456.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.efeae77b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bdd5766e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/cxxurl/0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -91,12 +91,12 @@
 <span class="line"><span style="color:#24292E">std::string fragment_str</span><span style="color:#D73A49">=</span><span style="color:#24292E">u1.fragment()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 </li>
 <li><p>Setting the different fields of an <code>Url</code> object</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">u1.clear().scheme(</span><span style="color:#032F62">"http"</span><span style="color:#24292E">).host(</span><span style="color:#032F62">"www.example.com"</span><span style="color:#24292E">).path(</span><span style="color:#032F62">"/"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">u1.add_query(</span><span style="color:#032F62">"q"</span><span style="color:#24292E">,</span><span style="color:#032F62">"some search key"</span><span style="color:#24292E">).add_query(</span><span style="color:#032F62">"fast"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">assert</span><span style="color:#24292E">(u1.str()</span><span style="color:#D73A49">==</span><span style="color:#032F62">"http://www.example.com/?q=some+search+key&amp;fast"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">u1.clear().scheme("http").host("www.example.com").path("/");
+u1.add_query("q","some search key").add_query("fast");
+assert(u1.str()=="http://www.example.com/?q=some+search+key&amp;fast");</code></pre>
 </li>
 <li><p>Accessing the key and values in the query</p>
-<pre><code lang="py">u1.clear().add_query("a","b").add_query("c","d");
+<pre><code>u1.clear().add_query("a","b").add_query("c","d");
 assert(u1.query(0).val()=="b");
 assert(u1.query(1).key()=="c");
 assert(u1.str()=="?a=b&amp;c=d");

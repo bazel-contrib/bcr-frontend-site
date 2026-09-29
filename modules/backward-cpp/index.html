@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5c3f47a4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9217ea12.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a6f4565c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b2374422.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.ffb4650c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.49990b3e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/backward-cpp/1.6"></head>
 
 	<body style="margin: 0 auto">
@@ -105,12 +105,12 @@ the library.</p>
 <span class="line"><span style="color:#24292E">add_backward(mytarget)</span></span></code></pre>
 <h4>Modifying CMAKE_MODULE_PATH</h4>
 <p>In this case you can have Backward installed as a subdirectory:</p>
-<pre><code lang="py">list(APPEND CMAKE_MODULE_PATH /path/to/backward-cpp)
-find_package(Backward)
-
-# This will add libraries, definitions and include directories needed by backward
-# through an IMPORTED target.
-target_link_libraries(mytarget PUBLIC Backward::Backward)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">list</span><span style="color:#24292E">(</span><span style="color:#005CC5">APPEND</span><span style="color:#005CC5"> CMAKE_MODULE_PATH</span><span style="color:#D73A49"> /</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">backward</span><span style="color:#D73A49">-</span><span style="color:#24292E">cpp)</span></span>
+<span class="line"><span style="color:#24292E">find_package(Backward)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># This will add libraries, definitions and include directories needed by backward</span></span>
+<span class="line"><span style="color:#6A737D"># through an IMPORTED target.</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(mytarget </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> Backward::Backward)</span></span></code></pre>
 <p>Notice that this is equivalent to using the the approach that uses <code>add_subdirectory()</code>,
 however it uses cmake's <a href="https://cmake.org/Wiki/CMake/Tutorials/Exporting_and_Importing_Targets">imported target</a> mechanism.</p>
 <h4>Installation through a regular package manager</h4>
@@ -119,11 +119,11 @@ however it uses cmake's <a href="https://cmake.org/Wiki/CMake/Tutorials/Exportin
 <ul>
 <li><a href="https://anaconda.org/conda-forge/backward-cpp">conda-forge</a></li>
 </ul>
-<pre><code>find_package(Backward)
-
-# This will add libraries, definitions and include directories needed by backward
-# through an IMPORTED target.
-target_link_libraries(mytarget PUBLIC Backward::Backward)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">find_package(Backward)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># This will add libraries, definitions and include directories needed by backward</span></span>
+<span class="line"><span style="color:#6A737D"># through an IMPORTED target.</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(mytarget </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> Backward::Backward)</span></span></code></pre>
 <h3>Libraries to unwind the stack</h3>
 <p>On Linux and macOS, backtrace can back-trace or "walk" the stack using the
 following libraries:</p>
@@ -133,7 +133,7 @@ unwind, the stacktrace is as accurate as it can possibly be, since this is
 used by the C++ runtine in gcc/clang for stack unwinding on exception.</p>
 <p>Normally libgcc is already linked to your program by default.</p>
 <h4>libunwind from the <a href="https://github.com/libunwind/libunwind">libunwind project</a></h4>
-<pre><code>apt-get install binutils-dev (or equivalent)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install binutils</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev (</span><span style="color:#D73A49">or</span><span style="color:#24292E"> equivalent)</span></span></code></pre>
 <p>Libunwind provides, in some cases, a more accurate stacktrace as it knows
 to decode signal handler frames and lets us edit the context registers when
 unwinding, allowing stack traces over bad function references.</p>
@@ -164,24 +164,24 @@ requests are welcome :)</strong></p>
 Three libraries are currently supported, the only difference is which one is the
 easiest for you to install, so pick your poison:</p>
 <h4>libbfd from the <a href="http://www.gnu.org/software/binutils/">GNU/binutils</a></h4>
-<pre><code>apt-get install binutils-dev (or equivalent)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install binutils</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev (</span><span style="color:#D73A49">or</span><span style="color:#24292E"> equivalent)</span></span></code></pre>
 <p>And do not forget to link with the lib: <code>g++/clang++ -lbfd -ldl ...</code></p>
 <p>This library requires dynamic loading. Which is provided by the library <code>dl</code>.
 Hence why we also link with <code>-ldl</code>.</p>
 <p>Then define the following before every inclusion of <code>backward.hpp</code> (don't
 forget to update <code>backward.cpp</code> as well):</p>
-<pre><code>#define BACKWARD_HAS_BFD 1</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#define BACKWARD_HAS_BFD 1</span></span></code></pre>
 <h4>libdw from the <a href="https://fedorahosted.org/elfutils/">elfutils</a></h4>
-<pre><code>apt-get install libdw-dev (or equivalent)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install libdw</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev (</span><span style="color:#D73A49">or</span><span style="color:#24292E"> equivalent)</span></span></code></pre>
 <p>And do not forget to link with the lib and inform Backward to use it:</p>
-<pre><code>#define BACKWARD_HAS_DW 1</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#define BACKWARD_HAS_DW 1</span></span></code></pre>
 <p>Of course you can simply add the define (<code>-DBACKWARD_HAS_...=1</code>) and the
 linkage details in your build system and even auto-detect which library is
 installed, it's up to you.</p>
 <h4><a href="https://sourceforge.net/projects/libdwarf/">libdwarf</a> and <a href="http://www.mr511.de/software/english.html">libelf</a></h4>
-<pre><code>apt-get install libdwarf-dev (or equivalent)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">apt</span><span style="color:#D73A49">-</span><span style="color:#24292E">get install libdwarf</span><span style="color:#D73A49">-</span><span style="color:#24292E">dev (</span><span style="color:#D73A49">or</span><span style="color:#24292E"> equivalent)</span></span></code></pre>
 <p>And do not forget to link with the lib and inform Backward to use it:</p>
-<pre><code>#define BACKWARD_HAS_DWARF 1</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#define BACKWARD_HAS_DWARF 1</span></span></code></pre>
 <p>There are several alternative implementations of libdwarf and libelf that
 are API compatible so it's possible, although it hasn't been tested, to
 replace the ones used when developing backward (in bold, below):</p>
@@ -204,11 +204,11 @@ the Internet, you will appreciate the simplicity of Backward's API.</p>
 <h3>Stacktrace</h3>
 <p>The StackTrace class lets you take a "snapshot" of the current stack.
 You can use it like this:</p>
-<pre><code>using namespace backward;
-StackTrace st; st.load_here(32);
-Printer p; p.print(st);</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">using namespace backward</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">StackTrace st; st.load_here(</span><span style="color:#005CC5">32</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">Printer p; p.print(st)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>The public methods are:</p>
-<pre><code>class StackTrace { public:
+<pre><code lang="py">class StackTrace { public:
     // Take a snapshot of the current stack, with at most "trace_cnt_max"
     // traces in it. The first trace is the most recent (ie the current
     // frame). You can also provide a trace address to load_from() assuming

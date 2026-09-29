@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.85c7f7b1.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bef80e97.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.04f1eb70.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ed19f8a3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.d24cd348.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.5876b3cc.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/su-exec/0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -69,11 +69,11 @@ like su and sudo does, which avoids TTY and signal issues (see below).</p>
 <p>Notice that su-exec depends on being run by the root user, non-root
 users do not have permission to change uid/gid.</p>
 <h2>Usage</h2>
-<pre><code lang="py">su-exec user-spec command [ arguments... ]</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">su</span><span style="color:#D73A49">-</span><span style="color:#005CC5">exec</span><span style="color:#24292E"> user</span><span style="color:#D73A49">-</span><span style="color:#24292E">spec command [ arguments</span><span style="color:#005CC5">...</span><span style="color:#24292E"> ]</span></span></code></pre>
 <p><code>user-spec</code> is either a user name (e.g. <code>nobody</code>) or user name and group
 name separated with colon (e.g. <code>nobody:ftp</code>). Numeric uid/gid values
 can be used instead of names. Example:</p>
-<pre><code>$ su-exec apache:1000 /usr/sbin/httpd -f /opt/www/httpd.conf</code></pre>
+<pre><code lang="py">$ su-exec apache:1000 /usr/sbin/httpd -f /opt/www/httpd.conf</code></pre>
 <h2>TTY &amp; parent/child handling</h2>
 <p>Notice how <code>su</code> will make <code>ps</code> be a child of a shell while <code>su-exec</code>
 just executes <code>ps</code> directly.</p>

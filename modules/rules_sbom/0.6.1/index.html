@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3720bd4e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7fdfa30b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.06b05b83.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.11389307.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.b75cc4c7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a3789267.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_sbom/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -78,17 +78,17 @@
 <ol>
 <li>Add the dependency in <code>MODULE.bazel</code>:<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_sbom"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.6.2"</span><span style="color:#24292E">)  </span><span style="color:#6A737D"># x-release-please-version</span></span></code></pre>
 The module is published to the <a href="https://registry.bazel.build/modules/rules_sbom">Bazel Central Registry</a>.</li>
-<li>Provision the bundled Syft toolchain with built-in defaults:<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sbom_ext </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_sbom//sbom:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sbom_setup"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_sbom//toolchains/syft:darwin_amd64_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_sbom//toolchains/syft:darwin_arm64_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_sbom//toolchains/syft:linux_amd64_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_sbom//toolchains/syft:linux_arm64_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_sbom//toolchains/syft:windows_amd64_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<li>Provision the bundled Syft toolchain with built-in defaults:<pre><code lang="py">sbom_ext = use_extension("@rules_sbom//sbom:extensions.bzl", "sbom_setup")
+
+register_toolchains(
+    "@rules_sbom//toolchains/syft:darwin_amd64_toolchain",
+    "@rules_sbom//toolchains/syft:darwin_arm64_toolchain",
+    "@rules_sbom//toolchains/syft:linux_amd64_toolchain",
+    "@rules_sbom//toolchains/syft:linux_arm64_toolchain",
+    "@rules_sbom//toolchains/syft:windows_amd64_toolchain",
+)</code></pre>
 The extension preinstalls Syft for macOS (amd64/arm64), Linux (amd64/arm64), and Windows (amd64) with default SHA256 sums. To customize the download set, create a small wrapper extension that calls <code>rules_sbom_setup(..., platforms=[...], version="...", register_toolchains = False)</code> and register the desired toolchains explicitly.</li>
-<li>Define SBOM targets:<pre><code lang="py">load("@rules_sbom//sbom:defs.bzl", "sbom_artifact")
+<li>Define SBOM targets:<pre><code>load("@rules_sbom//sbom:defs.bzl", "sbom_artifact")
 
 sbom_artifact(
     name = "my_binary_sbom",

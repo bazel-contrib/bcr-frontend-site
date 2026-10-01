@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.0706054f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.40ba0d84.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3db19f32.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.03dc4cb4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.3192bbd2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.94b2bb08.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sse2neon/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -145,13 +145,13 @@ As a result, additional treatments should be applied to ensure consistency betwe
 <li><p>Locate the following SSE header files included in the code:</p>
 </li>
 </ul>
-<pre><code lang="py">#include &lt;xmmintrin.h&gt;
-#include &lt;emmintrin.h&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;xmmintrin.h&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include &lt;emmintrin.h&gt;</span></span></code></pre>
 <p>  {p,t,s,n,w}mmintrin.h could be replaceable as well.</p>
 <ul>
 <li>Replace them with:</li>
 </ul>
-<pre><code>#include "sse2neon.h"</code></pre>
+<pre><code lang="py">#include "sse2neon.h"</code></pre>
 <ul>
 <li>Explicitly specify platform-specific options to gcc/clang compilers.<ul>
 <li>On ARMv8-A 64-bit targets, you should specify the following compiler option: (Remove <code>crypto</code> and/or <code>crc</code> if your architecture does not support cryptographic and/or CRC32 extensions)</li>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.eaf624f6.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.884117e6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c2021fbe.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fd13ca06.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.48d6d1b4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.2d14c941.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.32cc34fd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/swift-bylaws/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -138,15 +138,15 @@ to the call and the rule that reported it:</p>
 Swift Testing, you can define <code>projectRules</code> in the same file and move them into
 a shared <code>Bylaws.swift</code> later. In either location, <code>.automatic()</code> finds the
 package root so <code>Sources/**</code> will select the same files.</p>
-<pre><code lang="py">import Bylaws
-import Testing
-
-@Test("Code follows project rules", arguments: projectRules)
-func projectRule(_ rule: Rule) async throws {
-  try await rule.report()
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> Bylaws</span></span>
+<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> Testing</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1">@Test</span><span style="color:#24292E">(</span><span style="color:#032F62">"Code follows project rules"</span><span style="color:#24292E">, arguments: projectRules)</span></span>
+<span class="line"><span style="color:#24292E">func projectRule(_ rule: Rule) </span><span style="color:#D73A49">async</span><span style="color:#24292E"> throws {</span></span>
+<span class="line"><span style="color:#D73A49">  try</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> rule.report()</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>The rule runs with the rest of your tests:</p>
-<pre><code>swift test</code></pre>
+<pre><code lang="py">swift test</code></pre>
 <p>If the rule finds a violation, the test fails and the output points to the
 affected code. The <a href="https://theblixguy.github.io/swift-bylaws/documentation/bylaws/gettingstarted">getting started guide</a> includes the package dependency and
 explains how to share one rules file between Swift Testing and the CLI.</p>

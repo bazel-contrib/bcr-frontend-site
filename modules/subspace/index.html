@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b2136690.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b60cc5b6.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7e29a816.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.39e949f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.b3a31e94.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.47a48a18.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/subspace/3.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -130,10 +130,10 @@ The <em>.bazelrc</em> file contains some configuration options.</p>
 <h3>To build on Linux</h3>
 <p>Subspace really wants to be built using <em>clang</em> but modern <em>GCC</em> versions work well too.  Depending on how your OS is configured, you
 might need to tell bazel what compiler to use.</p>
-<pre><code lang="py">CC=clang bazel build ...</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">CC</span><span style="color:#D73A49">=</span><span style="color:#24292E">clang bazel build </span><span style="color:#005CC5">...</span></span></code></pre>
 <h3>Example: Ubuntu 20.04</h3>
 <p>Build a minimal set of binaries:</p>
-<pre><code>CC=clang bazel build //server:subspace_server //manual_tests:{pub,sub}</code></pre>
+<pre><code lang="py">CC=clang bazel build //server:subspace_server //manual_tests:{pub,sub}</code></pre>
 <p>Then run each in a separate terminal:</p>
 <ul>
 <li><code>./bazel-bin/server/subspace_server</code></li>

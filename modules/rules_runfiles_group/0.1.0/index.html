@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.291ba7ca.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9128c170.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d6fdd3fe.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9deb1d2b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.80036dc7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8f54d95b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_runfiles_group/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -66,22 +66,22 @@ packaging rules consume those groups as partially ordered <strong>layers</strong
 <code>RunfilesGroupInfo</code>, a packager can produce better artifacts — container images with shared base
 layers, archives that keep interpreter, standard library and application code apart — instead of
 packing one flat runfiles tree.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_foo//foo:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"foo_binary"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_acme_pkg//pkg:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pkg_creator"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">foo_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Provides RunfilesGroupInfo with groups like "interpreter",</span></span>
-<span class="line"><span style="color:#6A737D">    # "stdlib", "third_party", "app_code" -- or one per dependency.</span></span>
-<span class="line"><span style="color:#005CC5">    ...</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">pkg_creator(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app_tar"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    binary</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Reads RunfilesGroupInfo, optionally merges groups down to a</span></span>
-<span class="line"><span style="color:#6A737D">    # limit, orders them, and emits one package per group.</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_foo//foo:defs.bzl", "foo_binary")
+load("@rules_acme_pkg//pkg:defs.bzl", "pkg_creator")
+
+foo_binary(
+    name = "app",
+    # Provides RunfilesGroupInfo with groups like "interpreter",
+    # "stdlib", "third_party", "app_code" -- or one per dependency.
+    ...
+)
+
+pkg_creator(
+    name = "app_tar",
+    binary = ":app",
+    # Reads RunfilesGroupInfo, optionally merges groups down to a
+    # limit, orders them, and emits one package per group.
+)</code></pre>
 <p>Nothing about this is mandatory on either side. A packager that meets a binary without
 <code>RunfilesGroupInfo</code> falls back to <code>DefaultInfo.default_runfiles</code> as a single group.</p>
 <p><strong>Who should read what:</strong> users → <a href="#for-users">For users</a>. Authors of <code>*_binary</code> rules →
@@ -90,10 +90,10 @@ packing one flat runfiles tree.</p>
 <h2>Installation</h2>
 <p>Add the module to your <code>MODULE.bazel</code>, taking the version from the
 <a href="https://github.com/bazel-contrib/rules_runfiles_group/releases">releases page</a>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_runfiles_group"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "…"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>bazel_dep(name = "rules_runfiles_group", version = "…")</code></pre>
 <p>Provider emission is <strong>off by default</strong>, so a build pays for it only when something consumes it.
 Turn it on where you package:</p>
-<pre><code lang="py"># .bazelrc
+<pre><code># .bazelrc
 common --@rules_runfiles_group//runfiles_group:enabled=true</code></pre>
 <p>Tested against Bazel 7, 8, 9 and rolling.</p>
 <h2>The providers</h2>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.149438cb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7a11f3f3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f40380cd.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f6d1ff03.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.af4c5b36.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6ced0434.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/suitesparse/7.12.3"></head>
 
 	<body style="margin: 0 auto">
@@ -655,17 +655,17 @@ no such BLAS is found, the build will fail.</p>
 <h2>QUICK START FOR THE C/C++ LIBRARIES:</h2>
 <p>Type the following in this directory (requires system priviledge to do the
 <code>sudo make install</code>):</p>
-<pre><code lang="py">mkdir -p build &amp;&amp; cd build
-    cmake ..
-    cmake --build .
-    sudo cmake --install .</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir </span><span style="color:#D73A49">-</span><span style="color:#24292E">p build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#24292E">    cmake ..</span></span>
+<span class="line"><span style="color:#24292E">    cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build .</span></span>
+<span class="line"><span style="color:#24292E">    sudo cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install .</span></span></code></pre>
 <p>All libraries will be created and installed into the default system-wide folder
 (/usr/local/lib on Linux).  All include files needed by the applications that
 use SuiteSparse are installed into /usr/local/include/suitesparse (on Linux).</p>
 <p>To build only a subset of libraries, set <code>SUITESPARSE_ENABLE_PROJECTS</code> when
 configuring with CMake.  E.g., to build and install CHOLMOD and CXSparse
 (including their dependencies), use the following commands:</p>
-<pre><code>mkdir -p build &amp;&amp; cd build
+<pre><code lang="py">mkdir -p build &amp;&amp; cd build
     cmake -DSUITESPARSE_ENABLE_PROJECTS="cholmod;cxsparse" ..
     cmake --build .
     sudo cmake --install .</code></pre>

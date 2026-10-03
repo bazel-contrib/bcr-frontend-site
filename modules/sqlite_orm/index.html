@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d1a456bd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2bfabb2c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.003e9521.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.01610836.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.a46a8302.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6e18049d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sqlite_orm/1.9.1.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -127,24 +127,24 @@
 <li><strong>User defined functions support</strong></li>
 </ul>
 <p><code>sqlite_orm</code> library allows to create easy data model mappings to your database schema. It is built to manage (CRUD) objects with a primary key and without it. It also allows you to specify table names and column names explicitly no matter how your classes actually named. Take a look at example:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">struct User{</span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#005CC5"> id</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    std::string firstName;</span></span>
-<span class="line"><span style="color:#24292E">    std::string lastName;</span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> birthDate;</span></span>
-<span class="line"><span style="color:#24292E">    std::unique_ptr</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">std::string</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> imageUrl;</span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> typeId;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">struct UserType {</span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#005CC5"> id</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">    std::string name;</span></span>
-<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">struct User{
+    int id;
+    std::string firstName;
+    std::string lastName;
+    int birthDate;
+    std::unique_ptr&lt;std::string&gt; imageUrl;
+    int typeId;
+};
+
+struct UserType {
+    int id;
+    std::string name;
+};</code></pre>
 <p>So we have database with predefined schema like </p>
 <p><code>CREATE TABLE users (id integer primary key autoincrement, first_name text not null, last_name text not null, birth_date integer not null, image_url text, type_id integer not null)</code></p>
 <p><code>CREATE TABLE user_types (id integer primary key autoincrement, name text not null DEFAULT 'name_placeholder')</code></p>
 <p>Now we tell <code>sqlite_orm</code> library about our schema and provide database filename. We create <code>storage</code> service object that has CRUD interface. Also we create every table and every column. All code is intuitive and minimalistic.</p>
-<pre><code lang="py">using namespace sqlite_orm;
+<pre><code>using namespace sqlite_orm;
 auto storage = make_storage("db.sqlite",
                             make_table("users",
                                        make_column("id", &amp;User::id, primary_key().autoincrement()),

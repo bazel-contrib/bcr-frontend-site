@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.32589f5a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.14f629b1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.24880396.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.002108f1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b296c286.js" defer=""></script>
-		<script src="/registry.2af65582.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.42b9a48c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sv-elab/2026-07-07"></head>
 
 	<body style="margin: 0 auto">
@@ -117,11 +117,11 @@
 <p>One can load the plugin into Yosys on startup by passing the <code>-m</code> argument:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> yosys </span><span style="color:#D73A49">-</span><span style="color:#24292E">m slang</span></span></code></pre>
 <p>Or, alternatively, one can use the <code>plugin</code> command at runtime:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">plugin </span><span style="color:#D73A49">-</span><span style="color:#24292E">i slang</span></span></code></pre>
+<pre><code lang="py">plugin -i slang</code></pre>
 <p>After the plugin has been loaded, reading designs using sv-elab uses the historical <code>read_slang</code> command name.</p>
 <p>For a full documentation of the command options, see <code>help read_slang</code>. The command understands standard <a href="https://www.sv-lang.com/command-line-ref.html">slang options</a>.</p>
 <p>Sample usage:</p>
-<pre><code lang="py">read_slang picorv32.v --top picorv32 -D DEBUG</code></pre>
+<pre><code>read_slang picorv32.v --top picorv32 -D DEBUG</code></pre>
 <h2>Contributing</h2>
 <p>Contributions are welcome! If you intent to develop a particular feature, feel free to get in touch and consult on the appropriate approach.</p>
 <h3>AI policy</h3>

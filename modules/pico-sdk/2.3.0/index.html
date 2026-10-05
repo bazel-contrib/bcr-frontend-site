@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.52472a24.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8d884f5d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0e88da42.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.172bde26.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.cbfcdfd1.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.06e0380a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/pico-sdk/2.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -94,7 +94,7 @@ SDK, to explore more advanced features, and for complete PDF-based API documenta
 instructions for other platforms, and just in general, we recommend you see <a href="https://rptl.io/pico-c-sdk">Raspberry Pi Pico-Series C/C++ SDK</a></p>
 <ol>
 <li><p>Install CMake (at least version 3.13), python 3, a native compiler, and a GCC cross compiler</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sudo apt install cmake python3 build</span><span style="color:#D73A49">-</span><span style="color:#24292E">essential gcc</span><span style="color:#D73A49">-</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">none</span><span style="color:#D73A49">-</span><span style="color:#24292E">eabi libnewlib</span><span style="color:#D73A49">-</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">none</span><span style="color:#D73A49">-</span><span style="color:#24292E">eabi libstdc</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#D73A49">-</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">none</span><span style="color:#D73A49">-</span><span style="color:#24292E">eabi</span><span style="color:#D73A49">-</span><span style="color:#24292E">newlib</span></span></code></pre>
+<pre><code lang="py">sudo apt install cmake python3 build-essential gcc-arm-none-eabi libnewlib-arm-none-eabi libstdc++-arm-none-eabi-newlib</code></pre>
 </li>
 <li><p>Set up your project to point to use the Raspberry Pi Pico SDK</p>
 <ul>
@@ -108,18 +108,18 @@ from the SDK into your project directory</p>
 <li><p>Set <code>PICO_SDK_PATH</code> to the SDK location in your environment, or pass it (<code>-DPICO_SDK_PATH=</code>) to cmake later.</p>
 </li>
 <li><p>Setup a <code>CMakeLists.txt</code> like:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.13...3.27</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># initialize the SDK based on PICO_SDK_PATH</span></span>
-<span class="line"><span style="color:#6A737D"># note: this must happen before project()</span></span>
-<span class="line"><span style="color:#24292E">include(pico_sdk_import.cmake)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">project(my_project)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># initialize the Raspberry Pi Pico SDK</span></span>
-<span class="line"><span style="color:#24292E">pico_sdk_init()</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># rest of your project</span></span></code></pre>
+<pre><code>cmake_minimum_required(VERSION 3.13...3.27)
+
+# initialize the SDK based on PICO_SDK_PATH
+# note: this must happen before project()
+include(pico_sdk_import.cmake)
+
+project(my_project)
+
+# initialize the Raspberry Pi Pico SDK
+pico_sdk_init()
+
+# rest of your project</code></pre>
 </li>
 </ol>
 </li>
@@ -128,7 +128,7 @@ from the SDK into your project directory</p>
 <li><p>Clone the SDK as a submodule called <code>pico-sdk</code></p>
 </li>
 <li><p>Setup a <code>CMakeLists.txt</code> like:</p>
-<pre><code lang="py">cmake_minimum_required(VERSION 3.13...3.27)
+<pre><code>cmake_minimum_required(VERSION 3.13...3.27)
 
 # initialize pico-sdk from submodule
 # note: this must happen before project()

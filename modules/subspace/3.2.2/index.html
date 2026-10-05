@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d86815a5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ed213bda.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.eee069c8.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.94fa46f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.948ec18b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3cfe439a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/subspace/3.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -172,41 +172,41 @@ might need to tell bazel what compiler to use.</p>
 <li><p>If you export <code>DEVELOPER_DIR</code> yourself (e.g. in <code>~/.zshrc</code>), remove it or set it to match <code>xcode-select -p</code>.</p>
 </li>
 <li><p>Optional: after (1), you can force Bazel actions to use Xcode with a <strong>user</strong> <code>.bazelrc</code> line:</p>
-<pre><code lang="py">build --action_env=DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">action_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">DEVELOPER_DIR</span><span style="color:#D73A49">=/</span><span style="color:#24292E">Applications</span><span style="color:#D73A49">/</span><span style="color:#24292E">Xcode.app</span><span style="color:#D73A49">/</span><span style="color:#24292E">Contents</span><span style="color:#D73A49">/</span><span style="color:#24292E">Developer</span></span></code></pre>
 <p>Adjust the path if Xcode is installed elsewhere.</p>
 </li>
 </ol>
 <p><strong>Note:</strong> All tests automatically start a subspace server in a separate thread, so you don't need to run the server separately. The tests handle server lifecycle management internally.</p>
 <h4>client_test</h4>
 <p>The <code>client_test</code> is a comprehensive test suite that validates the core client functionality including publishers, subscribers, reliable/unreliable channels, message reading modes, and more.</p>
-<pre><code># Run the test
-bazel run //client:client_test
-
-# Or run as a test (better for CI)
-bazel test //client:client_test</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the test</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:client_test</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Or run as a test (better for CI)</span></span>
+<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:client_test</span></span></code></pre>
 <h4>latency_test</h4>
 <p>The <code>latency_test</code> measures message transmission latency between publishers and subscribers. This is useful for benchmarking performance.</p>
-<pre><code># Run the latency test
-bazel run //client:latency_test
-
-# Run with custom options (if supported)
-bazel run //client:latency_test -- --help</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the latency test</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:latency_test</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Run with custom options (if supported)</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:latency_test </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#005CC5">help</span></span></code></pre>
 <h4>stress_test</h4>
 <p>The <code>stress_test</code> performs stress testing with high message rates and multiple publishers/subscribers to verify system stability under load.</p>
-<pre><code># Run the stress test (may take a while)
-bazel run //client:stress_test
-
-# Or run as a test
-bazel test //client:stress_test</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Run the stress test (may take a while)</span></span>
+<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:stress_test</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Or run as a test</span></span>
+<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">client:stress_test</span></span></code></pre>
 <h4>Rust Client Tests</h4>
 <p>The Rust client tests exercise the full Rust client API against a real C++ server
 (started in-process via FFI), including cross-language interoperability tests
 that verify C++ publishers can talk to Rust subscribers and vice versa with
 checksums and metadata.</p>
-<pre><code>bazel test //rust_client:client_test</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#24292E">rust_client:client_test</span></span></code></pre>
 <h4>Running All Tests</h4>
 <p>To run all tests at once:</p>
-<pre><code># Run all tests
+<pre><code lang="py"># Run all tests
 bazel test //...
 
 # Run all tests in a specific directory

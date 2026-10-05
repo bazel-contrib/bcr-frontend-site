@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1625a776.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e9630ca9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.95b60ee0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5ea22645.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.aa5ef699.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a75e1ffa.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apple_mig/138.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -113,8 +113,8 @@ compiler default will not likely be correct otherwise. (Exception: in the
 unusual <code>gcc</code> cross compiler case, the compiler front-end is specific to the
 cross-build configuration, so <code>-arch</code> and <code>-target</code> should not be used, and in
 fact must not be used as they will be rejected by the compiler.)</p>
-<pre><code lang="py">% mig -arch x86_64 -isysroot ~/MacOSX11.1.sdk \
-    ~/MacOSX11.1.sdk/usr/include/mach/mach_exc.defs</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">%</span><span style="color:#24292E"> mig </span><span style="color:#D73A49">-</span><span style="color:#24292E">arch x86_64 </span><span style="color:#D73A49">-</span><span style="color:#24292E">isysroot </span><span style="color:#D73A49">~/</span><span style="color:#24292E">MacOSX11.1.sdk \</span></span>
+<span class="line"><span style="color:#D73A49">    ~/</span><span style="color:#24292E">MacOSX11.1.sdk</span><span style="color:#D73A49">/</span><span style="color:#24292E">usr</span><span style="color:#D73A49">/</span><span style="color:#24292E">include</span><span style="color:#D73A49">/</span><span style="color:#24292E">mach</span><span style="color:#D73A49">/</span><span style="color:#24292E">mach_exc.defs</span></span></code></pre>
 <p>This will normally produce <code>mach_exc.h</code>, <code>mach_excServer.c</code>, and
 <code>mach_excUser.c</code>.</p>
 <h2>Bazel module</h2>
@@ -154,7 +154,7 @@ with the original Xcode-based build system, it will actually build without
 errors, even outside of an Apple-internal build. To ensure the version string
 is set correctly, set <code>RC_ProjectNameAndSourceVersion</code>, which can be achieved
 by running:</p>
-<pre><code>% xcodebuild RC_ProjectNameAndSourceVersion=$(
+<pre><code lang="py">% xcodebuild RC_ProjectNameAndSourceVersion=$(
     sed -Ene 's/^AC_INIT\(\[(.*)], \[(.*)](,.*)?\)$/\1-\2/p' &lt; configure.ac)</code></pre>
 </li>
 </ul>

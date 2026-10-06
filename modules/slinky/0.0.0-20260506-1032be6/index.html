@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.2a0cc7ba.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.04f86652.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7515bd63.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ad0cb670.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.234f51c0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.d897268c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.32ab3680.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/slinky/0.0.0-20260506-1032be6"></head>
 
 	<body style="margin: 0 auto">
@@ -87,25 +87,25 @@ Data dependencies are expressed as a <code>[min, max]</code> interval for each i
 </ul>
 <h3>Elementwise example</h3>
 <p>Here is an example of a simple pipeline of two 1D elementwise <code>func</code>s:</p>
-<pre><code lang="py">node_context ctx;
-
-// input buffer expression
-auto in = buffer_expr::make(ctx, "in", 1, sizeof(int));
-// output buffer expression
-auto out = buffer_expr::make(ctx, "out", 1, sizeof(int));
-// temporary buffer expression
-auto tmp = buffer_expr::make(ctx, "tmp", 1, sizeof(int));
-
-var i(ctx, "i");
-// `mul` is automatically registered as the producer of `tmp`.
-func mul = func::make(multiply_2&lt;int&gt;, {{in, {point(i)}}}, {{tmp, {i}}});
-
-// one could reuse 'i', but for clarity let's use a new variable.
-var j(ctx, "j");
-// `add` is automatically registered as the producer of `out`.
-func add = func::make(add_1&lt;int&gt;, {{tmp, {point(j)}}}, {{out, {j}}});
-
-pipeline p = build_pipeline(ctx, {in}, {out});</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">node_context ctx</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#005CC5"> input</span><span style="color:#24292E"> buffer expression</span></span>
+<span class="line"><span style="color:#24292E">auto </span><span style="color:#D73A49">in</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"in"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, sizeof(</span><span style="color:#005CC5">int</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> output buffer expression</span></span>
+<span class="line"><span style="color:#24292E">auto out </span><span style="color:#D73A49">=</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"out"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, sizeof(</span><span style="color:#005CC5">int</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> temporary buffer expression</span></span>
+<span class="line"><span style="color:#24292E">auto tmp </span><span style="color:#D73A49">=</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"tmp"</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, sizeof(</span><span style="color:#005CC5">int</span><span style="color:#24292E">))</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">var i(ctx, </span><span style="color:#032F62">"i"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> `mul`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> automatically registered </span><span style="color:#D73A49">as</span><span style="color:#24292E"> the producer of </span><span style="color:#B31D28;font-style:italic">`tmp`</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#24292E">func mul </span><span style="color:#D73A49">=</span><span style="color:#24292E"> func::make(multiply_2</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">, {{</span><span style="color:#D73A49">in</span><span style="color:#24292E">, {point(i)}}}, {{tmp, {i}}})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> one could reuse </span><span style="color:#032F62">'i'</span><span style="color:#24292E">, but </span><span style="color:#D73A49">for</span><span style="color:#24292E"> clarity let</span><span style="color:#032F62">'s use a new variable.</span></span>
+<span class="line"><span style="color:#24292E">var j(ctx, </span><span style="color:#032F62">"j"</span><span style="color:#24292E">);</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> `add`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> automatically registered </span><span style="color:#D73A49">as</span><span style="color:#24292E"> the producer of </span><span style="color:#B31D28;font-style:italic">`out`</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#24292E">func add = func::make(add_1</span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5">int</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">, {{tmp, {point(j)}}}, {{out, {j}}});</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pipeline p = build_pipeline(ctx, {</span><span style="color:#D73A49">in</span><span style="color:#24292E">}, {out});</span></span></code></pre>
 <p>Without any further specifications this pipeline would use the following strategy:</p>
 <ol>
 <li>Materialize the whole logical tmp buffer of the same size as out, execute all of <code>mul</code>.</li>
@@ -116,7 +116,7 @@ pipeline p = build_pipeline(ctx, {in}, {out});</code></pre>
 <li>Large memory allocation for <code>tmp</code>.</li>
 <li><code>tmp</code> memory is first fully written and then fully read, resulting in expensive memory traffic and inefficient use of CPU caches.</li>
 </ol>
-<pre><code>check(in)
+<pre><code lang="py">check(in)
 check((buffer_rank(in) == 1))
 check(out)
 check((buffer_rank(out) == 1))

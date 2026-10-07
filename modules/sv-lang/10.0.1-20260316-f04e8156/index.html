@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9a611040.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0a0e70ae.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8b8b85b9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.38ca0d87.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.8a304db2.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.24c4bbc8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.87d57e2b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sv-lang/10.0.1-20260316-f04e8156"></head>
 
 	<body style="margin: 0 auto">
@@ -108,34 +108,34 @@
 <span class="line"><span style="color:#24292E">pip install .</span></span></code></pre>
 <h4>Example Python Usage</h4>
 <p>Given a 'test.sv' source file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">module memory(</span></span>
-<span class="line"><span style="color:#24292E">    address,</span></span>
-<span class="line"><span style="color:#24292E">    data_in,</span></span>
-<span class="line"><span style="color:#24292E">    data_out,</span></span>
-<span class="line"><span style="color:#24292E">    read_write,</span></span>
-<span class="line"><span style="color:#24292E">    chip_en</span></span>
-<span class="line"><span style="color:#24292E">  )</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">  input</span><span style="color:#24292E"> wire [</span><span style="color:#005CC5">7</span><span style="color:#24292E">:</span><span style="color:#005CC5">0</span><span style="color:#24292E">] address, data_in</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">  output reg [</span><span style="color:#005CC5">7</span><span style="color:#24292E">:</span><span style="color:#005CC5">0</span><span style="color:#24292E">] data_out</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#005CC5">  input</span><span style="color:#24292E"> wire read_write, chip_en</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  reg [</span><span style="color:#005CC5">7</span><span style="color:#24292E">:</span><span style="color:#005CC5">0</span><span style="color:#24292E">] mem [</span><span style="color:#005CC5">0</span><span style="color:#24292E">:</span><span style="color:#005CC5">255</span><span style="color:#24292E">]</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  always </span><span style="color:#D73A49">@</span><span style="color:#24292E"> (address </span><span style="color:#D73A49">or</span><span style="color:#24292E"> data_in </span><span style="color:#D73A49">or</span><span style="color:#24292E"> read_write </span><span style="color:#D73A49">or</span><span style="color:#24292E"> chip_en)</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (read_write </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 1</span><span style="color:#B31D28;font-style:italic"> &amp;&amp;</span><span style="color:#24292E"> chip_en </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">) begin</span></span>
-<span class="line"><span style="color:#24292E">      mem[address] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> data_in</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">  end</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">  always </span><span style="color:#D73A49">@</span><span style="color:#24292E"> (read_write </span><span style="color:#D73A49">or</span><span style="color:#24292E"> chip_en </span><span style="color:#D73A49">or</span><span style="color:#24292E"> address)</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> (read_write </span><span style="color:#D73A49">==</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic"> &amp;&amp;</span><span style="color:#24292E"> chip_en)</span></span>
-<span class="line"><span style="color:#24292E">      data_out </span><span style="color:#D73A49">=</span><span style="color:#24292E"> mem[address]</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">    else</span></span>
-<span class="line"><span style="color:#24292E">      data_out </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> 0</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">endmodule</span></span></code></pre>
+<pre><code lang="py">module memory(
+    address,
+    data_in,
+    data_out,
+    read_write,
+    chip_en
+  );
+
+  input wire [7:0] address, data_in;
+  output reg [7:0] data_out;
+  input wire read_write, chip_en;
+
+  reg [7:0] mem [0:255];
+
+  always @ (address or data_in or read_write or chip_en)
+    if (read_write == 1 &amp;&amp; chip_en == 1) begin
+      mem[address] = data_in;
+  end
+
+  always @ (read_write or chip_en or address)
+    if (read_write == 0 &amp;&amp; chip_en)
+      data_out = mem[address];
+    else
+      data_out = 0;
+
+endmodule</code></pre>
 <p>We can use slang to load the syntax tree and inspect it:</p>
-<pre><code lang="py">import pyslang
+<pre><code>import pyslang
 
 tree = pyslang.SyntaxTree.fromFile('test.sv')
 mod = tree.root.members[0]

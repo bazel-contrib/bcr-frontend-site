@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.15376c68.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.254a2ec1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6db4586c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.55c3c0a5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.2358c725.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f24c95b3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pylyglot/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -64,25 +64,25 @@
 <p><code>rules_pylyglot</code> provides Bazel rules for combining a Python entry point and
 its first-party dependencies into reviewable, text-only scripts.</p>
 <h2>Usage</h2>
-<pre><code lang="py">load("@rules_python//python:defs.bzl", "py_library")
-load(
-    "@rules_pylyglot//pylyglot:defs.bzl",
-    "pylyglot_multiplat_bundle",
-)
-
-py_library(
-    name = "lib",
-    srcs = [
-        "my_app/__init__.py",
-        "my_app/lib.py",
-    ],
-)
-
-pylyglot_multiplat_bundle(
-    name = "my_tool",
-    main = "main.py",
-    deps = [":lib"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_python//python:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span></span>
+<span class="line"><span style="color:#032F62">    "@rules_pylyglot//pylyglot:defs.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "pylyglot_multiplat_bundle"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">py_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "my_app/__init__.py"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "my_app/lib.py"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pylyglot_multiplat_bundle(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_tool"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    main</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main.py"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":lib"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The rules accept:</p>
 <ul>
 <li><code>main</code>: the <code>.py</code> entry point executed as <code>__main__</code>.</li>
@@ -140,7 +140,7 @@ supplemental evidence when a provider supplies direct file links; use
 copy the Bzlmod snippet into your <code>MODULE.bazel</code> file.</p>
 <p>To use a commit rather than a release, you can point at any SHA of the repo with an <code>archive_override</code> in MODULE.bazel.</p>
 <p>For example to use commit <code>abc123</code>:</p>
-<pre><code>archive_override(
+<pre><code lang="py">archive_override(
     module_name = "rules_pylyglot",
     url = "https://github.com/scottpledger/rules_pylyglot/archive/abc123.tar.gz",
     strip_prefix = "rules_pylyglot-abc123",

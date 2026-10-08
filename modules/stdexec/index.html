@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7e081dcd.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.cbb2570f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.75255f1c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c069abca.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.b9625e7f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f4e69796.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/stdexec/73559e8963dab7a4ece32ede22f6472c9a815032"></head>
 
 	<body style="margin: 0 auto">
@@ -210,24 +210,24 @@ they encapsulate the necessary configuration.</p>
 using <a href="https://github.com/cpm-cmake/CPM.cmake">CMake Package Manager (CPM)</a> to fetch and
 configure <code>stdexec</code>.</p>
 <p>Complete example:</p>
-<pre><code lang="py">cmake_minimum_required(VERSION 3.25.0 FATAL_ERROR)
-
-project(stdexecExample)
-
-# Get CPM. For more information on how to add CPM to your project, see:
-# https://github.com/cpm-cmake/CPM.cmake#adding-cpm
-include(CPM.cmake)
-
-CPMAddPackage(
-  NAME stdexec
-  GITHUB_REPOSITORY NVIDIA/stdexec
-  GIT_TAG main # This will always pull the latest code from the `main` branch.
-               # You may also use a specific release version or tag.
-)
-
-add_executable(main example.cpp)
-
-target_link_libraries(main STDEXEC::stdexec)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.25</span><span style="color:#24292E">.0 </span><span style="color:#005CC5">FATAL_ERROR</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">project(stdexecExample)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Get CPM. For more information on how to add CPM to your project, see:</span></span>
+<span class="line"><span style="color:#6A737D"># https://github.com/cpm-cmake/CPM.cmake#adding-cpm</span></span>
+<span class="line"><span style="color:#24292E">include(</span><span style="color:#005CC5">CPM</span><span style="color:#24292E">.cmake)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">CPMAddPackage(</span></span>
+<span class="line"><span style="color:#005CC5">  NAME</span><span style="color:#24292E"> stdexec</span></span>
+<span class="line"><span style="color:#005CC5">  GITHUB_REPOSITORY</span><span style="color:#005CC5"> NVIDIA</span><span style="color:#D73A49">/</span><span style="color:#24292E">stdexec</span></span>
+<span class="line"><span style="color:#005CC5">  GIT_TAG</span><span style="color:#24292E"> main </span><span style="color:#6A737D"># This will always pull the latest code from the `main` branch.</span></span>
+<span class="line"><span style="color:#6A737D">               # You may also use a specific release version or tag.</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable(main example.cpp)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(main </span><span style="color:#005CC5">STDEXEC</span><span style="color:#24292E">::stdexec)</span></span></code></pre>
 <h3>GPU Support</h3>
 <p><code>stdexec</code> provides schedulers that enable execution on NVIDIA GPUs:</p>
 <ul>
@@ -262,7 +262,7 @@ target_link_libraries(main STDEXEC::stdexec)</code></pre>
 </li>
 </ul>
 <p>Perform the following actions:</p>
-<pre><code># Configure the project
+<pre><code lang="py"># Configure the project
 cmake -S . -B build -G&lt;gen&gt;
 # Build the project
 cmake --build build</code></pre>

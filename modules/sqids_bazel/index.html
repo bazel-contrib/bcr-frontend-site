@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f1661933.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.dfdcd285.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.57bf8459.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.867ab29d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.a3314cc3.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7db24426.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sqids_bazel/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -91,14 +91,14 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@sqids_bazel//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"encode"</span><span style="color:#24292E">, </span><span style="color:#032F62">"decode"</span><span style="color:#24292E">)</span></span></code></pre>
 <h2>👩‍💻 Examples</h2>
 <p>Simple encode &amp; decode:</p>
-<pre><code lang="py">id = encode([1, 2, 3]) # "86Rf07"
-numbers = decode(id) # [1, 2, 3]</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">id</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> encode([</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">3</span><span style="color:#24292E">]) </span><span style="color:#6A737D"># "86Rf07"</span></span>
+<span class="line"><span style="color:#24292E">numbers </span><span style="color:#D73A49">=</span><span style="color:#24292E"> decode(</span><span style="color:#005CC5">id</span><span style="color:#24292E">) </span><span style="color:#6A737D"># [1, 2, 3]</span></span></code></pre>
 <blockquote>
 <p><strong>Note</strong>
 🚧 Because of the algorithm's design, <strong>multiple IDs can decode back into the same sequence of numbers</strong>. If it's important to your design that IDs are canonical, you have to manually re-encode decoded numbers and check that the generated ID matches.</p>
 </blockquote>
 <p>Enforce a <em>minimum</em> length for IDs:</p>
-<pre><code>id = encode([1, 2, 3], min_length = 10) # "86Rf07xd4z"
+<pre><code lang="py">id = encode([1, 2, 3], min_length = 10) # "86Rf07xd4z"
 numbers = decode(id) # [1, 2, 3]</code></pre>
 <p>Randomize IDs by providing a custom alphabet:</p>
 <pre><code>alphabet = "FxnXM1kBN6cuhsAvjW3Co7l2RePyY8DwaU04Tzt9fHQrqSVKdpimLGIJOgb5ZE"

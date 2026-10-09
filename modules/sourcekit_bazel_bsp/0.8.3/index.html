@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.41514eb6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0fefdc89.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.62f66091.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.67b15f2d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.e85c3b5e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.11455908.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekit_bazel_bsp/0.8.3"></head>
 
 	<body style="margin: 0 auto">
@@ -93,27 +93,27 @@ sourcekit-bazel-bsp is designed specifically for projects that use the <a href="
 <ul>
 <li>Define a <code>setup_sourcekit_bsp</code> rule in a BUILD.bazel file of your choice. <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/rules/setup_sourcekit_bsp.bzl" target="_blank" rel="noopener noreferrer">You can find the full list of arguments here</a>. Although the exact setup differs from project to project, here's what an example setup would look like:</li>
 </ul>
-<pre><code lang="py">load("@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl", "setup_sourcekit_bsp")
-
-setup_sourcekit_bsp(
-    name = "setup_sourcekit_bsp_example_project",
-    files_to_watch = [
-        "HelloWorld/**/*.swift",
-        "HelloWorld/**/*.h",
-        "HelloWorld/**/*.m",
-        "HelloWorld/**/*.mm",
-        "HelloWorld/**/*.c",
-        "HelloWorld/**/*.hpp",
-        "HelloWorld/**/*.cpp"
-    ],
-    index_flags = [
-        "config=index_build",
-    ],
-    index_build_batch_size = 10,
-    targets = [
-        "//HelloWorld/...",
-    ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"setup_sourcekit_bsp"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">setup_sourcekit_bsp(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "setup_sourcekit_bsp_example_project"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    files_to_watch</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.swift"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.h"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.m"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.mm"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.c"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.hpp"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "HelloWorld/**/*.cpp"</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    index_flags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "config=index_build"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    index_build_batch_size</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 10</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "//HelloWorld/..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <ul>
 <li>If not using <code>compile_top_level = True</code>, make sure the targets' visibility settings allow <code>"//.bsp/skbsp_generated:__pkg__"</code> as this is where the BSP will reference them from.</li>
 <li>Run <code>bazel run {path to the rule, e.g //:setup_sourcekit_bsp}</code>.</li>
@@ -128,7 +128,7 @@ setup_sourcekit_bsp(
 <li>Create a custom plugin marketplace by <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/Example/claude-marketplace/" target="_blank" rel="noopener noreferrer">copying the claude-marketplace folder from our Example project</a> to your repo, making sure to edit the binary path in <code>.lsp.json</code> to match what's used in your project (use absolute paths if possible).</li>
 <li>Add the following entries to your <code>.claude/settings.json</code> (or <code>.claude/settings.local.json</code>):</li>
 </ul>
-<pre><code>{
+<pre><code lang="py">{
   "enabledPlugins": {
     "sourcekit-lsp-custom@sourcekit-lsp-custom-marketplace": true
   },

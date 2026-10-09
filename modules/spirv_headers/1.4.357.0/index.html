@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fa7692f8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.360927a5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.41514eb6.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0fefdc89.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.d058e6a0.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e85c3b5e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spirv_headers/1.4.357.0"></head>
 
 	<body style="margin: 0 auto">
@@ -109,10 +109,10 @@ This includes:</p>
 <li>adding the statement <code>"version" : "None"</code></li>
 </ul>
 <h2>How to install the headers</h2>
-<pre><code lang="py">mkdir build
-cd build
-cmake ..
-cmake --build . --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build . </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>Then, for example, you will have <code>/usr/local/include/spirv/unified1/spirv.h</code></p>
 <p>If you want to install them somewhere else, then use
 <code>-DCMAKE_INSTALL_PREFIX=/other/path</code> on the first <code>cmake</code> command.</p>
@@ -126,7 +126,7 @@ directive.</li>
 <li>In your C or C++ source code use <code>#include</code> directives that explicitly mention
 the <code>spirv</code> path component.</li>
 </ol>
-<pre><code>#include "spirv/unified1/GLSL.std.450.h"
+<pre><code lang="py">#include "spirv/unified1/GLSL.std.450.h"
 #include "spirv/unified1/OpenCL.std.h"
 #include "spirv/unified1/spirv.hpp"</code></pre>
 <p>See also the <a href="https://github.com/KhronosGroup/SPIRV-Headers/blob/29981f65241605e08b0ede4cfeb999fe3b723c6a/example/" target="_blank" rel="noopener noreferrer">example</a> subdirectory.  But since that example is

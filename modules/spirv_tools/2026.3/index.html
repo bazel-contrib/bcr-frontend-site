@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b98335f3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4fff4fa2.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3b154daf.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.75b422f6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.a353f6fb.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d3707241.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spirv_tools/2026.3"></head>
 
 	<body style="margin: 0 auto">
@@ -388,14 +388,14 @@ configuring and building the project.</li>
 Then build using CMake, Bazel, Android ndk-build, or the Emscripten SDK.</p>
 <h3>Build using CMake</h3>
 <p>You can build the project using <a href="https://cmake.org/">CMake</a>:</p>
-<pre><code lang="py">cd &lt;spirv-dir&gt;
-mkdir build &amp;&amp; cd build
-cmake [-G &lt;platform-generator&gt;] &lt;spirv-dir&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">spirv</span><span style="color:#D73A49">-</span><span style="color:#005CC5">dir</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">mkdir build </span><span style="color:#B31D28;font-style:italic">&amp;&amp;</span><span style="color:#24292E"> cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake [</span><span style="color:#D73A49">-</span><span style="color:#24292E">G </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">platform</span><span style="color:#D73A49">-</span><span style="color:#24292E">generator</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">] </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">spirv</span><span style="color:#D73A49">-</span><span style="color:#005CC5">dir</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>Once the build files have been generated, build using the appropriate build
 command (e.g. <code>ninja</code>, <code>make</code>, <code>msbuild</code>, etc.; this depends on the platform
 generator used above), or use your IDE, or use CMake to run the appropriate build
 command for you:</p>
-<pre><code>cmake --build . [--config Debug]  # runs `make` or `ninja` or `msbuild` etc.</code></pre>
+<pre><code lang="py">cmake --build . [--config Debug]  # runs `make` or `ninja` or `msbuild` etc.</code></pre>
 <h4>Note about the fuzzer</h4>
 <p>The SPIR-V fuzzer, <code>spirv-fuzz</code>, can only be built via CMake, and is disabled by
 default. To build it, clone protobuf and use the <code>SPIRV_BUILD_FUZZER</code> CMake

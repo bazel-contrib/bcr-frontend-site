@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b8635f23.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b3c1dcbb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.4d326fc1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1ba5b836.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.dbb86677.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.37a231e1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pydeps/0.5.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,9 +67,9 @@
 <p>This aspect will run over any <code>py_binary</code>, <code>py_library</code> or <code>py_test</code> target.</p>
 <p>Presently, only bzlmod setup is supported.</p>
 <p><strong>Add rules_pydeps to your MODULE.bazel:</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_pydeps"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_pydeps", version = "0.0.0")</code></pre>
 <p><strong>Configure the external deps analyzer:</strong></p>
-<pre><code lang="py">reqs = use_extension("@rules_pydeps//pydeps:reqs.bzl", "reqs")
+<pre><code>reqs = use_extension("@rules_pydeps//pydeps:reqs.bzl", "reqs")
 reqs.requirements(
     requirements_in = "//:requirements.in",
     pip_requirements = "@pip//:requirements.bzl",

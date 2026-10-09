@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.62f66091.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.67b15f2d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b98335f3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.4fff4fa2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.11455908.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a353f6fb.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pycross/2.0.0-alpha.2"></head>
 
 	<body style="margin: 0 auto">
@@ -90,15 +90,15 @@ the <a href="https://github.com/jvolkman/rules_pycross/tree/v1">v1</a> branch.</
 <span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>For a single-project lock file, this is all you need — <code>rules_pycross</code> auto-discovers the project from the lock file and creates a repo named <code>"pypi"</code> with default dependencies.</p>
 <p>To customize which projects or dependency groups are included, add a <code>uv.repo()</code> tag:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv.workspace(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:uv.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">uv.repo(</span></span>
-<span class="line"><span style="color:#E36209">    dependency_groups</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"default"</span><span style="color:#24292E">, </span><span style="color:#032F62">"optional:grpc"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    workspace</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">uv.workspace(
+    name = "pypi",
+    lock_file = "//:uv.lock",
+)
+uv.repo(
+    dependency_groups = ["default", "optional:grpc"],
+    workspace = "pypi",
+)
+use_repo(uv, "pypi")</code></pre>
 <p>After this, packages are available as <code>@pypi//package_name</code>. A <code>requirement()</code> macro is generated in <code>@pypi//:requirements.bzl</code>.</p>
 <p>Other lock formats work the same way via their respective extensions: <code>pdm.bzl</code>, <code>poetry.bzl</code>, or <code>pylock.bzl</code>.</p>
 <h3>Repository Defaults and Auto-Generation</h3>
@@ -112,7 +112,7 @@ the <a href="https://github.com/jvolkman/rules_pycross/tree/v1">v1</a> branch.</
 <h4>Project File Discovery</h4>
 <p><code>rules_pycross</code> automatically discovers your <code>pyproject.toml</code> files by inspecting the workspace members defined in the lock file. If it finds none (e.g. for a standalone lock file), it falls back to looking for a <code>pyproject.toml</code> next to the lock file.</p>
 <p>If you have additional <code>pyproject.toml</code> files that aren't part of the lock file's defined workspace members, but contain build settings or dependency definitions you need <code>rules_pycross</code> to see, you can explicitly add them using <code>extra_project_files</code> on the <code>workspace()</code> tag:</p>
-<pre><code lang="py">uv.workspace(
+<pre><code>uv.workspace(
     name = "pypi",
     lock_file = "//:uv.lock",
     extra_project_files = ["//:pyproject.toml", "//tools:pyproject.toml"],

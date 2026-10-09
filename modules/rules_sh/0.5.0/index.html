@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2437b659.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.69d06724.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.09ffe58f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.da57a494.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.539434c4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.55fe0e25.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_sh/0.5.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,20 +67,20 @@
 <p>See the <strong>WORKSPACE setup</strong> section of the <a href="https://github.com/tweag/rules_sh/releases">current release</a>.</p>
 <p>Or use the following template in your <code>WORKSPACE</code> file to install a development
 version of <code>rules_sh</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">http_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_sh"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Replace git revision and sha256.</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0000000000000000000000000000000000000000000000000000000000000000"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_sh-0000000000000000000000000000000000000000"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/tweag/rules_sh/archive/0000000000000000000000000000000000000000.tar.gz"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_sh//sh:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_sh_dependencies"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">rules_sh_dependencies()</span></span></code></pre>
+<pre><code lang="py">load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
+http_archive(
+    name = "rules_sh",
+    # Replace git revision and sha256.
+    sha256 = "0000000000000000000000000000000000000000000000000000000000000000",
+    strip_prefix = "rules_sh-0000000000000000000000000000000000000000",
+    urls = ["https://github.com/tweag/rules_sh/archive/0000000000000000000000000000000000000000.tar.gz"],
+)
+load("@rules_sh//sh:repositories.bzl", "rules_sh_dependencies")
+rules_sh_dependencies()</code></pre>
 <h2>Usage</h2>
 <h3>Configure the toolchain</h3>
 <p>Add the following to your <code>WORKSPACE</code> file to configure a local POSIX toolchain.</p>
-<pre><code lang="py">load("@rules_sh//sh:posix.bzl", "sh_posix_configure")
+<pre><code>load("@rules_sh//sh:posix.bzl", "sh_posix_configure")
 sh_posix_configure()</code></pre>
 <p>Bazel will query <code>PATH</code> for common Unix shell commands. You can override the
 path to individual commands with environment variables of the form

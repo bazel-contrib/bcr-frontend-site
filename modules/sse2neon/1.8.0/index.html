@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.62725570.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a688d13c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.73e0d4b6.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e7ccd92f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.e1314d2f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.81d8516f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sse2neon/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -160,11 +160,11 @@ As a result, additional treatments should be applied to ensure consistency betwe
 <ul>
 <li>On ARMv8-A 32-bit targets, you should specify the following compiler option:</li>
 </ul>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">mfpu</span><span style="color:#D73A49">=</span><span style="color:#24292E">neon</span><span style="color:#D73A49">-</span><span style="color:#24292E">fp</span><span style="color:#D73A49">-</span><span style="color:#24292E">armv8</span></span></code></pre>
+<pre><code lang="py">-mfpu=neon-fp-armv8</code></pre>
 <ul>
 <li>On ARMv7-A targets, you need to append the following compiler option:</li>
 </ul>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">mfpu</span><span style="color:#D73A49">=</span><span style="color:#24292E">neon</span></span></code></pre>
+<pre><code>-mfpu=neon</code></pre>
 </li>
 </ul>
 <h2>Compile-time Configurations</h2>
@@ -182,26 +182,26 @@ Considering the balance between correctness and performance, <code>sse2neon</cod
 <p><code>sse2neon</code> provides a unified interface for developing test cases. These test
 cases are located in <code>tests</code> directory, and the input data is specified at
 runtime. Use the following commands to perform test cases:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make check</span></span></code></pre>
+<pre><code>$ make check</code></pre>
 <p>For running check with enabling features, you can use assign the features with <code>FEATURE</code> command.
 If <code>none</code> is assigned, then the command will be the same as simply calling <code>make check</code>.
 The following command enable <code>crypto</code> and <code>crc</code> features in the tests.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make </span><span style="color:#005CC5">FEATURE</span><span style="color:#D73A49">=</span><span style="color:#24292E">crypto</span><span style="color:#D73A49">+</span><span style="color:#24292E">crc check</span></span></code></pre>
+<pre><code>$ make FEATURE=crypto+crc check</code></pre>
 <p>For running check on certain CPU, setting the mode of FPU, etc.,
 you can also assign the desired options with <code>ARCH_CFLAGS</code> command.
 If <code>none</code> is assigned, the command acts as same as calling <code>make check</code>.
 For instance, to run tests on Cortex-A53 with enabling ARM VFPv4 extension and NEON:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make </span><span style="color:#005CC5">ARCH_CFLAGS</span><span style="color:#D73A49">=</span><span style="color:#032F62">"-mcpu=cortex-a53 -mfpu=neon-vfpv4"</span><span style="color:#24292E"> check</span></span></code></pre>
+<pre><code>$ make ARCH_CFLAGS="-mcpu=cortex-a53 -mfpu=neon-vfpv4" check</code></pre>
 <h3>Running tests on hosts other than ARM platform</h3>
 <p>For running tests on hosts other than ARM platform,
 you can specify GNU toolchain for cross compilation with <code>CROSS_COMPILE</code> command.
 <a href="https://www.qemu.org/">QEMU</a> should be installed in advance.</p>
 <p>For ARMv8-A running in 64-bit mode type:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make </span><span style="color:#005CC5">CROSS_COMPILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">aarch64</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnu</span><span style="color:#D73A49">-</span><span style="color:#24292E"> check </span><span style="color:#6A737D"># ARMv8-A</span></span></code></pre>
+<pre><code>$ make CROSS_COMPILE=aarch64-linux-gnu- check # ARMv8-A</code></pre>
 <p>For ARMv7-A type:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> make </span><span style="color:#005CC5">CROSS_COMPILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">arm</span><span style="color:#D73A49">-</span><span style="color:#24292E">linux</span><span style="color:#D73A49">-</span><span style="color:#24292E">gnueabihf</span><span style="color:#D73A49">-</span><span style="color:#24292E"> check </span><span style="color:#6A737D"># ARMv7-A</span></span></code></pre>
+<pre><code>$ make CROSS_COMPILE=arm-linux-gnueabihf- check # ARMv7-A</code></pre>
 <p>For ARMv8-A running in 32-bit mode (A32 instruction set) type:</p>
-<pre><code lang="py">$ make \
+<pre><code>$ make \
   CROSS_COMPILE=arm-linux-gnueabihf- \
   ARCH_CFLAGS="-mcpu=cortex-a32 -mfpu=neon-fp-armv8" \
   check</code></pre>

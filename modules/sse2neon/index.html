@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8e39b048.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.19baeacc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.30e473b4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fbaf5974.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
-		<script src="/bcr.3b4100cc.js" defer=""></script>
-		<script src="/registry.77740574.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.ea16b0b9.js" defer=""></script>
+		<script src="/registry.95a05146.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sse2neon/1.8.0"></head>
 
 	<body style="margin: 0 auto">
@@ -156,15 +156,15 @@ As a result, additional treatments should be applied to ensure consistency betwe
 <li>Explicitly specify platform-specific options to gcc/clang compilers.<ul>
 <li>On ARMv8-A 64-bit targets, you should specify the following compiler option: (Remove <code>crypto</code> and/or <code>crc</code> if your architecture does not support cryptographic and/or CRC32 extensions)</li>
 </ul>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">march</span><span style="color:#D73A49">=</span><span style="color:#24292E">armv8</span><span style="color:#D73A49">-</span><span style="color:#24292E">a</span><span style="color:#D73A49">+</span><span style="color:#24292E">fp</span><span style="color:#D73A49">+</span><span style="color:#24292E">simd</span><span style="color:#D73A49">+</span><span style="color:#24292E">crypto</span><span style="color:#D73A49">+</span><span style="color:#24292E">crc</span></span></code></pre>
+<pre><code lang="py">-march=armv8-a+fp+simd+crypto+crc</code></pre>
 <ul>
 <li>On ARMv8-A 32-bit targets, you should specify the following compiler option:</li>
 </ul>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">mfpu</span><span style="color:#D73A49">=</span><span style="color:#24292E">neon</span><span style="color:#D73A49">-</span><span style="color:#24292E">fp</span><span style="color:#D73A49">-</span><span style="color:#24292E">armv8</span></span></code></pre>
+<pre><code>-mfpu=neon-fp-armv8</code></pre>
 <ul>
 <li>On ARMv7-A targets, you need to append the following compiler option:</li>
 </ul>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">mfpu</span><span style="color:#D73A49">=</span><span style="color:#24292E">neon</span></span></code></pre>
+<pre><code>-mfpu=neon</code></pre>
 </li>
 </ul>
 <h2>Compile-time Configurations</h2>
@@ -182,7 +182,7 @@ Considering the balance between correctness and performance, <code>sse2neon</cod
 <p><code>sse2neon</code> provides a unified interface for developing test cases. These test
 cases are located in <code>tests</code> directory, and the input data is specified at
 runtime. Use the following commands to perform test cases:</p>
-<pre><code lang="py">$ make check</code></pre>
+<pre><code>$ make check</code></pre>
 <p>For running check with enabling features, you can use assign the features with <code>FEATURE</code> command.
 If <code>none</code> is assigned, then the command will be the same as simply calling <code>make check</code>.
 The following command enable <code>crypto</code> and <code>crc</code> features in the tests.</p>

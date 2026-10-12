@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.cb36c7eb.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.504730c7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b371669f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7f960526.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.ea7e6166.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.67e2ebf3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spirv_headers/1.4.357.0"></head>
 
 	<body style="margin: 0 auto">
@@ -126,9 +126,9 @@ directive.</li>
 <li>In your C or C++ source code use <code>#include</code> directives that explicitly mention
 the <code>spirv</code> path component.</li>
 </ol>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "spirv/unified1/GLSL.std.450.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include "spirv/unified1/OpenCL.std.h"</span></span>
-<span class="line"><span style="color:#6A737D">#include "spirv/unified1/spirv.hpp"</span></span></code></pre>
+<pre><code lang="py">#include "spirv/unified1/GLSL.std.450.h"
+#include "spirv/unified1/OpenCL.std.h"
+#include "spirv/unified1/spirv.hpp"</code></pre>
 <p>See also the <a href="https://github.com/KhronosGroup/SPIRV-Headers/blob/29981f65241605e08b0ede4cfeb999fe3b723c6a/example/" target="_blank" rel="noopener noreferrer">example</a> subdirectory.  But since that example is
 <em>inside</em> this repostory, it doesn't use and <code>add_subdirectory</code> directive.</p>
 <h3>Using Bazel</h3>
@@ -139,7 +139,7 @@ the <code>spirv</code> path component.</li>
 SPIRV-Headers under <code>external/spirv-headers</code>, then add the following to your
 <code>WORKSPACE</code> file:</li>
 </ol>
-<pre><code lang="py">local_repository(
+<pre><code>local_repository(
     name = "spirv_headers",
     path = "external/spirv-headers",
 )</code></pre>

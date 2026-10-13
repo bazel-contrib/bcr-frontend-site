@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6933735b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4e48945d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.372c83b4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.194f3dce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.efd18465.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0da501e7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ada-url/4.0.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -125,24 +125,24 @@ A recent C++ compiler supporting C++20. We test GCC 12 or better, LLVM 14 or bet
 <span class="line"><span style="color:#24292E">wget https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">-</span><span style="color:#24292E">url</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada</span><span style="color:#D73A49">/</span><span style="color:#24292E">releases</span><span style="color:#D73A49">/</span><span style="color:#24292E">download</span><span style="color:#D73A49">/</span><span style="color:#24292E">v3.0.0</span><span style="color:#D73A49">/</span><span style="color:#24292E">ada.h</span></span></code></pre>
 </li>
 <li><p>Create a new file named <code>demo.cpp</code> with this content:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include "ada.cpp"</span></span>
-<span class="line"><span style="color:#6A737D"> #include "ada.h"</span></span>
-<span class="line"><span style="color:#6A737D"> #include &lt;iostream&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5"> int</span><span style="color:#24292E"> main(</span><span style="color:#005CC5">int</span><span style="color:#24292E">, char </span><span style="color:#D73A49">*</span><span style="color:#24292E">[]) {</span></span>
-<span class="line"><span style="color:#24292E">   auto url = ada::parse(</span><span style="color:#032F62">"https://www.google.com"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#D73A49">   if</span><span style="color:#24292E"> (</span><span style="color:#B31D28;font-style:italic">!</span><span style="color:#24292E">url) {</span></span>
-<span class="line"><span style="color:#24292E">     std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "failure"</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">     return</span><span style="color:#005CC5"> EXIT_FAILURE</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E">   }</span></span>
-<span class="line"><span style="color:#24292E">   url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">set_protocol(</span><span style="color:#032F62">"http"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_protocol() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">   std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> url</span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E">get_host() </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#D73A49">   return</span><span style="color:#005CC5"> EXIT_SUCCESS</span><span style="color:#24292E">;</span></span>
-<span class="line"><span style="color:#24292E"> }</span></span></code></pre>
+<pre><code lang="py">#include "ada.cpp"
+ #include "ada.h"
+ #include &lt;iostream&gt;
+
+ int main(int, char *[]) {
+   auto url = ada::parse("https://www.google.com");
+   if (!url) {
+     std::cout &lt;&lt; "failure" &lt;&lt; std::endl;
+     return EXIT_FAILURE;
+   }
+   url-&gt;set_protocol("http");
+   std::cout &lt;&lt; url-&gt;get_protocol() &lt;&lt; std::endl;
+   std::cout &lt;&lt; url-&gt;get_host() &lt;&lt; std::endl;
+   return EXIT_SUCCESS;
+ }</code></pre>
 </li>
 <li><p>Compile</p>
-<pre><code lang="py">c++ -std=c++20 -o demo demo.cpp</code></pre>
+<pre><code>c++ -std=c++20 -o demo demo.cpp</code></pre>
 </li>
 <li><p><code>./demo</code></p>
 <pre><code>http:

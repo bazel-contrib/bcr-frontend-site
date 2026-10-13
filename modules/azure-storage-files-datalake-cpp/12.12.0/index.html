@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6933735b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4e48945d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.372c83b4.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.194f3dce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.efd18465.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0da501e7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/azure-storage-files-datalake-cpp/12.12.0"></head>
 
 	<body style="margin: 0 auto">
@@ -271,20 +271,20 @@ to these types are allowed. These types are located in an <code>Azure</code> nam
 <p>Static SDK members should not be accessed and SDK functions should not be called before the static initialization phase is finished.</p>
 <h4>Visual Studio - CMakeSettings.json</h4>
 <p>When building your application via Visual Studio, you can create and update a <code>CMakeSettings.json</code> file and include the following properties to let Visual Studio know where the packages are installed and which triplet needs to be used:</p>
-<pre><code lang="py">{
-  "configurations": [
-    {
-        "cmakeToolchain": "&lt;path to vcpkg repo&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake",
-        "variables": [
-        {
-          "name": "VCPKG_TARGET_TRIPLET",
-          "value": "x64-windows",
-          "type": "STRING"
-        }
-      ]
-    }
-  ]
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">  "configurations"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#032F62">        "cmakeToolchain"</span><span style="color:#24292E">: </span><span style="color:#032F62">"&lt;path to vcpkg repo&gt;/vcpkg/scripts/buildsystems/vcpkg.cmake"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "variables"</span><span style="color:#24292E">: [</span></span>
+<span class="line"><span style="color:#24292E">        {</span></span>
+<span class="line"><span style="color:#032F62">          "name"</span><span style="color:#24292E">: </span><span style="color:#032F62">"VCPKG_TARGET_TRIPLET"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "value"</span><span style="color:#24292E">: </span><span style="color:#032F62">"x64-windows"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "type"</span><span style="color:#24292E">: </span><span style="color:#032F62">"STRING"</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">      ]</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">  ]</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h3>Azure Requirements</h3>
 <p>To call Azure services, you must first have an Azure subscription. Sign up for a <a href="https://azure.microsoft.com/pricing/free-trial/">free trial</a> or use your <a href="https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/">MSDN subscriber benefits</a>.</p>
 <h2>Packages available</h2>
@@ -318,7 +318,7 @@ to these types are allowed. These types are located in an <code>Azure</code> nam
 For example, if you want to use OpenSSL 1.1.1, you should create a folder named <code>vcpkg-custom-ports</code> next to to your vcpkg.json file.</p>
 <p>Navigate to your clone of the vcpkg vcpkg repo and execute "git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e" - this will reset your repo to the last version of OpenSSL 1.1.1
 in vcpkg. Then, copy the contents of the <code>ports/openssl</code> folder from the vcpkg repo to the <code>vcpkg-custom-ports</code> folder you created earlier:</p>
-<pre><code>cd &lt;your vcpkg repo&gt;
+<pre><code lang="py">cd &lt;your vcpkg repo&gt;
 git checkout 3b3bd424827a1f7f4813216f6b32b6c61e386b2e
 cd ports
 cp -r openssl &lt;the location of the vcpkg-custom-ports directory listed above&gt;</code></pre>

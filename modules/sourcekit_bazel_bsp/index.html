@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.103a8397.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1727a027.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.2bb9c36a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.07959227.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.132f7662.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.626390c6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekit_bazel_bsp/0.8.3"></head>
 
 	<body style="margin: 0 auto">
@@ -89,11 +89,11 @@ sourcekit-bazel-bsp is designed specifically for projects that use the <a href="
 </li>
 <li>Add sourcekit-bazel-bsp as a dependency on your <code>MODULE.bazel</code> file:</li>
 </ul>
-<pre><code lang="py">bazel_dep(name = "sourcekit_bazel_bsp", version = "0.8.3", repo_name = "sourcekit_bazel_bsp")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sourcekit_bazel_bsp"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.3"</span><span style="color:#24292E">, </span><span style="color:#E36209">repo_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sourcekit_bazel_bsp"</span><span style="color:#24292E">)</span></span></code></pre>
 <ul>
 <li>Define a <code>setup_sourcekit_bsp</code> rule in a BUILD.bazel file of your choice. <a href="https://github.com/spotify/sourcekit-bazel-bsp/blob/4b9612fd3ff4a82f43463f204b7270d39a092f74/rules/setup_sourcekit_bsp.bzl" target="_blank" rel="noopener noreferrer">You can find the full list of arguments here</a>. Although the exact setup differs from project to project, here's what an example setup would look like:</li>
 </ul>
-<pre><code>load("@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl", "setup_sourcekit_bsp")
+<pre><code lang="py">load("@sourcekit_bazel_bsp//rules:setup_sourcekit_bsp.bzl", "setup_sourcekit_bsp")
 
 setup_sourcekit_bsp(
     name = "setup_sourcekit_bsp_example_project",

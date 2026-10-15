@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.103a8397.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1727a027.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.2bb9c36a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.07959227.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.132f7662.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.626390c6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sign-here/2.5.5"></head>
 
 	<body style="margin: 0 auto">
@@ -74,9 +74,9 @@ allows users to automate the creation of certificates and provisioning profiles 
 </ul>
 <h2>Getting Started</h2>
 <p>To start using <code>sign-here</code> immediately, simply clone down the repo and run the tool:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">git clone https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">github.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">Tinder</span><span style="color:#D73A49">/</span><span style="color:#24292E">sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here.git</span></span>
-<span class="line"><span style="color:#24292E">cd sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here</span></span>
-<span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">Sources</span><span style="color:#D73A49">/</span><span style="color:#24292E">SignHereTool:sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here</span></span></code></pre>
+<pre><code lang="py">git clone https://github.com/Tinder/sign-here.git
+cd sign-here
+bazel run //Sources/SignHereTool:sign-here</code></pre>
 <p>Actions such as <code>create-keychain</code> and <code>delete-keychain</code> do not require iTunes Connect API access thus
 they do not require authentication information. For commands such as <code>create-provisioning-profile</code> and
 <code>delete-provisioning-profile</code> iTunes Connect API access will be needed, you will need to follow the guides
@@ -85,7 +85,7 @@ for <a href="https://developer.apple.com/documentation/appstoreconnectapi/genera
 for the necessary credentials.</p>
 <h2>CLI Interface</h2>
 <h3>create-keychain</h3>
-<pre><code lang="py">sign-here create-keychain --help
+<pre><code>sign-here create-keychain --help
 
 OVERVIEW: Use this command to create a keychain to populate with signing
 information in the `create-provisioning-profile` command

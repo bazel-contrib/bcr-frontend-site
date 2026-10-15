@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2bb9c36a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.07959227.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8bbcd424.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0b357fc0.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.626390c6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.49165624.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ml_toolchain/0.4.0-rc1"></head>
 
 	<body style="margin: 0 auto">
@@ -102,10 +102,10 @@ to the Bazel command. This will facilitate checking that the compiler or linker 
 <p>LLVM <code>18</code> and the <code>linux_glibc_2_27</code> sysroot are used for compilation by default.
 To change these defaults, specify the required LLVM version and sysroot distribution in <code>.bazelrc</code> file.</p>
 <p>For example, to configure LLVM <code>20</code> with <code>linux_glibc_2_31</code>, update your <code>.bazelrc</code> with below lines</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_platform_specific_config</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">LLVM_VERSION</span><span style="color:#D73A49">=</span><span style="color:#005CC5">20</span></span>
-<span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">SYSROOT_DIST</span><span style="color:#D73A49">=</span><span style="color:#24292E">linux_glibc_2_31</span></span></code></pre>
+<pre><code lang="py">common --enable_platform_specific_config
+
+build:linux --repo_env=LLVM_VERSION=20
+build:linux --repo_env=SYSROOT_DIST=linux_glibc_2_31</code></pre>
 <p>Supported versions of LLVM</p>
 <table>
 <thead>
@@ -196,7 +196,7 @@ To change these defaults, specify the required LLVM version and sysroot distribu
 <p>By default, <code>rules_ml_toolchain</code> links dynamically against <code>libstdc++</code> for Linux builds.
 However, you can choose to link against <code>libc++</code> instead, using dynamic or static linking.</p>
 <p>For example, to link statically against <code>libc++</code>, developer can use the following configuration</p>
-<pre><code lang="py">common --enable_platform_specific_config
+<pre><code>common --enable_platform_specific_config
 
 build:linux --@rules_ml_toolchain//common:stdlib=libc++
 build:linux --@rules_ml_toolchain//common:static_libcxx=true</code></pre>

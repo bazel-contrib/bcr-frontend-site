@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b99568c5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c6ac1ba9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d1987234.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2d1ff76e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.8092b385.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b0cdab26.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/spirv_headers/1.4.357.0"></head>
 
 	<body style="margin: 0 auto">
@@ -147,28 +147,28 @@ SPIRV-Headers under <code>external/spirv-headers</code>, then add the following 
 <li>Add one of the following to the <code>deps</code> attribute of your build target based
 on your needs:</li>
 </ol>
-<pre><code lang="py">@spirv_headers//:spirv_c_headers
-@spirv_headers//:spirv_cpp_headers
-@spirv_headers//:spirv_cpp11_headers</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6F42C1">@spirv_headers</span><span style="color:#B31D28;font-style:italic">//:spirv_c_headers</span></span>
+<span class="line"><span style="color:#6F42C1">@spirv_headers</span><span style="color:#B31D28;font-style:italic">//:spirv_cpp_headers</span></span>
+<span class="line"><span style="color:#6F42C1">@spirv_headers</span><span style="color:#B31D28;font-style:italic">//:spirv_cpp11_headers</span></span></code></pre>
 <p>For example:</p>
-<pre><code>cc_library(
-  name = "project",
-  srcs = [
-    # Path to project sources
-  ],
-  hdrs = [
-    # Path to project headers
-  ],
-  deps = [
-    "@spirv_tools//:spirv_c_headers",
-    # Other dependencies,
-  ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cc_library(</span></span>
+<span class="line"><span style="color:#E36209">  name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "project"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">  srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">    # Path to project sources</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span>
+<span class="line"><span style="color:#E36209">  hdrs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#6A737D">    # Path to project headers</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span>
+<span class="line"><span style="color:#E36209">  deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">    "@spirv_tools//:spirv_c_headers"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # Other dependencies,</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <ol start="3">
 <li>In your C or C++ source code use <code>#include</code> directives that explicitly mention
 the <code>spirv</code> path component.</li>
 </ol>
-<pre><code>#include "spirv/unified1/GLSL.std.450.h"
+<pre><code lang="py">#include "spirv/unified1/GLSL.std.450.h"
 #include "spirv/unified1/OpenCL.std.h"
 #include "spirv/unified1/spirv.hpp"</code></pre>
 <h2>Generating headers from the JSON grammar for the SPIR-V core instruction set</h2>

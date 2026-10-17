@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a5cfd82b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8d563459.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.03a73668.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f4c41972.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.abb612d3.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.835bd0d6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekitten/0.38.0"></head>
 
 	<body style="margin: 0 auto">
@@ -242,60 +242,60 @@ options for the offset in the file/text provided:</p>
 </ol>
 <h2>Structure</h2>
 <p>Running <code>sourcekitten structure --file file.swift</code> or <code>sourcekitten structure --text "struct A { func b() {} }"</code> will return a JSON array of structure information:</p>
-<pre><code lang="py">{
-  "key.substructure" : [
-    {
-      "key.kind" : "source.lang.swift.decl.struct",
-      "key.offset" : 0,
-      "key.nameoffset" : 7,
-      "key.namelength" : 1,
-      "key.bodyoffset" : 10,
-      "key.bodylength" : 13,
-      "key.length" : 24,
-      "key.substructure" : [
-        {
-          "key.kind" : "source.lang.swift.decl.function.method.instance",
-          "key.offset" : 11,
-          "key.nameoffset" : 16,
-          "key.namelength" : 3,
-          "key.bodyoffset" : 21,
-          "key.bodylength" : 0,
-          "key.length" : 11,
-          "key.substructure" : [
-
-          ],
-          "key.name" : "b()"
-        }
-      ],
-      "key.name" : "A"
-    }
-  ],
-  "key.offset" : 0,
-  "key.diagnostic_stage" : "source.diagnostic.stage.swift.parse",
-  "key.length" : 24
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">{</span></span>
+<span class="line"><span style="color:#032F62">  "key.substructure"</span><span style="color:#24292E"> : [</span></span>
+<span class="line"><span style="color:#24292E">    {</span></span>
+<span class="line"><span style="color:#032F62">      "key.kind"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.lang.swift.decl.struct"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.nameoffset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">7</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.namelength"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">1</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.bodyoffset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">10</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.bodylength"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">13</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">24</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">      "key.substructure"</span><span style="color:#24292E"> : [</span></span>
+<span class="line"><span style="color:#24292E">        {</span></span>
+<span class="line"><span style="color:#032F62">          "key.kind"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.lang.swift.decl.function.method.instance"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">11</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.nameoffset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">16</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.namelength"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">3</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.bodyoffset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">21</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.bodylength"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">11</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">          "key.substructure"</span><span style="color:#24292E"> : [</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">          ],</span></span>
+<span class="line"><span style="color:#032F62">          "key.name"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"b()"</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">      ],</span></span>
+<span class="line"><span style="color:#032F62">      "key.name"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"A"</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">  ],</span></span>
+<span class="line"><span style="color:#032F62">  "key.offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "key.diagnostic_stage"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.diagnostic.stage.swift.parse"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">  "key.length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">24</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h2>Syntax</h2>
 <p>Running <code>sourcekitten syntax --file file.swift</code> or <code>sourcekitten syntax --text "import Foundation // Hello World"</code> will return a JSON array of syntax highlighting information:</p>
-<pre><code>[
-  {
-    "offset" : 0,
-    "length" : 6,
-    "type" : "source.lang.swift.syntaxtype.keyword"
-  },
-  {
-    "offset" : 7,
-    "length" : 10,
-    "type" : "source.lang.swift.syntaxtype.identifier"
-  },
-  {
-    "offset" : 18,
-    "length" : 14,
-    "type" : "source.lang.swift.syntaxtype.comment"
-  }
-]</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#032F62">    "offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">0</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">6</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "type"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.lang.swift.syntaxtype.keyword"</span></span>
+<span class="line"><span style="color:#24292E">  },</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#032F62">    "offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">7</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">10</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "type"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.lang.swift.syntaxtype.identifier"</span></span>
+<span class="line"><span style="color:#24292E">  },</span></span>
+<span class="line"><span style="color:#24292E">  {</span></span>
+<span class="line"><span style="color:#032F62">    "offset"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">18</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "length"</span><span style="color:#24292E"> : </span><span style="color:#005CC5">14</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">    "type"</span><span style="color:#24292E"> : </span><span style="color:#032F62">"source.lang.swift.syntaxtype.comment"</span></span>
+<span class="line"><span style="color:#24292E">  }</span></span>
+<span class="line"><span style="color:#24292E">]</span></span></code></pre>
 <h2>Request</h2>
 <p>Running <code>sourcekitten request --yaml [FILE|TEXT]</code> will execute a sourcekit request with the given yaml. For example:</p>
-<pre><code>key.request: source.request.cursorinfo
+<pre><code lang="py">key.request: source.request.cursorinfo
 key.sourcefile: "/tmp/foo.swift"
 key.offset: 8
 key.compilerargs:

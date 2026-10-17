@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.40335840.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.76751484.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.56ab8c1b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.dd7cfb2d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.ea16b0b9.js" defer=""></script>
-		<script src="/registry.a84bf655.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.eee71d19.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sockpp/1.0.0-20260101-b8e19c8"></head>
 
 	<body style="margin: 0 auto">
@@ -103,13 +103,13 @@
 <h2>Building your app with CMake</h2>
 <p>The library, when installed can normally be discovered with <code>find_package(sockpp)</code>. It uses the namespace <code>Sockpp</code> and the library name <code>sockpp</code>.</p>
 <p>A simple <em>CMakeLists.txt</em> file might look like this:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake_minimum_required(</span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 3.15</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">project(mysock </span><span style="color:#005CC5">VERSION</span><span style="color:#005CC5"> 1.0</span><span style="color:#24292E">.0)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">find_package(sockpp </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">add_executable(mysock mysock.cpp)</span></span>
-<span class="line"><span style="color:#24292E">target_link_libraries(mysock Sockpp::sockpp)</span></span></code></pre>
+<pre><code lang="py">cmake_minimum_required(VERSION 3.15)
+project(mysock VERSION 1.0.0)
+
+find_package(sockpp REQUIRED)
+
+add_executable(mysock mysock.cpp)
+target_link_libraries(mysock Sockpp::sockpp)</code></pre>
 <h2>Contributing</h2>
 <p>Contributions are accepted and appreciated. New and unstable work is done in the <code>develop</code> branch Please submit all pull requests against that branch, not <em>master</em>.</p>
 <p>For more information, refer to: <a href="https://github.com/fpagliughi/sockpp/blob/master/CONTRIBUTING.md">CONTRIBUTING.md</a></p>
@@ -127,7 +127,7 @@
 <li><em>Catch2</em> (optional) v2.x or v3.x to build and run unit tests.</li>
 </ul>
 <p>To build with default options:</p>
-<pre><code lang="py">$ cd sockpp
+<pre><code>$ cd sockpp
 $ cmake -Bbuild .
 $ cmake --build build/</code></pre>
 <p>To install:</p>

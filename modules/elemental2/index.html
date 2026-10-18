@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bb084a49.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e7bacdce.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ae712836.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8b8a0f21.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.dbbd5387.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bbad60ef.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/elemental2/1.4.0-RC1"></head>
 
 	<body style="margin: 0 auto">
@@ -85,7 +85,7 @@ and generating JsTypes, which are part of the <a href="https://goo.gl/agme3T">ne
 that is both implemented in GWT and J2CL.</p>
 <h2>Bazel dependencies</h2>
 <p>Using Bazel 8 or later, add to your `MODULE.bazel` file:</p>
-<pre><code lang="py">bazel_dep(name = "elemental2", version = "&lt;RELEASE_VERSION&gt;")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "elemental2"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;RELEASE_VERSION&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Replace <code>RELEASE_VERSION</code> with an actual
 <a href="https://github.com/google/elemental2/releases">release version</a>:</p>
 <p>Now from you can add elemental2 targets as needed to your <code>j2cl_library</code> deps.</p>
@@ -134,11 +134,11 @@ that is both implemented in GWT and J2CL.</p>
 <p>If your project uses <a href="https://maven.apache.org">Maven</a>, add the following maven
 dependencies in your <code>pom.xml</code>. Replace <code>RELEASE_VERSION</code> with an actual
 <a href="https://github.com/google/elemental2/releases">release version</a>:</p>
-<pre><code>&lt;dependency&gt;
-  &lt;groupId&gt;com.google.elemental2&lt;/groupId&gt;
-  &lt;artifactId&gt;${artifact-id}&lt;/artifactId&gt;
-  &lt;version&gt;RELEASE_VERSION&lt;/version&gt;
-&lt;/dependency&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">&lt;</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">com.google.elemental2</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">groupId</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">{artifact</span><span style="color:#D73A49">-</span><span style="color:#005CC5">id</span><span style="color:#24292E">}</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">artifactId</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">  &lt;</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span><span style="color:#005CC5">RELEASE_VERSION</span><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">version</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">&lt;/</span><span style="color:#24292E">dependency</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <table>
 <thead>
 <tr>
@@ -229,7 +229,7 @@ dependencies in your <code>pom.xml</code>. Replace <code>RELEASE_VERSION</code> 
 <ul>
 <li>Install <a href="https://github.com/bazelbuild/bazelisk">Bazelisk</a>:</li>
 </ul>
-<pre><code>$ npm install -g @bazel/bazelisk
+<pre><code lang="py">$ npm install -g @bazel/bazelisk
     $ alias bazel=bazelisk</code></pre>
 <ul>
 <li>Clone this git repository:<pre><code>$ git clone https://github.com/google/elemental2.git</code></pre>

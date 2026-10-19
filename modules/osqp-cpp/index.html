@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.70204b06.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.644363a6.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0291c7c9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.acf7a0d1.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.75de4aea.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8695e7b8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/osqp-cpp/0.0.0-20231004-4343373.bcr.2"></head>
 
 	<body style="margin: 0 auto">
@@ -77,8 +77,8 @@ tolerances via the <code>OsqpSettings</code> struct as appropriate.</p>
 <p>This is not an officially supported Google product.</p>
 <h2><code>OsqpInstance</code> format</h2>
 <p>OSQP solves the convex quadratic optimization problem:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">min_x </span><span style="color:#005CC5">0.5</span><span style="color:#D73A49"> *</span><span style="color:#24292E"> x</span><span style="color:#032F62">'Px + q'</span><span style="color:#24292E">x</span></span>
-<span class="line"><span style="color:#24292E">s.t.  l </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> Ax </span><span style="color:#D73A49">&lt;=</span><span style="color:#24292E"> u</span></span></code></pre>
+<pre><code lang="py">min_x 0.5 * x'Px + q'x
+s.t.  l &lt;= Ax &lt;= u</code></pre>
 <p>where <code>P</code> is a symmetric positive semi-definite matrix.</p>
 <p>The inequalities are component-wise, and equalities may be enforced by setting
 <code>l[i] == u[i]</code> for some row <code>i</code>. Single-sided inequalities can be enforced by
@@ -95,39 +95,39 @@ setting the lower or upper bounds to negative or positive infinity
 <h2>Example usage</h2>
 <p>The code below formulates and solves the following 2-dimensional optimization
 problem:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">min_(x,y) x</span><span style="color:#D73A49">^</span><span style="color:#005CC5">2</span><span style="color:#D73A49"> +</span><span style="color:#005CC5"> 0.5</span><span style="color:#D73A49"> *</span><span style="color:#24292E"> x </span><span style="color:#D73A49">*</span><span style="color:#24292E"> y </span><span style="color:#D73A49">+</span><span style="color:#24292E"> y</span><span style="color:#D73A49">^</span><span style="color:#005CC5">2</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> x</span></span>
-<span class="line"><span style="color:#24292E">s.t.      x </span><span style="color:#D73A49">&gt;=</span><span style="color:#005CC5"> 1</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">const double kInfinity </span><span style="color:#D73A49">=</span><span style="color:#24292E"> std::numeric_limits</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::infinity()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">SparseMatrix</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> objective_matrix(</span><span style="color:#005CC5">2</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">const Triplet</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> kTripletsP[] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {</span></span>
-<span class="line"><span style="color:#24292E">    {</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.0</span><span style="color:#24292E">}, {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0.5</span><span style="color:#24292E">}, {</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">0.5</span><span style="color:#24292E">}, {</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2.0</span><span style="color:#24292E">}}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">objective_matrix.setFromTriplets(std::begin(kTripletsP),</span></span>
-<span class="line"><span style="color:#24292E">                                   std::end(kTripletsP))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">SparseMatrix</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> constraint_matrix(</span><span style="color:#005CC5">1</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">const Triplet</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">double</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> kTripletsA[] </span><span style="color:#D73A49">=</span><span style="color:#24292E"> {{</span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0</span><span style="color:#24292E">, </span><span style="color:#005CC5">1.0</span><span style="color:#24292E">}}</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">constraint_matrix.setFromTriplets(std::begin(kTripletsA),</span></span>
-<span class="line"><span style="color:#24292E">                                      std::end(kTripletsA))</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">OsqpInstance instance</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.objective_matrix </span><span style="color:#D73A49">=</span><span style="color:#24292E"> objective_matrix</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.objective_vector.resize(</span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.objective_vector </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> 1.0</span><span style="color:#24292E">, </span><span style="color:#005CC5">0.0</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.constraint_matrix </span><span style="color:#D73A49">=</span><span style="color:#24292E"> constraint_matrix</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.lower_bounds.resize(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.lower_bounds </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5"> 1.0</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.upper_bounds.resize(</span><span style="color:#005CC5">1</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">instance.upper_bounds </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> kInfinity</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">OsqpSolver solver</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">OsqpSettings settings</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Edit settings </span><span style="color:#D73A49">if</span><span style="color:#24292E"> appropriate.</span></span>
-<span class="line"><span style="color:#24292E">auto status </span><span style="color:#D73A49">=</span><span style="color:#24292E"> solver.Init(instance, settings)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Assuming status.ok().</span></span>
-<span class="line"><span style="color:#24292E">OsqpExitCode exit_code </span><span style="color:#D73A49">=</span><span style="color:#24292E"> solver.Solve()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Assuming exit_code </span><span style="color:#D73A49">==</span><span style="color:#24292E"> OsqpExitCode::kOptimal.</span></span>
-<span class="line"><span style="color:#24292E">double optimal_objective </span><span style="color:#D73A49">=</span><span style="color:#24292E"> solver.objective_value()</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">Eigen::VectorXd optimal_solution </span><span style="color:#D73A49">=</span><span style="color:#24292E"> solver.primal_solution()</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code>min_(x,y) x^2 + 0.5 * x * y + y^2 + x
+s.t.      x &gt;= 1</code></pre>
+<pre><code>const double kInfinity = std::numeric_limits&lt;double&gt;::infinity();
+SparseMatrix&lt;double&gt; objective_matrix(2, 2);
+const Triplet&lt;double&gt; kTripletsP[] = {
+    {0, 0, 2.0}, {1, 0, 0.5}, {0, 1, 0.5}, {1, 1, 2.0}};
+objective_matrix.setFromTriplets(std::begin(kTripletsP),
+                                   std::end(kTripletsP));
+
+SparseMatrix&lt;double&gt; constraint_matrix(1, 2);
+const Triplet&lt;double&gt; kTripletsA[] = {{0, 0, 1.0}};
+constraint_matrix.setFromTriplets(std::begin(kTripletsA),
+                                      std::end(kTripletsA));
+
+OsqpInstance instance;
+instance.objective_matrix = objective_matrix;
+instance.objective_vector.resize(2);
+instance.objective_vector &lt;&lt; 1.0, 0.0;
+instance.constraint_matrix = constraint_matrix;
+instance.lower_bounds.resize(1);
+instance.lower_bounds &lt;&lt; 1.0;
+instance.upper_bounds.resize(1);
+instance.upper_bounds &lt;&lt; kInfinity;
+
+OsqpSolver solver;
+OsqpSettings settings;
+// Edit settings if appropriate.
+auto status = solver.Init(instance, settings);
+// Assuming status.ok().
+OsqpExitCode exit_code = solver.Solve();
+// Assuming exit_code == OsqpExitCode::kOptimal.
+double optimal_objective = solver.objective_value();
+Eigen::VectorXd optimal_solution = solver.primal_solution();</code></pre>
 <h2>Installation (Unix)</h2>
 <p>osqp-cpp requires CMake, a C++17 compiler, and the following packages:</p>
 <ul>
@@ -146,7 +146,7 @@ system package. To prevent osqp-cpp from unnecessarily downloading target
 dependencies, please ensure that any target dependencies that are already
 available are included before osqp-cpp.</p>
 <p>To build osqp-cpp, run the following from the <code>osqp-cpp</code> directory:</p>
-<pre><code lang="py">$ mkdir build; cd build
+<pre><code>$ mkdir build; cd build
 $ cmake ..
 $ make
 $ make test</code></pre>

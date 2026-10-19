@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2c8234f3.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f541cb11.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.46b0550a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.94258ba4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.2d07f540.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.733a313f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_rust_mutants/0.69.1"></head>
 
 	<body style="margin: 0 auto">
@@ -93,13 +93,13 @@ prints <code>No mutations generated.</code>.</li>
 </ul>
 <h2>Setup</h2>
 <h3>Bzlmod</h3>
-<pre><code lang="py">bazel_dep(name = "rules_rust_mutants", version = "{SEE_RELEASE_NOTES}")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_rust_mutants"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "</span><span style="color:#005CC5">{SEE_RELEASE_NOTES}</span><span style="color:#032F62">"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>WORKSPACE</h3>
-<pre><code>load("@rules_rust_mutants//:repositories.bzl", "rust_mutation_dependencies")
-
-rust_mutation_dependencies()</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_rust_mutants//:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rust_mutation_dependencies"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">rust_mutation_dependencies()</span></span></code></pre>
 <h2>Usage</h2>
-<pre><code>load("@rules_rust//rust:defs.bzl", "rust_library")
+<pre><code lang="py">load("@rules_rust//rust:defs.bzl", "rust_library")
 load("@rules_rust_mutants//:defs.bzl", "rust_mutation_test")
 
 rust_library(

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c34d8e71.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.64374738.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d51e92de.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7f38dbc3.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.2a5bfc46.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8306f639.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekitten/0.38.0"></head>
 
 	<body style="margin: 0 auto">
@@ -227,7 +227,7 @@ options for the offset in the file/text provided:</p>
 <span class="line"><span style="color:#005CC5">...</span></span>
 <span class="line"><span style="color:#24292E">]</span></span></code></pre>
 <p>To use the iOS SDK, pass <code>-sdk</code> and <code>-target</code> arguments preceded by <code>--</code>:</p>
-<pre><code lang="py">sourcekitten complete --text "import UIKit ; UIColor." --offset 22 -- -target arm64-apple-ios9.0 -sdk /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sourcekitten complete </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">text </span><span style="color:#032F62">"import UIKit ; UIColor."</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">offset </span><span style="color:#005CC5">22</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#D73A49"> -</span><span style="color:#24292E">target arm64</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">ios9.0 </span><span style="color:#D73A49">-</span><span style="color:#24292E">sdk </span><span style="color:#D73A49">/</span><span style="color:#24292E">Applications</span><span style="color:#D73A49">/</span><span style="color:#24292E">Xcode.app</span><span style="color:#D73A49">/</span><span style="color:#24292E">Contents</span><span style="color:#D73A49">/</span><span style="color:#24292E">Developer</span><span style="color:#D73A49">/</span><span style="color:#24292E">Platforms</span><span style="color:#D73A49">/</span><span style="color:#24292E">iPhoneOS.platform</span><span style="color:#D73A49">/</span><span style="color:#24292E">Developer</span><span style="color:#D73A49">/</span><span style="color:#24292E">SDKs</span><span style="color:#D73A49">/</span><span style="color:#24292E">iPhoneOS9.0.sdk</span></span></code></pre>
 <h2>Doc</h2>
 <p>Running <code>sourcekitten doc</code> will pass all arguments after what is parsed to
 <code>xcodebuild</code> (or directly to the compiler, SourceKit/clang, in the
@@ -242,7 +242,7 @@ options for the offset in the file/text provided:</p>
 </ol>
 <h2>Structure</h2>
 <p>Running <code>sourcekitten structure --file file.swift</code> or <code>sourcekitten structure --text "struct A { func b() {} }"</code> will return a JSON array of structure information:</p>
-<pre><code>{
+<pre><code lang="py">{
   "key.substructure" : [
     {
       "key.kind" : "source.lang.swift.decl.struct",

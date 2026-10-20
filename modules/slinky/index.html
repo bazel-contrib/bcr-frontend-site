@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.361edf7c.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b9525047.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.30857602.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.fd209520.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.8f6509ae.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d2009923.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/slinky/0.0.0-20260506-1032be6"></head>
 
 	<body style="margin: 0 auto">
@@ -161,21 +161,21 @@ of deficiencies:</p>
 <p>The ideal strategy is to split <code>out</code> into chunks, and compute the two operations at each chunk.</p>
 <h3>Stencil example</h3>
 <p>Here is an example of a pipeline that has a stage that is a stencil, such as a convolution:</p>
-<pre><code lang="py">node_context ctx;
-
-auto in = buffer_expr::make(ctx, "in", sizeof(short), 2);
-auto out = buffer_expr::make(ctx, "out", sizeof(short), 2);
-
-auto intm = buffer_expr::make(ctx, "intm", sizeof(short), 2);
-
-var x(ctx, "x");
-var y(ctx, "y");
-
-func add = func::make(add_1, {in, {point(x), point(y)}}, {intm, {x, y}});
-func stencil =
-    func::make(sum3x3, {intm, {{x - 1, x + 1}, {y - 1, y + 1}}}, {out, {x, y}});
-
-pipeline p = build_pipeline(ctx, {in}, {out});</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">node_context ctx</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto </span><span style="color:#D73A49">in</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"in"</span><span style="color:#24292E">, sizeof(short), </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto out </span><span style="color:#D73A49">=</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"out"</span><span style="color:#24292E">, sizeof(short), </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">auto intm </span><span style="color:#D73A49">=</span><span style="color:#24292E"> buffer_expr::make(ctx, </span><span style="color:#032F62">"intm"</span><span style="color:#24292E">, sizeof(short), </span><span style="color:#005CC5">2</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">var x(ctx, </span><span style="color:#032F62">"x"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">var y(ctx, </span><span style="color:#032F62">"y"</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">func add </span><span style="color:#D73A49">=</span><span style="color:#24292E"> func::make(add_1, {</span><span style="color:#D73A49">in</span><span style="color:#24292E">, {point(x), point(y)}}, {intm, {x, y}})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">func stencil </span><span style="color:#D73A49">=</span></span>
+<span class="line"><span style="color:#24292E">    func::make(sum3x3, {intm, {{x </span><span style="color:#D73A49">-</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">, x </span><span style="color:#D73A49">+</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">}, {y </span><span style="color:#D73A49">-</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">, y </span><span style="color:#D73A49">+</span><span style="color:#005CC5"> 1</span><span style="color:#24292E">}}}, {out, {x, y}})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pipeline p </span><span style="color:#D73A49">=</span><span style="color:#24292E"> build_pipeline(ctx, {</span><span style="color:#D73A49">in</span><span style="color:#24292E">}, {out})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <ul>
 <li><code>in</code> and <code>out</code> are the input and output buffers.</li>
 <li><code>intm</code> is the intermediate buffer between the two operations.</li>
@@ -188,15 +188,15 @@ pipeline p = build_pipeline(ctx, {in}, {out});</code></pre>
 Here is a <a href="https://html-preview.github.io/?url=https://github.com/dsharlet/slinky/blob/main/builder/test/visualize/stencil_split_0.html">visualization of this strategy</a>.</p>
 <p>An interesting way to implement this pipeline is to compute rows of <code>out</code> at a time, keeping the window of rows required from <code>add</code> in memory.
 This can be expressed with the following schedule:</p>
-<pre><code>stencil.loops({y});
-add.compute_at({&amp;stencil, y});</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">stencil.loops({y})</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">add.compute_at({</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">stencil, y})</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
 <p>This means:</p>
 <ul>
 <li>We want a loop over <code>y</code>, instead of just passing the whole 2D buffer to <code>sum3x3</code>.</li>
 <li>We want to compute add at that same loop over y to compute <code>stencil</code>.</li>
 </ul>
 <p>This generates a program like so:</p>
-<pre><code>check(in)
+<pre><code lang="py">check(in)
 check((buffer_rank(in) == 2))
 check(out)
 check((buffer_rank(out) == 2))

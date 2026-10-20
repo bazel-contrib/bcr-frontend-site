@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fad4e33b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f94b6e3f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3647de77.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.24d91ea9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.c56e761e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.4ea2eaaf.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9b2ea254.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sourcekit_bazel_bsp/0.8.3"></head>
 
 	<body style="margin: 0 auto">
@@ -171,9 +171,9 @@ sourcekit-bazel-bsp is designed specifically for projects that use the <a href="
 </ul>
 <h2>Bazel Cache Handling</h2>
 <p>When building a specific library for indexing, the BSP needs to compile it with the correct platform configuration (iOS, tvOS, etc.) to ensure correctness and proper cache sharing with regular full app builds. The BSP achieves this by using an <strong>aspect</strong> to build libraries <em>through</em> their parent top-level target:</p>
-<pre><code lang="py">bazel build //.bsp/skbsp_generated:wrapper_App_MyApp --output_groups=aspect_path_to_MyLibrary</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">//</span><span style="color:#24292E">.bsp</span><span style="color:#D73A49">/</span><span style="color:#24292E">skbsp_generated:wrapper_App_MyApp </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output_groups</span><span style="color:#D73A49">=</span><span style="color:#24292E">aspect_path_to_MyLibrary</span></span></code></pre>
 <p>If this is undesired and/or causes issues with your particular setup, you can pass the <code>--compile-top-level</code> flag to make the BSP directly compile the target's <strong>entire parent</strong> instead of using the aspect approach. This can be useful for projects that define fine-grained <code>*_build_test</code> targets and providing them as top-level targets for the BSP, as those don't require such workarounds and thus enables maximum predictability and cacheability.</p>
-<pre><code>setup_sourcekit_bsp(
+<pre><code lang="py">setup_sourcekit_bsp(
     # ...
     compile_top_level = True,
 )</code></pre>

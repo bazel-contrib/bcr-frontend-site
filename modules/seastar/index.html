@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e86e079b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.457534d6.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3ecfb94f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.960eea80.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.b05cff84.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b3af2120.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/seastar/26.08.0-20260810180219-3bb2e379f54f"></head>
 
 	<body style="margin: 0 auto">
@@ -72,11 +72,11 @@ It is based on <a href="http://en.wikipedia.org/wiki/Futures_and_promises">futur
 <h2>Building Seastar</h2>
 <p>For more details and alternative work-flows, read <a href="https://github.com/scylladb/seastar/blob/3bb2e379f54f6aad55de0de1a6bd465d90012cc9/HACKING.md" target="_blank" rel="noopener noreferrer">HACKING.md</a>.</p>
 <p>Assuming that you would like to use system packages (RPMs or DEBs) for Seastar's dependencies, first install them:</p>
-<pre><code lang="py">$ sudo ./install-dependencies.sh</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> sudo .</span><span style="color:#D73A49">/</span><span style="color:#24292E">install</span><span style="color:#D73A49">-</span><span style="color:#24292E">dependencies.sh</span></span></code></pre>
 <p>then configure (in "release" mode):</p>
-<pre><code>$ ./configure.py --mode=release</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure.py </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">release</span></span></code></pre>
 <p>then compile:</p>
-<pre><code>$ ninja -C build/release</code></pre>
+<pre><code lang="py">$ ninja -C build/release</code></pre>
 <p>In case there are compilation issues, especially like <code>g++: internal compiler error: Killed (program cc1plus)</code>
 try giving more memory to gcc, either by limiting the amount of threads ( -j1 ) and/or allowing at least 4g ram to your
 machine.</p>

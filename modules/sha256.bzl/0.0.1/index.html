@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bcc8354e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.56b24a31.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.12123aad.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c5b932fc.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.1c3d1c4d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e54d9a30.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sha256.bzl/0.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -71,14 +71,14 @@ small inputs such as those hashed in a Bazel module extension to generate
 lockfiles.</p>
 <h2>Usage</h2>
 <h3>In a Bazel or Buck2 rule (<code>*.bzl</code>)</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@sha256.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sha256"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">hash</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> sha256(</span><span style="color:#032F62">"hello"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#6A737D"># "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"</span></span></code></pre>
+<pre><code lang="py">load("@sha256.bzl", "sha256")
+
+hash = sha256("hello")
+# "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824"</code></pre>
 <p>For Bazel, add the dependency to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sha256.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>bazel_dep(name = "sha256.bzl", version = "...")</code></pre>
 <h3>In standalone Starlark</h3>
-<pre><code lang="py">load("sha256.star", "sha256")
+<pre><code>load("sha256.star", "sha256")
 
 print(sha256("hello"))</code></pre>
 <h3>Interactive interpreter</h3>

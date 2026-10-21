@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7754a186.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.99daefc5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.239d6046.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.47eba44a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.cb1ed553.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.44c85ffe.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/simdjson/4.6.9"></head>
 
 	<body style="margin: 0 auto">
@@ -135,20 +135,20 @@ directory, along with the sample file <a href="https://github.com/simdjson/simdj
 <li><p>Create <code>quickstart.cpp</code>:</p>
 </li>
 </ol>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
-<span class="line"><span style="color:#6A737D">#include "simdjson.h"</span></span>
-<span class="line"><span style="color:#24292E">using namespace simdjson</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main(void) {</span></span>
-<span class="line"><span style="color:#24292E">    ondemand::parser parser;</span></span>
-<span class="line"><span style="color:#24292E">    padded_string json = padded_string::load(</span><span style="color:#032F62">"twitter.json"</span><span style="color:#24292E">);</span></span>
-<span class="line"><span style="color:#24292E">    ondemand::document tweets = parser.iterate(json);</span></span>
-<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#24292E"> uint64_t(tweets[</span><span style="color:#032F62">"search_metadata"</span><span style="color:#24292E">][</span><span style="color:#032F62">"count"</span><span style="color:#24292E">]) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> " results."</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> std::endl;</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">#include &lt;iostream&gt;
+#include "simdjson.h"
+using namespace simdjson;
+int main(void) {
+    ondemand::parser parser;
+    padded_string json = padded_string::load("twitter.json");
+    ondemand::document tweets = parser.iterate(json);
+    std::cout &lt;&lt; uint64_t(tweets["search_metadata"]["count"]) &lt;&lt; " results." &lt;&lt; std::endl;
+}</code></pre>
 <ol start="3">
 <li><code>c++ -o quickstart quickstart.cpp simdjson.cpp</code></li>
 <li><code>./quickstart</code></li>
 </ol>
-<pre><code lang="py">100 results.</code></pre>
+<pre><code>100 results.</code></pre>
 <h2>Documentation</h2>
 <p>Usage documentation is available:</p>
 <ul>

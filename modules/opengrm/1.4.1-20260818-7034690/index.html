@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.cb78d06d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5e35a3de.pb.gz">
-		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7144c979.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.470b32d5.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.30e6fa98.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.95b86788.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b58c8e02.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/opengrm/1.4.1-20260818-7034690"></head>
 
 	<body style="margin: 0 auto">
@@ -100,16 +100,16 @@ automata manipulation.</li>
 <h3>Bazel</h3>
 <p>OpenGrm can be built and tested using <a href="https://bazel.build">Bazel</a> 9.1.1 or
 newer.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Build the entire project</span></span>
-<span class="line"><span style="color:#24292E">bazel build </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Run all tests</span></span>
-<span class="line"><span style="color:#24292E">bazel test </span><span style="color:#D73A49">//</span><span style="color:#005CC5">...</span></span></code></pre>
+<pre><code lang="py"># Build the entire project
+bazel build //...
+
+# Run all tests
+bazel test //...</code></pre>
 <p>Alternatively, <a href="https://github.com/bazelbuild/bazelisk">Bazelisk</a> can be used
 for building.</p>
 <h4>Example: Baum-Welch trainer</h4>
 <p>The following example builds Baum-Welch trainer using Bazelisk on macOS:</p>
-<pre><code lang="py"># Get OpenGrm and download Bazelisk.
+<pre><code># Get OpenGrm and download Bazelisk.
 BAZELISK_VERSION=...
 git clone https://github.com/google-research/opengrm.git
 wget https://github.com/bazelbuild/bazelisk/releases/download/v${BAZELISK_VERSION}/bazelisk-darwin-arm64

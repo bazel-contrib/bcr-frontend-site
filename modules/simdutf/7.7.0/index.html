@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8cb51130.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a53dde38.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.692d70ca.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.87d74aef.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.76b34f1b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c60f47b0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/simdutf/7.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -213,10 +213,10 @@
 <h2>Single-header version</h2>
 <p>You can create a single-header version of the library where all of the code is put into two files (<code>simdutf.h</code> and <code>simdutf.cpp</code>). We publish a zip archive containing these files, e.g., see <a href="https://github.com/simdutf/simdutf/releases/download/v9.1.0/singleheader.zip">https://github.com/simdutf/simdutf/releases/download/v9.1.0/singleheader.zip</a></p>
 <p>You may generate it on your own using a Python script.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">python3 .</span><span style="color:#D73A49">/</span><span style="color:#24292E">singleheader</span><span style="color:#D73A49">/</span><span style="color:#24292E">amalgamate.py</span></span></code></pre>
+<pre><code lang="py">python3 ./singleheader/amalgamate.py</code></pre>
 <p>We require Python 3 or better.</p>
 <p>Under Linux and macOS, you may test it as follows:</p>
-<pre><code lang="py">cd singleheader
+<pre><code>cd singleheader
 c++ -o amalgamation_demo amalgamation_demo.cpp -std=c++17
 ./amalgamation_demo</code></pre>
 <h3>Single-header version with limited features</h3>

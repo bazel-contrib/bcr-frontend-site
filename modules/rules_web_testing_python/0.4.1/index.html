@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.348d08a7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fd0d948d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d6ca3d68.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5f076c5c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.663873ec.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f697578f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_web_testing_python/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -72,9 +72,9 @@ WebDriver.</p>
 <h2>Configure your Bazel project</h2>
 <p>For each language that is used by your project, you need to add the corresponding sub module to your MODULE.bazel file:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_webtesting"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.0"</span><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_webtesting_$</span><span style="color:#005CC5">{language}</span><span style="color:#032F62">"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_webtesting_${language}", version = "0.4.0")</code></pre>
 <p>For example for Java:</p>
-<pre><code lang="py">bazel_dep(name = "rules_webtesting_java", version = "0.4.0")</code></pre>
+<pre><code>bazel_dep(name = "rules_webtesting_java", version = "0.4.0")</code></pre>
 <h2>Write your tests</h2>
 <p>Write your test in the language of your choice, but use our provided Browser API
 to get an instance of WebDriver.</p>

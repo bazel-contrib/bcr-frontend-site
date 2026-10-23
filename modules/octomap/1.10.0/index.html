@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9fdb078b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.23e5bdbf.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3d630409.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e3a0a605.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.af75ee82.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.478132d7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/octomap/1.10.0"></head>
 
 	<body style="margin: 0 auto">
@@ -89,19 +89,19 @@ want to use OctoMap in ROS; there are pre-compiled packages available.</p>
 <p>You can build each library separately with CMake by running it from the subdirectories, 
 or build octomap and octovis together from this top-level directory. E.g., to
 only compile the library, run:</p>
-<pre><code lang="py">cd octomap
-mkdir build
-cd build
-cmake ..
-make</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd octomap</span></span>
+<span class="line"><span style="color:#24292E">mkdir build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">make</span></span></code></pre>
 <p>To compile the complete package, run:</p>
-<pre><code>cd build
-cmake ..
-make</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">cmake ..</span></span>
+<span class="line"><span style="color:#24292E">make</span></span></code></pre>
 <p>Binaries and libs will end up in the directories <code>bin</code> and <code>lib</code> of the
 top-level directory where you started the build.</p>
 <p>Alternatively, you can build and install octomap using <a href="https://github.com/Microsoft/vcpkg/">vcpkg</a> dependency manager:</p>
-<pre><code>git clone https://github.com/Microsoft/vcpkg.git
+<pre><code lang="py">git clone https://github.com/Microsoft/vcpkg.git
 cd vcpkg
 ./bootstrap-vcpkg.sh
 ./vcpkg integrate install

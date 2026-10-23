@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1727555b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.4d6196fa.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c66c6e8c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c9afaa4f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.71ba0bfb.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.66d8c17d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/shine/3.1.1"></head>
 
 	<body style="margin: 0 auto">
@@ -66,32 +66,32 @@ fixed-point arithmetic. The library can thus be used to perform super fast mp3 e
 without a FPU, such as <code>armel</code>, etc.. It is also super fast on architectures with a FPU!</p>
 <h2>How to use?</h2>
 <p>The encoding API should be quite straight forward:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;shine/layer3.h&gt;</span></span>
-<span class="line"><span style="color:#24292E">  </span></span>
-<span class="line"><span style="color:#24292E">(</span><span style="color:#005CC5">...</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> See </span><span style="color:#D73A49">if</span><span style="color:#24292E"> samplerate </span><span style="color:#D73A49">and</span><span style="color:#24292E"> bitrate are valid </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#D73A49">if</span><span style="color:#24292E"> (shine_check_config(config.wave.samplerate, config.mpeg.bitr) </span><span style="color:#D73A49">&lt;</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">  error(</span><span style="color:#032F62">"Unsupported samplerate/bitrate configuration."</span><span style="color:#24292E">)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Initiate encoder </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#24292E">s </span><span style="color:#D73A49">=</span><span style="color:#24292E"> shine_initialise(</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">config)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Number of samples (per channel) to feed the encoder </span><span style="color:#D73A49">with</span><span style="color:#24292E">. </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> samples_per_pass </span><span style="color:#D73A49">=</span><span style="color:#24292E"> shine_samples_per_pass(s)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> All the magic happens here </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#D73A49">while</span><span style="color:#24292E"> (read(buffer, infile, samples_per_pass)) {</span></span>
-<span class="line"><span style="color:#24292E">  data = shine_encode_buffer(s,buffer,</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">written);</span></span>
-<span class="line"><span style="color:#24292E">  write(data, written);</span></span>
-<span class="line"><span style="color:#24292E">}</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Flush </span><span style="color:#D73A49">and</span><span style="color:#24292E"> write remaining data. </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#24292E">data </span><span style="color:#D73A49">=</span><span style="color:#24292E"> shine_flush(s,</span><span style="color:#D73A49">&amp;</span><span style="color:#24292E">written)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"><span style="color:#24292E">write(written, data)</span><span style="color:#B31D28;font-style:italic">;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">/*</span><span style="color:#24292E"> Close encoder. </span><span style="color:#D73A49">*/</span></span>
-<span class="line"><span style="color:#24292E">shine_close(s)</span><span style="color:#B31D28;font-style:italic">;</span></span></code></pre>
+<pre><code lang="py">#include &lt;shine/layer3.h&gt;
+  
+(...)
+
+/* See if samplerate and bitrate are valid */
+if (shine_check_config(config.wave.samplerate, config.mpeg.bitr) &lt; 0)
+  error("Unsupported samplerate/bitrate configuration.");
+
+/* Initiate encoder */
+s = shine_initialise(&amp;config);
+
+/* Number of samples (per channel) to feed the encoder with. */
+int samples_per_pass = shine_samples_per_pass(s);
+
+/* All the magic happens here */
+while (read(buffer, infile, samples_per_pass)) {
+  data = shine_encode_buffer(s,buffer,&amp;written);
+  write(data, written);
+}
+
+/* Flush and write remaining data. */
+data = shine_flush(s,&amp;written);
+write(written, data);
+
+/* Close encoder. */
+shine_close(s);</code></pre>
 <h2>How fast is it?</h2>
 <p>On a macbook pro (<code>arm64</code>/M1 pro, <code>FPU</code>, December 30, 2022):</p>
 <h2>Lame, <code>88.7x</code> realtime:
@@ -107,14 +107,14 @@ Encoding as 44.1 kHz j-stereo MPEG-1 Layer III (11x) 128 kbps qval=3
 Writing LAME Tag...done
 ReplayGain: -9.3dB
 lame -b 128 /tmp/decoded.wav /tmp/lame.mp3  3.55s user 0.05s system 99% cpu 3.609 total</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Shine, </span><span style="color:#B31D28;font-style:italic">`</span><span style="color:#005CC5;font-style:italic">318.</span><span style="color:#B31D28;font-style:italic">0x`</span><span style="color:#24292E"> realtime:</span></span></code></pre>
+<pre><code>Shine, `318.0x` realtime:</code></pre>
 <p>shineenc (Liquidsoap version)
 WAVE PCM Data, stereo 44100Hz 16bit, duration: 00:05:18
 MPEG-I layer III, stereo  Psychoacoustic Model: Shine
 Bitrate: 128 kbps  De-emphasis: none   Original
 Encoding "/tmp/bla.wav" to "/tmp/shine.mp3"
 Finished in 00:00:01 (318.0x realtime)</p>
-<pre><code lang="py">### ⚠ The following are outdated tests ⚠
+<pre><code>### ⚠ The following are outdated tests ⚠
 
 On a [Raspberry Pi](http://www.raspberrypi.org/) (`ARM`, `FPU`):
 

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f19bcb86.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f8f1912c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.74c366e8.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a770b653.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.2849d9ef.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.9770b4a7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.65415f61.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sentry_native/0.16.6"></head>
 
 	<body style="margin: 0 auto">
@@ -153,24 +153,24 @@ CMake.</p>
 <p>The prerequisites for building differ by platform and backend. You will always need <code>CMake</code> to build the code. Additionally, when using the <code>crashpad</code> backend, <code>zlib</code> is required. On Linux and macOS, <code>libcurl</code> is a prerequisite. For more details, check out  the <a href="https://github.com/getsentry/sentry-native/blob/672b86c77c1864e1c0b5e72eefadc078e30ef700/CONTRIBUTING.md" target="_blank" rel="noopener noreferrer">contribution guide</a>.</p>
 <p>Building the Breakpad and Crashpad backends requires a <code>C++17</code> compatible compiler.</p>
 <p><strong>Build example</strong>:</p>
-<pre><code lang="py"># configure the cmake build into the `build` directory, with crashpad (on macOS)
-$ cmake -B build -DCMAKE_BUILD_TYPE=RelWithDebInfo
-# build the project
-$ cmake --build build --parallel
-# install the resulting artifacts into a specific prefix (use the correct config on Windows)
-$ cmake --install build --prefix install --config RelWithDebInfo
-# which will result in the following (on macOS):
-$ exa --tree install
-install
-├── bin
-│  └── crashpad_handler
-├── include
-│  └── sentry.h
-└── lib
-   ├── cmake
-   │  └── sentry
-   ├── libsentry.dylib
-   └── libsentry.dylib.dSYM</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># configure the cmake build into the `build` directory, with crashpad (on macOS)</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">RelWithDebInfo</span></span>
+<span class="line"><span style="color:#6A737D"># build the project</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">parallel</span></span>
+<span class="line"><span style="color:#6A737D"># install the resulting artifacts into a specific prefix (use the correct config on Windows)</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">prefix install </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">config RelWithDebInfo</span></span>
+<span class="line"><span style="color:#6A737D"># which will result in the following (on macOS):</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> exa </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">tree install</span></span>
+<span class="line"><span style="color:#24292E">install</span></span>
+<span class="line"><span style="color:#24292E">├── </span><span style="color:#005CC5">bin</span></span>
+<span class="line"><span style="color:#24292E">│  └── crashpad_handler</span></span>
+<span class="line"><span style="color:#24292E">├── include</span></span>
+<span class="line"><span style="color:#24292E">│  └── sentry.h</span></span>
+<span class="line"><span style="color:#24292E">└── lib</span></span>
+<span class="line"><span style="color:#24292E">   ├── cmake</span></span>
+<span class="line"><span style="color:#24292E">   │  └── sentry</span></span>
+<span class="line"><span style="color:#24292E">   ├── libsentry.dylib</span></span>
+<span class="line"><span style="color:#24292E">   └── libsentry.dylib.dSYM</span></span></code></pre>
 <p>Please refer to the CMake Manual for more details.</p>
 <p><strong>Android</strong>:</p>
 <p>The CMake project can also be configured to correctly work with the Android NDK,
@@ -187,15 +187,15 @@ LLVM + Clang are mandatory here : they are required to generate .pdb files, used
 <li>Run from <code>mingw64.exe</code> : <code>pacman -S --needed - &lt; ./toolchains/msys2-mingw64-pkglist.txt</code></li>
 <li>Build as :</li>
 </ul>
-<pre><code># Configure with Ninja as generator and use the MSYS2 toolchain file
-$ cmake -GNinja -Bbuild -H. -DCMAKE_TOOLCHAIN_FILE=toolchains/msys2.cmake
-# build with Ninja
-$ ninja -C build</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Configure with Ninja as generator and use the MSYS2 toolchain file</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">GNinja </span><span style="color:#D73A49">-</span><span style="color:#24292E">Bbuild </span><span style="color:#D73A49">-</span><span style="color:#24292E">H. </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_TOOLCHAIN_FILE</span><span style="color:#D73A49">=</span><span style="color:#24292E">toolchains</span><span style="color:#D73A49">/</span><span style="color:#24292E">msys2.cmake</span></span>
+<span class="line"><span style="color:#6A737D"># build with Ninja</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> ninja </span><span style="color:#D73A49">-</span><span style="color:#24292E">C build</span></span></code></pre>
 <p><strong>MacOS</strong>:</p>
 <p>Building universal binaries/libraries is possible out of the box when using the
 <a href="https://cmake.org/cmake/help/latest/variable/CMAKE_OSX_ARCHITECTURES.html"><code>CMAKE_OSX_ARCHITECTURES</code></a> variable, both with the <code>Xcode</code> generator as well
 as the default generator:</p>
-<pre><code># using Xcode generator:
+<pre><code lang="py"># using Xcode generator:
 $ cmake -B xcodebuild -GXcode -DCMAKE_OSX_ARCHITECTURES="arm64;x86_64"
 $ xcodebuild build -project xcodebuild/Sentry-Native.xcodeproj
 $ lipo -info xcodebuild/Debug/libsentry.dylib

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3f0d1f58.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.426340bb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.afa30542.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.6eea55b5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.e120e93e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1c5aff01.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ytt/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -65,39 +65,39 @@
 <p>See <a href="https://github.com/ekhabarov/rules_ytt/releases">releases</a>.</p>
 <h2>Usage</h2>
 <p>Add to <code>BUILD</code> file:</p>
-<pre><code lang="py">load("@rules_ytt//:defs.bzl", "ytt")
-
-# Build an image with  rules_oci
-
-load("@rules_oci//oci:defs.bzl", "oci_image")
-
-oci_image(
-    name = "image",
-    ...
-)
-
-# Generate YAML manifests
-
-ytt(
-    name = "manifests",
-    srcs = [
-        ":base.yaml",
-        ":defaults.yaml",
-        ":values.yaml",
-        ":image.digest",
-    ],
-    # or
-    # srcs = glob(["*.yaml"]) + [":image.digest"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_ytt//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ytt"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Build an image with  rules_oci</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_oci//oci:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"oci_image"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">oci_image(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "image"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#005CC5">    ...</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Generate YAML manifests</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ytt(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "manifests"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        ":base.yaml"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        ":defaults.yaml"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        ":values.yaml"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        ":image.digest"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#6A737D">    # or</span></span>
+<span class="line"><span style="color:#6A737D">    # srcs = glob(["*.yaml"]) + [":image.digest"],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Which is equivalent to</p>
-<pre><code>ytt \
-    -f base.yaml \
-    -f defaults.yaml \
-    -f values.yaml \
-    -f image.json.sha256, # file created by "image.digest" target
-    --dangerous-allow-all-symlink-destinations</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ytt \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">f base.yaml \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">f defaults.yaml \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">f values.yaml \</span></span>
+<span class="line"><span style="color:#D73A49">    -</span><span style="color:#24292E">f image.json.sha256, </span><span style="color:#6A737D"># file created by "image.digest" target</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">    --</span><span style="color:#24292E">dangerous</span><span style="color:#D73A49">-</span><span style="color:#24292E">allow</span><span style="color:#D73A49">-</span><span style="color:#005CC5">all</span><span style="color:#D73A49">-</span><span style="color:#24292E">symlink</span><span style="color:#D73A49">-</span><span style="color:#24292E">destinations</span></span></code></pre>
 <p>Inside YAML template digest can be used like this:</p>
-<pre><code>#@ load("@ytt:data", "data")
+<pre><code lang="py">#@ load("@ytt:data", "data")
 ---
 image: #@ "repo/image@" + data.read("image.json.sha256").strip()</code></pre>
 <h3>Commands</h3>

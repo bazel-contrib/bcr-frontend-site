@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.792f9885.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0299cf75.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.41f87d74.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d8c5ef14.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.92a1995f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.9a51056e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/simdutf/7.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -203,17 +203,17 @@
 </ol>
 <p><em>We strongly discourage working from our main git branch. You should never use our main branch in production. <a href="https://github.com/simdutf/simdutf/releases/">Use our releases</a>. They are tagged as <code>vX.Y.Z</code>.</em></p>
 <h3>Usage (CMake)</h3>
-<pre><code lang="py">cmake -B build
-cmake --build build
-cd build
-ctest .</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span></span>
+<span class="line"><span style="color:#24292E">cd build</span></span>
+<span class="line"><span style="color:#24292E">ctest .</span></span></code></pre>
 <p>Visual Studio users must specify whether they want to build the Release or Debug version.</p>
 <p>To use the library as a CMake dependency in your project, please see <code>tests/installation_tests/from_fetch</code> for an example.</p>
 <p>You may also use a package manager. E.g.,  <a href="https://github.com/simdutf/simdutf-vcpkg">we have a complete example using vcpkg</a>.</p>
 <h2>Single-header version</h2>
 <p>You can create a single-header version of the library where all of the code is put into two files (<code>simdutf.h</code> and <code>simdutf.cpp</code>). We publish a zip archive containing these files, e.g., see <a href="https://github.com/simdutf/simdutf/releases/download/v9.1.0/singleheader.zip">https://github.com/simdutf/simdutf/releases/download/v9.1.0/singleheader.zip</a></p>
 <p>You may generate it on your own using a Python script.</p>
-<pre><code>python3 ./singleheader/amalgamate.py</code></pre>
+<pre><code lang="py">python3 ./singleheader/amalgamate.py</code></pre>
 <p>We require Python 3 or better.</p>
 <p>Under Linux and macOS, you may test it as follows:</p>
 <pre><code>cd singleheader

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.55dfc32a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.fdbe45ff.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.78ac05b2.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2379e227.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.3d24a043.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0e2ec254.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sign-here/2.5.5"></head>
 
 	<body style="margin: 0 auto">
@@ -85,139 +85,139 @@ for <a href="https://developer.apple.com/documentation/appstoreconnectapi/genera
 for the necessary credentials.</p>
 <h2>CLI Interface</h2>
 <h3>create-keychain</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here create</span><span style="color:#D73A49">-</span><span style="color:#24292E">keychain </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OVERVIEW</span><span style="color:#24292E">: Use this command to create a keychain to populate </span><span style="color:#D73A49">with</span><span style="color:#24292E"> signing</span></span>
-<span class="line"><span style="color:#24292E">information </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#B31D28;font-style:italic">`create</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">provisioning</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">profile`</span><span style="color:#24292E"> command</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">This command sets up a keychain that </span><span style="color:#D73A49">is</span><span style="color:#24292E"> ready to use </span><span style="color:#D73A49">for</span><span style="color:#24292E"> signing actions. This</span></span>
-<span class="line"><span style="color:#24292E">command </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#24292E"> required </span><span style="color:#D73A49">and</span><span style="color:#24292E"> you may setup your own keychain</span></span>
-<span class="line"><span style="color:#D73A49">for</span><span style="color:#24292E"> usage </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the </span><span style="color:#B31D28;font-style:italic">`create</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">provisioning</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">profile`</span><span style="color:#24292E"> command.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">USAGE</span><span style="color:#24292E">: sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here create</span><span style="color:#D73A49">-</span><span style="color:#24292E">keychain </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Name of the keychain to be created</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Password </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the keychain to be created</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">              Show </span><span style="color:#005CC5">help</span><span style="color:#24292E"> information.</span></span></code></pre>
+<pre><code lang="py">sign-here create-keychain --help
+
+OVERVIEW: Use this command to create a keychain to populate with signing
+information in the `create-provisioning-profile` command
+
+This command sets up a keychain that is ready to use for signing actions. This
+command is not required and you may setup your own keychain
+for usage in the `create-provisioning-profile` command.
+
+USAGE: sign-here create-keychain --keychain-name &lt;keychain-name&gt; --keychain-password &lt;keychain-password&gt;
+
+OPTIONS:
+  --keychain-name &lt;keychain-name&gt;
+                          Name of the keychain to be created
+  --keychain-password &lt;keychain-password&gt;
+                          Password for the keychain to be created
+  -h, --help              Show help information.</code></pre>
 <h3>delete-keychain</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here delete</span><span style="color:#D73A49">-</span><span style="color:#24292E">keychain </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OVERVIEW</span><span style="color:#24292E">: Use this command to delete a keychain </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the system</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">This command can be used to delete a keychain </span><span style="color:#D73A49">from</span><span style="color:#24292E"> the system </span><span style="color:#D73A49">and</span><span style="color:#24292E"> restore</span></span>
-<span class="line"><span style="color:#24292E">sensible defaults </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the keychain search </span><span style="color:#005CC5">list</span><span style="color:#24292E"> post deletion (i.e. setting</span></span>
-<span class="line"><span style="color:#24292E">login.keychain </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the default search </span><span style="color:#005CC5">list</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">USAGE</span><span style="color:#24292E">: sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here delete</span><span style="color:#D73A49">-</span><span style="color:#24292E">keychain </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Name of the keychain to be deleted</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">              Show </span><span style="color:#005CC5">help</span><span style="color:#24292E"> information.</span></span></code></pre>
+<pre><code>sign-here delete-keychain --help
+
+OVERVIEW: Use this command to delete a keychain from the system
+
+This command can be used to delete a keychain from the system and restore
+sensible defaults for the keychain search list post deletion (i.e. setting
+login.keychain in the default search list)
+
+USAGE: sign-here delete-keychain --keychain-name &lt;keychain-name&gt;
+
+OPTIONS:
+  --keychain-name &lt;keychain-name&gt;
+                          Name of the keychain to be deleted
+  -h, --help              Show help information.</code></pre>
 <h3>create-provisioning-profile</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here create</span><span style="color:#D73A49">-</span><span style="color:#24292E">provisioning</span><span style="color:#D73A49">-</span><span style="color:#24292E">profile </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OVERVIEW</span><span style="color:#24292E">: Use this command to create a ready to use provisioning profile.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Use this command to create </span><span style="color:#D73A49">and</span><span style="color:#24292E"> save a mobile provisioning profile to a</span></span>
-<span class="line"><span style="color:#24292E">specified location. This command</span></span>
-<span class="line"><span style="color:#24292E">takes care of </span><span style="color:#005CC5">all</span><span style="color:#24292E"> necessary signing work </span><span style="color:#D73A49">and</span><span style="color:#24292E"> iTunes Connect </span><span style="color:#005CC5">API</span><span style="color:#24292E"> calls to get a</span></span>
-<span class="line"><span style="color:#24292E">ready to use</span></span>
-<span class="line"><span style="color:#24292E">mobile provisioning profile.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">The output of this command </span><span style="color:#D73A49">is</span><span style="color:#24292E"> the iTunes Connect </span><span style="color:#005CC5">API</span><span style="color:#005CC5"> ID</span><span style="color:#24292E"> of the created</span></span>
-<span class="line"><span style="color:#24292E">provisioning profile. This can</span></span>
-<span class="line"><span style="color:#24292E">be used </span><span style="color:#D73A49">with</span><span style="color:#24292E"> the </span><span style="color:#B31D28;font-style:italic">`delete</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">provisioning</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">profile`</span><span style="color:#24292E"> command to delete it </span><span style="color:#D73A49">if</span><span style="color:#24292E"> desired.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">USAGE</span><span style="color:#24292E">: sign</span><span style="color:#D73A49">-</span><span style="color:#24292E">here create</span><span style="color:#D73A49">-</span><span style="color:#24292E">provisioning</span><span style="color:#D73A49">-</span><span style="color:#24292E">profile </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">options</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#005CC5">OPTIONS</span><span style="color:#24292E">:</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">key</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">key</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The key identifier of the private key</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">generating_tokens_for_api_requests)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">issuer</span><span style="color:#D73A49">-</span><span style="color:#005CC5">id</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">issuer</span><span style="color:#D73A49">-</span><span style="color:#005CC5">id</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E"> The issuer </span><span style="color:#005CC5">id</span><span style="color:#24292E"> of the private key</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">generating_tokens_for_api_requests)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">private</span><span style="color:#D73A49">-</span><span style="color:#24292E">key</span><span style="color:#D73A49">-</span><span style="color:#24292E">path </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">private</span><span style="color:#D73A49">-</span><span style="color:#24292E">key</span><span style="color:#D73A49">-</span><span style="color:#24292E">path</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The path to a private key to use </span><span style="color:#D73A49">for</span><span style="color:#24292E"> generating </span><span style="color:#005CC5">PEM</span></span>
-<span class="line"><span style="color:#D73A49">                          and</span><span style="color:#24292E"> P12 files. This key will be attached to </span><span style="color:#005CC5">any</span></span>
-<span class="line"><span style="color:#24292E">                          generated certificates </span><span style="color:#D73A49">or</span><span style="color:#24292E"> profiles. Use </span><span style="color:#B31D28;font-style:italic">`openssl</span></span>
-<span class="line"><span style="color:#24292E">                          genrsa </span><span style="color:#D73A49">-</span><span style="color:#24292E">out key.pem </span><span style="color:#005CC5">2048</span><span style="color:#B31D28;font-style:italic">` to generate it.</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --itunes</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">connect</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">key</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">path </span><span style="color:#D73A49;font-style:italic">&lt;</span><span style="color:#B31D28;font-style:italic">itunes</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">connect</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">key</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">path</span><span style="color:#D73A49;font-style:italic">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The path to the private key</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">generating_tokens_for_api_requests)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The name of the keychain to use to store fetched</span></span>
-<span class="line"><span style="color:#24292E">                          identities</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">password</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The password of the keychain specified by</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">                          --</span><span style="color:#24292E">keychain</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">bundle</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">bundle</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The bundle identifier of the app </span><span style="color:#D73A49">for</span><span style="color:#24292E"> which you want</span></span>
-<span class="line"><span style="color:#24292E">                          to generate a provisioning profile </span><span style="color:#D73A49">for</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">bundle</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">bundle</span><span style="color:#D73A49">-</span><span style="color:#24292E">identifier</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The bundle identifier name </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the desired bundle</span></span>
-<span class="line"><span style="color:#24292E">                          identifier, this </span><span style="color:#D73A49">is</span><span style="color:#24292E"> optional but </span><span style="color:#D73A49">if</span><span style="color:#24292E"> it </span><span style="color:#D73A49">is</span><span style="color:#D73A49"> not</span><span style="color:#005CC5"> set</span><span style="color:#24292E"> the</span></span>
-<span class="line"><span style="color:#24292E">                          logic will select the first bundle </span><span style="color:#005CC5">id</span><span style="color:#24292E"> it finds that</span></span>
-<span class="line"><span style="color:#24292E">                          matches </span><span style="color:#B31D28;font-style:italic">`--bundle</span><span style="color:#D73A49;font-style:italic">-</span><span style="color:#B31D28;font-style:italic">identifier`</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">platform </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">platform</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">   The intended operating system </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the target</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">bundleidplatform)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">profile</span><span style="color:#D73A49">-</span><span style="color:#005CC5">type</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">profile</span><span style="color:#D73A49">-</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The profile </span><span style="color:#005CC5">type</span><span style="color:#24292E"> which you wish to create</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">profilecreaterequest</span><span style="color:#D73A49">/</span><span style="color:#24292E">data</span><span style="color:#D73A49">/</span><span style="color:#24292E">attributes)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#005CC5">type</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#005CC5">type</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The certificate </span><span style="color:#005CC5">type</span><span style="color:#24292E"> which you wish to create</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">developer.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">documentation</span><span style="color:#D73A49">/</span><span style="color:#24292E">appstoreconnectapi</span><span style="color:#D73A49">/</span><span style="color:#24292E">certificatetype)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">uuid </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">uuid</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The App Store Connect certificate </span><span style="color:#005CC5">UUID</span><span style="color:#24292E"> to use when</span></span>
-<span class="line"><span style="color:#24292E">                          creating the provisioning profile (optional)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">output</span><span style="color:#D73A49">-</span><span style="color:#24292E">path </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">output</span><span style="color:#D73A49">-</span><span style="color:#24292E">path</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Where to save the created provisioning profile</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">output</span><span style="color:#D73A49">-</span><span style="color:#24292E">directory </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">output</span><span style="color:#D73A49">-</span><span style="color:#24292E">directory</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Directory where certificate artifacts should be saved</span></span>
-<span class="line"><span style="color:#24292E">                          (optional)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">openssl</span><span style="color:#D73A49">-</span><span style="color:#24292E">path </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">openssl</span><span style="color:#D73A49">-</span><span style="color:#24292E">path</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Path to the openssl executable, this </span><span style="color:#D73A49">is</span><span style="color:#24292E"> used to</span></span>
-<span class="line"><span style="color:#24292E">                          generate </span><span style="color:#005CC5">CSR</span><span style="color:#24292E"> signing artifacts that are required when</span></span>
-<span class="line"><span style="color:#24292E">                          creating certificates</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">intermediary</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">certificates </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">intermediary</span><span style="color:#D73A49">-</span><span style="color:#24292E">apple</span><span style="color:#D73A49">-</span><span style="color:#24292E">certificates</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Intermediary Apple Certificates that should also be</span></span>
-<span class="line"><span style="color:#24292E">                          added to the keychain</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">www.apple.com</span><span style="color:#D73A49">/</span><span style="color:#24292E">certificateauthority</span><span style="color:#D73A49">/</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">profile</span><span style="color:#D73A49">-</span><span style="color:#24292E">name </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">profile</span><span style="color:#D73A49">-</span><span style="color:#24292E">name</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          The name that you would like to assign to the created</span></span>
-<span class="line"><span style="color:#24292E">                          provisioning profile (optional)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">signing</span><span style="color:#D73A49">-</span><span style="color:#24292E">request</span><span style="color:#D73A49">-</span><span style="color:#24292E">subject </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">certificate</span><span style="color:#D73A49">-</span><span style="color:#24292E">signing</span><span style="color:#D73A49">-</span><span style="color:#24292E">request</span><span style="color:#D73A49">-</span><span style="color:#24292E">subject</span><span style="color:#D73A49">&gt;</span></span>
-<span class="line"><span style="color:#24292E">                          Subject </span><span style="color:#D73A49">for</span><span style="color:#24292E"> the Certificate Signing Request when</span></span>
-<span class="line"><span style="color:#24292E">                          creating certificates.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">                          OpenSSL documentation </span><span style="color:#D73A49">for</span><span style="color:#24292E"> this flag</span></span>
-<span class="line"><span style="color:#24292E">                          (https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">www.openssl.org</span><span style="color:#D73A49">/</span><span style="color:#24292E">docs</span><span style="color:#D73A49">/</span><span style="color:#24292E">manmaster</span><span style="color:#D73A49">/</span><span style="color:#24292E">man1</span><span style="color:#D73A49">/</span><span style="color:#24292E">openssl</span><span style="color:#D73A49">-</span><span style="color:#24292E">req.html):</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Sets</span></span>
-<span class="line"><span style="color:#24292E">                          subject name </span><span style="color:#D73A49">for</span><span style="color:#24292E"> new request </span><span style="color:#D73A49">or</span><span style="color:#24292E"> supersedes the</span></span>
-<span class="line"><span style="color:#24292E">                          subject name when processing a certificate request.</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">                          The arg must be formatted </span><span style="color:#D73A49">as</span></span>
-<span class="line"><span style="color:#032F62">                          '/type0=value0/type1=value1/type2=....'</span><span style="color:#24292E">. Special</span></span>
-<span class="line"><span style="color:#24292E">                          characters may be escaped by </span><span style="color:#032F62">'</span><span style="color:#005CC5">\'</span><span style="color:#032F62"> (backslash),</span></span>
-<span class="line"><span style="color:#24292E">                          whitespace </span><span style="color:#D73A49">is</span><span style="color:#24292E"> retained. Empty values are permitted,</span></span>
-<span class="line"><span style="color:#24292E">                          but the corresponding </span><span style="color:#005CC5">type</span><span style="color:#24292E"> will </span><span style="color:#D73A49">not</span><span style="color:#24292E"> be included </span><span style="color:#D73A49">in</span></span>
-<span class="line"><span style="color:#24292E">                          the request. Giving a single </span><span style="color:#032F62">'/'</span><span style="color:#24292E"> will lead to an</span></span>
-<span class="line"><span style="color:#24292E">                          empty sequence of RDNs (a </span><span style="color:#005CC5">NULL</span><span style="color:#D73A49">-</span><span style="color:#005CC5">DN</span><span style="color:#24292E">). Multi</span><span style="color:#D73A49">-</span><span style="color:#24292E">valued RDNs</span></span>
-<span class="line"><span style="color:#24292E">                          can be formed by placing a </span><span style="color:#032F62">'+'</span><span style="color:#24292E"> character instead of a</span></span>
-<span class="line"><span style="color:#032F62">                          '/'</span><span style="color:#24292E"> between the AttributeValueAssertions (AVAs) that</span></span>
-<span class="line"><span style="color:#24292E">                          specify the members of the </span><span style="color:#005CC5">set</span><span style="color:#24292E">. Example:</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">                          /</span><span style="color:#005CC5">DC</span><span style="color:#24292E">=org</span><span style="color:#D73A49">/</span><span style="color:#005CC5">DC</span><span style="color:#24292E">=OpenSSL</span><span style="color:#D73A49">/</span><span style="color:#005CC5">DC</span><span style="color:#24292E">=users</span><span style="color:#D73A49">/</span><span style="color:#005CC5">UID</span><span style="color:#24292E">=</span><span style="color:#005CC5">123456</span><span style="color:#D73A49">+</span><span style="color:#005CC5">CN</span><span style="color:#24292E">=JohnDoe</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">auto</span><span style="color:#D73A49">-</span><span style="color:#24292E">regenerate       Defines </span><span style="color:#D73A49">if</span><span style="color:#24292E"> the profile should be regenerated </span><span style="color:#D73A49">in</span><span style="color:#24292E"> case</span></span>
-<span class="line"><span style="color:#24292E">                          it already exists (optional)</span></span>
-<span class="line"><span style="color:#B31D28;font-style:italic">  --</span><span style="color:#24292E">enterprise            Controls </span><span style="color:#D73A49">if</span><span style="color:#24292E"> the enterprise </span><span style="color:#005CC5">API</span><span style="color:#24292E"> should be used.</span></span>
-<span class="line"><span style="color:#D73A49">  -</span><span style="color:#24292E">h, </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span><span style="color:#24292E">              Show </span><span style="color:#005CC5">help</span><span style="color:#24292E"> information.</span></span></code></pre>
+<pre><code>sign-here create-provisioning-profile --help
+
+OVERVIEW: Use this command to create a ready to use provisioning profile.
+
+Use this command to create and save a mobile provisioning profile to a
+specified location. This command
+takes care of all necessary signing work and iTunes Connect API calls to get a
+ready to use
+mobile provisioning profile.
+
+The output of this command is the iTunes Connect API ID of the created
+provisioning profile. This can
+be used with the `delete-provisioning-profile` command to delete it if desired.
+
+USAGE: sign-here create-provisioning-profile &lt;options&gt;
+
+OPTIONS:
+  --key-identifier &lt;key-identifier&gt;
+                          The key identifier of the private key
+                          (https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests)
+  --issuer-id &lt;issuer-id&gt; The issuer id of the private key
+                          (https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests)
+  --private-key-path &lt;private-key-path&gt;
+                          The path to a private key to use for generating PEM
+                          and P12 files. This key will be attached to any
+                          generated certificates or profiles. Use `openssl
+                          genrsa -out key.pem 2048` to generate it.
+  --itunes-connect-key-path &lt;itunes-connect-key-path&gt;
+                          The path to the private key
+                          (https://developer.apple.com/documentation/appstoreconnectapi/generating_tokens_for_api_requests)
+  --keychain-name &lt;keychain-name&gt;
+                          The name of the keychain to use to store fetched
+                          identities
+  --keychain-password &lt;keychain-password&gt;
+                          The password of the keychain specified by
+                          --keychain-name
+  --bundle-identifier &lt;bundle-identifier&gt;
+                          The bundle identifier of the app for which you want
+                          to generate a provisioning profile for
+  --bundle-identifier-name &lt;bundle-identifier-name&gt;
+                          The bundle identifier name for the desired bundle
+                          identifier, this is optional but if it is not set the
+                          logic will select the first bundle id it finds that
+                          matches `--bundle-identifier`
+  --platform &lt;platform&gt;   The intended operating system for the target
+                          (https://developer.apple.com/documentation/appstoreconnectapi/bundleidplatform)
+  --profile-type &lt;profile-type&gt;
+                          The profile type which you wish to create
+                          (https://developer.apple.com/documentation/appstoreconnectapi/profilecreaterequest/data/attributes)
+  --certificate-type &lt;certificate-type&gt;
+                          The certificate type which you wish to create
+                          (https://developer.apple.com/documentation/appstoreconnectapi/certificatetype)
+  --certificate-uuid &lt;certificate-uuid&gt;
+                          The App Store Connect certificate UUID to use when
+                          creating the provisioning profile (optional)
+  --output-path &lt;output-path&gt;
+                          Where to save the created provisioning profile
+  --certificate-output-directory &lt;certificate-output-directory&gt;
+                          Directory where certificate artifacts should be saved
+                          (optional)
+  --openssl-path &lt;openssl-path&gt;
+                          Path to the openssl executable, this is used to
+                          generate CSR signing artifacts that are required when
+                          creating certificates
+  --intermediary-apple-certificates &lt;intermediary-apple-certificates&gt;
+                          Intermediary Apple Certificates that should also be
+                          added to the keychain
+                          (https://www.apple.com/certificateauthority/)
+  --profile-name &lt;profile-name&gt;
+                          The name that you would like to assign to the created
+                          provisioning profile (optional)
+  --certificate-signing-request-subject &lt;certificate-signing-request-subject&gt;
+                          Subject for the Certificate Signing Request when
+                          creating certificates.
+
+                          OpenSSL documentation for this flag
+                          (https://www.openssl.org/docs/manmaster/man1/openssl-req.html):
+
+Sets
+                          subject name for new request or supersedes the
+                          subject name when processing a certificate request.
+
+                          The arg must be formatted as
+                          '/type0=value0/type1=value1/type2=....'. Special
+                          characters may be escaped by '\' (backslash),
+                          whitespace is retained. Empty values are permitted,
+                          but the corresponding type will not be included in
+                          the request. Giving a single '/' will lead to an
+                          empty sequence of RDNs (a NULL-DN). Multi-valued RDNs
+                          can be formed by placing a '+' character instead of a
+                          '/' between the AttributeValueAssertions (AVAs) that
+                          specify the members of the set. Example:
+
+                          /DC=org/DC=OpenSSL/DC=users/UID=123456+CN=JohnDoe
+  --auto-regenerate       Defines if the profile should be regenerated in case
+                          it already exists (optional)
+  --enterprise            Controls if the enterprise API should be used.
+  -h, --help              Show help information.</code></pre>
 <h3>delete-provisioning-profile</h3>
-<pre><code lang="py">sign-here delete-provisioning-profile --help
+<pre><code>sign-here delete-provisioning-profile --help
 
 OVERVIEW: Use this command to delete a provisioning profile using its iTunes
 Connect API ID

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.24ef4a68.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0c70eecc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ea63b271.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.47045745.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
-		<script src="/bcr.02f7d1dd.js" defer=""></script>
-		<script src="/registry.9f73b9d4.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.5104dfce.js" defer=""></script>
+		<script src="/registry.3a038b3c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/p4c/1.2.5.18"></head>
 
 	<body style="margin: 0 auto">
@@ -148,14 +148,14 @@ preprocessor on your P4 program.</li>
 <li>a file with suffix <code>.json</code> that is the JSON file format expected by
 BMv2 behavioral model <code>simple_switch</code>.</li>
 </ul>
-<pre><code lang="py">p4c --target bmv2 --arch v1model my-p4-16-prog.p4
-p4c --target bmv2 --arch v1model --std p4-14 my-p4-14-prog.p4</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">p4c </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target bmv2 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">arch v1model my</span><span style="color:#D73A49">-</span><span style="color:#24292E">p4</span><span style="color:#D73A49">-</span><span style="color:#005CC5">16</span><span style="color:#D73A49">-</span><span style="color:#24292E">prog.p4</span></span>
+<span class="line"><span style="color:#24292E">p4c </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target bmv2 </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">arch v1model </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">std p4</span><span style="color:#D73A49">-</span><span style="color:#005CC5">14</span><span style="color:#24292E"> my</span><span style="color:#D73A49">-</span><span style="color:#24292E">p4</span><span style="color:#D73A49">-</span><span style="color:#005CC5">14</span><span style="color:#D73A49">-</span><span style="color:#24292E">prog.p4</span></span></code></pre>
 <p>By adding the option <code>--p4runtime-files &lt;filename&gt;.txt</code> as shown in
 the example commands below, P4C will also create a file
 <code>&lt;filename&gt;.txt</code>.  This is a text format "P4Info" file, containing a
 description of the tables and other objects in your P4 program that
 have an auto-generated control plane API.</p>
-<pre><code>p4c --target bmv2 --arch v1model --p4runtime-files my-p4-16-prog.p4info.txt my-p4-16-prog.p4
+<pre><code lang="py">p4c --target bmv2 --arch v1model --p4runtime-files my-p4-16-prog.p4info.txt my-p4-16-prog.p4
 p4c --target bmv2 --arch v1model --p4runtime-files my-p4-14-prog.p4info.txt --std p4-14 my-p4-14-prog.p4</code></pre>
 <p>All of these commands take the <code>--help</code> argument to show documentation
 of supported command line options.  <code>p4c --target-help</code> shows the

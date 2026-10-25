@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c52d7dea.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3d7cefa4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.955295c9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a5332805.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.7f890ace.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4390c001.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sheenbidi/3.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -130,13 +130,13 @@
 <span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span><span style="color:#D73A49">-</span><span style="color:#24292E">release</span></span>
 <span class="line"><span style="color:#24292E">sudo cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">install build</span><span style="color:#D73A49">-</span><span style="color:#24292E">release</span></span></code></pre>
 <p>For development and testing:</p>
-<pre><code lang="py">cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DSB_CONFIG_UNITY=OFF
-cmake --build build
-ctest --test-dir build --output-on-failure</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">S. </span><span style="color:#D73A49">-</span><span style="color:#24292E">Bbuild </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_BUILD_TYPE</span><span style="color:#D73A49">=</span><span style="color:#24292E">Debug </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DSB_CONFIG_UNITY</span><span style="color:#D73A49">=</span><span style="color:#005CC5">OFF</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build</span></span>
+<span class="line"><span style="color:#24292E">ctest </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">test</span><span style="color:#D73A49">-</span><span style="color:#005CC5">dir</span><span style="color:#24292E"> build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">output</span><span style="color:#D73A49">-</span><span style="color:#24292E">on</span><span style="color:#D73A49">-</span><span style="color:#24292E">failure</span></span></code></pre>
 <p>In other CMake projects, SheenBidi can be found via <code>find_package(SheenBidi)</code>, providing the target <code>SheenBidi::SheenBidi</code>. SheenBidi can also be used via <code>FetchContent</code>.</p>
 <h3>Meson</h3>
 <p>To build and install SheenBidi using Meson:</p>
-<pre><code>meson setup builddir --buildtype=release
+<pre><code lang="py">meson setup builddir --buildtype=release
 meson compile -C builddir
 sudo meson install -C builddir</code></pre>
 <p>For testing:</p>

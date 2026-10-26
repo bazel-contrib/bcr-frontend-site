@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.5ce50ffe.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a7136bb1.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.0f3a9f18.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d12565fd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.5a5a0f96.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.c1b84093.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/seastar/26.08.0-20260810180219-3bb2e379f54f"></head>
 
 	<body style="margin: 0 auto">
@@ -74,9 +74,9 @@ It is based on <a href="http://en.wikipedia.org/wiki/Futures_and_promises">futur
 <p>Assuming that you would like to use system packages (RPMs or DEBs) for Seastar's dependencies, first install them:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> sudo .</span><span style="color:#D73A49">/</span><span style="color:#24292E">install</span><span style="color:#D73A49">-</span><span style="color:#24292E">dependencies.sh</span></span></code></pre>
 <p>then configure (in "release" mode):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure.py </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">release</span></span></code></pre>
+<pre><code lang="py">$ ./configure.py --mode=release</code></pre>
 <p>then compile:</p>
-<pre><code lang="py">$ ninja -C build/release</code></pre>
+<pre><code>$ ninja -C build/release</code></pre>
 <p>In case there are compilation issues, especially like <code>g++: internal compiler error: Killed (program cc1plus)</code>
 try giving more memory to gcc, either by limiting the amount of threads ( -j1 ) and/or allowing at least 4g ram to your
 machine.</p>

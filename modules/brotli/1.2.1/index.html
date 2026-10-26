@@ -1,0 +1,63 @@
+<html lang="en" xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" data-color-mode="light" data-light-theme="light" data-dark-theme="dark_dimmed"><head>
+		<title>Bazel Central Registry</title>
+		<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script>
+		// Apply persisted color-mode / display-mode to <html> before any
+		// stylesheets paint, so themes set on the Settings page are honored
+		// on the first render of every page.
+		(function () {
+			try {
+				var ls = window.localStorage;
+				if (!ls) return;
+				var cm = ls.getItem("color-mode");
+				if (cm) document.documentElement.setAttribute("data-color-mode", cm);
+				var dm = ls.getItem("display-mode");
+				if (dm) document.documentElement.setAttribute("data-display-mode", dm);
+			} catch (e) {}
+		})();
+		// If this HTML is a prerendered snapshot whose path doesn't match the
+		// URL we're loading at, the body contains stale content (the SPA
+		// fallback served us index.html for a non-prerendered route). Mark
+		// <html> so CSS can hide the route-specific .content panel until
+		// main.js mounts the SPA and the router renders the correct page.
+		(function () {
+			var meta = document.querySelector('meta[name="bcr:prerendered-path"]');
+			if (!meta) return;
+			var snapshot =
+				(meta.getAttribute("content") || "").replace(/\/+$/, "") || "/";
+			var current = window.location.pathname.replace(/\/+$/, "") || "/";
+			if (current !== snapshot) {
+				document.documentElement.classList.add("bcr-booting");
+			}
+		})();
+		</script>
+		<link rel="icon" href="/favicon.png">
+		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
+		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
+		<meta name="bcr:symbols-url" content="/symbols.8193a630.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.19b48502.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
+		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
+		<script src="/bcr.5104dfce.js" defer=""></script>
+		<script src="/registry.8bd18fca.pb.gz.b64.js" defer=""></script>
+	<meta name="bcr:prerendered-path" content="/modules/brotli/1.2.1"></head>
+
+	<body style="margin: 0 auto">
+		<script type="module">
+		import { marked } from "https://esm.sh/marked@12.0.0";
+		import { codeToHtml } from "https://esm.sh/shiki@3.0.0";
+
+		window.codeToHtml = codeToHtml;
+		window.marked = marked;
+
+		window.marked.setOptions({
+			gfm: true, // GitHub Flavored Markdown
+			breaks: false, // but not with GFM line breaks
+		});
+
+		bcr.main(REGISTRY_DATA);
+		</script>
+	
+
+</body></html>

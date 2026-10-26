@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f690d483.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a0ca9f52.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e3d467ce.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1ddc4a46.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.af8c93dc.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ab3a20c7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/sentencepiece/0.2.2"></head>
 
 	<body style="margin: 0 auto">
@@ -79,43 +79,43 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">pip install sentencepiece</span></span></code></pre>
 <h3>Basic Example</h3>
 <p>Here is how to train a model, encode text into tokens/IDs, and decode them back to the original string:</p>
-<pre><code lang="py">import sentencepiece as spm
-
-# 1. Train a model directly from a raw text file.
-# (No pre-tokenization or language-specific preprocessing required!)
-spm.SentencePieceTrainer.train(
-    input='data/botchan.txt', 
-    model_prefix='m', 
-    vocab_size=1000
-)
-
-# 2. Load the trained model.
-sp = spm.SentencePieceProcessor(model_file='m.model')
-
-# 3. Encode raw text into subword pieces (strings) or vocabulary IDs (integers).
-text = "I saw a girl with a telescope."
-pieces = sp.encode(text, out_type=str)
-ids = sp.encode(text, out_type=int)
-
-print(f"Pieces: {pieces}")
-# Output: ['▁I', '▁saw', '▁a', '▁girl', '▁with', '▁a', '▁', 'te', 'le', 's', 'c', 'o', 'pe', '.']
-
-print(f"IDs:    {ids}")
-# Output: [9, 459, 11, 939, 44, 11, 4, 142, 82, 8, 28, 21, 132, 6]
-
-# 4. Decode IDs or pieces back into the original text.
-# The reconstruction is completely lossless and reversible!
-print(sp.decode(ids))
-# Output: "I saw a girl with a telescope."
-
-print(sp.decode(pieces))
-# Output: "I saw a girl with a telescope."</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> sentencepiece </span><span style="color:#D73A49">as</span><span style="color:#24292E"> spm</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 1. Train a model directly from a raw text file.</span></span>
+<span class="line"><span style="color:#6A737D"># (No pre-tokenization or language-specific preprocessing required!)</span></span>
+<span class="line"><span style="color:#24292E">spm.SentencePieceTrainer.train(</span></span>
+<span class="line"><span style="color:#E36209">    input</span><span style="color:#D73A49">=</span><span style="color:#032F62">'data/botchan.txt'</span><span style="color:#24292E">, </span></span>
+<span class="line"><span style="color:#E36209">    model_prefix</span><span style="color:#D73A49">=</span><span style="color:#032F62">'m'</span><span style="color:#24292E">, </span></span>
+<span class="line"><span style="color:#E36209">    vocab_size</span><span style="color:#D73A49">=</span><span style="color:#005CC5">1000</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 2. Load the trained model.</span></span>
+<span class="line"><span style="color:#24292E">sp </span><span style="color:#D73A49">=</span><span style="color:#24292E"> spm.SentencePieceProcessor(</span><span style="color:#E36209">model_file</span><span style="color:#D73A49">=</span><span style="color:#032F62">'m.model'</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 3. Encode raw text into subword pieces (strings) or vocabulary IDs (integers).</span></span>
+<span class="line"><span style="color:#24292E">text </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "I saw a girl with a telescope."</span></span>
+<span class="line"><span style="color:#24292E">pieces </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sp.encode(text, </span><span style="color:#E36209">out_type</span><span style="color:#D73A49">=</span><span style="color:#005CC5">str</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">ids </span><span style="color:#D73A49">=</span><span style="color:#24292E"> sp.encode(text, </span><span style="color:#E36209">out_type</span><span style="color:#D73A49">=</span><span style="color:#005CC5">int</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">print</span><span style="color:#24292E">(</span><span style="color:#D73A49">f</span><span style="color:#032F62">"Pieces: </span><span style="color:#005CC5">{</span><span style="color:#24292E">pieces</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># Output: ['▁I', '▁saw', '▁a', '▁girl', '▁with', '▁a', '▁', 'te', 'le', 's', 'c', 'o', 'pe', '.']</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">print</span><span style="color:#24292E">(</span><span style="color:#D73A49">f</span><span style="color:#032F62">"IDs:    </span><span style="color:#005CC5">{</span><span style="color:#24292E">ids</span><span style="color:#005CC5">}</span><span style="color:#032F62">"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># Output: [9, 459, 11, 939, 44, 11, 4, 142, 82, 8, 28, 21, 132, 6]</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># 4. Decode IDs or pieces back into the original text.</span></span>
+<span class="line"><span style="color:#6A737D"># The reconstruction is completely lossless and reversible!</span></span>
+<span class="line"><span style="color:#005CC5">print</span><span style="color:#24292E">(sp.decode(ids))</span></span>
+<span class="line"><span style="color:#6A737D"># Output: "I saw a girl with a telescope."</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">print</span><span style="color:#24292E">(sp.decode(pieces))</span></span>
+<span class="line"><span style="color:#6A737D"># Output: "I saw a girl with a telescope."</span></span></code></pre>
 <hr>
 <h2>Why SentencePiece?</h2>
 <h3>1. Reversible &amp; Lossless Tokenization (Whitespace as a Basic Symbol)</h3>
 <p>Traditional tokenizers drop whitespace information (e.g., treating <code>Tokenize("World.")</code> identically to <code>Tokenize("World .")</code>), making detokenization ambiguous and language-dependent. </p>
 <p>SentencePiece treats the input text as a raw sequence of Unicode characters. It escapes whitespaces with a meta-symbol <code>▁</code> (U+2581) and includes it in the tokenization. This design ensures that <strong>detokenization is a simple, lossless string join operation</strong>, entirely independent of the language:</p>
-<pre><code># Lossless detokenization
+<pre><code lang="py"># Lossless detokenization
 original_text = "".join(pieces).replace("▁", " ")</code></pre>
 <h3>2. Purely Data-Driven &amp; Language-Independent</h3>
 <p>SentencePiece trains tokenization and detokenization models directly from raw sentences. It does <strong>not</strong> require language-specific pre-tokenizers (such as Moses, MeCab, or KyTea). This makes it highly effective for languages without explicit word boundaries, such as Chinese, Japanese, and Korean.</p>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.13099288.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.29058a01.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.60f5da14.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.6327b732.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.2c53ea48.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.34ebd102.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_previews/0.1.1"></head>
 
 	<body style="margin: 0 auto">
@@ -66,21 +66,21 @@
 <h3>MODULE.bazel</h3>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_swift_previews"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>BUILD.bazel</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_swift//swift:swift.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swift_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_swift_previews//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"SWIFT_PREVIEW_EXCLUDES"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swift_previews_package"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">swift_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "MyViews"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"*.swift"</span><span style="color:#24292E">], </span><span style="color:#E36209">exclude</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> SWIFT_PREVIEW_EXCLUDES</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#005CC5">...</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">swift_previews_package(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "previews"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    lib</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":MyViews"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_swift//swift:swift.bzl", "swift_library")
+load("@rules_swift_previews//:defs.bzl", "SWIFT_PREVIEW_EXCLUDES", "swift_previews_package")
+
+swift_library(
+    name = "MyViews",
+    srcs = glob(["*.swift"], exclude = SWIFT_PREVIEW_EXCLUDES),
+    deps = [...],
+)
+
+swift_previews_package(
+    name = "previews",
+    lib = ":MyViews",
+)</code></pre>
 <h3>Usage</h3>
-<pre><code lang="py"># Generate Package.swift and dependency files
+<pre><code># Generate Package.swift and dependency files
 bazel run //path/to/views:previews
 
 # Open in Xcode for previews

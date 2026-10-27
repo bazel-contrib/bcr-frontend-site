@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c48e5f02.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.8244487d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a612656d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b993da02.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.e6e00231.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.342e3ba2.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pmd/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -65,20 +65,20 @@
 for <a href="https://bazel.build">the Bazel build system</a>.</p>
 <h2>Usage</h2>
 <h3><code>MODULE.bazel</code> Configuration</h3>
-<pre><code lang="py">bazel_dep(name = "rules_pmd", version = "...")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_pmd"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "..."</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Please refer to <a href="https://github.com/buildfoundation/bazel_rules_pmd/releases">GitHub releases</a> for the available versions.</p>
 <h3><code>BUILD</code> Configuration</h3>
 <p>Once declared in the <code>MODULE.bazel</code> file, the rule can be loaded in the <code>BUILD</code> file.</p>
-<pre><code>load("@rules_pmd//pmd:defs.bzl", "pmd_test")
-
-pmd_test(
-    name = "pmd_analysis_test",
-    srcs = glob(["src/main/java/**/*.java"]),
-    rulesets = ["pmd_ruleset.xml"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_pmd//pmd:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pmd_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pmd_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pmd_analysis_test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"src/main/java/**/*.java"</span><span style="color:#24292E">]),</span></span>
+<span class="line"><span style="color:#E36209">    rulesets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"pmd_ruleset.xml"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h4>PMD Version</h4>
 <p>Change the <code>MODULE.bazel</code> file:</p>
-<pre><code>pmd = use_extension("@rules_pmd//pmd:extensions.bzl", "pmd")
+<pre><code lang="py">pmd = use_extension("@rules_pmd//pmd:extensions.bzl", "pmd")
 pmd.pmd_version(
     version = "x.x.x",
     sha256 = "x.x.x.sha256",

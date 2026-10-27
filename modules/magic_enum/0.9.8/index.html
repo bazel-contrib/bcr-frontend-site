@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.60f5da14.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6327b732.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a1254227.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.55079c18.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.34ebd102.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.db8ddef6.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/magic_enum/0.9.8"></head>
 
 	<body style="margin: 0 auto">
@@ -91,12 +91,12 @@
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
 </li>
 <li><p>Enum value to string</p>
-<pre><code lang="py">Color color = Color::RED;
-auto color_name = magic_enum::enum_name(color);
-// color_name -&gt; "RED"</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Color color </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Color::</span><span style="color:#005CC5">RED</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#24292E">auto color_name </span><span style="color:#D73A49">=</span><span style="color:#24292E"> magic_enum::enum_name(color)</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> color_name </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#032F62"> "RED"</span></span></code></pre>
 </li>
 <li><p>String to enum value</p>
-<pre><code>std::string color_name{"GREEN"};
+<pre><code lang="py">std::string color_name{"GREEN"};
 auto color = magic_enum::enum_cast&lt;Color&gt;(color_name);
 if (color.has_value()) {
   // color.value() -&gt; Color::GREEN

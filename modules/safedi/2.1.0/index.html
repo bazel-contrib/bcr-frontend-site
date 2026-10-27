@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9bfee273.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7c0f7b6f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c48e5f02.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8244487d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.d8216670.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e6e00231.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/safedi/2.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -79,44 +79,44 @@
 <h2>The core concept</h2>
 <p>SafeDI reads your code, validates your dependencies, and generates production and mock dependency trees—all during project compilation.</p>
 <p>Opting a type into the SafeDI dependency tree is simple: add the <code>@Instantiable</code> macro to your type declaration, and decorate each dependency with a macro that indicates its lifecycle. Here is what a notes app might look like in SafeDI:</p>
-<pre><code lang="py">// `NotesApp` is the root of the dependency graph. SafeDI generates its `public init()`.
-@Instantiable(isRoot: true) @main
-public struct NotesApp: App, Instantiable {
-    public init(
-        userService: UserService,
-        nameEntryViewBuilder: Instantiator&lt;NameEntryView&gt;,
-        loggedInViewBuilder: Instantiator&lt;LoggedInView&gt;
-    ) { … }
-
-    public var body: some Scene {
-        WindowGroup {
-            if let user = userService.user {
-                // Forward the authenticated user into the logged-in subtree.
-                loggedInViewBuilder.instantiate(user)
-            } else {
-                nameEntryViewBuilder.instantiate()
-            }
-        }
-    }
-
-    @ObservedObject @Instantiated private var userService: UserService
-    @Instantiated private let nameEntryViewBuilder: Instantiator&lt;NameEntryView&gt;
-    @Instantiated private let loggedInViewBuilder: Instantiator&lt;LoggedInView&gt;
-}
-
-@Instantiable
-public struct LoggedInView: View, Instantiable {
-    public init(user: User, userService: UserService, noteStorage: NoteStorage) { … }
-
-    public var body: some View { … }
-
-    // `user` is a runtime value forwarded in at this boundary.
-    @Forwarded private let user: User
-    // `userService` is received from an ancestor in the tree.
-    @Received private let userService: UserService
-    // `noteStorage` is created by `LoggedInView` and lives for its lifetime.
-    @Instantiated private let noteStorage: NoteStorage
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#B31D28;font-style:italic"> `NotesApp`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> the root of the dependency graph. SafeDI generates its </span><span style="color:#B31D28;font-style:italic">`public init()`</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#6F42C1">@Instantiable</span><span style="color:#24292E">(isRoot: true)</span><span style="color:#B31D28;font-style:italic"> @main</span></span>
+<span class="line"><span style="color:#24292E">public struct NotesApp: App, Instantiable {</span></span>
+<span class="line"><span style="color:#24292E">    public init(</span></span>
+<span class="line"><span style="color:#24292E">        userService: UserService,</span></span>
+<span class="line"><span style="color:#24292E">        nameEntryViewBuilder: Instantiator</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">NameEntryView</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        loggedInViewBuilder: Instantiator</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">LoggedInView</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">    ) { … }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    public var body: some Scene {</span></span>
+<span class="line"><span style="color:#24292E">        WindowGroup {</span></span>
+<span class="line"><span style="color:#D73A49">            if</span><span style="color:#24292E"> let user = userService.user {</span></span>
+<span class="line"><span style="color:#D73A49">                //</span><span style="color:#24292E"> Forward the authenticated user into the logged</span><span style="color:#D73A49">-in</span><span style="color:#24292E"> subtree.</span></span>
+<span class="line"><span style="color:#24292E">                loggedInViewBuilder.instantiate(user)</span></span>
+<span class="line"><span style="color:#24292E">            } </span><span style="color:#D73A49">else</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#24292E">                nameEntryViewBuilder.instantiate()</span></span>
+<span class="line"><span style="color:#24292E">            }</span></span>
+<span class="line"><span style="color:#24292E">        }</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">ObservedObject </span><span style="color:#D73A49">@</span><span style="color:#24292E">Instantiated private var userService: UserService</span></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Instantiated private let nameEntryViewBuilder: Instantiator</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">NameEntryView</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Instantiated private let loggedInViewBuilder: Instantiator</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">LoggedInView</span><span style="color:#D73A49">&gt;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6F42C1">@Instantiable</span></span>
+<span class="line"><span style="color:#24292E">public struct LoggedInView: View, Instantiable {</span></span>
+<span class="line"><span style="color:#24292E">    public init(user: User, userService: UserService, noteStorage: NoteStorage) { … }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    public var body: some View { … }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#B31D28;font-style:italic"> `user`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> a runtime value forwarded </span><span style="color:#D73A49">in</span><span style="color:#24292E"> at this boundary.</span></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Forwarded private let user: User</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#B31D28;font-style:italic"> `userService`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> received </span><span style="color:#D73A49">from</span><span style="color:#24292E"> an ancestor </span><span style="color:#D73A49">in</span><span style="color:#24292E"> the tree.</span></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Received private let userService: UserService</span></span>
+<span class="line"><span style="color:#D73A49">    //</span><span style="color:#B31D28;font-style:italic"> `noteStorage`</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> created by </span><span style="color:#B31D28;font-style:italic">`LoggedInView`</span><span style="color:#D73A49"> and</span><span style="color:#24292E"> lives </span><span style="color:#D73A49">for</span><span style="color:#24292E"> its lifetime.</span></span>
+<span class="line"><span style="color:#D73A49">    @</span><span style="color:#24292E">Instantiated private let noteStorage: NoteStorage</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p><code>User</code> is a runtime-derived value. It is forwarded once at the logged-in boundary and received later by the types that need it—non-optional, scoped to the subtree where it exists.</p>
 <p>This is the core SafeDI model:</p>
 <ul>
@@ -128,19 +128,19 @@ public struct LoggedInView: View, Instantiable {
 <h2>Tests and previews from real feature roots</h2>
 <p>Decorate a type with <code>@Instantiable(generateMock: true)</code> and SafeDI generates a <code>static func mock(…) -&gt; Type</code> method that builds the full dependency subtree for that type. The same declarations that define the production graph generate the test and preview graphs.</p>
 <p>For a <code>LoggedInView</code> decorated with <code>@Instantiable(generateMock: true)</code>, if every dependency can be mocked, calling <code>mock()</code> with no arguments works. The <code>User</code> mock below demonstrates how <code>mockOnly</code> can supply a default for a forwarded runtime value:</p>
-<pre><code>#Preview {
-    LoggedInView.mock()
-}
-
-// Declarations can participate only in mock generation via `mockOnly`.
-@Instantiable(mockOnly: true)
-extension User {
-    public static func mock() -&gt; User {
-        User(name: "Mock User")
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#Preview {</span></span>
+<span class="line"><span style="color:#24292E">    LoggedInView.mock()</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> Declarations can participate only </span><span style="color:#D73A49">in</span><span style="color:#24292E"> mock generation via </span><span style="color:#B31D28;font-style:italic">`mockOnly`</span><span style="color:#24292E">.</span></span>
+<span class="line"><span style="color:#6F42C1">@Instantiable</span><span style="color:#24292E">(mockOnly: true)</span></span>
+<span class="line"><span style="color:#24292E">extension User {</span></span>
+<span class="line"><span style="color:#24292E">    public static func mock() </span><span style="color:#B31D28;font-style:italic">-&gt;</span><span style="color:#24292E"> User {</span></span>
+<span class="line"><span style="color:#24292E">        User(name: </span><span style="color:#032F62">"Mock User"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>For previews and tests that need real data, pass forwarded values directly and use <code>safeDIOverrides</code> to reach into the subtree:</p>
-<pre><code>#Preview {
+<pre><code lang="py">#Preview {
     LoggedInView.mock(
         user: User(name: "dfed"),
         safeDIOverrides: .init(

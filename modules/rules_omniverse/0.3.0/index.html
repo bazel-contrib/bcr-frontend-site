@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fc79ee31.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f2528047.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.df486e5e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.aab93eca.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.7141033a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7bd5b9aa.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_omniverse/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -98,17 +98,17 @@
 <h2>Getting started</h2>
 <h3>Bzlmod</h3>
 <p>Add the ruleset to <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_omniverse"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.3.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_omniverse", version = "0.3.0")</code></pre>
 <p>The module brings its internal <code>rules_shell</code> and <code>platforms</code> dependencies. Consumers do not need to repeat them unless they use those rule sets directly.</p>
 <p>Build an asset bundle — no Kit installation required:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_omniverse//omniverse:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"omni_asset_bundle"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">omni_asset_bundle(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "factory_assets"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"assets/**"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#E36209">    bundle_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "factory_assets"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre><code lang="py">bazel build //:factory_assets</code></pre>
+<pre><code>load("@rules_omniverse//omniverse:defs.bzl", "omni_asset_bundle")
+
+omni_asset_bundle(
+    name = "factory_assets",
+    srcs = glob(["assets/**"]),
+    bundle_name = "factory_assets",
+)</code></pre>
+<pre><code>bazel build //:factory_assets</code></pre>
 <p>That's it. The bundle is now a cached, content-addressed build artifact: unchanged assets are never repackaged, and any machine with access to the cache gets the result for free.</p>
 <h3>Kit toolchain</h3>
 <p><code>rules_omniverse</code> does not download or bundle NVIDIA Omniverse Kit. Register an installed SDK only when targets must start Kit or use its <code>repo</code> publisher:</p>

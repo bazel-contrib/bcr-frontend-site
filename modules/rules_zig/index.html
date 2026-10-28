@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a3ce2094.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3505262b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.576ab5e5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.6441a66a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.03cca836.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7f2c902d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_zig/0.17.0"></head>
 
 	<body style="margin: 0 auto">
@@ -126,12 +126,12 @@ them through Bazel by using the <code>--repo_env</code> flag.</p>
 On Bazel 7 and above you need to explicitly allow persistence in the sandbox.
 You can use the following <code>.bazelrc</code> snippet, adjust the paths depending on
 your cache configuration.</p>
-<pre><code lang="py">common --enable_platform_specific_config
-# You can configure `/tmp/zig-cache`, or similar, specifically,
-# if you can ensure that the directory exists before the build.
-build:linux --sandbox_add_mount_pair=/tmp
-build:macos --sandbox_add_mount_pair=/var/tmp
-build:windows --sandbox_add_mount_pair=C:\Temp</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_platform_specific_config</span></span>
+<span class="line"><span style="color:#6A737D"># You can configure `/tmp/zig-cache`, or similar, specifically,</span></span>
+<span class="line"><span style="color:#6A737D"># if you can ensure that the directory exists before the build.</span></span>
+<span class="line"><span style="color:#24292E">build:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">sandbox_add_mount_pair</span><span style="color:#D73A49">=/</span><span style="color:#24292E">tmp</span></span>
+<span class="line"><span style="color:#24292E">build:macos </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">sandbox_add_mount_pair</span><span style="color:#D73A49">=/</span><span style="color:#24292E">var</span><span style="color:#D73A49">/</span><span style="color:#24292E">tmp</span></span>
+<span class="line"><span style="color:#24292E">build:windows </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">sandbox_add_mount_pair</span><span style="color:#D73A49">=</span><span style="color:#24292E">C:\</span><span style="color:#B31D28;font-style:italic">Temp</span></span></code></pre>
 </blockquote>
 <h2>Usage Examples</h2>
 
@@ -141,7 +141,7 @@ build:windows --sandbox_add_mount_pair=C:\Temp</code></pre>
 <h2>ZLS</h2>
 <p>ZLS toolchains are provided by a separate extension and selected by the active
 Zig SDK version.</p>
-<pre><code>zls = use_extension("@rules_zig//zig/zls:extensions.bzl", "zls")
+<pre><code lang="py">zls = use_extension("@rules_zig//zig/zls:extensions.bzl", "zls")
 zls.index(file = "@rules_zig//zig/zls/private:versions.json")
 zls.toolchain(
     zig_version = "0.16.0",

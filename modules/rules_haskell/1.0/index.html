@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.59a5576f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3d1fd7f7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.29dde55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8ae204af.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.af9b05ac.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4d1cfd5c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_haskell/1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -83,13 +83,13 @@ Bazel 8 users will need to add
 <p>Refer to the "Before you begin" section in <a href="https://github.com/tweag/rules_haskell/blob/4d94849132c05b2dbc7ebc3b2b802884a0e6fd25/docs/haskell.rst" target="_blank" rel="noopener noreferrer">the documentation</a>.</p>
 <h3>The easy way</h3>
 <p>In a fresh directory, run:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> curl https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">haskell.build</span><span style="color:#D73A49">/</span><span style="color:#24292E">start </span><span style="color:#D73A49">|</span><span style="color:#24292E"> sh</span></span></code></pre>
+<pre><code lang="py">$ curl https://haskell.build/start | sh</code></pre>
 <p>Alternatively, if you want to start a project with bzlmod, run:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> sh </span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">(curl https:</span><span style="color:#D73A49">//</span><span style="color:#24292E">haskell.build</span><span style="color:#D73A49">/</span><span style="color:#24292E">start) </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">with-</span><span style="color:#24292E">bzlmod</span><span style="color:#D73A49">=</span><span style="color:#24292E">true</span></span></code></pre>
+<pre><code>$ sh &lt;(curl https://haskell.build/start) --with-bzlmod=true</code></pre>
 <p>This will generate initial <code>WORKSPACE</code> and <code>BUILD</code> files for you. See the
 <a href="https://github.com/tweag/rules_haskell/blob/4d94849132c05b2dbc7ebc3b2b802884a0e6fd25/examples" target="_blank" rel="noopener noreferrer">examples</a> and the <a href="#Rules">API reference</a> below to adapt these for
 your project. Then,</p>
-<pre><code lang="py">$ bazel build //...    # Build all targets
+<pre><code>$ bazel build //...    # Build all targets
 $ bazel test //...     # Run all tests</code></pre>
 <p>You can learn more about Bazel's command line
 syntax <a href="https://docs.bazel.build/versions/master/command-line-reference.html">here</a>. Common <a href="https://docs.bazel.build/versions/master/command-line-reference.html#commands">commands</a> are

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.59a5576f.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3d1fd7f7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.29dde55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.8ae204af.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.af9b05ac.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4d1cfd5c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pycross_backend_maturin/2.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -96,19 +96,19 @@
 <span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>For a single-project lock file, this is all you need — <code>rules_pycross</code> auto-discovers the project from the lock file and creates a repo named <code>"pypi"</code> with default dependencies.</p>
 <p>To customize which projects or dependency groups are included, add a <code>uv.repo()</code> tag:</p>
-<pre><code lang="py">uv.workspace(
-    name = "pypi",
-    lock_file = "//:uv.lock",
-)
-uv.repo(
-    dependency_groups = ["default", "optional:grpc"],
-    workspace = "pypi",
-)
-use_repo(uv, "pypi")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv.workspace(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    lock_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:uv.lock"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">uv.repo(</span></span>
+<span class="line"><span style="color:#E36209">    dependency_groups</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"default"</span><span style="color:#24292E">, </span><span style="color:#032F62">"optional:grpc"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    workspace</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(uv, </span><span style="color:#032F62">"pypi"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>After this, packages are available as <code>@pypi//package_name</code>. A <code>requirement()</code> macro is generated in <code>@pypi//:requirements.bzl</code>.</p>
 <p>Other lock formats work the same way via their respective extensions: <code>pdm.bzl</code>, <code>poetry.bzl</code>, or <code>pylock.bzl</code>. A <code>pylock.toml</code> without a dependency graph (as written by <code>pip lock</code> and <code>uv export</code>) is installed as a whole, like PEP 751 installers do: each pinned package depends on every locked package whose marker matches the target.</p>
 <p>Building sdists that contain native code needs a registered C/C++ toolchain; for cross builds, use <a href="https://github.com/hermeticbuild/hermetic-llvm">hermetic-llvm</a> (BCR module <code>llvm</code>), which is what rules_pycross is tested with:</p>
-<pre><code>bazel_dep(name = "llvm", version = "0.8.24")
+<pre><code lang="py">bazel_dep(name = "llvm", version = "0.8.24")
 
 register_toolchains("@llvm//toolchain:all")</code></pre>
 <p>Then select a target with its platforms, e.g. <code>--platforms=@llvm//platforms:linux_aarch64</code> or <code>--platforms=@llvm//platforms:macos_aarch64</code>. BUILD files that use <code>py_binary</code>/<code>py_test</code> also need a <code>bazel_dep</code> on <code>rules_python</code>.</p>

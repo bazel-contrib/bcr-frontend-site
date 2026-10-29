@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.27326971.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.65a76805.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.ed2f4f1e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.45762bcd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.85c7cd81.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.155a1f90.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_odin/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -80,18 +80,18 @@
 </ul>
 <h2>Quick Start</h2>
 <p><code>rules_odin</code> is published on the <a href="https://registry.bazel.build/modules/rules_odin">Bazel Central Registry</a>. Add to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_odin"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.1"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">odin </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_odin//odin:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"odin"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">odin.toolchain(</span><span style="color:#E36209">odin_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "dev-2026-06"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(odin, </span><span style="color:#032F62">"odin_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@odin_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_odin", version = "0.4.1")
+
+odin = use_extension("@rules_odin//odin:extensions.bzl", "odin")
+odin.toolchain(odin_version = "dev-2026-06")
+use_repo(odin, "odin_toolchains")
+
+register_toolchains("@odin_toolchains//:all")</code></pre>
 <blockquote>
 <p>Check the <a href="https://registry.bazel.build/modules/rules_odin">BCR module page</a> or the <a href="https://github.com/clappingmonkey/rules_odin/releases/latest">latest release</a> for newer published versions.</p>
 </blockquote>
 <p>Then in your <code>BUILD.bazel</code>:</p>
-<pre><code lang="py">load("@rules_odin//odin:defs.bzl", "odin_binary", "odin_library", "odin_test")
+<pre><code>load("@rules_odin//odin:defs.bzl", "odin_binary", "odin_library", "odin_test")
 
 odin_library(
     name = "greetings",

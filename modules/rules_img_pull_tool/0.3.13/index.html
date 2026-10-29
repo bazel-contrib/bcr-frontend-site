@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.09878b80.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6eac4ddb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.29266458.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7f096093.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.da8c9c29.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e4a6b921.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_img_pull_tool/0.3.13"></head>
 
 	<body style="margin: 0 auto">
@@ -343,18 +343,18 @@
 <h2>Quick Start</h2>
 <h3>1. Pull a Base Image</h3>
 <p>Add a base image to <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">pull = use_repo_rule("@rules_img//img:pull.bzl", "pull")
-
-pull(
-    name = "ubuntu",
-    digest = "sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02",
-    registry = "index.docker.io",
-    repository = "library/ubuntu",
-    tag = "24.04",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">pull </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_repo_rule(</span><span style="color:#032F62">"@rules_img//img:pull.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pull"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">pull(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ubuntu"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    digest</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "sha256:1e622c5f073b4f6bfad6632f2616c7f59ef256e96fe78bf6a595d1dc4376ac02"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    registry</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "index.docker.io"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    repository</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "library/ubuntu"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tag</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "24.04"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>2. Package Your App</h3>
 <p>If you have any <code>*_binary</code> target in Bazel (<code>cc_binary</code>, <code>go_binary</code>, <code>py_binary</code>, <code>java_binary</code>, <code>rust_binary</code>, ...), you can package it into a container image with <code>image_from_binary</code>:</p>
-<pre><code>load("@rules_img//img:image.bzl", "image_from_binary")
+<pre><code lang="py">load("@rules_img//img:image.bzl", "image_from_binary")
 
 cc_binary(
     name = "server",

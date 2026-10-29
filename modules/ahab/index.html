@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.29266458.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7f096093.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d0659567.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b83692e5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.e4a6b921.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e6980d40.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ahab/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -120,7 +120,7 @@ seconds.</p>
 <span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hermeticity</span></span></code></pre>
+<pre><code lang="py">bazel run //:hermeticity</code></pre>
 <p>That prints every violation found and exits non-zero if there were any. One
 has to use <code>bazel run</code> and not <code>bazel test</code> with Ahab, since invoking Bazel
 commands inside a Bazel build is not permitted.</p>
@@ -139,7 +139,7 @@ contains a pre-built Ahab binary by setting <code>AHAB_PREBUILT_LOCAL</code>.</p
 <h3>Recording what you find</h3>
 <p>A real codebase will not reach zero violations on the first day. The way to
 make that tractable is to record what you have and fail only on what is new:</p>
-<pre><code lang="py">load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
+<pre><code>load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
 
 ahab_update(
     name = "hermeticity.update",

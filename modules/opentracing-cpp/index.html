@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.4ea8e453.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.99a2800f.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c3252744.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d488b38e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.1ee0e386.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e2f75053.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/opentracing-cpp/1.6.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -96,20 +96,20 @@ interface, and binding a <code>Tracer</code> at <code>main()</code>-time. Here a
 demonstrating some important use cases.</p>
 <h4>Singleton initialization</h4>
 <p>The simplest starting point is <code>opentracing/tracer.h</code>. As early as possible, call</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;opentracing/tracer.h&gt;</span></span>
-<span class="line"><span style="color:#6A737D">    #include &lt;some_tracing_impl.h&gt;</span></span>
-<span class="line"><span style="color:#24292E">    </span></span>
-<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> main() {</span></span>
-<span class="line"><span style="color:#24292E">      Tracer::InitGlobal(make_some_tracing_impl());</span></span>
-<span class="line"><span style="color:#005CC5">      ...</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span></code></pre>
+<pre><code lang="py">#include &lt;opentracing/tracer.h&gt;
+    #include &lt;some_tracing_impl.h&gt;
+    
+    int main() {
+      Tracer::InitGlobal(make_some_tracing_impl());
+      ...
+    }</code></pre>
 <h4>Non-Singleton initialization</h4>
 <p>If you prefer direct control to singletons, manage ownership of the
 <code>opentracing::Tracer</code> implementation explicitly.</p>
 <h4>Starting an empty trace by creating a "root span"</h4>
 <p>It's always possible to create a "root" <code>Span</code> with no parent or other causal
 reference.</p>
-<pre><code lang="py">void xyz() {
+<pre><code>void xyz() {
         ...
         auto tracer = /* Some Tracer */
         auto span = tracer-&gt;StartSpan("operation_name");

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ccffd2e2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.cb0aa4fc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.961f4ade.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1fb2678f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5104dfce.js" defer=""></script>
-		<script src="/registry.0249e1b2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.b9f1da61.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ahab/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -112,15 +112,15 @@ involved. What it buys is a check that covers everything and finishes in
 seconds.</p>
 <h2>Quickstart</h2>
 <p>Ahab is a Bazel module. Add it to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "ahab", version = "0.4.0")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ahab"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.4.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Then declare a target for whatever you want analyzed:</p>
-<pre><code>load("@ahab//:defs.bzl", "ahab")
-
-ahab(
-    name = "hermeticity",
-    label = "//...",
-)</code></pre>
-<pre><code>bazel run //:hermeticity</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@ahab//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ahab(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hermeticity</span></span></code></pre>
 <p>That prints every violation found and exits non-zero if there were any. One
 has to use <code>bazel run</code> and not <code>bazel test</code> with Ahab, since invoking Bazel
 commands inside a Bazel build is not permitted.</p>
@@ -139,19 +139,19 @@ contains a pre-built Ahab binary by setting <code>AHAB_PREBUILT_LOCAL</code>.</p
 <h3>Recording what you find</h3>
 <p>A real codebase will not reach zero violations on the first day. The way to
 make that tractable is to record what you have and fail only on what is new:</p>
-<pre><code>load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
-
-ahab_update(
-    name = "hermeticity.update",
-    baseline = "//:expectation.json",
-    label = "//...",
-)
-
-ahab_check(
-    name = "hermeticity.check",
-    baseline = "//:expectation.json",
-    label = "//...",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@ahab//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab_check"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab_update"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ahab_update(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity.update"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    baseline</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:expectation.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">ahab_check(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity.check"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    baseline</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:expectation.json"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p><code>bazel run //:hermeticity.update</code> writes the report to <code>expectation.json</code>,
 which you commit. <code>bazel run //:hermeticity.check</code> prints nothing and exits
 0 while the findings match it exactly and prints a diff and exits 1 as soon
@@ -160,7 +160,7 @@ as they do not. That is the target to put in CI.</p>
 cannot drift apart. <code>ahab_update</code> writes relative to the workspace root, so
 it lands in the same place whatever directory you ran it from.</p>
 <p><code>ahab_explain</code> prints a recorded report without analyzing anything:</p>
-<pre><code>ahab_explain(
+<pre><code lang="py">ahab_explain(
     name = "hermeticity.explain",
     report = "//:expectation.json",
 )</code></pre>

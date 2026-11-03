@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.26907553.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.21d99259.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.53aa63cc.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.57f0edce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.5332e646.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ea022ebd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_xcodeproj/4.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -232,58 +232,58 @@ If you want to manually build a release archive, you can use this command:
 examples in the <a href="https://github.com/MobileNativeFoundation/rules_xcodeproj/blob/f6a54168d19f917d0630e7d4efa8f2f9fa0ddc36/examples/README.md" target="_blank" rel="noopener noreferrer">examples</a> directory.</p>
 <h3>Simple iOS example</h3>
 <p>Given a root level <code>BUILD</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span></span>
-<span class="line"><span style="color:#032F62">  "@build_bazel_rules_apple//apple:ios.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">  "ios_application"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">  "ios_unit_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@build_bazel_rules_swift//swift:swift.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"swift_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_xcodeproj//xcodeproj:defs.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "top_level_target"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "xcodeproj"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">xcodeproj(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "xcodeproj"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    project_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "App"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"manual"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    top_level_targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#24292E">        top_level_target(</span><span style="color:#032F62">":App"</span><span style="color:#24292E">, </span><span style="color:#E36209">target_environments</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"device"</span><span style="color:#24292E">, </span><span style="color:#032F62">"simulator"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#032F62">        ":Tests"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ios_application(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "App"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    bundle_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    families</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"iphone"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ipad"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    infoplists</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":Info.plist"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    minimum_os_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "15.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":Lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">swift_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "Lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"src/*.swift"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ios_unit_test(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "Tests"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    bundle_id</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.tests"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    minimum_os_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "15.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    test_host</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":App"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:public"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":TestLib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">swift_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "TestLib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> glob([</span><span style="color:#032F62">"test/*.swift"</span><span style="color:#24292E">]),</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load(
+  "@build_bazel_rules_apple//apple:ios.bzl",
+  "ios_application",
+  "ios_unit_test",
+)
+load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
+load(
+    "@rules_xcodeproj//xcodeproj:defs.bzl",
+    "top_level_target",
+    "xcodeproj",
+)
+
+xcodeproj(
+    name = "xcodeproj",
+    project_name = "App",
+    tags = ["manual"],
+    top_level_targets = [
+        top_level_target(":App", target_environments = ["device", "simulator"]),
+        ":Tests",
+    ],
+)
+
+ios_application(
+    name = "App",
+    bundle_id = "com.example.app",
+    families = ["iphone", "ipad"],
+    infoplists = [":Info.plist"],
+    minimum_os_version = "15.0",
+    visibility = ["//visibility:public"],
+    deps = [":Lib"],
+)
+
+swift_library(
+    name = "Lib",
+    srcs = glob(["src/*.swift"]),
+)
+
+ios_unit_test(
+    name = "Tests",
+    bundle_id = "com.example.tests",
+    minimum_os_version = "15.0",
+    test_host = ":App",
+    visibility = ["//visibility:public"],
+    deps = [":TestLib"],
+)
+
+swift_library(
+    name = "TestLib",
+    srcs = glob(["test/*.swift"]),
+)</code></pre>
 <p>You can then create the Xcode project with:</p>
-<pre><code lang="py">bazel run //:xcodeproj</code></pre>
+<pre><code>bazel run //:xcodeproj</code></pre>
 <p>The generated project will be in the workspace next to the <code>BUILD</code> file at
 <code>App.xcodeproj</code>.</p>
 <h2>Acknowledgements</h2>

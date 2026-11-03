@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f35e6f4a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c2b3c9e5.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.43dd843f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e6d06b6b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.5f0dbd43.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.39d804ad.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/papilo/3.0.0"></head>
 
 	<body style="margin: 0 auto">
@@ -90,17 +90,17 @@ that can run simultaneously (no -j n), since this may cause large memory consump
 <span class="line"><span style="color:#24292E">cmake ..</span></span>
 <span class="line"><span style="color:#24292E">make</span></span></code></pre>
 <p>Building PaPILO with SCIP, HiGHS, SoPlex or OrTools works also with the standard cmake workflow:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mkdir build</span></span>
-<span class="line"><span style="color:#24292E">cd build</span></span>
-<span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DSCIP_DIR</span><span style="color:#D73A49">=</span><span style="color:#005CC5">PATH_TO_SCIP_BUILD_DIR</span><span style="color:#24292E"> ..</span></span>
-<span class="line"><span style="color:#24292E">make</span></span></code></pre>
+<pre><code lang="py">mkdir build
+cd build
+cmake -DSCIP_DIR=PATH_TO_SCIP_BUILD_DIR ..
+make</code></pre>
 <p>After this, your PaPILO binary should be found in the <code>bin</code> folder.
 To install into your system, run <code>sudo make install</code>.</p>
 <p>To install PaPILO into a folder, add <code>-DCMAKE_INSTALL_PREFIX=/path/to/install/dir/</code> to the cmake call and run <code>make install</code> after the build.</p>
 <p>If you use a relative path to SCIP, then the reference point is the location of the <code>CMakeLists.txt</code>.
 If you want to build PaPILO with a provided Boost version please specify its location:
 For CMake &gt;= 3.30</p>
-<pre><code lang="py">-DBoost_DIR=PATH_TO_BOOST/lib/cmake/Boost-&lt;BOOST_VERSION&gt;</code></pre>
+<pre><code>-DBoost_DIR=PATH_TO_BOOST/lib/cmake/Boost-&lt;BOOST_VERSION&gt;</code></pre>
 <p>and for CMake &lt; 3.30</p>
 <pre><code>-DBOOST_ROOT=PATH_TO_BOOST
 -DBOOST_INCLUDEDIR=PATH_TO_BOOST/include</code></pre>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3202d96d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c4b80df6.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b11f747d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.bd4c8fa8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.62fac473.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.962d51ec.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rabbitmq_seshat/0.6.1"></head>
 
 	<body style="margin: 0 auto">
@@ -71,14 +71,14 @@ in a format suitable for external export to, e.g. <a href="https://prometheus.io
 <h3>First create a new seshat group</h3>
 <p>A group in seshat is some logical partitioning of counters. E.g. you may have
 a group per erlang application, or some subcomponent of your system.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">GroupRef </span><span style="color:#D73A49">=</span><span style="color:#24292E"> seshat:new_group(pets),</span></span></code></pre>
+<pre><code lang="py">GroupRef = seshat:new_group(pets),</code></pre>
 <p>A group is essentially en ETS table where counters and their meta data will be
 stored. The <code>GroupRef</code> is an opaque type (but really it is an <code>ets:tid()</code>. The 
 group can be any <code>term()</code> but it makes sense to just use atoms. Keep stuff tidy folks.</p>
 <p>Now we're ready to register some counters. </p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">define(</span><span style="color:#005CC5">C_CARROTS_EATEN</span><span style="color:#24292E">, </span><span style="color:#005CC5">1</span><span style="color:#24292E">).</span></span>
-<span class="line"><span style="color:#D73A49">-</span><span style="color:#24292E">define(</span><span style="color:#005CC5">C_HOLES_DUG</span><span style="color:#24292E">, </span><span style="color:#005CC5">2</span><span style="color:#24292E">).</span></span></code></pre>
-<pre><code lang="py">Fields = [{carrots_eaten_total, ?C_CARROTS_EATEN, counter,
+<pre><code>-define(C_CARROTS_EATEN, 1).
+-define(C_HOLES_DUG, 2).</code></pre>
+<pre><code>Fields = [{carrots_eaten_total, ?C_CARROTS_EATEN, counter,
             "Total number of carrots eaten on a meal"},
           {holes_dug_total, ?C_HOLES_DUG, counter,
            "Total number of holes dug in an afternoon"}],

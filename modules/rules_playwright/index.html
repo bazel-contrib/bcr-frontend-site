@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.04104b10.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a655da85.pb.gz">
-		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c5d41c1b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5eabf571.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.b49274ad.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.784c39db.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_playwright/0.5.3"></head>
 
 	<body style="margin: 0 auto">
@@ -83,31 +83,31 @@
 <span class="line"><span style="color:#24292E">use_repo(playwright, </span><span style="color:#032F62">"playwright"</span><span style="color:#24292E">)</span></span></code></pre>
 <h2>Usage with rules_js</h2>
 <p>Here's an example of how to use <code>rules_playwright</code> with Playwright's test runner and <code>rules_js</code>:</p>
-<pre><code lang="py">load("@npm//:defs.bzl", "npm_link_all_packages")
-load("@npm//:@playwright/test/package_json.bzl", playwright_bin = "bin")
-
-npm_link_all_packages(name = "node_modules")
-
-playwright_bin.playwright_test(
-    name = "test",
-    args = ["test"],
-    data = [
-        "playwright.config.ts",
-        "tests/example.spec.ts",
-        "//:node_modules/@playwright/test",
-        "@playwright//:chromium-headless-shell",
-        "@playwright//:firefox",
-        "@playwright//:webkit",
-    ],
-    env = {
-        "PLAYWRIGHT_BROWSERS_PATH": "$(rootpath @playwright//:chromium-headless-shell)/../",
-    },
-    tags = ["no-sandbox"],  # Required for Firefox on macOS
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@npm//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"npm_link_all_packages"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@npm//:@playwright/test/package_json.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">playwright_bin</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bin"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">npm_link_all_packages(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "node_modules"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">playwright_bin.playwright_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    args</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"test"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "playwright.config.ts"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "tests/example.spec.ts"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "//:node_modules/@playwright/test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@playwright//:chromium-headless-shell"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@playwright//:firefox"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        "@playwright//:webkit"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#E36209">    env</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        "PLAYWRIGHT_BROWSERS_PATH"</span><span style="color:#24292E">: </span><span style="color:#032F62">"$(rootpath @playwright//:chromium-headless-shell)/../"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"no-sandbox"</span><span style="color:#24292E">],  </span><span style="color:#6A737D"># Required for Firefox on macOS</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>For a complete example, see <a href="https://github.com/mrmeku/rules_playwright/blob/bf4a6acf00321e30df612e4af8ef900f51bc4fe3/examples/rules_js" target="_blank" rel="noopener noreferrer">examples/rules_js</a>.</p>
 <h2>Integrity Verification</h2>
 <p>You can use the <code>playwright_integrity_map</code> rule to generate integrity hashes for browser downloads:</p>
-<pre><code>load("@rules_playwright//playwright:defs.bzl", "playwright_browser_matrix", "playwright_integrity_map")
+<pre><code lang="py">load("@rules_playwright//playwright:defs.bzl", "playwright_browser_matrix", "playwright_integrity_map")
 
 playwright_integrity_map(
     name = "integrity_map",

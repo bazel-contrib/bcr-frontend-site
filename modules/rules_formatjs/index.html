@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3cdbd778.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.911527e9.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fdc588ce.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1de8d98a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.905827b9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.840be732.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_formatjs/0.12.3"></head>
 
 	<body style="margin: 0 auto">
@@ -85,14 +85,14 @@
 <p>The platform-specific CLI selected by the registered toolchain is directly runnable:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_formatjs</span><span style="color:#D73A49">//</span><span style="color:#24292E">cli </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#B31D28;font-style:italic"> --</span><span style="color:#24292E">version</span></span></code></pre>
 <p>The same label can be used in executable or tool attributes. Apply the execution transition when declaring a Starlark attribute:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#032F62">"_formatjs_cli"</span><span style="color:#24292E">: attr.label(</span></span>
-<span class="line"><span style="color:#E36209">    default</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> Label(</span><span style="color:#032F62">"@rules_formatjs//cli"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#E36209">    executable</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    cfg</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "exec"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">"_formatjs_cli": attr.label(
+    default = Label("@rules_formatjs//cli"),
+    executable = True,
+    cfg = "exec",
+)</code></pre>
 <h3>Extract Messages</h3>
 <p>Extract internationalized messages from your source code:</p>
-<pre><code lang="py">load("@rules_formatjs//formatjs:defs.bzl", "formatjs_extract")
+<pre><code>load("@rules_formatjs//formatjs:defs.bzl", "formatjs_extract")
 
 formatjs_extract(
     name = "messages_extracted",

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f104bcc8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.33bca966.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8941d796.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.44e054c2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.dcb6af0a.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.0fc1b43f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d5cd166b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_mayhem/0.8.9"></head>
 
 	<body style="margin: 0 auto">
@@ -64,29 +64,29 @@
 <p>Run Mayhem from your Bazel infrastructure.</p>
 <h2>To include</h2>
 <p>You can add the following snippet:</p>
-<pre><code lang="py">## MODULE.bazel
-bazel_dep(name = "rules_mayhem", version = "0.8.9")
-
-rules_mayhem_extension = use_extension("@rules_mayhem//mayhem:extensions.bzl", "rules_mayhem_extension")
-use_repo(rules_mayhem_extension, "bazel_skylib", "mayhem_cli_linux", "mayhem_cli_windows", "platforms", "yq_cli_linux", "yq_cli_windows")</code></pre>
-<pre><code>## WORKSPACE
-load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
-
-http_archive(
-    name = "rules_mayhem",
-    strip_prefix = "rules_mayhem",
-    urls = ["https://github.com/ForAllSecure/rules_mayhem/releases/download/0.8.9/rules_mayhem-0.8.9.tar.gz"],
-    sha256 = "7f535cfc9245f9002f02f8e534a1ab0c975156128b10acd81bc6f071db8e24de",
-)
-
-load("@rules_mayhem//mayhem:repositories.bzl", "rules_mayhem_repositories")
-rules_mayhem_repositories()</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">## MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_mayhem"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.9"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">rules_mayhem_extension </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_mayhem//mayhem:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_mayhem_extension"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(rules_mayhem_extension, </span><span style="color:#032F62">"bazel_skylib"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mayhem_cli_linux"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mayhem_cli_windows"</span><span style="color:#24292E">, </span><span style="color:#032F62">"platforms"</span><span style="color:#24292E">, </span><span style="color:#032F62">"yq_cli_linux"</span><span style="color:#24292E">, </span><span style="color:#032F62">"yq_cli_windows"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">## WORKSPACE</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@bazel_tools//tools/build_defs/repo:http.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"http_archive"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_mayhem"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_mayhem"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"https://github.com/ForAllSecure/rules_mayhem/releases/download/0.8.9/rules_mayhem-0.8.9.tar.gz"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "7f535cfc9245f9002f02f8e534a1ab0c975156128b10acd81bc6f071db8e24de"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_mayhem//mayhem:repositories.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rules_mayhem_repositories"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">rules_mayhem_repositories()</span></span></code></pre>
 <blockquote>
 <p><em>Note: Please see the latest release notes for instructions on how to include the latest release of rules_mayhem into your environment.</em></p>
 </blockquote>
 <h3>Pre-requisites</h3>
 <p>You'll need to modify your <code>.bazelrc</code> to use <code>--spawn-strategy=standalone</code>. </p>
-<pre><code># Enable bzlmod
+<pre><code lang="py"># Enable bzlmod
 common --enable_bzlmod
 
 # Spawn strategy - if this is not set, bazel tries to reference files that don't exist

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.34f57cd4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f42003bc.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.6f0f5f0d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ac97bce6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.1753e400.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7b7ce1f9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_layer_optimizer/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -148,20 +148,20 @@ your repo uses (<code>rules_oci</code> | <code>rules_img</code>, and <code>rules
 <code>aspect_rules_py</code>). Regardless of your choices, the goal remains the same:
 produce candidate image layers that are efficient and also accompanied by size
 hints via the <code>SizeHintInfo</code> provider:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_layer_optimizer//python:aspect_rules_py.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_image_layer"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">py_image_layer(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app_layers"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    binary</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    interpreter_tar</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":interpreter"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    python_toolchain</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@python_interpreters//:current_py_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    strip_prefix</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my/package/app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_layer_optimizer//python:aspect_rules_py.bzl", "py_image_layer")
+
+py_image_layer(
+    name = "app_layers",
+    binary = ":app",
+    interpreter_tar = ":interpreter",
+    python_toolchain = "@python_interpreters//:current_py_toolchain",
+    strip_prefix = "my/package/app",
+)</code></pre>
 <p>With <code>rules_python</code>, load <code>python:rules_python.bzl</code> and omit <code>interpreter_tar</code>
 and <code>python_toolchain</code>. Either adapter emits <code>:app_layers_pip</code> with
 <code>LayerTarsInfo</code> and <code>SizeHintInfo</code>, plus unsized interpreter and source tars. A
 hand-rolled rule should return the same providers:</p>
-<pre><code lang="py">return [
+<pre><code>return [
     DefaultInfo(files = depset([tar])),
     LayerTarsInfo(tars = [tar]),
     SizeHintInfo(sizes = {tar: size_bytes}),

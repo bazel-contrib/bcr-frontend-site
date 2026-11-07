@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8107b2ce.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d0434fd7.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d1545b1f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b5fd4fb2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.8a57fc25.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.853ab74e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_ruby/1.0.0-rc2"></head>
 
 	<body style="margin: 0 auto">
@@ -79,17 +79,17 @@ MRI 4.0.7 toolchain is registered automatically, using portable Ruby on Linux
 and macOS and RubyInstaller on Windows.</li>
 <li><em>(Optional)</em> Download and install Bundler dependencies:</li>
 </ol>
-<pre><code lang="py"># MODULE.bazel
-ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
-ruby.bundle_fetch(
-    name = "bundle",
-    gemfile = "//:Gemfile",
-    gemfile_lock = "//:Gemfile.lock",
-)
-use_repo(ruby, "bundle")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">ruby </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_ruby//ruby:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ruby"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">ruby.bundle_fetch(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "bundle"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    gemfile</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Gemfile"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    gemfile_lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Gemfile.lock"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(ruby, </span><span style="color:#032F62">"bundle"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>To select a different Ruby version or engine, override the default toolchain in
 your root <code>MODULE.bazel</code> using the name <code>ruby</code>:</p>
-<pre><code>ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
+<pre><code lang="py">ruby = use_extension("@rules_ruby//ruby:extensions.bzl", "ruby")
 ruby.toolchain(
     name = "ruby",
     portable_ruby = True,

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.6f0f5f0d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ac97bce6.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9bbf03ce.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.dd95cb51.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.b8b5ce82.js" defer=""></script>
-		<script src="/registry.7b7ce1f9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ade12582.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/seastar/26.08.0-20260810180219-3bb2e379f54f"></head>
 
 	<body style="margin: 0 auto">
@@ -82,7 +82,7 @@ try giving more memory to gcc, either by limiting the amount of threads ( -j1 ) 
 machine.</p>
 <p>If you're missing a dependency of Seastar, then it is possible to have the configuration process fetch a version of the dependency locally for development.</p>
 <p>For example, to fetch <code>fmt</code> locally, configure Seastar like this:</p>
-<pre><code lang="py">$ ./configure.py --mode=dev --cook fmt</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> .</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure.py </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">mode</span><span style="color:#D73A49">=</span><span style="color:#24292E">dev </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cook fmt</span></span></code></pre>
 <p><code>--cook</code> can be repeated many times for selecting multiple dependencies.</p>
 <h2>Build modes</h2>
 <p>The configure.py script is a wrapper around cmake. The --mode argument
@@ -149,19 +149,19 @@ release is 2 times faster than dev, 150 times faster than sanitize and
 <p>It's possible to consume Seastar directly from its build directory with CMake or <code>pkg-config</code>.</p>
 <p>We'll assume that the Seastar repository is located in a directory at <code>$seastar_dir</code>.</p>
 <p>Via <code>pkg-config</code>:</p>
-<pre><code>$ g++ my_app.cc $(pkg-config --libs --cflags --static $seastar_dir/build/release/seastar.pc) -o my_app</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> g</span><span style="color:#B31D28;font-style:italic">++</span><span style="color:#24292E"> my_app.cc </span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">(pkg</span><span style="color:#D73A49">-</span><span style="color:#24292E">config </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">libs </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">cflags </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">static </span><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E">seastar_dir</span><span style="color:#D73A49">/</span><span style="color:#24292E">build</span><span style="color:#D73A49">/</span><span style="color:#24292E">release</span><span style="color:#D73A49">/</span><span style="color:#24292E">seastar.pc) </span><span style="color:#D73A49">-</span><span style="color:#24292E">o my_app</span></span></code></pre>
 <p>and with CMake using the <code>Seastar</code> package:</p>
 <p><code>CMakeLists.txt</code> for <code>my_app</code>:</p>
-<pre><code>set (CMAKE_CXX_STANDARD 23)
-
-find_package (Seastar REQUIRED)
-
-add_executable (my_app
-  my_app.cc)
-
-target_link_libraries (my_app
-  Seastar::seastar)</code></pre>
-<pre><code>$ mkdir $my_app_dir/build
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">set</span><span style="color:#24292E"> (</span><span style="color:#005CC5">CMAKE_CXX_STANDARD</span><span style="color:#005CC5"> 23</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">find_package (Seastar </span><span style="color:#005CC5">REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">add_executable (my_app</span></span>
+<span class="line"><span style="color:#24292E">  my_app.cc)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">target_link_libraries (my_app</span></span>
+<span class="line"><span style="color:#24292E">  Seastar::seastar)</span></span></code></pre>
+<pre><code lang="py">$ mkdir $my_app_dir/build
 $ cd $my_app_dir/build
 $ cmake -DCMAKE_PREFIX_PATH="$seastar_dir/build/release;$seastar_dir/build/release/_cooking/installed" -DCMAKE_MODULE_PATH=$seastar_dir/cmake $my_app_dir</code></pre>
 <p>The <code>CMAKE_PREFIX_PATH</code> values ensure that CMake can locate Seastar and its compiled submodules. The <code>CMAKE_MODULE_PATH</code> value ensures that CMake can uses Seastar's CMake scripts for locating its dependencies.</p>

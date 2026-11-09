@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fe1a89fe.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.75367a37.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.27cbaaa5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3faa88aa.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.a74f235b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1b460f30.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_wine/0.1.3"></head>
 
 	<body style="margin: 0 auto">
@@ -69,7 +69,7 @@ Windows executables directly when the worker is Windows.</p>
 Downloads are pinned by checksum. You can also register your own distribution.</p>
 <p>Native <code>wmc</code>, <code>wrc</code> and <code>widl</code> compile message tables, resources and IDLs directly
 on all five executors. Their separate toolchains need no Wine runtime or C++
-compiler. See <a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/tools.md" target="_blank" rel="noopener noreferrer">native developer tools</a>.</p>
+compiler. See <a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/tools.md" target="_blank" rel="noopener noreferrer">native developer tools</a>.</p>
 <h2>Setup</h2>
 <p>Add to <code>MODULE.bazel</code>:</p>
 <pre><code lang="py">bazel_dep(name = "rules_wine", version = "0.1.3")
@@ -117,7 +117,7 @@ does not select one for you. Native Windows actions need no Wine or supervisor.<
 needed for x86_64 prebuilts. Linux requires glibc 2.17 or newer and a UTF-8 locale.
 The macOS runtime declares a 26.5 deployment minimum; it has been tested on later
 26.x versions, not on exact 26.5. There is no default Intel macOS distribution.
-See <a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/runtime.md" target="_blank" rel="noopener noreferrer">runtime requirements and limitations</a>.</p>
+See <a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/runtime.md" target="_blank" rel="noopener noreferrer">runtime requirements and limitations</a>.</p>
 <h2>Compile messages, resources and IDLs</h2>
 <p>Register the native tools independently in <code>MODULE.bazel</code>:</p>
 <pre><code>wine = use_extension("@rules_wine//wine/extension:wine.bzl", "wine")
@@ -133,7 +133,7 @@ wine_idl_files(name = "interfaces", src = "interfaces.idl", header = "interfaces
 <p>The message rule also emits <code>messages.h</code>; outputs are ordinary file labels.
 WIDL selects the Windows output ABI from the configured target CPU, independently
 of the executor. Consumers own C/C++ compilation and linking. The
-<a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/tools.md" target="_blank" rel="noopener noreferrer">tools guide</a> covers declared imports/assets, custom toolchains,
+<a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/tools.md" target="_blank" rel="noopener noreferrer">tools guide</a> covers declared imports/assets, custom toolchains,
 low-level actions and optional path mapping. Executable labels
 <code>@rules_wine//wine:wmc</code>, <code>:wrc</code> and <code>:widl</code> are also available for <code>bazel run</code>
 and <code>bazel_lib</code>'s <code>run_binary</code>, using the same registration.</p>
@@ -148,7 +148,7 @@ windows_binary(
 <pre><code>bazel run //:generator -- --help</code></pre>
 <p>The wrapper can also be an executable dependency of another rule. It accepts
 prebuilt executables or source-built targets; see
-<a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/windows-binary.md" target="_blank" rel="noopener noreferrer">executable adapters</a> for compilation platforms,
+<a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/windows-binary.md" target="_blank" rel="noopener noreferrer">executable adapters</a> for compilation platforms,
 runfiles and path arguments.</p>
 <h2>Run a tool in a build action</h2>
 <p>Rule authors can use <code>windows_actions</code> for actions that work on all five
@@ -166,19 +166,19 @@ windows_actions.run(
     outputs = [output],
 )</code></pre>
 <p>The rule declares <code>windows_actions.toolchain_type</code> and configures its tool for
-execution. See the <a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/actions.md" target="_blank" rel="noopener noreferrer">action guide</a> for a complete rule, source
+execution. See the <a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/actions.md" target="_blank" rel="noopener noreferrer">action guide</a> for a complete rule, source
 compilation, optional path mapping and choosing workers to avoid CPU translation.</p>
 <h2>Further reading</h2>
 <ul>
 <li><a href="https://registry.bazel.build/docs/rules_wine">BCR API reference</a> (for releases publishing API docs)</li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/toolchains.md" target="_blank" rel="noopener noreferrer">Custom Wine distributions and toolchains</a></li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/tools.md" target="_blank" rel="noopener noreferrer">Native message, resource and IDL compilers</a></li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/runtime.md" target="_blank" rel="noopener noreferrer">Runtime behavior, isolation and limitations</a></li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/tests/README.md" target="_blank" rel="noopener noreferrer">Tests and contributing</a></li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/contributing.md" target="_blank" rel="noopener noreferrer">Maintaining Starlark libraries and API documentation</a></li>
-<li><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/docs/releasing.md" target="_blank" rel="noopener noreferrer">Releases and BCR publication</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/toolchains.md" target="_blank" rel="noopener noreferrer">Custom Wine distributions and toolchains</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/tools.md" target="_blank" rel="noopener noreferrer">Native message, resource and IDL compilers</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/runtime.md" target="_blank" rel="noopener noreferrer">Runtime behavior, isolation and limitations</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/tests/README.md" target="_blank" rel="noopener noreferrer">Tests and contributing</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/contributing.md" target="_blank" rel="noopener noreferrer">Maintaining Starlark libraries and API documentation</a></li>
+<li><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/releasing.md" target="_blank" rel="noopener noreferrer">Releases and BCR publication</a></li>
 </ul>
 <h2>License</h2>
-<p><a href="https://github.com/hermeticbuild/rules_wine/blob/HEAD/LICENSE" target="_blank" rel="noopener noreferrer">Apache-2.0</a>. Downloaded Wine distributions retain their own licenses
+<p><a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/LICENSE" target="_blank" rel="noopener noreferrer">Apache-2.0</a>. Downloaded Wine distributions retain their own licenses
 and source redistribution material.</p>
 </div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">Bazel toolchains and rules for running Windows executables with Wine or natively.</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/hermeticbuild/rules_wine" title="@hermeticbuild"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@hermeticbuild/rules_wine</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/hermeticbuild.png" alt="@hermeticbuild"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/rules_wine"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/hermeticbuild/rules_wine/releases/download/v0.1.3/rules_wine-v0.1.3.docs.tar.gz"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"></path></g></svg></span><span>Documentation</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>Thursday, October 29, 2026 (11 days ago)</span></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/11458"><img class="avatar circle mr-2 flex-shrink-0" width="20" height="20" src="https://github.com/hermeticbuild-bot.png" alt="@hermeticbuild-bot"><span title="rules_wine@0.1.3 (#11458)"><span class="text-mono">#11458</span> <span class="text-light">rules_wine@0.1.3 (#11458)</span></span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 70.2%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 70.2%"> </span><span style="width: 25.2%; background-color: var(--lang-Cplusplus-bg, #ccc)" title="C++: 25.2%"> </span><span style="width: 4.5%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 4.5%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/Starlark">Starlark</a><span class="ml-2 color-fg-muted">70.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Cplusplus-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C++</span><span class="ml-2 color-fg-muted">25.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">4.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-C-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>C</span><span class="ml-2 color-fg-muted">0%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/cerisier" title="Corentin Kerisit"><img class="avatar circle" loading="lazy" decoding="async" width="48" height="48" src="https://github.com/cerisier.png" alt="@cerisier"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Compatibility</span></h3><div class="d-flex flex-wrap"><label class="Label Label--attention">Bazel &gt;=8.5.0</label></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">2</label></span></h3><table class="width-full"><tbody><tr><td title="0.1.3; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.1.3"><span class="text-bold f4">0.1.3</span><sup class="color-fg-attention"> +2h</sup></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-10-29</span></div></td></tr><tr><td title="0.1.2; compatibility level 0" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="0.1.2"><a class="Box-row-link f5" href="/modules/rules_wine/0.1.2">0.1.2</a></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-10-29</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ddcd306b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.559add2e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9826f8ef.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.43ad4017.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.966d4d52.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.82c30d10.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_varlink/0.0.2"></head>
 
 	<body style="margin: 0 auto">
@@ -92,10 +92,10 @@
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The <code>llvm</code> dep is required because rules_rs toolchains carry <code>@llvm//constraints/libc:gnu.2.28</code> in their <code>target_compatible_with</code>. Without it, Bazel cannot resolve <code>@llvm</code> from your root module even though it is a transitive dependency of rules_rs.</p>
 <p>If you are on NixOS (or another system where <code>libgcc_s</code> is not on the default library search path), add to your <code>.bazelrc</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common:linux </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">llvm</span><span style="color:#D73A49">//</span><span style="color:#24292E">config:experimental_stub_libgcc_s</span><span style="color:#D73A49">=</span><span style="color:#005CC5">True</span></span></code></pre>
+<pre><code lang="py">common:linux --@llvm//config:experimental_stub_libgcc_s=True</code></pre>
 <h2>Usage</h2>
 <h3>1. Declare the interface</h3>
-<pre><code lang="py"># interfaces/BUILD.bazel
+<pre><code># interfaces/BUILD.bazel
 load("@rules_varlink//varlink:defs.bzl", "varlink_library", "rust_varlink_library", "varlink_lint")
 
 varlink_library(

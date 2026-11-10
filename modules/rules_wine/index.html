@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9826f8ef.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.43ad4017.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.11479439.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.650433df.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.82c30d10.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0c92a568.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_wine/0.1.3"></head>
 
 	<body style="margin: 0 auto">
@@ -72,11 +72,11 @@ on all five executors. Their separate toolchains need no Wine runtime or C++
 compiler. See <a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/tools.md" target="_blank" rel="noopener noreferrer">native developer tools</a>.</p>
 <h2>Setup</h2>
 <p>Add to <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_wine"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.3"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">wine </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_wine//wine/extension:wine.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"wine"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(wine, </span><span style="color:#032F62">"wine_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@wine_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_wine", version = "0.1.3")
+
+wine = use_extension("@rules_wine//wine/extension:wine.bzl", "wine")
+use_repo(wine, "wine_toolchains")
+register_toolchains("@wine_toolchains//:all")</code></pre>
 <p>For a local checkout, also add
 <code>local_path_override(module_name = "rules_wine", path = "../rules_wine")</code>.</p>
 <p>Requires Bazel 8.5 or newer. On Linux and macOS, the Wine supervisor is built
@@ -120,10 +120,10 @@ The macOS runtime declares a 26.5 deployment minimum; it has been tested on late
 See <a href="https://github.com/hermeticbuild/rules_wine/blob/b2783f925c2045998dff3c26c9004aff4a73d693/docs/runtime.md" target="_blank" rel="noopener noreferrer">runtime requirements and limitations</a>.</p>
 <h2>Compile messages, resources and IDLs</h2>
 <p>Register the native tools independently in <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">wine </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_wine//wine/extension:wine.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"wine"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(wine, </span><span style="color:#032F62">"wine_tools_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@wine_tools_toolchains//:all"</span><span style="color:#24292E">)</span></span></code></pre>
-<pre><code lang="py">load("@rules_wine//wine:wine_message_file.bzl", "wine_message_file")
+<pre><code>wine = use_extension("@rules_wine//wine/extension:wine.bzl", "wine")
+use_repo(wine, "wine_tools_toolchains")
+register_toolchains("@wine_tools_toolchains//:all")</code></pre>
+<pre><code>load("@rules_wine//wine:wine_message_file.bzl", "wine_message_file")
 load("@rules_wine//wine:wine_resource_file.bzl", "wine_resource_file")
 load("@rules_wine//wine:wine_idl_files.bzl", "wine_idl_files")
 

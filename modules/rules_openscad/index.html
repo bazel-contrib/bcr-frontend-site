@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8f6b7a39.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.19e2dd06.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.94aa806f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1ef4de43.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.06ef06be.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3644b419.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_openscad/0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -73,10 +73,10 @@
 <p>In order to use these rules in your BUILD files you need to first add this module as a dependency on your <code>MODULES.bazel</code> file, and then add the rules to your <code>BUILD</code> file</p>
 <h3>Modify your MODULE.bazel file</h3>
 <p>Just add the following line to your <code>MODULES.bazel</code> file</p>
-<pre><code lang="py">bazel_dep(name="rules_openscad", version="0.3")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49">=</span><span style="color:#032F62">"rules_openscad"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49">=</span><span style="color:#032F62">"0.3"</span><span style="color:#24292E">)</span></span></code></pre>
 <h3>Load the rule definitions on your BUILD files</h3>
 <p>Once you have added the dependency to your bazel module, you need to add the following code to the <code>BUILD</code> file on which you want to use the rules</p>
-<pre><code>load(
+<pre><code lang="py">load(
     "@rules_openscad//:scad.bzl",
     "scad_library",
     "scad_object",

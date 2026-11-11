@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2a088a73.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.08617a9a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9b6521d1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e83978c4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.7f548343.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.66fd4d4e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shellcheck/0.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -67,29 +67,29 @@
 <p>Then <code>shellcheck</code> can be accessed by running:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_shellcheck</span><span style="color:#D73A49">//</span><span style="color:#24292E">:shellcheck </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">parameters</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>And you can define a lint target for your <a href="https://github.com/bazelbuild/rules_shell">rules_shell</a> targets:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shell//shell:sh_binary.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sh_binary"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shellcheck//shellcheck:shellcheck_test.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"shellcheck_test"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">sh_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_binary"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"my_binary.sh"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//my/library"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">shellcheck_test(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "shellcheck_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":my_binary"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    tags</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"lint"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    format</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "gcc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    severity</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "warning"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+load("@rules_shellcheck//shellcheck:shellcheck_test.bzl", "shellcheck_test")
+
+sh_binary(
+    name = "my_binary",
+    srcs = ["my_binary.sh"],
+    deps = ["//my/library"],
+)
+
+shellcheck_test(
+    name = "shellcheck_test",
+    targets = [":my_binary"],
+    tags = ["lint"],
+    format = "gcc",
+    severity = "warning",
+)</code></pre>
 <p><code>targets</code> accepts anything providing <code>ShInfo</code> or <code>ShBinaryInfo</code> (<code>sh_binary</code>, <code>sh_library</code>, …). Sources of those targets
 and of their transitive <code>deps</code> are linted, with each source directory passed as <code>--source-path</code> so <code>source</code> directives resolve.</p>
 <p>Generated sources are skipped by default. Set <code>check_generated</code> to <code>1</code> to lint them, <code>0</code> to never lint them, or leave it at
 <code>-1</code> to defer to the <code>//shellcheck/settings:check_generated</code> flag described below.</p>
 <h2>Configuring the shellcheck aspect</h2>
 <p><code>shellcheck_aspect</code> runs <code>shellcheck</code> against any target that provides <code>ShInfo</code> or <code>ShBinaryInfo</code> (e.g. <code>sh_binary</code> and <code>sh_library</code> from <a href="https://github.com/bazelbuild/rules_shell">rules_shell</a>) as part of a normal <code>bazel build</code>. Enable it by adding the following to your <code>.bazelrc</code>:</p>
-<pre><code lang="py">build --aspects=@rules_shellcheck//shellcheck:shellcheck_aspect.bzl%shellcheck_aspect
+<pre><code>build --aspects=@rules_shellcheck//shellcheck:shellcheck_aspect.bzl%shellcheck_aspect
 build --output_groups=+shellcheck_checks</code></pre>
 <p>With those flags in place, any build that includes shell targets will also run <code>shellcheck</code> on their sources; the lint results are exposed via the <code>shellcheck_checks</code> output group.</p>
 <h3>Output format and severity</h3>

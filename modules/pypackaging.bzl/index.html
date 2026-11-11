@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.46915755.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6229487d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9afdc8c9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.1284b09c.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.bc63e39a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ebe98c7f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/pypackaging.bzl/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -80,11 +80,11 @@ manylinux, musllinux, Android, and iOS</li>
 <p>Add to your <code>MODULE.bazel</code> file (see the
 <a href="https://github.com/jvolkman/pypackaging.bzl/releases">releases</a> for the
 latest version):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypackaging.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.3.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "pypackaging.bzl", version = "0.3.0")</code></pre>
 <h2>Usage</h2>
 <p>For the full API documentation, see <a href="https://github.com/jvolkman/pypackaging.bzl/blob/d78ed98246ee0259e3b81123689dd47c4fa6634a/docs/pypackaging.md" target="_blank" rel="noopener noreferrer">the API reference</a>.</p>
 <h3>In a <code>.bzl</code> file</h3>
-<pre><code lang="py">load("@pypackaging.bzl", "pypackaging")
+<pre><code>load("@pypackaging.bzl", "pypackaging")
 
 # Versions (PEP 440): compare them through their sort keys.
 v = pypackaging.version.parse("1.2.3")

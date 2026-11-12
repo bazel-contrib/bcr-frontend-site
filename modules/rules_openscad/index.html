@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.70101f72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e7a7ab5a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.6d734b26.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7297c1a0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.39e39e1f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.5891550f.js" defer=""></script>
-		<script src="/registry.6a02542e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4acf87d3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_openscad/0.3"></head>
 
 	<body style="margin: 0 auto">
@@ -73,21 +73,21 @@
 <p>In order to use these rules in your BUILD files you need to first add this module as a dependency on your <code>MODULES.bazel</code> file, and then add the rules to your <code>BUILD</code> file</p>
 <h3>Modify your MODULE.bazel file</h3>
 <p>Just add the following line to your <code>MODULES.bazel</code> file</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49">=</span><span style="color:#032F62">"rules_openscad"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49">=</span><span style="color:#032F62">"0.3"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name="rules_openscad", version="0.3")</code></pre>
 <h3>Load the rule definitions on your BUILD files</h3>
 <p>Once you have added the dependency to your bazel module, you need to add the following code to the <code>BUILD</code> file on which you want to use the rules</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_openscad//:scad.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "scad_library"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "scad_object"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "scad_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load(
+    "@rules_openscad//:scad.bzl",
+    "scad_library",
+    "scad_object",
+    "scad_test",
+)</code></pre>
 <p>You only need to load the specific rules that you want to use</p>
 <p>After this, you can use the rules the same way that you would use any other Bazel rule</p>
 <h2>Rules reference</h2>
 <p><a></a></p>
 <h3>scad_library</h3>
-<pre lang="py">load("@rules_openscad//:scad.bzl", "scad_library")
+<pre>load("@rules_openscad//:scad.bzl", "scad_library")
 
 scad_library(<a href="#scad_library-name">name</a>, <a href="#scad_library-deps">deps</a>, <a href="#scad_library-srcs">srcs</a>)
 </pre>

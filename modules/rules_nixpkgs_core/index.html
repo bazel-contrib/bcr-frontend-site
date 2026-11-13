@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9cfbabe8.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.94fb2934.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.73abad58.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.83ff46c9.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b6853d10.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
-		<script src="/bcr.8a4cf57c.js" defer=""></script>
-		<script src="/registry.3e7f0241.pb.gz.b64.js" defer=""></script>
+		<script src="/bcr.7a074f7d.js" defer=""></script>
+		<script src="/registry.a7b6dada.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_nixpkgs_core/0.14.1"></head>
 
 	<body style="margin: 0 auto">
@@ -116,16 +116,16 @@ configure the build platform to include the
 example by adding the following to <code>.bazelrc</code>:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_platform</span><span style="color:#D73A49">=@</span><span style="color:#24292E">rules_nixpkgs_core</span><span style="color:#D73A49">//</span><span style="color:#24292E">platforms:host</span></span></code></pre>
 <h2>Example</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">nixpkgs_git_repository(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "nixpkgs"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    revision</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "17.09"</span><span style="color:#24292E">, </span><span style="color:#6A737D"># Any tag or commit hash</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ""</span><span style="color:#6A737D"> # optional sha to verify package integrity!</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">nixpkgs_package(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hello"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    repositories</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> { </span><span style="color:#032F62">"nixpkgs"</span><span style="color:#24292E">: </span><span style="color:#032F62">"@nixpkgs//:default.nix"</span><span style="color:#24292E"> }</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">nixpkgs_git_repository(
+    name = "nixpkgs",
+    revision = "17.09", # Any tag or commit hash
+    sha256 = "" # optional sha to verify package integrity!
+)
+
+nixpkgs_package(
+    name = "hello",
+    repositories = { "nixpkgs": "@nixpkgs//:default.nix" }
+)</code></pre>
 <h2>Migration from older releases</h2>
 <h3><code>path</code> Attribute (removed in 0.3)</h3>
 <p><code>path</code> was an attribute from the early days of <code>rules_nixpkgs</code>, and
@@ -135,7 +135,7 @@ a specific version of <code>nixpkgs</code>. If you absolutely <em>must</em> depe
 local folder, use Bazel's
 <a href="https://docs.bazel.build/versions/master/be/workspace.html#local_repository"><code>local_repository</code> workspace rule</a>.
 Both approaches work well with the <code>repositories</code> attribute of <code>nixpkgs_package</code>.</p>
-<pre><code lang="py">local_repository(
+<pre><code>local_repository(
   name = "local-nixpkgs",
   path = "/path/to/nixpkgs",
 )

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.9cfbabe8.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.505ba831.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.d1fec8ba.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.94fb2934.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.73abad58.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.8a4cf57c.js" defer=""></script>
-		<script src="/registry.9506a3a7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.3e7f0241.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_mypy/0.41.0"></head>
 
 	<body style="margin: 0 auto">
@@ -78,19 +78,19 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_mypy"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.0"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><strong>Optionally, configure a types repository:</strong></p>
 <p>Many Python packages have separately published types/stubs packages. While mypy (and these rules) will work without including these types, this ruleset provides some utilities for leveraging these types to improve mypy's type checking.</p>
-<pre><code lang="py">types = use_extension("@rules_mypy//mypy:types.bzl", "types")
-types.requirements(
-    name = "pip_types",
-    # `@pip` in the next line corresponds to the `hub_name` when using
-    # rules_python's `pip.parse(...)`.
-    pip_requirements = "@pip//:requirements.bzl",
-    # also legal to pass a `requirements.in` here
-    requirements_txt = "//:requirements.txt",
-)
-use_repo(types, "pip_types")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">types </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_mypy//mypy:types.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"types"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">types.requirements(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pip_types"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # `@pip` in the next line corresponds to the `hub_name` when using</span></span>
+<span class="line"><span style="color:#6A737D">    # rules_python's `pip.parse(...)`.</span></span>
+<span class="line"><span style="color:#E36209">    pip_requirements</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@pip//:requirements.bzl"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#6A737D">    # also legal to pass a `requirements.in` here</span></span>
+<span class="line"><span style="color:#E36209">    requirements_txt</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:requirements.txt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(types, </span><span style="color:#032F62">"pip_types"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><strong>Configure <code>mypy_aspect</code>.</strong></p>
 <p>Define a new aspect in a <code>.bzl</code> file (such as <code>./tools/aspects.bzl</code>):</p>
-<pre><code>load("@pip_types//:types.bzl", "types")
+<pre><code lang="py">load("@pip_types//:types.bzl", "types")
 load("@rules_mypy//mypy:mypy.bzl", "mypy")
 
 mypy_aspect = mypy(types = types)</code></pre>

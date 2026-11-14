@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.01149598.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.51729b53.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.86195094.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9cdbfffd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7a074f7d.js" defer=""></script>
-		<script src="/registry.7bfcd175.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.76010bf8.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_img_pull_tool/0.3.13"></head>
 
 	<body style="margin: 0 auto">
@@ -375,27 +375,27 @@
 <li><strong>working_dir</strong> is set to the binary's runfiles root (when <code>include_runfiles = True</code>)</li>
 </ul>
 <p>For multi-platform images, set the <code>platforms</code> attribute:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">image_from_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "image"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    binary</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":server"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    base</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@ubuntu"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    platforms</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "//:linux_amd64"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">        "//:linux_arm64"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">image_from_binary(
+    name = "image",
+    binary = ":server",
+    base = "@ubuntu",
+    platforms = [
+        "//:linux_amd64",
+        "//:linux_arm64",
+    ],
+)</code></pre>
 <h3>3. Push to a Registry</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_img//img:push.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"image_push"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">image_push(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "push"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    image</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":image"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    registry</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "ghcr.io"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    repository</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my-project/app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    tag</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "latest"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@rules_img//img:push.bzl", "image_push")
+
+image_push(
+    name = "push",
+    image = ":image",
+    registry = "ghcr.io",
+    repository = "my-project/app",
+    tag = "latest",
+)</code></pre>
 <p>Run with:</p>
-<pre><code lang="py">bazel run //:push</code></pre>
+<pre><code>bazel run //:push</code></pre>
 <h3>4. Load into a Local Daemon</h3>
 <pre><code>load("@rules_img//img:load.bzl", "image_load")
 

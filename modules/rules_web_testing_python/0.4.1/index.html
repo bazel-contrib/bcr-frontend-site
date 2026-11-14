@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b2ac1e77.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.767da69b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.83db81ff.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.293775f5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7a074f7d.js" defer=""></script>
-		<script src="/registry.a725647a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.03f8627a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_web_testing_python/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -104,26 +104,26 @@ to get an instance of WebDriver.</p>
 <span class="line"><span style="color:#D73A49">  //</span><span style="color:#24292E"> your tests here</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h3>Example Python Test</h3>
-<pre><code lang="py">import unittest
-from testing.web import webtest
-
-
-class BrowserTest(unittest.TestCase):
-  def setUp(self):
-    self.driver = webtest.new_webdriver_session()
-
-  def tearDown(self):
-    try:
-      self.driver.quit()
-    finally:
-      self.driver = None
-
-  # Your tests here
-
-if __name__ == "__main__":
-  unittest.main()</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> unittest</span></span>
+<span class="line"><span style="color:#D73A49">from</span><span style="color:#24292E"> testing.web </span><span style="color:#D73A49">import</span><span style="color:#24292E"> webtest</span></span>
+<span class="line"></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> BrowserTest</span><span style="color:#24292E">(</span><span style="color:#6F42C1">unittest</span><span style="color:#24292E">.</span><span style="color:#6F42C1">TestCase</span><span style="color:#24292E">):</span></span>
+<span class="line"><span style="color:#D73A49">  def</span><span style="color:#6F42C1"> setUp</span><span style="color:#24292E">(self):</span></span>
+<span class="line"><span style="color:#005CC5">    self</span><span style="color:#24292E">.driver </span><span style="color:#D73A49">=</span><span style="color:#24292E"> webtest.new_webdriver_session()</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">  def</span><span style="color:#6F42C1"> tearDown</span><span style="color:#24292E">(self):</span></span>
+<span class="line"><span style="color:#D73A49">    try</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#005CC5">      self</span><span style="color:#24292E">.driver.quit()</span></span>
+<span class="line"><span style="color:#D73A49">    finally</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#005CC5">      self</span><span style="color:#24292E">.driver </span><span style="color:#D73A49">=</span><span style="color:#005CC5"> None</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D">  # Your tests here</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">if</span><span style="color:#005CC5"> __name__</span><span style="color:#D73A49"> ==</span><span style="color:#032F62"> "__main__"</span><span style="color:#24292E">:</span></span>
+<span class="line"><span style="color:#24292E">  unittest.main()</span></span></code></pre>
 <h3>Example Go Test</h3>
-<pre><code>import (
+<pre><code lang="py">import (
     "testing"
 
     "github.com/tebeka/selenium"

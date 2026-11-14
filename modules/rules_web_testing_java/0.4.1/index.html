@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.87fc2c18.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.531fce8e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.01149598.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.51729b53.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7a074f7d.js" defer=""></script>
-		<script src="/registry.18a457b8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7bfcd175.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_web_testing_java/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -123,29 +123,29 @@ to get an instance of WebDriver.</p>
 <span class="line"><span style="color:#D73A49">if</span><span style="color:#005CC5"> __name__</span><span style="color:#D73A49"> ==</span><span style="color:#032F62"> "__main__"</span><span style="color:#24292E">:</span></span>
 <span class="line"><span style="color:#24292E">  unittest.main()</span></span></code></pre>
 <h3>Example Go Test</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> (</span></span>
-<span class="line"><span style="color:#032F62">    "testing"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#032F62">    "github.com/tebeka/selenium"</span></span>
-<span class="line"><span style="color:#032F62">    "github.com/bazelbuild/rules_web_testing_go/webtest"</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">func TestWebApp(t </span><span style="color:#D73A49">*</span><span style="color:#24292E">testing.T) {</span></span>
-<span class="line"><span style="color:#24292E">    wd, err := webtest.NewWebDriverSession(selenium.Capabilities{})</span></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
-<span class="line"><span style="color:#24292E">        t.Fatal(err)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    //</span><span style="color:#24292E"> your test here</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#D73A49">    if</span><span style="color:#24292E"> err := wd.Quit(); err </span><span style="color:#D73A49">!=</span><span style="color:#24292E"> nil {</span></span>
-<span class="line"><span style="color:#24292E">        t.Logf(</span><span style="color:#032F62">"Error quitting webdriver: %v"</span><span style="color:#24292E">, err)</span></span>
-<span class="line"><span style="color:#24292E">    }</span></span>
-<span class="line"><span style="color:#24292E">}</span></span></code></pre>
+<pre><code lang="py">import (
+    "testing"
+
+    "github.com/tebeka/selenium"
+    "github.com/bazelbuild/rules_web_testing_go/webtest"
+)
+
+func TestWebApp(t *testing.T) {
+    wd, err := webtest.NewWebDriverSession(selenium.Capabilities{})
+    if err != nil {
+        t.Fatal(err)
+    }
+
+    // your test here
+
+    if err := wd.Quit(); err != nil {
+        t.Logf("Error quitting webdriver: %v", err)
+    }
+}</code></pre>
 <h3>BUILD file</h3>
 <p>In your BUILD files, load the correct language specific build rule and create a
 test target using it:</p>
-<pre><code lang="py">load("@rules_web_testing_python//web:py.bzl", "py_web_test_suite")
+<pre><code>load("@rules_web_testing_python//web:py.bzl", "py_web_test_suite")
 
 py_web_test_suite(
     name = "browser_test",

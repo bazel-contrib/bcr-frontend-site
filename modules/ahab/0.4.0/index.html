@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ab60f68d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b31229ab.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b900c4a1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.23ceed37.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.44a0307c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.4bc5500b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ahab/0.4.0"></head>
 
 	<body style="margin: 0 auto">
@@ -120,7 +120,7 @@ seconds.</p>
 <span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hermeticity</span></span></code></pre>
+<pre><code lang="py">bazel run //:hermeticity</code></pre>
 <p>That prints every violation found and exits non-zero if there were any. One
 has to use <code>bazel run</code> and not <code>bazel test</code> with Ahab, since invoking Bazel
 commands inside a Bazel build is not permitted.</p>
@@ -139,19 +139,19 @@ contains a pre-built Ahab binary by setting <code>AHAB_PREBUILT_LOCAL</code>.</p
 <h3>Recording what you find</h3>
 <p>A real codebase will not reach zero violations on the first day. The way to
 make that tractable is to record what you have and fail only on what is new:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@ahab//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab_check"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ahab_update"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ahab_update(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity.update"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    baseline</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:expectation.json"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ahab_check(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity.check"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    baseline</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:expectation.json"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    label</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//..."</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@ahab//:defs.bzl", "ahab_check", "ahab_update")
+
+ahab_update(
+    name = "hermeticity.update",
+    baseline = "//:expectation.json",
+    label = "//...",
+)
+
+ahab_check(
+    name = "hermeticity.check",
+    baseline = "//:expectation.json",
+    label = "//...",
+)</code></pre>
 <p><code>bazel run //:hermeticity.update</code> writes the report to <code>expectation.json</code>,
 which you commit. <code>bazel run //:hermeticity.check</code> prints nothing and exits
 0 while the findings match it exactly and prints a diff and exits 1 as soon
@@ -160,10 +160,10 @@ as they do not. That is the target to put in CI.</p>
 cannot drift apart. <code>ahab_update</code> writes relative to the workspace root, so
 it lands in the same place whatever directory you ran it from.</p>
 <p><code>ahab_explain</code> prints a recorded report without analyzing anything:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">ahab_explain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "hermeticity.explain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    report</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:expectation.json"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>ahab_explain(
+    name = "hermeticity.explain",
+    report = "//:expectation.json",
+)</code></pre>
 <h3>The macros</h3>
 <p><code>ahab</code> takes <code>label</code>, <code>configs</code>, <code>bazel_flags</code>, <code>compilation_mode</code>,
 <code>module_name</code>, <code>repro_specs</code>, <code>exceptions</code>, <code>shut_up</code>, <code>no_fail</code>,
@@ -223,7 +223,7 @@ run appears.</p>
 <p>Not every absolute path is a path on the build machine, though. A tool that
 builds a container image, a package or an installer is routinely told where
 a file will sit once the artifact is unpacked <em>somewhere else</em>:</p>
-<pre><code lang="py">img manifest --working-dir /app --entrypoint /app/bin/server</code></pre>
+<pre><code>img manifest --working-dir /app --entrypoint /app/bin/server</code></pre>
 <p><code>/app</code> is a directory the image will have, not an input path on the system
 where we are running the build. Ahab has the necessary knowledge in order
 make a distinction. See <a href="#specification-format"><code>declared_paths</code></a> below.</p>

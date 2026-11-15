@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.037d1156.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.eac8f521.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.afbc0ae1.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.da79ec92.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.7a074f7d.js" defer=""></script>
-		<script src="/registry.566261a2.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.93a167f0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pmd/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -78,14 +78,14 @@ for <a href="https://bazel.build">the Bazel build system</a>.</p>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h4>PMD Version</h4>
 <p>Change the <code>MODULE.bazel</code> file:</p>
-<pre><code lang="py">pmd = use_extension("@rules_pmd//pmd:extensions.bzl", "pmd")
-pmd.pmd_version(
-    version = "x.x.x",
-    sha256 = "x.x.x.sha256",
-)
-use_repo(pmd, "net_sourceforge_pmd")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">pmd </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_pmd//pmd:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"pmd"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">pmd.pmd_version(</span></span>
+<span class="line"><span style="color:#E36209">    version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "x.x.x"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "x.x.x.sha256"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(pmd, </span><span style="color:#032F62">"net_sourceforge_pmd"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>To download PMD from a custom location (for example, an internal mirror), provide a <code>url_templates</code> list:</p>
-<pre><code>pmd = use_extension("@rules_pmd//pmd:extensions.bzl", "pmd")
+<pre><code lang="py">pmd = use_extension("@rules_pmd//pmd:extensions.bzl", "pmd")
 pmd.pmd_version(
     version = "x.x.x",
     sha256 = "x.x.x.sha256",

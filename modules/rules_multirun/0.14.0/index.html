@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.556c6677.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9420d072.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.59dbb62a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5c8127ca.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.6d576b4e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d8714487.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_multirun/0.14.0"></head>
 
 	<body style="margin: 0 auto">
@@ -101,12 +101,12 @@ for running multiple linters or formatters with a single command.</p>
 <span class="line"><span style="color:#E36209">    jobs</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> 0</span><span style="color:#24292E">, </span><span style="color:#6A737D"># Set to 0 to run in parallel, defaults to sequential</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Run the <code>multirun</code> target with bazel:</p>
-<pre><code lang="py">$ bazel run //:lint</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">$</span><span style="color:#24292E"> bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:lint</span></span></code></pre>
 <p>See <a href="https://github.com/keith/rules_multirun/blob/3969ec9c62d016e0933f6097ab1e813d927ec17d/doc" target="_blank" rel="noopener noreferrer">the full API docs</a> for more info.</p>
 <h2>Usage with platform transitions</h2>
 <p>In case if the <code>multirun</code> rule requires a transition to other configuration than <code>target</code> then
 a new <code>multirun</code>-like rule can be defined as in the following example</p>
-<pre><code>load("@rules_multirun//:defs.bzl", "multirun_with_transition")
+<pre><code lang="py">load("@rules_multirun//:defs.bzl", "multirun_with_transition")
 
 def _aws_deploy_platforms_impl(settings, attr):
     return {"//command_line_option:platforms": [":aws_lambda"]}

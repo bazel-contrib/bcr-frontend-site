@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7f8c5d11.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.805d7d95.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.77ee9eab.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e8a10996.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.ec0ba1ea.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f821809c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_idb/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -83,22 +83,22 @@ requirement is Xcode.</strong></p>
 <span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/erneestoc/rules_idb.git"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#E36209">    tag</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "v0.2.1"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># BUILD.bazel</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_idb//idb:idb_test_runner.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"ios_idb_test_runner"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ios_idb_test_runner(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "idb_runner"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    device_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "iPhone 17 Pro"</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># optional; defaults to newest iPhone</span></span>
-<span class="line"><span style="color:#E36209">    os_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ""</span><span style="color:#24292E">,                </span><span style="color:#6A737D"># optional; defaults to newest iOS runtime</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">ios_unit_test(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "HostedTests"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    minimum_os_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "16.0"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    runner</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":idb_runner"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    test_host</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":HostApp"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":HostedTestsLib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># BUILD.bazel
+load("@rules_idb//idb:idb_test_runner.bzl", "ios_idb_test_runner")
+
+ios_idb_test_runner(
+    name = "idb_runner",
+    device_type = "iPhone 17 Pro",  # optional; defaults to newest iPhone
+    os_version = "",                # optional; defaults to newest iOS runtime
+)
+
+ios_unit_test(
+    name = "HostedTests",
+    minimum_os_version = "16.0",
+    runner = ":idb_runner",
+    test_host = ":HostApp",
+    deps = [":HostedTestsLib"],
+)</code></pre>
 <p>Or use the predefined <code>@rules_idb//idb:default_runner</code>. For coverage, add
 <code>coverage --experimental_use_llvm_covmap</code> to your <code>.bazelrc</code>.</p>
 <h2>What you get</h2>
@@ -354,7 +354,7 @@ a legitimately slow test).</p>
 <p>For remote execution, where a hung action can trigger retries rather than
 returning the real failure, <code>RULES_IDB_STALL_SECS</code> is worth setting as a
 backstop for the residual case:</p>
-<pre><code lang="py">--test_env=RULES_IDB_STALL_SECS=45</code></pre>
+<pre><code>--test_env=RULES_IDB_STALL_SECS=45</code></pre>
 <p>A test-process disconnect that prevents results from being reported is
 represented as a failing test case in the JUnit XML, not only as a non-zero
 runner exit: tests that never ran are named individually when the expected set

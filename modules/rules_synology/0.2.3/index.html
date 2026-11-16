@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.7f8c5d11.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.805d7d95.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.77ee9eab.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e8a10996.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.ec0ba1ea.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f821809c.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_synology/0.2.3"></head>
 
 	<body style="margin: 0 auto">
@@ -83,12 +83,12 @@ or service.</p>
 <p>Simplest usage is a goal; currently, the recommended usage, as confirmed by the
 <code>examples/cross-helloworld</code>, looks like:</p>
 <p>(<code>MODULE.bazel</code>)</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_synology"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.1"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># If you need cross-build toolchains</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@rules_synology//toolchains:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_synology", version = "0.0.1")
+
+# If you need cross-build toolchains
+register_toolchains("@rules_synology//toolchains:all")</code></pre>
 <p>In order to use this, you'll need to activate a specific platform at build (or in a <code>.bazelrc</code>):</p>
-<pre><code lang="py">bazel build --incompatible_enable_cc_toolchain_resolution --platforms=@rules_synology//models:ds1819+-7.1</code></pre>
+<pre><code>bazel build --incompatible_enable_cc_toolchain_resolution --platforms=@rules_synology//models:ds1819+-7.1</code></pre>
 <p>...this it's down to creating a SPK.  At this stage, the easiest method forward is to look at the
 examples in the <code>examples</code> directory.</p>
 <h2>Testing</h2>

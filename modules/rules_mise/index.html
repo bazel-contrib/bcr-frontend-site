@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a9db13f2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.9d4f0357.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7d1cd92a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b520e658.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.97c81859.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e4869510.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_mise/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -74,18 +74,18 @@ you also run outside Bazel (see <code>e2e/smoke</code>, which uses <code>ruff</c
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">[tools]</span></span>
 <span class="line"><span style="color:#24292E">ruff </span><span style="color:#D73A49">=</span><span style="color:#032F62"> "latest"</span></span></code></pre>
 <p>Generate the lockfile with mise:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mise lock</span></span></code></pre>
+<pre><code lang="py">mise lock</code></pre>
 <p>In your <code>MODULE.bazel</code>, add the <code>bazel_dep</code> from the release you wish to use
 (see <a href="https://github.com/amartani/rules_mise/releases">https://github.com/amartani/rules_mise/releases</a> for available versions):</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_mise"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.6.2"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>bazel_dep(name = "rules_mise", version = "0.6.2")</code></pre>
 <p>Then set up the extension and register the toolchains:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mise </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_mise//mise:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"mise"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">mise.hub(</span><span style="color:#E36209">lockfile</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:mise.lock"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(mise, </span><span style="color:#032F62">"mise"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@mise//toolchains:all"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>mise = use_extension("@rules_mise//mise:extensions.bzl", "mise")
+mise.hub(lockfile = "//:mise.lock")
+use_repo(mise, "mise")
+
+register_toolchains("@mise//toolchains:all")</code></pre>
 <p>Then depend on tools through the toolchain-resolved targets:</p>
-<pre><code lang="py">@mise//tools/ruff                 -&gt; ruff for the current platform
+<pre><code>@mise//tools/ruff                 -&gt; ruff for the current platform
 @mise//tools/ruff:cwd             -&gt; wrapper running ruff from the current directory
 @mise//tools/ruff:workspace_root  -&gt; wrapper running ruff from $BUILD_WORKSPACE_DIRECTORY</code></pre>
 <p>Only lockfile entries with a downloadable <code>url</code> on a supported

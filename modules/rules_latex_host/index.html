@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.59dbb62a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5c8127ca.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.38d51d4a.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.e5fcab62.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.d8714487.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d904b330.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_latex_host/0.3.1"></head>
 
 	<body style="margin: 0 auto">
@@ -95,8 +95,8 @@ the module.</li>
 </ul>
 <h2>Prerequisites</h2>
 <p>Install the host tools once:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_latex_host</span><span style="color:#D73A49">//</span><span style="color:#24292E">latex:install_tools</span></span>
-<span class="line"><span style="color:#6A737D"># or:  bash latex/install-tools.sh</span></span></code></pre>
+<pre><code lang="py">bazel run @rules_latex_host//latex:install_tools
+# or:  bash latex/install-tools.sh</code></pre>
 <p>(TeX Live + poppler-utils + ghostscript, via the platform package manager.)
 Nothing to install if you use the <a href="#hermetic-toolchain">hermetic toolchain</a>.</p>
 <h2>Usage</h2>
@@ -104,7 +104,7 @@ Nothing to install if you use the <a href="#hermetic-toolchain">hermetic toolcha
 <code>--registry</code> <strong>replaces</strong> the built-in default rather than adding to it, so BCR
 has to be listed again or the module's own dependencies stop resolving.
 Registries are consulted in the order given:</p>
-<pre><code lang="py">common --registry=https://raw.githubusercontent.com/filmil/bazel-registry/main
+<pre><code>common --registry=https://raw.githubusercontent.com/filmil/bazel-registry/main
 common --registry=https://bcr.bazel.build</code></pre>
 <p><code>MODULE.bazel</code>:</p>
 <pre><code>bazel_dep(name = "rules_latex_host", version = "0.0.5")</code></pre>

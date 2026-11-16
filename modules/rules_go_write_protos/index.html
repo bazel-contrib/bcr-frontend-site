@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.cac6664d.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1b1f2b05.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a9db13f2.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9d4f0357.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.313da05e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.97c81859.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_go_write_protos/0.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -69,10 +69,10 @@
 <h2>Quickstart</h2>
 <h3>1. Configure Bzlmod</h3>
 <p>Add the following to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_go_write_protos"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.1"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_go_write_protos", version = "0.0.1")</code></pre>
 <h3>2. Define Targets and Register the Sync Macro</h3>
 <p>In your package <code>BUILD.bazel</code> (e.g., <code>pkg/foo/BUILD.bazel</code>), define your compilation targets:</p>
-<pre><code lang="py">load("@rules_proto//proto:defs.bzl", "proto_library")
+<pre><code>load("@rules_proto//proto:defs.bzl", "proto_library")
 load("@rules_go//proto:def.bzl", "go_proto_library")
 
 proto_library(

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.22e57f38.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.38d51d4a.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e5fcab62.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c573a702.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7d2f15e9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.d904b330.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.26819682.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/agoodkind-periphery/3.9.12-agoodkind.1"></head>
 
 	<body style="margin: 0 auto">
@@ -121,22 +121,22 @@ product. This fork rejects that decision and preserves unrestricted local use.</
 <h3><a href="https://brew.sh/">Homebrew</a></h3>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">brew install agoodkind</span><span style="color:#D73A49">/</span><span style="color:#24292E">tap</span><span style="color:#D73A49">/</span><span style="color:#24292E">periphery</span></span></code></pre>
 <h3><a href="https://github.com/yonaskolb/mint">Mint</a></h3>
-<pre><code lang="py">mint install agoodkind/periphery</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mint install agoodkind</span><span style="color:#D73A49">/</span><span style="color:#24292E">periphery</span></span></code></pre>
 <h3><a href="https://bazel.build/">Bazel</a></h3>
 <p>Select a published fork release in the consuming project's <code>MODULE.bazel</code>:</p>
-<pre><code>bazel_dep(name = "periphery", version = "3.8.0", dev_dependency = True)
-git_override(
-    module_name = "periphery",
-    remote = "https://github.com/agoodkind/periphery.git",
-    tag = "3.8.0-agoodkind.7",
-)
-use_repo(use_extension("@periphery//bazel:generated.bzl", "generated"), "periphery_generated")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "periphery"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.8.0"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "periphery"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/agoodkind/periphery.git"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tag</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.8.0-agoodkind.7"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(use_extension(</span><span style="color:#032F62">"@periphery//bazel:generated.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"generated"</span><span style="color:#24292E">), </span><span style="color:#032F62">"periphery_generated"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>The override selects this fork directly. Change the tag to select another published release.</p>
 <p>See <a href="#build-systems">Bazel</a> below for usage instructions.</p>
 <h2>How To Use</h2>
 <h3>The <code>scan</code> Command</h3>
 <p>The scan command is Periphery's primary function. To begin a guided setup, change to your project directory and run:</p>
-<pre><code>periphery scan --setup</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">periphery scan </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">setup</span></span></code></pre>
 <p>The guided setup will detect your project type and configure a few options. After answering a few questions, Periphery will print out the full scan command and execute it.</p>
 <p>The guided setup is only intended for introductory purposes. Once you are familiar with Periphery, you can try some more advanced options, all of which can be seen with <code>periphery help scan</code>.</p>
 <p>To get the most from Periphery, it’s important to understand how it works. Periphery first builds your project; it does this to generate the “index store”. The index store contains detailed information about the declarations (class, struct, func, etc.) in your project and their references to other declarations. Using this store, Periphery builds an in-memory graph of the relational structure of your project, supplementing it with additional information obtained by parsing each source file. Next, the graph is mutated to make it more suitable for detecting unused code, e.g., marking your project’s entry points. Finally, the graph is traversed from its roots to identify unreferenced declarations.</p>
@@ -155,50 +155,50 @@ The index store only contains information about source files in the build target
 <p>Periphery can identify unused function parameters. Instances of unused parameters can also be identified in protocols and their conforming declarations, as well as parameters in overridden methods. Both of these scenarios are explained further below.</p>
 <h4>Protocols</h4>
 <p>An unused parameter of a protocol function will only be reported as unused if the parameter is also unused in all implementations.</p>
-<pre><code>protocol Greeter {
-    func greet(name: String)
-    func farewell(name: String) // 'name' is unused
-}
-
-class InformalGreeter: Greeter {
-    func greet(name: String) {
-        print("Sup " + name + ".")
-    }
-
-    func farewell(name: String) { // 'name' is unused
-      print("Cya.")
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">protocol Greeter {</span></span>
+<span class="line"><span style="color:#24292E">    func greet(name: String)</span></span>
+<span class="line"><span style="color:#24292E">    func farewell(name: String) </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'name'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> InformalGreeter</span><span style="color:#24292E">: Greeter {</span></span>
+<span class="line"><span style="color:#24292E">    func greet(name: String) {</span></span>
+<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Sup "</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> name </span><span style="color:#D73A49">+</span><span style="color:#032F62"> "."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    func farewell(name: String) { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'name'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
+<span class="line"><span style="color:#005CC5">      print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Cya."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <blockquote>
 <p>[!TIP]
 You can ignore all unused parameters from protocols and conforming functions with the <code>--retain-unused-protocol-func-params</code> option.</p>
 </blockquote>
 <h4>Overrides</h4>
 <p>Similar to protocols, parameters of overridden functions are only reported as unused if they're also unused in the base function and all overriding functions.</p>
-<pre><code>class BaseGreeter {
-    func greet(name: String) {
-        print("Hello.")
-    }
-
-    func farewell(name: String) { // 'name' is unused
-        print("Goodbye.")
-    }
-}
-
-class InformalGreeter: BaseGreeter {
-    override func greet(name: String) {
-        print("Sup " + name + ".")
-    }
-
-    override func farewell(name: String) { // 'name' is unused
-        print("Cya.")
-    }
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">class</span><span style="color:#24292E"> BaseGreeter {</span></span>
+<span class="line"><span style="color:#24292E">    func greet(name: String) {</span></span>
+<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Hello."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    func farewell(name: String) { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'name'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
+<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Goodbye."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#D73A49">class</span><span style="color:#6F42C1"> InformalGreeter</span><span style="color:#24292E">: BaseGreeter {</span></span>
+<span class="line"><span style="color:#24292E">    override func greet(name: String) {</span></span>
+<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Sup "</span><span style="color:#D73A49"> +</span><span style="color:#24292E"> name </span><span style="color:#D73A49">+</span><span style="color:#032F62"> "."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">    override func farewell(name: String) { </span><span style="color:#D73A49">//</span><span style="color:#032F62"> 'name'</span><span style="color:#D73A49"> is</span><span style="color:#24292E"> unused</span></span>
+<span class="line"><span style="color:#005CC5">        print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Cya."</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">    }</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <h4>Foreign Protocols &amp; Classes</h4>
 <p>Unused parameters of protocols or classes defined in foreign modules (e.g. Foundation) are always ignored since you do not have access to modify the base function declaration.</p>
 <h4>fatalError Functions</h4>
 <p>Unused parameters of functions that simply call <code>fatalError</code> are also ignored. Such functions are often unimplemented required initializers in subclasses.</p>
-<pre><code>class Base {
+<pre><code lang="py">class Base {
     let param: String
 
     required init(param: String) {
@@ -754,4 +754,4 @@ periphery scan --skip-build --index-store-path '../dd/Index.noindex/DataStore/'<
         <img src="https://github.com/peripheryapp/periphery/raw/master/assets/sponsors/emerge-tools-vertical-black.svg">
     </picture>
 </a>
-</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A tool to identify unused code in Swift projects. This is the Forever Free Fork</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/agoodkind/periphery" title="@agoodkind"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@agoodkind/periphery</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/agoodkind.png" alt="@agoodkind"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/agoodkind/periphery"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">7</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>10:56 AM (43 minutes ago)</span></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/11507"><img class="avatar circle mr-2 flex-shrink-0" width="20" height="20" src="https://github.com/agoodkind.png" alt="@agoodkind"><span title="agoodkind-periphery@3.9.12-agoodkind.1 (#11507)"><span class="text-mono">#11507</span> <span class="text-light">agoodkind-periphery@3.9.12-ag...</span></span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 95.5%; background-color: var(--lang-Swift-bg, #ccc)" title="Swift: 95.5%"> </span><span style="width: 3%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 3%"> </span><span style="width: 1.2%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.2%"> </span><span style="width: 0.3%; background-color: var(--lang-Ruby-bg, #ccc)" title="Ruby: 0.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Swift-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/Swift">Swift</a><span class="ml-2 color-fg-muted">95.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Ruby-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Ruby</span><span class="ml-2 color-fg-muted">0.3%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/agoodkind" title="Alex Goodkind"><img class="avatar circle" loading="lazy" decoding="async" width="48" height="48" src="https://github.com/agoodkind.png" alt="@agoodkind"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><table class="width-full"><tbody><tr><td title="3.9.12-agoodkind.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.9.12-agoodkind.1"><span class="text-bold f4">3.9.12-agoodkind.1</span></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-11-16</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>
+</div></div></div></div></div><div class="dependents"></div></div><div class="PageLayout-pane"><div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>About</span></h3><p class="f4 mb-3 color-fg-muted">A tool to identify unused code in Swift projects. This is the Forever Free Fork</p><a class="d-inline-flex flex-column flex-content-start" href="https://github.com/agoodkind/periphery" title="@agoodkind"><span class="text-small mb-1 color-fg-muted" style="min-width: 0; word-break: break-all">@agoodkind/periphery</span><img class="avatar flex-shrink-0 rounded" style="padding: 2px" width="48" height="48" src="https://github.com/agoodkind.png" alt="@agoodkind"></a><div class="mt-3"><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/agoodkind/periphery"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M6.906.664a1.749 1.749 0 0 1 2.187 0l5.25 4.2c.415.332.657.835.657 1.367v7.019A1.75 1.75 0 0 1 13.25 15h-3.5a.75.75 0 0 1-.75-.75V9H7v5.25a.75.75 0 0 1-.75.75h-3.5A1.75 1.75 0 0 1 1 13.25V6.23c0-.531.242-1.034.657-1.366l5.25-4.2Zm1.25 1.171a.25.25 0 0 0-.312 0l-5.25 4.2a.25.25 0 0 0-.094.196v7.019c0 .138.112.25.25.25H5.5V8.25a.75.75 0 0 1 .75-.75h3.5a.75.75 0 0 1 .75.75v5.25h2.75a.25.25 0 0 0 .25-.25V6.23a.25.25 0 0 0-.094-.195Z"></path></g></svg></span><span>Homepage</span></a><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M8 .25a.75.75 0 0 1 .673.418l1.882 3.815 4.21.612a.75.75 0 0 1 .416 1.279l-3.046 2.97.719 4.192a.751.751 0 0 1-1.088.791L8 12.347l-3.766 1.98a.75.75 0 0 1-1.088-.79l.72-4.194L.818 6.374a.75.75 0 0 1 .416-1.28l4.21-.611L7.327.668A.75.75 0 0 1 8 .25Zm0 2.445L6.615 5.5a.75.75 0 0 1-.564.41l-3.097.45 2.24 2.184a.75.75 0 0 1 .216.664l-.528 3.084 2.769-1.456a.75.75 0 0 1 .698 0l2.77 1.456-.53-3.084a.75.75 0 0 1 .216-.664l2.24-2.183-3.096-.45a.75.75 0 0 1-.564-.41L8 2.694Z"></path></g></svg></span><span class="mr-1 text-bold">7</span><span>stars</span></div><div class="d-flex flex-items-center mb-2 color-fg-muted"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g><path d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"></path></g></svg></span><span>10:56 AM (48 minutes ago)</span></div><a class="Link--muted d-flex flex-items-center mb-2" href="https://github.com/bazelbuild/bazel-central-registry/pull/11507"><img class="avatar circle mr-2 flex-shrink-0" width="20" height="20" src="https://github.com/agoodkind.png" alt="@agoodkind"><span title="agoodkind-periphery@3.9.12-agoodkind.1 (#11507)"><span class="text-mono">#11507</span> <span class="text-light">agoodkind-periphery@3.9.12-ag...</span></span></a></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Languages</span></h3><div class="mb-2" style="display: flex; height: 8px; overflow: hidden; border-radius: 6px"><span style="width: 95.5%; background-color: var(--lang-Swift-bg, #ccc)" title="Swift: 95.5%"> </span><span style="width: 3%; background-color: var(--lang-Starlark-bg, #ccc)" title="Starlark: 3%"> </span><span style="width: 1.2%; background-color: var(--lang-Shell-bg, #ccc)" title="Shell: 1.2%"> </span><span style="width: 0.3%; background-color: var(--lang-Ruby-bg, #ccc)" title="Ruby: 0.3%"> </span></div><div class="mb-2"><div class="d-flex flex-items-center "><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Swift-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><a class="Link--primary text-bold" href="/modules/list/all/Swift">Swift</a><span class="ml-2 color-fg-muted">95.5%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Starlark-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Starlark</span><span class="ml-2 color-fg-muted">3%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Shell-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Shell</span><span class="ml-2 color-fg-muted">1.2%</span></div><div class="d-flex flex-items-center text-small"><span class="mr-2"><svg height="16" viewBox="0 0 16 16" width="16" xmlns="http://www.w3.org/2000/svg" class="octicon"><g fill="var(--lang-Ruby-bg, currentColor)"><path d="M8 4a4 4 0 1 1 0 8 4 4 0 0 1 0-8Z"></path></g></svg></span><span>Ruby</span><span class="ml-2 color-fg-muted">0.3%</span></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Maintainers</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><div class="d-flex flex-wrap"><div class="m-1"><a class="d-inline-block" href="/maintainers/agoodkind" title="Alex Goodkind"><img class="avatar circle" loading="lazy" decoding="async" width="48" height="48" src="https://github.com/agoodkind.png" alt="@agoodkind"></a></div></div></div></div><div class="border-top my-3"></div><div><div><h3 class="h3 d-flex flex-items-center mb-2 "><span>Versions</span><span class="ml-1" style="margin-top: -4px"><label class="Counter ml-1">1</label></span></h3><table class="width-full"><tbody><tr><td title="3.9.12-agoodkind.1; compatibility level 1" colspan="2" class="py-1" style="background: linear-gradient(to right, var(--color-accent-muted) 0%, transparent 0%);"><div style="display: flex; align-items: center;"><span style="position: relative; padding-right: 0.5em;" data-version="3.9.12-agoodkind.1"><span class="text-bold f4">3.9.12-agoodkind.1</span></span><span class="dotted-leader"></span><span class="text-small color-fg-muted" style="padding-left: 0.5em;">2026-11-16</span></div></td></tr></tbody></table></div></div></div></div></div></div></div></div></div></div></div></div></div><div class="PageLayout-footer mt-5"> </div></div></div></div></body></html>

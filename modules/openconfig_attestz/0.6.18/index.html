@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.05c8cd92.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.808a40bb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.85e718be.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.d103aacd.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.f5cb1ed7.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.92879122.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/openconfig_attestz/0.6.18"></head>
 
 	<body style="margin: 0 auto">
@@ -434,11 +434,11 @@ Since the switch owner cannot directly TLS authenticate standby card, it is the 
 <li>The design can be extended to attest device-specific PCRs if needed. In this case switch vendors will also provide (along with final expected PCRs) a structured vendor-agnostic PCR measurement manifest object which describes how to calculate final PCRs and at the very least specifies (1) what measurements go into which PCR, (2) the order of measurements, (3) cryptographic hash algorithm used.<ul>
 <li><p><em>Note: For the actual manifest structure definition, we should consider getting ideas from the <a href="https://datatracker.ietf.org/doc/pdf/draft-ietf-rats-yang-tpm-charra-21#page=6">attestation log-retrieval API</a> by IETF ChaRRA and reusing/expanding the design from the <a href="https://trustedcomputinggroup.org/wp-content/uploads/TCG_RIM_Model_v1p01_r0p16_pub.pdf">Reference Integrity Manifest</a> by TCG.
 The goal is for a switch owner, given a vendor-agnostic PCR measurement manifest (the API/object/format definition is vendor-agnostic, but the actual instance of that object is vendor-specific) and PCR measurement inputs (e.g. boot configuration), to have the ability to pre-calculate the expected final PCRs for a given device using standard TPM folding hash technique. For example:</em></p>
-<pre><code lang="py">```text
-PCR[5]  ← 0
-PCR[5]  ← Hash(PCR[5] || sha-256(“config-Y”))
-PCR[5]  ← Hash(PCR[5] || sha-256(“config-Z”))
-```</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#B31D28;font-style:italic">```text</span></span>
+<span class="line"><span style="color:#005CC5">PCR</span><span style="color:#24292E">[</span><span style="color:#005CC5">5</span><span style="color:#24292E">]  ← </span><span style="color:#005CC5">0</span></span>
+<span class="line"><span style="color:#005CC5">PCR</span><span style="color:#24292E">[</span><span style="color:#005CC5">5</span><span style="color:#24292E">]  ← Hash(</span><span style="color:#005CC5">PCR</span><span style="color:#24292E">[</span><span style="color:#005CC5">5</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">||</span><span style="color:#24292E"> sha</span><span style="color:#D73A49">-</span><span style="color:#005CC5">256</span><span style="color:#24292E">(“config</span><span style="color:#D73A49">-</span><span style="color:#24292E">Y”))</span></span>
+<span class="line"><span style="color:#005CC5">PCR</span><span style="color:#24292E">[</span><span style="color:#005CC5">5</span><span style="color:#24292E">]  ← Hash(</span><span style="color:#005CC5">PCR</span><span style="color:#24292E">[</span><span style="color:#005CC5">5</span><span style="color:#24292E">] </span><span style="color:#B31D28;font-style:italic">||</span><span style="color:#24292E"> sha</span><span style="color:#D73A49">-</span><span style="color:#005CC5">256</span><span style="color:#24292E">(“config</span><span style="color:#D73A49">-</span><span style="color:#24292E">Z”))</span></span>
+<span class="line"><span style="color:#B31D28;font-style:italic">```</span></span></code></pre>
 </li>
 </ul>
 </li>
@@ -532,7 +532,7 @@ The newly inserted (standby) card must be TPM enrolled and attested by the switc
 <p>This diagram highlights various use cases for different packages.</p>
 <p><img src="https://raw.githubusercontent.com/openconfig/attestz/391738c8882d475f16a3dc25f926939e24aa37b2/assets/attestz-scenarios.png" alt="Alt text" title="Use Cases for Various Packages"></p>
 <h3>Handy Commands</h3>
-<pre><code># Completely remove the entire working tree created by a Bazel instance.
+<pre><code lang="py"># Completely remove the entire working tree created by a Bazel instance.
 bazel clean --expunge
 
 # Regenerate Go protobuf and gRPC client/service files.

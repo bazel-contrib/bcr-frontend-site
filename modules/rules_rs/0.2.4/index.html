@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2a6a553b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.147a9440.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.01b0b68b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5b8935ce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.fcc736c8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.954fbc4f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_rs/0.2.4"></head>
 
 	<body style="margin: 0 auto">
@@ -153,65 +153,65 @@ redistributed release becomes available. Update the lockfile to use the new
 is committed.</p>
 <h3>Global Cargo configuration</h3>
 <p>The root module can configure a shared Cargo configuration file for every Cargo closure, including closures declared by dependencies:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">crate </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_rs//rs:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"crate"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">crate.config(</span></span>
-<span class="line"><span style="color:#E36209">    cargo_config_toml</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:.cargo/config.toml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    use_home_cargo_credentials</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,  </span><span style="color:#6A737D"># Optional.</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">crate = use_extension("@rules_rs//rs:extensions.bzl", "crate")
+crate.config(
+    cargo_config_toml = "//:.cargo/config.toml",
+    use_home_cargo_credentials = True,  # Optional.
+)</code></pre>
 <p>Use <code>cargo_config_toml</code> to configure custom Cargo registries such as Artifactory, including <code>[source.crates-io]</code> replacements. Set <code>use_home_cargo_credentials = True</code> when the registry requires credentials from <code>~/.cargo/credentials.toml</code>.</p>
 <p>A closure that supplies <code>crate.from_cargo(cargo_config = ...)</code> uses its own configuration file instead. Only the root module's <code>crate.config</code> applies globally; <code>crate.config</code> tags in dependency modules are ignored.</p>
 <h3>Git dependencies</h3>
 <p>A crate from a GitHub repository is downloaded from <code>codeload.github.com</code> through the Bazel downloader, so it honors <code>--downloader_config</code> and retries failed requests. On first resolution, rules_rs records each GitHub archive's checksum in <code>MODULE.bazel.lock</code>. Later fetches verify that checksum and reuse Bazel's download cache. Commit <code>MODULE.bazel.lock</code> to share the pins across machines.</p>
 <p>If the first archive download fails before a checksum is recorded, the remote is not GitHub, or the repository has submodules, rules_rs falls back to <code>git</code> when allowed. Once an archive is pinned, a download or checksum failure stops the build instead of silently switching to Git. Changing the Git revision creates a new pin; rules_rs does not silently update a saved checksum.</p>
 <p><code>crate.from_cargo</code> allows the Git CLI by default. Set <code>allow_git_cli = False</code> to fail when Git is required:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">crate.from_cargo(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "crates"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    cargo_lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Cargo.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    cargo_toml</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Cargo.toml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    allow_git_cli</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> False</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>crate.from_cargo(
+    name = "crates",
+    cargo_lock = "//:Cargo.lock",
+    cargo_toml = "//:Cargo.toml",
+    allow_git_cli = False,
+)</code></pre>
 <p><code>RULES_RS_ALLOW_GIT</code>, when set, overrides <code>allow_git_cli</code> for all hubs. For example, to disallow Git in CI:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common:ci </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">repo_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">RULES_RS_ALLOW_GIT</span><span style="color:#D73A49">=</span><span style="color:#24292E">false</span></span></code></pre>
+<pre><code>common:ci --repo_env=RULES_RS_ALLOW_GIT=false</code></pre>
 <p><code>RULES_RS_ALLOW_GIT</code> must be <code>true</code> or <code>false</code>. When it is unset, each hub uses its own <code>allow_git_cli</code> value.</p>
 <p>GitHub archives may omit files marked <code>export-ignore</code> or rewrite files marked <code>export-subst</code>. If a Git crate needs the complete checkout, use:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">crate.annotation(</span></span>
-<span class="line"><span style="color:#E36209">    crate</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "example"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    use_git</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>crate.annotation(
+    crate = "example",
+    use_git = True,
+)</code></pre>
 <p>This skips the archive download for every crate at the same Git commit in that hub. If Git is disabled by <code>allow_git_cli</code> or its <code>RULES_RS_ALLOW_GIT</code> override, the fetch fails with an explanation.</p>
 <h3><code>.bazelrc</code></h3>
 <p>Linux hosts work with Bazel's default host platform. If you also build on Windows,
 set an explicit host platform there so Rust toolchain resolution can choose the
 right ABI.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">enable_platform_specific_config</span></span>
-<span class="line"><span style="color:#24292E">common:windows </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">host_platform</span><span style="color:#D73A49">=//</span><span style="color:#24292E">platforms:local_windows_msvc</span></span></code></pre>
+<pre><code>common --enable_platform_specific_config
+common:windows --host_platform=//platforms:local_windows_msvc</code></pre>
 <h3><code>platforms/BUILD.bazel</code></h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">platform(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "local_windows_msvc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    parents</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@platforms//host"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    constraint_values</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
-<span class="line"><span style="color:#032F62">        "@llvm//constraints/windows/abi:msvc"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">    ],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>platform(
+    name = "local_windows_msvc",
+    parents = ["@platforms//host"],
+    constraint_values = [
+        "@llvm//constraints/windows/abi:msvc",
+    ],
+)</code></pre>
 <p>macOS does not need an additional ABI constraint for the default host case.</p>
 <h3><code>BUILD.bazel</code></h3>
 <p>Prefer the <code>rules_rs</code> wrappers for Rust targets:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@crates//my-app:data.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"aliases"</span><span style="color:#24292E">, </span><span style="color:#032F62">"all_crate_deps"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_rs//rs:rust_binary.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rust_binary"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_rs//rs:rust_library.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rust_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rust_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/lib.rs"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    aliases</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> aliases(),</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> all_crate_deps(</span><span style="color:#E36209">normal</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rust_binary(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/main.rs"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@crates//my-app:data.bzl", "aliases", "all_crate_deps")
+load("@rules_rs//rs:rust_binary.bzl", "rust_binary")
+load("@rules_rs//rs:rust_library.bzl", "rust_library")
+
+rust_library(
+    name = "lib",
+    srcs = ["src/lib.rs"],
+    aliases = aliases(),
+    deps = all_crate_deps(normal = True),
+)
+
+rust_binary(
+    name = "app",
+    srcs = ["src/main.rs"],
+    deps = [":lib"],
+)</code></pre>
 <p>The example assumes <code>[package].name = "my-app"</code> in <code>Cargo.toml</code>. Each
 workspace member can load <code>aliases()</code>, <code>all_crate_deps()</code>, and <code>crate_data()</code>
 from <code>@crates//&lt;cargo-package-name&gt;:data.bzl</code>, including a member at the
@@ -231,34 +231,34 @@ you have migrated the root aliases in your build.</p>
 <h3>Cargo lint configuration</h3>
 <p>Enable Cargo lint configuration for a dependency closure through its
 <code>crate.from_cargo</code> tag:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">crate.from_cargo(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "crates"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    cargo_lock</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Cargo.lock"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    cargo_toml</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//:Cargo.toml"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    generate_lint_config</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    platform_triples</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#005CC5">...</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>crate.from_cargo(
+    name = "crates",
+    cargo_lock = "//:Cargo.lock",
+    cargo_toml = "//:Cargo.toml",
+    generate_lint_config = True,
+    platform_triples = [...],
+)</code></pre>
 <p>When enabled, the crate extension parses each workspace member's <code>Cargo.toml</code>
 and exposes its effective Cargo lint configuration in <code>crate_data()</code>.
 A member with <code>[lints] workspace = true</code> receives
 <code>[workspace.lints]</code>, a member with package lints receives those lints, and a
 member without a <code>[lints]</code> table receives no lint configuration.</p>
 <p>Pass the lint configuration to the Rust rule:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span></span>
-<span class="line"><span style="color:#032F62">    "@crates//my-app:data.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "aliases"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "all_crate_deps"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "crate_data"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_rs//rs:rust_library.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"rust_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">rust_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/lib.rs"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    aliases</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> aliases(),</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> all_crate_deps(</span><span style="color:#E36209">normal</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#E36209">    lint_config</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> crate_data().get(</span><span style="color:#032F62">"lint_config"</span><span style="color:#24292E">),</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load(
+    "@crates//my-app:data.bzl",
+    "aliases",
+    "all_crate_deps",
+    "crate_data",
+)
+load("@rules_rs//rs:rust_library.bzl", "rust_library")
+
+rust_library(
+    name = "lib",
+    srcs = ["src/lib.rs"],
+    aliases = aliases(),
+    deps = all_crate_deps(normal = True),
+    lint_config = crate_data().get("lint_config"),
+)</code></pre>
 <p>The selection follows each member manifest for both virtual and non-virtual
 workspaces. Workspace lints are not applied to members that do not opt in.</p>
 <h2>rust-analyzer</h2>
@@ -274,7 +274,7 @@ upstream instructions with <code>@rules_rs//tools/rust_analyzer:setup</code>.</p
 <p><code>rules_rs</code> uses a hermetic macOS SDK by default. Add this setting to
 <code>.bazelrc</code> when the build must use the macOS SDK selected by Xcode or the
 C/C++ toolchain instead:</p>
-<pre><code lang="py">common --@rules_rust//rust/settings:use_hermetic_macos_sdkroot=false</code></pre>
+<pre><code>common --@rules_rust//rust/settings:use_hermetic_macos_sdkroot=false</code></pre>
 </details>
 
 <details>

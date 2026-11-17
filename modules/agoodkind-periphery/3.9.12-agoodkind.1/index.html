@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2a6a553b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.147a9440.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.01b0b68b.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5b8935ce.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.fcc736c8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.954fbc4f.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/agoodkind-periphery/3.9.12-agoodkind.1"></head>
 
 	<body style="margin: 0 auto">
@@ -124,19 +124,19 @@ product. This fork rejects that decision and preserves unrestricted local use.</
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mint install agoodkind</span><span style="color:#D73A49">/</span><span style="color:#24292E">periphery</span></span></code></pre>
 <h3><a href="https://bazel.build/">Bazel</a></h3>
 <p>Select a published fork release in the consuming project's <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "periphery", version = "3.8.0", dev_dependency = True)
-git_override(
-    module_name = "periphery",
-    remote = "https://github.com/agoodkind/periphery.git",
-    tag = "3.8.0-agoodkind.7",
-)
-use_repo(use_extension("@periphery//bazel:generated.bzl", "generated"), "periphery_generated")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "periphery"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.8.0"</span><span style="color:#24292E">, </span><span style="color:#E36209">dev_dependency</span><span style="color:#D73A49"> =</span><span style="color:#005CC5"> True</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">git_override(</span></span>
+<span class="line"><span style="color:#E36209">    module_name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "periphery"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    remote</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "https://github.com/agoodkind/periphery.git"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    tag</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.8.0-agoodkind.7"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(use_extension(</span><span style="color:#032F62">"@periphery//bazel:generated.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"generated"</span><span style="color:#24292E">), </span><span style="color:#032F62">"periphery_generated"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>The override selects this fork directly. Change the tag to select another published release.</p>
 <p>See <a href="#build-systems">Bazel</a> below for usage instructions.</p>
 <h2>How To Use</h2>
 <h3>The <code>scan</code> Command</h3>
 <p>The scan command is Periphery's primary function. To begin a guided setup, change to your project directory and run:</p>
-<pre><code>periphery scan --setup</code></pre>
+<pre><code lang="py">periphery scan --setup</code></pre>
 <p>The guided setup will detect your project type and configure a few options. After answering a few questions, Periphery will print out the full scan command and execute it.</p>
 <p>The guided setup is only intended for introductory purposes. Once you are familiar with Periphery, you can try some more advanced options, all of which can be seen with <code>periphery help scan</code>.</p>
 <p>To get the most from Periphery, it’s important to understand how it works. Periphery first builds your project; it does this to generate the “index store”. The index store contains detailed information about the declarations (class, struct, func, etc.) in your project and their references to other declarations. Using this store, Periphery builds an in-memory graph of the relational structure of your project, supplementing it with additional information obtained by parsing each source file. Next, the graph is mutated to make it more suitable for detecting unused code, e.g., marking your project’s entry points. Finally, the graph is traversed from its roots to identify unreferenced declarations.</p>

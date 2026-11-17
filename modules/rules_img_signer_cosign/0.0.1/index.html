@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f138e411.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.44c14dbe.pb.gz">
-		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.30e6fa98.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.42f2d84d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.ce4f40e1.pb.gz">
+		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.e97f933a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.6afe4159.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_img_signer_cosign/0.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -87,11 +87,11 @@
 </ul>
 <h2>Installation</h2>
 <p>Add to your <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_img"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.3.19"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_img", version = "0.3.19")</code></pre>
 <details>
 <summary>Configure default settings (optional) in <code>.bazelrc</code></summary>
 
-<pre><code lang="py"># The compression algorithm to use ("gzip" or "zstd")
+<pre><code># The compression algorithm to use ("gzip" or "zstd")
 common --@rules_img//img/settings:compress=zstd
 
 # Number of parallel compression workers (gzip only)

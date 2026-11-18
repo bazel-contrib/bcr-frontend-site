@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c54a7588.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a74dbc28.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d2c4d1b2.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.5d127169.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.79db2945.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.053d0c08.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_package_manager/1.25.0"></head>
 
 	<body style="margin: 0 auto">
@@ -161,11 +161,11 @@ any of the rules in your project.</p>
 <p>The <code>swift_deps</code> module extension will by default generate a <code>swift_package</code> repository which can be used to execute <code>swift package</code> commands.
 This is useful if you'd like to control the flags and behavior of <code>swift package</code>, as well as for using the correct <code>swift</code> binary according to the Bazel configured toolchain.</p>
 <p>For example, to resolve the <code>Package.swift</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">swift_package</span><span style="color:#D73A49">//</span><span style="color:#24292E">:resolve</span></span></code></pre>
+<pre><code lang="py">bazel run @swift_package//:resolve</code></pre>
 <p>To update packages to their latest supported version:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">swift_package</span><span style="color:#D73A49">//</span><span style="color:#24292E">:update</span></span></code></pre>
+<pre><code>bazel run @swift_package//:update</code></pre>
 <p>Both targets support passing arguments as well, so for example, you could update a single package:</p>
-<pre><code lang="py">bazel run @swift_package//:update -- MyPackage</code></pre>
+<pre><code>bazel run @swift_package//:update -- MyPackage</code></pre>
 <p>These targets will update the <code>Package.resolved</code> file defined in <code>swift_deps.from_package</code>.
 The targets come with default flags applied to enable the best Bazel compatibility, if you wish to configure it further, you can do so with <code>configure_swift_package</code>:</p>
 <pre><code># MODULE.bazel

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1d82c1f4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.157d7b72.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9a09521c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.20665293.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.faba3871.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ee4acf71.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/agoodkind-periphery/3.9.12-agoodkind.1"></head>
 
 	<body style="margin: 0 auto">
@@ -119,12 +119,12 @@ product. This fork rejects that decision and preserves unrestricted local use.</
 </ul>
 <h2>Installation</h2>
 <h3><a href="https://brew.sh/">Homebrew</a></h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">brew install agoodkind</span><span style="color:#D73A49">/</span><span style="color:#24292E">tap</span><span style="color:#D73A49">/</span><span style="color:#24292E">periphery</span></span></code></pre>
+<pre><code lang="py">brew install agoodkind/tap/periphery</code></pre>
 <h3><a href="https://github.com/yonaskolb/mint">Mint</a></h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">mint install agoodkind</span><span style="color:#D73A49">/</span><span style="color:#24292E">periphery</span></span></code></pre>
+<pre><code>mint install agoodkind/periphery</code></pre>
 <h3><a href="https://bazel.build/">Bazel</a></h3>
 <p>Select a published fork release in the consuming project's <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "periphery", version = "3.8.0", dev_dependency = True)
+<pre><code>bazel_dep(name = "periphery", version = "3.8.0", dev_dependency = True)
 git_override(
     module_name = "periphery",
     remote = "https://github.com/agoodkind/periphery.git",

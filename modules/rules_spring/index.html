@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.1383b445.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c16bc509.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.570d80ab.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.36f08a1b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.714ffac8.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e43829ab.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_spring/2.6.3"></head>
 
 	<body style="margin: 0 auto">
@@ -86,16 +86,16 @@ To see what features/fixes were delivered in a particular release, use the relea
 <h3>Loading the Spring Rules in your WORKSPACE</h3>
 <p>Before you can use the rule in your BUILD files, you need to add it to your workspace.</p>
 <p><strong>Bzlmod</strong></p>
-<pre><code lang="py">bazel_dep(name = "rules_spring", version = "2.6.3")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_spring"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2.6.3"</span><span style="color:#24292E">)</span></span></code></pre>
 <p><strong>WORKSPACE (legacy)</strong></p>
 <p>This loads a pre-built version of this rule into your workspace during the build.</p>
-<pre><code>http_archive(
-    name = "rules_spring",
-    sha256 = "2d0805b4096db89b8e407ed0c243ce81c3d20f346e4c259885041d5eabc59436",
-    urls = [
-        "https://github.com/salesforce/rules_spring/releases/download/2.6.3/rules-spring-2.6.3.zip",
-    ],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">http_archive(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_spring"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2d0805b4096db89b8e407ed0c243ce81c3d20f346e4c259885041d5eabc59436"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    urls</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        "https://github.com/salesforce/rules_spring/releases/download/2.6.3/rules-spring-2.6.3.zip"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>If you choose not to use an official release, you may be tempted to use a <em>git_repository</em> workspace
   rule to point to our <em>main</em> branch,
 Please <strong>do not</strong> do this, as we use <em>main</em> for ongoing work.
@@ -109,7 +109,7 @@ Salesforce has some <a href="https://github.com/salesforce/rules_spring/issues/2
 This is because Boot rewrote the launcher for Boot3 and it is available under a different name.
 The Boot2 launcher is the default for <em>rules_spring</em> so as not to break backwards compatibility.</p>
 <p>Example:</p>
-<pre><code>springboot(
+<pre><code lang="py">springboot(
     name = "helloworld_boot3",
     boot_app_class = "com.sample.SampleMain",
     java_library = ":helloworld_lib",

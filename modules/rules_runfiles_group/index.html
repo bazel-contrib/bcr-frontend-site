@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a7186ff8.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e0e113d3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.27b4dc36.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.177594bf.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.72a552f9.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.1a21f30b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_runfiles_group/0.1.0"></head>
 
 	<body style="margin: 0 auto">
@@ -100,7 +100,7 @@ rules → <a href="#for-rule-authors">For rule authors</a>. Authors of packaging
 <h2>Installation</h2>
 <p>Add the module to your <code>MODULE.bazel</code>, taking the version from the
 <a href="https://github.com/bazel-contrib/rules_runfiles_group/releases">releases page</a>:</p>
-<pre><code lang="py">bazel_dep(name = "rules_runfiles_group", version = "…")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_runfiles_group"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "…"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Tested against Bazel 7, 8, 9 and rolling.</p>
 <h2>The providers</h2>
 <table>
@@ -155,7 +155,7 @@ splitting with no change to your <code>BUILD</code> files.</p>
 <p><strong>Customizing groups with <code>aspect_hints</code>.</strong> Rulesets may ship hint targets as mixins that adjust
 how groups are transformed — for example, one that drops the interpreter group because the base
 image already has it:</p>
-<pre><code>load("@rules_foo//foo:hints.bzl", "skip_interpreter")
+<pre><code lang="py">load("@rules_foo//foo:hints.bzl", "skip_interpreter")
 
 skip_interpreter(name = "skip_interpreter")
 

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c985b7a0.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.30b91a7c.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.cb320949.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0bc31277.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.db04ba7b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.296f5bfa.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_spring/2.6.3"></head>
 
 	<body style="margin: 0 auto">
@@ -86,10 +86,10 @@ To see what features/fixes were delivered in a particular release, use the relea
 <h3>Loading the Spring Rules in your WORKSPACE</h3>
 <p>Before you can use the rule in your BUILD files, you need to add it to your workspace.</p>
 <p><strong>Bzlmod</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_spring"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "2.6.3"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_spring", version = "2.6.3")</code></pre>
 <p><strong>WORKSPACE (legacy)</strong></p>
 <p>This loads a pre-built version of this rule into your workspace during the build.</p>
-<pre><code lang="py">http_archive(
+<pre><code>http_archive(
     name = "rules_spring",
     sha256 = "2d0805b4096db89b8e407ed0c243ce81c3d20f346e4c259885041d5eabc59436",
     urls = [

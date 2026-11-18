@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d2c4d1b2.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.5d127169.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c99cae0f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.6af5cc09.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.053d0c08.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a11d13cc.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/onnxruntime_prebuilt/0.1.1"></head>
 
 	<body style="margin: 0 auto">
@@ -133,10 +133,10 @@ the asset. GitHub only publishes digests for assets uploaded after mid-2025,
 so the catalog starts at v1.22.1 (the oldest release whose archives all carry
 digests); NuGet packages and other non-archive assets are not covered.</p>
 <p>Refresh the catalog after a new ONNX Runtime release:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">tools:update_redists</span></span></code></pre>
+<pre><code lang="py">bazel run //tools:update_redists</code></pre>
 <p>(<code>GITHUB_TOKEN</code> raises the API rate limit but is not required.)</p>
 <h2>Verification</h2>
-<pre><code lang="py">bazel build //...
+<pre><code>bazel build //...
 bazel build @onnxruntime//... @onnxruntime-gpu//...</code></pre>
 <p>The second command resolves the selectors for the host platform, downloads
 the chosen CPU and GPU archives, and builds every exposed target from them.

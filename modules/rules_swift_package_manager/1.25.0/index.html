@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b05850cf.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.873ae98d.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fcbae085.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.50dee075.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.86dd1eba.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ad909ba4.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_package_manager/1.25.0"></head>
 
 	<body style="margin: 0 auto">
@@ -114,9 +114,9 @@ that running <code>swift --version</code> works properly.</p>
 you will need to specify <code>CC=clang</code> before running Bazel.</p>
 <p>Finally, help <a href="https://github.com/bazelbuild/rules_swift">rules_swift</a> and <a href="https://github.com/cgrindel/rules_swift_package_manager">rules_swift_package_manager</a> find the Swift toolchain by ensuring
 that a <code>PATH</code> that includes the Swift binary is available in the Bazel actions.</p>
-<pre><code lang="py">cat &gt;&gt;local.bazelrc &lt;&lt;EOF
-build --action_env=PATH
-EOF</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cat </span><span style="color:#D73A49">&gt;&gt;</span><span style="color:#24292E">local.bazelrc </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#005CC5">EOF</span></span>
+<span class="line"><span style="color:#24292E">build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">action_env</span><span style="color:#D73A49">=</span><span style="color:#005CC5">PATH</span></span>
+<span class="line"><span style="color:#005CC5">EOF</span></span></code></pre>
 <p>This approach is necessary to successfully execute the examples on an Ubuntu runner using Github
 actions. See the <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/6f129122034df1e97b4be8805e70bb143c9702a4/.github/workflows/ci.yml" target="_blank" rel="noopener noreferrer">CI GitHub workflow</a> for more details.</p>
 <h2>Quickstart</h2>
@@ -127,7 +127,7 @@ dependencies. If you are using Bazel's legacy external dependency management, we
 <p>Also, check out the <a href="https://github.com/cgrindel/rules_swift_package_manager/blob/6f129122034df1e97b4be8805e70bb143c9702a4/examples/" target="_blank" rel="noopener noreferrer">examples</a> for more information.</p>
 <h3>1. Enable bzlmod</h3>
 <p>This repository supports <a href="https://bazel.build/external/overview#bzlmod">bzlmod</a>.</p>
-<pre><code>common --enable_bzlmod</code></pre>
+<pre><code lang="py">common --enable_bzlmod</code></pre>
 <h3>2. Configure your <code>MODULE.bazel</code> to use <a href="https://github.com/cgrindel/rules_swift_package_manager">rules_swift_package_manager</a>.</h3>
 <p>Add a dependency on <code>rules_swift_package_manager</code>.</p>
 

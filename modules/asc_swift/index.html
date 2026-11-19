@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c9f6f1a4.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3baeec11.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3cf3e183.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.33f1a92e.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.9d86ab40.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bd793430.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asc_swift/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -85,28 +85,28 @@
 <p>To use <code>AppStoreConnect</code> in your project, add the following line to the dependencies in your <code>Package.swift</code> file:</p>
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/aaronsky/asc-swift"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"1.0.0"</span><span style="color:#24292E">),</span></span></code></pre>
 <p>Then, include <code>"AppStoreConnect"</code> as a dependency of your target:</p>
-<pre><code lang="py">.target(name: "&lt;target&gt;", dependencies: [
-    .product(name: "AppStoreConnect", package: "AppStoreConnect"),
-]),</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.target(name: </span><span style="color:#032F62">"&lt;target&gt;"</span><span style="color:#24292E">, dependencies: [</span></span>
+<span class="line"><span style="color:#24292E">    .product(name: </span><span style="color:#032F62">"AppStoreConnect"</span><span style="color:#24292E">, package: </span><span style="color:#032F62">"AppStoreConnect"</span><span style="color:#24292E">),</span></span>
+<span class="line"><span style="color:#24292E">]),</span></span></code></pre>
 <p>Finally, add <code>import AppStoreConnect</code> to your code to import the client, and <code>import AppStoreAPI</code> to import the API bindings.</p>
 <h3>Bazel</h3>
 <p>This project is available on the <a href="https://registry.bazel.build/modules/asc_swift">Bazel Central Registry</a>. Much like other modules there, all that's required to add the dependency is to insert the following line into your <code>MODULE.bazel</code>. Note that this requires your project to be using <a href="https://bazel.build/external/overview#bzlmod">Bzlmod</a>.</p>
-<pre><code>bazel_dep(name = "asc_swift", version = "&lt;version&gt;")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "asc_swift"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>An example of how to set this up can be found in <a href="https://github.com/aaronsky/asc-swift/blob/e04c1c1a8e36b1e6b14619198cc8a797cee638af//Examples/bzlmod/MODULE.bazel" target="_blank" rel="noopener noreferrer"><code>Examples/bzlmod</code></a>.</p>
 <h2>Usage</h2>
 <h3>Authentication</h3>
 <p>Neither the App Store Connect API nor Enterprise Program API have any methods that allow for unauthorized requests. To make it easy to authenticate with App Store Connect, this library offers the aforementioned <code>JWT</code> type to handle signing and rotating JSON Web Tokens automatically when they expire. For example:</p>
-<pre><code>import AppStoreConnect
-
-let privateKey = try JWT.PrivateKey(contentsOf: URL(filePath: "..."))
-let client = AppStoreConnectClient(
-    authenticator: JWT(
-        keyID: "...",
-        issuerID: "...",
-        expiryDuration: 20 * 60, // 20 minutes
-        privateKey: privateKey
-    )
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> AppStoreConnect</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">let privateKey </span><span style="color:#D73A49">=</span><span style="color:#D73A49"> try</span><span style="color:#005CC5"> JWT</span><span style="color:#24292E">.PrivateKey(contentsOf: URL(filePath: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">))</span></span>
+<span class="line"><span style="color:#24292E">let client </span><span style="color:#D73A49">=</span><span style="color:#24292E"> AppStoreConnectClient(</span></span>
+<span class="line"><span style="color:#24292E">    authenticator: JWT(</span></span>
+<span class="line"><span style="color:#24292E">        keyID: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        issuerID: </span><span style="color:#032F62">"..."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        expiryDuration: </span><span style="color:#005CC5">20</span><span style="color:#D73A49"> *</span><span style="color:#005CC5"> 60</span><span style="color:#24292E">, </span><span style="color:#D73A49">//</span><span style="color:#005CC5"> 20</span><span style="color:#24292E"> minutes</span></span>
+<span class="line"><span style="color:#24292E">        privateKey: privateKey</span></span>
+<span class="line"><span style="color:#24292E">    )</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <blockquote>
 <p>[!NOTE]
 <code>JWT</code> instances are bound to the API they are intended for, as credentials are not portable between teams. The designated default is the App Store Connect API. To use the Enterprise Program API, provide <code>api: .enterpriseProgram</code> as the first argument to the <code>JWT</code> initializer.</p>
@@ -116,21 +116,21 @@ let client = AppStoreConnectClient(
 <p>In many cases where the API would respond with an error, the API will include an <code>ErrorResponse</code> object describing the failure in detail. This object also contains properties that can be used to diagnose the root cause of issues if they are due to malformed requests. If the API responds with an error, <code>AppStoreConnectClient</code> will throw <code>Response.Error.requestFailure</code> for your consideration. This error contains the <code>ErrorResponse</code> returned from the API, the HTTP status code, and the underlying response.</p>
 <p>Additionally, Apple imposes a rate limit on all API clients. If the API produces a rate limit error, <code>AppStoreConnectClient</code> will throw <code>Response.Error.rateLimitExceeded</code> for your convenience. This error contains the <code>ErrorResponse</code> returned from the API, a <code>Response.Rate</code> containing call limit and remaining call information, and the underlying response.</p>
 <p>For example:</p>
-<pre><code>do {
-    let apps = try await client.send(Resources.v1.apps.get())
-} catch Response.Error.requestFailure(let error, let statusCode, let response) {
-    print("Received an error: \(error)")
-} catch Response.Error.rateLimitExceeded(let error, let rate, let response) {
-    print("Client has exceeded the rate limit")
-} catch {
-    print("An unexpected error occurred: \(error.localizedDescription)")
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">do {</span></span>
+<span class="line"><span style="color:#24292E">    let apps = </span><span style="color:#D73A49">try</span><span style="color:#D73A49"> await</span><span style="color:#24292E"> client.send(Resources.v1.apps.get())</span></span>
+<span class="line"><span style="color:#24292E">} catch Response.Error.requestFailure(let error, let statusCode, let response) {</span></span>
+<span class="line"><span style="color:#005CC5">    print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Received an error: \(error)"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">} catch Response.Error.rateLimitExceeded(let error, let rate, let response) {</span></span>
+<span class="line"><span style="color:#005CC5">    print</span><span style="color:#24292E">(</span><span style="color:#032F62">"Client has exceeded the rate limit"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">} catch {</span></span>
+<span class="line"><span style="color:#005CC5">    print</span><span style="color:#24292E">(</span><span style="color:#032F62">"An unexpected error occurred: \(error.localizedDescription)"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>You can learn more about how to handle errors from the App Store Connect API at Apple's documentation page via <a href="https://developer.apple.com/documentation/appstoreconnectapi/interpreting_and_handling_errors">Interpreting and Handling Errors</a>. You can learn more about rate limiting at Apple's documentation page via <a href="https://developer.apple.com/documentation/appstoreconnectapi/identifying_rate_limits">Identifying Rate Limits</a>. Corresponding documentation for the Enterprise Program API can be found <a href="https://developer.apple.com/documentation/enterpriseprogramapi/interpreting-and-handling-errors">here</a> and <a href="https://developer.apple.com/documentation/enterpriseprogramapi/identifying-rate-limits">here</a>, respectively.</p>
 <p>Finally, <code>AppStoreConnectClient</code> can automatically retry API errors with a status code of 500. Pass a <code>RetryStrategy</code> value to the <code>retry:</code> parameter on any <code>AppStoreConnectClient</code> method. Supported values are <code>.never</code> (default), <code>.fixedInterval</code>, <code>.exponentialBackoff</code>, or a <code>.custom</code> handler.</p>
 <h3>Paging Large Data Sets</h3>
 <p>All requests for resource collections (apps, builds, beta groups, etc.) support pagination. Responses for paginated resources will contain a <code>links</code> property of type <code>PagedDocumentLinks</code>, with "reference" URLs for <code>first</code>, <code>next</code>, and <code>self</code>. You can also find more information about the per-page limit and total count of resources in the response's <code>meta</code> field of type <code>PagingInformation</code>. You typically shouldn't require any of this information for typical pagination.</p>
 <p>The most common application for pagination is paging forward from the first "page". For example:</p>
-<pre><code>for try await appsPage in client.pages(Resources.v1.apps.get()) {
+<pre><code lang="py">for try await appsPage in client.pages(Resources.v1.apps.get()) {
     print(appsPage)
 }</code></pre>
 <p>You can also page forward manually using the <code>send(_:pageAfter:retry:)</code> method on <code>AppStoreConnectClient</code>.</p>

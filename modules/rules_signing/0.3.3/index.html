@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ff3e8984.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a3f084f0.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.5d23d667.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.97c398af.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.ee6ee5ae.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.0e2176e1.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_signing/0.3.3"></head>
 
 	<body style="margin: 0 auto">
@@ -123,32 +123,32 @@ registers no signing toolchains of its own. That keeps tool choice, tool
 versions, and platform coverage in your hands, and keeps this module's own test
 dependencies out of your build graph. Declare the tool repositories you want and
 register them yourself:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_signing"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">signing_tools </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_signing//signing:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"signing_tools"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(</span></span>
-<span class="line"><span style="color:#24292E">    signing_tools,</span></span>
-<span class="line"><span style="color:#032F62">    "signing_cosign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "signing_osslsigncode"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@signing_cosign//:cosign_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@signing_osslsigncode//:osslsigncode_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Needed if you sign Apple artifacts or Mach-O binaries, and also for any</span></span>
-<span class="line"><span style="color:#6A737D"># directory artifact signed with `tool = "auto"` (see below).</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "codesign.bzl"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@codesign.bzl//toolchain:all"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_signing//signing/toolchains:codesign_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Needed only for jars or directory artifacts signed with tool = "auto".</span></span>
-<span class="line"><span style="color:#6A737D"># Uses Bazel's local JDK discovery (JAVA_HOME/PATH); requires a full JDK.</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@rules_signing//signing/toolchains:local_jarsigner_toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_signing", version = "&lt;version&gt;")
+
+signing_tools = use_extension("@rules_signing//signing:extensions.bzl", "signing_tools")
+use_repo(
+    signing_tools,
+    "signing_cosign",
+    "signing_osslsigncode",
+)
+
+register_toolchains(
+    "@signing_cosign//:cosign_toolchain",
+    "@signing_osslsigncode//:osslsigncode_toolchain",
+)
+
+# Needed if you sign Apple artifacts or Mach-O binaries, and also for any
+# directory artifact signed with `tool = "auto"` (see below).
+bazel_dep(name = "codesign.bzl", version = "&lt;version&gt;")
+
+register_toolchains(
+    "@codesign.bzl//toolchain:all",
+    "@rules_signing//signing/toolchains:codesign_toolchain",
+)
+
+# Needed only for jars or directory artifacts signed with tool = "auto".
+# Uses Bazel's local JDK discovery (JAVA_HOME/PATH); requires a full JDK.
+register_toolchains("@rules_signing//signing/toolchains:local_jarsigner_toolchain")</code></pre>
 <p>Only register the toolchains you actually need. An unregistered toolchain is
 allowed until an input requires its signer, at which point <code>sign</code> reports an
 actionable error naming the missing registration. This is not lazy resolution:
@@ -177,21 +177,21 @@ The <code>codesign.bzl</code> module remains a dependency to provide the default
 its signer executable is not needed unless that adapter is selected.</p>
 <p>To supply your own rcodesign executable instead, define and register a custom
 implementation. This bypasses upstream toolchain resolution:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_signing//signing/toolchains:toolchains.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"codesign_toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">codesign_toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_codesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    codesign</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//tools:rcodesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Optional shared libraries or other runtime files:</span></span>
-<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools:rcodesign_runtime_files"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_codesign_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":my_codesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@rules_signing//signing/toolchains:codesign_toolchain_type"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    exec_compatible_with</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@platforms//os:linux"</span><span style="color:#24292E">, </span><span style="color:#032F62">"@platforms//cpu:x86_64"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@rules_signing//signing/toolchains:toolchains.bzl", "codesign_toolchain")
+
+codesign_toolchain(
+    name = "my_codesign",
+    codesign = "//tools:rcodesign",
+    # Optional shared libraries or other runtime files:
+    data = ["//tools:rcodesign_runtime_files"],
+)
+
+toolchain(
+    name = "my_codesign_toolchain",
+    toolchain = ":my_codesign",
+    toolchain_type = "@rules_signing//signing/toolchains:codesign_toolchain_type",
+    exec_compatible_with = ["@platforms//os:linux", "@platforms//cpu:x86_64"],
+)</code></pre>
 <p>The executable's runfiles and <code>data</code> are included in signing actions.
 <strong>Apple's <code>/usr/bin/codesign</code> is not a drop-in replacement:</strong> this signer uses
 the rcodesign CLI, which is different from Apple's native tool.</p>
@@ -214,7 +214,7 @@ the rcodesign CLI, which is different from Apple's native tool.</p>
 </tr>
 </tbody></table>
 <p>For a downloaded JDK, use the second implementation:</p>
-<pre><code lang="py">register_toolchains("@rules_signing//signing/toolchains:jarsigner_toolchain")</code></pre>
+<pre><code>register_toolchains("@rules_signing//signing/toolchains:jarsigner_toolchain")</code></pre>
 <p>Select its runtime with <code>--tool_java_runtime_version=remotejdk_17</code> (or another
 version supported by your <code>rules_java</code>). <code>--tool_java_runtime_version=local_jdk</code>
 selects the local JDK through the same adapter. The <code>--java_runtime_version</code>

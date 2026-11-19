@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3cf3e183.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.33f1a92e.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d0b087bc.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.66063fb8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.fdc19843.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.bd793430.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.180951d3.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_bsx/1.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -74,16 +74,16 @@ POSIX shell, <code>tar</code>, and <code>base64</code> are required to run the o
 <h2>Rules</h2>
 <h3><code>bsx</code></h3>
 <p>Creates a self-extracting archive.</p>
-<pre><code lang="py">load("@rules_bsx//:bsx.bzl", "bsx")
-
-bsx(
-    name = "deploy",
-    data = {
-        ":config": "config.yaml",
-        ":binary": "bin/server",
-    },
-    main = "deploy.sh",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_bsx//:bsx.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"bsx"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bsx(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "deploy"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> {</span></span>
+<span class="line"><span style="color:#032F62">        ":config"</span><span style="color:#24292E">: </span><span style="color:#032F62">"config.yaml"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#032F62">        ":binary"</span><span style="color:#24292E">: </span><span style="color:#032F62">"bin/server"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    },</span></span>
+<span class="line"><span style="color:#E36209">    main</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "deploy.sh"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <table>
 <thead>
 <tr>
@@ -134,13 +134,13 @@ ignore it where the filesystem is throwaway anyway — an initramfs, a container
 <h3><code>bsx_sign</code></h3>
 <p>Creates a detached cryptographic signature for a BSX file. The signature covers
 the entire file (preamble + payload), so any modification is detected.</p>
-<pre><code>load("@rules_bsx//:bsx.bzl", "bsx_sign")
-
-bsx_sign(
-    name = "deploy_signed",
-    bsx = ":deploy",
-    signing_key_cmd = "op read 'op://Vault/deploy-key/private_key'",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_bsx//:bsx.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"bsx_sign"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">bsx_sign(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "deploy_signed"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    bsx</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":deploy"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    signing_key_cmd</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "op read 'op://Vault/deploy-key/private_key'"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <table>
 <thead>
 <tr>
@@ -171,7 +171,7 @@ bsx_sign(
 </tr>
 </tbody></table>
 <p>Run with <code>bazel run</code> to produce the signed binary and its <code>.sig</code> file:</p>
-<pre><code>$ bazel run :deploy_signed
+<pre><code lang="py">$ bazel run :deploy_signed
 Signed: /path/to/deploy
 Signature: /path/to/deploy.sig
 Key type: Private-Key: (2048 bit, 2 primes)

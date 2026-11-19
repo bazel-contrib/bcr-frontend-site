@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.bee2a213.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3be14d8a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9d99fe74.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.11d88a2b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.a95bb26d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.d3385899.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_gleam/0.1.14"></head>
 
 	<body style="margin: 0 auto">
@@ -79,17 +79,17 @@
 <h2>Getting Started</h2>
 <p><strong>Note:</strong> These rules are designed for use with Bazel Modules and do not support the legacy <code>WORKSPACE</code> setup.</p>
 <p>To use the rules, add the following to your <code>MODULE.bazel</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_gleam"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.0.1"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># MODULE.bazel
+
+bazel_dep(name = "rules_gleam", version = "0.0.1")</code></pre>
 <p>Then, in your <code>BUILD.bazel</code> files, load the rules you need:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># BUILD.bazel</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_gleam//gleam:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gleam_binary"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gleam_library"</span><span style="color:#24292E">, </span><span style="color:#032F62">"gleam_test"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code># BUILD.bazel
+load("@rules_gleam//gleam:defs.bzl", "gleam_binary", "gleam_library", "gleam_test")</code></pre>
 <h3>Managing Hex Dependencies</h3>
 <p>To use external dependencies from <a href="https://hex.pm/">Hex</a>, you'll need a <code>gleam.toml</code> and a <code>manifest.toml</code> file.</p>
 <ol>
 <li><p><strong>Define Dependencies in <code>gleam.toml</code></strong>: Add your Hex dependencies to the <code>[dependencies]</code> or <code>[dev-dependencies]</code> sections of your <code>gleam.toml</code> file.</p>
-<pre><code lang="py"># gleam.toml
+<pre><code># gleam.toml
 [dependencies]
 gleam_stdlib = "&gt;= 0.51.0 and &lt; 2.0.0"
 gleam_json = "&gt;= 3.0.2 and &lt; 4.0.0"

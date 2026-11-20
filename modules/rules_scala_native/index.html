@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.d65174af.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9d99fe74.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.11d88a2b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.54c7287c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.710e16fe.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.d3385899.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.e17a396b.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_scala_native/0.2.0-rc1"></head>
 
 	<body style="margin: 0 auto">
@@ -77,38 +77,38 @@
 </ul>
 <h2>Quick Start</h2>
 <h3>1. Configure <code>MODULE.bazel</code></h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">module(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_scala_native_app"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "protobuf"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "36.2"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_scala"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "7.3.0"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_scala_native"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.1-rc4"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "llvm"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.23"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Register hermetic C++ toolchain (clang/lld) for cross-compilation</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@llvm//toolchain:all"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Configure Scala</span></span>
-<span class="line"><span style="color:#24292E">scala_config </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_scala//scala/extensions:config.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "scala_config"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">scala_config.settings(</span><span style="color:#E36209">scala_version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "3.9.0"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(scala_config, </span><span style="color:#032F62">"rules_scala_config"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">scala_deps </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_scala//scala/extensions:deps.bzl"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#032F62">    "scala_deps"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">scala_deps.scala()</span></span>
-<span class="line"><span style="color:#24292E">use_repo(scala_deps, </span><span style="color:#032F62">"rules_scala_toolchains"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span></span>
-<span class="line"><span style="color:#032F62">    "@rules_scala_toolchains//...:all"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">module(name = "my_scala_native_app")
+
+bazel_dep(name = "protobuf", version = "36.2")
+bazel_dep(name = "rules_scala", version = "7.3.0")
+bazel_dep(name = "rules_scala_native", version = "0.1.1-rc4")
+bazel_dep(name = "llvm", version = "0.8.23")
+
+# Register hermetic C++ toolchain (clang/lld) for cross-compilation
+register_toolchains(
+    "@llvm//toolchain:all",
+)
+
+# Configure Scala
+scala_config = use_extension(
+    "@rules_scala//scala/extensions:config.bzl",
+    "scala_config",
+)
+scala_config.settings(scala_version = "3.9.0")
+use_repo(scala_config, "rules_scala_config")
+
+scala_deps = use_extension(
+    "@rules_scala//scala/extensions:deps.bzl",
+    "scala_deps",
+)
+scala_deps.scala()
+use_repo(scala_deps, "rules_scala_toolchains")
+
+register_toolchains(
+    "@rules_scala_toolchains//...:all",
+)</code></pre>
 <h3>2. Configure <code>.bazelrc</code></h3>
-<pre><code lang="py">common --tool_java_runtime_version=remotejdk_17
+<pre><code>common --tool_java_runtime_version=remotejdk_17
 common --java_runtime_version=remotejdk_17
 common --@protobuf//bazel/toolchains:prefer_prebuilt_protoc</code></pre>
 <h3>3. Write Scala Native code</h3>

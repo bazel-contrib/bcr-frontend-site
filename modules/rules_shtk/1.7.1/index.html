@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2005ce1e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e2063282.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d9a368d3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.28777dc9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.7a422a3b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8665acfd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shtk/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -71,22 +71,22 @@ test cases and fixtures, and to assert the behavior of command invocations.</p>
 <p>For more information about shtk, visit <a href="https://shtk.jmmv.dev/">https://shtk.jmmv.dev/</a>.</p>
 <h2>Set up with bzlmod</h2>
 <p>To get started, add the following entry to your <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">bazel_dep(name = "rules_shtk", version = "1.7.1")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_shtk"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.7.1"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Then, load an shtk toolchain from <code>MODULE.bazel</code> as well.  You can choose
 between:</p>
 <ul>
 <li><p><code>fetch_shtk_dist</code>, which downloads the version of shtk corresponding to the
 rules and builds it.  This is typically what you should use, especially if
 all you care about is building and running tests from within Bazel.</p>
-<pre><code># Use the shtk release that matches these rules (if these rules are version
-# 1.7.x, then this uses shtk 1.7).
-fetch_shtk_dist = use_extension("@rules_shtk//:extensions.bzl", "fetch_shtk_dist")
-use_repo(fetch_shtk_dist, "shtk_dist_1_7")
-register_toolchains("@shtk_dist_1_7//:toolchain")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Use the shtk release that matches these rules (if these rules are version</span></span>
+<span class="line"><span style="color:#6A737D"># 1.7.x, then this uses shtk 1.7).</span></span>
+<span class="line"><span style="color:#24292E">fetch_shtk_dist </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_shtk//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"fetch_shtk_dist"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">use_repo(fetch_shtk_dist, </span><span style="color:#032F62">"shtk_dist_1_7"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@shtk_dist_1_7//:toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
 </li>
 <li><p><code>find_shtk_system</code>, which discovers an shtk toolchain installed on the
 system.  Use this if you need to install the built scripts.</p>
-<pre><code># Auto-discover the system-provided shtk by looking for shtk(1) in the PATH.
+<pre><code lang="py"># Auto-discover the system-provided shtk by looking for shtk(1) in the PATH.
 find_shtk_system = use_extension("@rules_shtk//:extensions.bzl", "find_shtk_system")
 use_repo(find_shtk_system, "shtk_autoconf")
 register_toolchains("@shtk_autoconf//:toolchain")

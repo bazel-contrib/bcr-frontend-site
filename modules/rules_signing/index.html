@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.2005ce1e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.e2063282.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d9a368d3.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.28777dc9.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.7a422a3b.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8665acfd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_signing/0.3.3"></head>
 
 	<body style="margin: 0 auto">
@@ -177,21 +177,21 @@ The <code>codesign.bzl</code> module remains a dependency to provide the default
 its signer executable is not needed unless that adapter is selected.</p>
 <p>To supply your own rcodesign executable instead, define and register a custom
 implementation. This bypasses upstream toolchain resolution:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_signing//signing/toolchains:toolchains.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"codesign_toolchain"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">codesign_toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_codesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    codesign</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//tools:rcodesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#6A737D">    # Optional shared libraries or other runtime files:</span></span>
-<span class="line"><span style="color:#E36209">    data</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//tools:rcodesign_runtime_files"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">toolchain(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_codesign_toolchain"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":my_codesign"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    toolchain_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@rules_signing//signing/toolchains:codesign_toolchain_type"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    exec_compatible_with</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@platforms//os:linux"</span><span style="color:#24292E">, </span><span style="color:#032F62">"@platforms//cpu:x86_64"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">load("@rules_signing//signing/toolchains:toolchains.bzl", "codesign_toolchain")
+
+codesign_toolchain(
+    name = "my_codesign",
+    codesign = "//tools:rcodesign",
+    # Optional shared libraries or other runtime files:
+    data = ["//tools:rcodesign_runtime_files"],
+)
+
+toolchain(
+    name = "my_codesign_toolchain",
+    toolchain = ":my_codesign",
+    toolchain_type = "@rules_signing//signing/toolchains:codesign_toolchain_type",
+    exec_compatible_with = ["@platforms//os:linux", "@platforms//cpu:x86_64"],
+)</code></pre>
 <p>The executable's runfiles and <code>data</code> are included in signing actions.
 <strong>Apple's <code>/usr/bin/codesign</code> is not a drop-in replacement:</strong> this signer uses
 the rcodesign CLI, which is different from Apple's native tool.</p>
@@ -214,7 +214,7 @@ the rcodesign CLI, which is different from Apple's native tool.</p>
 </tr>
 </tbody></table>
 <p>For a downloaded JDK, use the second implementation:</p>
-<pre><code lang="py">register_toolchains("@rules_signing//signing/toolchains:jarsigner_toolchain")</code></pre>
+<pre><code>register_toolchains("@rules_signing//signing/toolchains:jarsigner_toolchain")</code></pre>
 <p>Select its runtime with <code>--tool_java_runtime_version=remotejdk_17</code> (or another
 version supported by your <code>rules_java</code>). <code>--tool_java_runtime_version=local_jdk</code>
 selects the local JDK through the same adapter. The <code>--java_runtime_version</code>

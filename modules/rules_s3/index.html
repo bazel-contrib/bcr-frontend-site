@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.b99b7752.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.bbd03898.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.86e7ce81.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.70cbbe7a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.9eb86d93.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.29615414.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_s3/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -72,7 +72,7 @@
 </ul>
 <h2>Installation</h2>
 <p>You can find the latest version of <a href="https://registry.bazel.build/modules/rules_s3"><code>rules_s3</code> on the Bazel Central Registry</a>. Installation works by adding a <code>bazel_dep</code> line to <code>MODULE.bazel</code>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_s3"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.0.1"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_s3", version = "1.0.1")</code></pre>
 <p>Additionally, you need to configure a credential helper for the S3 endpoint of your choice. In theory, you can use any credential helper that can generate <a href="https://docs.aws.amazon.com/AmazonS3/latest/API/sig-v4-authenticating-requests.html">request header signatures for S3</a>.
 In practice, the recommended credential helper is <a href="https://github.com/tweag/credential-helper"><code>tweag-credential-helper</code></a>. The project README will guide you through the required setup. An example is also provided <a href="https://github.com/tweag/rules_s3/blob/9f6b74541fb910e7807ca05e982697563137af00//examples/full" target="_blank" rel="noopener noreferrer">here</a>.</p>
 <h2>Usage</h2>
@@ -81,7 +81,7 @@ If you need to download multiple objects from a bucket, use the <a href="#s3_buc
 <p>To see how it all comes together, take a look at the <a href="https://github.com/tweag/rules_s3/blob/9f6b74541fb910e7807ca05e982697563137af00//examples/full/" target="_blank" rel="noopener noreferrer">full example</a>.</p>
 <p><a></a></p>
 <h2>s3_archive</h2>
-<pre lang="py">load("@rules_s3//s3:repo_rules.bzl", "s3_archive")
+<pre>load("@rules_s3//s3:repo_rules.bzl", "s3_archive")
 
 s3_archive(<a href="#s3_archive-name">name</a>, <a href="#s3_archive-build_file">build_file</a>, <a href="#s3_archive-build_file_content">build_file_content</a>, <a href="#s3_archive-canonical_id">canonical_id</a>, <a href="#s3_archive-endpoint">endpoint</a>, <a href="#s3_archive-endpoint_style">endpoint_style</a>, <a href="#s3_archive-integrity">integrity</a>,
            <a href="#s3_archive-patch_args">patch_args</a>, <a href="#s3_archive-patch_cmds">patch_cmds</a>, <a href="#s3_archive-patch_cmds_win">patch_cmds_win</a>, <a href="#s3_archive-patch_strip">patch_strip</a>, <a href="#s3_archive-patch_tool">patch_tool</a>, <a href="#s3_archive-patches">patches</a>,

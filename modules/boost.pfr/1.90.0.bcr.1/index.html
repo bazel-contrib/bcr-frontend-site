@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.10faa538.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.321b499a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.7dd49f68.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.9a962f1d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.b5231c0c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.64cac2a7.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/boost.pfr/1.90.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -115,24 +115,24 @@
 <pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Edgar Allan Poe was born </span><span style="color:#D73A49">in</span><span style="color:#005CC5"> 1809</span></span></code></pre>
 <p><a href="https://godbolt.org/z/PfYsWKb7v">Run the above sample</a></p>
 <h3>Motivating Example #1</h3>
-<pre><code lang="py">#include &lt;iostream&gt;
-#include "boost/pfr.hpp"
-
-struct my_struct { // no ostream operator defined!
-    int i;
-    char c;
-    double d;
-};
-
-int main() {
-    my_struct s{100, 'H', 3.141593};
-    std::cout &lt;&lt; "my_struct has " &lt;&lt; boost::pfr::tuple_size&lt;my_struct&gt;::value
-        &lt;&lt; " fields: " &lt;&lt; boost::pfr::io(s) &lt;&lt; "\n";
-}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D">#include &lt;iostream&gt;</span></span>
+<span class="line"><span style="color:#6A737D">#include "boost/pfr.hpp"</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">struct my_struct { </span><span style="color:#D73A49">//</span><span style="color:#24292E"> no ostream operator defined!</span></span>
+<span class="line"><span style="color:#005CC5">    int</span><span style="color:#24292E"> i;</span></span>
+<span class="line"><span style="color:#24292E">    char c;</span></span>
+<span class="line"><span style="color:#24292E">    double d;</span></span>
+<span class="line"><span style="color:#24292E">}</span><span style="color:#B31D28;font-style:italic">;</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#005CC5">int</span><span style="color:#24292E"> main() {</span></span>
+<span class="line"><span style="color:#24292E">    my_struct s{</span><span style="color:#005CC5">100</span><span style="color:#24292E">, </span><span style="color:#032F62">'H'</span><span style="color:#24292E">, </span><span style="color:#005CC5">3.141593</span><span style="color:#24292E">};</span></span>
+<span class="line"><span style="color:#24292E">    std::cout </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "my_struct has "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> boost::pfr::tuple_size</span><span style="color:#D73A49">&lt;</span><span style="color:#24292E">my_struct</span><span style="color:#D73A49">&gt;</span><span style="color:#24292E">::value</span></span>
+<span class="line"><span style="color:#D73A49">        &lt;&lt;</span><span style="color:#032F62"> " fields: "</span><span style="color:#D73A49"> &lt;&lt;</span><span style="color:#24292E"> boost::pfr::io(s) </span><span style="color:#D73A49">&lt;&lt;</span><span style="color:#032F62"> "</span><span style="color:#005CC5">\n</span><span style="color:#032F62">"</span><span style="color:#24292E">;</span></span>
+<span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>Outputs:</p>
-<pre><code>my_struct has 3 fields: {100, H, 3.14159}</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">my_struct has </span><span style="color:#005CC5">3</span><span style="color:#24292E"> fields: {</span><span style="color:#005CC5">100</span><span style="color:#24292E">, H, </span><span style="color:#005CC5">3.14159</span><span style="color:#24292E">}</span></span></code></pre>
 <h3>Motivating Example #2</h3>
-<pre><code>#include &lt;iostream&gt;
+<pre><code lang="py">#include &lt;iostream&gt;
 #include "boost/pfr.hpp"
 
 struct my_struct { // no ostream operator defined!

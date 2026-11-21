@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3440c165.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.1667ff10.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.b7b92dbb.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.175827a6.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.96c29f91.js" defer=""></script>
-		<script src="/registry.a7cc2d62.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.77030271.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/ninja/1.13.2"></head>
 
 	<body style="margin: 0 auto">
@@ -80,20 +80,20 @@ copied to appropriate locations.</p>
 via CMake. For more details see
 <a href="https://github.com/ninja-build/ninja/wiki">the wiki</a>.</p>
 <h3>Python</h3>
-<pre><code lang="py">./configure.py --bootstrap</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure.py </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">bootstrap</span></span></code></pre>
 <p>This will generate the <code>ninja</code> binary and a <code>build.ninja</code> file you can now use
 to build Ninja with itself.</p>
 <p>If you have a GoogleTest source directory, you can build the tests
 by passing its path with <code>--gtest-source-dir=PATH</code> option, or the
 <code>GTEST_SOURCE_DIR</code> environment variable, e.g.:</p>
-<pre><code>./configure.py --bootstrap --gtest-source-dir=/path/to/googletest
-./ninja all     # build ninja_test and other auxiliary binaries
-./ninja_test`   # run the unit-test suite.</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">configure.py </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">bootstrap </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">gtest</span><span style="color:#D73A49">-</span><span style="color:#24292E">source</span><span style="color:#D73A49">-</span><span style="color:#005CC5">dir</span><span style="color:#D73A49">=/</span><span style="color:#24292E">path</span><span style="color:#D73A49">/</span><span style="color:#24292E">to</span><span style="color:#D73A49">/</span><span style="color:#24292E">googletest</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">ninja </span><span style="color:#005CC5">all</span><span style="color:#6A737D">     # build ninja_test and other auxiliary binaries</span></span>
+<span class="line"><span style="color:#24292E">.</span><span style="color:#D73A49">/</span><span style="color:#24292E">ninja_test</span><span style="color:#B31D28;font-style:italic">`   </span><span style="color:#6A737D;font-style:italic"># run the unit-test suite.</span></span></code></pre>
 <p>Use the CMake build below if you want to use a preinstalled binary
 version of the library.</p>
 <h3>CMake</h3>
 <p>To build the ninja binary without building the unit tests, disable test building by setting <code>BUILD_TESTING</code> to <code>OFF</code>:</p>
-<pre><code>cmake -Bbuild-cmake -DBUILD_TESTING=OFF
+<pre><code lang="py">cmake -Bbuild-cmake -DBUILD_TESTING=OFF
 cmake --build build-cmake</code></pre>
 <p>The <code>ninja</code> binary will now be inside the <code>build-cmake</code> directory (you can
 choose any other name you like).</p>

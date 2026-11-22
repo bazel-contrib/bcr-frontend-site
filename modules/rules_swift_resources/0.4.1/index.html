@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.d658b4af.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a0ec7fab.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.9c3c4681.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c2032ea2.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.8bd357da.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.091970fd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_resources/0.4.1"></head>
 
 	<body style="margin: 0 auto">
@@ -101,9 +101,9 @@
 <span class="line"><span style="color:#24292E">let data </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Resources.files.config.data                      </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Data</span><span style="color:#B31D28;font-style:italic">?</span></span></code></pre>
 <h3>Localized Strings</h3>
 <p><strong>Input:</strong> <code>.xcstrings</code> or <code>.strings</code></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">let title </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Resources.strings.localizable.welcomeTitle      </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Simple string</span></span>
-<span class="line"><span style="color:#24292E">let msg </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Resources.strings.localizable.greeting(</span><span style="color:#032F62">"World"</span><span style="color:#24292E">)   </span><span style="color:#D73A49">//</span><span style="color:#24292E"> With argument</span></span>
-<span class="line"><span style="color:#24292E">let items </span><span style="color:#D73A49">=</span><span style="color:#24292E"> Resources.strings.localizable.itemsCount(</span><span style="color:#005CC5">5</span><span style="color:#24292E">)     </span><span style="color:#D73A49">//</span><span style="color:#24292E"> Pluralized</span></span></code></pre>
+<pre><code lang="py">let title = Resources.strings.localizable.welcomeTitle      // Simple string
+let msg = Resources.strings.localizable.greeting("World")   // With argument
+let items = Resources.strings.localizable.itemsCount(5)     // Pluralized</code></pre>
 <h2>Requirements</h2>
 <ul>
 <li><strong>Swift</strong> 5.9+</li>
@@ -112,16 +112,16 @@
 </ul>
 <h2>Installation</h2>
 <h3>Bazel (BCR)</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_swift_resources"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>bazel_dep(name = "rules_swift_resources", version = "0.1.0")</code></pre>
 <h3>Swift Package Manager</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">.package(url: </span><span style="color:#032F62">"https://github.com/jhodsdon/SwiftResources.git"</span><span style="color:#24292E">, </span><span style="color:#D73A49">from</span><span style="color:#24292E">: </span><span style="color:#032F62">"0.1.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>.package(url: "https://github.com/jhodsdon/SwiftResources.git", from: "0.1.0")</code></pre>
 <h2>Usage</h2>
 <h3>CLI</h3>
 <p><strong>Swift:</strong></p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">swift build</span></span>
-<span class="line"><span style="color:#24292E">.build</span><span style="color:#D73A49">/</span><span style="color:#24292E">debug</span><span style="color:#D73A49">/</span><span style="color:#24292E">sr generate </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#005CC5">help</span></span></code></pre>
+<pre><code>swift build
+.build/debug/sr generate --help</code></pre>
 <p><strong>Bazel:</strong></p>
-<pre><code lang="py">bazel run //:sr -- generate --help</code></pre>
+<pre><code>bazel run //:sr -- generate --help</code></pre>
 <p><strong>Example:</strong></p>
 <pre><code>sr generate \
   --fonts Resources/Fonts \

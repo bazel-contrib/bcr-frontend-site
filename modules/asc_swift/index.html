@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.db92d0e0.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2b2af7e8.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d9ec0ed5.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.3dea9c44.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.75b8a16d.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.7f38a186.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asc_swift/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -91,12 +91,12 @@
 <p>Finally, add <code>import AppStoreConnect</code> to your code to import the client, and <code>import AppStoreAPI</code> to import the API bindings.</p>
 <h3>Bazel</h3>
 <p>This project is available on the <a href="https://registry.bazel.build/modules/asc_swift">Bazel Central Registry</a>. Much like other modules there, all that's required to add the dependency is to insert the following line into your <code>MODULE.bazel</code>. Note that this requires your project to be using <a href="https://bazel.build/external/overview#bzlmod">Bzlmod</a>.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "asc_swift"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "&lt;version&gt;"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "asc_swift", version = "&lt;version&gt;")</code></pre>
 <p>An example of how to set this up can be found in <a href="https://github.com/aaronsky/asc-swift/blob/e04c1c1a8e36b1e6b14619198cc8a797cee638af//Examples/bzlmod/MODULE.bazel" target="_blank" rel="noopener noreferrer"><code>Examples/bzlmod</code></a>.</p>
 <h2>Usage</h2>
 <h3>Authentication</h3>
 <p>Neither the App Store Connect API nor Enterprise Program API have any methods that allow for unauthorized requests. To make it easy to authenticate with App Store Connect, this library offers the aforementioned <code>JWT</code> type to handle signing and rotating JSON Web Tokens automatically when they expire. For example:</p>
-<pre><code lang="py">import AppStoreConnect
+<pre><code>import AppStoreConnect
 
 let privateKey = try JWT.PrivateKey(contentsOf: URL(filePath: "..."))
 let client = AppStoreConnectClient(

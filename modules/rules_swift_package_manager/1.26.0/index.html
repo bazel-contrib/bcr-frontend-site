@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.c12dbf5e.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.125f0781.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.072930aa.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.327922f4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.f552bbb4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8ee06140.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_package_manager/1.26.0"></head>
 
 	<body style="margin: 0 auto">
@@ -131,12 +131,12 @@ changes and opting into explicit modules.</p>
 <h3>2. Configure your <code>MODULE.bazel</code> to use <a href="https://github.com/cgrindel/rules_swift_package_manager">rules_swift_package_manager</a>.</h3>
 <p>Add a dependency on <code>rules_swift_package_manager</code>.</p>
 
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_swift_package_manager"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "1.26.0"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_swift_package_manager", version = "1.26.0")</code></pre>
 
 
 <p>In addition, add the following to load the external dependencies described in your <code>Package.swift</code>
 and <code>Package.resolved</code> files.</p>
-<pre><code lang="py">swift_deps = use_extension(
+<pre><code>swift_deps = use_extension(
     "@rules_swift_package_manager//:extensions.bzl",
     "swift_deps",
 )

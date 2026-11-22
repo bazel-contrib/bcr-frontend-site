@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f4c721f7.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.7d6210d4.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.db92d0e0.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2b2af7e8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.ea477559.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.75b8a16d.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shtk/1.7.1"></head>
 
 	<body style="margin: 0 auto">
@@ -78,15 +78,15 @@ between:</p>
 <li><p><code>fetch_shtk_dist</code>, which downloads the version of shtk corresponding to the
 rules and builds it.  This is typically what you should use, especially if
 all you care about is building and running tests from within Bazel.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Use the shtk release that matches these rules (if these rules are version</span></span>
-<span class="line"><span style="color:#6A737D"># 1.7.x, then this uses shtk 1.7).</span></span>
-<span class="line"><span style="color:#24292E">fetch_shtk_dist </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_extension(</span><span style="color:#032F62">"@rules_shtk//:extensions.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"fetch_shtk_dist"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">use_repo(fetch_shtk_dist, </span><span style="color:#032F62">"shtk_dist_1_7"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@shtk_dist_1_7//:toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
+<pre><code lang="py"># Use the shtk release that matches these rules (if these rules are version
+# 1.7.x, then this uses shtk 1.7).
+fetch_shtk_dist = use_extension("@rules_shtk//:extensions.bzl", "fetch_shtk_dist")
+use_repo(fetch_shtk_dist, "shtk_dist_1_7")
+register_toolchains("@shtk_dist_1_7//:toolchain")</code></pre>
 </li>
 <li><p><code>find_shtk_system</code>, which discovers an shtk toolchain installed on the
 system.  Use this if you need to install the built scripts.</p>
-<pre><code lang="py"># Auto-discover the system-provided shtk by looking for shtk(1) in the PATH.
+<pre><code># Auto-discover the system-provided shtk by looking for shtk(1) in the PATH.
 find_shtk_system = use_extension("@rules_shtk//:extensions.bzl", "find_shtk_system")
 use_repo(find_shtk_system, "shtk_autoconf")
 register_toolchains("@shtk_autoconf//:toolchain")

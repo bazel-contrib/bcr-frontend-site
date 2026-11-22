@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.9c3c4681.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c2032ea2.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.c12dbf5e.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.125f0781.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.091970fd.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.f552bbb4.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_swift_previews/0.1.1"></head>
 
 	<body style="margin: 0 auto">
@@ -88,16 +88,16 @@
 <h2>SwiftResources Integration</h2>
 <p>If you use <code>rules_swift_resources</code> for type-safe resource access, resource modules (<code>swift_resources_library</code>) are automatically detected and included in the generated Package.swift. No additional configuration needed.</p>
 <h2>Generated Structure</h2>
-<pre><code lang="py">Views/
-├── Package.swift              # Generated
-├── YourView.swift             # Your source files (untouched)
-├── BUILD.bazel
-└── .deps/                     # Generated
-    ├── ModuleA/
-    ├── ModuleB/
-    └── ResourceModule/
-        ├── Resources/
-        └── ResourceModule.swift</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">Views</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">├── Package.swift              </span><span style="color:#6A737D"># Generated</span></span>
+<span class="line"><span style="color:#24292E">├── YourView.swift             </span><span style="color:#6A737D"># Your source files (untouched)</span></span>
+<span class="line"><span style="color:#24292E">├── </span><span style="color:#005CC5">BUILD</span><span style="color:#24292E">.bazel</span></span>
+<span class="line"><span style="color:#24292E">└── .deps</span><span style="color:#D73A49">/</span><span style="color:#6A737D">                     # Generated</span></span>
+<span class="line"><span style="color:#24292E">    ├── ModuleA</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">    ├── ModuleB</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">    └── ResourceModule</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">        ├── Resources</span><span style="color:#D73A49">/</span></span>
+<span class="line"><span style="color:#24292E">        └── ResourceModule.swift</span></span></code></pre>
 <h2>API Reference</h2>
 <h3><code>swift_previews_package</code></h3>
 <table>
@@ -162,7 +162,7 @@
 <p>The <code>examples/</code> directory contains working examples demonstrating different use cases.</p>
 <h3>Running an Example</h3>
 <p>Each example is a standalone Bazel workspace:</p>
-<pre><code>cd examples/basic
+<pre><code lang="py">cd examples/basic
 
 # Generate the preview package
 bazel run //Views:previews

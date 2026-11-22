@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.78a3cd6e.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.190490b6.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0c239eb3.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f4c721f7.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.7d6210d4.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.b5d997b4.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ea477559.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/apriltag/3.4.5"></head>
 
 	<body style="margin: 0 auto">
@@ -121,18 +121,18 @@
 <p>If none of these fit your needs, generate your own custom tag family <a href="https://github.com/AprilRobotics/apriltag-generation">here</a>.</p>
 <h2>Getting Started with the Detector</h2>
 <h3>Python</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> cv2</span></span>
-<span class="line"><span style="color:#D73A49">import</span><span style="color:#24292E"> numpy </span><span style="color:#D73A49">as</span><span style="color:#24292E"> np</span></span>
-<span class="line"><span style="color:#D73A49">from</span><span style="color:#24292E"> apriltag </span><span style="color:#D73A49">import</span><span style="color:#24292E"> apriltag</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">imagepath </span><span style="color:#D73A49">=</span><span style="color:#032F62"> 'test.jpg'</span></span>
-<span class="line"><span style="color:#24292E">image </span><span style="color:#D73A49">=</span><span style="color:#24292E"> cv2.imread(imagepath, cv2.</span><span style="color:#005CC5">IMREAD_GRAYSCALE</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">detector </span><span style="color:#D73A49">=</span><span style="color:#24292E"> apriltag(</span><span style="color:#032F62">"tagStandard41h12"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">detections </span><span style="color:#D73A49">=</span><span style="color:#24292E"> detector.detect(image)</span></span></code></pre>
+<pre><code lang="py">import cv2
+import numpy as np
+from apriltag import apriltag
+
+imagepath = 'test.jpg'
+image = cv2.imread(imagepath, cv2.IMREAD_GRAYSCALE)
+detector = apriltag("tagStandard41h12")
+
+detections = detector.detect(image)</code></pre>
 <p>Alternately you can use the AprilTag python bindings created by <a href="https://github.com/duckietown/lib-dt-apriltags">duckietown</a>.</p>
 <h3>C</h3>
-<pre><code lang="py">image_u8_t* im = image_u8_create_from_pnm("test.pnm");
+<pre><code>image_u8_t* im = image_u8_create_from_pnm("test.pnm");
 if (im == NULL) {
     fprintf(stderr, "Failed to load pnm image.\n");
     exit(1);

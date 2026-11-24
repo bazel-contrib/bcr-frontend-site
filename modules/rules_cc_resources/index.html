@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.a30d2e72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.acb4439b.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.3c742939.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3ae7ee45.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.f0d46f5b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.3ce22929.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ead4419a.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_cc_resources/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -65,11 +65,11 @@
 <p>The <code>cc_resources</code> rule in Bazel is designed for converting binary files into C/C++ source files and headers. This rule generates a pair of <code>.cpp</code> and <code>.h</code> files for each input binary file. These generated files define a C-compatible struct with the name, size, and data of the resource, which can then be used in your C/C++ code.</p>
 <h3>Usage</h3>
 <p>Here is a brief overview of how to use the <code>cc_resources</code> rule in your Bazel build files.</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_cc_resources"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.3.0"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#6A737D"># load("@rules_cc_resources//rules:defs.bzl", "cc_resources")</span></span></code></pre>
+<pre><code lang="py">bazel_dep(name = "rules_cc_resources", version = "0.3.0")
+# load("@rules_cc_resources//rules:defs.bzl", "cc_resources")</code></pre>
 <h4>Rule Definition</h4>
 <p>You should define the <code>cc_resources</code> rule in your <code>BUILD.bazel</code> file with the required attributes:</p>
-<pre><code lang="py">cc_resources(
+<pre><code>cc_resources(
     name = "my_resources",
     srcs = ["path/to/resource1.bin", "path/to/resource2.bin"],
     out_prefix = "my_res",  # Optional prefix for generated file names

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.a30d2e72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a70cb963.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ec1dfebb.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3e0325ed.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.2d45858b.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.5172ede6.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.dd8694f0.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shellcheck/0.7.0"></head>
 
 	<body style="margin: 0 auto">
@@ -65,9 +65,9 @@
 <p><a href="https://github.com/aignas/rules_shellcheck/actions"><img src="https://github.com/aignas/rules_shellcheck/workflows/CI/badge.svg" alt="Build Status"></a></p>
 <p>Choose your release from the <a href="https://github.com/aignas/rules_shellcheck/releases">GH Releases</a> and follow setup instructions there.</p>
 <p>Then <code>shellcheck</code> can be accessed by running:</p>
-<pre><code lang="py">bazel run @rules_shellcheck//:shellcheck -- &lt;parameters&gt;</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">@</span><span style="color:#24292E">rules_shellcheck</span><span style="color:#D73A49">//</span><span style="color:#24292E">:shellcheck </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49"> &lt;</span><span style="color:#24292E">parameters</span><span style="color:#D73A49">&gt;</span></span></code></pre>
 <p>And you can define a lint target for your <a href="https://github.com/bazelbuild/rules_shell">rules_shell</a> targets:</p>
-<pre><code>load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
+<pre><code lang="py">load("@rules_shell//shell:sh_binary.bzl", "sh_binary")
 load("@rules_shellcheck//shellcheck:shellcheck_test.bzl", "shellcheck_test")
 
 sh_binary(

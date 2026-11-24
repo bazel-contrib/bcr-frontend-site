@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.a30d2e72.css" type="text/css" rel="stylesheet">
 		<link href="/primer.aad0bb3c.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.3ae7ee45.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f0d46f5b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.3eb0ea8f.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b9886ff8.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.80c8d690.js" defer=""></script>
-		<script src="/registry.ead4419a.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.8ccdd0fd.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_runfile_codegen_kotlin/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -238,66 +238,66 @@
 <h3>Bzlmod Setup</h3>
 <p>To use these rules in your Kotlin project, add the following to your <code>MODULE.bazel</code> file (see <a href="https://registry.bazel.build/modules/rules_runfile_codegen_kotlin">rules_runfile_codegen_kotlin on BCR</a>):</p>
 
-<pre><code lang="py"># MODULE.bazel
-bazel_dep(name = "rules_runfile_codegen_kotlin", version = "0.1.2")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_runfile_codegen_kotlin"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.2"</span><span style="color:#24292E">)</span></span></code></pre>
 
 
 <h3>1. Define the Runfile Library</h3>
 <p>In your <code>BUILD.bazel</code>, load the Kotlin rules and define a <code>kt_jvm_runfile_library</code>. Note that dashed target names (like <code>test-resources</code>) are automatically sanitized to PascalCase Kotlin object names (<code>TestResources</code>).</p>
 
-<pre><code>load("@rules_kotlin//kotlin:jvm.bzl", "kt_jvm_binary")
-load("@rules_runfile_codegen_kotlin//:defs.bzl", "kt_runfile", "kt_jvm_runfile_library")
-
-package(default_visibility = ["//visibility:private"])
-
-# A helper binary to demonstrate executable runfiles
-kt_jvm_binary(
-    name = "helper",
-    srcs = ["Helper.kt"],
-    main_class = "com.example.project.examples.HelperKt",
-)
-
-# Generate the runfile accessor library
-kt_jvm_runfile_library(
-    name = "resources",
-    package = "com.example.project.examples.resources",
-    entries = [
-        kt_runfile(
-            name = "configJson",
-            target = "data/dummy.txt",
-            doc = "A dummy data file.",
-        ),
-        kt_runfile(
-            name = "helperTool",
-            target = ":helper",
-            doc = "A helper tool executable.",
-        ),
-        kt_runfile(
-            name = "exampleSet",
-            targets = ["data/dummy.txt", "data/info.txt"],
-            base = "common_dir",
-            doc = "A set of example data files.",
-        ),
-    ],
-)
-
-# Use the library in a binary
-kt_jvm_binary(
-    name = "main",
-    srcs = ["Main.kt"],
-    main_class = "com.example.project.examples.MainKt",
-    deps = [
-        ":resources",
-    ],
-)
-# #</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_kotlin//kotlin:jvm.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"kt_jvm_binary"</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_runfile_codegen_kotlin//:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"kt_runfile"</span><span style="color:#24292E">, </span><span style="color:#032F62">"kt_jvm_runfile_library"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">package(</span><span style="color:#E36209">default_visibility</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"//visibility:private"</span><span style="color:#24292E">])</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># A helper binary to demonstrate executable runfiles</span></span>
+<span class="line"><span style="color:#24292E">kt_jvm_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "helper"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"Helper.kt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    main_class</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.project.examples.HelperKt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Generate the runfile accessor library</span></span>
+<span class="line"><span style="color:#24292E">kt_jvm_runfile_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    package</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.project.examples.resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    entries</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#24292E">        kt_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "configJson"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "data/dummy.txt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A dummy data file."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">        kt_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "helperTool"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            target</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":helper"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A helper tool executable."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">        kt_runfile(</span></span>
+<span class="line"><span style="color:#E36209">            name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "exampleSet"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            targets</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"data/dummy.txt"</span><span style="color:#24292E">, </span><span style="color:#032F62">"data/info.txt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">            base</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "common_dir"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">            doc</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "A set of example data files."</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">        ),</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#6A737D"># Use the library in a binary</span></span>
+<span class="line"><span style="color:#24292E">kt_jvm_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"Main.kt"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    main_class</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "com.example.project.examples.MainKt"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span></span>
+<span class="line"><span style="color:#032F62">        ":resources"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">    ],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#6A737D"># #</span></span></code></pre>
 
 
 <h3>2. Use the Generated Symbols in Kotlin</h3>
 <p>Import the generated object and access the properties. Regular files are generated as <code>Runfile</code> types (exposing <code>path</code> and <code>jvmPath</code>), and executables are generated as <code>ExecutableRunfile</code> types (adding <code>processBuilder()</code>).</p>
 <p>Here is the actual example:</p>
 
-<pre><code>package com.example.project.examples
+<pre><code lang="py">package com.example.project.examples
 
 import com.example.project.examples.resources.Resources
 import kotlin.io.path.readText

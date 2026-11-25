@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.8ffa94e5.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2983bf5b.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.e4c6d367.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.b021847a.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.426125c5.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.45945ae5.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_s3/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -106,27 +106,27 @@ or <code>"deb"</code>.</p>
   Suppose your code depends on a private library packaged as a <code>.tar.gz</code>
   which is available from s3://my_org_code/libmagic.tar.gz. This <code>.tar.gz</code> file
   contains the following directory structure:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">MODULE</span><span style="color:#24292E">.bazel</span></span>
-<span class="line"><span style="color:#24292E">src</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">  magic.cc</span></span>
-<span class="line"><span style="color:#24292E">  magic.h</span></span></code></pre>
+<pre><code lang="py">MODULE.bazel
+src/
+  magic.cc
+  magic.h</code></pre>
 <p>  In the local repository, the user creates a <code>magic.BUILD</code> file which
   contains the following target definition:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cc_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/magic.cc"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    hdrs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/magic.h"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>cc_library(
+    name = "lib",
+    srcs = ["src/magic.cc"],
+    hdrs = ["src/magic.h"],
+)</code></pre>
 <p>  Targets in the main repository can depend on this target if the
   following lines are added to <code>MODULE.bazel</code>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">s3_archive </span><span style="color:#D73A49">=</span><span style="color:#24292E"> use_repo_rule(</span><span style="color:#032F62">"@rules_s3//s3:repo_rules.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"s3_archive"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">s3_archive(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "magic"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    url</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "s3://my_org_code/libmagic.tar.gz"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    sha256</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    build_file</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@//:magic.BUILD"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>s3_archive = use_repo_rule("@rules_s3//s3:repo_rules.bzl", "s3_archive")
+
+s3_archive(
+    name = "magic",
+    url = "s3://my_org_code/libmagic.tar.gz",
+    sha256 = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    build_file = "@//:magic.BUILD",
+)</code></pre>
 <p>  Then targets would specify <code>@magic//:lib</code> as a dependency.</p>
 <p><strong>ATTRIBUTES</strong></p>
 <table>
@@ -289,7 +289,7 @@ or <code>"deb"</code>.</p>
 </tbody></table>
 <p><a></a></p>
 <h2>s3_file</h2>
-<pre lang="py">load("@rules_s3//s3:repo_rules.bzl", "s3_file")
+<pre>load("@rules_s3//s3:repo_rules.bzl", "s3_file")
 
 s3_file(<a href="#s3_file-name">name</a>, <a href="#s3_file-build_file">build_file</a>, <a href="#s3_file-build_file_content">build_file_content</a>, <a href="#s3_file-canonical_id">canonical_id</a>, <a href="#s3_file-downloaded_file_path">downloaded_file_path</a>, <a href="#s3_file-endpoint">endpoint</a>,
         <a href="#s3_file-endpoint_style">endpoint_style</a>, <a href="#s3_file-executable">executable</a>, <a href="#s3_file-integrity">integrity</a>, <a href="#s3_file-repo_mapping">repo_mapping</a>, <a href="#s3_file-sha256">sha256</a>, <a href="#s3_file-url">url</a>)

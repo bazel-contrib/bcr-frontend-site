@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a59796ac.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.c9105315.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.fcd1c074.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0f3c3f68.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.cd52193e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.bfb627fe.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/aspect_rules_py/2.0.0-alpha.10"></head>
 
 	<body style="margin: 0 auto">
@@ -261,29 +261,29 @@ but <code>py_binary</code> and <code>py_test</code> targets will fail at startup
 </tbody></table>
 <h3>Quick Start</h3>
 <p>Load rules from <code>rules_py</code> in your <code>BUILD</code> files:</p>
-<pre><code lang="py">load("@rules_py//py:defs.bzl", "py_binary", "py_library", "py_test")
-
-py_library(
-    name = "lib",
-    srcs = ["lib.py"],
-    deps = ["@pypi//requests"],
-)
-
-py_binary(
-    name = "app",
-    srcs = ["main.py"],
-    main = "main.py",
-    deps = [":lib"],
-)
-
-py_test(
-    name = "test",
-    srcs = ["test.py"],
-    deps = [":lib"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_py//py:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_binary"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_library"</span><span style="color:#24292E">, </span><span style="color:#032F62">"py_test"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">py_library(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"lib.py"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@pypi//requests"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">py_binary(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "app"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"main.py"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    main</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "main.py"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":lib"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">py_test(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "test"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"test.py"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":lib"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h2>Dependency Resolution with <code>uv</code></h2>
 <p><code>rules_py//uv</code> is our alternative to <code>rules_python</code>'s <code>pip.parse</code>:</p>
-<pre><code>uv = use_extension("@rules_py//uv:extensions.bzl", "uv")
+<pre><code lang="py">uv = use_extension("@rules_py//uv:extensions.bzl", "uv")
 
 # 1. Declare a hub (a shared dependency namespace)
 uv.declare_hub(

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.f6161246.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.2bea6afd.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.a59796ac.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c9105315.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.aed5756e.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.cd52193e.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_pycross_backend_maturin/2.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -167,9 +167,9 @@
 </tbody></table>
 <h3>Native C/C++ toolchain setup</h3>
 <p>Building source distributions with C or C++ code requires a C/C++ toolchain. For cross-platform builds, register <a href="https://github.com/hermeticbuild/hermetic-llvm">hermetic-llvm</a> (<code>llvm</code> on BCR):</p>
-<pre><code lang="py">bazel_dep(name = "llvm", version = "0.8.24")
-
-register_toolchains("@llvm//toolchain:all")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "llvm"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.8.24"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@llvm//toolchain:all"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Pass <code>--platforms=@llvm//platforms:linux_aarch64</code> or <code>--platforms=@llvm//platforms:macos_aarch64</code> to cross-compile.</p>
 <hr>
 <h2>Generated targets</h2>
@@ -264,15 +264,15 @@ register_toolchains("@llvm//toolchain:all")</code></pre>
 </tbody></table>
 <h3>Transitive package aliases</h3>
 <p><code>"*"</code> does not include <code>"transitive"</code>. Add <code>"transitive"</code> explicitly when you want <code>@pypi//&lt;pkg&gt;</code> labels for indirect dependencies:</p>
-<pre><code>uv.repo(
-    dependency_groups = ["default", "transitive"],
-    workspace = "pypi",
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">uv.repo(</span></span>
+<span class="line"><span style="color:#E36209">    dependency_groups</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"default"</span><span style="color:#24292E">, </span><span style="color:#032F62">"transitive"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#E36209">    workspace</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "pypi"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>If the lock file has several versions of an indirect dependency, its alias chooses between them with a <code>select()</code> on the resolution markers. When markers cannot tell them apart, <code>rules_pycross</code> warns and uses the highest version.</p>
 <h3>Testonly dependencies and precedence</h3>
 <p>Appending <code>;testonly</code> marks those generated targets <code>testonly = True</code>. It also moves them from <code>all_requirements</code> into <code>all_testonly_requirements</code> in <code>requirements.bzl</code>.</p>
 <p><code>"transitive;testonly"</code> marks only indirect packages that are reachable exclusively from <code>testonly</code> groups. Packages shared with production groups stay non-testonly:</p>
-<pre><code>uv.repo(
+<pre><code lang="py">uv.repo(
     dependency_groups = ["default", "group:test;testonly", "transitive;testonly"],
     workspace = "pypi",
 )</code></pre>

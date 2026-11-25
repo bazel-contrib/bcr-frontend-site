@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.e4c6d367.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.b021847a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d894c713.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.0f90d0b5.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.45945ae5.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.908cc5c9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_s3/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -95,7 +95,13 @@ If you need to download multiple objects from a bucket, use the <a href="#s3_buc
 <p>To see how it all comes together, take a look at the <a href="https://github.com/tweag/rules_s3/blob/9f6b74541fb910e7807ca05e982697563137af00//examples/full/" target="_blank" rel="noopener noreferrer">full example</a>.</p>
 <p><a></a></p>
 <h2>s3_archive</h2>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">name</span></span></code></pre>
+<pre lang="py">load("@rules_s3//s3:repo_rules.bzl", "s3_archive")
+
+s3_archive(<a href="#s3_archive-name">name</a>, <a href="#s3_archive-build_file">build_file</a>, <a href="#s3_archive-build_file_content">build_file_content</a>, <a href="#s3_archive-canonical_id">canonical_id</a>, <a href="#s3_archive-endpoint">endpoint</a>, <a href="#s3_archive-endpoint_style">endpoint_style</a>, <a href="#s3_archive-integrity">integrity</a>,
+           <a href="#s3_archive-patch_args">patch_args</a>, <a href="#s3_archive-patch_cmds">patch_cmds</a>, <a href="#s3_archive-patch_cmds_win">patch_cmds_win</a>, <a href="#s3_archive-patch_strip">patch_strip</a>, <a href="#s3_archive-patch_tool">patch_tool</a>, <a href="#s3_archive-patches">patches</a>,
+           <a href="#s3_archive-remote_patch_strip">remote_patch_strip</a>, <a href="#s3_archive-remote_patches">remote_patches</a>, <a href="#s3_archive-rename_files">rename_files</a>, <a href="#s3_archive-repo_mapping">repo_mapping</a>, <a href="#s3_archive-sha256">sha256</a>, <a href="#s3_archive-strip_prefix">strip_prefix</a>, <a href="#s3_archive-type">type</a>,
+           <a href="#s3_archive-url">url</a>)
+</pre>
 
 <p>Downloads a Bazel repository as a compressed archive file from an S3 bucket, decompresses it,
 and makes its targets available for binding.</p>
@@ -106,7 +112,7 @@ or <code>"deb"</code>.</p>
   Suppose your code depends on a private library packaged as a <code>.tar.gz</code>
   which is available from s3://my_org_code/libmagic.tar.gz. This <code>.tar.gz</code> file
   contains the following directory structure:</p>
-<pre><code lang="py">MODULE.bazel
+<pre><code>MODULE.bazel
 src/
   magic.cc
   magic.h</code></pre>

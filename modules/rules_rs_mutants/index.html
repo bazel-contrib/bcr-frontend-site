@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fcd1c074.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0f3c3f68.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d010f55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.44ffe96d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.bfb627fe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ce229361.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_rs_mutants/0.1.2"></head>
 
 	<body style="margin: 0 auto">
@@ -100,9 +100,9 @@ schema is the integration contract here, and it carries no stability guarantee.<
 <span class="line"><span style="color:#24292E">bazel_dep(</span><span style="color:#E36209">name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "rules_rs_mutants"</span><span style="color:#24292E">, </span><span style="color:#E36209">version</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "0.1.2"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Bring your own <code>cargo-mutants</code> binary. It is used only to enumerate mutants, so
 it never has to match your build's toolchain:</p>
-<pre><code lang="py"># MODULE.bazel
-crate.annotation(crate = "cargo-mutants", gen_binaries = ["cargo-mutants"])</code></pre>
-<pre><code># .bazelrc
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># MODULE.bazel</span></span>
+<span class="line"><span style="color:#24292E">crate.annotation(</span><span style="color:#E36209">crate</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "cargo-mutants"</span><span style="color:#24292E">, </span><span style="color:#E36209">gen_binaries</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"cargo-mutants"</span><span style="color:#24292E">])</span></span></code></pre>
+<pre><code lang="py"># .bazelrc
 build --@rules_rs_mutants//mutants:cargo_mutants_binary=@crates//:cargo-mutants__cargo-mutants</code></pre>
 <p>Vendoring is deliberately not offered: upstream ships <strong>x86_64-only</strong> release
 assets, so arm64 Linux and arm64 macOS could not download it. An unconfigured

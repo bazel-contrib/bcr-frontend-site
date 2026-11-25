@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fcd1c074.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0f3c3f68.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d010f55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.44ffe96d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.bfb627fe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ce229361.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/asio-grpc/3.1.0.bcr.1"></head>
 
 	<body style="margin: 0 auto">
@@ -146,8 +146,8 @@
 <p>
 
 </p><p>The recipe in conan-center is called <a href="https://conan.io/center/recipes/asio-grpc">asio-grpc</a>.<br>If you are using conan's CMake generator then link with <code>asio-grpc::asio-grpc</code> independent of the backend that you choose:</p>
-<pre><code lang="py">find_package(asio-grpc)
-target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">find_package(asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(your_app </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc::asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc)</span></span></code></pre>
 <p></p>
 </details>
 
@@ -155,16 +155,16 @@ target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc)</code></pre>
 <p>
 
 </p><p>Clone the repository and install it.</p>
-<pre><code>cmake -B build -DCMAKE_INSTALL_PREFIX=/desired/installation/directory .
-cmake --build build --target install</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cmake </span><span style="color:#D73A49">-</span><span style="color:#24292E">B build </span><span style="color:#D73A49">-</span><span style="color:#005CC5">DCMAKE_INSTALL_PREFIX</span><span style="color:#D73A49">=/</span><span style="color:#24292E">desired</span><span style="color:#D73A49">/</span><span style="color:#24292E">installation</span><span style="color:#D73A49">/</span><span style="color:#24292E">directory .</span></span>
+<span class="line"><span style="color:#24292E">cmake </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">build build </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">target install</span></span></code></pre>
 <p>Locate it and link it to your target.</p>
 <p>Using <a href="https://www.boost.org/doc/libs/1_84_0/doc/html/boost_asio.html">Boost.Asio</a>:</p>
-<pre><code># Make sure CMAKE_PREFIX_PATH contains /desired/installation/directory
-find_package(asio-grpc CONFIG REQUIRED)
-find_package(Boost)
-target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc Boost::headers)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># Make sure CMAKE_PREFIX_PATH contains /desired/installation/directory</span></span>
+<span class="line"><span style="color:#24292E">find_package(asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc </span><span style="color:#005CC5">CONFIG</span><span style="color:#005CC5"> REQUIRED</span><span style="color:#24292E">)</span></span>
+<span class="line"><span style="color:#24292E">find_package(Boost)</span></span>
+<span class="line"><span style="color:#24292E">target_link_libraries(your_app </span><span style="color:#005CC5">PUBLIC</span><span style="color:#24292E"> asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc::asio</span><span style="color:#D73A49">-</span><span style="color:#24292E">grpc Boost::headers)</span></span></code></pre>
 <p>Or using <a href="https://github.com/chriskohlhoff/asio">standalone Asio</a>:</p>
-<pre><code># Make sure CMAKE_PREFIX_PATH contains /desired/installation/directory
+<pre><code lang="py"># Make sure CMAKE_PREFIX_PATH contains /desired/installation/directory
 find_package(asio-grpc CONFIG REQUIRED)
 find_package(asio)
 target_link_libraries(your_app PUBLIC asio-grpc::asio-grpc-standalone-asio asio::asio)</code></pre>

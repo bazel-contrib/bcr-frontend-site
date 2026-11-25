@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fcd1c074.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0f3c3f68.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d010f55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.44ffe96d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.bfb627fe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ce229361.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_scala_native/0.2.0-rc1"></head>
 
 	<body style="margin: 0 auto">
@@ -122,17 +122,17 @@
 <span class="line"><span style="color:#032F62">    "@rules_scala_toolchains//...:all"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <h3>2. Configure <code>.bazelrc</code></h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">tool_java_runtime_version</span><span style="color:#D73A49">=</span><span style="color:#24292E">remotejdk_17</span></span>
-<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#24292E">java_runtime_version</span><span style="color:#D73A49">=</span><span style="color:#24292E">remotejdk_17</span></span>
-<span class="line"><span style="color:#24292E">common </span><span style="color:#B31D28;font-style:italic">--</span><span style="color:#D73A49">@</span><span style="color:#24292E">protobuf</span><span style="color:#D73A49">//</span><span style="color:#24292E">bazel</span><span style="color:#D73A49">/</span><span style="color:#24292E">toolchains:prefer_prebuilt_protoc</span></span></code></pre>
+<pre><code lang="py">common --tool_java_runtime_version=remotejdk_17
+common --java_runtime_version=remotejdk_17
+common --@protobuf//bazel/toolchains:prefer_prebuilt_protoc</code></pre>
 <h3>3. Write Scala Native code</h3>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#D73A49">//</span><span style="color:#24292E"> HelloNative.scala</span></span>
-<span class="line"><span style="color:#24292E">package examples.native</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6F42C1">@main</span></span>
-<span class="line"><span style="color:#D73A49">def</span><span style="color:#6F42C1"> sayHello</span><span style="color:#24292E">(name: String): Unit </span><span style="color:#D73A49">=</span></span>
-<span class="line"><span style="color:#24292E">    println(s</span><span style="color:#032F62">"Hello from Scala Native to $name"</span><span style="color:#24292E">)</span></span></code></pre>
-<pre><code lang="py">// NativeTest.scala
+<pre><code>// HelloNative.scala
+package examples.native
+
+@main
+def sayHello(name: String): Unit =
+    println(s"Hello from Scala Native to $name")</code></pre>
+<pre><code>// NativeTest.scala
 package examples.native
 
 import org.junit.Test

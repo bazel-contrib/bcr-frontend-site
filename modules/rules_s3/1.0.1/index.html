@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.fcd1c074.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.0f3c3f68.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.d010f55c.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.44ffe96d.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.bfb627fe.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.ce229361.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_s3/1.0.1"></head>
 
 	<body style="margin: 0 auto">
@@ -106,20 +106,20 @@ or <code>"deb"</code>.</p>
   Suppose your code depends on a private library packaged as a <code>.tar.gz</code>
   which is available from s3://my_org_code/libmagic.tar.gz. This <code>.tar.gz</code> file
   contains the following directory structure:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#005CC5">MODULE</span><span style="color:#24292E">.bazel</span></span>
-<span class="line"><span style="color:#24292E">src</span><span style="color:#D73A49">/</span></span>
-<span class="line"><span style="color:#24292E">  magic.cc</span></span>
-<span class="line"><span style="color:#24292E">  magic.h</span></span></code></pre>
+<pre><code lang="py">MODULE.bazel
+src/
+  magic.cc
+  magic.h</code></pre>
 <p>  In the local repository, the user creates a <code>magic.BUILD</code> file which
   contains the following target definition:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">cc_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/magic.cc"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    hdrs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"src/magic.h"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>cc_library(
+    name = "lib",
+    srcs = ["src/magic.cc"],
+    hdrs = ["src/magic.h"],
+)</code></pre>
 <p>  Targets in the main repository can depend on this target if the
   following lines are added to <code>MODULE.bazel</code>:</p>
-<pre><code lang="py">s3_archive = use_repo_rule("@rules_s3//s3:repo_rules.bzl", "s3_archive")
+<pre><code>s3_archive = use_repo_rule("@rules_s3//s3:repo_rules.bzl", "s3_archive")
 
 s3_archive(
     name = "magic",

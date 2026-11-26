@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.ce20b500.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.f87a508a.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.8d168e37.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.181f7b54.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.996cee5f.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.14cd7fb9.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_qemu/0.3.0"></head>
 
 	<body style="margin: 0 auto">
@@ -147,7 +147,7 @@ binary through the matching QEMU user-mode emulator.</p>
 <span class="line"><span style="color:#E36209">    target_platform</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "//platforms:linux_riscv64_musl"</span><span style="color:#24292E">,</span></span>
 <span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>Then run it like any other Bazel executable:</p>
-<pre><code lang="py">bazel run //:hello_riscv64</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">bazel run </span><span style="color:#D73A49">//</span><span style="color:#24292E">:hello_riscv64</span></span></code></pre>
 <p><code>qemu_binary</code> applies a platform transition to <code>binary</code>, selects the QEMU
 toolchain for that target platform, and emits a hermetic launcher containing
 the target binary and emulator in its runfiles.</p>
@@ -171,7 +171,7 @@ extension. This preserves explicit guest selection for tools that run QEMU.</p>
 <code>@rules_qemu//qemu:target_toolchain_type</code>, using the same declared
 <code>target_settings</code>. Use that type when a target-side rule needs the selected
 guest toolchain rather than an execution action.</p>
-<pre><code># MODULE.bazel
+<pre><code lang="py"># MODULE.bazel
 qemu = use_extension("@rules_qemu//qemu/extension:qemu.bzl", "qemu")
 qemu.system_toolchain(
     system_target = "riscv64-softmmu",

@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.dd3fc236.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.a573b541.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.f809cc8d.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.c89ec98f.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.a6036506.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.fc81be26.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_signing/0.3.4"></head>
 
 	<body style="margin: 0 auto">
@@ -228,7 +228,7 @@ the rcodesign CLI, which is different from Apple's native tool.</p>
 </tr>
 </tbody></table>
 <p>For a downloaded JDK, use the second implementation:</p>
-<pre><code lang="py">register_toolchains("@rules_signing//signing/toolchains:jarsigner_toolchain")</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">register_toolchains(</span><span style="color:#032F62">"@rules_signing//signing/toolchains:jarsigner_toolchain"</span><span style="color:#24292E">)</span></span></code></pre>
 <p>Select its runtime with <code>--tool_java_runtime_version=remotejdk_17</code> (or another
 version supported by your <code>rules_java</code>). <code>--tool_java_runtime_version=local_jdk</code>
 selects the local JDK through the same adapter. The <code>--java_runtime_version</code>
@@ -236,19 +236,19 @@ flag alone does not select the signing JDK: jarsigner runs on the <strong>execut
 platform, not the platform of the artifact being signed.</p>
 <p>To use a particular downloaded or custom <code>java_runtime</code> target, define an
 adapter in your BUILD file and register its <code>toolchain</code> target:</p>
-<pre><code>load("@rules_signing//signing/toolchains:toolchains.bzl", "jarsigner_toolchain")
-
-jarsigner_toolchain(
-    name = "my_jarsigner",
-    java_runtime = "@my_jdk//:jdk",
-)
-
-toolchain(
-    name = "my_jarsigner_toolchain",
-    toolchain = ":my_jarsigner",
-    toolchain_type = "@rules_signing//signing/toolchains:jarsigner_toolchain_type",
-    exec_compatible_with = ["@platforms//os:linux", "@platforms//cpu:x86_64"],
-)</code></pre>
+<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_signing//signing/toolchains:toolchains.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"jarsigner_toolchain"</span><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">jarsigner_toolchain(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_jarsigner"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    java_runtime</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@my_jdk//:jdk"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#24292E">)</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#24292E">toolchain(</span></span>
+<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "my_jarsigner_toolchain"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    toolchain</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> ":my_jarsigner"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    toolchain_type</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "@rules_signing//signing/toolchains:jarsigner_toolchain_type"</span><span style="color:#24292E">,</span></span>
+<span class="line"><span style="color:#E36209">    exec_compatible_with</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"@platforms//os:linux"</span><span style="color:#24292E">, </span><span style="color:#032F62">"@platforms//cpu:x86_64"</span><span style="color:#24292E">],</span></span>
+<span class="line"><span style="color:#24292E">)</span></span></code></pre>
 <p>The runtime must expose the standard <code>ToolchainInfo.java_runtime</code> provider and
 contain <code>jarsigner</code> or <code>jarsigner.exe</code>. The adapter carries the whole JDK into
 the signing action, including shared libraries and <code>keytool</code>. It reuses Bazel
@@ -269,7 +269,7 @@ only the toolchains actually selected are required: signing a single
 <code>cc_binary</code> built for Linux asks for cosign and nothing else.</p>
 <p>If you do not want to register signers you will never use, name the one you
 need explicitly and no other native signer is required:</p>
-<pre><code>sign(
+<pre><code lang="py">sign(
     name = "signed_image",
     src = ":my_oci_image",
     certificate = ":release_cert",

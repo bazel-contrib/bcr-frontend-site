@@ -35,12 +35,12 @@
 		<link rel="icon" href="/favicon.png">
 		<link href="/bcr.84ac0fca.css" type="text/css" rel="stylesheet">
 		<link href="/primer.22f1dd96.css" type="text/css" rel="stylesheet">
-		<meta name="bcr:symbols-url" content="/symbols.a1bf13db.pb.gz">
-		<meta name="bcr:packages-url" content="/packages.ed27dccd.pb.gz">
+		<meta name="bcr:symbols-url" content="/symbols.dd3fc236.pb.gz">
+		<meta name="bcr:packages-url" content="/packages.a573b541.pb.gz">
 		<meta name="bcr:bazelflagdb-url" content="/bazelflagdb.0e5aa58e.pb.gz">
 		<meta name="bcr:manifest-url" content="/manifest.pb.gz">
 		<script src="/bcr.f2b758db.js" defer=""></script>
-		<script src="/registry.9b6fd24c.pb.gz.b64.js" defer=""></script>
+		<script src="/registry.a6036506.pb.gz.b64.js" defer=""></script>
 	<meta name="bcr:prerendered-path" content="/modules/rules_shellspec/0.2.0"></head>
 
 	<body style="margin: 0 auto">
@@ -117,34 +117,34 @@
 <span class="line"><span style="color:#24292E">    echo </span><span style="color:#032F62">"Hello, $</span><span style="color:#005CC5">{1</span><span style="color:#D73A49">:</span><span style="color:#005CC5">-World}</span><span style="color:#032F62">!"</span></span>
 <span class="line"><span style="color:#24292E">}</span></span></code></pre>
 <p>Create a spec file following <a href="https://github.com/shellspec/shellspec#tutorial">ShellSpec conventions</a>:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#6A737D"># greet_spec.sh</span></span>
-<span class="line"><span style="color:#6A737D">#!/bin/sh</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#6A737D"># Source the library under test - deps are in the runfiles</span></span>
-<span class="line"><span style="color:#24292E">. </span><span style="color:#032F62">"./greet.sh"</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">Describe </span><span style="color:#032F62">'greet()'</span></span>
-<span class="line"><span style="color:#24292E">  It </span><span style="color:#032F62">'greets the world'</span></span>
-<span class="line"><span style="color:#24292E">    When call greet </span><span style="color:#032F62">"World"</span></span>
-<span class="line"><span style="color:#24292E">    The output should eq </span><span style="color:#032F62">"Hello, World!"</span></span>
-<span class="line"><span style="color:#24292E">  End</span></span>
-<span class="line"><span style="color:#24292E">End</span></span></code></pre>
+<pre><code lang="py"># greet_spec.sh
+#!/bin/sh
+
+# Source the library under test - deps are in the runfiles
+. "./greet.sh"
+
+Describe 'greet()'
+  It 'greets the world'
+    When call greet "World"
+    The output should eq "Hello, World!"
+  End
+End</code></pre>
 <p>Create a <code>BUILD.bazel</code> file:</p>
-<pre class="shiki github-light" style="background-color:#fff;color:#24292e" tabindex="0"><code><span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shellspec//shellspec:defs.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"shellspec_test"</span><span style="color:#24292E">)</span></span>
-<span class="line"><span style="color:#24292E">load(</span><span style="color:#032F62">"@rules_shell//shell:sh_library.bzl"</span><span style="color:#24292E">, </span><span style="color:#032F62">"sh_library"</span><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">sh_library(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "greet_lib"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"greet.sh"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span>
-<span class="line"></span>
-<span class="line"><span style="color:#24292E">shellspec_test(</span></span>
-<span class="line"><span style="color:#E36209">    name</span><span style="color:#D73A49"> =</span><span style="color:#032F62"> "greet_test"</span><span style="color:#24292E">,</span></span>
-<span class="line"><span style="color:#E36209">    srcs</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">"greet_spec.sh"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#E36209">    deps</span><span style="color:#D73A49"> =</span><span style="color:#24292E"> [</span><span style="color:#032F62">":greet_lib"</span><span style="color:#24292E">],</span></span>
-<span class="line"><span style="color:#24292E">)</span></span></code></pre>
+<pre><code>load("@rules_shellspec//shellspec:defs.bzl", "shellspec_test")
+load("@rules_shell//shell:sh_library.bzl", "sh_library")
+
+sh_library(
+    name = "greet_lib",
+    srcs = ["greet.sh"],
+)
+
+shellspec_test(
+    name = "greet_test",
+    srcs = ["greet_spec.sh"],
+    deps = [":greet_lib"],
+)</code></pre>
 <p>Run the tests:</p>
-<pre><code lang="py">bazel test //:greet_test</code></pre>
+<pre><code>bazel test //:greet_test</code></pre>
 <h3>Filtering Tests with <code>--test_filter</code></h3>
 <p>You can run specific examples by name using Bazel's <code>--test_filter</code> flag:</p>
 <pre><code># Run only examples matching "greets the world"
